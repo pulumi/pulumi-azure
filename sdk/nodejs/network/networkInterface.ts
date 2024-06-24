@@ -80,6 +80,14 @@ export class NetworkInterface extends pulumi.CustomResource {
     }
 
     /**
+     * Should Accelerated Networking be enabled? Defaults to `false`.
+     *
+     * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     *
+     * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     */
+    public readonly acceleratedNetworkingEnabled!: pulumi.Output<boolean>;
+    /**
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      */
     public /*out*/ readonly appliedDnsServers!: pulumi.Output<string[]>;
@@ -106,17 +114,13 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
-     *
-     * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-     *
-     * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
-    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
+    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
-    public readonly enableIpForwarding!: pulumi.Output<boolean | undefined>;
+    public readonly enableIpForwarding!: pulumi.Output<boolean>;
     /**
      * The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      */
@@ -129,6 +133,10 @@ export class NetworkInterface extends pulumi.CustomResource {
      * One or more `ipConfiguration` blocks as defined below.
      */
     public readonly ipConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIpConfiguration[]>;
+    /**
+     * Should IP Forwarding be enabled? Defaults to `false`.
+     */
+    public readonly ipForwardingEnabled!: pulumi.Output<boolean>;
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      */
@@ -175,6 +183,7 @@ export class NetworkInterface extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceState | undefined;
+            resourceInputs["acceleratedNetworkingEnabled"] = state ? state.acceleratedNetworkingEnabled : undefined;
             resourceInputs["appliedDnsServers"] = state ? state.appliedDnsServers : undefined;
             resourceInputs["auxiliaryMode"] = state ? state.auxiliaryMode : undefined;
             resourceInputs["auxiliarySku"] = state ? state.auxiliarySku : undefined;
@@ -185,6 +194,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["internalDnsNameLabel"] = state ? state.internalDnsNameLabel : undefined;
             resourceInputs["internalDomainNameSuffix"] = state ? state.internalDomainNameSuffix : undefined;
             resourceInputs["ipConfigurations"] = state ? state.ipConfigurations : undefined;
+            resourceInputs["ipForwardingEnabled"] = state ? state.ipForwardingEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["macAddress"] = state ? state.macAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -201,6 +211,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["acceleratedNetworkingEnabled"] = args ? args.acceleratedNetworkingEnabled : undefined;
             resourceInputs["auxiliaryMode"] = args ? args.auxiliaryMode : undefined;
             resourceInputs["auxiliarySku"] = args ? args.auxiliarySku : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
@@ -209,6 +220,7 @@ export class NetworkInterface extends pulumi.CustomResource {
             resourceInputs["enableIpForwarding"] = args ? args.enableIpForwarding : undefined;
             resourceInputs["internalDnsNameLabel"] = args ? args.internalDnsNameLabel : undefined;
             resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            resourceInputs["ipForwardingEnabled"] = args ? args.ipForwardingEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -229,6 +241,14 @@ export class NetworkInterface extends pulumi.CustomResource {
  * Input properties used for looking up and filtering NetworkInterface resources.
  */
 export interface NetworkInterfaceState {
+    /**
+     * Should Accelerated Networking be enabled? Defaults to `false`.
+     *
+     * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     *
+     * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     */
+    acceleratedNetworkingEnabled?: pulumi.Input<boolean>;
     /**
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      */
@@ -256,15 +276,11 @@ export interface NetworkInterfaceState {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
-     *
-     * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-     *
-     * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableIpForwarding?: pulumi.Input<boolean>;
     /**
@@ -279,6 +295,10 @@ export interface NetworkInterfaceState {
      * One or more `ipConfiguration` blocks as defined below.
      */
     ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
+    /**
+     * Should IP Forwarding be enabled? Defaults to `false`.
+     */
+    ipForwardingEnabled?: pulumi.Input<boolean>;
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      */
@@ -318,6 +338,14 @@ export interface NetworkInterfaceState {
  */
 export interface NetworkInterfaceArgs {
     /**
+     * Should Accelerated Networking be enabled? Defaults to `false`.
+     *
+     * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     *
+     * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     */
+    acceleratedNetworkingEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
      *
      * > **Note:** `auxiliaryMode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -340,15 +368,11 @@ export interface NetworkInterfaceArgs {
      */
     edgeZone?: pulumi.Input<string>;
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
-     *
-     * > **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-     *
-     * > **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * @deprecated The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * @deprecated The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableIpForwarding?: pulumi.Input<boolean>;
     /**
@@ -359,6 +383,10 @@ export interface NetworkInterfaceArgs {
      * One or more `ipConfiguration` blocks as defined below.
      */
     ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIpConfiguration>[]>;
+    /**
+     * Should IP Forwarding be enabled? Defaults to `false`.
+     */
+    ipForwardingEnabled?: pulumi.Input<boolean>;
     /**
      * The location where the Network Interface should exist. Changing this forces a new resource to be created.
      */

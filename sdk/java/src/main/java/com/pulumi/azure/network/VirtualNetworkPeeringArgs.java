@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,6 +65,21 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * A list of local Subnet names that are Subnet peered with remote Virtual Network.
+     * 
+     */
+    @Import(name="localSubnetNames")
+    private @Nullable Output<List<String>> localSubnetNames;
+
+    /**
+     * @return A list of local Subnet names that are Subnet peered with remote Virtual Network.
+     * 
+     */
+    public Optional<Output<List<String>>> localSubnetNames() {
+        return Optional.ofNullable(this.localSubnetNames);
+    }
+
+    /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
@@ -76,6 +92,51 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="onlyIpv6PeeringEnabled")
+    private @Nullable Output<Boolean> onlyIpv6PeeringEnabled;
+
+    /**
+     * @return Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> onlyIpv6PeeringEnabled() {
+        return Optional.ofNullable(this.onlyIpv6PeeringEnabled);
+    }
+
+    /**
+     * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="peerCompleteVirtualNetworksEnabled")
+    private @Nullable Output<Boolean> peerCompleteVirtualNetworksEnabled;
+
+    /**
+     * @return Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> peerCompleteVirtualNetworksEnabled() {
+        return Optional.ofNullable(this.peerCompleteVirtualNetworksEnabled);
+    }
+
+    /**
+     * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+     * 
+     */
+    @Import(name="remoteSubnetNames")
+    private @Nullable Output<List<String>> remoteSubnetNames;
+
+    /**
+     * @return A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+     * 
+     */
+    public Optional<Output<List<String>>> remoteSubnetNames() {
+        return Optional.ofNullable(this.remoteSubnetNames);
     }
 
     /**
@@ -163,7 +224,11 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         this.allowForwardedTraffic = $.allowForwardedTraffic;
         this.allowGatewayTransit = $.allowGatewayTransit;
         this.allowVirtualNetworkAccess = $.allowVirtualNetworkAccess;
+        this.localSubnetNames = $.localSubnetNames;
         this.name = $.name;
+        this.onlyIpv6PeeringEnabled = $.onlyIpv6PeeringEnabled;
+        this.peerCompleteVirtualNetworksEnabled = $.peerCompleteVirtualNetworksEnabled;
+        this.remoteSubnetNames = $.remoteSubnetNames;
         this.remoteVirtualNetworkId = $.remoteVirtualNetworkId;
         this.resourceGroupName = $.resourceGroupName;
         this.triggers = $.triggers;
@@ -253,6 +318,37 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param localSubnetNames A list of local Subnet names that are Subnet peered with remote Virtual Network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localSubnetNames(@Nullable Output<List<String>> localSubnetNames) {
+            $.localSubnetNames = localSubnetNames;
+            return this;
+        }
+
+        /**
+         * @param localSubnetNames A list of local Subnet names that are Subnet peered with remote Virtual Network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localSubnetNames(List<String> localSubnetNames) {
+            return localSubnetNames(Output.of(localSubnetNames));
+        }
+
+        /**
+         * @param localSubnetNames A list of local Subnet names that are Subnet peered with remote Virtual Network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localSubnetNames(String... localSubnetNames) {
+            return localSubnetNames(List.of(localSubnetNames));
+        }
+
+        /**
          * @param name The name of the virtual network peering. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -271,6 +367,79 @@ public final class VirtualNetworkPeeringArgs extends com.pulumi.resources.Resour
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param onlyIpv6PeeringEnabled Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onlyIpv6PeeringEnabled(@Nullable Output<Boolean> onlyIpv6PeeringEnabled) {
+            $.onlyIpv6PeeringEnabled = onlyIpv6PeeringEnabled;
+            return this;
+        }
+
+        /**
+         * @param onlyIpv6PeeringEnabled Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onlyIpv6PeeringEnabled(Boolean onlyIpv6PeeringEnabled) {
+            return onlyIpv6PeeringEnabled(Output.of(onlyIpv6PeeringEnabled));
+        }
+
+        /**
+         * @param peerCompleteVirtualNetworksEnabled Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder peerCompleteVirtualNetworksEnabled(@Nullable Output<Boolean> peerCompleteVirtualNetworksEnabled) {
+            $.peerCompleteVirtualNetworksEnabled = peerCompleteVirtualNetworksEnabled;
+            return this;
+        }
+
+        /**
+         * @param peerCompleteVirtualNetworksEnabled Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder peerCompleteVirtualNetworksEnabled(Boolean peerCompleteVirtualNetworksEnabled) {
+            return peerCompleteVirtualNetworksEnabled(Output.of(peerCompleteVirtualNetworksEnabled));
+        }
+
+        /**
+         * @param remoteSubnetNames A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteSubnetNames(@Nullable Output<List<String>> remoteSubnetNames) {
+            $.remoteSubnetNames = remoteSubnetNames;
+            return this;
+        }
+
+        /**
+         * @param remoteSubnetNames A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteSubnetNames(List<String> remoteSubnetNames) {
+            return remoteSubnetNames(Output.of(remoteSubnetNames));
+        }
+
+        /**
+         * @param remoteSubnetNames A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder remoteSubnetNames(String... remoteSubnetNames) {
+            return remoteSubnetNames(List.of(remoteSubnetNames));
         }
 
         /**

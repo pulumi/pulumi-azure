@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActiveRoleAssignment{}
 	case "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment":
 		r = &EligibleRoleAssignment{}
+	case "azure:pim/roleManagementPolicy:RoleManagementPolicy":
+		r = &RoleManagementPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"pim/eligibleRoleAssignment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"pim/roleManagementPolicy",
 		&module{version},
 	)
 }

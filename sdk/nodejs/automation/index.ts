@@ -85,6 +85,11 @@ export const getIntVariable: typeof import("./getIntVariable").getIntVariable = 
 export const getIntVariableOutput: typeof import("./getIntVariable").getIntVariableOutput = null as any;
 utilities.lazyLoad(exports, ["getIntVariable","getIntVariableOutput"], () => require("./getIntVariable"));
 
+export { GetRunbookArgs, GetRunbookResult, GetRunbookOutputArgs } from "./getRunbook";
+export const getRunbook: typeof import("./getRunbook").getRunbook = null as any;
+export const getRunbookOutput: typeof import("./getRunbook").getRunbookOutput = null as any;
+utilities.lazyLoad(exports, ["getRunbook","getRunbookOutput"], () => require("./getRunbook"));
+
 export { GetStringVariableArgs, GetStringVariableResult, GetStringVariableOutputArgs } from "./getStringVariable";
 export const getStringVariable: typeof import("./getStringVariable").getStringVariable = null as any;
 export const getStringVariableOutput: typeof import("./getStringVariable").getStringVariableOutput = null as any;

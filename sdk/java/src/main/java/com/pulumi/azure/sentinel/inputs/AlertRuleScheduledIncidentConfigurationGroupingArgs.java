@@ -48,46 +48,58 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
     }
 
     /**
-     * A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+     * @deprecated
+     * The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="groupByAlertDetails")
     private @Nullable Output<List<String>> groupByAlertDetails;
 
     /**
-     * @return A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+     * @deprecated
+     * The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider */
     public Optional<Output<List<String>>> groupByAlertDetails() {
         return Optional.ofNullable(this.groupByAlertDetails);
     }
 
     /**
-     * A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * @deprecated
+     * The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="groupByCustomDetails")
     private @Nullable Output<List<String>> groupByCustomDetails;
 
     /**
-     * @return A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+     * @deprecated
+     * The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider */
     public Optional<Output<List<String>>> groupByCustomDetails() {
         return Optional.ofNullable(this.groupByCustomDetails);
     }
 
     /**
-     * A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+     * @deprecated
+     * The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="groupByEntities")
     private @Nullable Output<List<String>> groupByEntities;
 
     /**
-     * @return A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+     * @deprecated
+     * The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider */
     public Optional<Output<List<String>>> groupByEntities() {
         return Optional.ofNullable(this.groupByEntities);
     }
@@ -195,94 +207,112 @@ public final class AlertRuleScheduledIncidentConfigurationGroupingArgs extends c
         }
 
         /**
-         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByAlertDetails(@Nullable Output<List<String>> groupByAlertDetails) {
             $.groupByAlertDetails = groupByAlertDetails;
             return this;
         }
 
         /**
-         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByAlertDetails(List<String> groupByAlertDetails) {
             return groupByAlertDetails(Output.of(groupByAlertDetails));
         }
 
         /**
-         * @param groupByAlertDetails A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByAlertDetails(String... groupByAlertDetails) {
             return groupByAlertDetails(List.of(groupByAlertDetails));
         }
 
         /**
-         * @param groupByCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByCustomDetails(@Nullable Output<List<String>> groupByCustomDetails) {
             $.groupByCustomDetails = groupByCustomDetails;
             return this;
         }
 
         /**
-         * @param groupByCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByCustomDetails(List<String> groupByCustomDetails) {
             return groupByCustomDetails(Output.of(groupByCustomDetails));
         }
 
         /**
-         * @param groupByCustomDetails A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByCustomDetails(String... groupByCustomDetails) {
             return groupByCustomDetails(List.of(groupByCustomDetails));
         }
 
         /**
-         * @param groupByEntities A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByEntities(@Nullable Output<List<String>> groupByEntities) {
             $.groupByEntities = groupByEntities;
             return this;
         }
 
         /**
-         * @param groupByEntities A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByEntities(List<String> groupByEntities) {
             return groupByEntities(Output.of(groupByEntities));
         }
 
         /**
-         * @param groupByEntities A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder groupByEntities(String... groupByEntities) {
             return groupByEntities(List.of(groupByEntities));
         }

@@ -10,6 +10,11 @@ export type EmailService = import("./emailService").EmailService;
 export const EmailService: typeof import("./emailService").EmailService = null as any;
 utilities.lazyLoad(exports, ["EmailService"], () => require("./emailService"));
 
+export { EmailServiceDomainArgs, EmailServiceDomainState } from "./emailServiceDomain";
+export type EmailServiceDomain = import("./emailServiceDomain").EmailServiceDomain;
+export const EmailServiceDomain: typeof import("./emailServiceDomain").EmailServiceDomain = null as any;
+utilities.lazyLoad(exports, ["EmailServiceDomain"], () => require("./emailServiceDomain"));
+
 export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
@@ -27,6 +32,8 @@ const _module = {
         switch (type) {
             case "azure:communication/emailService:EmailService":
                 return new EmailService(name, <any>undefined, { urn })
+            case "azure:communication/emailServiceDomain:EmailServiceDomain":
+                return new EmailServiceDomain(name, <any>undefined, { urn })
             case "azure:communication/service:Service":
                 return new Service(name, <any>undefined, { urn })
             default:
@@ -35,4 +42,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "communication/emailService", _module)
+pulumi.runtime.registerResourceModule("azure", "communication/emailServiceDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "communication/service", _module)

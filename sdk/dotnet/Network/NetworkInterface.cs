@@ -81,6 +81,16 @@ namespace Pulumi.Azure.Network
     public partial class NetworkInterface : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+        /// 
+        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+        /// </summary>
+        [Output("acceleratedNetworkingEnabled")]
+        public Output<bool> AcceleratedNetworkingEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
         /// </summary>
         [Output("appliedDnsServers")]
@@ -116,21 +126,11 @@ namespace Pulumi.Azure.Network
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
 
-        /// <summary>
-        /// Should Accelerated Networking be enabled? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-        /// 
-        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        /// </summary>
         [Output("enableAcceleratedNetworking")]
-        public Output<bool?> EnableAcceleratedNetworking { get; private set; } = null!;
+        public Output<bool> EnableAcceleratedNetworking { get; private set; } = null!;
 
-        /// <summary>
-        /// Should IP Forwarding be enabled? Defaults to `false`.
-        /// </summary>
         [Output("enableIpForwarding")]
-        public Output<bool?> EnableIpForwarding { get; private set; } = null!;
+        public Output<bool> EnableIpForwarding { get; private set; } = null!;
 
         /// <summary>
         /// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
@@ -149,6 +149,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("ipConfigurations")]
         public Output<ImmutableArray<Outputs.NetworkInterfaceIpConfiguration>> IpConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Should IP Forwarding be enabled? Defaults to `false`.
+        /// </summary>
+        [Output("ipForwardingEnabled")]
+        public Output<bool> IpForwardingEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The location where the Network Interface should exist. Changing this forces a new resource to be created.
@@ -245,6 +251,16 @@ namespace Pulumi.Azure.Network
     public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+        /// 
+        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+        /// </summary>
+        [Input("acceleratedNetworkingEnabled")]
+        public Input<bool>? AcceleratedNetworkingEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`.
         /// 
         /// &gt; **Note:** `auxiliary_mode` is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -280,19 +296,9 @@ namespace Pulumi.Azure.Network
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        /// <summary>
-        /// Should Accelerated Networking be enabled? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-        /// 
-        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
 
-        /// <summary>
-        /// Should IP Forwarding be enabled? Defaults to `false`.
-        /// </summary>
         [Input("enableIpForwarding")]
         public Input<bool>? EnableIpForwarding { get; set; }
 
@@ -313,6 +319,12 @@ namespace Pulumi.Azure.Network
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIpConfigurationArgs>());
             set => _ipConfigurations = value;
         }
+
+        /// <summary>
+        /// Should IP Forwarding be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("ipForwardingEnabled")]
+        public Input<bool>? IpForwardingEnabled { get; set; }
 
         /// <summary>
         /// The location where the Network Interface should exist. Changing this forces a new resource to be created.
@@ -352,6 +364,16 @@ namespace Pulumi.Azure.Network
 
     public sealed class NetworkInterfaceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Should Accelerated Networking be enabled? Defaults to `false`.
+        /// 
+        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+        /// 
+        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+        /// </summary>
+        [Input("acceleratedNetworkingEnabled")]
+        public Input<bool>? AcceleratedNetworkingEnabled { get; set; }
+
         [Input("appliedDnsServers")]
         private InputList<string>? _appliedDnsServers;
 
@@ -400,19 +422,9 @@ namespace Pulumi.Azure.Network
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
 
-        /// <summary>
-        /// Should Accelerated Networking be enabled? Defaults to `false`.
-        /// 
-        /// &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-        /// 
-        /// &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-        /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
 
-        /// <summary>
-        /// Should IP Forwarding be enabled? Defaults to `false`.
-        /// </summary>
         [Input("enableIpForwarding")]
         public Input<bool>? EnableIpForwarding { get; set; }
 
@@ -439,6 +451,12 @@ namespace Pulumi.Azure.Network
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.NetworkInterfaceIpConfigurationGetArgs>());
             set => _ipConfigurations = value;
         }
+
+        /// <summary>
+        /// Should IP Forwarding be enabled? Defaults to `false`.
+        /// </summary>
+        [Input("ipForwardingEnabled")]
+        public Input<bool>? IpForwardingEnabled { get; set; }
 
         /// <summary>
         /// The location where the Network Interface should exist. Changing this forces a new resource to be created.

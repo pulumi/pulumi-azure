@@ -72,23 +72,35 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `draft` block as defined below .
+     * A `draft` block as defined below.
      * 
      */
     @Import(name="draft")
     private @Nullable Output<RunBookDraftArgs> draft;
 
     /**
-     * @return A `draft` block as defined below .
+     * @return A `draft` block as defined below.
      * 
      */
     public Optional<Output<RunBookDraftArgs>> draft() {
         return Optional.ofNullable(this.draft);
     }
 
+    /**
+     * One or more `job_schedule` block as defined below.
+     * 
+     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * 
+     */
     @Import(name="jobSchedules")
     private @Nullable Output<List<RunBookJobScheduleArgs>> jobSchedules;
 
+    /**
+     * @return One or more `job_schedule` block as defined below.
+     * 
+     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * 
+     */
     public Optional<Output<List<RunBookJobScheduleArgs>>> jobSchedules() {
         return Optional.ofNullable(this.jobSchedules);
     }
@@ -333,7 +345,7 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param draft A `draft` block as defined below .
+         * @param draft A `draft` block as defined below.
          * 
          * @return builder
          * 
@@ -344,7 +356,7 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param draft A `draft` block as defined below .
+         * @param draft A `draft` block as defined below.
          * 
          * @return builder
          * 
@@ -353,15 +365,39 @@ public final class RunBookState extends com.pulumi.resources.ResourceArgs {
             return draft(Output.of(draft));
         }
 
+        /**
+         * @param jobSchedules One or more `job_schedule` block as defined below.
+         * 
+         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobSchedules(@Nullable Output<List<RunBookJobScheduleArgs>> jobSchedules) {
             $.jobSchedules = jobSchedules;
             return this;
         }
 
+        /**
+         * @param jobSchedules One or more `job_schedule` block as defined below.
+         * 
+         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobSchedules(List<RunBookJobScheduleArgs> jobSchedules) {
             return jobSchedules(Output.of(jobSchedules));
         }
 
+        /**
+         * @param jobSchedules One or more `job_schedule` block as defined below.
+         * 
+         * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+         * 
+         * @return builder
+         * 
+         */
         public Builder jobSchedules(RunBookJobScheduleArgs... jobSchedules) {
             return jobSchedules(List.of(jobSchedules));
         }

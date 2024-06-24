@@ -26,10 +26,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
 
         [Input("groupByAlertDetails")]
         private InputList<string>? _groupByAlertDetails;
-
-        /// <summary>
-        /// A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-        /// </summary>
+        [Obsolete(@"The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider")]
         public InputList<string> GroupByAlertDetails
         {
             get => _groupByAlertDetails ?? (_groupByAlertDetails = new InputList<string>());
@@ -38,10 +35,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
 
         [Input("groupByCustomDetails")]
         private InputList<string>? _groupByCustomDetails;
-
-        /// <summary>
-        /// A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-        /// </summary>
+        [Obsolete(@"The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider")]
         public InputList<string> GroupByCustomDetails
         {
             get => _groupByCustomDetails ?? (_groupByCustomDetails = new InputList<string>());
@@ -50,10 +44,7 @@ namespace Pulumi.Azure.Sentinel.Inputs
 
         [Input("groupByEntities")]
         private InputList<string>? _groupByEntities;
-
-        /// <summary>
-        /// A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
-        /// </summary>
+        [Obsolete(@"The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider")]
         public InputList<string> GroupByEntities
         {
             get => _groupByEntities ?? (_groupByEntities = new InputList<string>());

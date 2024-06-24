@@ -44,7 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
  * import com.pulumi.azure.synapse.Workspace;
  * import com.pulumi.azure.synapse.WorkspaceArgs;
- * import com.pulumi.azure.synapse.inputs.WorkspaceAadAdminArgs;
  * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -86,11 +85,6 @@ import javax.annotation.Nullable;
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
- *             .aadAdmin(WorkspaceAadAdminArgs.builder()
- *                 .login("AzureAD Admin")
- *                 .objectId("00000000-0000-0000-0000-000000000000")
- *                 .tenantId("00000000-0000-0000-0000-000000000000")
- *                 .build())
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -266,16 +260,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:synapse/workspace:Workspace")
 public class Workspace extends com.pulumi.resources.CustomResource {
     /**
-     * An `aad_admin` block as defined below.
+     * @deprecated
+     * The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `aad_admin` block has been superseded by the `azure.synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="aadAdmin", refs={WorkspaceAadAdmin.class}, tree="[0]")
     private Output<WorkspaceAadAdmin> aadAdmin;
 
-    /**
-     * @return An `aad_admin` block as defined below.
-     * 
-     */
     public Output<WorkspaceAadAdmin> aadAdmin() {
         return this.aadAdmin;
     }
@@ -504,16 +496,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * An `sql_aad_admin` block as defined below.
+     * @deprecated
+     * The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The `sql_aad_admin` block has been superseded by the `azure.synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="sqlAadAdmin", refs={WorkspaceSqlAadAdmin.class}, tree="[0]")
     private Output<WorkspaceSqlAadAdmin> sqlAadAdmin;
 
-    /**
-     * @return An `sql_aad_admin` block as defined below.
-     * 
-     */
     public Output<WorkspaceSqlAadAdmin> sqlAadAdmin() {
         return this.sqlAadAdmin;
     }

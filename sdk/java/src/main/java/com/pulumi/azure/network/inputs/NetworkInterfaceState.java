@@ -20,6 +20,29 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     public static final NetworkInterfaceState Empty = new NetworkInterfaceState();
 
     /**
+     * Should Accelerated Networking be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     * 
+     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * 
+     */
+    @Import(name="acceleratedNetworkingEnabled")
+    private @Nullable Output<Boolean> acceleratedNetworkingEnabled;
+
+    /**
+     * @return Should Accelerated Networking be enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+     * 
+     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * 
+     */
+    public Optional<Output<Boolean>> acceleratedNetworkingEnabled() {
+        return Optional.ofNullable(this.acceleratedNetworkingEnabled);
+    }
+
+    /**
      * If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set.
      * 
      */
@@ -107,39 +130,39 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Should Accelerated Networking be enabled? Defaults to `false`.
-     * 
-     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-     * 
-     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * @deprecated
+     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="enableAcceleratedNetworking")
     private @Nullable Output<Boolean> enableAcceleratedNetworking;
 
     /**
-     * @return Should Accelerated Networking be enabled? Defaults to `false`.
-     * 
-     * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-     * 
-     * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+     * @deprecated
+     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableAcceleratedNetworking() {
         return Optional.ofNullable(this.enableAcceleratedNetworking);
     }
 
     /**
-     * Should IP Forwarding be enabled? Defaults to `false`.
+     * @deprecated
+     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="enableIpForwarding")
     private @Nullable Output<Boolean> enableIpForwarding;
 
     /**
-     * @return Should IP Forwarding be enabled? Defaults to `false`.
+     * @deprecated
+     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableIpForwarding() {
         return Optional.ofNullable(this.enableIpForwarding);
     }
@@ -187,6 +210,21 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<List<NetworkInterfaceIpConfigurationArgs>>> ipConfigurations() {
         return Optional.ofNullable(this.ipConfigurations);
+    }
+
+    /**
+     * Should IP Forwarding be enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="ipForwardingEnabled")
+    private @Nullable Output<Boolean> ipForwardingEnabled;
+
+    /**
+     * @return Should IP Forwarding be enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ipForwardingEnabled() {
+        return Optional.ofNullable(this.ipForwardingEnabled);
     }
 
     /**
@@ -312,6 +350,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     private NetworkInterfaceState() {}
 
     private NetworkInterfaceState(NetworkInterfaceState $) {
+        this.acceleratedNetworkingEnabled = $.acceleratedNetworkingEnabled;
         this.appliedDnsServers = $.appliedDnsServers;
         this.auxiliaryMode = $.auxiliaryMode;
         this.auxiliarySku = $.auxiliarySku;
@@ -322,6 +361,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         this.internalDnsNameLabel = $.internalDnsNameLabel;
         this.internalDomainNameSuffix = $.internalDomainNameSuffix;
         this.ipConfigurations = $.ipConfigurations;
+        this.ipForwardingEnabled = $.ipForwardingEnabled;
         this.location = $.location;
         this.macAddress = $.macAddress;
         this.name = $.name;
@@ -348,6 +388,35 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
 
         public Builder(NetworkInterfaceState defaults) {
             $ = new NetworkInterfaceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceleratedNetworkingEnabled Should Accelerated Networking be enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+         * 
+         * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratedNetworkingEnabled(@Nullable Output<Boolean> acceleratedNetworkingEnabled) {
+            $.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
+
+        /**
+         * @param acceleratedNetworkingEnabled Should Accelerated Networking be enabled? Defaults to `false`.
+         * 
+         * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
+         * 
+         * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
+            return acceleratedNetworkingEnabled(Output.of(acceleratedNetworkingEnabled));
         }
 
         /**
@@ -490,51 +559,51 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enableAcceleratedNetworking Should Accelerated Networking be enabled? Defaults to `false`.
-         * 
-         * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-         * 
-         * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableAcceleratedNetworking(@Nullable Output<Boolean> enableAcceleratedNetworking) {
             $.enableAcceleratedNetworking = enableAcceleratedNetworking;
             return this;
         }
 
         /**
-         * @param enableAcceleratedNetworking Should Accelerated Networking be enabled? Defaults to `false`.
-         * 
-         * &gt; **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
-         * 
-         * &gt; **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
             return enableAcceleratedNetworking(Output.of(enableAcceleratedNetworking));
         }
 
         /**
-         * @param enableIpForwarding Should IP Forwarding be enabled? Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableIpForwarding(@Nullable Output<Boolean> enableIpForwarding) {
             $.enableIpForwarding = enableIpForwarding;
             return this;
         }
 
         /**
-         * @param enableIpForwarding Should IP Forwarding be enabled? Defaults to `false`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableIpForwarding(Boolean enableIpForwarding) {
             return enableIpForwarding(Output.of(enableIpForwarding));
         }
@@ -610,6 +679,27 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
          */
         public Builder ipConfigurations(NetworkInterfaceIpConfigurationArgs... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
+        }
+
+        /**
+         * @param ipForwardingEnabled Should IP Forwarding be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipForwardingEnabled(@Nullable Output<Boolean> ipForwardingEnabled) {
+            $.ipForwardingEnabled = ipForwardingEnabled;
+            return this;
+        }
+
+        /**
+         * @param ipForwardingEnabled Should IP Forwarding be enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipForwardingEnabled(Boolean ipForwardingEnabled) {
+            return ipForwardingEnabled(Output.of(ipForwardingEnabled));
         }
 
         /**

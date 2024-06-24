@@ -297,19 +297,19 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
     /**
      * @deprecated
-     * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
+    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
     @Import(name="enablePodSecurityPolicy")
     private @Nullable Output<Boolean> enablePodSecurityPolicy;
 
     /**
      * @deprecated
-     * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+     * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
+    @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
     public Optional<Output<Boolean>> enablePodSecurityPolicy() {
         return Optional.ofNullable(this.enablePodSecurityPolicy);
     }
@@ -1606,10 +1606,10 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          * @deprecated
-         * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+         * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
+        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
         public Builder enablePodSecurityPolicy(@Nullable Output<Boolean> enablePodSecurityPolicy) {
             $.enablePodSecurityPolicy = enablePodSecurityPolicy;
             return this;
@@ -1619,10 +1619,10 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          * @deprecated
-         * The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+         * The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy. */
+        @Deprecated /* The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider. */
         public Builder enablePodSecurityPolicy(Boolean enablePodSecurityPolicy) {
             return enablePodSecurityPolicy(Output.of(enablePodSecurityPolicy));
         }

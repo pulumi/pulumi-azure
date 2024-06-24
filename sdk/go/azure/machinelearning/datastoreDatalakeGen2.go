@@ -119,7 +119,7 @@ type DatastoreDatalakeGen2 struct {
 	pulumi.CustomResourceState
 
 	// An URL used for authentication.
-	AuthorityUrl pulumi.StringOutput `pulumi:"authorityUrl"`
+	AuthorityUrl pulumi.StringPtrOutput `pulumi:"authorityUrl"`
 	// The object ID of the Service Principal.
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The secret of the Service Principal.
@@ -373,8 +373,8 @@ func (o DatastoreDatalakeGen2Output) ToDatastoreDatalakeGen2OutputWithContext(ct
 }
 
 // An URL used for authentication.
-func (o DatastoreDatalakeGen2Output) AuthorityUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *DatastoreDatalakeGen2) pulumi.StringOutput { return v.AuthorityUrl }).(pulumi.StringOutput)
+func (o DatastoreDatalakeGen2Output) AuthorityUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatastoreDatalakeGen2) pulumi.StringPtrOutput { return v.AuthorityUrl }).(pulumi.StringPtrOutput)
 }
 
 // The object ID of the Service Principal.

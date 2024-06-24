@@ -27,7 +27,7 @@ type Volume struct {
 	// Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created.
 	AzureVmwareDataStoreEnabled pulumi.BoolPtrOutput `pulumi:"azureVmwareDataStoreEnabled"`
 	// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
-	CreateFromSnapshotResourceId pulumi.StringOutput `pulumi:"createFromSnapshotResourceId"`
+	CreateFromSnapshotResourceId pulumi.StringPtrOutput `pulumi:"createFromSnapshotResourceId"`
 	// A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.
 	DataProtectionReplication VolumeDataProtectionReplicationPtrOutput `pulumi:"dataProtectionReplication"`
 	// A `dataProtectionSnapshotPolicy` block as defined below.
@@ -480,8 +480,8 @@ func (o VolumeOutput) AzureVmwareDataStoreEnabled() pulumi.BoolPtrOutput {
 }
 
 // Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnetId`, `location`, `serviceLevel`, `resourceGroupName`, `accountName` and `poolName`. Changing this forces a new resource to be created.
-func (o VolumeOutput) CreateFromSnapshotResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.CreateFromSnapshotResourceId }).(pulumi.StringOutput)
+func (o VolumeOutput) CreateFromSnapshotResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.CreateFromSnapshotResourceId }).(pulumi.StringPtrOutput)
 }
 
 // A `dataProtectionReplication` block as defined below. Changing this forces a new resource to be created.

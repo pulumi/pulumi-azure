@@ -116,7 +116,7 @@ type CassandraTable struct {
 	// The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
 	CassandraKeyspaceId pulumi.StringOutput `pulumi:"cassandraKeyspaceId"`
 	// Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
-	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
+	DefaultTtl pulumi.IntPtrOutput `pulumi:"defaultTtl"`
 	// Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `schema` block as defined below.
@@ -336,8 +336,8 @@ func (o CassandraTableOutput) CassandraKeyspaceId() pulumi.StringOutput {
 }
 
 // Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
-func (o CassandraTableOutput) DefaultTtl() pulumi.IntOutput {
-	return o.ApplyT(func(v *CassandraTable) pulumi.IntOutput { return v.DefaultTtl }).(pulumi.IntOutput)
+func (o CassandraTableOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraTable) pulumi.IntPtrOutput { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.

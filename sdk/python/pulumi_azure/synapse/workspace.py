@@ -42,7 +42,6 @@ class WorkspaceArgs:
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
@@ -57,7 +56,6 @@ class WorkspaceArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
-        :param pulumi.Input['WorkspaceSqlAadAdminArgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -65,6 +63,9 @@ class WorkspaceArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
+        if aad_admin is not None:
+            warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
         if aad_admin is not None:
             pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
@@ -95,6 +96,9 @@ class WorkspaceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purview_id is not None:
             pulumi.set(__self__, "purview_id", purview_id)
+        if sql_aad_admin is not None:
+            warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
         if sql_aad_admin is not None:
             pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
         if sql_administrator_login is not None:
@@ -133,9 +137,9 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="aadAdmin")
     def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
-        """
-        An `aad_admin` block as defined below.
-        """
+        warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "aad_admin")
 
     @aad_admin.setter
@@ -313,9 +317,9 @@ class WorkspaceArgs:
     @property
     @pulumi.getter(name="sqlAadAdmin")
     def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
-        """
-        An `sql_aad_admin` block as defined below.
-        """
+        warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "sql_aad_admin")
 
     @sql_aad_admin.setter
@@ -399,7 +403,6 @@ class _WorkspaceState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
-        :param pulumi.Input['WorkspaceAadAdminArgs'] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input['WorkspaceAzureDevopsRepoArgs'] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
@@ -416,13 +419,15 @@ class _WorkspaceState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['WorkspaceSqlAadAdminArgs'] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
+        if aad_admin is not None:
+            warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
         if aad_admin is not None:
             pulumi.set(__self__, "aad_admin", aad_admin)
         if azure_devops_repo is not None:
@@ -458,6 +463,9 @@ class _WorkspaceState:
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sql_aad_admin is not None:
+            warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
+        if sql_aad_admin is not None:
             pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
         if sql_administrator_login is not None:
             pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
@@ -473,9 +481,9 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="aadAdmin")
     def aad_admin(self) -> Optional[pulumi.Input['WorkspaceAadAdminArgs']]:
-        """
-        An `aad_admin` block as defined below.
-        """
+        warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "aad_admin")
 
     @aad_admin.setter
@@ -677,9 +685,9 @@ class _WorkspaceState:
     @property
     @pulumi.getter(name="sqlAadAdmin")
     def sql_aad_admin(self) -> Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']]:
-        """
-        An `sql_aad_admin` block as defined below.
-        """
+        warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "sql_aad_admin")
 
     @sql_aad_admin.setter
@@ -805,11 +813,6 @@ class Workspace(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ),
@@ -917,7 +920,6 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
@@ -933,7 +935,6 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -976,11 +977,6 @@ class Workspace(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            aad_admin=azure.synapse.WorkspaceAadAdminArgs(
-                login="AzureAD Admin",
-                object_id="00000000-0000-0000-0000-000000000000",
-                tenant_id="00000000-0000-0000-0000-000000000000",
-            ),
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ),
@@ -1201,7 +1197,6 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkspaceAadAdminArgs']] aad_admin: An `aad_admin` block as defined below.
         :param pulumi.Input[pulumi.InputType['WorkspaceAzureDevopsRepoArgs']] azure_devops_repo: An `azure_devops_repo` block as defined below.
         :param pulumi.Input[bool] azuread_authentication_only: Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`.
         :param pulumi.Input[str] compute_subnet_id: Subnet ID used for computes in workspace Changing this forces a new resource to be created.
@@ -1218,7 +1213,6 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the Cognitive Account. Defaults to `true`.
         :param pulumi.Input[str] purview_id: The ID of purview account.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WorkspaceSqlAadAdminArgs']] sql_aad_admin: An `sql_aad_admin` block as defined below.
         :param pulumi.Input[str] sql_administrator_login: Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[str] sql_administrator_login_password: The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided.
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
@@ -1257,9 +1251,9 @@ class Workspace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aadAdmin")
     def aad_admin(self) -> pulumi.Output['outputs.WorkspaceAadAdmin']:
-        """
-        An `aad_admin` block as defined below.
-        """
+        warnings.warn("""The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""aad_admin is deprecated: The `aad_admin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "aad_admin")
 
     @property
@@ -1393,9 +1387,9 @@ class Workspace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="sqlAadAdmin")
     def sql_aad_admin(self) -> pulumi.Output['outputs.WorkspaceSqlAadAdmin']:
-        """
-        An `sql_aad_admin` block as defined below.
-        """
+        warnings.warn("""The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+        pulumi.log.warn("""sql_aad_admin is deprecated: The `sql_aad_admin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.""")
+
         return pulumi.get(self, "sql_aad_admin")
 
     @property

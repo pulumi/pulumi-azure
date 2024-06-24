@@ -91,7 +91,7 @@ type Service struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail pulumi.StringOutput `pulumi:"notificationSenderEmail"`
-	// A `policy` block as defined below.
+	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
 	Policy ServicePolicyOutput `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
@@ -217,7 +217,7 @@ type serviceState struct {
 	Name *string `pulumi:"name"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
-	// A `policy` block as defined below.
+	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
 	Policy *ServicePolicy `pulumi:"policy"`
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl *string `pulumi:"portalUrl"`
@@ -302,7 +302,7 @@ type ServiceState struct {
 	Name pulumi.StringPtrInput
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail pulumi.StringPtrInput
-	// A `policy` block as defined below.
+	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
 	Policy ServicePolicyPtrInput
 	// The URL for the Publisher Portal associated with this API Management service.
 	PortalUrl pulumi.StringPtrInput
@@ -383,7 +383,7 @@ type serviceArgs struct {
 	Name *string `pulumi:"name"`
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
-	// A `policy` block as defined below.
+	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
 	Policy *ServicePolicy `pulumi:"policy"`
 	// A `protocols` block as defined below.
 	Protocols *ServiceProtocols `pulumi:"protocols"`
@@ -453,7 +453,7 @@ type ServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Email address from which the notification will be sent.
 	NotificationSenderEmail pulumi.StringPtrInput
-	// A `policy` block as defined below.
+	// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
 	Policy ServicePolicyPtrInput
 	// A `protocols` block as defined below.
 	Protocols ServiceProtocolsPtrInput
@@ -661,7 +661,7 @@ func (o ServiceOutput) NotificationSenderEmail() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.NotificationSenderEmail }).(pulumi.StringOutput)
 }
 
-// A `policy` block as defined below.
+// Deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
 func (o ServiceOutput) Policy() ServicePolicyOutput {
 	return o.ApplyT(func(v *Service) ServicePolicyOutput { return v.Policy }).(ServicePolicyOutput)
 }

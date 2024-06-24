@@ -21,6 +21,7 @@ from .get_account import *
 from .get_bool_variable import *
 from .get_date_time_variable import *
 from .get_int_variable import *
+from .get_runbook import *
 from .get_string_variable import *
 from .get_variable_object import *
 from .get_variables import *

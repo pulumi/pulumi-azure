@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -216,6 +217,20 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowVirtualNetworkAccess);
     }
     /**
+     * A list of local Subnet names that are Subnet peered with remote Virtual Network.
+     * 
+     */
+    @Export(name="localSubnetNames", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> localSubnetNames;
+
+    /**
+     * @return A list of local Subnet names that are Subnet peered with remote Virtual Network.
+     * 
+     */
+    public Output<Optional<List<String>>> localSubnetNames() {
+        return Codegen.optional(this.localSubnetNames);
+    }
+    /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      * 
      */
@@ -228,6 +243,48 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="onlyIpv6PeeringEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> onlyIpv6PeeringEnabled;
+
+    /**
+     * @return Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> onlyIpv6PeeringEnabled() {
+        return Codegen.optional(this.onlyIpv6PeeringEnabled);
+    }
+    /**
+     * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="peerCompleteVirtualNetworksEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> peerCompleteVirtualNetworksEnabled;
+
+    /**
+     * @return Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<Boolean>> peerCompleteVirtualNetworksEnabled() {
+        return Codegen.optional(this.peerCompleteVirtualNetworksEnabled);
+    }
+    /**
+     * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+     * 
+     */
+    @Export(name="remoteSubnetNames", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> remoteSubnetNames;
+
+    /**
+     * @return A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+     * 
+     */
+    public Output<Optional<List<String>>> remoteSubnetNames() {
+        return Codegen.optional(this.remoteSubnetNames);
     }
     /**
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.

@@ -146,9 +146,25 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
     /**
+     * A list of local Subnet names that are Subnet peered with remote Virtual Network.
+     */
+    public readonly localSubnetNames!: pulumi.Output<string[] | undefined>;
+    /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+     */
+    public readonly onlyIpv6PeeringEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    public readonly peerCompleteVirtualNetworksEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+     */
+    public readonly remoteSubnetNames!: pulumi.Output<string[] | undefined>;
     /**
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      */
@@ -188,7 +204,11 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["allowForwardedTraffic"] = state ? state.allowForwardedTraffic : undefined;
             resourceInputs["allowGatewayTransit"] = state ? state.allowGatewayTransit : undefined;
             resourceInputs["allowVirtualNetworkAccess"] = state ? state.allowVirtualNetworkAccess : undefined;
+            resourceInputs["localSubnetNames"] = state ? state.localSubnetNames : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["onlyIpv6PeeringEnabled"] = state ? state.onlyIpv6PeeringEnabled : undefined;
+            resourceInputs["peerCompleteVirtualNetworksEnabled"] = state ? state.peerCompleteVirtualNetworksEnabled : undefined;
+            resourceInputs["remoteSubnetNames"] = state ? state.remoteSubnetNames : undefined;
             resourceInputs["remoteVirtualNetworkId"] = state ? state.remoteVirtualNetworkId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["triggers"] = state ? state.triggers : undefined;
@@ -208,7 +228,11 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
             resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
             resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
+            resourceInputs["localSubnetNames"] = args ? args.localSubnetNames : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["onlyIpv6PeeringEnabled"] = args ? args.onlyIpv6PeeringEnabled : undefined;
+            resourceInputs["peerCompleteVirtualNetworksEnabled"] = args ? args.peerCompleteVirtualNetworksEnabled : undefined;
+            resourceInputs["remoteSubnetNames"] = args ? args.remoteSubnetNames : undefined;
             resourceInputs["remoteVirtualNetworkId"] = args ? args.remoteVirtualNetworkId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["triggers"] = args ? args.triggers : undefined;
@@ -237,9 +261,25 @@ export interface VirtualNetworkPeeringState {
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
+     * A list of local Subnet names that are Subnet peered with remote Virtual Network.
+     */
+    localSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+     */
+    onlyIpv6PeeringEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    peerCompleteVirtualNetworksEnabled?: pulumi.Input<boolean>;
+    /**
+     * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+     */
+    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      */
@@ -281,9 +321,25 @@ export interface VirtualNetworkPeeringArgs {
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
+     * A list of local Subnet names that are Subnet peered with remote Virtual Network.
+     */
+    localSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the virtual network peering. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+     */
+    onlyIpv6PeeringEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+     */
+    peerCompleteVirtualNetworksEnabled?: pulumi.Input<boolean>;
+    /**
+     * A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+     */
+    remoteSubnetNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
      */

@@ -27,7 +27,7 @@ class JobScheduleArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] job_schedule_id: (Optional) The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
@@ -96,7 +96,7 @@ class JobScheduleArgs:
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The UUID identifying the Automation Job Schedule.
+        The UUID identifying the Automation Job Schedule.
         """
         return pulumi.get(self, "job_schedule_id")
 
@@ -138,17 +138,19 @@ class _JobScheduleState:
                  job_schedule_id: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_manager_id: Optional[pulumi.Input[str]] = None,
                  run_on: Optional[pulumi.Input[str]] = None,
                  runbook_name: Optional[pulumi.Input[str]] = None,
                  schedule_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering JobSchedule resources.
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] job_schedule_id: (Optional) The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of the Automation Job Schedule.
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
@@ -161,6 +163,8 @@ class _JobScheduleState:
             pulumi.set(__self__, "parameters", parameters)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if resource_manager_id is not None:
+            pulumi.set(__self__, "resource_manager_id", resource_manager_id)
         if run_on is not None:
             pulumi.set(__self__, "run_on", run_on)
         if runbook_name is not None:
@@ -184,7 +188,7 @@ class _JobScheduleState:
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional) The UUID identifying the Automation Job Schedule.
+        The UUID identifying the Automation Job Schedule.
         """
         return pulumi.get(self, "job_schedule_id")
 
@@ -217,6 +221,18 @@ class _JobScheduleState:
     @resource_group_name.setter
     def resource_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="resourceManagerId")
+    def resource_manager_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Resource Manager ID of the Automation Job Schedule.
+        """
+        return pulumi.get(self, "resource_manager_id")
+
+    @resource_manager_id.setter
+    def resource_manager_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_manager_id", value)
 
     @property
     @pulumi.getter(name="runOn")
@@ -271,6 +287,8 @@ class JobSchedule(pulumi.CustomResource):
         """
         Links an Automation Runbook and Schedule.
 
+        > **NOTE** AzureRM provides this stand-alone automation.JobSchedule and an inlined `job_schdule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+
         ## Example Usage
 
         This is an example of just the Job Schedule.
@@ -295,13 +313,13 @@ class JobSchedule(pulumi.CustomResource):
         Automation Job Schedules can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+        $ pulumi import azure:automation/jobSchedule:JobSchedule example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1"
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] job_schedule_id: (Optional) The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
@@ -319,6 +337,8 @@ class JobSchedule(pulumi.CustomResource):
         """
         Links an Automation Runbook and Schedule.
 
+        > **NOTE** AzureRM provides this stand-alone automation.JobSchedule and an inlined `job_schdule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+
         ## Example Usage
 
         This is an example of just the Job Schedule.
@@ -343,7 +363,7 @@ class JobSchedule(pulumi.CustomResource):
         Automation Job Schedules can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+        $ pulumi import azure:automation/jobSchedule:JobSchedule example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1"
         ```
 
         :param str resource_name: The name of the resource.
@@ -392,6 +412,7 @@ class JobSchedule(pulumi.CustomResource):
             if schedule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_name'")
             __props__.__dict__["schedule_name"] = schedule_name
+            __props__.__dict__["resource_manager_id"] = None
         super(JobSchedule, __self__).__init__(
             'azure:automation/jobSchedule:JobSchedule',
             resource_name,
@@ -406,6 +427,7 @@ class JobSchedule(pulumi.CustomResource):
             job_schedule_id: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
+            resource_manager_id: Optional[pulumi.Input[str]] = None,
             run_on: Optional[pulumi.Input[str]] = None,
             runbook_name: Optional[pulumi.Input[str]] = None,
             schedule_name: Optional[pulumi.Input[str]] = None) -> 'JobSchedule':
@@ -417,11 +439,12 @@ class JobSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] job_schedule_id: (Optional) The UUID identifying the Automation Job Schedule.
+        :param pulumi.Input[str] job_schedule_id: The UUID identifying the Automation Job Schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
                
                > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_manager_id: The Resource Manager ID of the Automation Job Schedule.
         :param pulumi.Input[str] run_on: Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
         :param pulumi.Input[str] runbook_name: The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schedule_name: The name of the Schedule. Changing this forces a new resource to be created.
@@ -434,6 +457,7 @@ class JobSchedule(pulumi.CustomResource):
         __props__.__dict__["job_schedule_id"] = job_schedule_id
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["resource_manager_id"] = resource_manager_id
         __props__.__dict__["run_on"] = run_on
         __props__.__dict__["runbook_name"] = runbook_name
         __props__.__dict__["schedule_name"] = schedule_name
@@ -451,7 +475,7 @@ class JobSchedule(pulumi.CustomResource):
     @pulumi.getter(name="jobScheduleId")
     def job_schedule_id(self) -> pulumi.Output[str]:
         """
-        (Optional) The UUID identifying the Automation Job Schedule.
+        The UUID identifying the Automation Job Schedule.
         """
         return pulumi.get(self, "job_schedule_id")
 
@@ -472,6 +496,14 @@ class JobSchedule(pulumi.CustomResource):
         The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="resourceManagerId")
+    def resource_manager_id(self) -> pulumi.Output[str]:
+        """
+        The Resource Manager ID of the Automation Job Schedule.
+        """
+        return pulumi.get(self, "resource_manager_id")
 
     @property
     @pulumi.getter(name="runOn")

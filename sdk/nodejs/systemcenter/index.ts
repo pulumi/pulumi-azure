@@ -15,10 +15,25 @@ export type VirtualMachineManagerAvailabilitySet = import("./virtualMachineManag
 export const VirtualMachineManagerAvailabilitySet: typeof import("./virtualMachineManagerAvailabilitySet").VirtualMachineManagerAvailabilitySet = null as any;
 utilities.lazyLoad(exports, ["VirtualMachineManagerAvailabilitySet"], () => require("./virtualMachineManagerAvailabilitySet"));
 
+export { VirtualMachineManagerCloudArgs, VirtualMachineManagerCloudState } from "./virtualMachineManagerCloud";
+export type VirtualMachineManagerCloud = import("./virtualMachineManagerCloud").VirtualMachineManagerCloud;
+export const VirtualMachineManagerCloud: typeof import("./virtualMachineManagerCloud").VirtualMachineManagerCloud = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineManagerCloud"], () => require("./virtualMachineManagerCloud"));
+
 export { VirtualMachineManagerServerArgs, VirtualMachineManagerServerState } from "./virtualMachineManagerServer";
 export type VirtualMachineManagerServer = import("./virtualMachineManagerServer").VirtualMachineManagerServer;
 export const VirtualMachineManagerServer: typeof import("./virtualMachineManagerServer").VirtualMachineManagerServer = null as any;
 utilities.lazyLoad(exports, ["VirtualMachineManagerServer"], () => require("./virtualMachineManagerServer"));
+
+export { VirtualMachineManagerVirtualMachineTemplateArgs, VirtualMachineManagerVirtualMachineTemplateState } from "./virtualMachineManagerVirtualMachineTemplate";
+export type VirtualMachineManagerVirtualMachineTemplate = import("./virtualMachineManagerVirtualMachineTemplate").VirtualMachineManagerVirtualMachineTemplate;
+export const VirtualMachineManagerVirtualMachineTemplate: typeof import("./virtualMachineManagerVirtualMachineTemplate").VirtualMachineManagerVirtualMachineTemplate = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineManagerVirtualMachineTemplate"], () => require("./virtualMachineManagerVirtualMachineTemplate"));
+
+export { VirtualMachineManagerVirtualNetworkArgs, VirtualMachineManagerVirtualNetworkState } from "./virtualMachineManagerVirtualNetwork";
+export type VirtualMachineManagerVirtualNetwork = import("./virtualMachineManagerVirtualNetwork").VirtualMachineManagerVirtualNetwork;
+export const VirtualMachineManagerVirtualNetwork: typeof import("./virtualMachineManagerVirtualNetwork").VirtualMachineManagerVirtualNetwork = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineManagerVirtualNetwork"], () => require("./virtualMachineManagerVirtualNetwork"));
 
 
 const _module = {
@@ -27,12 +42,21 @@ const _module = {
         switch (type) {
             case "azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet":
                 return new VirtualMachineManagerAvailabilitySet(name, <any>undefined, { urn })
+            case "azure:systemcenter/virtualMachineManagerCloud:VirtualMachineManagerCloud":
+                return new VirtualMachineManagerCloud(name, <any>undefined, { urn })
             case "azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer":
                 return new VirtualMachineManagerServer(name, <any>undefined, { urn })
+            case "azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate":
+                return new VirtualMachineManagerVirtualMachineTemplate(name, <any>undefined, { urn })
+            case "azure:systemcenter/virtualMachineManagerVirtualNetwork:VirtualMachineManagerVirtualNetwork":
+                return new VirtualMachineManagerVirtualNetwork(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerAvailabilitySet", _module)
+pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerCloud", _module)
 pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerServer", _module)
+pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerVirtualMachineTemplate", _module)
+pulumi.runtime.registerResourceModule("azure", "systemcenter/virtualMachineManagerVirtualNetwork", _module)

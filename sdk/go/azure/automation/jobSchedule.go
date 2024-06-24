@@ -14,6 +14,8 @@ import (
 
 // Links an Automation Runbook and Schedule.
 //
+// > **NOTE** AzureRM provides this stand-alone automation.JobSchedule and an inlined `jobSchdule` property in azurermRunbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+//
 // ## Example Usage
 //
 // This is an example of just the Job Schedule.
@@ -54,14 +56,14 @@ import (
 // Automation Job Schedules can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+// $ pulumi import azure:automation/jobSchedule:JobSchedule example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1"
 // ```
 type JobSchedule struct {
 	pulumi.CustomResourceState
 
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringOutput `pulumi:"automationAccountName"`
-	// (Optional) The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule.
 	JobScheduleId pulumi.StringOutput `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -69,6 +71,8 @@ type JobSchedule struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The Resource Manager ID of the Automation Job Schedule.
+	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn pulumi.StringPtrOutput `pulumi:"runOn"`
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
@@ -121,7 +125,7 @@ func GetJobSchedule(ctx *pulumi.Context,
 type jobScheduleState struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName *string `pulumi:"automationAccountName"`
-	// (Optional) The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule.
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -129,6 +133,8 @@ type jobScheduleState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The Resource Manager ID of the Automation Job Schedule.
+	ResourceManagerId *string `pulumi:"resourceManagerId"`
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn *string `pulumi:"runOn"`
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
@@ -140,7 +146,7 @@ type jobScheduleState struct {
 type JobScheduleState struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringPtrInput
-	// (Optional) The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule.
 	JobScheduleId pulumi.StringPtrInput
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -148,6 +154,8 @@ type JobScheduleState struct {
 	Parameters pulumi.StringMapInput
 	// The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The Resource Manager ID of the Automation Job Schedule.
+	ResourceManagerId pulumi.StringPtrInput
 	// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
 	RunOn pulumi.StringPtrInput
 	// The name of a Runbook to link to a Schedule. It needs to be in the same Automation Account as the Schedule and Job Schedule. Changing this forces a new resource to be created.
@@ -163,7 +171,7 @@ func (JobScheduleState) ElementType() reflect.Type {
 type jobScheduleArgs struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName string `pulumi:"automationAccountName"`
-	// (Optional) The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule.
 	JobScheduleId *string `pulumi:"jobScheduleId"`
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -183,7 +191,7 @@ type jobScheduleArgs struct {
 type JobScheduleArgs struct {
 	// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
 	AutomationAccountName pulumi.StringInput
-	// (Optional) The UUID identifying the Automation Job Schedule.
+	// The UUID identifying the Automation Job Schedule.
 	JobScheduleId pulumi.StringPtrInput
 	// A map of key/value pairs corresponding to the arguments that can be passed to the Runbook. Changing this forces a new resource to be created.
 	//
@@ -291,7 +299,7 @@ func (o JobScheduleOutput) AutomationAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.AutomationAccountName }).(pulumi.StringOutput)
 }
 
-// (Optional) The UUID identifying the Automation Job Schedule.
+// The UUID identifying the Automation Job Schedule.
 func (o JobScheduleOutput) JobScheduleId() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.JobScheduleId }).(pulumi.StringOutput)
 }
@@ -306,6 +314,11 @@ func (o JobScheduleOutput) Parameters() pulumi.StringMapOutput {
 // The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
 func (o JobScheduleOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The Resource Manager ID of the Automation Job Schedule.
+func (o JobScheduleOutput) ResourceManagerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *JobSchedule) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
 // Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.

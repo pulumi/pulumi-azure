@@ -13748,13 +13748,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
-	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-	//
-	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
-	//
-	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+	// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
 	EbpfDataPlane *string `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	//
@@ -13768,6 +13762,14 @@ type KubernetesClusterNetworkProfile struct {
 	LoadBalancerSku *string `pulumi:"loadBalancerSku"`
 	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 	NatGatewayProfile *KubernetesClusterNetworkProfileNatGatewayProfile `pulumi:"natGatewayProfile"`
+	// Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+	//
+	// > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+	NetworkDataPlane *string `pulumi:"networkDataPlane"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -13786,7 +13788,7 @@ type KubernetesClusterNetworkProfile struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
-	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
+	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	NetworkPolicy        *string  `pulumi:"networkPolicy"`
 	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
 	OutboundIpPrefixIds  []string `pulumi:"outboundIpPrefixIds"`
@@ -13824,13 +13826,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// Deprecated: `dockerBridgeCidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
-	// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-	//
-	// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
-	//
-	// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+	// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
 	EbpfDataPlane pulumi.StringPtrInput `pulumi:"ebpfDataPlane"`
 	// Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
 	//
@@ -13844,6 +13840,14 @@ type KubernetesClusterNetworkProfileArgs struct {
 	LoadBalancerSku pulumi.StringPtrInput `pulumi:"loadBalancerSku"`
 	// A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
 	NatGatewayProfile KubernetesClusterNetworkProfileNatGatewayProfilePtrInput `pulumi:"natGatewayProfile"`
+	// Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+	//
+	// > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+	//
+	// > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+	//
+	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+	NetworkDataPlane pulumi.StringPtrInput `pulumi:"networkDataPlane"`
 	// Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -13862,7 +13866,7 @@ type KubernetesClusterNetworkProfileArgs struct {
 	//
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
-	// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
+	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 	NetworkPolicy        pulumi.StringPtrInput   `pulumi:"networkPolicy"`
 	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
 	OutboundIpPrefixIds  pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
@@ -13971,13 +13975,7 @@ func (o KubernetesClusterNetworkProfileOutput) DockerBridgeCidr() pulumi.StringP
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.DockerBridgeCidr }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-//
-// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
-//
-// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
 func (o KubernetesClusterNetworkProfileOutput) EbpfDataPlane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.EbpfDataPlane }).(pulumi.StringPtrOutput)
 }
@@ -14010,6 +14008,17 @@ func (o KubernetesClusterNetworkProfileOutput) NatGatewayProfile() KubernetesClu
 	}).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
 }
 
+// Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+//
+// > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+func (o KubernetesClusterNetworkProfileOutput) NetworkDataPlane() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkDataPlane }).(pulumi.StringPtrOutput)
+}
+
 // Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 //
 // > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -14037,7 +14046,7 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPluginMode() pulumi.String
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 //
-// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
+// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
@@ -14125,13 +14134,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) DockerBridgeCidr() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-//
-// > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
-//
-// > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+// Deprecated: This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
 func (o KubernetesClusterNetworkProfilePtrOutput) EbpfDataPlane() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {
@@ -14185,6 +14188,22 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NatGatewayProfile() Kubernetes
 	}).(KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput)
 }
 
+// Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+//
+// > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+//
+// > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+//
+// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+func (o KubernetesClusterNetworkProfilePtrOutput) NetworkDataPlane() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkDataPlane
+	}).(pulumi.StringPtrOutput)
+}
+
 // Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
 //
 // > **Note:** `networkMode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -14227,7 +14246,7 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPluginMode() pulumi.Str
 //
 // > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 //
-// > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
+// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
 func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
 		if v == nil {

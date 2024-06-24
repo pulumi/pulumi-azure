@@ -63,11 +63,6 @@ import (
 //				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				AadAdmin: &synapse.WorkspaceAadAdminTypeArgs{
-//					Login:    pulumi.String("AzureAD Admin"),
-//					ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//					TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
 //				Identity: &synapse.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -248,7 +243,7 @@ import (
 type Workspace struct {
 	pulumi.CustomResourceState
 
-	// An `aadAdmin` block as defined below.
+	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	AadAdmin WorkspaceAadAdminTypeOutput `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrOutput `pulumi:"azureDevopsRepo"`
@@ -282,7 +277,7 @@ type Workspace struct {
 	PurviewId pulumi.StringPtrOutput `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// An `sqlAadAdmin` block as defined below.
+	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	SqlAadAdmin WorkspaceSqlAadAdminTypeOutput `pulumi:"sqlAadAdmin"`
 	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLogin pulumi.StringPtrOutput `pulumi:"sqlAdministratorLogin"`
@@ -339,7 +334,7 @@ func GetWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workspace resources.
 type workspaceState struct {
-	// An `aadAdmin` block as defined below.
+	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
@@ -373,7 +368,7 @@ type workspaceState struct {
 	PurviewId *string `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// An `sqlAadAdmin` block as defined below.
+	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
 	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
@@ -388,7 +383,7 @@ type workspaceState struct {
 }
 
 type WorkspaceState struct {
-	// An `aadAdmin` block as defined below.
+	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
@@ -422,7 +417,7 @@ type WorkspaceState struct {
 	PurviewId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// An `sqlAadAdmin` block as defined below.
+	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
 	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLogin pulumi.StringPtrInput
@@ -441,7 +436,7 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
-	// An `aadAdmin` block as defined below.
+	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	AadAdmin *WorkspaceAadAdminType `pulumi:"aadAdmin"`
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo *WorkspaceAzureDevopsRepo `pulumi:"azureDevopsRepo"`
@@ -473,7 +468,7 @@ type workspaceArgs struct {
 	PurviewId *string `pulumi:"purviewId"`
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// An `sqlAadAdmin` block as defined below.
+	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	SqlAadAdmin *WorkspaceSqlAadAdminType `pulumi:"sqlAadAdmin"`
 	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLogin *string `pulumi:"sqlAdministratorLogin"`
@@ -489,7 +484,7 @@ type workspaceArgs struct {
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
-	// An `aadAdmin` block as defined below.
+	// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	AadAdmin WorkspaceAadAdminTypePtrInput
 	// An `azureDevopsRepo` block as defined below.
 	AzureDevopsRepo WorkspaceAzureDevopsRepoPtrInput
@@ -521,7 +516,7 @@ type WorkspaceArgs struct {
 	PurviewId pulumi.StringPtrInput
 	// Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// An `sqlAadAdmin` block as defined below.
+	// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 	SqlAadAdmin WorkspaceSqlAadAdminTypePtrInput
 	// Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aadAdmin` or `customerManagedKey` must be provided.
 	SqlAdministratorLogin pulumi.StringPtrInput
@@ -622,7 +617,7 @@ func (o WorkspaceOutput) ToWorkspaceOutputWithContext(ctx context.Context) Works
 	return o
 }
 
-// An `aadAdmin` block as defined below.
+// Deprecated: The `aadAdmin` block has been superseded by the `synapse.WorkspaceAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 func (o WorkspaceOutput) AadAdmin() WorkspaceAadAdminTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceAadAdminTypeOutput { return v.AadAdmin }).(WorkspaceAadAdminTypeOutput)
 }
@@ -707,7 +702,7 @@ func (o WorkspaceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// An `sqlAadAdmin` block as defined below.
+// Deprecated: The `sqlAadAdmin` block has been superseded by the `synapse.WorkspaceSqlAadAdmin` resource and will be removed in v4.0 of the AzureRM Provider.
 func (o WorkspaceOutput) SqlAadAdmin() WorkspaceSqlAadAdminTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceSqlAadAdminTypeOutput { return v.SqlAadAdmin }).(WorkspaceSqlAadAdminTypeOutput)
 }

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * Links an Automation Runbook and Schedule.
  * 
+ * &gt; **NOTE** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `job_schdule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+ * 
  * ## Example Usage
  * 
  * This is an example of just the Job Schedule.
@@ -67,7 +69,7 @@ import javax.annotation.Nullable;
  * Automation Job Schedules can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+ * $ pulumi import azure:automation/jobSchedule:JobSchedule example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1&#34;
  * ```
  * 
  */
@@ -88,14 +90,14 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
         return this.automationAccountName;
     }
     /**
-     * (Optional) The UUID identifying the Automation Job Schedule.
+     * The UUID identifying the Automation Job Schedule.
      * 
      */
     @Export(name="jobScheduleId", refs={String.class}, tree="[0]")
     private Output<String> jobScheduleId;
 
     /**
-     * @return (Optional) The UUID identifying the Automation Job Schedule.
+     * @return The UUID identifying the Automation Job Schedule.
      * 
      */
     public Output<String> jobScheduleId() {
@@ -132,6 +134,20 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * The Resource Manager ID of the Automation Job Schedule.
+     * 
+     */
+    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
+    private Output<String> resourceManagerId;
+
+    /**
+     * @return The Resource Manager ID of the Automation Job Schedule.
+     * 
+     */
+    public Output<String> resourceManagerId() {
+        return this.resourceManagerId;
     }
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.

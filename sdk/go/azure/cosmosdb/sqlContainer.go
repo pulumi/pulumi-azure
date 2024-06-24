@@ -108,13 +108,17 @@ type SqlContainer struct {
 	// The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-	DefaultTtl pulumi.IntOutput `pulumi:"defaultTtl"`
+	DefaultTtl pulumi.IntPtrOutput `pulumi:"defaultTtl"`
 	// An `indexingPolicy` block as defined below.
 	IndexingPolicy SqlContainerIndexingPolicyOutput `pulumi:"indexingPolicy"`
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Define a partition key. Changing this forces a new resource to be created.
+	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+	PartitionKeyKind pulumi.StringPtrOutput `pulumi:"partitionKeyKind"`
+	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
 	PartitionKeyPath pulumi.StringOutput `pulumi:"partitionKeyPath"`
+	// A list of partition key paths. Changing this forces a new resource to be created.
+	PartitionKeyPaths pulumi.StringArrayOutput `pulumi:"partitionKeyPaths"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion pulumi.IntPtrOutput `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -137,9 +141,6 @@ func NewSqlContainer(ctx *pulumi.Context,
 	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
-	}
-	if args.PartitionKeyPath == nil {
-		return nil, errors.New("invalid value for required argument 'PartitionKeyPath'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -185,8 +186,12 @@ type sqlContainerState struct {
 	IndexingPolicy *SqlContainerIndexingPolicy `pulumi:"indexingPolicy"`
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Define a partition key. Changing this forces a new resource to be created.
+	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+	PartitionKeyKind *string `pulumi:"partitionKeyKind"`
+	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
 	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
+	// A list of partition key paths. Changing this forces a new resource to be created.
+	PartitionKeyPaths []string `pulumi:"partitionKeyPaths"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -216,8 +221,12 @@ type SqlContainerState struct {
 	IndexingPolicy SqlContainerIndexingPolicyPtrInput
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Define a partition key. Changing this forces a new resource to be created.
+	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+	PartitionKeyKind pulumi.StringPtrInput
+	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
 	PartitionKeyPath pulumi.StringPtrInput
+	// A list of partition key paths. Changing this forces a new resource to be created.
+	PartitionKeyPaths pulumi.StringArrayInput
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -251,8 +260,12 @@ type sqlContainerArgs struct {
 	IndexingPolicy *SqlContainerIndexingPolicy `pulumi:"indexingPolicy"`
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath string `pulumi:"partitionKeyPath"`
+	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+	PartitionKeyKind *string `pulumi:"partitionKeyKind"`
+	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
+	PartitionKeyPath *string `pulumi:"partitionKeyPath"`
+	// A list of partition key paths. Changing this forces a new resource to be created.
+	PartitionKeyPaths []string `pulumi:"partitionKeyPaths"`
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion *int `pulumi:"partitionKeyVersion"`
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -283,8 +296,12 @@ type SqlContainerArgs struct {
 	IndexingPolicy SqlContainerIndexingPolicyPtrInput
 	// Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Define a partition key. Changing this forces a new resource to be created.
-	PartitionKeyPath pulumi.StringInput
+	// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+	PartitionKeyKind pulumi.StringPtrInput
+	// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
+	PartitionKeyPath pulumi.StringPtrInput
+	// A list of partition key paths. Changing this forces a new resource to be created.
+	PartitionKeyPaths pulumi.StringArrayInput
 	// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
 	PartitionKeyVersion pulumi.IntPtrInput
 	// The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
@@ -410,8 +427,8 @@ func (o SqlContainerOutput) DatabaseName() pulumi.StringOutput {
 }
 
 // The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-func (o SqlContainerOutput) DefaultTtl() pulumi.IntOutput {
-	return o.ApplyT(func(v *SqlContainer) pulumi.IntOutput { return v.DefaultTtl }).(pulumi.IntOutput)
+func (o SqlContainerOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlContainer) pulumi.IntPtrOutput { return v.DefaultTtl }).(pulumi.IntPtrOutput)
 }
 
 // An `indexingPolicy` block as defined below.
@@ -424,9 +441,19 @@ func (o SqlContainerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Define a partition key. Changing this forces a new resource to be created.
+// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+func (o SqlContainerOutput) PartitionKeyKind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainer) pulumi.StringPtrOutput { return v.PartitionKeyKind }).(pulumi.StringPtrOutput)
+}
+
+// Deprecated: `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
 func (o SqlContainerOutput) PartitionKeyPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlContainer) pulumi.StringOutput { return v.PartitionKeyPath }).(pulumi.StringOutput)
+}
+
+// A list of partition key paths. Changing this forces a new resource to be created.
+func (o SqlContainerOutput) PartitionKeyPaths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SqlContainer) pulumi.StringArrayOutput { return v.PartitionKeyPaths }).(pulumi.StringArrayOutput)
 }
 
 // Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.

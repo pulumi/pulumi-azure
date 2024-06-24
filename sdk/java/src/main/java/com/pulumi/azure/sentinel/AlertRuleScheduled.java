@@ -9,6 +9,7 @@ import com.pulumi.azure.sentinel.inputs.AlertRuleScheduledState;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledAlertDetailsOverride;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledEntityMapping;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledEventGrouping;
+import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledIncident;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledIncidentConfiguration;
 import com.pulumi.azure.sentinel.outputs.AlertRuleScheduledSentinelEntityMapping;
 import com.pulumi.core.Output;
@@ -230,16 +231,28 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.eventGrouping);
     }
     /**
-     * A `incident_configuration` block as defined below.
+     * A `incident` block as defined below.
      * 
      */
+    @Export(name="incident", refs={AlertRuleScheduledIncident.class}, tree="[0]")
+    private Output<AlertRuleScheduledIncident> incident;
+
+    /**
+     * @return A `incident` block as defined below.
+     * 
+     */
+    public Output<AlertRuleScheduledIncident> incident() {
+        return this.incident;
+    }
+    /**
+     * @deprecated
+     * The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* The `incident_configuration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider */
     @Export(name="incidentConfiguration", refs={AlertRuleScheduledIncidentConfiguration.class}, tree="[0]")
     private Output<AlertRuleScheduledIncidentConfiguration> incidentConfiguration;
 
-    /**
-     * @return A `incident_configuration` block as defined below.
-     * 
-     */
     public Output<AlertRuleScheduledIncidentConfiguration> incidentConfiguration() {
         return this.incidentConfiguration;
     }

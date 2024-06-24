@@ -112,7 +112,7 @@ export class CassandraTable extends pulumi.CustomResource {
     /**
      * Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
      */
-    public readonly defaultTtl!: pulumi.Output<number>;
+    public readonly defaultTtl!: pulumi.Output<number | undefined>;
     /**
      * Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
      */

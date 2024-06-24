@@ -182,6 +182,24 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
         return this.outboundRules;
     }
     /**
+     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * 
+     */
+    @Export(name="synchronousMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> synchronousMode;
+
+    /**
+     * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * 
+     */
+    public Output<Optional<String>> synchronousMode() {
+        return Codegen.optional(this.synchronousMode);
+    }
+    /**
      * One or more `tunnel_interface` blocks as defined below.
      * 
      */

@@ -299,16 +299,14 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.notificationSenderEmail;
     }
     /**
-     * A `policy` block as defined below.
+     * @deprecated
+     * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
     @Export(name="policy", refs={ServicePolicy.class}, tree="[0]")
     private Output<ServicePolicy> policy;
 
-    /**
-     * @return A `policy` block as defined below.
-     * 
-     */
     public Output<ServicePolicy> policy() {
         return this.policy;
     }

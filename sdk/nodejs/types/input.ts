@@ -1889,13 +1889,7 @@ export namespace apimanagement {
     }
 
     export interface ServicePolicy {
-        /**
-         * The XML Content for this Policy.
-         */
         xmlContent?: pulumi.Input<string>;
-        /**
-         * A link to an API Management Policy XML Document, which must be publicly available.
-         */
         xmlLink?: pulumi.Input<string>;
     }
 
@@ -14969,9 +14963,23 @@ export namespace automation {
     }
 
     export interface RunBookJobSchedule {
+        /**
+         * The UUID of automation runbook job schedule ID.
+         */
         jobScheduleId?: pulumi.Input<string>;
+        /**
+         * A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+         *
+         * > **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don't have this limitation.
+         */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Name of a Hybrid Worker Group the Runbook will be executed on.
+         */
         runOn?: pulumi.Input<string>;
+        /**
+         * The name of the Schedule.
+         */
         scheduleName: pulumi.Input<string>;
     }
 
@@ -18104,6 +18112,126 @@ export namespace cognitive {
         type: pulumi.Input<string>;
     }
 
+}
+
+export namespace communication {
+    export interface EmailServiceDomainVerificationRecord {
+        /**
+         * (Optional) An `dkim2` block as defined below.
+         */
+        dkim2s?: pulumi.Input<pulumi.Input<inputs.communication.EmailServiceDomainVerificationRecordDkim2>[]>;
+        /**
+         * (Optional) An `dkim` block as defined below.
+         */
+        dkims?: pulumi.Input<pulumi.Input<inputs.communication.EmailServiceDomainVerificationRecordDkim>[]>;
+        /**
+         * (Optional) An `dmarc` block as defined below.
+         */
+        dmarcs?: pulumi.Input<pulumi.Input<inputs.communication.EmailServiceDomainVerificationRecordDmarc>[]>;
+        /**
+         * (Optional) An `domain` block as defined below.
+         */
+        domains?: pulumi.Input<pulumi.Input<inputs.communication.EmailServiceDomainVerificationRecordDomain>[]>;
+        /**
+         * (Optional) An `spf` block as defined below.
+         */
+        spfs?: pulumi.Input<pulumi.Input<inputs.communication.EmailServiceDomainVerificationRecordSpf>[]>;
+    }
+
+    export interface EmailServiceDomainVerificationRecordDkim {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value of the DNS record.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EmailServiceDomainVerificationRecordDkim2 {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value of the DNS record.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EmailServiceDomainVerificationRecordDmarc {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value of the DNS record.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EmailServiceDomainVerificationRecordDomain {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value of the DNS record.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface EmailServiceDomainVerificationRecordSpf {
+        /**
+         * The name of the Email Communication Service resource. If `domainManagement` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+         */
+        ttl?: pulumi.Input<number>;
+        /**
+         * Type of the DNS record. Example: TXT
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value of the DNS record.
+         */
+        value?: pulumi.Input<string>;
+    }
 }
 
 export namespace compute {
@@ -24751,13 +24879,7 @@ export namespace containerservice {
          */
         dockerBridgeCidr?: pulumi.Input<string>;
         /**
-         * Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-         *
-         * > **Note:** When `ebpfDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
-         *
-         * > **Note:** When `ebpfDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
-         *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         * @deprecated This property has been superseded by the property `networkDataPlane` and will be removed in v4.0 of the AzureRM provider.
          */
         ebpfDataPlane?: pulumi.Input<string>;
         /**
@@ -24780,6 +24902,16 @@ export namespace containerservice {
          * A `natGatewayProfile` block as defined below. This can only be specified when `loadBalancerSku` is set to `standard` and `outboundType` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
          */
         natGatewayProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNetworkProfileNatGatewayProfile>;
+        /**
+         * Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+         *
+         * > **Note:** When `networkDataPlane` is set to `cilium`, the `networkPlugin` field can only be set to `azure`.
+         *
+         * > **Note:** When `networkDataPlane` is set to `cilium`, one of either `networkPluginMode = "overlay"` or `podSubnetId` must be specified.
+         *
+         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+         */
+        networkDataPlane?: pulumi.Input<string>;
         /**
          * Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
          *
@@ -24805,7 +24937,7 @@ export namespace containerservice {
          *
          * > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
          *
-         * > **Note:** When `networkPolicy` is set to `cilium`, the `ebpfDataPlane` field must be set to `cilium`.
+         * > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
          */
         networkPolicy?: pulumi.Input<string>;
         outboundIpAddressIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -37702,6 +37834,47 @@ export namespace management {
     }
 }
 
+export namespace maps {
+    export interface AccountCors {
+        /**
+         * A list of origins that should be allowed to make cross-origin calls.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AccountDataStore {
+        /**
+         * The ID of the Storage Account that should be linked to this Azure Maps Account.
+         */
+        storageAccountId?: pulumi.Input<string>;
+        /**
+         * The name given to the linked Storage Account.
+         */
+        uniqueName: pulumi.Input<string>;
+    }
+
+    export interface AccountIdentity {
+        /**
+         * A list of User Assigned Managed Identity IDs to be assigned to this Azure Maps Account.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Azure Maps Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         */
+        type: pulumi.Input<string>;
+    }
+}
+
 export namespace mariadb {
 }
 
@@ -47666,6 +47839,290 @@ export namespace pim {
          */
         system?: pulumi.Input<string>;
     }
+
+    export interface RoleManagementPolicyActivationRules {
+        /**
+         * An `approvalStage` block as defined below.
+         */
+        approvalStage?: pulumi.Input<inputs.pim.RoleManagementPolicyActivationRulesApprovalStage>;
+        /**
+         * The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+         */
+        maximumDuration?: pulumi.Input<string>;
+        /**
+         * Is approval required for activation. If `true` an `approvalStage` block must be provided.
+         */
+        requireApproval?: pulumi.Input<boolean>;
+        /**
+         * Is a justification required during activation of the role.
+         */
+        requireJustification?: pulumi.Input<boolean>;
+        /**
+         * Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
+         */
+        requireMultifactorAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Is ticket information requrired during activation of the role.
+         */
+        requireTicketInfo?: pulumi.Input<boolean>;
+        /**
+         * The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
+         */
+        requiredConditionalAccessAuthenticationContext?: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyActivationRulesApprovalStage {
+        /**
+         * The IDs of the users or groups who can approve the activation
+         */
+        primaryApprovers: pulumi.Input<pulumi.Input<inputs.pim.RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover>[]>;
+    }
+
+    export interface RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover {
+        /**
+         * The ID of the object which will act as an approver.
+         */
+        objectId: pulumi.Input<string>;
+        /**
+         * The type of object acting as an approver. Possible options are `User` and `Group`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyActiveAssignmentRules {
+        /**
+         * Must an assignment have an expiry date. `false` allows permanent assignment.
+         */
+        expirationRequired?: pulumi.Input<boolean>;
+        /**
+         * The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+         */
+        expireAfter?: pulumi.Input<string>;
+        /**
+         * Is a justification required to create new assignments.
+         */
+        requireJustification?: pulumi.Input<boolean>;
+        /**
+         * Is multi-factor authentication required to create new assignments.
+         */
+        requireMultifactorAuthentication?: pulumi.Input<boolean>;
+        /**
+         * Is ticket information required to create new assignments.
+         *
+         * One of `expirationRequired` or `expireAfter` must be provided.
+         */
+        requireTicketInfo?: pulumi.Input<boolean>;
+    }
+
+    export interface RoleManagementPolicyEligibleAssignmentRules {
+        /**
+         * Must an assignment have an expiry date. `false` allows permanent assignment.
+         */
+        expirationRequired?: pulumi.Input<boolean>;
+        /**
+         * The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+         *
+         * One of `expirationRequired` or `expireAfter` must be provided.
+         */
+        expireAfter?: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRules {
+        /**
+         * A `notificationTarget` block as defined below to configure notfications on active role assignments.
+         */
+        activeAssignments?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesActiveAssignments>;
+        /**
+         * A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
+         */
+        eligibleActivations?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleActivations>;
+        /**
+         * A `notificationTarget` block as defined below to configure notification on eligible role assignments.
+         *
+         * At least one `notificationTarget` block must be provided.
+         */
+        eligibleAssignments?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignments>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignments {
+        /**
+         * Admin notification settings
+         */
+        adminNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications>;
+        /**
+         * Approver notification settings
+         */
+        approverNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications>;
+        /**
+         * Assignee notification settings
+         */
+        assigneeNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivations {
+        /**
+         * Admin notification settings
+         */
+        adminNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications>;
+        /**
+         * Approver notification settings
+         */
+        approverNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications>;
+        /**
+         * Assignee notification settings
+         */
+        assigneeNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignments {
+        /**
+         * Admin notification settings
+         */
+        adminNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications>;
+        /**
+         * Approver notification settings
+         */
+        approverNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications>;
+        /**
+         * Assignee notification settings
+         */
+        assigneeNotifications?: pulumi.Input<inputs.pim.RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
+
+    export interface RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
+        /**
+         * The additional recipients to notify
+         */
+        additionalRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether the default recipients are notified
+         */
+        defaultRecipients: pulumi.Input<boolean>;
+        /**
+         * What level of notifications are sent
+         */
+        notificationLevel: pulumi.Input<string>;
+    }
 }
 
 export namespace policy {
@@ -49031,14 +49488,22 @@ export namespace sentinel {
         aggregationMethod: pulumi.Input<string>;
     }
 
-    export interface AlertRuleScheduledIncidentConfiguration {
+    export interface AlertRuleScheduledIncident {
         /**
          * Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
          */
-        createIncident: pulumi.Input<boolean>;
+        createIncidentEnabled: pulumi.Input<boolean>;
         /**
          * A `grouping` block as defined below.
          */
+        grouping: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentGrouping>;
+    }
+
+    export interface AlertRuleScheduledIncidentConfiguration {
+        /**
+         * @deprecated The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
+         */
+        createIncident: pulumi.Input<boolean>;
         grouping: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfigurationGrouping>;
     }
 
@@ -49052,17 +49517,48 @@ export namespace sentinel {
          */
         entityMatchingMethod?: pulumi.Input<string>;
         /**
-         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+         * @deprecated The `groupByAlertDetails` property has been superseded by the `byAlertDetails` property and will be removed in v4.0 of the AzureRM Provider
          */
         groupByAlertDetails?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+         * @deprecated The `groupByCustomDetails` property has been superseded by the `byCustomDetails` property and will be removed in v4.0 of the AzureRM Provider
          */
         groupByCustomDetails?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         * @deprecated The `groupByEntities` property has been superseded by the `byEntities` property and will be removed in v4.0 of the AzureRM Provider
          */
         groupByEntities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+         */
+        lookbackDuration?: pulumi.Input<string>;
+        /**
+         * Whether to re-open closed matching incidents? Defaults to `false`.
+         */
+        reopenClosedIncidents?: pulumi.Input<boolean>;
+    }
+
+    export interface AlertRuleScheduledIncidentGrouping {
+        /**
+         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+         */
+        byAlertDetails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+         */
+        byCustomDetails?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         */
+        byEntities?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+         */
+        entityMatchingMethod?: pulumi.Input<string>;
         /**
          * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
          */
@@ -52146,16 +52642,10 @@ export namespace synapse {
     }
 
     export interface WorkspaceAadAdmin {
-        /**
-         * The login name of the Azure AD Administrator of this Synapse Workspace.
-         */
         login: pulumi.Input<string>;
-        /**
-         * The object id of the Azure AD Administrator of this Synapse Workspace.
-         */
         objectId: pulumi.Input<string>;
         /**
-         * The tenant id of the Azure AD Administrator of this Synapse Workspace.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         tenantId: pulumi.Input<string>;
     }
@@ -52257,16 +52747,10 @@ export namespace synapse {
     }
 
     export interface WorkspaceSqlAadAdmin {
-        /**
-         * The login name of the Azure AD Administrator of this Synapse Workspace SQL.
-         */
         login: pulumi.Input<string>;
-        /**
-         * The object id of the Azure AD Administrator of this Synapse Workspace SQL.
-         */
         objectId: pulumi.Input<string>;
         /**
-         * The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+         * The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
          */
         tenantId: pulumi.Input<string>;
     }

@@ -33,6 +33,7 @@ namespace Pulumi.Azure.HDInsight
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["httpsEndpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.HttpsEndpoint),
+        ///         ["clusterId"] = example.Apply(getClusterResult =&gt; getClusterResult.ClusterId),
         ///     };
         /// });
         /// ```
@@ -62,6 +63,7 @@ namespace Pulumi.Azure.HDInsight
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["httpsEndpoint"] = example.Apply(getClusterResult =&gt; getClusterResult.HttpsEndpoint),
+        ///         ["clusterId"] = example.Apply(getClusterResult =&gt; getClusterResult.ClusterId),
         ///     };
         /// });
         /// ```
@@ -116,6 +118,10 @@ namespace Pulumi.Azure.HDInsight
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The HDInsight Cluster ID.
+        /// </summary>
+        public readonly string ClusterId;
+        /// <summary>
         /// The version of HDInsights which is used on this HDInsight Cluster.
         /// </summary>
         public readonly string ClusterVersion;
@@ -151,6 +157,9 @@ namespace Pulumi.Azure.HDInsight
         /// The Azure Region in which this HDInsight Cluster exists.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The HDInsight Cluster name.
+        /// </summary>
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -172,6 +181,8 @@ namespace Pulumi.Azure.HDInsight
 
         [OutputConstructor]
         private GetClusterResult(
+            string clusterId,
+
             string clusterVersion,
 
             ImmutableDictionary<string, string> componentVersions,
@@ -202,6 +213,7 @@ namespace Pulumi.Azure.HDInsight
 
             string tlsMinVersion)
         {
+            ClusterId = clusterId;
             ClusterVersion = clusterVersion;
             ComponentVersions = componentVersions;
             EdgeSshEndpoint = edgeSshEndpoint;

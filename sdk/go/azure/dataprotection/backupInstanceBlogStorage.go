@@ -113,6 +113,10 @@ type BackupInstanceBlogStorage struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The list of the container names of the source Storage Account.
+	//
+	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+	StorageAccountContainerNames pulumi.StringArrayOutput `pulumi:"storageAccountContainerNames"`
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -164,6 +168,10 @@ type backupInstanceBlogStorageState struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name *string `pulumi:"name"`
+	// The list of the container names of the source Storage Account.
+	//
+	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+	StorageAccountContainerNames []string `pulumi:"storageAccountContainerNames"`
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -177,6 +185,10 @@ type BackupInstanceBlogStorageState struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringPtrInput
+	// The list of the container names of the source Storage Account.
+	//
+	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+	StorageAccountContainerNames pulumi.StringArrayInput
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
 	StorageAccountId pulumi.StringPtrInput
 	// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -194,6 +206,10 @@ type backupInstanceBlogStorageArgs struct {
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name *string `pulumi:"name"`
+	// The list of the container names of the source Storage Account.
+	//
+	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+	StorageAccountContainerNames []string `pulumi:"storageAccountContainerNames"`
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -208,6 +224,10 @@ type BackupInstanceBlogStorageArgs struct {
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringPtrInput
+	// The list of the container names of the source Storage Account.
+	//
+	// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+	StorageAccountContainerNames pulumi.StringArrayInput
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
 	StorageAccountId pulumi.StringInput
 	// The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -314,6 +334,13 @@ func (o BackupInstanceBlogStorageOutput) Location() pulumi.StringOutput {
 // The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 func (o BackupInstanceBlogStorageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstanceBlogStorage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The list of the container names of the source Storage Account.
+//
+// > **Note:** The `storageAccountContainerNames` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storageAccountContainerNames` will force a new resource to be created since it can't be removed once specified.
+func (o BackupInstanceBlogStorageOutput) StorageAccountContainerNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BackupInstanceBlogStorage) pulumi.StringArrayOutput { return v.StorageAccountContainerNames }).(pulumi.StringArrayOutput)
 }
 
 // The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.

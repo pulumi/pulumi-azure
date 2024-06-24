@@ -64,7 +64,6 @@ class ServiceArgs:
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
@@ -111,6 +110,9 @@ class ServiceArgs:
             pulumi.set(__self__, "name", name)
         if notification_sender_email is not None:
             pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+        if policy is not None:
+            warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if protocols is not None:
@@ -323,9 +325,9 @@ class ServiceArgs:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input['ServicePolicyArgs']]:
-        """
-        A `policy` block as defined below.
-        """
+        warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -528,7 +530,6 @@ class _ServiceState:
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input['ServicePolicyArgs'] policy: A `policy` block as defined below.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input['ServiceProtocolsArgs'] protocols: A `protocols` block as defined below.
@@ -591,6 +592,9 @@ class _ServiceState:
             pulumi.set(__self__, "name", name)
         if notification_sender_email is not None:
             pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+        if policy is not None:
+            warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if portal_url is not None:
@@ -815,9 +819,9 @@ class _ServiceState:
     @property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input['ServicePolicyArgs']]:
-        """
-        A `policy` block as defined below.
-        """
+        warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -1138,7 +1142,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
@@ -1361,7 +1364,6 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[pulumi.InputType['ServicePolicyArgs']] policy: A `policy` block as defined below.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
         :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
@@ -1558,9 +1560,9 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.ServicePolicy']:
-        """
-        A `policy` block as defined below.
-        """
+        warnings.warn("""The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""policy is deprecated: The `policy` block has been superseded by the resource `apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "policy")
 
     @property

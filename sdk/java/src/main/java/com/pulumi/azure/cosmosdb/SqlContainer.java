@@ -189,14 +189,14 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="defaultTtl", refs={Integer.class}, tree="[0]")
-    private Output<Integer> defaultTtl;
+    private Output</* @Nullable */ Integer> defaultTtl;
 
     /**
      * @return The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      * 
      */
-    public Output<Integer> defaultTtl() {
-        return this.defaultTtl;
+    public Output<Optional<Integer>> defaultTtl() {
+        return Codegen.optional(this.defaultTtl);
     }
     /**
      * An `indexing_policy` block as defined below.
@@ -227,18 +227,44 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Define a partition key. Changing this forces a new resource to be created.
+     * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
      * 
      */
+    @Export(name="partitionKeyKind", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> partitionKeyKind;
+
+    /**
+     * @return Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> partitionKeyKind() {
+        return Codegen.optional(this.partitionKeyKind);
+    }
+    /**
+     * @deprecated
+     * `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider. */
     @Export(name="partitionKeyPath", refs={String.class}, tree="[0]")
     private Output<String> partitionKeyPath;
 
-    /**
-     * @return Define a partition key. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<String> partitionKeyPath() {
         return this.partitionKeyPath;
+    }
+    /**
+     * A list of partition key paths. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="partitionKeyPaths", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> partitionKeyPaths;
+
+    /**
+     * @return A list of partition key paths. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<List<String>> partitionKeyPaths() {
+        return this.partitionKeyPaths;
     }
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.

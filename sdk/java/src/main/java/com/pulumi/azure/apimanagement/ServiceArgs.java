@@ -197,16 +197,20 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `policy` block as defined below.
+     * @deprecated
+     * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="policy")
     private @Nullable Output<ServicePolicyArgs> policy;
 
     /**
-     * @return A `policy` block as defined below.
+     * @deprecated
+     * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
     public Optional<Output<ServicePolicyArgs>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -762,22 +766,26 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy A `policy` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
         public Builder policy(@Nullable Output<ServicePolicyArgs> policy) {
             $.policy = policy;
             return this;
         }
 
         /**
-         * @param policy A `policy` block as defined below.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `policy` block has been superseded by the resource `azure.apimanagement.Policy` and will be removed in v4.0 of the AzureRM Provider */
         public Builder policy(ServicePolicyArgs policy) {
             return policy(Output.of(policy));
         }

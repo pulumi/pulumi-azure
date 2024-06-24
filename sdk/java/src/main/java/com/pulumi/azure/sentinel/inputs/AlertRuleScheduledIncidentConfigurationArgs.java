@@ -16,31 +16,27 @@ public final class AlertRuleScheduledIncidentConfigurationArgs extends com.pulum
     public static final AlertRuleScheduledIncidentConfigurationArgs Empty = new AlertRuleScheduledIncidentConfigurationArgs();
 
     /**
-     * Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+     * @deprecated
+     * The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider */
     @Import(name="createIncident", required=true)
     private Output<Boolean> createIncident;
 
     /**
-     * @return Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+     * @deprecated
+     * The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider */
     public Output<Boolean> createIncident() {
         return this.createIncident;
     }
 
-    /**
-     * A `grouping` block as defined below.
-     * 
-     */
     @Import(name="grouping", required=true)
     private Output<AlertRuleScheduledIncidentConfigurationGroupingArgs> grouping;
 
-    /**
-     * @return A `grouping` block as defined below.
-     * 
-     */
     public Output<AlertRuleScheduledIncidentConfigurationGroupingArgs> grouping() {
         return this.grouping;
     }
@@ -71,43 +67,35 @@ public final class AlertRuleScheduledIncidentConfigurationArgs extends com.pulum
         }
 
         /**
-         * @param createIncident Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder createIncident(Output<Boolean> createIncident) {
             $.createIncident = createIncident;
             return this;
         }
 
         /**
-         * @param createIncident Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider */
         public Builder createIncident(Boolean createIncident) {
             return createIncident(Output.of(createIncident));
         }
 
-        /**
-         * @param grouping A `grouping` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grouping(Output<AlertRuleScheduledIncidentConfigurationGroupingArgs> grouping) {
             $.grouping = grouping;
             return this;
         }
 
-        /**
-         * @param grouping A `grouping` block as defined below.
-         * 
-         * @return builder
-         * 
-         */
         public Builder grouping(AlertRuleScheduledIncidentConfigurationGroupingArgs grouping) {
             return grouping(Output.of(grouping));
         }

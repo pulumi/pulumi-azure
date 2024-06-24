@@ -1003,6 +1003,5424 @@ func (o EligibleRoleAssignmentTicketPtrOutput) System() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RoleManagementPolicyActivationRules struct {
+	// An `approvalStage` block as defined below.
+	ApprovalStage *RoleManagementPolicyActivationRulesApprovalStage `pulumi:"approvalStage"`
+	// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+	MaximumDuration *string `pulumi:"maximumDuration"`
+	// Is approval required for activation. If `true` an `approvalStage` block must be provided.
+	RequireApproval *bool `pulumi:"requireApproval"`
+	// Is a justification required during activation of the role.
+	RequireJustification *bool `pulumi:"requireJustification"`
+	// Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
+	RequireMultifactorAuthentication *bool `pulumi:"requireMultifactorAuthentication"`
+	// Is ticket information requrired during activation of the role.
+	RequireTicketInfo *bool `pulumi:"requireTicketInfo"`
+	// The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
+	RequiredConditionalAccessAuthenticationContext *string `pulumi:"requiredConditionalAccessAuthenticationContext"`
+}
+
+// RoleManagementPolicyActivationRulesInput is an input type that accepts RoleManagementPolicyActivationRulesArgs and RoleManagementPolicyActivationRulesOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActivationRulesInput` via:
+//
+//	RoleManagementPolicyActivationRulesArgs{...}
+type RoleManagementPolicyActivationRulesInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActivationRulesOutput() RoleManagementPolicyActivationRulesOutput
+	ToRoleManagementPolicyActivationRulesOutputWithContext(context.Context) RoleManagementPolicyActivationRulesOutput
+}
+
+type RoleManagementPolicyActivationRulesArgs struct {
+	// An `approvalStage` block as defined below.
+	ApprovalStage RoleManagementPolicyActivationRulesApprovalStagePtrInput `pulumi:"approvalStage"`
+	// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+	MaximumDuration pulumi.StringPtrInput `pulumi:"maximumDuration"`
+	// Is approval required for activation. If `true` an `approvalStage` block must be provided.
+	RequireApproval pulumi.BoolPtrInput `pulumi:"requireApproval"`
+	// Is a justification required during activation of the role.
+	RequireJustification pulumi.BoolPtrInput `pulumi:"requireJustification"`
+	// Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
+	RequireMultifactorAuthentication pulumi.BoolPtrInput `pulumi:"requireMultifactorAuthentication"`
+	// Is ticket information requrired during activation of the role.
+	RequireTicketInfo pulumi.BoolPtrInput `pulumi:"requireTicketInfo"`
+	// The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
+	RequiredConditionalAccessAuthenticationContext pulumi.StringPtrInput `pulumi:"requiredConditionalAccessAuthenticationContext"`
+}
+
+func (RoleManagementPolicyActivationRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActivationRules)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyActivationRulesArgs) ToRoleManagementPolicyActivationRulesOutput() RoleManagementPolicyActivationRulesOutput {
+	return i.ToRoleManagementPolicyActivationRulesOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActivationRulesArgs) ToRoleManagementPolicyActivationRulesOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesOutput)
+}
+
+func (i RoleManagementPolicyActivationRulesArgs) ToRoleManagementPolicyActivationRulesPtrOutput() RoleManagementPolicyActivationRulesPtrOutput {
+	return i.ToRoleManagementPolicyActivationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActivationRulesArgs) ToRoleManagementPolicyActivationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesOutput).ToRoleManagementPolicyActivationRulesPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyActivationRulesPtrInput is an input type that accepts RoleManagementPolicyActivationRulesArgs, RoleManagementPolicyActivationRulesPtr and RoleManagementPolicyActivationRulesPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActivationRulesPtrInput` via:
+//
+//	        RoleManagementPolicyActivationRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyActivationRulesPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActivationRulesPtrOutput() RoleManagementPolicyActivationRulesPtrOutput
+	ToRoleManagementPolicyActivationRulesPtrOutputWithContext(context.Context) RoleManagementPolicyActivationRulesPtrOutput
+}
+
+type roleManagementPolicyActivationRulesPtrType RoleManagementPolicyActivationRulesArgs
+
+func RoleManagementPolicyActivationRulesPtr(v *RoleManagementPolicyActivationRulesArgs) RoleManagementPolicyActivationRulesPtrInput {
+	return (*roleManagementPolicyActivationRulesPtrType)(v)
+}
+
+func (*roleManagementPolicyActivationRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyActivationRules)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyActivationRulesPtrType) ToRoleManagementPolicyActivationRulesPtrOutput() RoleManagementPolicyActivationRulesPtrOutput {
+	return i.ToRoleManagementPolicyActivationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyActivationRulesPtrType) ToRoleManagementPolicyActivationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesPtrOutput)
+}
+
+type RoleManagementPolicyActivationRulesOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActivationRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActivationRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActivationRulesOutput) ToRoleManagementPolicyActivationRulesOutput() RoleManagementPolicyActivationRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesOutput) ToRoleManagementPolicyActivationRulesOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesOutput) ToRoleManagementPolicyActivationRulesPtrOutput() RoleManagementPolicyActivationRulesPtrOutput {
+	return o.ToRoleManagementPolicyActivationRulesPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyActivationRulesOutput) ToRoleManagementPolicyActivationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyActivationRules) *RoleManagementPolicyActivationRules {
+		return &v
+	}).(RoleManagementPolicyActivationRulesPtrOutput)
+}
+
+// An `approvalStage` block as defined below.
+func (o RoleManagementPolicyActivationRulesOutput) ApprovalStage() RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *RoleManagementPolicyActivationRulesApprovalStage {
+		return v.ApprovalStage
+	}).(RoleManagementPolicyActivationRulesApprovalStagePtrOutput)
+}
+
+// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+func (o RoleManagementPolicyActivationRulesOutput) MaximumDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *string { return v.MaximumDuration }).(pulumi.StringPtrOutput)
+}
+
+// Is approval required for activation. If `true` an `approvalStage` block must be provided.
+func (o RoleManagementPolicyActivationRulesOutput) RequireApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *bool { return v.RequireApproval }).(pulumi.BoolPtrOutput)
+}
+
+// Is a justification required during activation of the role.
+func (o RoleManagementPolicyActivationRulesOutput) RequireJustification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *bool { return v.RequireJustification }).(pulumi.BoolPtrOutput)
+}
+
+// Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
+func (o RoleManagementPolicyActivationRulesOutput) RequireMultifactorAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *bool { return v.RequireMultifactorAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+// Is ticket information requrired during activation of the role.
+func (o RoleManagementPolicyActivationRulesOutput) RequireTicketInfo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *bool { return v.RequireTicketInfo }).(pulumi.BoolPtrOutput)
+}
+
+// The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
+func (o RoleManagementPolicyActivationRulesOutput) RequiredConditionalAccessAuthenticationContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRules) *string {
+		return v.RequiredConditionalAccessAuthenticationContext
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyActivationRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActivationRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyActivationRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActivationRulesPtrOutput) ToRoleManagementPolicyActivationRulesPtrOutput() RoleManagementPolicyActivationRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesPtrOutput) ToRoleManagementPolicyActivationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesPtrOutput) Elem() RoleManagementPolicyActivationRulesOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) RoleManagementPolicyActivationRules {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyActivationRules
+		return ret
+	}).(RoleManagementPolicyActivationRulesOutput)
+}
+
+// An `approvalStage` block as defined below.
+func (o RoleManagementPolicyActivationRulesPtrOutput) ApprovalStage() RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *RoleManagementPolicyActivationRulesApprovalStage {
+		if v == nil {
+			return nil
+		}
+		return v.ApprovalStage
+	}).(RoleManagementPolicyActivationRulesApprovalStagePtrOutput)
+}
+
+// The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+func (o RoleManagementPolicyActivationRulesPtrOutput) MaximumDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is approval required for activation. If `true` an `approvalStage` block must be provided.
+func (o RoleManagementPolicyActivationRulesPtrOutput) RequireApproval() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireApproval
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is a justification required during activation of the role.
+func (o RoleManagementPolicyActivationRulesPtrOutput) RequireJustification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireJustification
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is multi-factor authentication required to activate the role. Conflicts with `requiredConditionalAccessAuthenticationContext`.
+func (o RoleManagementPolicyActivationRulesPtrOutput) RequireMultifactorAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireMultifactorAuthentication
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is ticket information requrired during activation of the role.
+func (o RoleManagementPolicyActivationRulesPtrOutput) RequireTicketInfo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireTicketInfo
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Entra ID Conditional Access context that must be present for activation. Conflicts with `requireMultifactorAuthentication`.
+func (o RoleManagementPolicyActivationRulesPtrOutput) RequiredConditionalAccessAuthenticationContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequiredConditionalAccessAuthenticationContext
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyActivationRulesApprovalStage struct {
+	// The IDs of the users or groups who can approve the activation
+	PrimaryApprovers []RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover `pulumi:"primaryApprovers"`
+}
+
+// RoleManagementPolicyActivationRulesApprovalStageInput is an input type that accepts RoleManagementPolicyActivationRulesApprovalStageArgs and RoleManagementPolicyActivationRulesApprovalStageOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActivationRulesApprovalStageInput` via:
+//
+//	RoleManagementPolicyActivationRulesApprovalStageArgs{...}
+type RoleManagementPolicyActivationRulesApprovalStageInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActivationRulesApprovalStageOutput() RoleManagementPolicyActivationRulesApprovalStageOutput
+	ToRoleManagementPolicyActivationRulesApprovalStageOutputWithContext(context.Context) RoleManagementPolicyActivationRulesApprovalStageOutput
+}
+
+type RoleManagementPolicyActivationRulesApprovalStageArgs struct {
+	// The IDs of the users or groups who can approve the activation
+	PrimaryApprovers RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayInput `pulumi:"primaryApprovers"`
+}
+
+func (RoleManagementPolicyActivationRulesApprovalStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStage)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStageArgs) ToRoleManagementPolicyActivationRulesApprovalStageOutput() RoleManagementPolicyActivationRulesApprovalStageOutput {
+	return i.ToRoleManagementPolicyActivationRulesApprovalStageOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStageArgs) ToRoleManagementPolicyActivationRulesApprovalStageOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesApprovalStageOutput)
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStageArgs) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutput() RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return i.ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStageArgs) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesApprovalStageOutput).ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyActivationRulesApprovalStagePtrInput is an input type that accepts RoleManagementPolicyActivationRulesApprovalStageArgs, RoleManagementPolicyActivationRulesApprovalStagePtr and RoleManagementPolicyActivationRulesApprovalStagePtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActivationRulesApprovalStagePtrInput` via:
+//
+//	        RoleManagementPolicyActivationRulesApprovalStageArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyActivationRulesApprovalStagePtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActivationRulesApprovalStagePtrOutput() RoleManagementPolicyActivationRulesApprovalStagePtrOutput
+	ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(context.Context) RoleManagementPolicyActivationRulesApprovalStagePtrOutput
+}
+
+type roleManagementPolicyActivationRulesApprovalStagePtrType RoleManagementPolicyActivationRulesApprovalStageArgs
+
+func RoleManagementPolicyActivationRulesApprovalStagePtr(v *RoleManagementPolicyActivationRulesApprovalStageArgs) RoleManagementPolicyActivationRulesApprovalStagePtrInput {
+	return (*roleManagementPolicyActivationRulesApprovalStagePtrType)(v)
+}
+
+func (*roleManagementPolicyActivationRulesApprovalStagePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyActivationRulesApprovalStage)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyActivationRulesApprovalStagePtrType) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutput() RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return i.ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyActivationRulesApprovalStagePtrType) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesApprovalStagePtrOutput)
+}
+
+type RoleManagementPolicyActivationRulesApprovalStageOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActivationRulesApprovalStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStage)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStageOutput) ToRoleManagementPolicyActivationRulesApprovalStageOutput() RoleManagementPolicyActivationRulesApprovalStageOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStageOutput) ToRoleManagementPolicyActivationRulesApprovalStageOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStageOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStageOutput) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutput() RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return o.ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStageOutput) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyActivationRulesApprovalStage) *RoleManagementPolicyActivationRulesApprovalStage {
+		return &v
+	}).(RoleManagementPolicyActivationRulesApprovalStagePtrOutput)
+}
+
+// The IDs of the users or groups who can approve the activation
+func (o RoleManagementPolicyActivationRulesApprovalStageOutput) PrimaryApprovers() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRulesApprovalStage) []RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover {
+		return v.PrimaryApprovers
+	}).(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput)
+}
+
+type RoleManagementPolicyActivationRulesApprovalStagePtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActivationRulesApprovalStagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyActivationRulesApprovalStage)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePtrOutput) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutput() RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePtrOutput) ToRoleManagementPolicyActivationRulesApprovalStagePtrOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePtrOutput) Elem() RoleManagementPolicyActivationRulesApprovalStageOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRulesApprovalStage) RoleManagementPolicyActivationRulesApprovalStage {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyActivationRulesApprovalStage
+		return ret
+	}).(RoleManagementPolicyActivationRulesApprovalStageOutput)
+}
+
+// The IDs of the users or groups who can approve the activation
+func (o RoleManagementPolicyActivationRulesApprovalStagePtrOutput) PrimaryApprovers() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActivationRulesApprovalStage) []RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover {
+		if v == nil {
+			return nil
+		}
+		return v.PrimaryApprovers
+	}).(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput)
+}
+
+type RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover struct {
+	// The ID of the object which will act as an approver.
+	ObjectId string `pulumi:"objectId"`
+	// The type of object acting as an approver. Possible options are `User` and `Group`.
+	Type string `pulumi:"type"`
+}
+
+// RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverInput is an input type that accepts RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs and RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverInput` via:
+//
+//	RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs{...}
+type RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput
+	ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutputWithContext(context.Context) RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput
+}
+
+type RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs struct {
+	// The ID of the object which will act as an approver.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The type of object acting as an approver. Possible options are `User` and `Group`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput {
+	return i.ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput)
+}
+
+// RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayInput is an input type that accepts RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray and RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayInput` via:
+//
+//	RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray{ RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs{...} }
+type RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput
+	ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutputWithContext(context.Context) RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput
+}
+
+type RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray []RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverInput
+
+func (RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
+	return i.ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput)
+}
+
+type RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput {
+	return o
+}
+
+// The ID of the object which will act as an approver.
+func (o RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The type of object acting as an approver. Possible options are `User` and `Group`.
+func (o RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput() RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput) ToRoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutputWithContext(ctx context.Context) RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput) Index(i pulumi.IntInput) RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover {
+		return vs[0].([]RoleManagementPolicyActivationRulesApprovalStagePrimaryApprover)[vs[1].(int)]
+	}).(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput)
+}
+
+type RoleManagementPolicyActiveAssignmentRules struct {
+	// Must an assignment have an expiry date. `false` allows permanent assignment.
+	ExpirationRequired *bool `pulumi:"expirationRequired"`
+	// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+	ExpireAfter *string `pulumi:"expireAfter"`
+	// Is a justification required to create new assignments.
+	RequireJustification *bool `pulumi:"requireJustification"`
+	// Is multi-factor authentication required to create new assignments.
+	RequireMultifactorAuthentication *bool `pulumi:"requireMultifactorAuthentication"`
+	// Is ticket information required to create new assignments.
+	//
+	// One of `expirationRequired` or `expireAfter` must be provided.
+	RequireTicketInfo *bool `pulumi:"requireTicketInfo"`
+}
+
+// RoleManagementPolicyActiveAssignmentRulesInput is an input type that accepts RoleManagementPolicyActiveAssignmentRulesArgs and RoleManagementPolicyActiveAssignmentRulesOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActiveAssignmentRulesInput` via:
+//
+//	RoleManagementPolicyActiveAssignmentRulesArgs{...}
+type RoleManagementPolicyActiveAssignmentRulesInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActiveAssignmentRulesOutput() RoleManagementPolicyActiveAssignmentRulesOutput
+	ToRoleManagementPolicyActiveAssignmentRulesOutputWithContext(context.Context) RoleManagementPolicyActiveAssignmentRulesOutput
+}
+
+type RoleManagementPolicyActiveAssignmentRulesArgs struct {
+	// Must an assignment have an expiry date. `false` allows permanent assignment.
+	ExpirationRequired pulumi.BoolPtrInput `pulumi:"expirationRequired"`
+	// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+	ExpireAfter pulumi.StringPtrInput `pulumi:"expireAfter"`
+	// Is a justification required to create new assignments.
+	RequireJustification pulumi.BoolPtrInput `pulumi:"requireJustification"`
+	// Is multi-factor authentication required to create new assignments.
+	RequireMultifactorAuthentication pulumi.BoolPtrInput `pulumi:"requireMultifactorAuthentication"`
+	// Is ticket information required to create new assignments.
+	//
+	// One of `expirationRequired` or `expireAfter` must be provided.
+	RequireTicketInfo pulumi.BoolPtrInput `pulumi:"requireTicketInfo"`
+}
+
+func (RoleManagementPolicyActiveAssignmentRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActiveAssignmentRules)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyActiveAssignmentRulesArgs) ToRoleManagementPolicyActiveAssignmentRulesOutput() RoleManagementPolicyActiveAssignmentRulesOutput {
+	return i.ToRoleManagementPolicyActiveAssignmentRulesOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActiveAssignmentRulesArgs) ToRoleManagementPolicyActiveAssignmentRulesOutputWithContext(ctx context.Context) RoleManagementPolicyActiveAssignmentRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActiveAssignmentRulesOutput)
+}
+
+func (i RoleManagementPolicyActiveAssignmentRulesArgs) ToRoleManagementPolicyActiveAssignmentRulesPtrOutput() RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return i.ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyActiveAssignmentRulesArgs) ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActiveAssignmentRulesOutput).ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyActiveAssignmentRulesPtrInput is an input type that accepts RoleManagementPolicyActiveAssignmentRulesArgs, RoleManagementPolicyActiveAssignmentRulesPtr and RoleManagementPolicyActiveAssignmentRulesPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyActiveAssignmentRulesPtrInput` via:
+//
+//	        RoleManagementPolicyActiveAssignmentRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyActiveAssignmentRulesPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyActiveAssignmentRulesPtrOutput() RoleManagementPolicyActiveAssignmentRulesPtrOutput
+	ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(context.Context) RoleManagementPolicyActiveAssignmentRulesPtrOutput
+}
+
+type roleManagementPolicyActiveAssignmentRulesPtrType RoleManagementPolicyActiveAssignmentRulesArgs
+
+func RoleManagementPolicyActiveAssignmentRulesPtr(v *RoleManagementPolicyActiveAssignmentRulesArgs) RoleManagementPolicyActiveAssignmentRulesPtrInput {
+	return (*roleManagementPolicyActiveAssignmentRulesPtrType)(v)
+}
+
+func (*roleManagementPolicyActiveAssignmentRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyActiveAssignmentRules)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyActiveAssignmentRulesPtrType) ToRoleManagementPolicyActiveAssignmentRulesPtrOutput() RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return i.ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyActiveAssignmentRulesPtrType) ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyActiveAssignmentRulesPtrOutput)
+}
+
+type RoleManagementPolicyActiveAssignmentRulesOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActiveAssignmentRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyActiveAssignmentRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) ToRoleManagementPolicyActiveAssignmentRulesOutput() RoleManagementPolicyActiveAssignmentRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) ToRoleManagementPolicyActiveAssignmentRulesOutputWithContext(ctx context.Context) RoleManagementPolicyActiveAssignmentRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) ToRoleManagementPolicyActiveAssignmentRulesPtrOutput() RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return o.ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyActiveAssignmentRules) *RoleManagementPolicyActiveAssignmentRules {
+		return &v
+	}).(RoleManagementPolicyActiveAssignmentRulesPtrOutput)
+}
+
+// Must an assignment have an expiry date. `false` allows permanent assignment.
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) ExpirationRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActiveAssignmentRules) *bool { return v.ExpirationRequired }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) ExpireAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActiveAssignmentRules) *string { return v.ExpireAfter }).(pulumi.StringPtrOutput)
+}
+
+// Is a justification required to create new assignments.
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) RequireJustification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActiveAssignmentRules) *bool { return v.RequireJustification }).(pulumi.BoolPtrOutput)
+}
+
+// Is multi-factor authentication required to create new assignments.
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) RequireMultifactorAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActiveAssignmentRules) *bool { return v.RequireMultifactorAuthentication }).(pulumi.BoolPtrOutput)
+}
+
+// Is ticket information required to create new assignments.
+//
+// One of `expirationRequired` or `expireAfter` must be provided.
+func (o RoleManagementPolicyActiveAssignmentRulesOutput) RequireTicketInfo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyActiveAssignmentRules) *bool { return v.RequireTicketInfo }).(pulumi.BoolPtrOutput)
+}
+
+type RoleManagementPolicyActiveAssignmentRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyActiveAssignmentRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyActiveAssignmentRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) ToRoleManagementPolicyActiveAssignmentRulesPtrOutput() RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) ToRoleManagementPolicyActiveAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyActiveAssignmentRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) Elem() RoleManagementPolicyActiveAssignmentRulesOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActiveAssignmentRules) RoleManagementPolicyActiveAssignmentRules {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyActiveAssignmentRules
+		return ret
+	}).(RoleManagementPolicyActiveAssignmentRulesOutput)
+}
+
+// Must an assignment have an expiry date. `false` allows permanent assignment.
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) ExpirationRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActiveAssignmentRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExpirationRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) ExpireAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActiveAssignmentRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireAfter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Is a justification required to create new assignments.
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) RequireJustification() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActiveAssignmentRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireJustification
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is multi-factor authentication required to create new assignments.
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) RequireMultifactorAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActiveAssignmentRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireMultifactorAuthentication
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Is ticket information required to create new assignments.
+//
+// One of `expirationRequired` or `expireAfter` must be provided.
+func (o RoleManagementPolicyActiveAssignmentRulesPtrOutput) RequireTicketInfo() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyActiveAssignmentRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireTicketInfo
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RoleManagementPolicyEligibleAssignmentRules struct {
+	// Must an assignment have an expiry date. `false` allows permanent assignment.
+	ExpirationRequired *bool `pulumi:"expirationRequired"`
+	// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+	//
+	// One of `expirationRequired` or `expireAfter` must be provided.
+	ExpireAfter *string `pulumi:"expireAfter"`
+}
+
+// RoleManagementPolicyEligibleAssignmentRulesInput is an input type that accepts RoleManagementPolicyEligibleAssignmentRulesArgs and RoleManagementPolicyEligibleAssignmentRulesOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyEligibleAssignmentRulesInput` via:
+//
+//	RoleManagementPolicyEligibleAssignmentRulesArgs{...}
+type RoleManagementPolicyEligibleAssignmentRulesInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyEligibleAssignmentRulesOutput() RoleManagementPolicyEligibleAssignmentRulesOutput
+	ToRoleManagementPolicyEligibleAssignmentRulesOutputWithContext(context.Context) RoleManagementPolicyEligibleAssignmentRulesOutput
+}
+
+type RoleManagementPolicyEligibleAssignmentRulesArgs struct {
+	// Must an assignment have an expiry date. `false` allows permanent assignment.
+	ExpirationRequired pulumi.BoolPtrInput `pulumi:"expirationRequired"`
+	// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+	//
+	// One of `expirationRequired` or `expireAfter` must be provided.
+	ExpireAfter pulumi.StringPtrInput `pulumi:"expireAfter"`
+}
+
+func (RoleManagementPolicyEligibleAssignmentRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyEligibleAssignmentRules)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyEligibleAssignmentRulesArgs) ToRoleManagementPolicyEligibleAssignmentRulesOutput() RoleManagementPolicyEligibleAssignmentRulesOutput {
+	return i.ToRoleManagementPolicyEligibleAssignmentRulesOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyEligibleAssignmentRulesArgs) ToRoleManagementPolicyEligibleAssignmentRulesOutputWithContext(ctx context.Context) RoleManagementPolicyEligibleAssignmentRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyEligibleAssignmentRulesOutput)
+}
+
+func (i RoleManagementPolicyEligibleAssignmentRulesArgs) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutput() RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return i.ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyEligibleAssignmentRulesArgs) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyEligibleAssignmentRulesOutput).ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyEligibleAssignmentRulesPtrInput is an input type that accepts RoleManagementPolicyEligibleAssignmentRulesArgs, RoleManagementPolicyEligibleAssignmentRulesPtr and RoleManagementPolicyEligibleAssignmentRulesPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyEligibleAssignmentRulesPtrInput` via:
+//
+//	        RoleManagementPolicyEligibleAssignmentRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyEligibleAssignmentRulesPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyEligibleAssignmentRulesPtrOutput() RoleManagementPolicyEligibleAssignmentRulesPtrOutput
+	ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(context.Context) RoleManagementPolicyEligibleAssignmentRulesPtrOutput
+}
+
+type roleManagementPolicyEligibleAssignmentRulesPtrType RoleManagementPolicyEligibleAssignmentRulesArgs
+
+func RoleManagementPolicyEligibleAssignmentRulesPtr(v *RoleManagementPolicyEligibleAssignmentRulesArgs) RoleManagementPolicyEligibleAssignmentRulesPtrInput {
+	return (*roleManagementPolicyEligibleAssignmentRulesPtrType)(v)
+}
+
+func (*roleManagementPolicyEligibleAssignmentRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyEligibleAssignmentRules)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyEligibleAssignmentRulesPtrType) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutput() RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return i.ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyEligibleAssignmentRulesPtrType) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyEligibleAssignmentRulesPtrOutput)
+}
+
+type RoleManagementPolicyEligibleAssignmentRulesOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyEligibleAssignmentRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyEligibleAssignmentRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyEligibleAssignmentRulesOutput) ToRoleManagementPolicyEligibleAssignmentRulesOutput() RoleManagementPolicyEligibleAssignmentRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyEligibleAssignmentRulesOutput) ToRoleManagementPolicyEligibleAssignmentRulesOutputWithContext(ctx context.Context) RoleManagementPolicyEligibleAssignmentRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyEligibleAssignmentRulesOutput) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutput() RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return o.ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyEligibleAssignmentRulesOutput) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyEligibleAssignmentRules) *RoleManagementPolicyEligibleAssignmentRules {
+		return &v
+	}).(RoleManagementPolicyEligibleAssignmentRulesPtrOutput)
+}
+
+// Must an assignment have an expiry date. `false` allows permanent assignment.
+func (o RoleManagementPolicyEligibleAssignmentRulesOutput) ExpirationRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyEligibleAssignmentRules) *bool { return v.ExpirationRequired }).(pulumi.BoolPtrOutput)
+}
+
+// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+//
+// One of `expirationRequired` or `expireAfter` must be provided.
+func (o RoleManagementPolicyEligibleAssignmentRulesOutput) ExpireAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyEligibleAssignmentRules) *string { return v.ExpireAfter }).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyEligibleAssignmentRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyEligibleAssignmentRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyEligibleAssignmentRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyEligibleAssignmentRulesPtrOutput) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutput() RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyEligibleAssignmentRulesPtrOutput) ToRoleManagementPolicyEligibleAssignmentRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyEligibleAssignmentRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyEligibleAssignmentRulesPtrOutput) Elem() RoleManagementPolicyEligibleAssignmentRulesOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyEligibleAssignmentRules) RoleManagementPolicyEligibleAssignmentRules {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyEligibleAssignmentRules
+		return ret
+	}).(RoleManagementPolicyEligibleAssignmentRulesOutput)
+}
+
+// Must an assignment have an expiry date. `false` allows permanent assignment.
+func (o RoleManagementPolicyEligibleAssignmentRulesPtrOutput) ExpirationRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyEligibleAssignmentRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExpirationRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+//
+// One of `expirationRequired` or `expireAfter` must be provided.
+func (o RoleManagementPolicyEligibleAssignmentRulesPtrOutput) ExpireAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyEligibleAssignmentRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireAfter
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRules struct {
+	// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+	ActiveAssignments *RoleManagementPolicyNotificationRulesActiveAssignments `pulumi:"activeAssignments"`
+	// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
+	EligibleActivations *RoleManagementPolicyNotificationRulesEligibleActivations `pulumi:"eligibleActivations"`
+	// A `notificationTarget` block as defined below to configure notification on eligible role assignments.
+	//
+	// At least one `notificationTarget` block must be provided.
+	EligibleAssignments *RoleManagementPolicyNotificationRulesEligibleAssignments `pulumi:"eligibleAssignments"`
+}
+
+// RoleManagementPolicyNotificationRulesInput is an input type that accepts RoleManagementPolicyNotificationRulesArgs and RoleManagementPolicyNotificationRulesOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesInput` via:
+//
+//	RoleManagementPolicyNotificationRulesArgs{...}
+type RoleManagementPolicyNotificationRulesInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesOutput() RoleManagementPolicyNotificationRulesOutput
+	ToRoleManagementPolicyNotificationRulesOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesOutput
+}
+
+type RoleManagementPolicyNotificationRulesArgs struct {
+	// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+	ActiveAssignments RoleManagementPolicyNotificationRulesActiveAssignmentsPtrInput `pulumi:"activeAssignments"`
+	// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
+	EligibleActivations RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput `pulumi:"eligibleActivations"`
+	// A `notificationTarget` block as defined below to configure notification on eligible role assignments.
+	//
+	// At least one `notificationTarget` block must be provided.
+	EligibleAssignments RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrInput `pulumi:"eligibleAssignments"`
+}
+
+func (RoleManagementPolicyNotificationRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRules)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesArgs) ToRoleManagementPolicyNotificationRulesOutput() RoleManagementPolicyNotificationRulesOutput {
+	return i.ToRoleManagementPolicyNotificationRulesOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesArgs) ToRoleManagementPolicyNotificationRulesOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesArgs) ToRoleManagementPolicyNotificationRulesPtrOutput() RoleManagementPolicyNotificationRulesPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesArgs) ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesOutput).ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesArgs, RoleManagementPolicyNotificationRulesPtr and RoleManagementPolicyNotificationRulesPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesPtrOutput() RoleManagementPolicyNotificationRulesPtrOutput
+	ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesPtrType RoleManagementPolicyNotificationRulesArgs
+
+func RoleManagementPolicyNotificationRulesPtr(v *RoleManagementPolicyNotificationRulesArgs) RoleManagementPolicyNotificationRulesPtrInput {
+	return (*roleManagementPolicyNotificationRulesPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRules)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesPtrType) ToRoleManagementPolicyNotificationRulesPtrOutput() RoleManagementPolicyNotificationRulesPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesPtrType) ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesOutput) ToRoleManagementPolicyNotificationRulesOutput() RoleManagementPolicyNotificationRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesOutput) ToRoleManagementPolicyNotificationRulesOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesOutput) ToRoleManagementPolicyNotificationRulesPtrOutput() RoleManagementPolicyNotificationRulesPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesOutput) ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRules {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesPtrOutput)
+}
+
+// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+func (o RoleManagementPolicyNotificationRulesOutput) ActiveAssignments() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesActiveAssignments {
+		return v.ActiveAssignments
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput)
+}
+
+// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
+func (o RoleManagementPolicyNotificationRulesOutput) EligibleActivations() RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesEligibleActivations {
+		return v.EligibleActivations
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput)
+}
+
+// A `notificationTarget` block as defined below to configure notification on eligible role assignments.
+//
+// At least one `notificationTarget` block must be provided.
+func (o RoleManagementPolicyNotificationRulesOutput) EligibleAssignments() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesEligibleAssignments {
+		return v.EligibleAssignments
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRules)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesPtrOutput) ToRoleManagementPolicyNotificationRulesPtrOutput() RoleManagementPolicyNotificationRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesPtrOutput) ToRoleManagementPolicyNotificationRulesPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesPtrOutput) Elem() RoleManagementPolicyNotificationRulesOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRules) RoleManagementPolicyNotificationRules {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRules
+		return ret
+	}).(RoleManagementPolicyNotificationRulesOutput)
+}
+
+// A `notificationTarget` block as defined below to configure notfications on active role assignments.
+func (o RoleManagementPolicyNotificationRulesPtrOutput) ActiveAssignments() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesActiveAssignments {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveAssignments
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput)
+}
+
+// A `notificationTarget` block as defined below for configuring notifications on activation of eligible role.
+func (o RoleManagementPolicyNotificationRulesPtrOutput) EligibleActivations() RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesEligibleActivations {
+		if v == nil {
+			return nil
+		}
+		return v.EligibleActivations
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput)
+}
+
+// A `notificationTarget` block as defined below to configure notification on eligible role assignments.
+//
+// At least one `notificationTarget` block must be provided.
+func (o RoleManagementPolicyNotificationRulesPtrOutput) EligibleAssignments() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRules) *RoleManagementPolicyNotificationRulesEligibleAssignments {
+		if v == nil {
+			return nil
+		}
+		return v.EligibleAssignments
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignments struct {
+	// Admin notification settings
+	AdminNotifications *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications `pulumi:"adminNotifications"`
+	// Approver notification settings
+	ApproverNotifications *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications `pulumi:"approverNotifications"`
+	// Assignee notification settings
+	AssigneeNotifications *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications `pulumi:"assigneeNotifications"`
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsArgs and RoleManagementPolicyNotificationRulesActiveAssignmentsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesActiveAssignmentsArgs{...}
+type RoleManagementPolicyNotificationRulesActiveAssignmentsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsOutput
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsArgs struct {
+	// Admin notification settings
+	AdminNotifications RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrInput `pulumi:"adminNotifications"`
+	// Approver notification settings
+	ApproverNotifications RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrInput `pulumi:"approverNotifications"`
+	// Assignee notification settings
+	AssigneeNotifications RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrInput `pulumi:"assigneeNotifications"`
+}
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignments)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsOutput).ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsArgs, RoleManagementPolicyNotificationRulesActiveAssignmentsPtr and RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesActiveAssignmentsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesActiveAssignmentsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesActiveAssignmentsPtrType RoleManagementPolicyNotificationRulesActiveAssignmentsArgs
+
+func RoleManagementPolicyNotificationRulesActiveAssignmentsPtr(v *RoleManagementPolicyNotificationRulesActiveAssignmentsArgs) RoleManagementPolicyNotificationRulesActiveAssignmentsPtrInput {
+	return (*roleManagementPolicyNotificationRulesActiveAssignmentsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesActiveAssignmentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignments)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignments)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignments {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput)
+}
+
+// Admin notification settings
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) AdminNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
+		return v.AdminNotifications
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput)
+}
+
+// Approver notification settings
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
+		return v.ApproverNotifications
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput)
+}
+
+// Assignee notification settings
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
+		return v.AssigneeNotifications
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignments)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) Elem() RoleManagementPolicyNotificationRulesActiveAssignmentsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignments) RoleManagementPolicyNotificationRulesActiveAssignments {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesActiveAssignments
+		return ret
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsOutput)
+}
+
+// Admin notification settings
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) AdminNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.AdminNotifications
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput)
+}
+
+// Approver notification settings
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.ApproverNotifications
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput)
+}
+
+// Assignee notification settings
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignments) *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.AssigneeNotifications
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs and RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput).ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs, RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtr and RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrType RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtr(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs and RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput).ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs, RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtr and RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrType RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtr(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs and RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput).ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs, RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtr and RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrType RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtr(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrType) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivations struct {
+	// Admin notification settings
+	AdminNotifications *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications `pulumi:"adminNotifications"`
+	// Approver notification settings
+	ApproverNotifications *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications `pulumi:"approverNotifications"`
+	// Assignee notification settings
+	AssigneeNotifications *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications `pulumi:"assigneeNotifications"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsArgs and RoleManagementPolicyNotificationRulesEligibleActivationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleActivationsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleActivationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsArgs struct {
+	// Admin notification settings
+	AdminNotifications RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrInput `pulumi:"adminNotifications"`
+	// Approver notification settings
+	ApproverNotifications RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrInput `pulumi:"approverNotifications"`
+	// Assignee notification settings
+	AssigneeNotifications RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrInput `pulumi:"assigneeNotifications"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivations)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsOutput).ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsArgs, RoleManagementPolicyNotificationRulesEligibleActivationsPtr and RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleActivationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleActivationsPtrType RoleManagementPolicyNotificationRulesEligibleActivationsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleActivationsPtr(v *RoleManagementPolicyNotificationRulesEligibleActivationsArgs) RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleActivationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleActivationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivations)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivations)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivations {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput)
+}
+
+// Admin notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
+		return v.AdminNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput)
+}
+
+// Approver notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
+		return v.ApproverNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput)
+}
+
+// Assignee notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
+		return v.AssigneeNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivations)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleActivationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivations) RoleManagementPolicyNotificationRulesEligibleActivations {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleActivations
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsOutput)
+}
+
+// Admin notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.AdminNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput)
+}
+
+// Approver notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.ApproverNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput)
+}
+
+// Assignee notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivations) *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.AssigneeNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs and RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput).ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs, RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtr and RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrType RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtr(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs and RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput).ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs, RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtr and RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrType RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtr(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs and RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput).ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs, RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtr and RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrType RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtr(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignments struct {
+	// Admin notification settings
+	AdminNotifications *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications `pulumi:"adminNotifications"`
+	// Approver notification settings
+	ApproverNotifications *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications `pulumi:"approverNotifications"`
+	// Assignee notification settings
+	AssigneeNotifications *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications `pulumi:"assigneeNotifications"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs and RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs struct {
+	// Admin notification settings
+	AdminNotifications RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrInput `pulumi:"adminNotifications"`
+	// Approver notification settings
+	ApproverNotifications RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput `pulumi:"approverNotifications"`
+	// Assignee notification settings
+	AssigneeNotifications RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput `pulumi:"assigneeNotifications"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignments)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput).ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs, RoleManagementPolicyNotificationRulesEligibleAssignmentsPtr and RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleAssignmentsPtrType RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleAssignmentsPtr(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs) RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleAssignmentsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleAssignmentsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignments)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignments)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignments {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput)
+}
+
+// Admin notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
+		return v.AdminNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput)
+}
+
+// Approver notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
+		return v.ApproverNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput)
+}
+
+// Assignee notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
+		return v.AssigneeNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignments)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignments) RoleManagementPolicyNotificationRulesEligibleAssignments {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleAssignments
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput)
+}
+
+// Admin notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) AdminNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.AdminNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput)
+}
+
+// Approver notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) ApproverNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.ApproverNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput)
+}
+
+// Assignee notification settings
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput) AssigneeNotifications() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignments) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
+		if v == nil {
+			return nil
+		}
+		return v.AssigneeNotifications
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs and RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput).ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs, RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtr and RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrType RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtr(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs and RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput).ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs, RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtr and RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrType RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtr(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications struct {
+	// The additional recipients to notify
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs and RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsInput` via:
+//
+//	RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs{...}
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs struct {
+	// The additional recipients to notify
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// Whether the default recipients are notified
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// What level of notifications are sent
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput)
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput).ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx)
+}
+
+// RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput is an input type that accepts RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs, RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtr and RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput values.
+// You can construct a concrete instance of `RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput` via:
+//
+//	        RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput interface {
+	pulumi.Input
+
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput
+	ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput
+}
+
+type roleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrType RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs
+
+func RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtr(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput {
+	return (*roleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrType)(v)
+}
+
+func (*roleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return i.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (i *roleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrType) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(context.Background())
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
+		return &v
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications)(nil)).Elem()
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) ToRoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutputWithContext(ctx context.Context) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput {
+	return o
+}
+
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) Elem() RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications {
+		if v != nil {
+			return *v
+		}
+		var ret RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications
+		return ret
+	}).(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput)
+}
+
+// The additional recipients to notify
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether the default recipients are notified
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) DefaultRecipients() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRecipients
+	}).(pulumi.BoolPtrOutput)
+}
+
+// What level of notifications are sent
+func (o RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput) NotificationLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotifications) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NotificationLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetRoleManagementPolicyActivationRule struct {
+	// An `approvalStage` block as defined below.
+	ApprovalStages []GetRoleManagementPolicyActivationRuleApprovalStage `pulumi:"approvalStages"`
+	// (String) The maximum length of time an activated role can be valid, in an ISO8601 Duration format.
+	MaximumDuration string `pulumi:"maximumDuration"`
+	// (Boolean) Is approval required for activation.
+	RequireApproval bool `pulumi:"requireApproval"`
+	// (Boolean) Is a justification required to create new assignments.
+	RequireJustification bool `pulumi:"requireJustification"`
+	// (Boolean) Is multi-factor authentication required to create new assignments.
+	RequireMultifactorAuthentication bool `pulumi:"requireMultifactorAuthentication"`
+	// (Boolean) Is ticket information required to create new assignments.
+	RequireTicketInfo bool `pulumi:"requireTicketInfo"`
+	// (String) The Entra ID Conditional Access context that must be present for activation.
+	RequiredConditionalAccessAuthenticationContext string `pulumi:"requiredConditionalAccessAuthenticationContext"`
+}
+
+// GetRoleManagementPolicyActivationRuleInput is an input type that accepts GetRoleManagementPolicyActivationRuleArgs and GetRoleManagementPolicyActivationRuleOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActivationRuleInput` via:
+//
+//	GetRoleManagementPolicyActivationRuleArgs{...}
+type GetRoleManagementPolicyActivationRuleInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActivationRuleOutput() GetRoleManagementPolicyActivationRuleOutput
+	ToGetRoleManagementPolicyActivationRuleOutputWithContext(context.Context) GetRoleManagementPolicyActivationRuleOutput
+}
+
+type GetRoleManagementPolicyActivationRuleArgs struct {
+	// An `approvalStage` block as defined below.
+	ApprovalStages GetRoleManagementPolicyActivationRuleApprovalStageArrayInput `pulumi:"approvalStages"`
+	// (String) The maximum length of time an activated role can be valid, in an ISO8601 Duration format.
+	MaximumDuration pulumi.StringInput `pulumi:"maximumDuration"`
+	// (Boolean) Is approval required for activation.
+	RequireApproval pulumi.BoolInput `pulumi:"requireApproval"`
+	// (Boolean) Is a justification required to create new assignments.
+	RequireJustification pulumi.BoolInput `pulumi:"requireJustification"`
+	// (Boolean) Is multi-factor authentication required to create new assignments.
+	RequireMultifactorAuthentication pulumi.BoolInput `pulumi:"requireMultifactorAuthentication"`
+	// (Boolean) Is ticket information required to create new assignments.
+	RequireTicketInfo pulumi.BoolInput `pulumi:"requireTicketInfo"`
+	// (String) The Entra ID Conditional Access context that must be present for activation.
+	RequiredConditionalAccessAuthenticationContext pulumi.StringInput `pulumi:"requiredConditionalAccessAuthenticationContext"`
+}
+
+func (GetRoleManagementPolicyActivationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActivationRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActivationRuleArgs) ToGetRoleManagementPolicyActivationRuleOutput() GetRoleManagementPolicyActivationRuleOutput {
+	return i.ToGetRoleManagementPolicyActivationRuleOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActivationRuleArgs) ToGetRoleManagementPolicyActivationRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActivationRuleOutput)
+}
+
+// GetRoleManagementPolicyActivationRuleArrayInput is an input type that accepts GetRoleManagementPolicyActivationRuleArray and GetRoleManagementPolicyActivationRuleArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActivationRuleArrayInput` via:
+//
+//	GetRoleManagementPolicyActivationRuleArray{ GetRoleManagementPolicyActivationRuleArgs{...} }
+type GetRoleManagementPolicyActivationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActivationRuleArrayOutput() GetRoleManagementPolicyActivationRuleArrayOutput
+	ToGetRoleManagementPolicyActivationRuleArrayOutputWithContext(context.Context) GetRoleManagementPolicyActivationRuleArrayOutput
+}
+
+type GetRoleManagementPolicyActivationRuleArray []GetRoleManagementPolicyActivationRuleInput
+
+func (GetRoleManagementPolicyActivationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActivationRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActivationRuleArray) ToGetRoleManagementPolicyActivationRuleArrayOutput() GetRoleManagementPolicyActivationRuleArrayOutput {
+	return i.ToGetRoleManagementPolicyActivationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActivationRuleArray) ToGetRoleManagementPolicyActivationRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActivationRuleArrayOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActivationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActivationRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActivationRuleOutput) ToGetRoleManagementPolicyActivationRuleOutput() GetRoleManagementPolicyActivationRuleOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleOutput) ToGetRoleManagementPolicyActivationRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleOutput {
+	return o
+}
+
+// An `approvalStage` block as defined below.
+func (o GetRoleManagementPolicyActivationRuleOutput) ApprovalStages() GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRule) []GetRoleManagementPolicyActivationRuleApprovalStage {
+		return v.ApprovalStages
+	}).(GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput)
+}
+
+// (String) The maximum length of time an activated role can be valid, in an ISO8601 Duration format.
+func (o GetRoleManagementPolicyActivationRuleOutput) MaximumDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRule) string { return v.MaximumDuration }).(pulumi.StringOutput)
+}
+
+// (Boolean) Is approval required for activation.
+func (o GetRoleManagementPolicyActivationRuleOutput) RequireApproval() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRule) bool { return v.RequireApproval }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Is a justification required to create new assignments.
+func (o GetRoleManagementPolicyActivationRuleOutput) RequireJustification() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRule) bool { return v.RequireJustification }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Is multi-factor authentication required to create new assignments.
+func (o GetRoleManagementPolicyActivationRuleOutput) RequireMultifactorAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRule) bool { return v.RequireMultifactorAuthentication }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Is ticket information required to create new assignments.
+func (o GetRoleManagementPolicyActivationRuleOutput) RequireTicketInfo() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRule) bool { return v.RequireTicketInfo }).(pulumi.BoolOutput)
+}
+
+// (String) The Entra ID Conditional Access context that must be present for activation.
+func (o GetRoleManagementPolicyActivationRuleOutput) RequiredConditionalAccessAuthenticationContext() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRule) string {
+		return v.RequiredConditionalAccessAuthenticationContext
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActivationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActivationRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActivationRuleArrayOutput) ToGetRoleManagementPolicyActivationRuleArrayOutput() GetRoleManagementPolicyActivationRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleArrayOutput) ToGetRoleManagementPolicyActivationRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyActivationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyActivationRule {
+		return vs[0].([]GetRoleManagementPolicyActivationRule)[vs[1].(int)]
+	}).(GetRoleManagementPolicyActivationRuleOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStage struct {
+	// The IDs of the users or groups who can approve the activation
+	PrimaryApprovers []GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover `pulumi:"primaryApprovers"`
+}
+
+// GetRoleManagementPolicyActivationRuleApprovalStageInput is an input type that accepts GetRoleManagementPolicyActivationRuleApprovalStageArgs and GetRoleManagementPolicyActivationRuleApprovalStageOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActivationRuleApprovalStageInput` via:
+//
+//	GetRoleManagementPolicyActivationRuleApprovalStageArgs{...}
+type GetRoleManagementPolicyActivationRuleApprovalStageInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActivationRuleApprovalStageOutput() GetRoleManagementPolicyActivationRuleApprovalStageOutput
+	ToGetRoleManagementPolicyActivationRuleApprovalStageOutputWithContext(context.Context) GetRoleManagementPolicyActivationRuleApprovalStageOutput
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStageArgs struct {
+	// The IDs of the users or groups who can approve the activation
+	PrimaryApprovers GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayInput `pulumi:"primaryApprovers"`
+}
+
+func (GetRoleManagementPolicyActivationRuleApprovalStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStage)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStageArgs) ToGetRoleManagementPolicyActivationRuleApprovalStageOutput() GetRoleManagementPolicyActivationRuleApprovalStageOutput {
+	return i.ToGetRoleManagementPolicyActivationRuleApprovalStageOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStageArgs) ToGetRoleManagementPolicyActivationRuleApprovalStageOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActivationRuleApprovalStageOutput)
+}
+
+// GetRoleManagementPolicyActivationRuleApprovalStageArrayInput is an input type that accepts GetRoleManagementPolicyActivationRuleApprovalStageArray and GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActivationRuleApprovalStageArrayInput` via:
+//
+//	GetRoleManagementPolicyActivationRuleApprovalStageArray{ GetRoleManagementPolicyActivationRuleApprovalStageArgs{...} }
+type GetRoleManagementPolicyActivationRuleApprovalStageArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActivationRuleApprovalStageArrayOutput() GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput
+	ToGetRoleManagementPolicyActivationRuleApprovalStageArrayOutputWithContext(context.Context) GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStageArray []GetRoleManagementPolicyActivationRuleApprovalStageInput
+
+func (GetRoleManagementPolicyActivationRuleApprovalStageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActivationRuleApprovalStage)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStageArray) ToGetRoleManagementPolicyActivationRuleApprovalStageArrayOutput() GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput {
+	return i.ToGetRoleManagementPolicyActivationRuleApprovalStageArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStageArray) ToGetRoleManagementPolicyActivationRuleApprovalStageArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStageOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActivationRuleApprovalStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStage)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStageOutput) ToGetRoleManagementPolicyActivationRuleApprovalStageOutput() GetRoleManagementPolicyActivationRuleApprovalStageOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStageOutput) ToGetRoleManagementPolicyActivationRuleApprovalStageOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStageOutput {
+	return o
+}
+
+// The IDs of the users or groups who can approve the activation
+func (o GetRoleManagementPolicyActivationRuleApprovalStageOutput) PrimaryApprovers() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRuleApprovalStage) []GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover {
+		return v.PrimaryApprovers
+	}).(GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActivationRuleApprovalStage)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput) ToGetRoleManagementPolicyActivationRuleApprovalStageArrayOutput() GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput) ToGetRoleManagementPolicyActivationRuleApprovalStageArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyActivationRuleApprovalStageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyActivationRuleApprovalStage {
+		return vs[0].([]GetRoleManagementPolicyActivationRuleApprovalStage)[vs[1].(int)]
+	}).(GetRoleManagementPolicyActivationRuleApprovalStageOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover struct {
+	// (String) The ID of the object which will act as an approver.
+	ObjectId string `pulumi:"objectId"`
+	// (String) The type of object acting as an approver. Either `User` or `Group`.
+	Type string `pulumi:"type"`
+}
+
+// GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverInput is an input type that accepts GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs and GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverInput` via:
+//
+//	GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs{...}
+type GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput
+	ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutputWithContext(context.Context) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs struct {
+	// (String) The ID of the object which will act as an approver.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// (String) The type of object acting as an approver. Either `User` or `Group`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput {
+	return i.ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput)
+}
+
+// GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayInput is an input type that accepts GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArray and GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayInput` via:
+//
+//	GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArray{ GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs{...} }
+type GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput
+	ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutputWithContext(context.Context) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArray []GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverInput
+
+func (GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArray) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput {
+	return i.ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArray) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput {
+	return o
+}
+
+// (String) The ID of the object which will act as an approver.
+func (o GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// (String) The type of object acting as an approver. Either `User` or `Group`.
+func (o GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput() GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput) ToGetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover {
+		return vs[0].([]GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApprover)[vs[1].(int)]
+	}).(GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput)
+}
+
+type GetRoleManagementPolicyActiveAssignmentRule struct {
+	// (Boolean) Must an assignment have an expiry date.
+	ExpirationRequired bool `pulumi:"expirationRequired"`
+	// (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+	ExpireAfter string `pulumi:"expireAfter"`
+	// (Boolean) Is a justification required to create new assignments.
+	RequireJustification bool `pulumi:"requireJustification"`
+	// (Boolean) Is multi-factor authentication required to create new assignments.
+	RequireMultifactorAuthentication bool `pulumi:"requireMultifactorAuthentication"`
+	// (Boolean) Is ticket information required to create new assignments.
+	RequireTicketInfo bool `pulumi:"requireTicketInfo"`
+}
+
+// GetRoleManagementPolicyActiveAssignmentRuleInput is an input type that accepts GetRoleManagementPolicyActiveAssignmentRuleArgs and GetRoleManagementPolicyActiveAssignmentRuleOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActiveAssignmentRuleInput` via:
+//
+//	GetRoleManagementPolicyActiveAssignmentRuleArgs{...}
+type GetRoleManagementPolicyActiveAssignmentRuleInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActiveAssignmentRuleOutput() GetRoleManagementPolicyActiveAssignmentRuleOutput
+	ToGetRoleManagementPolicyActiveAssignmentRuleOutputWithContext(context.Context) GetRoleManagementPolicyActiveAssignmentRuleOutput
+}
+
+type GetRoleManagementPolicyActiveAssignmentRuleArgs struct {
+	// (Boolean) Must an assignment have an expiry date.
+	ExpirationRequired pulumi.BoolInput `pulumi:"expirationRequired"`
+	// (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+	ExpireAfter pulumi.StringInput `pulumi:"expireAfter"`
+	// (Boolean) Is a justification required to create new assignments.
+	RequireJustification pulumi.BoolInput `pulumi:"requireJustification"`
+	// (Boolean) Is multi-factor authentication required to create new assignments.
+	RequireMultifactorAuthentication pulumi.BoolInput `pulumi:"requireMultifactorAuthentication"`
+	// (Boolean) Is ticket information required to create new assignments.
+	RequireTicketInfo pulumi.BoolInput `pulumi:"requireTicketInfo"`
+}
+
+func (GetRoleManagementPolicyActiveAssignmentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActiveAssignmentRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActiveAssignmentRuleArgs) ToGetRoleManagementPolicyActiveAssignmentRuleOutput() GetRoleManagementPolicyActiveAssignmentRuleOutput {
+	return i.ToGetRoleManagementPolicyActiveAssignmentRuleOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActiveAssignmentRuleArgs) ToGetRoleManagementPolicyActiveAssignmentRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyActiveAssignmentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActiveAssignmentRuleOutput)
+}
+
+// GetRoleManagementPolicyActiveAssignmentRuleArrayInput is an input type that accepts GetRoleManagementPolicyActiveAssignmentRuleArray and GetRoleManagementPolicyActiveAssignmentRuleArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyActiveAssignmentRuleArrayInput` via:
+//
+//	GetRoleManagementPolicyActiveAssignmentRuleArray{ GetRoleManagementPolicyActiveAssignmentRuleArgs{...} }
+type GetRoleManagementPolicyActiveAssignmentRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyActiveAssignmentRuleArrayOutput() GetRoleManagementPolicyActiveAssignmentRuleArrayOutput
+	ToGetRoleManagementPolicyActiveAssignmentRuleArrayOutputWithContext(context.Context) GetRoleManagementPolicyActiveAssignmentRuleArrayOutput
+}
+
+type GetRoleManagementPolicyActiveAssignmentRuleArray []GetRoleManagementPolicyActiveAssignmentRuleInput
+
+func (GetRoleManagementPolicyActiveAssignmentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActiveAssignmentRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyActiveAssignmentRuleArray) ToGetRoleManagementPolicyActiveAssignmentRuleArrayOutput() GetRoleManagementPolicyActiveAssignmentRuleArrayOutput {
+	return i.ToGetRoleManagementPolicyActiveAssignmentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyActiveAssignmentRuleArray) ToGetRoleManagementPolicyActiveAssignmentRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActiveAssignmentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyActiveAssignmentRuleArrayOutput)
+}
+
+type GetRoleManagementPolicyActiveAssignmentRuleOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActiveAssignmentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyActiveAssignmentRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActiveAssignmentRuleOutput) ToGetRoleManagementPolicyActiveAssignmentRuleOutput() GetRoleManagementPolicyActiveAssignmentRuleOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActiveAssignmentRuleOutput) ToGetRoleManagementPolicyActiveAssignmentRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyActiveAssignmentRuleOutput {
+	return o
+}
+
+// (Boolean) Must an assignment have an expiry date.
+func (o GetRoleManagementPolicyActiveAssignmentRuleOutput) ExpirationRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActiveAssignmentRule) bool { return v.ExpirationRequired }).(pulumi.BoolOutput)
+}
+
+// (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+func (o GetRoleManagementPolicyActiveAssignmentRuleOutput) ExpireAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActiveAssignmentRule) string { return v.ExpireAfter }).(pulumi.StringOutput)
+}
+
+// (Boolean) Is a justification required to create new assignments.
+func (o GetRoleManagementPolicyActiveAssignmentRuleOutput) RequireJustification() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActiveAssignmentRule) bool { return v.RequireJustification }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Is multi-factor authentication required to create new assignments.
+func (o GetRoleManagementPolicyActiveAssignmentRuleOutput) RequireMultifactorAuthentication() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActiveAssignmentRule) bool { return v.RequireMultifactorAuthentication }).(pulumi.BoolOutput)
+}
+
+// (Boolean) Is ticket information required to create new assignments.
+func (o GetRoleManagementPolicyActiveAssignmentRuleOutput) RequireTicketInfo() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyActiveAssignmentRule) bool { return v.RequireTicketInfo }).(pulumi.BoolOutput)
+}
+
+type GetRoleManagementPolicyActiveAssignmentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyActiveAssignmentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyActiveAssignmentRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyActiveAssignmentRuleArrayOutput) ToGetRoleManagementPolicyActiveAssignmentRuleArrayOutput() GetRoleManagementPolicyActiveAssignmentRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActiveAssignmentRuleArrayOutput) ToGetRoleManagementPolicyActiveAssignmentRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyActiveAssignmentRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyActiveAssignmentRuleArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyActiveAssignmentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyActiveAssignmentRule {
+		return vs[0].([]GetRoleManagementPolicyActiveAssignmentRule)[vs[1].(int)]
+	}).(GetRoleManagementPolicyActiveAssignmentRuleOutput)
+}
+
+type GetRoleManagementPolicyEligibleAssignmentRule struct {
+	// (Boolean) Must an assignment have an expiry date.
+	ExpirationRequired bool `pulumi:"expirationRequired"`
+	// (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+	ExpireAfter string `pulumi:"expireAfter"`
+}
+
+// GetRoleManagementPolicyEligibleAssignmentRuleInput is an input type that accepts GetRoleManagementPolicyEligibleAssignmentRuleArgs and GetRoleManagementPolicyEligibleAssignmentRuleOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyEligibleAssignmentRuleInput` via:
+//
+//	GetRoleManagementPolicyEligibleAssignmentRuleArgs{...}
+type GetRoleManagementPolicyEligibleAssignmentRuleInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyEligibleAssignmentRuleOutput() GetRoleManagementPolicyEligibleAssignmentRuleOutput
+	ToGetRoleManagementPolicyEligibleAssignmentRuleOutputWithContext(context.Context) GetRoleManagementPolicyEligibleAssignmentRuleOutput
+}
+
+type GetRoleManagementPolicyEligibleAssignmentRuleArgs struct {
+	// (Boolean) Must an assignment have an expiry date.
+	ExpirationRequired pulumi.BoolInput `pulumi:"expirationRequired"`
+	// (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+	ExpireAfter pulumi.StringInput `pulumi:"expireAfter"`
+}
+
+func (GetRoleManagementPolicyEligibleAssignmentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyEligibleAssignmentRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyEligibleAssignmentRuleArgs) ToGetRoleManagementPolicyEligibleAssignmentRuleOutput() GetRoleManagementPolicyEligibleAssignmentRuleOutput {
+	return i.ToGetRoleManagementPolicyEligibleAssignmentRuleOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyEligibleAssignmentRuleArgs) ToGetRoleManagementPolicyEligibleAssignmentRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyEligibleAssignmentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyEligibleAssignmentRuleOutput)
+}
+
+// GetRoleManagementPolicyEligibleAssignmentRuleArrayInput is an input type that accepts GetRoleManagementPolicyEligibleAssignmentRuleArray and GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyEligibleAssignmentRuleArrayInput` via:
+//
+//	GetRoleManagementPolicyEligibleAssignmentRuleArray{ GetRoleManagementPolicyEligibleAssignmentRuleArgs{...} }
+type GetRoleManagementPolicyEligibleAssignmentRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyEligibleAssignmentRuleArrayOutput() GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput
+	ToGetRoleManagementPolicyEligibleAssignmentRuleArrayOutputWithContext(context.Context) GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput
+}
+
+type GetRoleManagementPolicyEligibleAssignmentRuleArray []GetRoleManagementPolicyEligibleAssignmentRuleInput
+
+func (GetRoleManagementPolicyEligibleAssignmentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyEligibleAssignmentRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyEligibleAssignmentRuleArray) ToGetRoleManagementPolicyEligibleAssignmentRuleArrayOutput() GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput {
+	return i.ToGetRoleManagementPolicyEligibleAssignmentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyEligibleAssignmentRuleArray) ToGetRoleManagementPolicyEligibleAssignmentRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput)
+}
+
+type GetRoleManagementPolicyEligibleAssignmentRuleOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyEligibleAssignmentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyEligibleAssignmentRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyEligibleAssignmentRuleOutput) ToGetRoleManagementPolicyEligibleAssignmentRuleOutput() GetRoleManagementPolicyEligibleAssignmentRuleOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyEligibleAssignmentRuleOutput) ToGetRoleManagementPolicyEligibleAssignmentRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyEligibleAssignmentRuleOutput {
+	return o
+}
+
+// (Boolean) Must an assignment have an expiry date.
+func (o GetRoleManagementPolicyEligibleAssignmentRuleOutput) ExpirationRequired() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyEligibleAssignmentRule) bool { return v.ExpirationRequired }).(pulumi.BoolOutput)
+}
+
+// (String) The maximum length of time an assignment can be valid, as an ISO8601 duration.
+func (o GetRoleManagementPolicyEligibleAssignmentRuleOutput) ExpireAfter() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyEligibleAssignmentRule) string { return v.ExpireAfter }).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyEligibleAssignmentRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput) ToGetRoleManagementPolicyEligibleAssignmentRuleArrayOutput() GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput) ToGetRoleManagementPolicyEligibleAssignmentRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyEligibleAssignmentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyEligibleAssignmentRule {
+		return vs[0].([]GetRoleManagementPolicyEligibleAssignmentRule)[vs[1].(int)]
+	}).(GetRoleManagementPolicyEligibleAssignmentRuleOutput)
+}
+
+type GetRoleManagementPolicyNotificationRule struct {
+	// A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+	ActiveAssignments []GetRoleManagementPolicyNotificationRuleActiveAssignment `pulumi:"activeAssignments"`
+	// A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
+	EligibleActivations []GetRoleManagementPolicyNotificationRuleEligibleActivation `pulumi:"eligibleActivations"`
+	// A `notificationTarget` block as defined below with the details of notifications on eligible role assignments.
+	EligibleAssignments []GetRoleManagementPolicyNotificationRuleEligibleAssignment `pulumi:"eligibleAssignments"`
+}
+
+// GetRoleManagementPolicyNotificationRuleInput is an input type that accepts GetRoleManagementPolicyNotificationRuleArgs and GetRoleManagementPolicyNotificationRuleOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleArgs{...}
+type GetRoleManagementPolicyNotificationRuleInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleOutput() GetRoleManagementPolicyNotificationRuleOutput
+	ToGetRoleManagementPolicyNotificationRuleOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleArgs struct {
+	// A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+	ActiveAssignments GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayInput `pulumi:"activeAssignments"`
+	// A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
+	EligibleActivations GetRoleManagementPolicyNotificationRuleEligibleActivationArrayInput `pulumi:"eligibleActivations"`
+	// A `notificationTarget` block as defined below with the details of notifications on eligible role assignments.
+	EligibleAssignments GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayInput `pulumi:"eligibleAssignments"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleArgs) ToGetRoleManagementPolicyNotificationRuleOutput() GetRoleManagementPolicyNotificationRuleOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleArgs) ToGetRoleManagementPolicyNotificationRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleArray and GetRoleManagementPolicyNotificationRuleArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleArray{ GetRoleManagementPolicyNotificationRuleArgs{...} }
+type GetRoleManagementPolicyNotificationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleArrayOutput() GetRoleManagementPolicyNotificationRuleArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleArray []GetRoleManagementPolicyNotificationRuleInput
+
+func (GetRoleManagementPolicyNotificationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRule)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleArray) ToGetRoleManagementPolicyNotificationRuleArrayOutput() GetRoleManagementPolicyNotificationRuleArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleArray) ToGetRoleManagementPolicyNotificationRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleOutput) ToGetRoleManagementPolicyNotificationRuleOutput() GetRoleManagementPolicyNotificationRuleOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleOutput) ToGetRoleManagementPolicyNotificationRuleOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleOutput {
+	return o
+}
+
+// A `notificationTarget` block as defined below with the details of notfications on active role assignments.
+func (o GetRoleManagementPolicyNotificationRuleOutput) ActiveAssignments() GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRule) []GetRoleManagementPolicyNotificationRuleActiveAssignment {
+		return v.ActiveAssignments
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput)
+}
+
+// A `notificationTarget` block as defined below with the details of notifications on activation of eligible role.
+func (o GetRoleManagementPolicyNotificationRuleOutput) EligibleActivations() GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRule) []GetRoleManagementPolicyNotificationRuleEligibleActivation {
+		return v.EligibleActivations
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput)
+}
+
+// A `notificationTarget` block as defined below with the details of notifications on eligible role assignments.
+func (o GetRoleManagementPolicyNotificationRuleOutput) EligibleAssignments() GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRule) []GetRoleManagementPolicyNotificationRuleEligibleAssignment {
+		return v.EligibleAssignments
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRule)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleArrayOutput) ToGetRoleManagementPolicyNotificationRuleArrayOutput() GetRoleManagementPolicyNotificationRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleArrayOutput) ToGetRoleManagementPolicyNotificationRuleArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRule {
+		return vs[0].([]GetRoleManagementPolicyNotificationRule)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignment struct {
+	// A `notificationSettings` block as defined above.
+	AdminNotifications []GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification `pulumi:"adminNotifications"`
+	// A `notificationSettings` block as defined above.
+	ApproverNotifications []GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification `pulumi:"approverNotifications"`
+	// A `notificationSettings` block as defined above.
+	AssigneeNotifications []GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification `pulumi:"assigneeNotifications"`
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs and GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs{...}
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs struct {
+	// A `notificationSettings` block as defined above.
+	AdminNotifications GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayInput `pulumi:"adminNotifications"`
+	// A `notificationSettings` block as defined above.
+	ApproverNotifications GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayInput `pulumi:"approverNotifications"`
+	// A `notificationSettings` block as defined above.
+	AssigneeNotifications GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayInput `pulumi:"assigneeNotifications"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignment)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentArray and GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentArray{ GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs{...} }
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentArray []GetRoleManagementPolicyNotificationRuleActiveAssignmentInput
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignment)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignment)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput {
+	return o
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput) AdminNotifications() GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignment) []GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification {
+		return v.AdminNotifications
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput)
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput) ApproverNotifications() GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignment) []GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification {
+		return v.ApproverNotifications
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput)
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput) AssigneeNotifications() GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignment) []GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification {
+		return v.AssigneeNotifications
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignment)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleActiveAssignment {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleActiveAssignment)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs and GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArray and GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArray{ GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArray []GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs and GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArray and GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArray{ GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArray []GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs and GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArray and GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArray{ GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArray []GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArray) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivation struct {
+	// A `notificationSettings` block as defined above.
+	AdminNotifications []GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification `pulumi:"adminNotifications"`
+	// A `notificationSettings` block as defined above.
+	ApproverNotifications []GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification `pulumi:"approverNotifications"`
+	// A `notificationSettings` block as defined above.
+	AssigneeNotifications []GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification `pulumi:"assigneeNotifications"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationArgs and GetRoleManagementPolicyNotificationRuleEligibleActivationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleActivationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationArgs struct {
+	// A `notificationSettings` block as defined above.
+	AdminNotifications GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayInput `pulumi:"adminNotifications"`
+	// A `notificationSettings` block as defined above.
+	ApproverNotifications GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayInput `pulumi:"approverNotifications"`
+	// A `notificationSettings` block as defined above.
+	AssigneeNotifications GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayInput `pulumi:"assigneeNotifications"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivation)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationArray and GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationArray{ GetRoleManagementPolicyNotificationRuleEligibleActivationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleActivationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationArray []GetRoleManagementPolicyNotificationRuleEligibleActivationInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivation)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivation)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationOutput {
+	return o
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationOutput) AdminNotifications() GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivation) []GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification {
+		return v.AdminNotifications
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput)
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationOutput) ApproverNotifications() GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivation) []GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification {
+		return v.ApproverNotifications
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput)
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationOutput) AssigneeNotifications() GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivation) []GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification {
+		return v.AssigneeNotifications
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivation)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleActivationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleActivation {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleActivation)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs and GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArray and GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArray{ GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArray []GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs and GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArray and GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArray{ GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArray []GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs and GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArray and GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArray{ GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArray []GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignment struct {
+	// A `notificationSettings` block as defined above.
+	AdminNotifications []GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification `pulumi:"adminNotifications"`
+	// A `notificationSettings` block as defined above.
+	ApproverNotifications []GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification `pulumi:"approverNotifications"`
+	// A `notificationSettings` block as defined above.
+	AssigneeNotifications []GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification `pulumi:"assigneeNotifications"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs and GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs struct {
+	// A `notificationSettings` block as defined above.
+	AdminNotifications GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayInput `pulumi:"adminNotifications"`
+	// A `notificationSettings` block as defined above.
+	ApproverNotifications GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayInput `pulumi:"approverNotifications"`
+	// A `notificationSettings` block as defined above.
+	AssigneeNotifications GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayInput `pulumi:"assigneeNotifications"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignment)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentArray and GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentArray{ GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentArray []GetRoleManagementPolicyNotificationRuleEligibleAssignmentInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignment)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignment)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput {
+	return o
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput) AdminNotifications() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignment) []GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification {
+		return v.AdminNotifications
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput)
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput) ApproverNotifications() GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignment) []GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification {
+		return v.ApproverNotifications
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput)
+}
+
+// A `notificationSettings` block as defined above.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput) AssigneeNotifications() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignment) []GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification {
+		return v.AssigneeNotifications
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignment)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleAssignment {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleAssignment)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs and GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArray and GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArray{ GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArray []GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs and GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArray and GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArray{ GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArray []GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients []string `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients bool `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel string `pulumi:"notificationLevel"`
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs and GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs{...}
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs struct {
+	// A list of additional email addresses that will receive these notifications.
+	AdditionalRecipients pulumi.StringArrayInput `pulumi:"additionalRecipients"`
+	// (Boolean) Should the default recipients receive these notifications.
+	DefaultRecipients pulumi.BoolInput `pulumi:"defaultRecipients"`
+	// (String) What level of notifications should be sent. Either `All` or `Critical`.
+	NotificationLevel pulumi.StringInput `pulumi:"notificationLevel"`
+}
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput)
+}
+
+// GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayInput is an input type that accepts GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArray and GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput values.
+// You can construct a concrete instance of `GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayInput` via:
+//
+//	GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArray{ GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs{...} }
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayInput interface {
+	pulumi.Input
+
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput
+	ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutputWithContext(context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArray []GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationInput
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput {
+	return i.ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArray) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput {
+	return o
+}
+
+// A list of additional email addresses that will receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput) AdditionalRecipients() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification) []string {
+		return v.AdditionalRecipients
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Boolean) Should the default recipients receive these notifications.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput) DefaultRecipients() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification) bool {
+		return v.DefaultRecipients
+	}).(pulumi.BoolOutput)
+}
+
+// (String) What level of notifications should be sent. Either `All` or `Critical`.
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput) NotificationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification) string {
+		return v.NotificationLevel
+	}).(pulumi.StringOutput)
+}
+
+type GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification)(nil)).Elem()
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput() GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput) ToGetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutputWithContext(ctx context.Context) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput {
+	return o
+}
+
+func (o GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput) Index(i pulumi.IntInput) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification {
+		return vs[0].([]GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotification)[vs[1].(int)]
+	}).(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveRoleAssignmentScheduleInput)(nil)).Elem(), ActiveRoleAssignmentScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActiveRoleAssignmentSchedulePtrInput)(nil)).Elem(), ActiveRoleAssignmentScheduleArgs{})
@@ -1016,6 +6434,78 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EligibleRoleAssignmentScheduleExpirationPtrInput)(nil)).Elem(), EligibleRoleAssignmentScheduleExpirationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EligibleRoleAssignmentTicketInput)(nil)).Elem(), EligibleRoleAssignmentTicketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EligibleRoleAssignmentTicketPtrInput)(nil)).Elem(), EligibleRoleAssignmentTicketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActivationRulesInput)(nil)).Elem(), RoleManagementPolicyActivationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActivationRulesPtrInput)(nil)).Elem(), RoleManagementPolicyActivationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStageInput)(nil)).Elem(), RoleManagementPolicyActivationRulesApprovalStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStagePtrInput)(nil)).Elem(), RoleManagementPolicyActivationRulesApprovalStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverInput)(nil)).Elem(), RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayInput)(nil)).Elem(), RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActiveAssignmentRulesInput)(nil)).Elem(), RoleManagementPolicyActiveAssignmentRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyActiveAssignmentRulesPtrInput)(nil)).Elem(), RoleManagementPolicyActiveAssignmentRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyEligibleAssignmentRulesInput)(nil)).Elem(), RoleManagementPolicyEligibleAssignmentRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyEligibleAssignmentRulesPtrInput)(nil)).Elem(), RoleManagementPolicyEligibleAssignmentRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrInput)(nil)).Elem(), RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleArrayInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStageInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleApprovalStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStageArrayInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleApprovalStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayInput)(nil)).Elem(), GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActiveAssignmentRuleInput)(nil)).Elem(), GetRoleManagementPolicyActiveAssignmentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyActiveAssignmentRuleArrayInput)(nil)).Elem(), GetRoleManagementPolicyActiveAssignmentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyEligibleAssignmentRuleInput)(nil)).Elem(), GetRoleManagementPolicyEligibleAssignmentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyEligibleAssignmentRuleArrayInput)(nil)).Elem(), GetRoleManagementPolicyEligibleAssignmentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayInput)(nil)).Elem(), GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArray{})
 	pulumi.RegisterOutputType(ActiveRoleAssignmentScheduleOutput{})
 	pulumi.RegisterOutputType(ActiveRoleAssignmentSchedulePtrOutput{})
 	pulumi.RegisterOutputType(ActiveRoleAssignmentScheduleExpirationOutput{})
@@ -1028,4 +6518,76 @@ func init() {
 	pulumi.RegisterOutputType(EligibleRoleAssignmentScheduleExpirationPtrOutput{})
 	pulumi.RegisterOutputType(EligibleRoleAssignmentTicketOutput{})
 	pulumi.RegisterOutputType(EligibleRoleAssignmentTicketPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActivationRulesOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActivationRulesPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActivationRulesApprovalStageOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActivationRulesApprovalStagePtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArrayOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActiveAssignmentRulesOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyActiveAssignmentRulesPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyEligibleAssignmentRulesOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyEligibleAssignmentRulesPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsOutput{})
+	pulumi.RegisterOutputType(RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsPtrOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleApprovalStageOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleApprovalStageArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActivationRuleApprovalStagePrimaryApproverArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActiveAssignmentRuleOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyActiveAssignmentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyEligibleAssignmentRuleOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyEligibleAssignmentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentAdminNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentApproverNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleActiveAssignmentAssigneeNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationAdminNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationApproverNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleActivationAssigneeNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAdminNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentApproverNotificationArrayOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationOutput{})
+	pulumi.RegisterOutputType(GetRoleManagementPolicyNotificationRuleEligibleAssignmentAssigneeNotificationArrayOutput{})
 }

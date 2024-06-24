@@ -217,14 +217,14 @@ public class HostPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.personalDesktopAssignmentType);
     }
     /**
-     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+     * Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      * 
      */
     @Export(name="preferredAppGroupType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> preferredAppGroupType;
 
     /**
-     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created.
+     * @return Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
      * 
      */
     public Output<Optional<String>> preferredAppGroupType() {

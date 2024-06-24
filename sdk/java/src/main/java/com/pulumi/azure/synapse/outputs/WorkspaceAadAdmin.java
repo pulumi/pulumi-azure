@@ -10,39 +10,23 @@ import java.util.Objects;
 
 @CustomType
 public final class WorkspaceAadAdmin {
-    /**
-     * @return The login name of the Azure AD Administrator of this Synapse Workspace.
-     * 
-     */
     private String login;
-    /**
-     * @return The object id of the Azure AD Administrator of this Synapse Workspace.
-     * 
-     */
     private String objectId;
     /**
-     * @return The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
     private String tenantId;
 
     private WorkspaceAadAdmin() {}
-    /**
-     * @return The login name of the Azure AD Administrator of this Synapse Workspace.
-     * 
-     */
     public String login() {
         return this.login;
     }
-    /**
-     * @return The object id of the Azure AD Administrator of this Synapse Workspace.
-     * 
-     */
     public String objectId() {
         return this.objectId;
     }
     /**
-     * @return The tenant id of the Azure AD Administrator of this Synapse Workspace.
+     * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
     public String tenantId() {

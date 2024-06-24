@@ -14,6 +14,11 @@ import java.util.Objects;
 @CustomType
 public final class GetClusterResult {
     /**
+     * @return The HDInsight Cluster ID.
+     * 
+     */
+    private String clusterId;
+    /**
      * @return The version of HDInsights which is used on this HDInsight Cluster.
      * 
      */
@@ -58,6 +63,10 @@ public final class GetClusterResult {
      * 
      */
     private String location;
+    /**
+     * @return The HDInsight Cluster name.
+     * 
+     */
     private String name;
     private String resourceGroupName;
     /**
@@ -82,6 +91,13 @@ public final class GetClusterResult {
     private String tlsMinVersion;
 
     private GetClusterResult() {}
+    /**
+     * @return The HDInsight Cluster ID.
+     * 
+     */
+    public String clusterId() {
+        return this.clusterId;
+    }
     /**
      * @return The version of HDInsights which is used on this HDInsight Cluster.
      * 
@@ -145,6 +161,10 @@ public final class GetClusterResult {
     public String location() {
         return this.location;
     }
+    /**
+     * @return The HDInsight Cluster name.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -189,6 +209,7 @@ public final class GetClusterResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String clusterId;
         private String clusterVersion;
         private Map<String,String> componentVersions;
         private String edgeSshEndpoint;
@@ -207,6 +228,7 @@ public final class GetClusterResult {
         public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.clusterId = defaults.clusterId;
     	      this.clusterVersion = defaults.clusterVersion;
     	      this.componentVersions = defaults.componentVersions;
     	      this.edgeSshEndpoint = defaults.edgeSshEndpoint;
@@ -224,6 +246,14 @@ public final class GetClusterResult {
     	      this.tlsMinVersion = defaults.tlsMinVersion;
         }
 
+        @CustomType.Setter
+        public Builder clusterId(String clusterId) {
+            if (clusterId == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "clusterId");
+            }
+            this.clusterId = clusterId;
+            return this;
+        }
         @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
             if (clusterVersion == null) {
@@ -349,6 +379,7 @@ public final class GetClusterResult {
         }
         public GetClusterResult build() {
             final var _resultValue = new GetClusterResult();
+            _resultValue.clusterId = clusterId;
             _resultValue.clusterVersion = clusterVersion;
             _resultValue.componentVersions = componentVersions;
             _resultValue.edgeSshEndpoint = edgeSshEndpoint;

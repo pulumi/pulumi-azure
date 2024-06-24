@@ -110,7 +110,7 @@ export class GremlinGraph extends pulumi.CustomResource {
     /**
      * The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire.
      */
-    public readonly defaultTtl!: pulumi.Output<number>;
+    public readonly defaultTtl!: pulumi.Output<number | undefined>;
     /**
      * The configuration of the indexing policy. One or more `indexPolicy` blocks as defined below.
      */

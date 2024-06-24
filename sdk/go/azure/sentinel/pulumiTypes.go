@@ -3151,11 +3151,166 @@ func (o AlertRuleScheduledEventGroupingPtrOutput) AggregationMethod() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-type AlertRuleScheduledIncidentConfiguration struct {
+type AlertRuleScheduledIncident struct {
 	// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-	CreateIncident bool `pulumi:"createIncident"`
+	CreateIncidentEnabled bool `pulumi:"createIncidentEnabled"`
 	// A `grouping` block as defined below.
-	Grouping AlertRuleScheduledIncidentConfigurationGrouping `pulumi:"grouping"`
+	Grouping AlertRuleScheduledIncidentGrouping `pulumi:"grouping"`
+}
+
+// AlertRuleScheduledIncidentInput is an input type that accepts AlertRuleScheduledIncidentArgs and AlertRuleScheduledIncidentOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledIncidentInput` via:
+//
+//	AlertRuleScheduledIncidentArgs{...}
+type AlertRuleScheduledIncidentInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledIncidentOutput() AlertRuleScheduledIncidentOutput
+	ToAlertRuleScheduledIncidentOutputWithContext(context.Context) AlertRuleScheduledIncidentOutput
+}
+
+type AlertRuleScheduledIncidentArgs struct {
+	// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+	CreateIncidentEnabled pulumi.BoolInput `pulumi:"createIncidentEnabled"`
+	// A `grouping` block as defined below.
+	Grouping AlertRuleScheduledIncidentGroupingInput `pulumi:"grouping"`
+}
+
+func (AlertRuleScheduledIncidentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledIncident)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledIncidentArgs) ToAlertRuleScheduledIncidentOutput() AlertRuleScheduledIncidentOutput {
+	return i.ToAlertRuleScheduledIncidentOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledIncidentArgs) ToAlertRuleScheduledIncidentOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentOutput)
+}
+
+func (i AlertRuleScheduledIncidentArgs) ToAlertRuleScheduledIncidentPtrOutput() AlertRuleScheduledIncidentPtrOutput {
+	return i.ToAlertRuleScheduledIncidentPtrOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledIncidentArgs) ToAlertRuleScheduledIncidentPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentOutput).ToAlertRuleScheduledIncidentPtrOutputWithContext(ctx)
+}
+
+// AlertRuleScheduledIncidentPtrInput is an input type that accepts AlertRuleScheduledIncidentArgs, AlertRuleScheduledIncidentPtr and AlertRuleScheduledIncidentPtrOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledIncidentPtrInput` via:
+//
+//	        AlertRuleScheduledIncidentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertRuleScheduledIncidentPtrInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledIncidentPtrOutput() AlertRuleScheduledIncidentPtrOutput
+	ToAlertRuleScheduledIncidentPtrOutputWithContext(context.Context) AlertRuleScheduledIncidentPtrOutput
+}
+
+type alertRuleScheduledIncidentPtrType AlertRuleScheduledIncidentArgs
+
+func AlertRuleScheduledIncidentPtr(v *AlertRuleScheduledIncidentArgs) AlertRuleScheduledIncidentPtrInput {
+	return (*alertRuleScheduledIncidentPtrType)(v)
+}
+
+func (*alertRuleScheduledIncidentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleScheduledIncident)(nil)).Elem()
+}
+
+func (i *alertRuleScheduledIncidentPtrType) ToAlertRuleScheduledIncidentPtrOutput() AlertRuleScheduledIncidentPtrOutput {
+	return i.ToAlertRuleScheduledIncidentPtrOutputWithContext(context.Background())
+}
+
+func (i *alertRuleScheduledIncidentPtrType) ToAlertRuleScheduledIncidentPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentPtrOutput)
+}
+
+type AlertRuleScheduledIncidentOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledIncidentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledIncident)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledIncidentOutput) ToAlertRuleScheduledIncidentOutput() AlertRuleScheduledIncidentOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentOutput) ToAlertRuleScheduledIncidentOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentOutput) ToAlertRuleScheduledIncidentPtrOutput() AlertRuleScheduledIncidentPtrOutput {
+	return o.ToAlertRuleScheduledIncidentPtrOutputWithContext(context.Background())
+}
+
+func (o AlertRuleScheduledIncidentOutput) ToAlertRuleScheduledIncidentPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduledIncident) *AlertRuleScheduledIncident {
+		return &v
+	}).(AlertRuleScheduledIncidentPtrOutput)
+}
+
+// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+func (o AlertRuleScheduledIncidentOutput) CreateIncidentEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncident) bool { return v.CreateIncidentEnabled }).(pulumi.BoolOutput)
+}
+
+// A `grouping` block as defined below.
+func (o AlertRuleScheduledIncidentOutput) Grouping() AlertRuleScheduledIncidentGroupingOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncident) AlertRuleScheduledIncidentGrouping { return v.Grouping }).(AlertRuleScheduledIncidentGroupingOutput)
+}
+
+type AlertRuleScheduledIncidentPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledIncidentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleScheduledIncident)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledIncidentPtrOutput) ToAlertRuleScheduledIncidentPtrOutput() AlertRuleScheduledIncidentPtrOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentPtrOutput) ToAlertRuleScheduledIncidentPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentPtrOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentPtrOutput) Elem() AlertRuleScheduledIncidentOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncident) AlertRuleScheduledIncident {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleScheduledIncident
+		return ret
+	}).(AlertRuleScheduledIncidentOutput)
+}
+
+// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+func (o AlertRuleScheduledIncidentPtrOutput) CreateIncidentEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncident) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CreateIncidentEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `grouping` block as defined below.
+func (o AlertRuleScheduledIncidentPtrOutput) Grouping() AlertRuleScheduledIncidentGroupingPtrOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncident) *AlertRuleScheduledIncidentGrouping {
+		if v == nil {
+			return nil
+		}
+		return &v.Grouping
+	}).(AlertRuleScheduledIncidentGroupingPtrOutput)
+}
+
+type AlertRuleScheduledIncidentConfiguration struct {
+	// Deprecated: The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
+	CreateIncident bool                                            `pulumi:"createIncident"`
+	Grouping       AlertRuleScheduledIncidentConfigurationGrouping `pulumi:"grouping"`
 }
 
 // AlertRuleScheduledIncidentConfigurationInput is an input type that accepts AlertRuleScheduledIncidentConfigurationArgs and AlertRuleScheduledIncidentConfigurationOutput values.
@@ -3170,10 +3325,9 @@ type AlertRuleScheduledIncidentConfigurationInput interface {
 }
 
 type AlertRuleScheduledIncidentConfigurationArgs struct {
-	// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-	CreateIncident pulumi.BoolInput `pulumi:"createIncident"`
-	// A `grouping` block as defined below.
-	Grouping AlertRuleScheduledIncidentConfigurationGroupingInput `pulumi:"grouping"`
+	// Deprecated: The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
+	CreateIncident pulumi.BoolInput                                     `pulumi:"createIncident"`
+	Grouping       AlertRuleScheduledIncidentConfigurationGroupingInput `pulumi:"grouping"`
 }
 
 func (AlertRuleScheduledIncidentConfigurationArgs) ElementType() reflect.Type {
@@ -3253,12 +3407,11 @@ func (o AlertRuleScheduledIncidentConfigurationOutput) ToAlertRuleScheduledIncid
 	}).(AlertRuleScheduledIncidentConfigurationPtrOutput)
 }
 
-// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+// Deprecated: The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationOutput) CreateIncident() pulumi.BoolOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfiguration) bool { return v.CreateIncident }).(pulumi.BoolOutput)
 }
 
-// A `grouping` block as defined below.
 func (o AlertRuleScheduledIncidentConfigurationOutput) Grouping() AlertRuleScheduledIncidentConfigurationGroupingOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfiguration) AlertRuleScheduledIncidentConfigurationGrouping {
 		return v.Grouping
@@ -3289,7 +3442,7 @@ func (o AlertRuleScheduledIncidentConfigurationPtrOutput) Elem() AlertRuleSchedu
 	}).(AlertRuleScheduledIncidentConfigurationOutput)
 }
 
-// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+// Deprecated: The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationPtrOutput) CreateIncident() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfiguration) *bool {
 		if v == nil {
@@ -3299,7 +3452,6 @@ func (o AlertRuleScheduledIncidentConfigurationPtrOutput) CreateIncident() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A `grouping` block as defined below.
 func (o AlertRuleScheduledIncidentConfigurationPtrOutput) Grouping() AlertRuleScheduledIncidentConfigurationGroupingPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfiguration) *AlertRuleScheduledIncidentConfigurationGrouping {
 		if v == nil {
@@ -3314,11 +3466,11 @@ type AlertRuleScheduledIncidentConfigurationGrouping struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 	EntityMatchingMethod *string `pulumi:"entityMatchingMethod"`
-	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+	// Deprecated: The `groupByAlertDetails` property has been superseded by the `byAlertDetails` property and will be removed in v4.0 of the AzureRM Provider
 	GroupByAlertDetails []string `pulumi:"groupByAlertDetails"`
-	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+	// Deprecated: The `groupByCustomDetails` property has been superseded by the `byCustomDetails` property and will be removed in v4.0 of the AzureRM Provider
 	GroupByCustomDetails []string `pulumi:"groupByCustomDetails"`
-	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	// Deprecated: The `groupByEntities` property has been superseded by the `byEntities` property and will be removed in v4.0 of the AzureRM Provider
 	GroupByEntities []string `pulumi:"groupByEntities"`
 	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
 	LookbackDuration *string `pulumi:"lookbackDuration"`
@@ -3342,11 +3494,11 @@ type AlertRuleScheduledIncidentConfigurationGroupingArgs struct {
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
 	EntityMatchingMethod pulumi.StringPtrInput `pulumi:"entityMatchingMethod"`
-	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+	// Deprecated: The `groupByAlertDetails` property has been superseded by the `byAlertDetails` property and will be removed in v4.0 of the AzureRM Provider
 	GroupByAlertDetails pulumi.StringArrayInput `pulumi:"groupByAlertDetails"`
-	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+	// Deprecated: The `groupByCustomDetails` property has been superseded by the `byCustomDetails` property and will be removed in v4.0 of the AzureRM Provider
 	GroupByCustomDetails pulumi.StringArrayInput `pulumi:"groupByCustomDetails"`
-	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	// Deprecated: The `groupByEntities` property has been superseded by the `byEntities` property and will be removed in v4.0 of the AzureRM Provider
 	GroupByEntities pulumi.StringArrayInput `pulumi:"groupByEntities"`
 	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
 	LookbackDuration pulumi.StringPtrInput `pulumi:"lookbackDuration"`
@@ -3441,17 +3593,17 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) EntityMatchingMet
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) *string { return v.EntityMatchingMethod }).(pulumi.StringPtrOutput)
 }
 
-// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+// Deprecated: The `groupByAlertDetails` property has been superseded by the `byAlertDetails` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByAlertDetails }).(pulumi.StringArrayOutput)
 }
 
-// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+// Deprecated: The `groupByCustomDetails` property has been superseded by the `byCustomDetails` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByCustomDetails }).(pulumi.StringArrayOutput)
 }
 
-// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+// Deprecated: The `groupByEntities` property has been superseded by the `byEntities` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationGroupingOutput) GroupByEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfigurationGrouping) []string { return v.GroupByEntities }).(pulumi.StringArrayOutput)
 }
@@ -3510,7 +3662,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) EntityMatching
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+// Deprecated: The `groupByAlertDetails` property has been superseded by the `byAlertDetails` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByAlertDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {
@@ -3520,7 +3672,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByAlertDe
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+// Deprecated: The `groupByCustomDetails` property has been superseded by the `byCustomDetails` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByCustomDetails() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {
@@ -3530,7 +3682,7 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByCustomD
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+// Deprecated: The `groupByEntities` property has been superseded by the `byEntities` property and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) GroupByEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) []string {
 		if v == nil {
@@ -3553,6 +3705,257 @@ func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) LookbackDurati
 // Whether to re-open closed matching incidents? Defaults to `false`.
 func (o AlertRuleScheduledIncidentConfigurationGroupingPtrOutput) ReopenClosedIncidents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfigurationGrouping) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReopenClosedIncidents
+	}).(pulumi.BoolPtrOutput)
+}
+
+type AlertRuleScheduledIncidentGrouping struct {
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+	ByAlertDetails []string `pulumi:"byAlertDetails"`
+	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+	ByCustomDetails []string `pulumi:"byCustomDetails"`
+	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	ByEntities []string `pulumi:"byEntities"`
+	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+	EntityMatchingMethod *string `pulumi:"entityMatchingMethod"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+	LookbackDuration *string `pulumi:"lookbackDuration"`
+	// Whether to re-open closed matching incidents? Defaults to `false`.
+	ReopenClosedIncidents *bool `pulumi:"reopenClosedIncidents"`
+}
+
+// AlertRuleScheduledIncidentGroupingInput is an input type that accepts AlertRuleScheduledIncidentGroupingArgs and AlertRuleScheduledIncidentGroupingOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledIncidentGroupingInput` via:
+//
+//	AlertRuleScheduledIncidentGroupingArgs{...}
+type AlertRuleScheduledIncidentGroupingInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledIncidentGroupingOutput() AlertRuleScheduledIncidentGroupingOutput
+	ToAlertRuleScheduledIncidentGroupingOutputWithContext(context.Context) AlertRuleScheduledIncidentGroupingOutput
+}
+
+type AlertRuleScheduledIncidentGroupingArgs struct {
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+	ByAlertDetails pulumi.StringArrayInput `pulumi:"byAlertDetails"`
+	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+	ByCustomDetails pulumi.StringArrayInput `pulumi:"byCustomDetails"`
+	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	ByEntities pulumi.StringArrayInput `pulumi:"byEntities"`
+	// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+	EntityMatchingMethod pulumi.StringPtrInput `pulumi:"entityMatchingMethod"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+	LookbackDuration pulumi.StringPtrInput `pulumi:"lookbackDuration"`
+	// Whether to re-open closed matching incidents? Defaults to `false`.
+	ReopenClosedIncidents pulumi.BoolPtrInput `pulumi:"reopenClosedIncidents"`
+}
+
+func (AlertRuleScheduledIncidentGroupingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledIncidentGrouping)(nil)).Elem()
+}
+
+func (i AlertRuleScheduledIncidentGroupingArgs) ToAlertRuleScheduledIncidentGroupingOutput() AlertRuleScheduledIncidentGroupingOutput {
+	return i.ToAlertRuleScheduledIncidentGroupingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledIncidentGroupingArgs) ToAlertRuleScheduledIncidentGroupingOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentGroupingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentGroupingOutput)
+}
+
+func (i AlertRuleScheduledIncidentGroupingArgs) ToAlertRuleScheduledIncidentGroupingPtrOutput() AlertRuleScheduledIncidentGroupingPtrOutput {
+	return i.ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i AlertRuleScheduledIncidentGroupingArgs) ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentGroupingOutput).ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(ctx)
+}
+
+// AlertRuleScheduledIncidentGroupingPtrInput is an input type that accepts AlertRuleScheduledIncidentGroupingArgs, AlertRuleScheduledIncidentGroupingPtr and AlertRuleScheduledIncidentGroupingPtrOutput values.
+// You can construct a concrete instance of `AlertRuleScheduledIncidentGroupingPtrInput` via:
+//
+//	        AlertRuleScheduledIncidentGroupingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertRuleScheduledIncidentGroupingPtrInput interface {
+	pulumi.Input
+
+	ToAlertRuleScheduledIncidentGroupingPtrOutput() AlertRuleScheduledIncidentGroupingPtrOutput
+	ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(context.Context) AlertRuleScheduledIncidentGroupingPtrOutput
+}
+
+type alertRuleScheduledIncidentGroupingPtrType AlertRuleScheduledIncidentGroupingArgs
+
+func AlertRuleScheduledIncidentGroupingPtr(v *AlertRuleScheduledIncidentGroupingArgs) AlertRuleScheduledIncidentGroupingPtrInput {
+	return (*alertRuleScheduledIncidentGroupingPtrType)(v)
+}
+
+func (*alertRuleScheduledIncidentGroupingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleScheduledIncidentGrouping)(nil)).Elem()
+}
+
+func (i *alertRuleScheduledIncidentGroupingPtrType) ToAlertRuleScheduledIncidentGroupingPtrOutput() AlertRuleScheduledIncidentGroupingPtrOutput {
+	return i.ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i *alertRuleScheduledIncidentGroupingPtrType) ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleScheduledIncidentGroupingPtrOutput)
+}
+
+type AlertRuleScheduledIncidentGroupingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledIncidentGroupingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleScheduledIncidentGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledIncidentGroupingOutput) ToAlertRuleScheduledIncidentGroupingOutput() AlertRuleScheduledIncidentGroupingOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentGroupingOutput) ToAlertRuleScheduledIncidentGroupingOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentGroupingOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentGroupingOutput) ToAlertRuleScheduledIncidentGroupingPtrOutput() AlertRuleScheduledIncidentGroupingPtrOutput {
+	return o.ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(context.Background())
+}
+
+func (o AlertRuleScheduledIncidentGroupingOutput) ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentGroupingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleScheduledIncidentGrouping) *AlertRuleScheduledIncidentGrouping {
+		return &v
+	}).(AlertRuleScheduledIncidentGroupingPtrOutput)
+}
+
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+func (o AlertRuleScheduledIncidentGroupingOutput) ByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentGrouping) []string { return v.ByAlertDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+func (o AlertRuleScheduledIncidentGroupingOutput) ByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentGrouping) []string { return v.ByCustomDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+func (o AlertRuleScheduledIncidentGroupingOutput) ByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentGrouping) []string { return v.ByEntities }).(pulumi.StringArrayOutput)
+}
+
+// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+func (o AlertRuleScheduledIncidentGroupingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentGrouping) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+func (o AlertRuleScheduledIncidentGroupingOutput) EntityMatchingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentGrouping) *string { return v.EntityMatchingMethod }).(pulumi.StringPtrOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+func (o AlertRuleScheduledIncidentGroupingOutput) LookbackDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentGrouping) *string { return v.LookbackDuration }).(pulumi.StringPtrOutput)
+}
+
+// Whether to re-open closed matching incidents? Defaults to `false`.
+func (o AlertRuleScheduledIncidentGroupingOutput) ReopenClosedIncidents() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertRuleScheduledIncidentGrouping) *bool { return v.ReopenClosedIncidents }).(pulumi.BoolPtrOutput)
+}
+
+type AlertRuleScheduledIncidentGroupingPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleScheduledIncidentGroupingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleScheduledIncidentGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) ToAlertRuleScheduledIncidentGroupingPtrOutput() AlertRuleScheduledIncidentGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) ToAlertRuleScheduledIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleScheduledIncidentGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) Elem() AlertRuleScheduledIncidentGroupingOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) AlertRuleScheduledIncidentGrouping {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleScheduledIncidentGrouping
+		return ret
+	}).(AlertRuleScheduledIncidentGroupingOutput)
+}
+
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `DisplayName` and `Severity`.
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) ByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ByAlertDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) ByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ByCustomDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) ByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ByEntities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) EntityMatchingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityMatchingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) LookbackDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LookbackDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to re-open closed matching incidents? Defaults to `false`.
+func (o AlertRuleScheduledIncidentGroupingPtrOutput) ReopenClosedIncidents() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRuleScheduledIncidentGrouping) *bool {
 		if v == nil {
 			return nil
 		}
@@ -6766,10 +7169,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingFieldMappingArrayInput)(nil)).Elem(), AlertRuleScheduledEntityMappingFieldMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEventGroupingInput)(nil)).Elem(), AlertRuleScheduledEventGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEventGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledEventGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentInput)(nil)).Elem(), AlertRuleScheduledIncidentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentConfigurationGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentConfigurationGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentGroupingInput)(nil)).Elem(), AlertRuleScheduledIncidentGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledIncidentGroupingPtrInput)(nil)).Elem(), AlertRuleScheduledIncidentGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledSentinelEntityMappingInput)(nil)).Elem(), AlertRuleScheduledSentinelEntityMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledSentinelEntityMappingArrayInput)(nil)).Elem(), AlertRuleScheduledSentinelEntityMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthomationRuleActionIncidentInput)(nil)).Elem(), AuthomationRuleActionIncidentArgs{})
@@ -6868,10 +7275,14 @@ func init() {
 	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingFieldMappingArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEventGroupingPtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledIncidentOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledIncidentPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledIncidentConfigurationGroupingPtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledIncidentGroupingOutput{})
+	pulumi.RegisterOutputType(AlertRuleScheduledIncidentGroupingPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledSentinelEntityMappingOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledSentinelEntityMappingArrayOutput{})
 	pulumi.RegisterOutputType(AuthomationRuleActionIncidentOutput{})

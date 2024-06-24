@@ -11,6 +11,8 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -157,6 +159,24 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The list of the container names of the source Storage Account.
+     * 
+     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * 
+     */
+    @Export(name="storageAccountContainerNames", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> storageAccountContainerNames;
+
+    /**
+     * @return The list of the container names of the source Storage Account.
+     * 
+     * &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can&#39;t be removed once specified.
+     * 
+     */
+    public Output<Optional<List<String>>> storageAccountContainerNames() {
+        return Codegen.optional(this.storageAccountContainerNames);
     }
     /**
      * The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.

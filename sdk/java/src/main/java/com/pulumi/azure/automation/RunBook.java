@@ -144,22 +144,34 @@ public class RunBook extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A `draft` block as defined below .
+     * A `draft` block as defined below.
      * 
      */
     @Export(name="draft", refs={RunBookDraft.class}, tree="[0]")
     private Output</* @Nullable */ RunBookDraft> draft;
 
     /**
-     * @return A `draft` block as defined below .
+     * @return A `draft` block as defined below.
      * 
      */
     public Output<Optional<RunBookDraft>> draft() {
         return Codegen.optional(this.draft);
     }
+    /**
+     * One or more `job_schedule` block as defined below.
+     * 
+     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * 
+     */
     @Export(name="jobSchedules", refs={List.class,RunBookJobSchedule.class}, tree="[0,1]")
     private Output<List<RunBookJobSchedule>> jobSchedules;
 
+    /**
+     * @return One or more `job_schedule` block as defined below.
+     * 
+     * &gt; **NOTE** AzureRM provides a stand-alone azure.automation.JobSchedule and this inlined `job_schdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
+     * 
+     */
     public Output<List<RunBookJobSchedule>> jobSchedules() {
         return this.jobSchedules;
     }

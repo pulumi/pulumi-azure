@@ -178,10 +178,34 @@ namespace Pulumi.Azure.Network
         public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
 
         /// <summary>
+        /// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+        /// </summary>
+        [Output("localSubnetNames")]
+        public Output<ImmutableArray<string>> LocalSubnetNames { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the virtual network peering. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("onlyIpv6PeeringEnabled")]
+        public Output<bool?> OnlyIpv6PeeringEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("peerCompleteVirtualNetworksEnabled")]
+        public Output<bool?> PeerCompleteVirtualNetworksEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+        /// </summary>
+        [Output("remoteSubnetNames")]
+        public Output<ImmutableArray<string>> RemoteSubnetNames { get; private set; } = null!;
 
         /// <summary>
         /// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
@@ -279,11 +303,47 @@ namespace Pulumi.Azure.Network
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
 
+        [Input("localSubnetNames")]
+        private InputList<string>? _localSubnetNames;
+
+        /// <summary>
+        /// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+        /// </summary>
+        public InputList<string> LocalSubnetNames
+        {
+            get => _localSubnetNames ?? (_localSubnetNames = new InputList<string>());
+            set => _localSubnetNames = value;
+        }
+
         /// <summary>
         /// The name of the virtual network peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("onlyIpv6PeeringEnabled")]
+        public Input<bool>? OnlyIpv6PeeringEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("peerCompleteVirtualNetworksEnabled")]
+        public Input<bool>? PeerCompleteVirtualNetworksEnabled { get; set; }
+
+        [Input("remoteSubnetNames")]
+        private InputList<string>? _remoteSubnetNames;
+
+        /// <summary>
+        /// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+        /// </summary>
+        public InputList<string> RemoteSubnetNames
+        {
+            get => _remoteSubnetNames ?? (_remoteSubnetNames = new InputList<string>());
+            set => _remoteSubnetNames = value;
+        }
 
         /// <summary>
         /// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
@@ -349,11 +409,47 @@ namespace Pulumi.Azure.Network
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
 
+        [Input("localSubnetNames")]
+        private InputList<string>? _localSubnetNames;
+
+        /// <summary>
+        /// A list of local Subnet names that are Subnet peered with remote Virtual Network.
+        /// </summary>
+        public InputList<string> LocalSubnetNames
+        {
+            get => _localSubnetNames ?? (_localSubnetNames = new InputList<string>());
+            set => _localSubnetNames = value;
+        }
+
         /// <summary>
         /// The name of the virtual network peering. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("onlyIpv6PeeringEnabled")]
+        public Input<bool>? OnlyIpv6PeeringEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("peerCompleteVirtualNetworksEnabled")]
+        public Input<bool>? PeerCompleteVirtualNetworksEnabled { get; set; }
+
+        [Input("remoteSubnetNames")]
+        private InputList<string>? _remoteSubnetNames;
+
+        /// <summary>
+        /// A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+        /// </summary>
+        public InputList<string> RemoteSubnetNames
+        {
+            get => _remoteSubnetNames ?? (_remoteSubnetNames = new InputList<string>());
+            set => _remoteSubnetNames = value;
+        }
 
         /// <summary>
         /// The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.

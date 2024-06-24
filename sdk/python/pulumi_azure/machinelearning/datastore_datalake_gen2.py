@@ -622,7 +622,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorityUrl")
-    def authority_url(self) -> pulumi.Output[str]:
+    def authority_url(self) -> pulumi.Output[Optional[str]]:
         """
         An URL used for authentication.
         """

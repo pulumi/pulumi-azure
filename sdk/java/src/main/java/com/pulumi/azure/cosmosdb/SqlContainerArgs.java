@@ -147,18 +147,52 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Define a partition key. Changing this forces a new resource to be created.
+     * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="partitionKeyPath", required=true)
-    private Output<String> partitionKeyPath;
+    @Import(name="partitionKeyKind")
+    private @Nullable Output<String> partitionKeyKind;
 
     /**
-     * @return Define a partition key. Changing this forces a new resource to be created.
+     * @return Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> partitionKeyPath() {
-        return this.partitionKeyPath;
+    public Optional<Output<String>> partitionKeyKind() {
+        return Optional.ofNullable(this.partitionKeyKind);
+    }
+
+    /**
+     * @deprecated
+     * `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider. */
+    @Import(name="partitionKeyPath")
+    private @Nullable Output<String> partitionKeyPath;
+
+    /**
+     * @deprecated
+     * `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider. */
+    public Optional<Output<String>> partitionKeyPath() {
+        return Optional.ofNullable(this.partitionKeyPath);
+    }
+
+    /**
+     * A list of partition key paths. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="partitionKeyPaths")
+    private @Nullable Output<List<String>> partitionKeyPaths;
+
+    /**
+     * @return A list of partition key paths. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> partitionKeyPaths() {
+        return Optional.ofNullable(this.partitionKeyPaths);
     }
 
     /**
@@ -232,7 +266,9 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultTtl = $.defaultTtl;
         this.indexingPolicy = $.indexingPolicy;
         this.name = $.name;
+        this.partitionKeyKind = $.partitionKeyKind;
         this.partitionKeyPath = $.partitionKeyPath;
+        this.partitionKeyPaths = $.partitionKeyPaths;
         this.partitionKeyVersion = $.partitionKeyVersion;
         this.resourceGroupName = $.resourceGroupName;
         this.throughput = $.throughput;
@@ -430,24 +466,80 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partitionKeyPath Define a partition key. Changing this forces a new resource to be created.
+         * @param partitionKeyKind Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder partitionKeyPath(Output<String> partitionKeyPath) {
+        public Builder partitionKeyKind(@Nullable Output<String> partitionKeyKind) {
+            $.partitionKeyKind = partitionKeyKind;
+            return this;
+        }
+
+        /**
+         * @param partitionKeyKind Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitionKeyKind(String partitionKeyKind) {
+            return partitionKeyKind(Output.of(partitionKeyKind));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider. */
+        public Builder partitionKeyPath(@Nullable Output<String> partitionKeyPath) {
             $.partitionKeyPath = partitionKeyPath;
             return this;
         }
 
         /**
-         * @param partitionKeyPath Define a partition key. Changing this forces a new resource to be created.
+         * @return builder
+         * 
+         * @deprecated
+         * `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `partition_key_path` will be removed in favour of the property `partition_key_paths` in version 4.0 of the AzureRM Provider. */
+        public Builder partitionKeyPath(String partitionKeyPath) {
+            return partitionKeyPath(Output.of(partitionKeyPath));
+        }
+
+        /**
+         * @param partitionKeyPaths A list of partition key paths. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder partitionKeyPath(String partitionKeyPath) {
-            return partitionKeyPath(Output.of(partitionKeyPath));
+        public Builder partitionKeyPaths(@Nullable Output<List<String>> partitionKeyPaths) {
+            $.partitionKeyPaths = partitionKeyPaths;
+            return this;
+        }
+
+        /**
+         * @param partitionKeyPaths A list of partition key paths. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitionKeyPaths(List<String> partitionKeyPaths) {
+            return partitionKeyPaths(Output.of(partitionKeyPaths));
+        }
+
+        /**
+         * @param partitionKeyPaths A list of partition key paths. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitionKeyPaths(String... partitionKeyPaths) {
+            return partitionKeyPaths(List.of(partitionKeyPaths));
         }
 
         /**
@@ -550,9 +642,6 @@ public final class SqlContainerArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.databaseName == null) {
                 throw new MissingRequiredPropertyException("SqlContainerArgs", "databaseName");
-            }
-            if ($.partitionKeyPath == null) {
-                throw new MissingRequiredPropertyException("SqlContainerArgs", "partitionKeyPath");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("SqlContainerArgs", "resourceGroupName");

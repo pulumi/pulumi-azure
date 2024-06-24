@@ -112,6 +112,14 @@ namespace Pulumi.Azure.DataProtection
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The list of the container names of the source Storage Account.
+        /// 
+        /// &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        /// </summary>
+        [Output("storageAccountContainerNames")]
+        public Output<ImmutableArray<string>> StorageAccountContainerNames { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         /// </summary>
         [Output("storageAccountId")]
@@ -187,6 +195,20 @@ namespace Pulumi.Azure.DataProtection
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("storageAccountContainerNames")]
+        private InputList<string>? _storageAccountContainerNames;
+
+        /// <summary>
+        /// The list of the container names of the source Storage Account.
+        /// 
+        /// &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        /// </summary>
+        public InputList<string> StorageAccountContainerNames
+        {
+            get => _storageAccountContainerNames ?? (_storageAccountContainerNames = new InputList<string>());
+            set => _storageAccountContainerNames = value;
+        }
+
         /// <summary>
         /// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         /// </summary>
@@ -224,6 +246,20 @@ namespace Pulumi.Azure.DataProtection
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("storageAccountContainerNames")]
+        private InputList<string>? _storageAccountContainerNames;
+
+        /// <summary>
+        /// The list of the container names of the source Storage Account.
+        /// 
+        /// &gt; **Note:** The `storage_account_container_names` should be specified in the vaulted backup policy/operational and vaulted hybrid backup policy. Removing the `storage_account_container_names` will force a new resource to be created since it can't be removed once specified.
+        /// </summary>
+        public InputList<string> StorageAccountContainerNames
+        {
+            get => _storageAccountContainerNames ?? (_storageAccountContainerNames = new InputList<string>());
+            set => _storageAccountContainerNames = value;
+        }
 
         /// <summary>
         /// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.

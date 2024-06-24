@@ -237,8 +237,8 @@ class KubernetesClusterArgs:
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_pod_security_policy is not None:
-            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if http_application_routing_enabled is not None:
@@ -532,8 +532,8 @@ class KubernetesClusterArgs:
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
     def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
 
         return pulumi.get(self, "enable_pod_security_policy")
 
@@ -1345,8 +1345,8 @@ class _KubernetesClusterState:
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_pod_security_policy is not None:
-            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+            warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
@@ -1662,8 +1662,8 @@ class _KubernetesClusterState:
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
     def enable_pod_security_policy(self) -> Optional[pulumi.Input[bool]]:
-        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
 
         return pulumi.get(self, "enable_pod_security_policy")
 
@@ -3239,8 +3239,8 @@ class KubernetesCluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
     def enable_pod_security_policy(self) -> pulumi.Output[Optional[bool]]:
-        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
-        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
+        warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""", DeprecationWarning)
+        pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.""")
 
         return pulumi.get(self, "enable_pod_security_policy")
 

@@ -20,7 +20,11 @@ class VirtualNetworkPeeringArgs:
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 local_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_ipv6_peering_enabled: Optional[pulumi.Input[bool]] = None,
+                 peer_complete_virtual_networks_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_remote_gateways: Optional[pulumi.Input[bool]] = None):
         """
@@ -31,7 +35,11 @@ class VirtualNetworkPeeringArgs:
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] peer_complete_virtual_networks_enabled: Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_subnet_names: A list of remote Subnet names from remote Virtual Network that are Subnet peered.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
         :param pulumi.Input[bool] use_remote_gateways: Controls if remote gateways can be used on the local virtual network. If the flag is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to `true`. This flag cannot be set if virtual network already has a gateway. Defaults to `false`.
                
@@ -46,8 +54,16 @@ class VirtualNetworkPeeringArgs:
             pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
         if allow_virtual_network_access is not None:
             pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if local_subnet_names is not None:
+            pulumi.set(__self__, "local_subnet_names", local_subnet_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if only_ipv6_peering_enabled is not None:
+            pulumi.set(__self__, "only_ipv6_peering_enabled", only_ipv6_peering_enabled)
+        if peer_complete_virtual_networks_enabled is not None:
+            pulumi.set(__self__, "peer_complete_virtual_networks_enabled", peer_complete_virtual_networks_enabled)
+        if remote_subnet_names is not None:
+            pulumi.set(__self__, "remote_subnet_names", remote_subnet_names)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
         if use_remote_gateways is not None:
@@ -126,6 +142,18 @@ class VirtualNetworkPeeringArgs:
         pulumi.set(self, "allow_virtual_network_access", value)
 
     @property
+    @pulumi.getter(name="localSubnetNames")
+    def local_subnet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of local Subnet names that are Subnet peered with remote Virtual Network.
+        """
+        return pulumi.get(self, "local_subnet_names")
+
+    @local_subnet_names.setter
+    def local_subnet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "local_subnet_names", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -136,6 +164,42 @@ class VirtualNetworkPeeringArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onlyIpv6PeeringEnabled")
+    def only_ipv6_peering_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "only_ipv6_peering_enabled")
+
+    @only_ipv6_peering_enabled.setter
+    def only_ipv6_peering_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "only_ipv6_peering_enabled", value)
+
+    @property
+    @pulumi.getter(name="peerCompleteVirtualNetworksEnabled")
+    def peer_complete_virtual_networks_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "peer_complete_virtual_networks_enabled")
+
+    @peer_complete_virtual_networks_enabled.setter
+    def peer_complete_virtual_networks_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "peer_complete_virtual_networks_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteSubnetNames")
+    def remote_subnet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+        """
+        return pulumi.get(self, "remote_subnet_names")
+
+    @remote_subnet_names.setter
+    def remote_subnet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "remote_subnet_names", value)
 
     @property
     @pulumi.getter
@@ -170,7 +234,11 @@ class _VirtualNetworkPeeringState:
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 local_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_ipv6_peering_enabled: Optional[pulumi.Input[bool]] = None,
+                 peer_complete_virtual_networks_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -181,7 +249,11 @@ class _VirtualNetworkPeeringState:
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] peer_complete_virtual_networks_enabled: Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_subnet_names: A list of remote Subnet names from remote Virtual Network that are Subnet peered.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
@@ -196,8 +268,16 @@ class _VirtualNetworkPeeringState:
             pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
         if allow_virtual_network_access is not None:
             pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+        if local_subnet_names is not None:
+            pulumi.set(__self__, "local_subnet_names", local_subnet_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if only_ipv6_peering_enabled is not None:
+            pulumi.set(__self__, "only_ipv6_peering_enabled", only_ipv6_peering_enabled)
+        if peer_complete_virtual_networks_enabled is not None:
+            pulumi.set(__self__, "peer_complete_virtual_networks_enabled", peer_complete_virtual_networks_enabled)
+        if remote_subnet_names is not None:
+            pulumi.set(__self__, "remote_subnet_names", remote_subnet_names)
         if remote_virtual_network_id is not None:
             pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
         if resource_group_name is not None:
@@ -246,6 +326,18 @@ class _VirtualNetworkPeeringState:
         pulumi.set(self, "allow_virtual_network_access", value)
 
     @property
+    @pulumi.getter(name="localSubnetNames")
+    def local_subnet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of local Subnet names that are Subnet peered with remote Virtual Network.
+        """
+        return pulumi.get(self, "local_subnet_names")
+
+    @local_subnet_names.setter
+    def local_subnet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "local_subnet_names", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -256,6 +348,42 @@ class _VirtualNetworkPeeringState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="onlyIpv6PeeringEnabled")
+    def only_ipv6_peering_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "only_ipv6_peering_enabled")
+
+    @only_ipv6_peering_enabled.setter
+    def only_ipv6_peering_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "only_ipv6_peering_enabled", value)
+
+    @property
+    @pulumi.getter(name="peerCompleteVirtualNetworksEnabled")
+    def peer_complete_virtual_networks_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "peer_complete_virtual_networks_enabled")
+
+    @peer_complete_virtual_networks_enabled.setter
+    def peer_complete_virtual_networks_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "peer_complete_virtual_networks_enabled", value)
+
+    @property
+    @pulumi.getter(name="remoteSubnetNames")
+    def remote_subnet_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+        """
+        return pulumi.get(self, "remote_subnet_names")
+
+    @remote_subnet_names.setter
+    def remote_subnet_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "remote_subnet_names", value)
 
     @property
     @pulumi.getter(name="remoteVirtualNetworkId")
@@ -328,7 +456,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 local_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_ipv6_peering_enabled: Optional[pulumi.Input[bool]] = None,
+                 peer_complete_virtual_networks_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -427,7 +559,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] peer_complete_virtual_networks_enabled: Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_subnet_names: A list of remote Subnet names from remote Virtual Network that are Subnet peered.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
@@ -547,7 +683,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
                  allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
                  allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+                 local_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 only_ipv6_peering_enabled: Optional[pulumi.Input[bool]] = None,
+                 peer_complete_virtual_networks_enabled: Optional[pulumi.Input[bool]] = None,
+                 remote_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -565,7 +705,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             __props__.__dict__["allow_forwarded_traffic"] = allow_forwarded_traffic
             __props__.__dict__["allow_gateway_transit"] = allow_gateway_transit
             __props__.__dict__["allow_virtual_network_access"] = allow_virtual_network_access
+            __props__.__dict__["local_subnet_names"] = local_subnet_names
             __props__.__dict__["name"] = name
+            __props__.__dict__["only_ipv6_peering_enabled"] = only_ipv6_peering_enabled
+            __props__.__dict__["peer_complete_virtual_networks_enabled"] = peer_complete_virtual_networks_enabled
+            __props__.__dict__["remote_subnet_names"] = remote_subnet_names
             if remote_virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_virtual_network_id'")
             __props__.__dict__["remote_virtual_network_id"] = remote_virtual_network_id
@@ -590,7 +734,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
             allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
             allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+            local_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            only_ipv6_peering_enabled: Optional[pulumi.Input[bool]] = None,
+            peer_complete_virtual_networks_enabled: Optional[pulumi.Input[bool]] = None,
+            remote_subnet_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -606,7 +754,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_forwarded_traffic: Controls if forwarded traffic from VMs in the remote virtual network is allowed. Defaults to `false`.
         :param pulumi.Input[bool] allow_gateway_transit: Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to `false`.
         :param pulumi.Input[bool] allow_virtual_network_access: Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_subnet_names: A list of local Subnet names that are Subnet peered with remote Virtual Network.
         :param pulumi.Input[str] name: The name of the virtual network peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] only_ipv6_peering_enabled: Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] peer_complete_virtual_networks_enabled: Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] remote_subnet_names: A list of remote Subnet names from remote Virtual Network that are Subnet peered.
         :param pulumi.Input[str] remote_virtual_network_id: The full Azure resource ID of the remote virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the virtual network peering. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See the trigger example for an example on how to set it up.
@@ -622,7 +774,11 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         __props__.__dict__["allow_forwarded_traffic"] = allow_forwarded_traffic
         __props__.__dict__["allow_gateway_transit"] = allow_gateway_transit
         __props__.__dict__["allow_virtual_network_access"] = allow_virtual_network_access
+        __props__.__dict__["local_subnet_names"] = local_subnet_names
         __props__.__dict__["name"] = name
+        __props__.__dict__["only_ipv6_peering_enabled"] = only_ipv6_peering_enabled
+        __props__.__dict__["peer_complete_virtual_networks_enabled"] = peer_complete_virtual_networks_enabled
+        __props__.__dict__["remote_subnet_names"] = remote_subnet_names
         __props__.__dict__["remote_virtual_network_id"] = remote_virtual_network_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["triggers"] = triggers
@@ -655,12 +811,44 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         return pulumi.get(self, "allow_virtual_network_access")
 
     @property
+    @pulumi.getter(name="localSubnetNames")
+    def local_subnet_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of local Subnet names that are Subnet peered with remote Virtual Network.
+        """
+        return pulumi.get(self, "local_subnet_names")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the virtual network peering. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="onlyIpv6PeeringEnabled")
+    def only_ipv6_peering_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether only IPv6 address space is peered for Subnet peering. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "only_ipv6_peering_enabled")
+
+    @property
+    @pulumi.getter(name="peerCompleteVirtualNetworksEnabled")
+    def peer_complete_virtual_networks_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether complete Virtual Network address space is peered. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "peer_complete_virtual_networks_enabled")
+
+    @property
+    @pulumi.getter(name="remoteSubnetNames")
+    def remote_subnet_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of remote Subnet names from remote Virtual Network that are Subnet peered.
+        """
+        return pulumi.get(self, "remote_subnet_names")
 
     @property
     @pulumi.getter(name="remoteVirtualNetworkId")

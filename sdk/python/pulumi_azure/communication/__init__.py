@@ -6,5 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .email_service import *
+from .email_service_domain import *
 from .get_service import *
 from .service import *
+from ._inputs import *
+from . import outputs

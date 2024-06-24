@@ -85,8 +85,11 @@ type RunBook struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// A description for this credential.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A `draft` block as defined below .
-	Draft        RunBookDraftPtrOutput         `pulumi:"draft"`
+	// A `draft` block as defined below.
+	Draft RunBookDraftPtrOutput `pulumi:"draft"`
+	// One or more `jobSchedule` block as defined below.
+	//
+	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules RunBookJobScheduleArrayOutput `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -161,8 +164,11 @@ type runBookState struct {
 	Content *string `pulumi:"content"`
 	// A description for this credential.
 	Description *string `pulumi:"description"`
-	// A `draft` block as defined below .
-	Draft        *RunBookDraft        `pulumi:"draft"`
+	// A `draft` block as defined below.
+	Draft *RunBookDraft `pulumi:"draft"`
+	// One or more `jobSchedule` block as defined below.
+	//
+	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -193,8 +199,11 @@ type RunBookState struct {
 	Content pulumi.StringPtrInput
 	// A description for this credential.
 	Description pulumi.StringPtrInput
-	// A `draft` block as defined below .
-	Draft        RunBookDraftPtrInput
+	// A `draft` block as defined below.
+	Draft RunBookDraftPtrInput
+	// One or more `jobSchedule` block as defined below.
+	//
+	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -229,8 +238,11 @@ type runBookArgs struct {
 	Content *string `pulumi:"content"`
 	// A description for this credential.
 	Description *string `pulumi:"description"`
-	// A `draft` block as defined below .
-	Draft        *RunBookDraft        `pulumi:"draft"`
+	// A `draft` block as defined below.
+	Draft *RunBookDraft `pulumi:"draft"`
+	// One or more `jobSchedule` block as defined below.
+	//
+	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -262,8 +274,11 @@ type RunBookArgs struct {
 	Content pulumi.StringPtrInput
 	// A description for this credential.
 	Description pulumi.StringPtrInput
-	// A `draft` block as defined below .
-	Draft        RunBookDraftPtrInput
+	// A `draft` block as defined below.
+	Draft RunBookDraftPtrInput
+	// One or more `jobSchedule` block as defined below.
+	//
+	// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -389,11 +404,14 @@ func (o RunBookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A `draft` block as defined below .
+// A `draft` block as defined below.
 func (o RunBookOutput) Draft() RunBookDraftPtrOutput {
 	return o.ApplyT(func(v *RunBook) RunBookDraftPtrOutput { return v.Draft }).(RunBookDraftPtrOutput)
 }
 
+// One or more `jobSchedule` block as defined below.
+//
+// > **NOTE** AzureRM provides a stand-alone automation.JobSchedule and this inlined `jobSchdule` property to manage the job schedules. At this time you should choose one of them to manage the job schedule resources.
 func (o RunBookOutput) JobSchedules() RunBookJobScheduleArrayOutput {
 	return o.ApplyT(func(v *RunBook) RunBookJobScheduleArrayOutput { return v.JobSchedules }).(RunBookJobScheduleArrayOutput)
 }

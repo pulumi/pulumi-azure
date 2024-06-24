@@ -96,7 +96,9 @@ type AlertRuleScheduled struct {
 	EntityMappings AlertRuleScheduledEntityMappingArrayOutput `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
 	EventGrouping AlertRuleScheduledEventGroupingPtrOutput `pulumi:"eventGrouping"`
-	// A `incidentConfiguration` block as defined below.
+	// A `incident` block as defined below.
+	Incident AlertRuleScheduledIncidentOutput `pulumi:"incident"`
+	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
 	IncidentConfiguration AlertRuleScheduledIncidentConfigurationOutput `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringOutput `pulumi:"logAnalyticsWorkspaceId"`
@@ -192,7 +194,9 @@ type alertRuleScheduledState struct {
 	EntityMappings []AlertRuleScheduledEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
 	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
-	// A `incidentConfiguration` block as defined below.
+	// A `incident` block as defined below.
+	Incident *AlertRuleScheduledIncident `pulumi:"incident"`
+	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
 	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId *string `pulumi:"logAnalyticsWorkspaceId"`
@@ -247,7 +251,9 @@ type AlertRuleScheduledState struct {
 	EntityMappings AlertRuleScheduledEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
 	EventGrouping AlertRuleScheduledEventGroupingPtrInput
-	// A `incidentConfiguration` block as defined below.
+	// A `incident` block as defined below.
+	Incident AlertRuleScheduledIncidentPtrInput
+	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
 	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringPtrInput
@@ -306,7 +312,9 @@ type alertRuleScheduledArgs struct {
 	EntityMappings []AlertRuleScheduledEntityMapping `pulumi:"entityMappings"`
 	// A `eventGrouping` block as defined below.
 	EventGrouping *AlertRuleScheduledEventGrouping `pulumi:"eventGrouping"`
-	// A `incidentConfiguration` block as defined below.
+	// A `incident` block as defined below.
+	Incident *AlertRuleScheduledIncident `pulumi:"incident"`
+	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
 	IncidentConfiguration *AlertRuleScheduledIncidentConfiguration `pulumi:"incidentConfiguration"`
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
@@ -362,7 +370,9 @@ type AlertRuleScheduledArgs struct {
 	EntityMappings AlertRuleScheduledEntityMappingArrayInput
 	// A `eventGrouping` block as defined below.
 	EventGrouping AlertRuleScheduledEventGroupingPtrInput
-	// A `incidentConfiguration` block as defined below.
+	// A `incident` block as defined below.
+	Incident AlertRuleScheduledIncidentPtrInput
+	// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
 	IncidentConfiguration AlertRuleScheduledIncidentConfigurationPtrInput
 	// The ID of the Log Analytics Workspace this Sentinel Scheduled Alert Rule belongs to. Changing this forces a new Sentinel Scheduled Alert Rule to be created.
 	LogAnalyticsWorkspaceId pulumi.StringInput
@@ -532,7 +542,12 @@ func (o AlertRuleScheduledOutput) EventGrouping() AlertRuleScheduledEventGroupin
 	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduledEventGroupingPtrOutput { return v.EventGrouping }).(AlertRuleScheduledEventGroupingPtrOutput)
 }
 
-// A `incidentConfiguration` block as defined below.
+// A `incident` block as defined below.
+func (o AlertRuleScheduledOutput) Incident() AlertRuleScheduledIncidentOutput {
+	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduledIncidentOutput { return v.Incident }).(AlertRuleScheduledIncidentOutput)
+}
+
+// Deprecated: The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
 func (o AlertRuleScheduledOutput) IncidentConfiguration() AlertRuleScheduledIncidentConfigurationOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) AlertRuleScheduledIncidentConfigurationOutput {
 		return v.IncidentConfiguration

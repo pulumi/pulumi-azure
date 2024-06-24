@@ -32,15 +32,11 @@ public final class KubernetesClusterNetworkProfile {
     @Deprecated /* `docker_bridge_cidr` has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     private @Nullable String dockerBridgeCidr;
     /**
-     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * @deprecated
+     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
     private @Nullable String ebpfDataPlane;
     /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
@@ -66,6 +62,17 @@ public final class KubernetesClusterNetworkProfile {
      * 
      */
     private @Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile;
+    /**
+     * @return Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * 
+     */
+    private @Nullable String networkDataPlane;
     /**
      * @return Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
      * 
@@ -94,7 +101,7 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
-     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
      * 
      */
     private @Nullable String networkPolicy;
@@ -150,15 +157,11 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.dockerBridgeCidr);
     }
     /**
-     * @return Specifies the eBPF data plane used for building the Kubernetes network. Possible value is `cilium`. Disabling this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
-     * 
-     * &gt; **Note:** When `ebpf_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * @deprecated
+     * This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider.
      * 
      */
+    @Deprecated /* This property has been superseded by the property `network_data_plane` and will be removed in v4.0 of the AzureRM provider. */
     public Optional<String> ebpfDataPlane() {
         return Optional.ofNullable(this.ebpfDataPlane);
     }
@@ -195,6 +198,19 @@ public final class KubernetesClusterNetworkProfile {
         return Optional.ofNullable(this.natGatewayProfile);
     }
     /**
+     * @return Specifies the data plane used for building the Kubernetes network. Possible values are `azure` and `cilium`. Defaults to `azure`. Disabling this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, the `network_plugin` field can only be set to `azure`.
+     * 
+     * &gt; **Note:** When `network_data_plane` is set to `cilium`, one of either `network_plugin_mode = &#34;overlay&#34;` or `pod_subnet_id` must be specified.
+     * 
+     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CiliumDataplanePreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+     * 
+     */
+    public Optional<String> networkDataPlane() {
+        return Optional.ofNullable(this.networkDataPlane);
+    }
+    /**
      * @return Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -228,7 +244,7 @@ public final class KubernetesClusterNetworkProfile {
      * 
      * &gt; **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
      * 
-     * &gt; **Note:** When `network_policy` is set to `cilium`, the `ebpf_data_plane` field must be set to `cilium`.
+     * &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
      * 
      */
     public Optional<String> networkPolicy() {
@@ -294,6 +310,7 @@ public final class KubernetesClusterNetworkProfile {
         private @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
         private @Nullable String loadBalancerSku;
         private @Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile;
+        private @Nullable String networkDataPlane;
         private @Nullable String networkMode;
         private String networkPlugin;
         private @Nullable String networkPluginMode;
@@ -315,6 +332,7 @@ public final class KubernetesClusterNetworkProfile {
     	      this.loadBalancerProfile = defaults.loadBalancerProfile;
     	      this.loadBalancerSku = defaults.loadBalancerSku;
     	      this.natGatewayProfile = defaults.natGatewayProfile;
+    	      this.networkDataPlane = defaults.networkDataPlane;
     	      this.networkMode = defaults.networkMode;
     	      this.networkPlugin = defaults.networkPlugin;
     	      this.networkPluginMode = defaults.networkPluginMode;
@@ -371,6 +389,12 @@ public final class KubernetesClusterNetworkProfile {
         public Builder natGatewayProfile(@Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile) {
 
             this.natGatewayProfile = natGatewayProfile;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder networkDataPlane(@Nullable String networkDataPlane) {
+
+            this.networkDataPlane = networkDataPlane;
             return this;
         }
         @CustomType.Setter
@@ -462,6 +486,7 @@ public final class KubernetesClusterNetworkProfile {
             _resultValue.loadBalancerProfile = loadBalancerProfile;
             _resultValue.loadBalancerSku = loadBalancerSku;
             _resultValue.natGatewayProfile = natGatewayProfile;
+            _resultValue.networkDataPlane = networkDataPlane;
             _resultValue.networkMode = networkMode;
             _resultValue.networkPlugin = networkPlugin;
             _resultValue.networkPluginMode = networkPluginMode;

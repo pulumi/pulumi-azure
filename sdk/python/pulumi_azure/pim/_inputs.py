@@ -16,6 +16,24 @@ __all__ = [
     'EligibleRoleAssignmentScheduleArgs',
     'EligibleRoleAssignmentScheduleExpirationArgs',
     'EligibleRoleAssignmentTicketArgs',
+    'RoleManagementPolicyActivationRulesArgs',
+    'RoleManagementPolicyActivationRulesApprovalStageArgs',
+    'RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs',
+    'RoleManagementPolicyActiveAssignmentRulesArgs',
+    'RoleManagementPolicyEligibleAssignmentRulesArgs',
+    'RoleManagementPolicyNotificationRulesArgs',
+    'RoleManagementPolicyNotificationRulesActiveAssignmentsArgs',
+    'RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleActivationsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs',
+    'RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs',
 ]
 
 @pulumi.input_type
@@ -290,5 +308,1018 @@ class EligibleRoleAssignmentTicketArgs:
     @system.setter
     def system(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "system", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyActivationRulesArgs:
+    def __init__(__self__, *,
+                 approval_stage: Optional[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStageArgs']] = None,
+                 maximum_duration: Optional[pulumi.Input[str]] = None,
+                 require_approval: Optional[pulumi.Input[bool]] = None,
+                 require_justification: Optional[pulumi.Input[bool]] = None,
+                 require_multifactor_authentication: Optional[pulumi.Input[bool]] = None,
+                 require_ticket_info: Optional[pulumi.Input[bool]] = None,
+                 required_conditional_access_authentication_context: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['RoleManagementPolicyActivationRulesApprovalStageArgs'] approval_stage: An `approval_stage` block as defined below.
+        :param pulumi.Input[str] maximum_duration: The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+        :param pulumi.Input[bool] require_approval: Is approval required for activation. If `true` an `approval_stage` block must be provided.
+        :param pulumi.Input[bool] require_justification: Is a justification required during activation of the role.
+        :param pulumi.Input[bool] require_multifactor_authentication: Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+        :param pulumi.Input[bool] require_ticket_info: Is ticket information requrired during activation of the role.
+        :param pulumi.Input[str] required_conditional_access_authentication_context: The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+        """
+        if approval_stage is not None:
+            pulumi.set(__self__, "approval_stage", approval_stage)
+        if maximum_duration is not None:
+            pulumi.set(__self__, "maximum_duration", maximum_duration)
+        if require_approval is not None:
+            pulumi.set(__self__, "require_approval", require_approval)
+        if require_justification is not None:
+            pulumi.set(__self__, "require_justification", require_justification)
+        if require_multifactor_authentication is not None:
+            pulumi.set(__self__, "require_multifactor_authentication", require_multifactor_authentication)
+        if require_ticket_info is not None:
+            pulumi.set(__self__, "require_ticket_info", require_ticket_info)
+        if required_conditional_access_authentication_context is not None:
+            pulumi.set(__self__, "required_conditional_access_authentication_context", required_conditional_access_authentication_context)
+
+    @property
+    @pulumi.getter(name="approvalStage")
+    def approval_stage(self) -> Optional[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStageArgs']]:
+        """
+        An `approval_stage` block as defined below.
+        """
+        return pulumi.get(self, "approval_stage")
+
+    @approval_stage.setter
+    def approval_stage(self, value: Optional[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStageArgs']]):
+        pulumi.set(self, "approval_stage", value)
+
+    @property
+    @pulumi.getter(name="maximumDuration")
+    def maximum_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum length of time an activated role can be valid, in an ISO8601 Duration format (e.g. `PT8H`). Valid range is `PT30M` to `PT23H30M`, in 30 minute increments, or `PT1D`.
+        """
+        return pulumi.get(self, "maximum_duration")
+
+    @maximum_duration.setter
+    def maximum_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_duration", value)
+
+    @property
+    @pulumi.getter(name="requireApproval")
+    def require_approval(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is approval required for activation. If `true` an `approval_stage` block must be provided.
+        """
+        return pulumi.get(self, "require_approval")
+
+    @require_approval.setter
+    def require_approval(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_approval", value)
+
+    @property
+    @pulumi.getter(name="requireJustification")
+    def require_justification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is a justification required during activation of the role.
+        """
+        return pulumi.get(self, "require_justification")
+
+    @require_justification.setter
+    def require_justification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_justification", value)
+
+    @property
+    @pulumi.getter(name="requireMultifactorAuthentication")
+    def require_multifactor_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is multi-factor authentication required to activate the role. Conflicts with `required_conditional_access_authentication_context`.
+        """
+        return pulumi.get(self, "require_multifactor_authentication")
+
+    @require_multifactor_authentication.setter
+    def require_multifactor_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_multifactor_authentication", value)
+
+    @property
+    @pulumi.getter(name="requireTicketInfo")
+    def require_ticket_info(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is ticket information requrired during activation of the role.
+        """
+        return pulumi.get(self, "require_ticket_info")
+
+    @require_ticket_info.setter
+    def require_ticket_info(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_ticket_info", value)
+
+    @property
+    @pulumi.getter(name="requiredConditionalAccessAuthenticationContext")
+    def required_conditional_access_authentication_context(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Entra ID Conditional Access context that must be present for activation. Conflicts with `require_multifactor_authentication`.
+        """
+        return pulumi.get(self, "required_conditional_access_authentication_context")
+
+    @required_conditional_access_authentication_context.setter
+    def required_conditional_access_authentication_context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "required_conditional_access_authentication_context", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyActivationRulesApprovalStageArgs:
+    def __init__(__self__, *,
+                 primary_approvers: pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]] primary_approvers: The IDs of the users or groups who can approve the activation
+        """
+        pulumi.set(__self__, "primary_approvers", primary_approvers)
+
+    @property
+    @pulumi.getter(name="primaryApprovers")
+    def primary_approvers(self) -> pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]]:
+        """
+        The IDs of the users or groups who can approve the activation
+        """
+        return pulumi.get(self, "primary_approvers")
+
+    @primary_approvers.setter
+    def primary_approvers(self, value: pulumi.Input[Sequence[pulumi.Input['RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs']]]):
+        pulumi.set(self, "primary_approvers", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyActivationRulesApprovalStagePrimaryApproverArgs:
+    def __init__(__self__, *,
+                 object_id: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] object_id: The ID of the object which will act as an approver.
+        :param pulumi.Input[str] type: The type of object acting as an approver. Possible options are `User` and `Group`.
+        """
+        pulumi.set(__self__, "object_id", object_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the object which will act as an approver.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of object acting as an approver. Possible options are `User` and `Group`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyActiveAssignmentRulesArgs:
+    def __init__(__self__, *,
+                 expiration_required: Optional[pulumi.Input[bool]] = None,
+                 expire_after: Optional[pulumi.Input[str]] = None,
+                 require_justification: Optional[pulumi.Input[bool]] = None,
+                 require_multifactor_authentication: Optional[pulumi.Input[bool]] = None,
+                 require_ticket_info: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] expiration_required: Must an assignment have an expiry date. `false` allows permanent assignment.
+        :param pulumi.Input[str] expire_after: The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+        :param pulumi.Input[bool] require_justification: Is a justification required to create new assignments.
+        :param pulumi.Input[bool] require_multifactor_authentication: Is multi-factor authentication required to create new assignments.
+        :param pulumi.Input[bool] require_ticket_info: Is ticket information required to create new assignments.
+               
+               One of `expiration_required` or `expire_after` must be provided.
+        """
+        if expiration_required is not None:
+            pulumi.set(__self__, "expiration_required", expiration_required)
+        if expire_after is not None:
+            pulumi.set(__self__, "expire_after", expire_after)
+        if require_justification is not None:
+            pulumi.set(__self__, "require_justification", require_justification)
+        if require_multifactor_authentication is not None:
+            pulumi.set(__self__, "require_multifactor_authentication", require_multifactor_authentication)
+        if require_ticket_info is not None:
+            pulumi.set(__self__, "require_ticket_info", require_ticket_info)
+
+    @property
+    @pulumi.getter(name="expirationRequired")
+    def expiration_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Must an assignment have an expiry date. `false` allows permanent assignment.
+        """
+        return pulumi.get(self, "expiration_required")
+
+    @expiration_required.setter
+    def expiration_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expiration_required", value)
+
+    @property
+    @pulumi.getter(name="expireAfter")
+    def expire_after(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+        """
+        return pulumi.get(self, "expire_after")
+
+    @expire_after.setter
+    def expire_after(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expire_after", value)
+
+    @property
+    @pulumi.getter(name="requireJustification")
+    def require_justification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is a justification required to create new assignments.
+        """
+        return pulumi.get(self, "require_justification")
+
+    @require_justification.setter
+    def require_justification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_justification", value)
+
+    @property
+    @pulumi.getter(name="requireMultifactorAuthentication")
+    def require_multifactor_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is multi-factor authentication required to create new assignments.
+        """
+        return pulumi.get(self, "require_multifactor_authentication")
+
+    @require_multifactor_authentication.setter
+    def require_multifactor_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_multifactor_authentication", value)
+
+    @property
+    @pulumi.getter(name="requireTicketInfo")
+    def require_ticket_info(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is ticket information required to create new assignments.
+
+        One of `expiration_required` or `expire_after` must be provided.
+        """
+        return pulumi.get(self, "require_ticket_info")
+
+    @require_ticket_info.setter
+    def require_ticket_info(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_ticket_info", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyEligibleAssignmentRulesArgs:
+    def __init__(__self__, *,
+                 expiration_required: Optional[pulumi.Input[bool]] = None,
+                 expire_after: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] expiration_required: Must an assignment have an expiry date. `false` allows permanent assignment.
+        :param pulumi.Input[str] expire_after: The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+               
+               One of `expiration_required` or `expire_after` must be provided.
+        """
+        if expiration_required is not None:
+            pulumi.set(__self__, "expiration_required", expiration_required)
+        if expire_after is not None:
+            pulumi.set(__self__, "expire_after", expire_after)
+
+    @property
+    @pulumi.getter(name="expirationRequired")
+    def expiration_required(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Must an assignment have an expiry date. `false` allows permanent assignment.
+        """
+        return pulumi.get(self, "expiration_required")
+
+    @expiration_required.setter
+    def expiration_required(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expiration_required", value)
+
+    @property
+    @pulumi.getter(name="expireAfter")
+    def expire_after(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum length of time an assignment can be valid, as an ISO8601 duration. Permitted values: `P15D`, `P30D`, `P90D`, `P180D`, or `P365D`.
+
+        One of `expiration_required` or `expire_after` must be provided.
+        """
+        return pulumi.get(self, "expire_after")
+
+    @expire_after.setter
+    def expire_after(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expire_after", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesArgs:
+    def __init__(__self__, *,
+                 active_assignments: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs']] = None,
+                 eligible_activations: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgs']] = None,
+                 eligible_assignments: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs']] = None):
+        """
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs'] active_assignments: A `notification_target` block as defined below to configure notfications on active role assignments.
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgs'] eligible_activations: A `notification_target` block as defined below for configuring notifications on activation of eligible role.
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs'] eligible_assignments: A `notification_target` block as defined below to configure notification on eligible role assignments.
+               
+               At least one `notification_target` block must be provided.
+        """
+        if active_assignments is not None:
+            pulumi.set(__self__, "active_assignments", active_assignments)
+        if eligible_activations is not None:
+            pulumi.set(__self__, "eligible_activations", eligible_activations)
+        if eligible_assignments is not None:
+            pulumi.set(__self__, "eligible_assignments", eligible_assignments)
+
+    @property
+    @pulumi.getter(name="activeAssignments")
+    def active_assignments(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs']]:
+        """
+        A `notification_target` block as defined below to configure notfications on active role assignments.
+        """
+        return pulumi.get(self, "active_assignments")
+
+    @active_assignments.setter
+    def active_assignments(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs']]):
+        pulumi.set(self, "active_assignments", value)
+
+    @property
+    @pulumi.getter(name="eligibleActivations")
+    def eligible_activations(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgs']]:
+        """
+        A `notification_target` block as defined below for configuring notifications on activation of eligible role.
+        """
+        return pulumi.get(self, "eligible_activations")
+
+    @eligible_activations.setter
+    def eligible_activations(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsArgs']]):
+        pulumi.set(self, "eligible_activations", value)
+
+    @property
+    @pulumi.getter(name="eligibleAssignments")
+    def eligible_assignments(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs']]:
+        """
+        A `notification_target` block as defined below to configure notification on eligible role assignments.
+
+        At least one `notification_target` block must be provided.
+        """
+        return pulumi.get(self, "eligible_assignments")
+
+    @eligible_assignments.setter
+    def eligible_assignments(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs']]):
+        pulumi.set(self, "eligible_assignments", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesActiveAssignmentsArgs:
+    def __init__(__self__, *,
+                 admin_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs']] = None,
+                 approver_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs']] = None,
+                 assignee_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs']] = None):
+        """
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs'] admin_notifications: Admin notification settings
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs'] approver_notifications: Approver notification settings
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs'] assignee_notifications: Assignee notification settings
+        """
+        if admin_notifications is not None:
+            pulumi.set(__self__, "admin_notifications", admin_notifications)
+        if approver_notifications is not None:
+            pulumi.set(__self__, "approver_notifications", approver_notifications)
+        if assignee_notifications is not None:
+            pulumi.set(__self__, "assignee_notifications", assignee_notifications)
+
+    @property
+    @pulumi.getter(name="adminNotifications")
+    def admin_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs']]:
+        """
+        Admin notification settings
+        """
+        return pulumi.get(self, "admin_notifications")
+
+    @admin_notifications.setter
+    def admin_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs']]):
+        pulumi.set(self, "admin_notifications", value)
+
+    @property
+    @pulumi.getter(name="approverNotifications")
+    def approver_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs']]:
+        """
+        Approver notification settings
+        """
+        return pulumi.get(self, "approver_notifications")
+
+    @approver_notifications.setter
+    def approver_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs']]):
+        pulumi.set(self, "approver_notifications", value)
+
+    @property
+    @pulumi.getter(name="assigneeNotifications")
+    def assignee_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs']]:
+        """
+        Assignee notification settings
+        """
+        return pulumi.get(self, "assignee_notifications")
+
+    @assignee_notifications.setter
+    def assignee_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs']]):
+        pulumi.set(self, "assignee_notifications", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleActivationsArgs:
+    def __init__(__self__, *,
+                 admin_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs']] = None,
+                 approver_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs']] = None,
+                 assignee_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs']] = None):
+        """
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs'] admin_notifications: Admin notification settings
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs'] approver_notifications: Approver notification settings
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs'] assignee_notifications: Assignee notification settings
+        """
+        if admin_notifications is not None:
+            pulumi.set(__self__, "admin_notifications", admin_notifications)
+        if approver_notifications is not None:
+            pulumi.set(__self__, "approver_notifications", approver_notifications)
+        if assignee_notifications is not None:
+            pulumi.set(__self__, "assignee_notifications", assignee_notifications)
+
+    @property
+    @pulumi.getter(name="adminNotifications")
+    def admin_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs']]:
+        """
+        Admin notification settings
+        """
+        return pulumi.get(self, "admin_notifications")
+
+    @admin_notifications.setter
+    def admin_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs']]):
+        pulumi.set(self, "admin_notifications", value)
+
+    @property
+    @pulumi.getter(name="approverNotifications")
+    def approver_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs']]:
+        """
+        Approver notification settings
+        """
+        return pulumi.get(self, "approver_notifications")
+
+    @approver_notifications.setter
+    def approver_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs']]):
+        pulumi.set(self, "approver_notifications", value)
+
+    @property
+    @pulumi.getter(name="assigneeNotifications")
+    def assignee_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs']]:
+        """
+        Assignee notification settings
+        """
+        return pulumi.get(self, "assignee_notifications")
+
+    @assignee_notifications.setter
+    def assignee_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs']]):
+        pulumi.set(self, "assignee_notifications", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs:
+    def __init__(__self__, *,
+                 admin_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs']] = None,
+                 approver_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs']] = None,
+                 assignee_notifications: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs']] = None):
+        """
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs'] admin_notifications: Admin notification settings
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs'] approver_notifications: Approver notification settings
+        :param pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs'] assignee_notifications: Assignee notification settings
+        """
+        if admin_notifications is not None:
+            pulumi.set(__self__, "admin_notifications", admin_notifications)
+        if approver_notifications is not None:
+            pulumi.set(__self__, "approver_notifications", approver_notifications)
+        if assignee_notifications is not None:
+            pulumi.set(__self__, "assignee_notifications", assignee_notifications)
+
+    @property
+    @pulumi.getter(name="adminNotifications")
+    def admin_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs']]:
+        """
+        Admin notification settings
+        """
+        return pulumi.get(self, "admin_notifications")
+
+    @admin_notifications.setter
+    def admin_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs']]):
+        pulumi.set(self, "admin_notifications", value)
+
+    @property
+    @pulumi.getter(name="approverNotifications")
+    def approver_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs']]:
+        """
+        Approver notification settings
+        """
+        return pulumi.get(self, "approver_notifications")
+
+    @approver_notifications.setter
+    def approver_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs']]):
+        pulumi.set(self, "approver_notifications", value)
+
+    @property
+    @pulumi.getter(name="assigneeNotifications")
+    def assignee_notifications(self) -> Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs']]:
+        """
+        Assignee notification settings
+        """
+        return pulumi.get(self, "assignee_notifications")
+
+    @assignee_notifications.setter
+    def assignee_notifications(self, value: Optional[pulumi.Input['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs']]):
+        pulumi.set(self, "assignee_notifications", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
+
+
+@pulumi.input_type
+class RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs:
+    def __init__(__self__, *,
+                 default_recipients: pulumi.Input[bool],
+                 notification_level: pulumi.Input[str],
+                 additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] default_recipients: Whether the default recipients are notified
+        :param pulumi.Input[str] notification_level: What level of notifications are sent
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_recipients: The additional recipients to notify
+        """
+        pulumi.set(__self__, "default_recipients", default_recipients)
+        pulumi.set(__self__, "notification_level", notification_level)
+        if additional_recipients is not None:
+            pulumi.set(__self__, "additional_recipients", additional_recipients)
+
+    @property
+    @pulumi.getter(name="defaultRecipients")
+    def default_recipients(self) -> pulumi.Input[bool]:
+        """
+        Whether the default recipients are notified
+        """
+        return pulumi.get(self, "default_recipients")
+
+    @default_recipients.setter
+    def default_recipients(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "default_recipients", value)
+
+    @property
+    @pulumi.getter(name="notificationLevel")
+    def notification_level(self) -> pulumi.Input[str]:
+        """
+        What level of notifications are sent
+        """
+        return pulumi.get(self, "notification_level")
+
+    @notification_level.setter
+    def notification_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "notification_level", value)
+
+    @property
+    @pulumi.getter(name="additionalRecipients")
+    def additional_recipients(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The additional recipients to notify
+        """
+        return pulumi.get(self, "additional_recipients")
+
+    @additional_recipients.setter
+    def additional_recipients(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "additional_recipients", value)
 
 

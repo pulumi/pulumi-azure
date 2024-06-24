@@ -6,6 +6,9 @@ package com.pulumi.azure.maps;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.maps.AccountArgs;
 import com.pulumi.azure.maps.inputs.AccountState;
+import com.pulumi.azure.maps.outputs.AccountCors;
+import com.pulumi.azure.maps.outputs.AccountDataStore;
+import com.pulumi.azure.maps.outputs.AccountIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -78,6 +81,48 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:maps/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
+     * A `cors` block as defined below
+     * 
+     */
+    @Export(name="cors", refs={AccountCors.class}, tree="[0]")
+    private Output</* @Nullable */ AccountCors> cors;
+
+    /**
+     * @return A `cors` block as defined below
+     * 
+     */
+    public Output<Optional<AccountCors>> cors() {
+        return Codegen.optional(this.cors);
+    }
+    /**
+     * One or more `data_store` blocks as defined below.
+     * 
+     */
+    @Export(name="dataStores", refs={List.class,AccountDataStore.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AccountDataStore>> dataStores;
+
+    /**
+     * @return One or more `data_store` blocks as defined below.
+     * 
+     */
+    public Output<Optional<List<AccountDataStore>>> dataStores() {
+        return Codegen.optional(this.dataStores);
+    }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", refs={AccountIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ AccountIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<AccountIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
+    /**
      * Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`.
      * 
      */
@@ -90,6 +135,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> localAuthenticationEnabled() {
         return Codegen.optional(this.localAuthenticationEnabled);
+    }
+    /**
+     * The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    @Export(name="location", refs={String.class}, tree="[0]")
+    private Output<String> location;
+
+    /**
+     * @return The Location in which the Azure Maps Account should be provisioned. Changing this forces a new resource to be created. Defaults to `global`.
+     * 
+     */
+    public Output<String> location() {
+        return this.location;
     }
     /**
      * The name of the Azure Maps Account. Changing this forces a new resource to be created.

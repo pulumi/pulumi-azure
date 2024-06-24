@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Automation
     /// <summary>
     /// Links an Automation Runbook and Schedule.
     /// 
+    /// &gt; **NOTE** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `job_schdule` property in azurerm_runbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+    /// 
     /// ## Example Usage
     /// 
     /// This is an example of just the Job Schedule.
@@ -45,7 +47,7 @@ namespace Pulumi.Azure.Automation
     /// Automation Job Schedules can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+    /// $ pulumi import azure:automation/jobSchedule:JobSchedule example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1"
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/jobSchedule:JobSchedule")]
@@ -58,7 +60,7 @@ namespace Pulumi.Azure.Automation
         public Output<string> AutomationAccountName { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional) The UUID identifying the Automation Job Schedule.
+        /// The UUID identifying the Automation Job Schedule.
         /// </summary>
         [Output("jobScheduleId")]
         public Output<string> JobScheduleId { get; private set; } = null!;
@@ -76,6 +78,12 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Resource Manager ID of the Automation Job Schedule.
+        /// </summary>
+        [Output("resourceManagerId")]
+        public Output<string> ResourceManagerId { get; private set; } = null!;
 
         /// <summary>
         /// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
@@ -148,7 +156,7 @@ namespace Pulumi.Azure.Automation
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
-        /// (Optional) The UUID identifying the Automation Job Schedule.
+        /// The UUID identifying the Automation Job Schedule.
         /// </summary>
         [Input("jobScheduleId")]
         public Input<string>? JobScheduleId { get; set; }
@@ -206,7 +214,7 @@ namespace Pulumi.Azure.Automation
         public Input<string>? AutomationAccountName { get; set; }
 
         /// <summary>
-        /// (Optional) The UUID identifying the Automation Job Schedule.
+        /// The UUID identifying the Automation Job Schedule.
         /// </summary>
         [Input("jobScheduleId")]
         public Input<string>? JobScheduleId { get; set; }
@@ -230,6 +238,12 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The Resource Manager ID of the Automation Job Schedule.
+        /// </summary>
+        [Input("resourceManagerId")]
+        public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
         /// Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.

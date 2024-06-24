@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Links an Automation Runbook and Schedule.
  *
+ * > **NOTE** AzureRM provides this stand-alone azure.automation.JobSchedule and an inlined `jobSchdule` property in azurermRunbook to manage the job schedules. You can only make use of one of these methods to manage a job schedule.
+ *
  * ## Example Usage
  *
  * This is an example of just the Job Schedule.
@@ -32,7 +34,7 @@ import * as utilities from "../utilities";
  * Automation Job Schedules can be imported using the `resource id`, e.g.
  *
  * ```sh
- * $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+ * $ pulumi import azure:automation/jobSchedule:JobSchedule example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/schedules/schedule1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/runbooks/runbook1"
  * ```
  */
 export class JobSchedule extends pulumi.CustomResource {
@@ -68,7 +70,7 @@ export class JobSchedule extends pulumi.CustomResource {
      */
     public readonly automationAccountName!: pulumi.Output<string>;
     /**
-     * (Optional) The UUID identifying the Automation Job Schedule.
+     * The UUID identifying the Automation Job Schedule.
      */
     public readonly jobScheduleId!: pulumi.Output<string>;
     /**
@@ -81,6 +83,10 @@ export class JobSchedule extends pulumi.CustomResource {
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * The Resource Manager ID of the Automation Job Schedule.
+     */
+    public /*out*/ readonly resourceManagerId!: pulumi.Output<string>;
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      */
@@ -111,6 +117,7 @@ export class JobSchedule extends pulumi.CustomResource {
             resourceInputs["jobScheduleId"] = state ? state.jobScheduleId : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["resourceManagerId"] = state ? state.resourceManagerId : undefined;
             resourceInputs["runOn"] = state ? state.runOn : undefined;
             resourceInputs["runbookName"] = state ? state.runbookName : undefined;
             resourceInputs["scheduleName"] = state ? state.scheduleName : undefined;
@@ -135,6 +142,7 @@ export class JobSchedule extends pulumi.CustomResource {
             resourceInputs["runOn"] = args ? args.runOn : undefined;
             resourceInputs["runbookName"] = args ? args.runbookName : undefined;
             resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
+            resourceInputs["resourceManagerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(JobSchedule.__pulumiType, name, resourceInputs, opts);
@@ -150,7 +158,7 @@ export interface JobScheduleState {
      */
     automationAccountName?: pulumi.Input<string>;
     /**
-     * (Optional) The UUID identifying the Automation Job Schedule.
+     * The UUID identifying the Automation Job Schedule.
      */
     jobScheduleId?: pulumi.Input<string>;
     /**
@@ -163,6 +171,10 @@ export interface JobScheduleState {
      * The name of the resource group in which the Job Schedule is created. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * The Resource Manager ID of the Automation Job Schedule.
+     */
+    resourceManagerId?: pulumi.Input<string>;
     /**
      * Name of a Hybrid Worker Group the Runbook will be executed on. Changing this forces a new resource to be created.
      */
@@ -186,7 +198,7 @@ export interface JobScheduleArgs {
      */
     automationAccountName: pulumi.Input<string>;
     /**
-     * (Optional) The UUID identifying the Automation Job Schedule.
+     * The UUID identifying the Automation Job Schedule.
      */
     jobScheduleId?: pulumi.Input<string>;
     /**

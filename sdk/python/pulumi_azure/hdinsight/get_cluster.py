@@ -22,7 +22,10 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, id=None, kafka_rest_proxy_endpoint=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None, tls_min_version=None):
+    def __init__(__self__, cluster_id=None, cluster_version=None, component_versions=None, edge_ssh_endpoint=None, gateways=None, https_endpoint=None, id=None, kafka_rest_proxy_endpoint=None, kind=None, location=None, name=None, resource_group_name=None, ssh_endpoint=None, tags=None, tier=None, tls_min_version=None):
+        if cluster_id and not isinstance(cluster_id, str):
+            raise TypeError("Expected argument 'cluster_id' to be a str")
+        pulumi.set(__self__, "cluster_id", cluster_id)
         if cluster_version and not isinstance(cluster_version, str):
             raise TypeError("Expected argument 'cluster_version' to be a str")
         pulumi.set(__self__, "cluster_version", cluster_version)
@@ -68,6 +71,14 @@ class GetClusterResult:
         if tls_min_version and not isinstance(tls_min_version, str):
             raise TypeError("Expected argument 'tls_min_version' to be a str")
         pulumi.set(__self__, "tls_min_version", tls_min_version)
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> str:
+        """
+        The HDInsight Cluster ID.
+        """
+        return pulumi.get(self, "cluster_id")
 
     @property
     @pulumi.getter(name="clusterVersion")
@@ -144,6 +155,9 @@ class GetClusterResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The HDInsight Cluster name.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -190,6 +204,7 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            cluster_id=self.cluster_id,
             cluster_version=self.cluster_version,
             component_versions=self.component_versions,
             edge_ssh_endpoint=self.edge_ssh_endpoint,
@@ -222,6 +237,7 @@ def get_cluster(name: Optional[str] = None,
     example = azure.hdinsight.get_cluster(name="example",
         resource_group_name="example-resources")
     pulumi.export("httpsEndpoint", example.https_endpoint)
+    pulumi.export("clusterId", example.cluster_id)
     ```
 
 
@@ -235,6 +251,7 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:hdinsight/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
         cluster_version=pulumi.get(__ret__, 'cluster_version'),
         component_versions=pulumi.get(__ret__, 'component_versions'),
         edge_ssh_endpoint=pulumi.get(__ret__, 'edge_ssh_endpoint'),
@@ -268,6 +285,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     example = azure.hdinsight.get_cluster(name="example",
         resource_group_name="example-resources")
     pulumi.export("httpsEndpoint", example.https_endpoint)
+    pulumi.export("clusterId", example.cluster_id)
     ```
 
 

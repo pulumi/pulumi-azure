@@ -15,6 +15,16 @@ export type EligibleRoleAssignment = import("./eligibleRoleAssignment").Eligible
 export const EligibleRoleAssignment: typeof import("./eligibleRoleAssignment").EligibleRoleAssignment = null as any;
 utilities.lazyLoad(exports, ["EligibleRoleAssignment"], () => require("./eligibleRoleAssignment"));
 
+export { GetRoleManagementPolicyArgs, GetRoleManagementPolicyResult, GetRoleManagementPolicyOutputArgs } from "./getRoleManagementPolicy";
+export const getRoleManagementPolicy: typeof import("./getRoleManagementPolicy").getRoleManagementPolicy = null as any;
+export const getRoleManagementPolicyOutput: typeof import("./getRoleManagementPolicy").getRoleManagementPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleManagementPolicy","getRoleManagementPolicyOutput"], () => require("./getRoleManagementPolicy"));
+
+export { RoleManagementPolicyArgs, RoleManagementPolicyState } from "./roleManagementPolicy";
+export type RoleManagementPolicy = import("./roleManagementPolicy").RoleManagementPolicy;
+export const RoleManagementPolicy: typeof import("./roleManagementPolicy").RoleManagementPolicy = null as any;
+utilities.lazyLoad(exports, ["RoleManagementPolicy"], () => require("./roleManagementPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +34,8 @@ const _module = {
                 return new ActiveRoleAssignment(name, <any>undefined, { urn })
             case "azure:pim/eligibleRoleAssignment:EligibleRoleAssignment":
                 return new EligibleRoleAssignment(name, <any>undefined, { urn })
+            case "azure:pim/roleManagementPolicy:RoleManagementPolicy":
+                return new RoleManagementPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +43,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "pim/activeRoleAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "pim/eligibleRoleAssignment", _module)
+pulumi.runtime.registerResourceModule("azure", "pim/roleManagementPolicy", _module)

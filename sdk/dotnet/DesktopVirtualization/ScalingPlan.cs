@@ -75,7 +75,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
-    ///         DisplayName = "Windows Virtual Desktop",
+    ///         DisplayName = "Azure Virtual Desktop",
     ///     });
     /// 
     ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()

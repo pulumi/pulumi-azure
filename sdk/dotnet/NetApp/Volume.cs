@@ -37,7 +37,7 @@ namespace Pulumi.Azure.NetApp
         /// Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("createFromSnapshotResourceId")]
-        public Output<string> CreateFromSnapshotResourceId { get; private set; } = null!;
+        public Output<string?> CreateFromSnapshotResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.

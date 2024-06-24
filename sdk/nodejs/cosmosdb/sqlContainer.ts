@@ -116,7 +116,7 @@ export class SqlContainer extends pulumi.CustomResource {
     /**
      * The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
      */
-    public readonly defaultTtl!: pulumi.Output<number>;
+    public readonly defaultTtl!: pulumi.Output<number | undefined>;
     /**
      * An `indexingPolicy` block as defined below.
      */
@@ -126,9 +126,17 @@ export class SqlContainer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Define a partition key. Changing this forces a new resource to be created.
+     * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+     */
+    public readonly partitionKeyKind!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
      */
     public readonly partitionKeyPath!: pulumi.Output<string>;
+    /**
+     * A list of partition key paths. Changing this forces a new resource to be created.
+     */
+    public readonly partitionKeyPaths!: pulumi.Output<string[]>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
@@ -167,7 +175,9 @@ export class SqlContainer extends pulumi.CustomResource {
             resourceInputs["defaultTtl"] = state ? state.defaultTtl : undefined;
             resourceInputs["indexingPolicy"] = state ? state.indexingPolicy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partitionKeyKind"] = state ? state.partitionKeyKind : undefined;
             resourceInputs["partitionKeyPath"] = state ? state.partitionKeyPath : undefined;
+            resourceInputs["partitionKeyPaths"] = state ? state.partitionKeyPaths : undefined;
             resourceInputs["partitionKeyVersion"] = state ? state.partitionKeyVersion : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["throughput"] = state ? state.throughput : undefined;
@@ -180,9 +190,6 @@ export class SqlContainer extends pulumi.CustomResource {
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.partitionKeyPath === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'partitionKeyPath'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -194,7 +201,9 @@ export class SqlContainer extends pulumi.CustomResource {
             resourceInputs["defaultTtl"] = args ? args.defaultTtl : undefined;
             resourceInputs["indexingPolicy"] = args ? args.indexingPolicy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionKeyKind"] = args ? args.partitionKeyKind : undefined;
             resourceInputs["partitionKeyPath"] = args ? args.partitionKeyPath : undefined;
+            resourceInputs["partitionKeyPaths"] = args ? args.partitionKeyPaths : undefined;
             resourceInputs["partitionKeyVersion"] = args ? args.partitionKeyVersion : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["throughput"] = args ? args.throughput : undefined;
@@ -244,9 +253,17 @@ export interface SqlContainerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Define a partition key. Changing this forces a new resource to be created.
+     * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
+     */
+    partitionKeyKind?: pulumi.Input<string>;
+    /**
+     * @deprecated `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
      */
     partitionKeyPath?: pulumi.Input<string>;
+    /**
+     * A list of partition key paths. Changing this forces a new resource to be created.
+     */
+    partitionKeyPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */
@@ -304,9 +321,17 @@ export interface SqlContainerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Define a partition key. Changing this forces a new resource to be created.
+     * Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
      */
-    partitionKeyPath: pulumi.Input<string>;
+    partitionKeyKind?: pulumi.Input<string>;
+    /**
+     * @deprecated `partitionKeyPath` will be removed in favour of the property `partitionKeyPaths` in version 4.0 of the AzureRM Provider.
+     */
+    partitionKeyPath?: pulumi.Input<string>;
+    /**
+     * A list of partition key paths. Changing this forces a new resource to be created.
+     */
+    partitionKeyPaths?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
      */

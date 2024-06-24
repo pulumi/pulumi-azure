@@ -129,7 +129,7 @@ namespace Pulumi.Azure.CosmosDB
         /// The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
         /// </summary>
         [Output("defaultTtl")]
-        public Output<int> DefaultTtl { get; private set; } = null!;
+        public Output<int?> DefaultTtl { get; private set; } = null!;
 
         /// <summary>
         /// An `indexing_policy` block as defined below.
@@ -144,10 +144,19 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Define a partition key. Changing this forces a new resource to be created.
+        /// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         /// </summary>
+        [Output("partitionKeyKind")]
+        public Output<string?> PartitionKeyKind { get; private set; } = null!;
+
         [Output("partitionKeyPath")]
         public Output<string> PartitionKeyPath { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of partition key paths. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("partitionKeyPaths")]
+        public Output<ImmutableArray<string>> PartitionKeyPaths { get; private set; } = null!;
 
         /// <summary>
         /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
@@ -270,10 +279,25 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Define a partition key. Changing this forces a new resource to be created.
+        /// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("partitionKeyPath", required: true)]
-        public Input<string> PartitionKeyPath { get; set; } = null!;
+        [Input("partitionKeyKind")]
+        public Input<string>? PartitionKeyKind { get; set; }
+
+        [Input("partitionKeyPath")]
+        public Input<string>? PartitionKeyPath { get; set; }
+
+        [Input("partitionKeyPaths")]
+        private InputList<string>? _partitionKeyPaths;
+
+        /// <summary>
+        /// A list of partition key paths. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> PartitionKeyPaths
+        {
+            get => _partitionKeyPaths ?? (_partitionKeyPaths = new InputList<string>());
+            set => _partitionKeyPaths = value;
+        }
 
         /// <summary>
         /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
@@ -364,10 +388,25 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Define a partition key. Changing this forces a new resource to be created.
+        /// Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         /// </summary>
+        [Input("partitionKeyKind")]
+        public Input<string>? PartitionKeyKind { get; set; }
+
         [Input("partitionKeyPath")]
         public Input<string>? PartitionKeyPath { get; set; }
+
+        [Input("partitionKeyPaths")]
+        private InputList<string>? _partitionKeyPaths;
+
+        /// <summary>
+        /// A list of partition key paths. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> PartitionKeyPaths
+        {
+            get => _partitionKeyPaths ?? (_partitionKeyPaths = new InputList<string>());
+            set => _partitionKeyPaths = value;
+        }
 
         /// <summary>
         /// Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.

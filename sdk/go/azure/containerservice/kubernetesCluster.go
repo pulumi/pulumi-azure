@@ -120,7 +120,7 @@ type KubernetesCluster struct {
 	DnsPrefixPrivateCluster pulumi.StringPtrOutput `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -408,7 +408,7 @@ type kubernetesClusterState struct {
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
@@ -654,7 +654,7 @@ type KubernetesClusterState struct {
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
@@ -902,7 +902,7 @@ type kubernetesClusterArgs struct {
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
 	EnablePodSecurityPolicy *bool `pulumi:"enablePodSecurityPolicy"`
 	// Should HTTP Application Routing be enabled?
 	//
@@ -1127,7 +1127,7 @@ type KubernetesClusterArgs struct {
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+	// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// Should HTTP Application Routing be enabled?
 	//
@@ -1493,7 +1493,7 @@ func (o KubernetesClusterOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.
+// Deprecated: The AKS API has removed support for this field on 2020-10-15 and it is no longer possible to configure Pod Security Policy. This property will be removed in v4.0 of the AzureRM provider.
 func (o KubernetesClusterOutput) EnablePodSecurityPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.EnablePodSecurityPolicy }).(pulumi.BoolPtrOutput)
 }

@@ -67,14 +67,14 @@ public class Volume extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="createFromSnapshotResourceId", refs={String.class}, tree="[0]")
-    private Output<String> createFromSnapshotResourceId;
+    private Output</* @Nullable */ String> createFromSnapshotResourceId;
 
     /**
      * @return Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> createFromSnapshotResourceId() {
-        return this.createFromSnapshotResourceId;
+    public Output<Optional<String>> createFromSnapshotResourceId() {
+        return Codegen.optional(this.createFromSnapshotResourceId);
     }
     /**
      * A `data_protection_replication` block as defined below. Changing this forces a new resource to be created.

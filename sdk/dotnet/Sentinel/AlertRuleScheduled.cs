@@ -123,8 +123,11 @@ namespace Pulumi.Azure.Sentinel
         public Output<Outputs.AlertRuleScheduledEventGrouping?> EventGrouping { get; private set; } = null!;
 
         /// <summary>
-        /// A `incident_configuration` block as defined below.
+        /// A `incident` block as defined below.
         /// </summary>
+        [Output("incident")]
+        public Output<Outputs.AlertRuleScheduledIncident> Incident { get; private set; } = null!;
+
         [Output("incidentConfiguration")]
         public Output<Outputs.AlertRuleScheduledIncidentConfiguration> IncidentConfiguration { get; private set; } = null!;
 
@@ -331,8 +334,11 @@ namespace Pulumi.Azure.Sentinel
         public Input<Inputs.AlertRuleScheduledEventGroupingArgs>? EventGrouping { get; set; }
 
         /// <summary>
-        /// A `incident_configuration` block as defined below.
+        /// A `incident` block as defined below.
         /// </summary>
+        [Input("incident")]
+        public Input<Inputs.AlertRuleScheduledIncidentArgs>? Incident { get; set; }
+
         [Input("incidentConfiguration")]
         public Input<Inputs.AlertRuleScheduledIncidentConfigurationArgs>? IncidentConfiguration { get; set; }
 
@@ -519,8 +525,11 @@ namespace Pulumi.Azure.Sentinel
         public Input<Inputs.AlertRuleScheduledEventGroupingGetArgs>? EventGrouping { get; set; }
 
         /// <summary>
-        /// A `incident_configuration` block as defined below.
+        /// A `incident` block as defined below.
         /// </summary>
+        [Input("incident")]
+        public Input<Inputs.AlertRuleScheduledIncidentGetArgs>? Incident { get; set; }
+
         [Input("incidentConfiguration")]
         public Input<Inputs.AlertRuleScheduledIncidentConfigurationGetArgs>? IncidentConfiguration { get; set; }
 

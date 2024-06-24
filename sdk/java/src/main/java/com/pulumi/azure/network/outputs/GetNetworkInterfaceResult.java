@@ -15,6 +15,11 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworkInterfaceResult {
     /**
+     * @return Indicates if accelerated networking is set on the specified Network Interface.
+     * 
+     */
+    private Boolean acceleratedNetworkingEnabled;
+    /**
      * @return List of DNS servers applied to the specified Network Interface.
      * 
      */
@@ -25,14 +30,18 @@ public final class GetNetworkInterfaceResult {
      */
     private List<String> dnsServers;
     /**
-     * @return Indicates if accelerated networking is set on the specified Network Interface.
+     * @deprecated
+     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     private Boolean enableAcceleratedNetworking;
     /**
-     * @return Indicate if IP forwarding is set on the specified Network Interface.
+     * @deprecated
+     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     private Boolean enableIpForwarding;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -49,6 +58,11 @@ public final class GetNetworkInterfaceResult {
      * 
      */
     private List<GetNetworkInterfaceIpConfiguration> ipConfigurations;
+    /**
+     * @return Indicate if IP forwarding is set on the specified Network Interface.
+     * 
+     */
+    private Boolean ipForwardingEnabled;
     /**
      * @return The location of the specified Network Interface.
      * 
@@ -93,6 +107,13 @@ public final class GetNetworkInterfaceResult {
 
     private GetNetworkInterfaceResult() {}
     /**
+     * @return Indicates if accelerated networking is set on the specified Network Interface.
+     * 
+     */
+    public Boolean acceleratedNetworkingEnabled() {
+        return this.acceleratedNetworkingEnabled;
+    }
+    /**
      * @return List of DNS servers applied to the specified Network Interface.
      * 
      */
@@ -107,16 +128,20 @@ public final class GetNetworkInterfaceResult {
         return this.dnsServers;
     }
     /**
-     * @return Indicates if accelerated networking is set on the specified Network Interface.
+     * @deprecated
+     * The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_accelerated_networking` has been superseded by `accelerated_networking_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Boolean enableAcceleratedNetworking() {
         return this.enableAcceleratedNetworking;
     }
     /**
-     * @return Indicate if IP forwarding is set on the specified Network Interface.
+     * @deprecated
+     * The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* The property `enable_ip_forwarding` has been superseded by `ip_forwarding_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Boolean enableIpForwarding() {
         return this.enableIpForwarding;
     }
@@ -140,6 +165,13 @@ public final class GetNetworkInterfaceResult {
      */
     public List<GetNetworkInterfaceIpConfiguration> ipConfigurations() {
         return this.ipConfigurations;
+    }
+    /**
+     * @return Indicate if IP forwarding is set on the specified Network Interface.
+     * 
+     */
+    public Boolean ipForwardingEnabled() {
+        return this.ipForwardingEnabled;
     }
     /**
      * @return The location of the specified Network Interface.
@@ -210,6 +242,7 @@ public final class GetNetworkInterfaceResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean acceleratedNetworkingEnabled;
         private List<String> appliedDnsServers;
         private List<String> dnsServers;
         private Boolean enableAcceleratedNetworking;
@@ -217,6 +250,7 @@ public final class GetNetworkInterfaceResult {
         private String id;
         private String internalDnsNameLabel;
         private List<GetNetworkInterfaceIpConfiguration> ipConfigurations;
+        private Boolean ipForwardingEnabled;
         private String location;
         private String macAddress;
         private String name;
@@ -229,6 +263,7 @@ public final class GetNetworkInterfaceResult {
         public Builder() {}
         public Builder(GetNetworkInterfaceResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.appliedDnsServers = defaults.appliedDnsServers;
     	      this.dnsServers = defaults.dnsServers;
     	      this.enableAcceleratedNetworking = defaults.enableAcceleratedNetworking;
@@ -236,6 +271,7 @@ public final class GetNetworkInterfaceResult {
     	      this.id = defaults.id;
     	      this.internalDnsNameLabel = defaults.internalDnsNameLabel;
     	      this.ipConfigurations = defaults.ipConfigurations;
+    	      this.ipForwardingEnabled = defaults.ipForwardingEnabled;
     	      this.location = defaults.location;
     	      this.macAddress = defaults.macAddress;
     	      this.name = defaults.name;
@@ -247,6 +283,14 @@ public final class GetNetworkInterfaceResult {
     	      this.virtualMachineId = defaults.virtualMachineId;
         }
 
+        @CustomType.Setter
+        public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
+            if (acceleratedNetworkingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "acceleratedNetworkingEnabled");
+            }
+            this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder appliedDnsServers(List<String> appliedDnsServers) {
             if (appliedDnsServers == null) {
@@ -311,6 +355,14 @@ public final class GetNetworkInterfaceResult {
         }
         public Builder ipConfigurations(GetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
+        }
+        @CustomType.Setter
+        public Builder ipForwardingEnabled(Boolean ipForwardingEnabled) {
+            if (ipForwardingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInterfaceResult", "ipForwardingEnabled");
+            }
+            this.ipForwardingEnabled = ipForwardingEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder location(String location) {
@@ -389,6 +441,7 @@ public final class GetNetworkInterfaceResult {
         }
         public GetNetworkInterfaceResult build() {
             final var _resultValue = new GetNetworkInterfaceResult();
+            _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             _resultValue.appliedDnsServers = appliedDnsServers;
             _resultValue.dnsServers = dnsServers;
             _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
@@ -396,6 +449,7 @@ public final class GetNetworkInterfaceResult {
             _resultValue.id = id;
             _resultValue.internalDnsNameLabel = internalDnsNameLabel;
             _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.ipForwardingEnabled = ipForwardingEnabled;
             _resultValue.location = location;
             _resultValue.macAddress = macAddress;
             _resultValue.name = name;

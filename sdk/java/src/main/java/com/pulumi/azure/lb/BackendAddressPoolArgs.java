@@ -49,6 +49,25 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * 
+     */
+    @Import(name="synchronousMode")
+    private @Nullable Output<String> synchronousMode;
+
+    /**
+     * @return The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+     * 
+     */
+    public Optional<Output<String>> synchronousMode() {
+        return Optional.ofNullable(this.synchronousMode);
+    }
+
+    /**
      * One or more `tunnel_interface` blocks as defined below.
      * 
      */
@@ -83,6 +102,7 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
     private BackendAddressPoolArgs(BackendAddressPoolArgs $) {
         this.loadbalancerId = $.loadbalancerId;
         this.name = $.name;
+        this.synchronousMode = $.synchronousMode;
         this.tunnelInterfaces = $.tunnelInterfaces;
         this.virtualNetworkId = $.virtualNetworkId;
     }
@@ -145,6 +165,31 @@ public final class BackendAddressPoolArgs extends com.pulumi.resources.ResourceA
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder synchronousMode(@Nullable Output<String> synchronousMode) {
+            $.synchronousMode = synchronousMode;
+            return this;
+        }
+
+        /**
+         * @param synchronousMode The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder synchronousMode(String synchronousMode) {
+            return synchronousMode(Output.of(synchronousMode));
         }
 
         /**

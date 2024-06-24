@@ -13,13 +13,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
     [OutputType]
     public sealed class ServicePolicy
     {
-        /// <summary>
-        /// The XML Content for this Policy.
-        /// </summary>
         public readonly string? XmlContent;
-        /// <summary>
-        /// A link to an API Management Policy XML Document, which must be publicly available.
-        /// </summary>
         public readonly string? XmlLink;
 
         [OutputConstructor]

@@ -25,6 +25,11 @@ export type BackupInstancePostgresql = import("./backupInstancePostgresql").Back
 export const BackupInstancePostgresql: typeof import("./backupInstancePostgresql").BackupInstancePostgresql = null as any;
 utilities.lazyLoad(exports, ["BackupInstancePostgresql"], () => require("./backupInstancePostgresql"));
 
+export { BackupInstancePostgresqlFlexibleServerArgs, BackupInstancePostgresqlFlexibleServerState } from "./backupInstancePostgresqlFlexibleServer";
+export type BackupInstancePostgresqlFlexibleServer = import("./backupInstancePostgresqlFlexibleServer").BackupInstancePostgresqlFlexibleServer;
+export const BackupInstancePostgresqlFlexibleServer: typeof import("./backupInstancePostgresqlFlexibleServer").BackupInstancePostgresqlFlexibleServer = null as any;
+utilities.lazyLoad(exports, ["BackupInstancePostgresqlFlexibleServer"], () => require("./backupInstancePostgresqlFlexibleServer"));
+
 export { BackupPolicyBlobStorageArgs, BackupPolicyBlobStorageState } from "./backupPolicyBlobStorage";
 export type BackupPolicyBlobStorage = import("./backupPolicyBlobStorage").BackupPolicyBlobStorage;
 export const BackupPolicyBlobStorage: typeof import("./backupPolicyBlobStorage").BackupPolicyBlobStorage = null as any;
@@ -78,6 +83,8 @@ const _module = {
                 return new BackupInstanceKubernetesCluster(name, <any>undefined, { urn })
             case "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql":
                 return new BackupInstancePostgresql(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer":
+                return new BackupInstancePostgresqlFlexibleServer(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage":
                 return new BackupPolicyBlobStorage(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk":
@@ -101,6 +108,7 @@ pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceBlo
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceKubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstancePostgresql", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstancePostgresqlFlexibleServer", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyBlobStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyKubernetesCluster", _module)

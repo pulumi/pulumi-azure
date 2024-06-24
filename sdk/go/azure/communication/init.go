@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:communication/emailService:EmailService":
 		r = &EmailService{}
+	case "azure:communication/emailServiceDomain:EmailServiceDomain":
+		r = &EmailServiceDomain{}
 	case "azure:communication/service:Service":
 		r = &Service{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"communication/emailService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"communication/emailServiceDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -15,32 +15,16 @@ public final class ServicePolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServicePolicyArgs Empty = new ServicePolicyArgs();
 
-    /**
-     * The XML Content for this Policy.
-     * 
-     */
     @Import(name="xmlContent")
     private @Nullable Output<String> xmlContent;
 
-    /**
-     * @return The XML Content for this Policy.
-     * 
-     */
     public Optional<Output<String>> xmlContent() {
         return Optional.ofNullable(this.xmlContent);
     }
 
-    /**
-     * A link to an API Management Policy XML Document, which must be publicly available.
-     * 
-     */
     @Import(name="xmlLink")
     private @Nullable Output<String> xmlLink;
 
-    /**
-     * @return A link to an API Management Policy XML Document, which must be publicly available.
-     * 
-     */
     public Optional<Output<String>> xmlLink() {
         return Optional.ofNullable(this.xmlLink);
     }
@@ -70,44 +54,20 @@ public final class ServicePolicyArgs extends com.pulumi.resources.ResourceArgs {
             $ = new ServicePolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param xmlContent The XML Content for this Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlContent(@Nullable Output<String> xmlContent) {
             $.xmlContent = xmlContent;
             return this;
         }
 
-        /**
-         * @param xmlContent The XML Content for this Policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlContent(String xmlContent) {
             return xmlContent(Output.of(xmlContent));
         }
 
-        /**
-         * @param xmlLink A link to an API Management Policy XML Document, which must be publicly available.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlLink(@Nullable Output<String> xmlLink) {
             $.xmlLink = xmlLink;
             return this;
         }
 
-        /**
-         * @param xmlLink A link to an API Management Policy XML Document, which must be publicly available.
-         * 
-         * @return builder
-         * 
-         */
         public Builder xmlLink(String xmlLink) {
             return xmlLink(Output.of(xmlLink));
         }

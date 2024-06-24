@@ -13050,10 +13050,8 @@ func (o ServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServicePolicy struct {
-	// The XML Content for this Policy.
 	XmlContent *string `pulumi:"xmlContent"`
-	// A link to an API Management Policy XML Document, which must be publicly available.
-	XmlLink *string `pulumi:"xmlLink"`
+	XmlLink    *string `pulumi:"xmlLink"`
 }
 
 // ServicePolicyInput is an input type that accepts ServicePolicyArgs and ServicePolicyOutput values.
@@ -13068,10 +13066,8 @@ type ServicePolicyInput interface {
 }
 
 type ServicePolicyArgs struct {
-	// The XML Content for this Policy.
 	XmlContent pulumi.StringPtrInput `pulumi:"xmlContent"`
-	// A link to an API Management Policy XML Document, which must be publicly available.
-	XmlLink pulumi.StringPtrInput `pulumi:"xmlLink"`
+	XmlLink    pulumi.StringPtrInput `pulumi:"xmlLink"`
 }
 
 func (ServicePolicyArgs) ElementType() reflect.Type {
@@ -13151,12 +13147,10 @@ func (o ServicePolicyOutput) ToServicePolicyPtrOutputWithContext(ctx context.Con
 	}).(ServicePolicyPtrOutput)
 }
 
-// The XML Content for this Policy.
 func (o ServicePolicyOutput) XmlContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlContent }).(pulumi.StringPtrOutput)
 }
 
-// A link to an API Management Policy XML Document, which must be publicly available.
 func (o ServicePolicyOutput) XmlLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePolicy) *string { return v.XmlLink }).(pulumi.StringPtrOutput)
 }
@@ -13185,7 +13179,6 @@ func (o ServicePolicyPtrOutput) Elem() ServicePolicyOutput {
 	}).(ServicePolicyOutput)
 }
 
-// The XML Content for this Policy.
 func (o ServicePolicyPtrOutput) XmlContent() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePolicy) *string {
 		if v == nil {
@@ -13195,7 +13188,6 @@ func (o ServicePolicyPtrOutput) XmlContent() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A link to an API Management Policy XML Document, which must be publicly available.
 func (o ServicePolicyPtrOutput) XmlLink() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePolicy) *string {
 		if v == nil {

@@ -36,8 +36,10 @@ __all__ = [
     'AlertRuleScheduledEntityMapping',
     'AlertRuleScheduledEntityMappingFieldMapping',
     'AlertRuleScheduledEventGrouping',
+    'AlertRuleScheduledIncident',
     'AlertRuleScheduledIncidentConfiguration',
     'AlertRuleScheduledIncidentConfigurationGrouping',
+    'AlertRuleScheduledIncidentGrouping',
     'AlertRuleScheduledSentinelEntityMapping',
     'AuthomationRuleActionIncident',
     'AuthomationRuleActionPlaybook',
@@ -1506,6 +1508,52 @@ class AlertRuleScheduledEventGrouping(dict):
 
 
 @pulumi.output_type
+class AlertRuleScheduledIncident(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createIncidentEnabled":
+            suggest = "create_incident_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleScheduledIncident. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleScheduledIncident.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleScheduledIncident.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_incident_enabled: bool,
+                 grouping: 'outputs.AlertRuleScheduledIncidentGrouping'):
+        """
+        :param bool create_incident_enabled: Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+        :param 'AlertRuleScheduledIncidentGroupingArgs' grouping: A `grouping` block as defined below.
+        """
+        pulumi.set(__self__, "create_incident_enabled", create_incident_enabled)
+        pulumi.set(__self__, "grouping", grouping)
+
+    @property
+    @pulumi.getter(name="createIncidentEnabled")
+    def create_incident_enabled(self) -> bool:
+        """
+        Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
+        """
+        return pulumi.get(self, "create_incident_enabled")
+
+    @property
+    @pulumi.getter
+    def grouping(self) -> 'outputs.AlertRuleScheduledIncidentGrouping':
+        """
+        A `grouping` block as defined below.
+        """
+        return pulumi.get(self, "grouping")
+
+
+@pulumi.output_type
 class AlertRuleScheduledIncidentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1527,27 +1575,20 @@ class AlertRuleScheduledIncidentConfiguration(dict):
     def __init__(__self__, *,
                  create_incident: bool,
                  grouping: 'outputs.AlertRuleScheduledIncidentConfigurationGrouping'):
-        """
-        :param bool create_incident: Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-        :param 'AlertRuleScheduledIncidentConfigurationGroupingArgs' grouping: A `grouping` block as defined below.
-        """
         pulumi.set(__self__, "create_incident", create_incident)
         pulumi.set(__self__, "grouping", grouping)
 
     @property
     @pulumi.getter(name="createIncident")
     def create_incident(self) -> bool:
-        """
-        Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
-        """
+        warnings.warn("""The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""create_incident is deprecated: The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "create_incident")
 
     @property
     @pulumi.getter
     def grouping(self) -> 'outputs.AlertRuleScheduledIncidentConfigurationGrouping':
-        """
-        A `grouping` block as defined below.
-        """
         return pulumi.get(self, "grouping")
 
 
@@ -1591,9 +1632,6 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
         """
         :param bool enabled: Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
         :param str entity_matching_method: The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
-        :param Sequence[str] group_by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-        :param Sequence[str] group_by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-        :param Sequence[str] group_by_entities: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         :param str lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
         :param bool reopen_closed_incidents: Whether to re-open closed matching incidents? Defaults to `false`.
         """
@@ -1631,26 +1669,144 @@ class AlertRuleScheduledIncidentConfigurationGrouping(dict):
     @property
     @pulumi.getter(name="groupByAlertDetails")
     def group_by_alert_details(self) -> Optional[Sequence[str]]:
-        """
-        A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
-        """
+        warnings.warn("""The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""group_by_alert_details is deprecated: The `group_by_alert_details` property has been superseded by the `by_alert_details` property and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "group_by_alert_details")
 
     @property
     @pulumi.getter(name="groupByCustomDetails")
     def group_by_custom_details(self) -> Optional[Sequence[str]]:
-        """
-        A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
-        """
+        warnings.warn("""The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""group_by_custom_details is deprecated: The `group_by_custom_details` property has been superseded by the `by_custom_details` property and will be removed in v4.0 of the AzureRM Provider""")
+
         return pulumi.get(self, "group_by_custom_details")
 
     @property
     @pulumi.getter(name="groupByEntities")
     def group_by_entities(self) -> Optional[Sequence[str]]:
+        warnings.warn("""The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
+        pulumi.log.warn("""group_by_entities is deprecated: The `group_by_entities` property has been superseded by the `by_entities` property and will be removed in v4.0 of the AzureRM Provider""")
+
+        return pulumi.get(self, "group_by_entities")
+
+    @property
+    @pulumi.getter(name="lookbackDuration")
+    def lookback_duration(self) -> Optional[str]:
+        """
+        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+        """
+        return pulumi.get(self, "lookback_duration")
+
+    @property
+    @pulumi.getter(name="reopenClosedIncidents")
+    def reopen_closed_incidents(self) -> Optional[bool]:
+        """
+        Whether to re-open closed matching incidents? Defaults to `false`.
+        """
+        return pulumi.get(self, "reopen_closed_incidents")
+
+
+@pulumi.output_type
+class AlertRuleScheduledIncidentGrouping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "byAlertDetails":
+            suggest = "by_alert_details"
+        elif key == "byCustomDetails":
+            suggest = "by_custom_details"
+        elif key == "byEntities":
+            suggest = "by_entities"
+        elif key == "entityMatchingMethod":
+            suggest = "entity_matching_method"
+        elif key == "lookbackDuration":
+            suggest = "lookback_duration"
+        elif key == "reopenClosedIncidents":
+            suggest = "reopen_closed_incidents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleScheduledIncidentGrouping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleScheduledIncidentGrouping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleScheduledIncidentGrouping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 by_alert_details: Optional[Sequence[str]] = None,
+                 by_custom_details: Optional[Sequence[str]] = None,
+                 by_entities: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None,
+                 entity_matching_method: Optional[str] = None,
+                 lookback_duration: Optional[str] = None,
+                 reopen_closed_incidents: Optional[bool] = None):
+        """
+        :param Sequence[str] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+        :param Sequence[str] by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        :param Sequence[str] by_entities: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        :param bool enabled: Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+        :param str entity_matching_method: The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+        :param str lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+        :param bool reopen_closed_incidents: Whether to re-open closed matching incidents? Defaults to `false`.
+        """
+        if by_alert_details is not None:
+            pulumi.set(__self__, "by_alert_details", by_alert_details)
+        if by_custom_details is not None:
+            pulumi.set(__self__, "by_custom_details", by_custom_details)
+        if by_entities is not None:
+            pulumi.set(__self__, "by_entities", by_entities)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if entity_matching_method is not None:
+            pulumi.set(__self__, "entity_matching_method", entity_matching_method)
+        if lookback_duration is not None:
+            pulumi.set(__self__, "lookback_duration", lookback_duration)
+        if reopen_closed_incidents is not None:
+            pulumi.set(__self__, "reopen_closed_incidents", reopen_closed_incidents)
+
+    @property
+    @pulumi.getter(name="byAlertDetails")
+    def by_alert_details(self) -> Optional[Sequence[str]]:
+        """
+        A list of alert details to group by, only when the `entity_matching_method` is `Selected`. Possible values are `DisplayName` and `Severity`.
+        """
+        return pulumi.get(self, "by_alert_details")
+
+    @property
+    @pulumi.getter(name="byCustomDetails")
+    def by_custom_details(self) -> Optional[Sequence[str]]:
+        """
+        A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        """
+        return pulumi.get(self, "by_custom_details")
+
+    @property
+    @pulumi.getter(name="byEntities")
+    def by_entities(self) -> Optional[Sequence[str]]:
         """
         A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
         """
-        return pulumi.get(self, "group_by_entities")
+        return pulumi.get(self, "by_entities")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="entityMatchingMethod")
+    def entity_matching_method(self) -> Optional[str]:
+        """
+        The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+        """
+        return pulumi.get(self, "entity_matching_method")
 
     @property
     @pulumi.getter(name="lookbackDuration")

@@ -12,15 +12,9 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class ServicePolicyGetArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The XML Content for this Policy.
-        /// </summary>
         [Input("xmlContent")]
         public Input<string>? XmlContent { get; set; }
 
-        /// <summary>
-        /// A link to an API Management Policy XML Document, which must be publicly available.
-        /// </summary>
         [Input("xmlLink")]
         public Input<string>? XmlLink { get; set; }
 

@@ -112,7 +112,11 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly eventGrouping!: pulumi.Output<outputs.sentinel.AlertRuleScheduledEventGrouping | undefined>;
     /**
-     * A `incidentConfiguration` block as defined below.
+     * A `incident` block as defined below.
+     */
+    public readonly incident!: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncident>;
+    /**
+     * @deprecated The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
      */
     public readonly incidentConfiguration!: pulumi.Output<outputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
@@ -196,6 +200,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["entityMappings"] = state ? state.entityMappings : undefined;
             resourceInputs["eventGrouping"] = state ? state.eventGrouping : undefined;
+            resourceInputs["incident"] = state ? state.incident : undefined;
             resourceInputs["incidentConfiguration"] = state ? state.incidentConfiguration : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = state ? state.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -233,6 +238,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
             resourceInputs["eventGrouping"] = args ? args.eventGrouping : undefined;
+            resourceInputs["incident"] = args ? args.incident : undefined;
             resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
             resourceInputs["logAnalyticsWorkspaceId"] = args ? args.logAnalyticsWorkspaceId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -294,7 +300,11 @@ export interface AlertRuleScheduledState {
      */
     eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
     /**
-     * A `incidentConfiguration` block as defined below.
+     * A `incident` block as defined below.
+     */
+    incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident>;
+    /**
+     * @deprecated The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
      */
     incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**
@@ -398,7 +408,11 @@ export interface AlertRuleScheduledArgs {
      */
     eventGrouping?: pulumi.Input<inputs.sentinel.AlertRuleScheduledEventGrouping>;
     /**
-     * A `incidentConfiguration` block as defined below.
+     * A `incident` block as defined below.
+     */
+    incident?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncident>;
+    /**
+     * @deprecated The `incidentConfiguration` block has been superseded by the `incident` block and will be removed in v4.0 of the AzureRM Provider
      */
     incidentConfiguration?: pulumi.Input<inputs.sentinel.AlertRuleScheduledIncidentConfiguration>;
     /**

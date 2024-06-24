@@ -60,13 +60,15 @@ type LookupNetworkInterfaceArgs struct {
 
 // A collection of values returned by getNetworkInterface.
 type LookupNetworkInterfaceResult struct {
+	// Indicates if accelerated networking is set on the specified Network Interface.
+	AcceleratedNetworkingEnabled bool `pulumi:"acceleratedNetworkingEnabled"`
 	// List of DNS servers applied to the specified Network Interface.
 	AppliedDnsServers []string `pulumi:"appliedDnsServers"`
 	// The list of DNS servers used by the specified Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
-	// Indicates if accelerated networking is set on the specified Network Interface.
+	// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableAcceleratedNetworking bool `pulumi:"enableAcceleratedNetworking"`
-	// Indicate if IP forwarding is set on the specified Network Interface.
+	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableIpForwarding bool `pulumi:"enableIpForwarding"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -74,6 +76,8 @@ type LookupNetworkInterfaceResult struct {
 	InternalDnsNameLabel string `pulumi:"internalDnsNameLabel"`
 	// One or more `ipConfiguration` blocks as defined below.
 	IpConfigurations []GetNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// Indicate if IP forwarding is set on the specified Network Interface.
+	IpForwardingEnabled bool `pulumi:"ipForwardingEnabled"`
 	// The location of the specified Network Interface.
 	Location string `pulumi:"location"`
 	// The MAC address used by the specified Network Interface.
@@ -133,6 +137,11 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 	return o
 }
 
+// Indicates if accelerated networking is set on the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) AcceleratedNetworkingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.AcceleratedNetworkingEnabled }).(pulumi.BoolOutput)
+}
+
 // List of DNS servers applied to the specified Network Interface.
 func (o LookupNetworkInterfaceResultOutput) AppliedDnsServers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.AppliedDnsServers }).(pulumi.StringArrayOutput)
@@ -143,12 +152,12 @@ func (o LookupNetworkInterfaceResultOutput) DnsServers() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.DnsServers }).(pulumi.StringArrayOutput)
 }
 
-// Indicates if accelerated networking is set on the specified Network Interface.
+// Deprecated: The property `enableAcceleratedNetworking` has been superseded by `acceleratedNetworkingEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o LookupNetworkInterfaceResultOutput) EnableAcceleratedNetworking() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolOutput)
 }
 
-// Indicate if IP forwarding is set on the specified Network Interface.
+// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o LookupNetworkInterfaceResultOutput) EnableIpForwarding() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.EnableIpForwarding }).(pulumi.BoolOutput)
 }
@@ -166,6 +175,11 @@ func (o LookupNetworkInterfaceResultOutput) InternalDnsNameLabel() pulumi.String
 // One or more `ipConfiguration` blocks as defined below.
 func (o LookupNetworkInterfaceResultOutput) IpConfigurations() GetNetworkInterfaceIpConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []GetNetworkInterfaceIpConfiguration { return v.IpConfigurations }).(GetNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+// Indicate if IP forwarding is set on the specified Network Interface.
+func (o LookupNetworkInterfaceResultOutput) IpForwardingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) bool { return v.IpForwardingEnabled }).(pulumi.BoolOutput)
 }
 
 // The location of the specified Network Interface.

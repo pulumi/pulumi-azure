@@ -13,21 +13,57 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RunBookJobSchedule {
+    /**
+     * @return The UUID of automation runbook job schedule ID.
+     * 
+     */
     private @Nullable String jobScheduleId;
+    /**
+     * @return A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+     * 
+     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * 
+     */
     private @Nullable Map<String,String> parameters;
+    /**
+     * @return Name of a Hybrid Worker Group the Runbook will be executed on.
+     * 
+     */
     private @Nullable String runOn;
+    /**
+     * @return The name of the Schedule.
+     * 
+     */
     private String scheduleName;
 
     private RunBookJobSchedule() {}
+    /**
+     * @return The UUID of automation runbook job schedule ID.
+     * 
+     */
     public Optional<String> jobScheduleId() {
         return Optional.ofNullable(this.jobScheduleId);
     }
+    /**
+     * @return A map of key/value pairs corresponding to the arguments that can be passed to the Runbook.
+     * 
+     * &gt; **NOTE:** The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook. This is due to a limitation in Azure Automation where the parameter names are normalized. The values specified don&#39;t have this limitation.
+     * 
+     */
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
+    /**
+     * @return Name of a Hybrid Worker Group the Runbook will be executed on.
+     * 
+     */
     public Optional<String> runOn() {
         return Optional.ofNullable(this.runOn);
     }
+    /**
+     * @return The name of the Schedule.
+     * 
+     */
     public String scheduleName() {
         return this.scheduleName;
     }

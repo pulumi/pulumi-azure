@@ -103,6 +103,12 @@ export class BackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundRules!: pulumi.Output<string[]>;
     /**
+     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+     */
+    public readonly synchronousMode!: pulumi.Output<string | undefined>;
+    /**
      * One or more `tunnelInterface` blocks as defined below.
      */
     public readonly tunnelInterfaces!: pulumi.Output<outputs.lb.BackendAddressPoolTunnelInterface[] | undefined>;
@@ -130,6 +136,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outboundRules"] = state ? state.outboundRules : undefined;
+            resourceInputs["synchronousMode"] = state ? state.synchronousMode : undefined;
             resourceInputs["tunnelInterfaces"] = state ? state.tunnelInterfaces : undefined;
             resourceInputs["virtualNetworkId"] = state ? state.virtualNetworkId : undefined;
         } else {
@@ -139,6 +146,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             }
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["synchronousMode"] = args ? args.synchronousMode : undefined;
             resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
             resourceInputs["backendIpConfigurations"] = undefined /*out*/;
@@ -180,6 +188,12 @@ export interface BackendAddressPoolState {
      */
     outboundRules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+     */
+    synchronousMode?: pulumi.Input<string>;
+    /**
      * One or more `tunnelInterface` blocks as defined below.
      */
     tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.lb.BackendAddressPoolTunnelInterface>[]>;
@@ -201,6 +215,12 @@ export interface BackendAddressPoolArgs {
      * Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtualNetworkId`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** The `synchronousMode` can set only for Load Balancer with `Standard` SKU.
+     */
+    synchronousMode?: pulumi.Input<string>;
     /**
      * One or more `tunnelInterface` blocks as defined below.
      */
