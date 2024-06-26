@@ -2011,6 +2011,12 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					if _, ok := pm["dnsEndpointType"]; !ok {
+						pm["dnsEndpointType"] = resource.NewStringProperty("Standard")
+					}
+					return pm, nil
+				},
 			},
 			"azurerm_storage_blob": {
 				Tok: azureResource(azureStorage, "Blob"),
