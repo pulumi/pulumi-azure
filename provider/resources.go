@@ -503,10 +503,7 @@ var metadata []byte
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(shim.NewProvider(), shimv2.WithPlanResourceChange(func(tfResourceType string) bool {
-		if tfResourceType == "azurerm_storage_account" {
-			return true
-		}
-		return false
+		return tfResourceType == "azurerm_storage_account"
 	}))
 
 	// Adjust the defaults if running in Azure Cloud Shell.
