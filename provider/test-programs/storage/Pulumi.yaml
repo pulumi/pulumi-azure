@@ -17,6 +17,9 @@ resources:
       accountReplicationType: LRS
       tags:
         environment: staging
+    options:
+      ignoreChanges:
+        - dnsEndpointType
 
   exampleContainer:
     type: azure:storage:Container

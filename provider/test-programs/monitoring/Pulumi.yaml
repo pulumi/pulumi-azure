@@ -14,6 +14,9 @@ resources:
       location: ${exampleResourceGroup.location}
       accountTier: Standard
       accountReplicationType: LRS
+    options:
+      ignoreChanges:
+        - dnsEndpointType
 
   main:
     type: azure:monitoring:ActionGroup
