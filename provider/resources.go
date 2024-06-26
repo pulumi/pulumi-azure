@@ -502,7 +502,9 @@ var metadata []byte
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(shim.NewProvider())
+	p := shimv2.NewProvider(shim.NewProvider(), shimv2.WithPlanResourceChange(func(tfResourceType string) bool {
+		return tfResourceType == "azurerm_storage_account"
+	}))
 
 	// Adjust the defaults if running in Azure Cloud Shell.
 	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
@@ -2008,6 +2010,12 @@ func Provider() tfbridge.ProviderInfo {
 							},
 						},
 					},
+				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					if _, ok := pm["dnsEndpointType"]; !ok {
+						pm["dnsEndpointType"] = resource.NewStringProperty("Standard")
+					}
+					return pm, nil
 				},
 			},
 			"azurerm_storage_blob": {
