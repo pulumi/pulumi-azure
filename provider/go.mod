@@ -270,3 +270,7 @@ require (
 	lukechampine.com/frand v1.4.2 // indirect
 	software.sslmate.com/src/go-pkcs12 v0.4.0 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.121.1-0.20240628195332-f7be1730ace8
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.121.1-0.20240628195332-f7be1730ace8
