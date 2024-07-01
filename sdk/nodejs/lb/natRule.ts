@@ -164,7 +164,7 @@ export class NatRule extends pulumi.CustomResource {
             resourceInputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NatRule.__pulumiType, name, resourceInputs, opts);
+        super(NatRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -172,7 +172,7 @@ export class IntegrationRuntimeManaged extends pulumi.CustomResource {
             resourceInputs["vnetIntegration"] = args ? args.vnetIntegration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IntegrationRuntimeManaged.__pulumiType, name, resourceInputs, opts);
+        super(IntegrationRuntimeManaged.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

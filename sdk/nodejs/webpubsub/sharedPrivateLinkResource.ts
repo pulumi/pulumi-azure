@@ -151,7 +151,7 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts);
+        super(SharedPrivateLinkResource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

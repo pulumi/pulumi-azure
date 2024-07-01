@@ -282,7 +282,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
             resourceInputs["sshEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InteractiveQueryCluster.__pulumiType, name, resourceInputs, opts);
+        super(InteractiveQueryCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -141,7 +141,7 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["serviceUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DicomService.__pulumiType, name, resourceInputs, opts);
+        super(DicomService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

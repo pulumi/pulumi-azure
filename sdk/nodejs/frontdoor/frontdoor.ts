@@ -254,7 +254,7 @@ export class Frontdoor extends pulumi.CustomResource {
             resourceInputs["routingRulesMap"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Frontdoor.__pulumiType, name, resourceInputs, opts);
+        super(Frontdoor.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

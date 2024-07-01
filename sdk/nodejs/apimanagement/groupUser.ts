@@ -116,7 +116,7 @@ export class GroupUser extends pulumi.CustomResource {
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GroupUser.__pulumiType, name, resourceInputs, opts);
+        super(GroupUser.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

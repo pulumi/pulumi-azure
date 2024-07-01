@@ -89,7 +89,7 @@ export class PortalTenantConfiguration extends pulumi.CustomResource {
             resourceInputs["privateMarkdownStorageEnforced"] = args ? args.privateMarkdownStorageEnforced : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PortalTenantConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(PortalTenantConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

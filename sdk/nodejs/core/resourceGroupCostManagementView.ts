@@ -172,7 +172,7 @@ export class ResourceGroupCostManagementView extends pulumi.CustomResource {
             resourceInputs["timeframe"] = args ? args.timeframe : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceGroupCostManagementView.__pulumiType, name, resourceInputs, opts);
+        super(ResourceGroupCostManagementView.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

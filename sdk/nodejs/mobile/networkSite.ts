@@ -127,7 +127,7 @@ export class NetworkSite extends pulumi.CustomResource {
             resourceInputs["networkFunctionIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkSite.__pulumiType, name, resourceInputs, opts);
+        super(NetworkSite.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

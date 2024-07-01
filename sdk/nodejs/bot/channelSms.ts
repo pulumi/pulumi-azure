@@ -144,7 +144,7 @@ export class ChannelSms extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["smsChannelAuthToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ChannelSms.__pulumiType, name, resourceInputs, opts);
+        super(ChannelSms.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

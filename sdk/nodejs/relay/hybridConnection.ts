@@ -125,7 +125,7 @@ export class HybridConnection extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HybridConnection.__pulumiType, name, resourceInputs, opts);
+        super(HybridConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -170,7 +170,7 @@ export class CertificateBinding extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CertificateBinding.__pulumiType, name, resourceInputs, opts);
+        super(CertificateBinding.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

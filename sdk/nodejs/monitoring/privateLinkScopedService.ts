@@ -122,7 +122,7 @@ export class PrivateLinkScopedService extends pulumi.CustomResource {
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PrivateLinkScopedService.__pulumiType, name, resourceInputs, opts);
+        super(PrivateLinkScopedService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

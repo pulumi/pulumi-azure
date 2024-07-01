@@ -229,7 +229,7 @@ export class VolumeGroup extends pulumi.CustomResource {
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VolumeGroup.__pulumiType, name, resourceInputs, opts);
+        super(VolumeGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

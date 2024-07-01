@@ -87,7 +87,7 @@ export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomRes
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FlexibleServerActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);
+        super(FlexibleServerActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

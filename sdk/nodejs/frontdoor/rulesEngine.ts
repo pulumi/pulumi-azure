@@ -194,7 +194,7 @@ export class RulesEngine extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RulesEngine.__pulumiType, name, resourceInputs, opts);
+        super(RulesEngine.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

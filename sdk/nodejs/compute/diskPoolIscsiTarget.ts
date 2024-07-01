@@ -186,7 +186,7 @@ export class DiskPoolIscsiTarget extends pulumi.CustomResource {
             resourceInputs["port"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DiskPoolIscsiTarget.__pulumiType, name, resourceInputs, opts);
+        super(DiskPoolIscsiTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

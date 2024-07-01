@@ -149,7 +149,7 @@ export class PublicCertificate extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PublicCertificate.__pulumiType, name, resourceInputs, opts);
+        super(PublicCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

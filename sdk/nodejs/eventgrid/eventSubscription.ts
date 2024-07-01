@@ -232,7 +232,7 @@ export class EventSubscription extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/eventSubscription:EventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(EventSubscription.__pulumiType, name, resourceInputs, opts);
+        super(EventSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

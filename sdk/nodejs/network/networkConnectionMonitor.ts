@@ -251,7 +251,7 @@ export class NetworkConnectionMonitor extends pulumi.CustomResource {
             resourceInputs["testGroups"] = args ? args.testGroups : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkConnectionMonitor.__pulumiType, name, resourceInputs, opts);
+        super(NetworkConnectionMonitor.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

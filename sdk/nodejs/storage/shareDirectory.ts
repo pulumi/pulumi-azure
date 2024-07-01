@@ -117,7 +117,7 @@ export class ShareDirectory extends pulumi.CustomResource {
             resourceInputs["storageShareId"] = args ? args.storageShareId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ShareDirectory.__pulumiType, name, resourceInputs, opts);
+        super(ShareDirectory.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

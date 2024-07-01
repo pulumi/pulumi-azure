@@ -194,7 +194,7 @@ export class StreamingLocator extends pulumi.CustomResource {
             resourceInputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StreamingLocator.__pulumiType, name, resourceInputs, opts);
+        super(StreamingLocator.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

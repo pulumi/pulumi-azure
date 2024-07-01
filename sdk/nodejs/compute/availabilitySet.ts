@@ -136,7 +136,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
+        super(AvailabilitySet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

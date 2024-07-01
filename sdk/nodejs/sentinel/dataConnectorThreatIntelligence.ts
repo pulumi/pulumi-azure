@@ -113,7 +113,7 @@ export class DataConnectorThreatIntelligence extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorThreatIntelligence.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorThreatIntelligence.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

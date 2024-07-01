@@ -225,7 +225,7 @@ export class SpringCloudService extends pulumi.CustomResource {
             resourceInputs["serviceRegistryId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudService.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

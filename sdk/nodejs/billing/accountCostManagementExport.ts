@@ -167,7 +167,7 @@ export class AccountCostManagementExport extends pulumi.CustomResource {
             resourceInputs["recurrenceType"] = args ? args.recurrenceType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountCostManagementExport.__pulumiType, name, resourceInputs, opts);
+        super(AccountCostManagementExport.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

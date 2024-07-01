@@ -130,7 +130,7 @@ export class ReplicationPolicy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicationPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ReplicationPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

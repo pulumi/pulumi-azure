@@ -192,7 +192,7 @@ export class HybridConnection extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sendKeyValue"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(HybridConnection.__pulumiType, name, resourceInputs, opts);
+        super(HybridConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

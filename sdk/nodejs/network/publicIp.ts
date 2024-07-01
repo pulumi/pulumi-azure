@@ -218,7 +218,7 @@ export class PublicIp extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PublicIp.__pulumiType, name, resourceInputs, opts);
+        super(PublicIp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

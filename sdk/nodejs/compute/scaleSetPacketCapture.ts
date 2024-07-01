@@ -211,7 +211,7 @@ export class ScaleSetPacketCapture extends pulumi.CustomResource {
             resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScaleSetPacketCapture.__pulumiType, name, resourceInputs, opts);
+        super(ScaleSetPacketCapture.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

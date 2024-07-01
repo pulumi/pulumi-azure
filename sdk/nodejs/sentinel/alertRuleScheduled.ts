@@ -255,7 +255,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertRuleScheduled.__pulumiType, name, resourceInputs, opts);
+        super(AlertRuleScheduled.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

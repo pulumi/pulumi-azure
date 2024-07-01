@@ -160,7 +160,7 @@ export class SpringCloudDynatraceApplicationPerformanceMonitoring extends pulumi
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiToken", "tenant", "tenantToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SpringCloudDynatraceApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudDynatraceApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

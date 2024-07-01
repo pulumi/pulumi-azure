@@ -282,7 +282,7 @@ export class SparkCluster extends pulumi.CustomResource {
             resourceInputs["sshEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SparkCluster.__pulumiType, name, resourceInputs, opts);
+        super(SparkCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

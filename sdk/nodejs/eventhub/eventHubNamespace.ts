@@ -221,7 +221,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["defaultPrimaryConnectionString", "defaultPrimaryConnectionStringAlias", "defaultPrimaryKey", "defaultSecondaryConnectionString", "defaultSecondaryConnectionStringAlias", "defaultSecondaryKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(EventHubNamespace.__pulumiType, name, resourceInputs, opts);
+        super(EventHubNamespace.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

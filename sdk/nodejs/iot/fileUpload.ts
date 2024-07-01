@@ -174,7 +174,7 @@ export class FileUpload extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(FileUpload.__pulumiType, name, resourceInputs, opts);
+        super(FileUpload.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

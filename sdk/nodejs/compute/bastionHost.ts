@@ -213,7 +213,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["dnsName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BastionHost.__pulumiType, name, resourceInputs, opts);
+        super(BastionHost.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

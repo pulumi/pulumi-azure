@@ -236,7 +236,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["webhookEndpoint"] = args ? args.webhookEndpoint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventSubscription.__pulumiType, name, resourceInputs, opts);
+        super(EventSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

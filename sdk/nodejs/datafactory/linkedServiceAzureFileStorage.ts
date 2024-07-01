@@ -177,7 +177,7 @@ export class LinkedServiceAzureFileStorage extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString", "password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinkedServiceAzureFileStorage.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceAzureFileStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

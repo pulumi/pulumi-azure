@@ -251,7 +251,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
             resourceInputs["windowsOutboundIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EnvironmentV3.__pulumiType, name, resourceInputs, opts);
+        super(EnvironmentV3.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

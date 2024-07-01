@@ -196,7 +196,7 @@ export class WorkbookTemplate extends pulumi.CustomResource {
             resourceInputs["templateData"] = args ? args.templateData : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WorkbookTemplate.__pulumiType, name, resourceInputs, opts);
+        super(WorkbookTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

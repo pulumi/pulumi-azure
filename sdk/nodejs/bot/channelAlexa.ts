@@ -122,7 +122,7 @@ export class ChannelAlexa extends pulumi.CustomResource {
             resourceInputs["skillId"] = args ? args.skillId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ChannelAlexa.__pulumiType, name, resourceInputs, opts);
+        super(ChannelAlexa.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

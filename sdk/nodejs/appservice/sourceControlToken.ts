@@ -99,7 +99,7 @@ export class SourceControlToken extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["token", "tokenSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SourceControlToken.__pulumiType, name, resourceInputs, opts);
+        super(SourceControlToken.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

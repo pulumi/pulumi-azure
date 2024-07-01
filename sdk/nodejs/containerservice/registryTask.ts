@@ -197,7 +197,7 @@ export class RegistryTask extends pulumi.CustomResource {
             resourceInputs["timerTriggers"] = args ? args.timerTriggers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryTask.__pulumiType, name, resourceInputs, opts);
+        super(RegistryTask.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -171,7 +171,7 @@ export class AaaaRecord extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AaaaRecord.__pulumiType, name, resourceInputs, opts);
+        super(AaaaRecord.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

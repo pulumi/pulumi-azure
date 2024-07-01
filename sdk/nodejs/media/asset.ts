@@ -143,7 +143,7 @@ export class Asset extends pulumi.CustomResource {
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Asset.__pulumiType, name, resourceInputs, opts);
+        super(Asset.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

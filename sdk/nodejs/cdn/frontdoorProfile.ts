@@ -123,7 +123,7 @@ export class FrontdoorProfile extends pulumi.CustomResource {
             resourceInputs["resourceGuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorProfile.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

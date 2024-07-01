@@ -234,7 +234,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScalingPlan.__pulumiType, name, resourceInputs, opts);
+        super(ScalingPlan.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

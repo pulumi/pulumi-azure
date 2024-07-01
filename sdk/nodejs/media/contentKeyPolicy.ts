@@ -214,7 +214,7 @@ export class ContentKeyPolicy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ContentKeyPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ContentKeyPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

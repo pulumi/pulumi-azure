@@ -160,7 +160,7 @@ export class CassandraTable extends pulumi.CustomResource {
             resourceInputs["throughput"] = args ? args.throughput : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CassandraTable.__pulumiType, name, resourceInputs, opts);
+        super(CassandraTable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

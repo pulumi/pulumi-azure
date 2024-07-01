@@ -123,7 +123,7 @@ export class DataConnectorMicrosoftCloudAppSecurity extends pulumi.CustomResourc
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorMicrosoftCloudAppSecurity.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorMicrosoftCloudAppSecurity.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

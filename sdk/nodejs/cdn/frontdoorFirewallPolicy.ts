@@ -272,7 +272,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["frontendEndpointIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorFirewallPolicy.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorFirewallPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

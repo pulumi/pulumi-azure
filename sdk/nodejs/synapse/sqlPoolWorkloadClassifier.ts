@@ -176,7 +176,7 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
             resourceInputs["workloadGroupId"] = args ? args.workloadGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SqlPoolWorkloadClassifier.__pulumiType, name, resourceInputs, opts);
+        super(SqlPoolWorkloadClassifier.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

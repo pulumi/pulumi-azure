@@ -124,7 +124,7 @@ export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["authorizationKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ExpressRoutePortAuthorization.__pulumiType, name, resourceInputs, opts);
+        super(ExpressRoutePortAuthorization.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

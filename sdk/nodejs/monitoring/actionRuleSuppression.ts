@@ -155,7 +155,7 @@ export class ActionRuleSuppression extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ActionRuleSuppression.__pulumiType, name, resourceInputs, opts);
+        super(ActionRuleSuppression.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

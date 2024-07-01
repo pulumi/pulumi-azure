@@ -228,7 +228,7 @@ export class AlertRuleAnomalyDuplicate extends pulumi.CustomResource {
             resourceInputs["techniques"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertRuleAnomalyDuplicate.__pulumiType, name, resourceInputs, opts);
+        super(AlertRuleAnomalyDuplicate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

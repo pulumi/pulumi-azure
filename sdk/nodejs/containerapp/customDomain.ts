@@ -108,7 +108,7 @@ export class CustomDomain extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomDomain.__pulumiType, name, resourceInputs, opts);
+        super(CustomDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

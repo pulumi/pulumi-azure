@@ -369,7 +369,7 @@ export class LinuxFunctionApp extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "siteCredentials", "storageAccountAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinuxFunctionApp.__pulumiType, name, resourceInputs, opts);
+        super(LinuxFunctionApp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

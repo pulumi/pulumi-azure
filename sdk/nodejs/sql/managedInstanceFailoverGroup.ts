@@ -196,7 +196,7 @@ export class ManagedInstanceFailoverGroup extends pulumi.CustomResource {
             resourceInputs["role"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedInstanceFailoverGroup.__pulumiType, name, resourceInputs, opts);
+        super(ManagedInstanceFailoverGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

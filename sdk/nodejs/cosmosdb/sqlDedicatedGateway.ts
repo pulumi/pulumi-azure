@@ -119,7 +119,7 @@ export class SqlDedicatedGateway extends pulumi.CustomResource {
             resourceInputs["instanceSize"] = args ? args.instanceSize : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SqlDedicatedGateway.__pulumiType, name, resourceInputs, opts);
+        super(SqlDedicatedGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

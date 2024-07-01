@@ -150,7 +150,7 @@ export class StorageInsights extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(StorageInsights.__pulumiType, name, resourceInputs, opts);
+        super(StorageInsights.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

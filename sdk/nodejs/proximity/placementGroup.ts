@@ -124,7 +124,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PlacementGroup.__pulumiType, name, resourceInputs, opts);
+        super(PlacementGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -149,7 +149,7 @@ export class NetworkManager extends pulumi.CustomResource {
             resourceInputs["crossTenantScopes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkManager.__pulumiType, name, resourceInputs, opts);
+        super(NetworkManager.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

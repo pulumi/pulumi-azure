@@ -177,7 +177,7 @@ export class FrontdoorCustomDomainAssociation extends pulumi.CustomResource {
             resourceInputs["cdnFrontdoorRouteIds"] = args ? args.cdnFrontdoorRouteIds : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorCustomDomainAssociation.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorCustomDomainAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -205,7 +205,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             resourceInputs["targetRegions"] = args ? args.targetRegions : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GalleryApplicationVersion.__pulumiType, name, resourceInputs, opts);
+        super(GalleryApplicationVersion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

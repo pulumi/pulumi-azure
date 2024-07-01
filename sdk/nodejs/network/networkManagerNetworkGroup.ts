@@ -112,7 +112,7 @@ export class NetworkManagerNetworkGroup extends pulumi.CustomResource {
             resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkManagerNetworkGroup.__pulumiType, name, resourceInputs, opts);
+        super(NetworkManagerNetworkGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

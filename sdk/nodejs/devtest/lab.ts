@@ -154,7 +154,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Lab.__pulumiType, name, resourceInputs, opts);
+        super(Lab.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

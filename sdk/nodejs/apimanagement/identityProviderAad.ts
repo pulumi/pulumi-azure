@@ -141,7 +141,7 @@ export class IdentityProviderAad extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(IdentityProviderAad.__pulumiType, name, resourceInputs, opts);
+        super(IdentityProviderAad.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -122,7 +122,7 @@ export class NetworkInterfaceSecurityGroupAssociation extends pulumi.CustomResou
             resourceInputs["networkSecurityGroupId"] = args ? args.networkSecurityGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkInterfaceSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NetworkInterfaceSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

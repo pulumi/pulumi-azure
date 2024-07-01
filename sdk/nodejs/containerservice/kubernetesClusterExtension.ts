@@ -172,7 +172,7 @@ export class KubernetesClusterExtension extends pulumi.CustomResource {
             resourceInputs["currentVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KubernetesClusterExtension.__pulumiType, name, resourceInputs, opts);
+        super(KubernetesClusterExtension.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

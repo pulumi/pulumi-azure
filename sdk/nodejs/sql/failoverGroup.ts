@@ -186,7 +186,7 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["role"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FailoverGroup.__pulumiType, name, resourceInputs, opts);
+        super(FailoverGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

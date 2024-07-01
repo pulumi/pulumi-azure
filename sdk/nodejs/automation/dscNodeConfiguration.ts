@@ -151,7 +151,7 @@ export class DscNodeConfiguration extends pulumi.CustomResource {
             resourceInputs["configurationName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DscNodeConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(DscNodeConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

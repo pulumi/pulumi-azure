@@ -151,7 +151,7 @@ export class TagRule extends pulumi.CustomResource {
             resourceInputs["subscriptionLogEnabled"] = args ? args.subscriptionLogEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TagRule.__pulumiType, name, resourceInputs, opts);
+        super(TagRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

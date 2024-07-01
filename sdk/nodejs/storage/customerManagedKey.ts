@@ -203,7 +203,7 @@ export class CustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomerManagedKey.__pulumiType, name, resourceInputs, opts);
+        super(CustomerManagedKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

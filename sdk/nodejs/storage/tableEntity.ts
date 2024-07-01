@@ -137,7 +137,7 @@ export class TableEntity extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TableEntity.__pulumiType, name, resourceInputs, opts);
+        super(TableEntity.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

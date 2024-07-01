@@ -138,7 +138,7 @@ export class MongoRoleDefinition extends pulumi.CustomResource {
             resourceInputs["roleName"] = args ? args.roleName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MongoRoleDefinition.__pulumiType, name, resourceInputs, opts);
+        super(MongoRoleDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -149,7 +149,7 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["logAnalyticsClusterId"] = args ? args.logAnalyticsClusterId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
+        super(ClusterCustomerManagedKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

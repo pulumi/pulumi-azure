@@ -133,7 +133,7 @@ export class EnterpriseCluster extends pulumi.CustomResource {
             resourceInputs["hostname"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EnterpriseCluster.__pulumiType, name, resourceInputs, opts);
+        super(EnterpriseCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

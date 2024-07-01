@@ -149,7 +149,7 @@ export class DataExportRule extends pulumi.CustomResource {
             resourceInputs["exportRuleId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataExportRule.__pulumiType, name, resourceInputs, opts);
+        super(DataExportRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

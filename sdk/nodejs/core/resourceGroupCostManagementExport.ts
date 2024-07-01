@@ -167,7 +167,7 @@ export class ResourceGroupCostManagementExport extends pulumi.CustomResource {
             resourceInputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceGroupCostManagementExport.__pulumiType, name, resourceInputs, opts);
+        super(ResourceGroupCostManagementExport.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

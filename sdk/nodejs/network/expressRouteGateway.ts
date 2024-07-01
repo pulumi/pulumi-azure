@@ -146,7 +146,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ExpressRouteGateway.__pulumiType, name, resourceInputs, opts);
+        super(ExpressRouteGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

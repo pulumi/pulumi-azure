@@ -322,7 +322,7 @@ export class Standard extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Standard.__pulumiType, name, resourceInputs, opts);
+        super(Standard.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -165,7 +165,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             resourceInputs["policyType"] = args ? args.policyType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PolicySetDefinition.__pulumiType, name, resourceInputs, opts);
+        super(PolicySetDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

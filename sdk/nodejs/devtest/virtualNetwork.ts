@@ -140,7 +140,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetwork.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -133,7 +133,7 @@ export class SubnetServiceEndpointStoragePolicy extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubnetServiceEndpointStoragePolicy.__pulumiType, name, resourceInputs, opts);
+        super(SubnetServiceEndpointStoragePolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

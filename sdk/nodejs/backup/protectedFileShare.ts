@@ -164,7 +164,7 @@ export class ProtectedFileShare extends pulumi.CustomResource {
             resourceInputs["sourceStorageAccountId"] = args ? args.sourceStorageAccountId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProtectedFileShare.__pulumiType, name, resourceInputs, opts);
+        super(ProtectedFileShare.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

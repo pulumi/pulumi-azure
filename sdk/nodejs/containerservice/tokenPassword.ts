@@ -87,7 +87,7 @@ export class TokenPassword extends pulumi.CustomResource {
             resourceInputs["password2"] = args ? args.password2 : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TokenPassword.__pulumiType, name, resourceInputs, opts);
+        super(TokenPassword.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

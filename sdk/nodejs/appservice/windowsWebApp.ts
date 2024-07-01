@@ -319,7 +319,7 @@ export class WindowsWebApp extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["customDomainVerificationId", "siteCredentials"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(WindowsWebApp.__pulumiType, name, resourceInputs, opts);
+        super(WindowsWebApp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

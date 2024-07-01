@@ -140,7 +140,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             resourceInputs["virtualNetworkEnabled"] = args ? args.virtualNetworkEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IntegrationRuntimeRule.__pulumiType, name, resourceInputs, opts);
+        super(IntegrationRuntimeRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

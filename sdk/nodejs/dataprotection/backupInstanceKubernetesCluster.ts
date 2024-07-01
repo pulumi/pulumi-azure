@@ -279,7 +279,7 @@ export class BackupInstanceKubernetesCluster extends pulumi.CustomResource {
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupInstanceKubernetesCluster.__pulumiType, name, resourceInputs, opts);
+        super(BackupInstanceKubernetesCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -202,7 +202,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["nginxDeploymentId"] = args ? args.nginxDeploymentId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Certificate.__pulumiType, name, resourceInputs, opts);
+        super(Certificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

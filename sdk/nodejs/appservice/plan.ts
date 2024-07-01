@@ -248,7 +248,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Plan.__pulumiType, name, resourceInputs, opts);
+        super(Plan.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

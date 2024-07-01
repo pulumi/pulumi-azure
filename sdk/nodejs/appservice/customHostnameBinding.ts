@@ -149,7 +149,7 @@ export class CustomHostnameBinding extends pulumi.CustomResource {
             resourceInputs["virtualIp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomHostnameBinding.__pulumiType, name, resourceInputs, opts);
+        super(CustomHostnameBinding.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

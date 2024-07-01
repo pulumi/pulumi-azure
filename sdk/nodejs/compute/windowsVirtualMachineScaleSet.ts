@@ -530,7 +530,7 @@ export class WindowsVirtualMachineScaleSet extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(WindowsVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
+        super(WindowsVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

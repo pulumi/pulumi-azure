@@ -145,7 +145,7 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecurityPartnerProvider.__pulumiType, name, resourceInputs, opts);
+        super(SecurityPartnerProvider.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

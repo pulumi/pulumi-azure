@@ -184,7 +184,7 @@ export class OutputFunction extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OutputFunction.__pulumiType, name, resourceInputs, opts);
+        super(OutputFunction.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

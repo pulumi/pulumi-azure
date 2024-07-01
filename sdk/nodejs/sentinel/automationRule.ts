@@ -181,7 +181,7 @@ export class AutomationRule extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:sentinel/authomationRule:AuthomationRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(AutomationRule.__pulumiType, name, resourceInputs, opts);
+        super(AutomationRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

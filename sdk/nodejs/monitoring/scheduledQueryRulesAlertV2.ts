@@ -309,7 +309,7 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
             resourceInputs["isWorkspaceAlertsStorageConfigured"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScheduledQueryRulesAlertV2.__pulumiType, name, resourceInputs, opts);
+        super(ScheduledQueryRulesAlertV2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

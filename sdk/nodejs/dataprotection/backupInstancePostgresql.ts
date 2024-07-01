@@ -224,7 +224,7 @@ export class BackupInstancePostgresql extends pulumi.CustomResource {
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupInstancePostgresql.__pulumiType, name, resourceInputs, opts);
+        super(BackupInstancePostgresql.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

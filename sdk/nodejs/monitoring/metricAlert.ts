@@ -224,7 +224,7 @@ export class MetricAlert extends pulumi.CustomResource {
             resourceInputs["windowSize"] = args ? args.windowSize : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MetricAlert.__pulumiType, name, resourceInputs, opts);
+        super(MetricAlert.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

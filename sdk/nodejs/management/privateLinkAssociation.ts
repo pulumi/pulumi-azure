@@ -142,7 +142,7 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PrivateLinkAssociation.__pulumiType, name, resourceInputs, opts);
+        super(PrivateLinkAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

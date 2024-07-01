@@ -170,7 +170,7 @@ export class WebApp extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey", "luisKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(WebApp.__pulumiType, name, resourceInputs, opts);
+        super(WebApp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

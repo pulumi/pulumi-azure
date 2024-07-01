@@ -181,7 +181,7 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
             resourceInputs["throttlingDuration"] = args ? args.throttlingDuration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SmartDetectorAlertRule.__pulumiType, name, resourceInputs, opts);
+        super(SmartDetectorAlertRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

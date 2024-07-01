@@ -169,7 +169,7 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
             resourceInputs["sqlPoolId"] = args ? args.sqlPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SqlPoolWorkloadGroup.__pulumiType, name, resourceInputs, opts);
+        super(SqlPoolWorkloadGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -160,7 +160,7 @@ export class ResourcePolicyExemption extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourcePolicyExemption.__pulumiType, name, resourceInputs, opts);
+        super(ResourcePolicyExemption.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

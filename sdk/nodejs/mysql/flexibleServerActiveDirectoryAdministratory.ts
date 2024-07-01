@@ -82,7 +82,7 @@ export class FlexibleServerActiveDirectoryAdministratory extends pulumi.CustomRe
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:mysql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FlexibleServerActiveDirectoryAdministratory.__pulumiType, name, resourceInputs, opts);
+        super(FlexibleServerActiveDirectoryAdministratory.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -225,7 +225,7 @@ export class IotHubDataConnection extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IotHubDataConnection.__pulumiType, name, resourceInputs, opts);
+        super(IotHubDataConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

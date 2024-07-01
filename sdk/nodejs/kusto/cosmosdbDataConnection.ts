@@ -225,7 +225,7 @@ export class CosmosdbDataConnection extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CosmosdbDataConnection.__pulumiType, name, resourceInputs, opts);
+        super(CosmosdbDataConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

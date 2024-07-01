@@ -138,7 +138,7 @@ export class EndpointEventGrid extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EndpointEventGrid.__pulumiType, name, resourceInputs, opts);
+        super(EndpointEventGrid.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -99,7 +99,7 @@ export class PrivateLink extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PrivateLink.__pulumiType, name, resourceInputs, opts);
+        super(PrivateLink.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

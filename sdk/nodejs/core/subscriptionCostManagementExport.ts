@@ -168,7 +168,7 @@ export class SubscriptionCostManagementExport extends pulumi.CustomResource {
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubscriptionCostManagementExport.__pulumiType, name, resourceInputs, opts);
+        super(SubscriptionCostManagementExport.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

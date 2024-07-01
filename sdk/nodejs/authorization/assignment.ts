@@ -297,7 +297,7 @@ export class Assignment extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:role/assignment:Assignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Assignment.__pulumiType, name, resourceInputs, opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -186,7 +186,7 @@ export class Domain extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "secondaryAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Domain.__pulumiType, name, resourceInputs, opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

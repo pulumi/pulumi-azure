@@ -156,7 +156,7 @@ export class SRVRecord extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SRVRecord.__pulumiType, name, resourceInputs, opts);
+        super(SRVRecord.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

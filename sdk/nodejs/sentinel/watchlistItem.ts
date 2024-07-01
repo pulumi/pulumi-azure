@@ -118,7 +118,7 @@ export class WatchlistItem extends pulumi.CustomResource {
             resourceInputs["watchlistId"] = args ? args.watchlistId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WatchlistItem.__pulumiType, name, resourceInputs, opts);
+        super(WatchlistItem.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

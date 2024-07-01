@@ -227,7 +227,7 @@ export class AssignmentVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["virtualMachineScaleSetId"] = args ? args.virtualMachineScaleSetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AssignmentVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
+        super(AssignmentVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

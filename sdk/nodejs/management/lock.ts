@@ -155,7 +155,7 @@ export class Lock extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:managementresource/manangementLock:ManangementLock" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Lock.__pulumiType, name, resourceInputs, opts);
+        super(Lock.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -131,7 +131,7 @@ export class RoleDefinition extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:role/definition:Definition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RoleDefinition.__pulumiType, name, resourceInputs, opts);
+        super(RoleDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

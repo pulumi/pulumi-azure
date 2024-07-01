@@ -178,7 +178,7 @@ export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WorkspaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
+        super(WorkspaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

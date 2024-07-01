@@ -220,7 +220,7 @@ export class PrivateCloud extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["nsxtPassword", "vcenterPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(PrivateCloud.__pulumiType, name, resourceInputs, opts);
+        super(PrivateCloud.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

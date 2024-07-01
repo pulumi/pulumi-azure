@@ -207,7 +207,7 @@ export class NextGenerationFirewallVirtualNetworkPanorama extends pulumi.CustomR
             resourceInputs["panoramas"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NextGenerationFirewallVirtualNetworkPanorama.__pulumiType, name, resourceInputs, opts);
+        super(NextGenerationFirewallVirtualNetworkPanorama.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

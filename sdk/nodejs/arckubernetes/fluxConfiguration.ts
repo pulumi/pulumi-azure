@@ -173,7 +173,7 @@ export class FluxConfiguration extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FluxConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(FluxConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

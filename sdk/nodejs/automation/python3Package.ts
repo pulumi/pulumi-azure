@@ -148,7 +148,7 @@ export class Python3Package extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Python3Package.__pulumiType, name, resourceInputs, opts);
+        super(Python3Package.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

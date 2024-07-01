@@ -129,7 +129,7 @@ export class DataConnectorAwsS3 extends pulumi.CustomResource {
             resourceInputs["sqsUrls"] = args ? args.sqsUrls : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorAwsS3.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorAwsS3.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

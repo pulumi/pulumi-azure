@@ -171,7 +171,7 @@ export class Enrichment extends pulumi.CustomResource {
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Enrichment.__pulumiType, name, resourceInputs, opts);
+        super(Enrichment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

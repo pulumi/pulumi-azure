@@ -227,7 +227,7 @@ export class ComputeInstance extends pulumi.CustomResource {
             resourceInputs["virtualMachineSize"] = args ? args.virtualMachineSize : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ComputeInstance.__pulumiType, name, resourceInputs, opts);
+        super(ComputeInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

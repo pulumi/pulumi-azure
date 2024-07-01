@@ -331,7 +331,7 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             resourceInputs["targetRecoveryFabricId"] = args ? args.targetRecoveryFabricId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicationRecoveryPlan.__pulumiType, name, resourceInputs, opts);
+        super(ReplicationRecoveryPlan.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

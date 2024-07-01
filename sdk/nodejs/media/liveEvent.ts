@@ -222,7 +222,7 @@ export class LiveEvent extends pulumi.CustomResource {
             resourceInputs["useStaticHostname"] = args ? args.useStaticHostname : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LiveEvent.__pulumiType, name, resourceInputs, opts);
+        super(LiveEvent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

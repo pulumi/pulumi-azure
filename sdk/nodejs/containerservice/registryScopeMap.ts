@@ -134,7 +134,7 @@ export class RegistryScopeMap extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryScopeMap.__pulumiType, name, resourceInputs, opts);
+        super(RegistryScopeMap.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

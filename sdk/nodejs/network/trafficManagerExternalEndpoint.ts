@@ -174,7 +174,7 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
             resourceInputs["weight"] = args ? args.weight : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficManagerExternalEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(TrafficManagerExternalEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

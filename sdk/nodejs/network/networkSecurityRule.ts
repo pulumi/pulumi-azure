@@ -221,7 +221,7 @@ export class NetworkSecurityRule extends pulumi.CustomResource {
             resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkSecurityRule.__pulumiType, name, resourceInputs, opts);
+        super(NetworkSecurityRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

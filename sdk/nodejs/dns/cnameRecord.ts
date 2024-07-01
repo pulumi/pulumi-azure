@@ -171,7 +171,7 @@ export class CNameRecord extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CNameRecord.__pulumiType, name, resourceInputs, opts);
+        super(CNameRecord.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

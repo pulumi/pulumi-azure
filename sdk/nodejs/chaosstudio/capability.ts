@@ -126,7 +126,7 @@ export class Capability extends pulumi.CustomResource {
             resourceInputs["capabilityUrn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Capability.__pulumiType, name, resourceInputs, opts);
+        super(Capability.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

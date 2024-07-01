@@ -159,7 +159,7 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["twoLineElements"] = args ? args.twoLineElements : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Spacecraft.__pulumiType, name, resourceInputs, opts);
+        super(Spacecraft.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

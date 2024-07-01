@@ -119,7 +119,7 @@ export class HyperVReplicationPolicyAssociation extends pulumi.CustomResource {
             resourceInputs["policyId"] = args ? args.policyId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HyperVReplicationPolicyAssociation.__pulumiType, name, resourceInputs, opts);
+        super(HyperVReplicationPolicyAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

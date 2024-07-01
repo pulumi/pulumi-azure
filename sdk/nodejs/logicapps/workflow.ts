@@ -193,7 +193,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["workflowOutboundIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Workflow.__pulumiType, name, resourceInputs, opts);
+        super(Workflow.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

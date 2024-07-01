@@ -182,7 +182,7 @@ export class OutputSynapse extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OutputSynapse.__pulumiType, name, resourceInputs, opts);
+        super(OutputSynapse.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -161,7 +161,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["vstsConfiguration"] = args ? args.vstsConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Factory.__pulumiType, name, resourceInputs, opts);
+        super(Factory.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

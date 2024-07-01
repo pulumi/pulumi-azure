@@ -139,7 +139,7 @@ export class TriggerRecurrence extends pulumi.CustomResource {
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TriggerRecurrence.__pulumiType, name, resourceInputs, opts);
+        super(TriggerRecurrence.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

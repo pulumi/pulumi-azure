@@ -178,7 +178,7 @@ export class NetworkService extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkService.__pulumiType, name, resourceInputs, opts);
+        super(NetworkService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

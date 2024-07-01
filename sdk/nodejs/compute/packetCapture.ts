@@ -213,7 +213,7 @@ export class PacketCapture extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PacketCapture.__pulumiType, name, resourceInputs, opts);
+        super(PacketCapture.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

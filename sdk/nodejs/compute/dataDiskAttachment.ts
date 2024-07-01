@@ -191,7 +191,7 @@ export class DataDiskAttachment extends pulumi.CustomResource {
             resourceInputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataDiskAttachment.__pulumiType, name, resourceInputs, opts);
+        super(DataDiskAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

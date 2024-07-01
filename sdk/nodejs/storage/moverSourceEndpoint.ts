@@ -127,7 +127,7 @@ export class MoverSourceEndpoint extends pulumi.CustomResource {
             resourceInputs["storageMoverId"] = args ? args.storageMoverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MoverSourceEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(MoverSourceEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -133,7 +133,7 @@ export class SecurityDeviceGroup extends pulumi.CustomResource {
             resourceInputs["rangeRules"] = args ? args.rangeRules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SecurityDeviceGroup.__pulumiType, name, resourceInputs, opts);
+        super(SecurityDeviceGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

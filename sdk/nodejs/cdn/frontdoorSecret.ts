@@ -175,7 +175,7 @@ export class FrontdoorSecret extends pulumi.CustomResource {
             resourceInputs["cdnFrontdoorProfileName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorSecret.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorSecret.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

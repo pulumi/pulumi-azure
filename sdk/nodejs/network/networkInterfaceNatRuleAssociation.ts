@@ -151,7 +151,7 @@ export class NetworkInterfaceNatRuleAssociation extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkInterfaceNatRuleAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NetworkInterfaceNatRuleAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -284,7 +284,7 @@ export class Cache extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "primaryConnectionString", "secondaryAccessKey", "secondaryConnectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Cache.__pulumiType, name, resourceInputs, opts);
+        super(Cache.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

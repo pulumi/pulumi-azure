@@ -149,7 +149,7 @@ export class ThreeTierVirtualInstance extends pulumi.CustomResource {
             resourceInputs["threeTierConfiguration"] = args ? args.threeTierConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ThreeTierVirtualInstance.__pulumiType, name, resourceInputs, opts);
+        super(ThreeTierVirtualInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -138,7 +138,7 @@ export class VirtualMachineManagerVirtualMachineTemplate extends pulumi.CustomRe
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualMachineManagerVirtualMachineTemplate.__pulumiType, name, resourceInputs, opts);
+        super(VirtualMachineManagerVirtualMachineTemplate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

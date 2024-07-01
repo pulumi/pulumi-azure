@@ -164,7 +164,7 @@ export class DatasetCosmosDBApi extends pulumi.CustomResource {
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetCosmosDBApi.__pulumiType, name, resourceInputs, opts);
+        super(DatasetCosmosDBApi.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

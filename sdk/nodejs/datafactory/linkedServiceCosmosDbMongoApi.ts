@@ -153,7 +153,7 @@ export class LinkedServiceCosmosDbMongoApi extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinkedServiceCosmosDbMongoApi.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceCosmosDbMongoApi.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

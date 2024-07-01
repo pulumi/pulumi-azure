@@ -271,7 +271,7 @@ export class FlowletDataFlow extends pulumi.CustomResource {
             resourceInputs["transformations"] = args ? args.transformations : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FlowletDataFlow.__pulumiType, name, resourceInputs, opts);
+        super(FlowletDataFlow.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

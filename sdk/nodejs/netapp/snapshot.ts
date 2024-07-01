@@ -175,7 +175,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Snapshot.__pulumiType, name, resourceInputs, opts);
+        super(Snapshot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

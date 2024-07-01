@@ -139,7 +139,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["versionUpgradeOption"] = args ? args.versionUpgradeOption : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Deployment.__pulumiType, name, resourceInputs, opts);
+        super(Deployment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

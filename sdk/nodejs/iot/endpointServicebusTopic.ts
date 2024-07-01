@@ -168,7 +168,7 @@ export class EndpointServicebusTopic extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(EndpointServicebusTopic.__pulumiType, name, resourceInputs, opts);
+        super(EndpointServicebusTopic.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

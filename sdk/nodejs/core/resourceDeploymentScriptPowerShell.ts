@@ -221,7 +221,7 @@ export class ResourceDeploymentScriptPowerShell extends pulumi.CustomResource {
             resourceInputs["outputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceDeploymentScriptPowerShell.__pulumiType, name, resourceInputs, opts);
+        super(ResourceDeploymentScriptPowerShell.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -130,7 +130,7 @@ export class CertificateContacts extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CertificateContacts.__pulumiType, name, resourceInputs, opts);
+        super(CertificateContacts.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

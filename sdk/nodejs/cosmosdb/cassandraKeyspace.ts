@@ -135,7 +135,7 @@ export class CassandraKeyspace extends pulumi.CustomResource {
             resourceInputs["throughput"] = args ? args.throughput : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CassandraKeyspace.__pulumiType, name, resourceInputs, opts);
+        super(CassandraKeyspace.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

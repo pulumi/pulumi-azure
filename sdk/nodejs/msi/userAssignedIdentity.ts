@@ -137,7 +137,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             resourceInputs["tenantId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(UserAssignedIdentity.__pulumiType, name, resourceInputs, opts);
+        super(UserAssignedIdentity.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

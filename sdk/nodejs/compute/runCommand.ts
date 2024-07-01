@@ -347,7 +347,7 @@ export class RunCommand extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["errorBlobManagedIdentity", "outputBlobManagedIdentity", "protectedParameters", "runAsPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(RunCommand.__pulumiType, name, resourceInputs, opts);
+        super(RunCommand.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

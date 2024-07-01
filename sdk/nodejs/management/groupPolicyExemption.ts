@@ -151,7 +151,7 @@ export class GroupPolicyExemption extends pulumi.CustomResource {
             resourceInputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GroupPolicyExemption.__pulumiType, name, resourceInputs, opts);
+        super(GroupPolicyExemption.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

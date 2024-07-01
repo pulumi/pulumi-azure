@@ -195,7 +195,7 @@ export class LinkedService extends pulumi.CustomResource {
             resourceInputs["typePropertiesJson"] = args ? args.typePropertiesJson : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedService.__pulumiType, name, resourceInputs, opts);
+        super(LinkedService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

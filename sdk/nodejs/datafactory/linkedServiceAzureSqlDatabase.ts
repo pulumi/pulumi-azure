@@ -172,7 +172,7 @@ export class LinkedServiceAzureSqlDatabase extends pulumi.CustomResource {
             resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceAzureSqlDatabase.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceAzureSqlDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

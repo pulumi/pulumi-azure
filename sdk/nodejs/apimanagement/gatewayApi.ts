@@ -105,7 +105,7 @@ export class GatewayApi extends pulumi.CustomResource {
             resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GatewayApi.__pulumiType, name, resourceInputs, opts);
+        super(GatewayApi.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

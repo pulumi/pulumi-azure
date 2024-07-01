@@ -232,7 +232,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret", "resourceOwnerPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(AuthorizationServer.__pulumiType, name, resourceInputs, opts);
+        super(AuthorizationServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

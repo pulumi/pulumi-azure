@@ -121,7 +121,7 @@ export class PostgresqlFirewallRule extends pulumi.CustomResource {
             resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PostgresqlFirewallRule.__pulumiType, name, resourceInputs, opts);
+        super(PostgresqlFirewallRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

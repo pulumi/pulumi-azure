@@ -178,7 +178,7 @@ export class AssetFilter extends pulumi.CustomResource {
             resourceInputs["trackSelections"] = args ? args.trackSelections : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AssetFilter.__pulumiType, name, resourceInputs, opts);
+        super(AssetFilter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

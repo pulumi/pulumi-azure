@@ -182,7 +182,7 @@ export class ApiOperation extends pulumi.CustomResource {
             resourceInputs["urlTemplate"] = args ? args.urlTemplate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiOperation.__pulumiType, name, resourceInputs, opts);
+        super(ApiOperation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

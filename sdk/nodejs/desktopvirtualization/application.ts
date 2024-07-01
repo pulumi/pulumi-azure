@@ -178,7 +178,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Application.__pulumiType, name, resourceInputs, opts);
+        super(Application.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

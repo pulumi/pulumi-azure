@@ -169,7 +169,7 @@ export class VnpGatewayNatRule extends pulumi.CustomResource {
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VnpGatewayNatRule.__pulumiType, name, resourceInputs, opts);
+        super(VnpGatewayNatRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

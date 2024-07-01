@@ -147,7 +147,7 @@ export class SyncCloudEndpoint extends pulumi.CustomResource {
             resourceInputs["storageSyncGroupId"] = args ? args.storageSyncGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SyncCloudEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(SyncCloudEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

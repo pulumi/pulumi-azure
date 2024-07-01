@@ -201,7 +201,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["spacecraftId"] = args ? args.spacecraftId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Contact.__pulumiType, name, resourceInputs, opts);
+        super(Contact.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

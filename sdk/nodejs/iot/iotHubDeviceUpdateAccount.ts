@@ -137,7 +137,7 @@ export class IotHubDeviceUpdateAccount extends pulumi.CustomResource {
             resourceInputs["hostName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IotHubDeviceUpdateAccount.__pulumiType, name, resourceInputs, opts);
+        super(IotHubDeviceUpdateAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

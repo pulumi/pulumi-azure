@@ -150,7 +150,7 @@ export class MxRecord extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MxRecord.__pulumiType, name, resourceInputs, opts);
+        super(MxRecord.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

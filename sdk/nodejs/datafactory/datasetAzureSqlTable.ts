@@ -162,7 +162,7 @@ export class DatasetAzureSqlTable extends pulumi.CustomResource {
             resourceInputs["table"] = args ? args.table : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetAzureSqlTable.__pulumiType, name, resourceInputs, opts);
+        super(DatasetAzureSqlTable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

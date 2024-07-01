@@ -121,7 +121,7 @@ export class MongoDatabase extends pulumi.CustomResource {
             resourceInputs["throughput"] = args ? args.throughput : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MongoDatabase.__pulumiType, name, resourceInputs, opts);
+        super(MongoDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

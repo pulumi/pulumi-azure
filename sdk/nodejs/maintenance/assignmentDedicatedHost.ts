@@ -121,7 +121,7 @@ export class AssignmentDedicatedHost extends pulumi.CustomResource {
             resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AssignmentDedicatedHost.__pulumiType, name, resourceInputs, opts);
+        super(AssignmentDedicatedHost.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

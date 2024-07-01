@@ -174,7 +174,7 @@ export class AccountEncryption extends pulumi.CustomResource {
             resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountEncryption.__pulumiType, name, resourceInputs, opts);
+        super(AccountEncryption.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -142,7 +142,7 @@ export class EventHubConsumerGroup extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventHubConsumerGroup.__pulumiType, name, resourceInputs, opts);
+        super(EventHubConsumerGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

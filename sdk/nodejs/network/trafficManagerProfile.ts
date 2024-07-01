@@ -184,7 +184,7 @@ export class TrafficManagerProfile extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:trafficmanager/profile:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(TrafficManagerProfile.__pulumiType, name, resourceInputs, opts);
+        super(TrafficManagerProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

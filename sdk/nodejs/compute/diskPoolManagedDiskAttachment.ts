@@ -160,7 +160,7 @@ export class DiskPoolManagedDiskAttachment extends pulumi.CustomResource {
             resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DiskPoolManagedDiskAttachment.__pulumiType, name, resourceInputs, opts);
+        super(DiskPoolManagedDiskAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

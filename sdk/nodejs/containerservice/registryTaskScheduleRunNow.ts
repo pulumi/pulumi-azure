@@ -94,7 +94,7 @@ export class RegistryTaskScheduleRunNow extends pulumi.CustomResource {
             resourceInputs["containerRegistryTaskId"] = args ? args.containerRegistryTaskId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryTaskScheduleRunNow.__pulumiType, name, resourceInputs, opts);
+        super(RegistryTaskScheduleRunNow.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

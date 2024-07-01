@@ -184,7 +184,7 @@ export class JobSchedule extends pulumi.CustomResource {
             resourceInputs["lastOutputTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(JobSchedule.__pulumiType, name, resourceInputs, opts);
+        super(JobSchedule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

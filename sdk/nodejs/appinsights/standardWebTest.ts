@@ -189,7 +189,7 @@ export class StandardWebTest extends pulumi.CustomResource {
             resourceInputs["syntheticMonitorId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StandardWebTest.__pulumiType, name, resourceInputs, opts);
+        super(StandardWebTest.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

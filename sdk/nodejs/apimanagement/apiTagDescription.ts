@@ -88,7 +88,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
             resourceInputs["externalDocumentationUrl"] = args ? args.externalDocumentationUrl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiTagDescription.__pulumiType, name, resourceInputs, opts);
+        super(ApiTagDescription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

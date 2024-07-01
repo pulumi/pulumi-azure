@@ -125,7 +125,7 @@ export class TimeSeriesInsightsAccessPolicy extends pulumi.CustomResource {
             resourceInputs["timeSeriesInsightsEnvironmentId"] = args ? args.timeSeriesInsightsEnvironmentId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TimeSeriesInsightsAccessPolicy.__pulumiType, name, resourceInputs, opts);
+        super(TimeSeriesInsightsAccessPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

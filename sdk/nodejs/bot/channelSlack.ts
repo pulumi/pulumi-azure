@@ -156,7 +156,7 @@ export class ChannelSlack extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret", "signingSecret", "verificationToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ChannelSlack.__pulumiType, name, resourceInputs, opts);
+        super(ChannelSlack.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -152,7 +152,7 @@ export class BackupPolicyDisk extends pulumi.CustomResource {
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupPolicyDisk.__pulumiType, name, resourceInputs, opts);
+        super(BackupPolicyDisk.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

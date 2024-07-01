@@ -147,7 +147,7 @@ export class OutputPowerbi extends pulumi.CustomResource {
             resourceInputs["tokenUserPrincipalName"] = args ? args.tokenUserPrincipalName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OutputPowerbi.__pulumiType, name, resourceInputs, opts);
+        super(OutputPowerbi.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

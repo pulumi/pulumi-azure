@@ -140,7 +140,7 @@ export class FleetMember extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FleetMember.__pulumiType, name, resourceInputs, opts);
+        super(FleetMember.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

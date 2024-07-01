@@ -175,7 +175,7 @@ export class VpnGatewayConnection extends pulumi.CustomResource {
             resourceInputs["vpnLinks"] = args ? args.vpnLinks : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpnGatewayConnection.__pulumiType, name, resourceInputs, opts);
+        super(VpnGatewayConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

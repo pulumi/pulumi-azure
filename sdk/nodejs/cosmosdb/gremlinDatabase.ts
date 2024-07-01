@@ -121,7 +121,7 @@ export class GremlinDatabase extends pulumi.CustomResource {
             resourceInputs["throughput"] = args ? args.throughput : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GremlinDatabase.__pulumiType, name, resourceInputs, opts);
+        super(GremlinDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -156,7 +156,7 @@ export class DiskPool extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DiskPool.__pulumiType, name, resourceInputs, opts);
+        super(DiskPool.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

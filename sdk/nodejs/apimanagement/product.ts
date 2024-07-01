@@ -169,7 +169,7 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["terms"] = args ? args.terms : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Product.__pulumiType, name, resourceInputs, opts);
+        super(Product.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

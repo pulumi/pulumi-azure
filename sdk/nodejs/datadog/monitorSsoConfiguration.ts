@@ -135,7 +135,7 @@ export class MonitorSsoConfiguration extends pulumi.CustomResource {
             resourceInputs["loginUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MonitorSsoConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(MonitorSsoConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

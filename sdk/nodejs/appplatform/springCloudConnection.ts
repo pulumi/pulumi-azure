@@ -171,7 +171,7 @@ export class SpringCloudConnection extends pulumi.CustomResource {
             resourceInputs["vnetSolution"] = args ? args.vnetSolution : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudConnection.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

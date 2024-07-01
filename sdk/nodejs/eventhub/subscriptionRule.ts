@@ -196,7 +196,7 @@ export class SubscriptionRule extends pulumi.CustomResource {
             resourceInputs["sqlFilterCompatibilityLevel"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubscriptionRule.__pulumiType, name, resourceInputs, opts);
+        super(SubscriptionRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

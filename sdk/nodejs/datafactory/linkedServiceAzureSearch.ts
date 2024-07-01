@@ -169,7 +169,7 @@ export class LinkedServiceAzureSearch extends pulumi.CustomResource {
             resourceInputs["encryptedCredential"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceAzureSearch.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceAzureSearch.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

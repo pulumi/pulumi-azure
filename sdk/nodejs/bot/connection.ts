@@ -171,7 +171,7 @@ export class Connection extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["clientSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Connection.__pulumiType, name, resourceInputs, opts);
+        super(Connection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

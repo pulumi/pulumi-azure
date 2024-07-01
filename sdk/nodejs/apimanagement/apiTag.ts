@@ -106,7 +106,7 @@ export class ApiTag extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiTag.__pulumiType, name, resourceInputs, opts);
+        super(ApiTag.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

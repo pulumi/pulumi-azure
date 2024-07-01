@@ -154,7 +154,7 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["trustedServicesAllowed"] = args ? args.trustedServicesAllowed : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NamespaceNetworkRuleSet.__pulumiType, name, resourceInputs, opts);
+        super(NamespaceNetworkRuleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

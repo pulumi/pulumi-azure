@@ -161,7 +161,7 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["usesGithubAction"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SourceControl.__pulumiType, name, resourceInputs, opts);
+        super(SourceControl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

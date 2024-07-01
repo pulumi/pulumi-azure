@@ -130,7 +130,7 @@ export class LinkedStorageAccount extends pulumi.CustomResource {
             resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedStorageAccount.__pulumiType, name, resourceInputs, opts);
+        super(LinkedStorageAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

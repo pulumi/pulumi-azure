@@ -259,7 +259,7 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventGridDataConnection.__pulumiType, name, resourceInputs, opts);
+        super(EventGridDataConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

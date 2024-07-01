@@ -115,7 +115,7 @@ export class AlertRuleMachineLearningBehaviorAnalytics extends pulumi.CustomReso
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertRuleMachineLearningBehaviorAnalytics.__pulumiType, name, resourceInputs, opts);
+        super(AlertRuleMachineLearningBehaviorAnalytics.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

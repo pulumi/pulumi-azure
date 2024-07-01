@@ -177,7 +177,7 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             resourceInputs["useManagedIdentity"] = args ? args.useManagedIdentity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceDataLakeStorageGen2.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceDataLakeStorageGen2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

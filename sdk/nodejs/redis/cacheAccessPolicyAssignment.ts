@@ -137,7 +137,7 @@ export class CacheAccessPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["redisCacheId"] = args ? args.redisCacheId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CacheAccessPolicyAssignment.__pulumiType, name, resourceInputs, opts);
+        super(CacheAccessPolicyAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

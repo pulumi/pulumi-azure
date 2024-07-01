@@ -168,7 +168,7 @@ export class VirtualHub extends pulumi.CustomResource {
             resourceInputs["virtualRouterIps"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualHub.__pulumiType, name, resourceInputs, opts);
+        super(VirtualHub.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

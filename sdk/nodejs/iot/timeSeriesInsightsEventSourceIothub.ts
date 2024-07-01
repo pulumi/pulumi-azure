@@ -196,7 +196,7 @@ export class TimeSeriesInsightsEventSourceIothub extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(TimeSeriesInsightsEventSourceIothub.__pulumiType, name, resourceInputs, opts);
+        super(TimeSeriesInsightsEventSourceIothub.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

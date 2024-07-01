@@ -132,7 +132,7 @@ export class EnvironmentCertificate extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["certificatePassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(EnvironmentCertificate.__pulumiType, name, resourceInputs, opts);
+        super(EnvironmentCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

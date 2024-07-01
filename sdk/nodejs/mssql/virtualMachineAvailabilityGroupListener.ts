@@ -113,7 +113,7 @@ export class VirtualMachineAvailabilityGroupListener extends pulumi.CustomResour
             resourceInputs["sqlVirtualMachineGroupId"] = args ? args.sqlVirtualMachineGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualMachineAvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);
+        super(VirtualMachineAvailabilityGroupListener.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

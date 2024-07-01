@@ -236,7 +236,7 @@ export class ComputeCluster extends pulumi.CustomResource {
             resourceInputs["vmSize"] = args ? args.vmSize : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ComputeCluster.__pulumiType, name, resourceInputs, opts);
+        super(ComputeCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

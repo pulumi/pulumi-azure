@@ -182,7 +182,7 @@ export class DatasetAzureBlob extends pulumi.CustomResource {
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetAzureBlob.__pulumiType, name, resourceInputs, opts);
+        super(DatasetAzureBlob.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

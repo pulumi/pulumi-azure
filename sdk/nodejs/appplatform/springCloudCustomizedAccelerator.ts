@@ -155,7 +155,7 @@ export class SpringCloudCustomizedAccelerator extends pulumi.CustomResource {
             resourceInputs["springCloudAcceleratorId"] = args ? args.springCloudAcceleratorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudCustomizedAccelerator.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudCustomizedAccelerator.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

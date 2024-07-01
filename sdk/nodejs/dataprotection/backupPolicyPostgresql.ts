@@ -176,7 +176,7 @@ export class BackupPolicyPostgresql extends pulumi.CustomResource {
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupPolicyPostgresql.__pulumiType, name, resourceInputs, opts);
+        super(BackupPolicyPostgresql.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

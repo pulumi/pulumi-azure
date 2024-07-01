@@ -121,7 +121,7 @@ export class Healthbot extends pulumi.CustomResource {
             resourceInputs["botManagementPortalUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Healthbot.__pulumiType, name, resourceInputs, opts);
+        super(Healthbot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

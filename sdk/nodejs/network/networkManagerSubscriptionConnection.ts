@@ -125,7 +125,7 @@ export class NetworkManagerSubscriptionConnection extends pulumi.CustomResource 
             resourceInputs["connectionState"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkManagerSubscriptionConnection.__pulumiType, name, resourceInputs, opts);
+        super(NetworkManagerSubscriptionConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

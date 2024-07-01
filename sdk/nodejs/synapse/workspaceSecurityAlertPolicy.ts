@@ -179,7 +179,7 @@ export class WorkspaceSecurityAlertPolicy extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(WorkspaceSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts);
+        super(WorkspaceSecurityAlertPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

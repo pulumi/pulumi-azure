@@ -188,7 +188,7 @@ export class OutputEventHub extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedAccessPolicyKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OutputEventHub.__pulumiType, name, resourceInputs, opts);
+        super(OutputEventHub.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

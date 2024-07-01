@@ -335,7 +335,7 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
             resourceInputs["weight"] = args ? args.weight : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorOrigin.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorOrigin.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

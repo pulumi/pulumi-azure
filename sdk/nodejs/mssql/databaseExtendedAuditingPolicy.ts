@@ -151,7 +151,7 @@ export class DatabaseExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DatabaseExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts);
+        super(DatabaseExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

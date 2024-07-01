@@ -195,7 +195,7 @@ export class ManagedHardwareSecurityModule extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["securityDomainEncryptedData"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ManagedHardwareSecurityModule.__pulumiType, name, resourceInputs, opts);
+        super(ManagedHardwareSecurityModule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

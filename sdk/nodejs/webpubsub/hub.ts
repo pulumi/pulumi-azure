@@ -173,7 +173,7 @@ export class Hub extends pulumi.CustomResource {
             resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Hub.__pulumiType, name, resourceInputs, opts);
+        super(Hub.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

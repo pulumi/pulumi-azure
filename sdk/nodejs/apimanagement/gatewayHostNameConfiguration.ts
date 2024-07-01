@@ -178,7 +178,7 @@ export class GatewayHostNameConfiguration extends pulumi.CustomResource {
             resourceInputs["tls11Enabled"] = args ? args.tls11Enabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GatewayHostNameConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(GatewayHostNameConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

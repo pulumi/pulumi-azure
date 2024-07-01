@@ -484,7 +484,7 @@ export class ScaleSet extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScaleSet.__pulumiType, name, resourceInputs, opts);
+        super(ScaleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

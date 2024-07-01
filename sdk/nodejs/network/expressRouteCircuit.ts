@@ -188,7 +188,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["authorizationKey", "serviceKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ExpressRouteCircuit.__pulumiType, name, resourceInputs, opts);
+        super(ExpressRouteCircuit.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

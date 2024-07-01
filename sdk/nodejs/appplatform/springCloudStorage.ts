@@ -124,7 +124,7 @@ export class SpringCloudStorage extends pulumi.CustomResource {
             resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudStorage.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -148,7 +148,7 @@ export class TxtRecord extends pulumi.CustomResource {
             resourceInputs["fqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TxtRecord.__pulumiType, name, resourceInputs, opts);
+        super(TxtRecord.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

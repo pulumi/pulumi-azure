@@ -180,7 +180,7 @@ export class ClusterTrustedAccessRoleBinding extends pulumi.CustomResource {
             resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterTrustedAccessRoleBinding.__pulumiType, name, resourceInputs, opts);
+        super(ClusterTrustedAccessRoleBinding.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

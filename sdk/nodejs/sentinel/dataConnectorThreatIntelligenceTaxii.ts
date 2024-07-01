@@ -163,7 +163,7 @@ export class DataConnectorThreatIntelligenceTaxii extends pulumi.CustomResource 
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password", "userName"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DataConnectorThreatIntelligenceTaxii.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorThreatIntelligenceTaxii.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

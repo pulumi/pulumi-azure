@@ -129,7 +129,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["sharedGalleryId"] = args ? args.sharedGalleryId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Gallery.__pulumiType, name, resourceInputs, opts);
+        super(Gallery.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -222,7 +222,7 @@ export class TriggerTumblingWindow extends pulumi.CustomResource {
             resourceInputs["triggerDependencies"] = args ? args.triggerDependencies : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TriggerTumblingWindow.__pulumiType, name, resourceInputs, opts);
+        super(TriggerTumblingWindow.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

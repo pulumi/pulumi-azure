@@ -148,7 +148,7 @@ export class ResourceBridgeAppliance extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceBridgeAppliance.__pulumiType, name, resourceInputs, opts);
+        super(ResourceBridgeAppliance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -177,7 +177,7 @@ export class Script extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sasToken", "scriptContent"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Script.__pulumiType, name, resourceInputs, opts);
+        super(Script.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

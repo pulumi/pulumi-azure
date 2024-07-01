@@ -350,7 +350,7 @@ export class Workspace extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sqlAdministratorLoginPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Workspace.__pulumiType, name, resourceInputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

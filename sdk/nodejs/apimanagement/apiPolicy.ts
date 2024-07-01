@@ -125,7 +125,7 @@ export class ApiPolicy extends pulumi.CustomResource {
             resourceInputs["xmlLink"] = args ? args.xmlLink : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ApiPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -127,7 +127,7 @@ export class DateTimeVariable extends pulumi.CustomResource {
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DateTimeVariable.__pulumiType, name, resourceInputs, opts);
+        super(DateTimeVariable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

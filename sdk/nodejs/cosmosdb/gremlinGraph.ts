@@ -195,7 +195,7 @@ export class GremlinGraph extends pulumi.CustomResource {
             resourceInputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GremlinGraph.__pulumiType, name, resourceInputs, opts);
+        super(GremlinGraph.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

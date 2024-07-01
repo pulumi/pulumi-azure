@@ -123,7 +123,7 @@ export class AnomalyAlert extends pulumi.CustomResource {
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AnomalyAlert.__pulumiType, name, resourceInputs, opts);
+        super(AnomalyAlert.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

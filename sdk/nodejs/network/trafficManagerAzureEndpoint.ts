@@ -175,7 +175,7 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
             resourceInputs["weight"] = args ? args.weight : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficManagerAzureEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(TrafficManagerAzureEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

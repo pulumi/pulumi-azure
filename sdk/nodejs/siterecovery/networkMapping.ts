@@ -178,7 +178,7 @@ export class NetworkMapping extends pulumi.CustomResource {
             resourceInputs["targetRecoveryFabricName"] = args ? args.targetRecoveryFabricName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkMapping.__pulumiType, name, resourceInputs, opts);
+        super(NetworkMapping.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

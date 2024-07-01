@@ -155,7 +155,7 @@ export class RoleAssignment extends pulumi.CustomResource {
             resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RoleAssignment.__pulumiType, name, resourceInputs, opts);
+        super(RoleAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

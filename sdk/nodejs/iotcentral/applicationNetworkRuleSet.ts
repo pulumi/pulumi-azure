@@ -126,7 +126,7 @@ export class ApplicationNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["ipRules"] = args ? args.ipRules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApplicationNetworkRuleSet.__pulumiType, name, resourceInputs, opts);
+        super(ApplicationNetworkRuleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

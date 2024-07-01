@@ -177,7 +177,7 @@ export class DiskPoolIscsiTargetLun extends pulumi.CustomResource {
             resourceInputs["lun"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DiskPoolIscsiTargetLun.__pulumiType, name, resourceInputs, opts);
+        super(DiskPoolIscsiTargetLun.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

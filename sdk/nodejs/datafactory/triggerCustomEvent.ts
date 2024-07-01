@@ -194,7 +194,7 @@ export class TriggerCustomEvent extends pulumi.CustomResource {
             resourceInputs["subjectEndsWith"] = args ? args.subjectEndsWith : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TriggerCustomEvent.__pulumiType, name, resourceInputs, opts);
+        super(TriggerCustomEvent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

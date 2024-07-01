@@ -177,7 +177,7 @@ export class MedtechService extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MedtechService.__pulumiType, name, resourceInputs, opts);
+        super(MedtechService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

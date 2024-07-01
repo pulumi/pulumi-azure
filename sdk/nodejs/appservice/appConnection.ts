@@ -178,7 +178,7 @@ export class AppConnection extends pulumi.CustomResource {
             resourceInputs["vnetSolution"] = args ? args.vnetSolution : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AppConnection.__pulumiType, name, resourceInputs, opts);
+        super(AppConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

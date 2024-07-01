@@ -186,7 +186,7 @@ export class LinkedServiceSynapse extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceSynapse.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceSynapse.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

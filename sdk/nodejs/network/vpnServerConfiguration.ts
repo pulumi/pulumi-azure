@@ -165,7 +165,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             resourceInputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpnServerConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(VpnServerConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

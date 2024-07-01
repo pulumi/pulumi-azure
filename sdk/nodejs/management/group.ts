@@ -115,7 +115,7 @@ export class Group extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:managementgroups/managementGroup:ManagementGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Group.__pulumiType, name, resourceInputs, opts);
+        super(Group.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

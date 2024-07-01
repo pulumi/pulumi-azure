@@ -114,7 +114,7 @@ export class WorkspaceApplicationGroupAssociation extends pulumi.CustomResource 
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WorkspaceApplicationGroupAssociation.__pulumiType, name, resourceInputs, opts);
+        super(WorkspaceApplicationGroupAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

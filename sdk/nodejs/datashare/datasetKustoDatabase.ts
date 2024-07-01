@@ -149,7 +149,7 @@ export class DatasetKustoDatabase extends pulumi.CustomResource {
             resourceInputs["kustoClusterLocation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetKustoDatabase.__pulumiType, name, resourceInputs, opts);
+        super(DatasetKustoDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -128,7 +128,7 @@ export class SpringCloudBuilder extends pulumi.CustomResource {
             resourceInputs["stack"] = args ? args.stack : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudBuilder.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudBuilder.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

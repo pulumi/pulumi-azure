@@ -123,7 +123,7 @@ export class MoverAgent extends pulumi.CustomResource {
             resourceInputs["storageMoverId"] = args ? args.storageMoverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MoverAgent.__pulumiType, name, resourceInputs, opts);
+        super(MoverAgent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

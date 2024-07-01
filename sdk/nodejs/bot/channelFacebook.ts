@@ -149,7 +149,7 @@ export class ChannelFacebook extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["facebookApplicationSecret"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ChannelFacebook.__pulumiType, name, resourceInputs, opts);
+        super(ChannelFacebook.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

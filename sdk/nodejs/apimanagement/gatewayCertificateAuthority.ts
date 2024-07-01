@@ -140,7 +140,7 @@ export class GatewayCertificateAuthority extends pulumi.CustomResource {
             resourceInputs["isTrusted"] = args ? args.isTrusted : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GatewayCertificateAuthority.__pulumiType, name, resourceInputs, opts);
+        super(GatewayCertificateAuthority.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

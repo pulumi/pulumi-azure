@@ -190,7 +190,7 @@ export class Watcher extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Watcher.__pulumiType, name, resourceInputs, opts);
+        super(Watcher.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

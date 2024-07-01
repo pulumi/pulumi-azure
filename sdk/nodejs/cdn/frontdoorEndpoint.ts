@@ -118,7 +118,7 @@ export class FrontdoorEndpoint extends pulumi.CustomResource {
             resourceInputs["hostName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

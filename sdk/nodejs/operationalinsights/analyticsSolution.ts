@@ -156,7 +156,7 @@ export class AnalyticsSolution extends pulumi.CustomResource {
             resourceInputs["workspaceResourceId"] = args ? args.workspaceResourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AnalyticsSolution.__pulumiType, name, resourceInputs, opts);
+        super(AnalyticsSolution.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -175,7 +175,7 @@ export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WorkspaceSqlAadAdmin.__pulumiType, name, resourceInputs, opts);
+        super(WorkspaceSqlAadAdmin.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -163,7 +163,7 @@ export class Provider extends pulumi.CustomResource {
             resourceInputs["trustModel"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Provider.__pulumiType, name, resourceInputs, opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

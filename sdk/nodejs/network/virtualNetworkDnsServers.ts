@@ -104,7 +104,7 @@ export class VirtualNetworkDnsServers extends pulumi.CustomResource {
             resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNetworkDnsServers.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetworkDnsServers.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -138,7 +138,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);
+        super(ConsumerGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

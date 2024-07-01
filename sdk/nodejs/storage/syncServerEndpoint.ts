@@ -180,7 +180,7 @@ export class SyncServerEndpoint extends pulumi.CustomResource {
             resourceInputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SyncServerEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(SyncServerEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

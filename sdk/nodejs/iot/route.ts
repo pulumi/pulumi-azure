@@ -176,7 +176,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["source"] = args ? args.source : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Route.__pulumiType, name, resourceInputs, opts);
+        super(Route.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

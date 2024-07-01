@@ -214,7 +214,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["jobId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Job.__pulumiType, name, resourceInputs, opts);
+        super(Job.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

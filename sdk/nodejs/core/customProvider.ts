@@ -129,7 +129,7 @@ export class CustomProvider extends pulumi.CustomResource {
             resourceInputs["validations"] = args ? args.validations : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomProvider.__pulumiType, name, resourceInputs, opts);
+        super(CustomProvider.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

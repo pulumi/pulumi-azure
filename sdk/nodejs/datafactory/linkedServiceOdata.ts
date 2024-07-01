@@ -156,7 +156,7 @@ export class LinkedServiceOdata extends pulumi.CustomResource {
             resourceInputs["url"] = args ? args.url : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceOdata.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceOdata.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

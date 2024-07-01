@@ -189,7 +189,7 @@ export class MoverJobDefinition extends pulumi.CustomResource {
             resourceInputs["targetSubPath"] = args ? args.targetSubPath : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MoverJobDefinition.__pulumiType, name, resourceInputs, opts);
+        super(MoverJobDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

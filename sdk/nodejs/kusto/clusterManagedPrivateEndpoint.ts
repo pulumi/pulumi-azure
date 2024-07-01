@@ -153,7 +153,7 @@ export class ClusterManagedPrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(ClusterManagedPrivateEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -193,7 +193,7 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["virtualMachine"] = args ? args.virtualMachine : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Lab.__pulumiType, name, resourceInputs, opts);
+        super(Lab.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

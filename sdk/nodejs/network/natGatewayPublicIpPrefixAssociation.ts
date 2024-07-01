@@ -108,7 +108,7 @@ export class NatGatewayPublicIpPrefixAssociation extends pulumi.CustomResource {
             resourceInputs["publicIpPrefixId"] = args ? args.publicIpPrefixId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NatGatewayPublicIpPrefixAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NatGatewayPublicIpPrefixAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

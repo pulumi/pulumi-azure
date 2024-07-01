@@ -133,7 +133,7 @@ export class TimeSeriesInsightsReferenceDataSet extends pulumi.CustomResource {
             resourceInputs["timeSeriesInsightsEnvironmentId"] = args ? args.timeSeriesInsightsEnvironmentId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TimeSeriesInsightsReferenceDataSet.__pulumiType, name, resourceInputs, opts);
+        super(TimeSeriesInsightsReferenceDataSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -231,7 +231,7 @@ export class NetworkPacketCoreControlPlane extends pulumi.CustomResource {
             resourceInputs["userEquipmentMtuInBytes"] = args ? args.userEquipmentMtuInBytes : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkPacketCoreControlPlane.__pulumiType, name, resourceInputs, opts);
+        super(NetworkPacketCoreControlPlane.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

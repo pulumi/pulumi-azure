@@ -173,7 +173,7 @@ export class ConfigurationFeature extends pulumi.CustomResource {
             resourceInputs["timewindowFilters"] = args ? args.timewindowFilters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConfigurationFeature.__pulumiType, name, resourceInputs, opts);
+        super(ConfigurationFeature.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

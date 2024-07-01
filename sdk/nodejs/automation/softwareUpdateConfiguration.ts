@@ -212,7 +212,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
             resourceInputs["errorMessage"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SoftwareUpdateConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(SoftwareUpdateConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

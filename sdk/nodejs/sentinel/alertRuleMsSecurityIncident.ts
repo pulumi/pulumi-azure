@@ -161,7 +161,7 @@ export class AlertRuleMsSecurityIncident extends pulumi.CustomResource {
             resourceInputs["severityFilters"] = args ? args.severityFilters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertRuleMsSecurityIncident.__pulumiType, name, resourceInputs, opts);
+        super(AlertRuleMsSecurityIncident.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

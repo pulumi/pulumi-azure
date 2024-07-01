@@ -396,7 +396,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["authorizationKey", "sharedKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(VirtualNetworkGatewayConnection.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetworkGatewayConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

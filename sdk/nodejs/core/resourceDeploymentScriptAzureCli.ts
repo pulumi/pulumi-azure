@@ -216,7 +216,7 @@ export class ResourceDeploymentScriptAzureCli extends pulumi.CustomResource {
             resourceInputs["outputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceDeploymentScriptAzureCli.__pulumiType, name, resourceInputs, opts);
+        super(ResourceDeploymentScriptAzureCli.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

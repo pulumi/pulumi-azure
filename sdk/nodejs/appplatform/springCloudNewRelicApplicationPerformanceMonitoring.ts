@@ -176,7 +176,7 @@ export class SpringCloudNewRelicApplicationPerformanceMonitoring extends pulumi.
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["licenseKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SpringCloudNewRelicApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudNewRelicApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

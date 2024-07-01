@@ -206,7 +206,7 @@ export class PointToPointVpnGateway extends pulumi.CustomResource {
             resourceInputs["vpnServerConfigurationId"] = args ? args.vpnServerConfigurationId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PointToPointVpnGateway.__pulumiType, name, resourceInputs, opts);
+        super(PointToPointVpnGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

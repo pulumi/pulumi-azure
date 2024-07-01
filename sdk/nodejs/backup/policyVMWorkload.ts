@@ -164,7 +164,7 @@ export class PolicyVMWorkload extends pulumi.CustomResource {
             resourceInputs["workloadType"] = args ? args.workloadType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PolicyVMWorkload.__pulumiType, name, resourceInputs, opts);
+        super(PolicyVMWorkload.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

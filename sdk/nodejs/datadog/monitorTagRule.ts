@@ -133,7 +133,7 @@ export class MonitorTagRule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MonitorTagRule.__pulumiType, name, resourceInputs, opts);
+        super(MonitorTagRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

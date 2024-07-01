@@ -197,7 +197,7 @@ export class FrontdoorCustomDomain extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(FrontdoorCustomDomain.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorCustomDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

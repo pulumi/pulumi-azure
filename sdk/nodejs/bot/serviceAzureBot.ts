@@ -243,7 +243,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["developerAppInsightsApiKey", "luisKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ServiceAzureBot.__pulumiType, name, resourceInputs, opts);
+        super(ServiceAzureBot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

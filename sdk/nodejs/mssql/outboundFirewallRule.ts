@@ -101,7 +101,7 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
             resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OutboundFirewallRule.__pulumiType, name, resourceInputs, opts);
+        super(OutboundFirewallRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

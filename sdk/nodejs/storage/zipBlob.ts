@@ -114,7 +114,7 @@ export class ZipBlob extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ZipBlob.__pulumiType, name, resourceInputs, opts);
+        super(ZipBlob.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
