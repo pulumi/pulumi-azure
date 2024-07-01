@@ -107,7 +107,7 @@ export class DataConnectorOffice365Project extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorOffice365Project.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorOffice365Project.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

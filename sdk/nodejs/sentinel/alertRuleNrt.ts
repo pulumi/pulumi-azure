@@ -223,7 +223,7 @@ export class AlertRuleNrt extends pulumi.CustomResource {
             resourceInputs["techniques"] = args ? args.techniques : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertRuleNrt.__pulumiType, name, resourceInputs, opts);
+        super(AlertRuleNrt.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

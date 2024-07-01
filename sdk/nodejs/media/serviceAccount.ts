@@ -159,7 +159,7 @@ export class ServiceAccount extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:mediaservices/account:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServiceAccount.__pulumiType, name, resourceInputs, opts);
+        super(ServiceAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

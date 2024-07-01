@@ -115,7 +115,7 @@ export class VmwareReplicationPolicyAssociation extends pulumi.CustomResource {
             resourceInputs["recoveryVaultId"] = args ? args.recoveryVaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VmwareReplicationPolicyAssociation.__pulumiType, name, resourceInputs, opts);
+        super(VmwareReplicationPolicyAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -167,7 +167,7 @@ export class RegistryWebhook extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:containerservice/registryWebook:RegistryWebook" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RegistryWebhook.__pulumiType, name, resourceInputs, opts);
+        super(RegistryWebhook.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

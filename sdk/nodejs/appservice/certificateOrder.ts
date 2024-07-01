@@ -201,7 +201,7 @@ export class CertificateOrder extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CertificateOrder.__pulumiType, name, resourceInputs, opts);
+        super(CertificateOrder.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

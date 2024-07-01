@@ -119,7 +119,7 @@ export class LocalRulestackFqdnList extends pulumi.CustomResource {
             resourceInputs["rulestackId"] = args ? args.rulestackId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocalRulestackFqdnList.__pulumiType, name, resourceInputs, opts);
+        super(LocalRulestackFqdnList.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

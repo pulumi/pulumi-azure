@@ -186,7 +186,7 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
             resourceInputs["virtualNetworkGatewayId"] = args ? args.virtualNetworkGatewayId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNetworkGatewayNatRule.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetworkGatewayNatRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

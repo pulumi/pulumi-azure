@@ -296,7 +296,7 @@ export class FunctionAppFunction extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FunctionAppFunction.__pulumiType, name, resourceInputs, opts);
+        super(FunctionAppFunction.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

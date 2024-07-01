@@ -142,7 +142,7 @@ export class AutomanageConfigurationAssignment extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AutomanageConfigurationAssignment.__pulumiType, name, resourceInputs, opts);
+        super(AutomanageConfigurationAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

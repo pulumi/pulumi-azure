@@ -192,7 +192,7 @@ export class NatPool extends pulumi.CustomResource {
             resourceInputs["frontendIpConfigurationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NatPool.__pulumiType, name, resourceInputs, opts);
+        super(NatPool.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

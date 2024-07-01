@@ -162,7 +162,7 @@ export class ApplicationSecurityGroupAssociation extends pulumi.CustomResource {
             resourceInputs["privateEndpointId"] = args ? args.privateEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApplicationSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ApplicationSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

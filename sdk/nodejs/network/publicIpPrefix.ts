@@ -145,7 +145,7 @@ export class PublicIpPrefix extends pulumi.CustomResource {
             resourceInputs["ipPrefix"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PublicIpPrefix.__pulumiType, name, resourceInputs, opts);
+        super(PublicIpPrefix.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

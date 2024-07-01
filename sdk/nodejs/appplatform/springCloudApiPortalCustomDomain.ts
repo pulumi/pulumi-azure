@@ -115,7 +115,7 @@ export class SpringCloudApiPortalCustomDomain extends pulumi.CustomResource {
             resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudApiPortalCustomDomain.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudApiPortalCustomDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

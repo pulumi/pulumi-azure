@@ -131,7 +131,7 @@ export class ChannelWebChat extends pulumi.CustomResource {
             resourceInputs["sites"] = args ? args.sites : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ChannelWebChat.__pulumiType, name, resourceInputs, opts);
+        super(ChannelWebChat.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

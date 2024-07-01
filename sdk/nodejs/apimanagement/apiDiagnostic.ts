@@ -259,7 +259,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             resourceInputs["verbosity"] = args ? args.verbosity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiDiagnostic.__pulumiType, name, resourceInputs, opts);
+        super(ApiDiagnostic.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

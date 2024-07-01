@@ -213,7 +213,7 @@ export class TrafficManagerNestedEndpoint extends pulumi.CustomResource {
             resourceInputs["weight"] = args ? args.weight : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TrafficManagerNestedEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(TrafficManagerNestedEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

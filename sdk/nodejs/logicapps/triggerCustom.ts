@@ -122,7 +122,7 @@ export class TriggerCustom extends pulumi.CustomResource {
             resourceInputs["callbackUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TriggerCustom.__pulumiType, name, resourceInputs, opts);
+        super(TriggerCustom.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

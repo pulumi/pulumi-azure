@@ -122,7 +122,7 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NotificationRecipientUser.__pulumiType, name, resourceInputs, opts);
+        super(NotificationRecipientUser.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

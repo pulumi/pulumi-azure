@@ -125,7 +125,7 @@ export class ChannelDirectLine extends pulumi.CustomResource {
             resourceInputs["sites"] = args ? args.sites : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ChannelDirectLine.__pulumiType, name, resourceInputs, opts);
+        super(ChannelDirectLine.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

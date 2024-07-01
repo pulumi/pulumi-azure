@@ -175,7 +175,7 @@ export class RouteServer extends pulumi.CustomResource {
             resourceInputs["virtualRouterIps"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RouteServer.__pulumiType, name, resourceInputs, opts);
+        super(RouteServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

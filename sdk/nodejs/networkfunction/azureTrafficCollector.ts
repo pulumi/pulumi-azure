@@ -120,7 +120,7 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
             resourceInputs["virtualHubIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AzureTrafficCollector.__pulumiType, name, resourceInputs, opts);
+        super(AzureTrafficCollector.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

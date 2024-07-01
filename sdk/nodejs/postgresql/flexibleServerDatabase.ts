@@ -114,7 +114,7 @@ export class FlexibleServerDatabase extends pulumi.CustomResource {
             resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FlexibleServerDatabase.__pulumiType, name, resourceInputs, opts);
+        super(FlexibleServerDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

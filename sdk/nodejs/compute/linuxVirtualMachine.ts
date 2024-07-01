@@ -514,7 +514,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinuxVirtualMachine.__pulumiType, name, resourceInputs, opts);
+        super(LinuxVirtualMachine.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

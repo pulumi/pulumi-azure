@@ -156,7 +156,7 @@ export class FleetUpdateRun extends pulumi.CustomResource {
             resourceInputs["stages"] = args ? args.stages : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FleetUpdateRun.__pulumiType, name, resourceInputs, opts);
+        super(FleetUpdateRun.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -140,7 +140,7 @@ export class RegistryToken extends pulumi.CustomResource {
             resourceInputs["scopeMapId"] = args ? args.scopeMapId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryToken.__pulumiType, name, resourceInputs, opts);
+        super(RegistryToken.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

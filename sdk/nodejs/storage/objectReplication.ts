@@ -158,7 +158,7 @@ export class ObjectReplication extends pulumi.CustomResource {
             resourceInputs["sourceObjectReplicationId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ObjectReplication.__pulumiType, name, resourceInputs, opts);
+        super(ObjectReplication.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -297,7 +297,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["sshEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KafkaCluster.__pulumiType, name, resourceInputs, opts);
+        super(KafkaCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

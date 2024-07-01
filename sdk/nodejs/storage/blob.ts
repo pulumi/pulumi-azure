@@ -201,7 +201,7 @@ export class Blob extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Blob.__pulumiType, name, resourceInputs, opts);
+        super(Blob.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -150,7 +150,7 @@ export class SystemTopic extends pulumi.CustomResource {
             resourceInputs["metricArmResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SystemTopic.__pulumiType, name, resourceInputs, opts);
+        super(SystemTopic.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

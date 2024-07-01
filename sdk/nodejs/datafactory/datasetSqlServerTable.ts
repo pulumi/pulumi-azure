@@ -156,7 +156,7 @@ export class DatasetSqlServerTable extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetSqlServerTable.__pulumiType, name, resourceInputs, opts);
+        super(DatasetSqlServerTable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

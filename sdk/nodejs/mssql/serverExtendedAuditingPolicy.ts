@@ -253,7 +253,7 @@ export class ServerExtendedAuditingPolicy extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountAccessKey", "storageAccountSubscriptionId"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ServerExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ServerExtendedAuditingPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

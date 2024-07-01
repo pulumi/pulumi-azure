@@ -83,7 +83,7 @@ export class RoleAssignment extends pulumi.CustomResource {
             resourceInputs["principalType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RoleAssignment.__pulumiType, name, resourceInputs, opts);
+        super(RoleAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

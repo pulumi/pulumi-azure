@@ -400,7 +400,7 @@ export class ManagedInstance extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ManagedInstance.__pulumiType, name, resourceInputs, opts);
+        super(ManagedInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

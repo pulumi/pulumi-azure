@@ -171,7 +171,7 @@ export class AadDiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AadDiagnosticSetting.__pulumiType, name, resourceInputs, opts);
+        super(AadDiagnosticSetting.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

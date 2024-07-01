@@ -214,7 +214,7 @@ export class ImplicitDataDiskFromSource extends pulumi.CustomResource {
             resourceInputs["writeAcceleratorEnabled"] = args ? args.writeAcceleratorEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ImplicitDataDiskFromSource.__pulumiType, name, resourceInputs, opts);
+        super(ImplicitDataDiskFromSource.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -319,7 +319,7 @@ export class Registry extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Registry.__pulumiType, name, resourceInputs, opts);
+        super(Registry.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

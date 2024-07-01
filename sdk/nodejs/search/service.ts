@@ -252,7 +252,7 @@ export class Service extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["primaryKey", "secondaryKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Service.__pulumiType, name, resourceInputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

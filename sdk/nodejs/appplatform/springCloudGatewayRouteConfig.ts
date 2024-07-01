@@ -174,7 +174,7 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
             resourceInputs["ssoValidationEnabled"] = args ? args.ssoValidationEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudGatewayRouteConfig.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudGatewayRouteConfig.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

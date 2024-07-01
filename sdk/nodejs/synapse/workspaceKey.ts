@@ -192,7 +192,7 @@ export class WorkspaceKey extends pulumi.CustomResource {
             resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(WorkspaceKey.__pulumiType, name, resourceInputs, opts);
+        super(WorkspaceKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

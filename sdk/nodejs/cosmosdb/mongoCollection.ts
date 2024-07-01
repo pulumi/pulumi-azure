@@ -162,7 +162,7 @@ export class MongoCollection extends pulumi.CustomResource {
             resourceInputs["systemIndexes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(MongoCollection.__pulumiType, name, resourceInputs, opts);
+        super(MongoCollection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

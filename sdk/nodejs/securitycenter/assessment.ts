@@ -166,7 +166,7 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Assessment.__pulumiType, name, resourceInputs, opts);
+        super(Assessment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

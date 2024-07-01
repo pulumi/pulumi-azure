@@ -269,7 +269,7 @@ export class SharedImage extends pulumi.CustomResource {
             resourceInputs["trustedLaunchSupported"] = args ? args.trustedLaunchSupported : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SharedImage.__pulumiType, name, resourceInputs, opts);
+        super(SharedImage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

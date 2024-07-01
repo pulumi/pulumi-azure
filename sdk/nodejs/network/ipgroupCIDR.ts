@@ -104,7 +104,7 @@ export class IPGroupCIDR extends pulumi.CustomResource {
             resourceInputs["ipGroupId"] = args ? args.ipGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IPGroupCIDR.__pulumiType, name, resourceInputs, opts);
+        super(IPGroupCIDR.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

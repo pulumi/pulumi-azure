@@ -204,7 +204,7 @@ export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResour
             resourceInputs["secretId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedStorageAccountSasTokenDefinition.__pulumiType, name, resourceInputs, opts);
+        super(ManagedStorageAccountSasTokenDefinition.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

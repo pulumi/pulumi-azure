@@ -128,7 +128,7 @@ export class RegistryCacheRule extends pulumi.CustomResource {
             resourceInputs["targetRepo"] = args ? args.targetRepo : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryCacheRule.__pulumiType, name, resourceInputs, opts);
+        super(RegistryCacheRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

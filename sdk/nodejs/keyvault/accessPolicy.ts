@@ -178,7 +178,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
+        super(AccessPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

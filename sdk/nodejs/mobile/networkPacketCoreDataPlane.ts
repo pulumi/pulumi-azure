@@ -112,7 +112,7 @@ export class NetworkPacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["userPlaneAccessName"] = args ? args.userPlaneAccessName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkPacketCoreDataPlane.__pulumiType, name, resourceInputs, opts);
+        super(NetworkPacketCoreDataPlane.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

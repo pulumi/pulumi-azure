@@ -181,7 +181,7 @@ export class ClusterCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["userIdentity"] = args ? args.userIdentity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ClusterCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
+        super(ClusterCustomerManagedKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

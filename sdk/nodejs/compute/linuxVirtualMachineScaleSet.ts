@@ -515,7 +515,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["adminPassword", "customData"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinuxVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
+        super(LinuxVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

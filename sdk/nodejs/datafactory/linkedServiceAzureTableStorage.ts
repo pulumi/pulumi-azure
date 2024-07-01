@@ -145,7 +145,7 @@ export class LinkedServiceAzureTableStorage extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinkedServiceAzureTableStorage.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceAzureTableStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

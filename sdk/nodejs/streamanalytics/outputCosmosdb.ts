@@ -170,7 +170,7 @@ export class OutputCosmosdb extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["cosmosdbAccountKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OutputCosmosdb.__pulumiType, name, resourceInputs, opts);
+        super(OutputCosmosdb.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

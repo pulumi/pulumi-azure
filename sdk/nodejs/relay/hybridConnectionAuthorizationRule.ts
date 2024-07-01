@@ -175,7 +175,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["primaryConnectionString", "primaryKey", "secondaryConnectionString", "secondaryKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(HybridConnectionAuthorizationRule.__pulumiType, name, resourceInputs, opts);
+        super(HybridConnectionAuthorizationRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

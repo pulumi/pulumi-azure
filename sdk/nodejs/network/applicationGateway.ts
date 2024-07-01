@@ -378,7 +378,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApplicationGateway.__pulumiType, name, resourceInputs, opts);
+        super(ApplicationGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

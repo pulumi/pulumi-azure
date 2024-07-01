@@ -111,7 +111,7 @@ export class ResourceGuard extends pulumi.CustomResource {
             resourceInputs["vaultCriticalOperationExclusionLists"] = args ? args.vaultCriticalOperationExclusionLists : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceGuard.__pulumiType, name, resourceInputs, opts);
+        super(ResourceGuard.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

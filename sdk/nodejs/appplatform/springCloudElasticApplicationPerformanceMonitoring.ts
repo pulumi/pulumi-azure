@@ -140,7 +140,7 @@ export class SpringCloudElasticApplicationPerformanceMonitoring extends pulumi.C
             resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudElasticApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudElasticApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

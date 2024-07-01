@@ -141,7 +141,7 @@ export class LocalRulestack extends pulumi.CustomResource {
             resourceInputs["vulnerabilityProfile"] = args ? args.vulnerabilityProfile : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocalRulestack.__pulumiType, name, resourceInputs, opts);
+        super(LocalRulestack.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -210,7 +210,7 @@ export class Queue extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/queue:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Queue.__pulumiType, name, resourceInputs, opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

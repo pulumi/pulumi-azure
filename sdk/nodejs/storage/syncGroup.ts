@@ -97,7 +97,7 @@ export class SyncGroup extends pulumi.CustomResource {
             resourceInputs["storageSyncId"] = args ? args.storageSyncId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SyncGroup.__pulumiType, name, resourceInputs, opts);
+        super(SyncGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -129,7 +129,7 @@ export class StaticWebAppFunctionAppRegistration extends pulumi.CustomResource {
             resourceInputs["staticWebAppId"] = args ? args.staticWebAppId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StaticWebAppFunctionAppRegistration.__pulumiType, name, resourceInputs, opts);
+        super(StaticWebAppFunctionAppRegistration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

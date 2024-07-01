@@ -148,7 +148,7 @@ export class SpringCloudApplicationInsightsApplicationPerformanceMonitoring exte
             resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudApplicationInsightsApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudApplicationInsightsApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

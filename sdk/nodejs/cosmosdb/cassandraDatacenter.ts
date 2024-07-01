@@ -201,7 +201,7 @@ export class CassandraDatacenter extends pulumi.CustomResource {
             resourceInputs["seedNodeIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CassandraDatacenter.__pulumiType, name, resourceInputs, opts);
+        super(CassandraDatacenter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

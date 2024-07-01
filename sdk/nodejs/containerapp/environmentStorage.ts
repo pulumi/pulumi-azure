@@ -159,7 +159,7 @@ export class EnvironmentStorage extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(EnvironmentStorage.__pulumiType, name, resourceInputs, opts);
+        super(EnvironmentStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

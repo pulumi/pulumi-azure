@@ -220,7 +220,7 @@ export class EventhubDataConnection extends pulumi.CustomResource {
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventhubDataConnection.__pulumiType, name, resourceInputs, opts);
+        super(EventhubDataConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

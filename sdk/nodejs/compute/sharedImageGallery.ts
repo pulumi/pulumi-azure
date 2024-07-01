@@ -130,7 +130,7 @@ export class SharedImageGallery extends pulumi.CustomResource {
             resourceInputs["uniqueName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SharedImageGallery.__pulumiType, name, resourceInputs, opts);
+        super(SharedImageGallery.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

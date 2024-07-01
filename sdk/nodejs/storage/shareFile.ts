@@ -153,7 +153,7 @@ export class ShareFile extends pulumi.CustomResource {
             resourceInputs["contentLength"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ShareFile.__pulumiType, name, resourceInputs, opts);
+        super(ShareFile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

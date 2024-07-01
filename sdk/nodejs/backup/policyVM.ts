@@ -203,7 +203,7 @@ export class PolicyVM extends pulumi.CustomResource {
             resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(PolicyVM.__pulumiType, name, resourceInputs, opts);
+        super(PolicyVM.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

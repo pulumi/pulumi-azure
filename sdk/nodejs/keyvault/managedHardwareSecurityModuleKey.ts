@@ -134,7 +134,7 @@ export class ManagedHardwareSecurityModuleKey extends pulumi.CustomResource {
             resourceInputs["versionedId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedHardwareSecurityModuleKey.__pulumiType, name, resourceInputs, opts);
+        super(ManagedHardwareSecurityModuleKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

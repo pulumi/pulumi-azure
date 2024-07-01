@@ -192,7 +192,7 @@ export class VirtualMachine extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sqlConnectivityUpdatePassword", "sqlConnectivityUpdateUsername"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
+        super(VirtualMachine.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

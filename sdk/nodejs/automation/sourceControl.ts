@@ -168,7 +168,7 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["sourceControlType"] = args ? args.sourceControlType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SourceControl.__pulumiType, name, resourceInputs, opts);
+        super(SourceControl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

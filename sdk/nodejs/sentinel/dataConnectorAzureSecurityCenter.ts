@@ -105,7 +105,7 @@ export class DataConnectorAzureSecurityCenter extends pulumi.CustomResource {
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorAzureSecurityCenter.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorAzureSecurityCenter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

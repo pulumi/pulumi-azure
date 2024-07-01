@@ -145,7 +145,7 @@ export class ActionHttp extends pulumi.CustomResource {
             resourceInputs["uri"] = args ? args.uri : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ActionHttp.__pulumiType, name, resourceInputs, opts);
+        super(ActionHttp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
