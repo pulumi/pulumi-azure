@@ -4,19 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EmailServiceDomainVerificationRecordArgs',
+    'EmailServiceDomainVerificationRecordArgsDict',
     'EmailServiceDomainVerificationRecordDkim2Args',
+    'EmailServiceDomainVerificationRecordDkim2ArgsDict',
     'EmailServiceDomainVerificationRecordDkimArgs',
+    'EmailServiceDomainVerificationRecordDkimArgsDict',
     'EmailServiceDomainVerificationRecordDmarcArgs',
+    'EmailServiceDomainVerificationRecordDmarcArgsDict',
     'EmailServiceDomainVerificationRecordDomainArgs',
+    'EmailServiceDomainVerificationRecordDomainArgsDict',
     'EmailServiceDomainVerificationRecordSpfArgs',
+    'EmailServiceDomainVerificationRecordSpfArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EmailServiceDomainVerificationRecordArgsDict(TypedDict):
+        dkim2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2ArgsDict']]]]
+        """
+        (Optional) An `dkim2` block as defined below.
+        """
+        dkims: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgsDict']]]]
+        """
+        (Optional) An `dkim` block as defined below.
+        """
+        dmarcs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgsDict']]]]
+        """
+        (Optional) An `dmarc` block as defined below.
+        """
+        domains: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgsDict']]]]
+        """
+        (Optional) An `domain` block as defined below.
+        """
+        spfs: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgsDict']]]]
+        """
+        (Optional) An `spf` block as defined below.
+        """
+elif False:
+    EmailServiceDomainVerificationRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordArgs:
@@ -105,6 +143,27 @@ class EmailServiceDomainVerificationRecordArgs:
         pulumi.set(self, "spfs", value)
 
 
+if not MYPY:
+    class EmailServiceDomainVerificationRecordDkim2ArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        """
+        ttl: NotRequired[pulumi.Input[int]]
+        """
+        Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the DNS record. Example: TXT
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the DNS record.
+        """
+elif False:
+    EmailServiceDomainVerificationRecordDkim2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDkim2Args:
     def __init__(__self__, *,
@@ -175,6 +234,27 @@ class EmailServiceDomainVerificationRecordDkim2Args:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EmailServiceDomainVerificationRecordDkimArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        """
+        ttl: NotRequired[pulumi.Input[int]]
+        """
+        Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the DNS record. Example: TXT
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the DNS record.
+        """
+elif False:
+    EmailServiceDomainVerificationRecordDkimArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDkimArgs:
@@ -247,6 +327,27 @@ class EmailServiceDomainVerificationRecordDkimArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EmailServiceDomainVerificationRecordDmarcArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        """
+        ttl: NotRequired[pulumi.Input[int]]
+        """
+        Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the DNS record. Example: TXT
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the DNS record.
+        """
+elif False:
+    EmailServiceDomainVerificationRecordDmarcArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDmarcArgs:
     def __init__(__self__, *,
@@ -318,6 +419,27 @@ class EmailServiceDomainVerificationRecordDmarcArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EmailServiceDomainVerificationRecordDomainArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        """
+        ttl: NotRequired[pulumi.Input[int]]
+        """
+        Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the DNS record. Example: TXT
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the DNS record.
+        """
+elif False:
+    EmailServiceDomainVerificationRecordDomainArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordDomainArgs:
     def __init__(__self__, *,
@@ -388,6 +510,27 @@ class EmailServiceDomainVerificationRecordDomainArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EmailServiceDomainVerificationRecordSpfArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
+        """
+        ttl: NotRequired[pulumi.Input[int]]
+        """
+        Represents an expiry time in seconds to represent how long this entry can be cached by the resolver, default = 3600sec.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the DNS record. Example: TXT
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of the DNS record.
+        """
+elif False:
+    EmailServiceDomainVerificationRecordSpfArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EmailServiceDomainVerificationRecordSpfArgs:

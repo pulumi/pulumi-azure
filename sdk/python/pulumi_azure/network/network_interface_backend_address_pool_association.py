@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['NetworkInterfaceBackendAddressPoolAssociationArgs', 'NetworkInterfaceBackendAddressPoolAssociation']
@@ -160,10 +165,10 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             name="example-lb",
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="primary",
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": "primary",
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,
             name="acctestpool")
@@ -171,11 +176,11 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             name="example-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("example",
             network_interface_id=example_network_interface.id,
             ip_configuration_name="testconfiguration1",
@@ -233,10 +238,10 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             name="example-lb",
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="primary",
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": "primary",
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,
             name="acctestpool")
@@ -244,11 +249,11 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             name="example-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("example",
             network_interface_id=example_network_interface.id,
             ip_configuration_name="testconfiguration1",

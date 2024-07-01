@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -294,7 +299,7 @@ class EventHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+                 capture_description: Optional[pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
                  message_retention: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -341,7 +346,7 @@ class EventHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.
@@ -413,7 +418,7 @@ class EventHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+                 capture_description: Optional[pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
                  message_retention: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
@@ -455,7 +460,7 @@ class EventHub(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            capture_description: Optional[pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']]] = None,
+            capture_description: Optional[pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']]] = None,
             message_retention: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
@@ -470,7 +475,7 @@ class EventHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventHubCaptureDescriptionArgs']] capture_description: A `capture_description` block as defined below.
+        :param pulumi.Input[Union['EventHubCaptureDescriptionArgs', 'EventHubCaptureDescriptionArgsDict']] capture_description: A `capture_description` block as defined below.
         :param pulumi.Input[int] message_retention: Specifies the number of days to retain the events for this Event Hub.
                
                > **Note:** When using a dedicated Event Hubs cluster, maximum value of `message_retention` is 90 days. When using a shared parent EventHub Namespace, maximum value is 7 days; or 1 day when using a Basic SKU for the shared parent EventHub Namespace.

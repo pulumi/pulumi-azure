@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EdgeModuleArgs', 'EdgeModule']
@@ -166,14 +171,14 @@ class EdgeModule(pulumi.CustomResource):
             name="exampleanalyzer",
             location=example.location,
             resource_group_name=example.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
-                id=example_account.id,
-                user_assigned_identity_id=example_user_assigned_identity.id,
-            ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            storage_account={
+                "id": example_account.id,
+                "userAssignedIdentityId": example_user_assigned_identity.id,
+            },
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             tags={
                 "environment": "staging",
             },
@@ -244,14 +249,14 @@ class EdgeModule(pulumi.CustomResource):
             name="exampleanalyzer",
             location=example.location,
             resource_group_name=example.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
-                id=example_account.id,
-                user_assigned_identity_id=example_user_assigned_identity.id,
-            ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            storage_account={
+                "id": example_account.id,
+                "userAssignedIdentityId": example_user_assigned_identity.id,
+            },
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             tags={
                 "environment": "staging",
             },

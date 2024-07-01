@@ -4,18 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DefinitionAuthorizationArgs',
+    'DefinitionAuthorizationArgsDict',
     'DefinitionEligibleAuthorizationArgs',
+    'DefinitionEligibleAuthorizationArgsDict',
     'DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs',
+    'DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict',
     'DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs',
+    'DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict',
     'DefinitionPlanArgs',
+    'DefinitionPlanArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DefinitionAuthorizationArgsDict(TypedDict):
+        principal_id: pulumi.Input[str]
+        """
+        Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
+        """
+        delegated_role_definition_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The set of role definition ids which define all the permissions that the principal id can assign.
+        """
+        principal_display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+        """
+elif False:
+    DefinitionAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefinitionAuthorizationArgs:
@@ -86,6 +119,27 @@ class DefinitionAuthorizationArgs:
         pulumi.set(self, "principal_display_name", value)
 
 
+if not MYPY:
+    class DefinitionEligibleAuthorizationArgsDict(TypedDict):
+        principal_id: pulumi.Input[str]
+        """
+        Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
+        """
+        role_definition_id: pulumi.Input[str]
+        """
+        The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
+        """
+        just_in_time_access_policy: NotRequired[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict']]
+        """
+        A `just_in_time_access_policy` block as defined below.
+        """
+        principal_display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the Azure Active Directory Principal.
+        """
+elif False:
+    DefinitionEligibleAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefinitionEligibleAuthorizationArgs:
     def __init__(__self__, *,
@@ -155,6 +209,25 @@ class DefinitionEligibleAuthorizationArgs:
         pulumi.set(self, "principal_display_name", value)
 
 
+if not MYPY:
+    class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict(TypedDict):
+        approvers: NotRequired[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict']]]]
+        """
+        An `approver` block as defined below.
+        """
+        maximum_activation_duration: NotRequired[pulumi.Input[str]]
+        """
+        The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
+        """
+        multi_factor_auth_provider: NotRequired[pulumi.Input[str]]
+        """
+        The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
+
+        > **Note:** When this property isn't set, it would be set to `None`.
+        """
+elif False:
+    DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
     def __init__(__self__, *,
@@ -214,6 +287,19 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
         pulumi.set(self, "multi_factor_auth_provider", value)
 
 
+if not MYPY:
+    class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict(TypedDict):
+        principal_id: pulumi.Input[str]
+        """
+        The Principal ID of the Azure Active Directory principal for the approver.
+        """
+        principal_display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of the Azure Active Directory Principal for the approver.
+        """
+elif False:
+    DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs:
     def __init__(__self__, *,
@@ -251,6 +337,27 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs:
     def principal_display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_display_name", value)
 
+
+if not MYPY:
+    class DefinitionPlanArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The plan name of the marketplace offer.
+        """
+        product: pulumi.Input[str]
+        """
+        The product code of the plan.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher ID of the plan.
+        """
+        version: pulumi.Input[str]
+        """
+        The version of the plan.
+        """
+elif False:
+    DefinitionPlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefinitionPlanArgs:

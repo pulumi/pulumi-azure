@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -239,7 +244,7 @@ class CaaRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaaRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -264,26 +269,26 @@ class CaaRecord(pulumi.CustomResource):
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.com",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.net",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issuewild",
-                    value=";",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="iodef",
-                    value="mailto:user@nonexisting.tld",
-                ),
+                {
+                    "flags": 0,
+                    "tag": "issue",
+                    "value": "example.com",
+                },
+                {
+                    "flags": 0,
+                    "tag": "issue",
+                    "value": "example.net",
+                },
+                {
+                    "flags": 0,
+                    "tag": "issuewild",
+                    "value": ";",
+                },
+                {
+                    "flags": 0,
+                    "tag": "iodef",
+                    "value": "mailto:user@nonexisting.tld",
+                },
             ],
             tags={
                 "Environment": "Production",
@@ -301,7 +306,7 @@ class CaaRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaaRecordRecordArgs']]]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict']]]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -332,26 +337,26 @@ class CaaRecord(pulumi.CustomResource):
             resource_group_name=example.name,
             ttl=300,
             records=[
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.com",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issue",
-                    value="example.net",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="issuewild",
-                    value=";",
-                ),
-                azure.dns.CaaRecordRecordArgs(
-                    flags=0,
-                    tag="iodef",
-                    value="mailto:user@nonexisting.tld",
-                ),
+                {
+                    "flags": 0,
+                    "tag": "issue",
+                    "value": "example.com",
+                },
+                {
+                    "flags": 0,
+                    "tag": "issue",
+                    "value": "example.net",
+                },
+                {
+                    "flags": 0,
+                    "tag": "issuewild",
+                    "value": ";",
+                },
+                {
+                    "flags": 0,
+                    "tag": "iodef",
+                    "value": "mailto:user@nonexisting.tld",
+                },
             ],
             tags={
                 "Environment": "Production",
@@ -382,7 +387,7 @@ class CaaRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaaRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -423,7 +428,7 @@ class CaaRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaaRecordRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
@@ -437,7 +442,7 @@ class CaaRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS CAA Record.
         :param pulumi.Input[str] name: The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CaaRecordRecordArgs']]]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CaaRecordRecordArgs', 'CaaRecordRecordArgsDict']]]] records: A list of values that make up the CAA record. Each `record` block supports fields documented below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.

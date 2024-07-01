@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -477,12 +482,12 @@ class StandardWebTest(pulumi.CustomResource):
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['StandardWebTestRequestArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 validation_rules: Optional[pulumi.Input[pulumi.InputType['StandardWebTestValidationRulesArgs']]] = None,
+                 validation_rules: Optional[pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Application Insights Standard WebTest.
@@ -507,9 +512,9 @@ class StandardWebTest(pulumi.CustomResource):
             location="West Europe",
             application_insights_id=example_insights.id,
             geo_locations=["example"],
-            request=azure.appinsights.StandardWebTestRequestArgs(
-                url="http://www.example.com",
-            ))
+            request={
+                "url": "http://www.example.com",
+            })
         ```
 
         ## Import
@@ -531,12 +536,12 @@ class StandardWebTest(pulumi.CustomResource):
                > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] location: The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         :param pulumi.Input[str] name: The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
-        :param pulumi.Input[pulumi.InputType['StandardWebTestRequestArgs']] request: A `request` block as defined below.
+        :param pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']] request: A `request` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[bool] retry_enabled: Should the retry on WebTest failure be enabled?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Insights Standard WebTest.
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
-        :param pulumi.Input[pulumi.InputType['StandardWebTestValidationRulesArgs']] validation_rules: A `validation_rules` block as defined below.
+        :param pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']] validation_rules: A `validation_rules` block as defined below.
         """
         ...
     @overload
@@ -567,9 +572,9 @@ class StandardWebTest(pulumi.CustomResource):
             location="West Europe",
             application_insights_id=example_insights.id,
             geo_locations=["example"],
-            request=azure.appinsights.StandardWebTestRequestArgs(
-                url="http://www.example.com",
-            ))
+            request={
+                "url": "http://www.example.com",
+            })
         ```
 
         ## Import
@@ -602,12 +607,12 @@ class StandardWebTest(pulumi.CustomResource):
                  geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 request: Optional[pulumi.Input[pulumi.InputType['StandardWebTestRequestArgs']]] = None,
+                 request: Optional[pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
-                 validation_rules: Optional[pulumi.Input[pulumi.InputType['StandardWebTestValidationRulesArgs']]] = None,
+                 validation_rules: Optional[pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -656,13 +661,13 @@ class StandardWebTest(pulumi.CustomResource):
             geo_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            request: Optional[pulumi.Input[pulumi.InputType['StandardWebTestRequestArgs']]] = None,
+            request: Optional[pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retry_enabled: Optional[pulumi.Input[bool]] = None,
             synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout: Optional[pulumi.Input[int]] = None,
-            validation_rules: Optional[pulumi.Input[pulumi.InputType['StandardWebTestValidationRulesArgs']]] = None) -> 'StandardWebTest':
+            validation_rules: Optional[pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']]] = None) -> 'StandardWebTest':
         """
         Get an existing StandardWebTest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -679,13 +684,13 @@ class StandardWebTest(pulumi.CustomResource):
                > **Note:** [Valid options for geo locations are described here](https://docs.microsoft.com/azure/azure-monitor/app/monitor-web-app-availability#location-population-tags)
         :param pulumi.Input[str] location: The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights)
         :param pulumi.Input[str] name: The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created.
-        :param pulumi.Input[pulumi.InputType['StandardWebTestRequestArgs']] request: A `request` block as defined below.
+        :param pulumi.Input[Union['StandardWebTestRequestArgs', 'StandardWebTestRequestArgsDict']] request: A `request` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created.
         :param pulumi.Input[bool] retry_enabled: Should the retry on WebTest failure be enabled?
         :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Insights Standard WebTest.
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default is `30`.
-        :param pulumi.Input[pulumi.InputType['StandardWebTestValidationRulesArgs']] validation_rules: A `validation_rules` block as defined below.
+        :param pulumi.Input[Union['StandardWebTestValidationRulesArgs', 'StandardWebTestValidationRulesArgsDict']] validation_rules: A `validation_rules` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

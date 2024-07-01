@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -393,7 +398,7 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureSqlTableSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureSqlTableSchemaColumnArgs', 'DatasetAzureSqlTableSchemaColumnArgsDict']]]]] = None,
                  table: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -441,7 +446,7 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Azure SQL Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Azure SQL Table.
         :param pulumi.Input[str] schema: The schema name of the table in the Azure SQL Database.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureSqlTableSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureSqlTableSchemaColumnArgs', 'DatasetAzureSqlTableSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table: The table name of the table in the Azure SQL Database.
         """
         ...
@@ -508,7 +513,7 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureSqlTableSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureSqlTableSchemaColumnArgs', 'DatasetAzureSqlTableSchemaColumnArgsDict']]]]] = None,
                  table: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -553,7 +558,7 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             schema: Optional[pulumi.Input[str]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureSqlTableSchemaColumnArgs']]]]] = None,
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureSqlTableSchemaColumnArgs', 'DatasetAzureSqlTableSchemaColumnArgsDict']]]]] = None,
             table: Optional[pulumi.Input[str]] = None) -> 'DatasetAzureSqlTable':
         """
         Get an existing DatasetAzureSqlTable resource's state with the given name, id, and optional extra
@@ -571,7 +576,7 @@ class DatasetAzureSqlTable(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Azure SQL Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Azure SQL Table.
         :param pulumi.Input[str] schema: The schema name of the table in the Azure SQL Database.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureSqlTableSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureSqlTableSchemaColumnArgs', 'DatasetAzureSqlTableSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table: The table name of the table in the Azure SQL Database.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

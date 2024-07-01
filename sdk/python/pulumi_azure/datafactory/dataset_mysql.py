@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -368,7 +373,7 @@ class DatasetMysql(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetMysqlSchemaColumnArgs', 'DatasetMysqlSchemaColumnArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -417,7 +422,7 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset MySQL.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetMysqlSchemaColumnArgs', 'DatasetMysqlSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
         """
         ...
@@ -483,7 +488,7 @@ class DatasetMysql(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetMysqlSchemaColumnArgs', 'DatasetMysqlSchemaColumnArgsDict']]]]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -526,7 +531,7 @@ class DatasetMysql(pulumi.CustomResource):
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]]] = None,
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetMysqlSchemaColumnArgs', 'DatasetMysqlSchemaColumnArgsDict']]]]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'DatasetMysql':
         """
         Get an existing DatasetMysql resource's state with the given name, id, and optional extra
@@ -545,7 +550,7 @@ class DatasetMysql(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset MySQL. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset MySQL.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetMysqlSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetMysqlSchemaColumnArgs', 'DatasetMysqlSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset MySQL.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

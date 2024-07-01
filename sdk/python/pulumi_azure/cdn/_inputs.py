@@ -4,90 +4,191 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'EndpointCustomDomainCdnManagedHttpsArgs',
+    'EndpointCustomDomainCdnManagedHttpsArgsDict',
     'EndpointCustomDomainUserManagedHttpsArgs',
+    'EndpointCustomDomainUserManagedHttpsArgsDict',
     'EndpointDeliveryRuleArgs',
+    'EndpointDeliveryRuleArgsDict',
     'EndpointDeliveryRuleCacheExpirationActionArgs',
+    'EndpointDeliveryRuleCacheExpirationActionArgsDict',
     'EndpointDeliveryRuleCacheKeyQueryStringActionArgs',
+    'EndpointDeliveryRuleCacheKeyQueryStringActionArgsDict',
     'EndpointDeliveryRuleCookiesConditionArgs',
+    'EndpointDeliveryRuleCookiesConditionArgsDict',
     'EndpointDeliveryRuleDeviceConditionArgs',
+    'EndpointDeliveryRuleDeviceConditionArgsDict',
     'EndpointDeliveryRuleHttpVersionConditionArgs',
+    'EndpointDeliveryRuleHttpVersionConditionArgsDict',
     'EndpointDeliveryRuleModifyRequestHeaderActionArgs',
+    'EndpointDeliveryRuleModifyRequestHeaderActionArgsDict',
     'EndpointDeliveryRuleModifyResponseHeaderActionArgs',
+    'EndpointDeliveryRuleModifyResponseHeaderActionArgsDict',
     'EndpointDeliveryRulePostArgConditionArgs',
+    'EndpointDeliveryRulePostArgConditionArgsDict',
     'EndpointDeliveryRuleQueryStringConditionArgs',
+    'EndpointDeliveryRuleQueryStringConditionArgsDict',
     'EndpointDeliveryRuleRemoteAddressConditionArgs',
+    'EndpointDeliveryRuleRemoteAddressConditionArgsDict',
     'EndpointDeliveryRuleRequestBodyConditionArgs',
+    'EndpointDeliveryRuleRequestBodyConditionArgsDict',
     'EndpointDeliveryRuleRequestHeaderConditionArgs',
+    'EndpointDeliveryRuleRequestHeaderConditionArgsDict',
     'EndpointDeliveryRuleRequestMethodConditionArgs',
+    'EndpointDeliveryRuleRequestMethodConditionArgsDict',
     'EndpointDeliveryRuleRequestSchemeConditionArgs',
+    'EndpointDeliveryRuleRequestSchemeConditionArgsDict',
     'EndpointDeliveryRuleRequestUriConditionArgs',
+    'EndpointDeliveryRuleRequestUriConditionArgsDict',
     'EndpointDeliveryRuleUrlFileExtensionConditionArgs',
+    'EndpointDeliveryRuleUrlFileExtensionConditionArgsDict',
     'EndpointDeliveryRuleUrlFileNameConditionArgs',
+    'EndpointDeliveryRuleUrlFileNameConditionArgsDict',
     'EndpointDeliveryRuleUrlPathConditionArgs',
+    'EndpointDeliveryRuleUrlPathConditionArgsDict',
     'EndpointDeliveryRuleUrlRedirectActionArgs',
+    'EndpointDeliveryRuleUrlRedirectActionArgsDict',
     'EndpointDeliveryRuleUrlRewriteActionArgs',
+    'EndpointDeliveryRuleUrlRewriteActionArgsDict',
     'EndpointGeoFilterArgs',
+    'EndpointGeoFilterArgsDict',
     'EndpointGlobalDeliveryRuleArgs',
+    'EndpointGlobalDeliveryRuleArgsDict',
     'EndpointGlobalDeliveryRuleCacheExpirationActionArgs',
+    'EndpointGlobalDeliveryRuleCacheExpirationActionArgsDict',
     'EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs',
+    'EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgsDict',
     'EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs',
+    'EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgsDict',
     'EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs',
+    'EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgsDict',
     'EndpointGlobalDeliveryRuleUrlRedirectActionArgs',
+    'EndpointGlobalDeliveryRuleUrlRedirectActionArgsDict',
     'EndpointGlobalDeliveryRuleUrlRewriteActionArgs',
+    'EndpointGlobalDeliveryRuleUrlRewriteActionArgsDict',
     'EndpointOriginArgs',
+    'EndpointOriginArgsDict',
     'FrontdoorCustomDomainTlsArgs',
+    'FrontdoorCustomDomainTlsArgsDict',
     'FrontdoorFirewallPolicyCustomRuleArgs',
+    'FrontdoorFirewallPolicyCustomRuleArgsDict',
     'FrontdoorFirewallPolicyCustomRuleMatchConditionArgs',
+    'FrontdoorFirewallPolicyCustomRuleMatchConditionArgsDict',
     'FrontdoorFirewallPolicyManagedRuleArgs',
+    'FrontdoorFirewallPolicyManagedRuleArgsDict',
     'FrontdoorFirewallPolicyManagedRuleExclusionArgs',
+    'FrontdoorFirewallPolicyManagedRuleExclusionArgsDict',
     'FrontdoorFirewallPolicyManagedRuleOverrideArgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideArgsDict',
     'FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgsDict',
     'FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideRuleArgsDict',
     'FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs',
+    'FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgsDict',
     'FrontdoorOriginGroupHealthProbeArgs',
+    'FrontdoorOriginGroupHealthProbeArgsDict',
     'FrontdoorOriginGroupLoadBalancingArgs',
+    'FrontdoorOriginGroupLoadBalancingArgsDict',
     'FrontdoorOriginPrivateLinkArgs',
+    'FrontdoorOriginPrivateLinkArgsDict',
     'FrontdoorRouteCacheArgs',
+    'FrontdoorRouteCacheArgsDict',
     'FrontdoorRuleActionsArgs',
+    'FrontdoorRuleActionsArgsDict',
     'FrontdoorRuleActionsRequestHeaderActionArgs',
+    'FrontdoorRuleActionsRequestHeaderActionArgsDict',
     'FrontdoorRuleActionsResponseHeaderActionArgs',
+    'FrontdoorRuleActionsResponseHeaderActionArgsDict',
     'FrontdoorRuleActionsRouteConfigurationOverrideActionArgs',
+    'FrontdoorRuleActionsRouteConfigurationOverrideActionArgsDict',
     'FrontdoorRuleActionsUrlRedirectActionArgs',
+    'FrontdoorRuleActionsUrlRedirectActionArgsDict',
     'FrontdoorRuleActionsUrlRewriteActionArgs',
+    'FrontdoorRuleActionsUrlRewriteActionArgsDict',
     'FrontdoorRuleConditionsArgs',
+    'FrontdoorRuleConditionsArgsDict',
     'FrontdoorRuleConditionsClientPortConditionArgs',
+    'FrontdoorRuleConditionsClientPortConditionArgsDict',
     'FrontdoorRuleConditionsCookiesConditionArgs',
+    'FrontdoorRuleConditionsCookiesConditionArgsDict',
     'FrontdoorRuleConditionsHostNameConditionArgs',
+    'FrontdoorRuleConditionsHostNameConditionArgsDict',
     'FrontdoorRuleConditionsHttpVersionConditionArgs',
+    'FrontdoorRuleConditionsHttpVersionConditionArgsDict',
     'FrontdoorRuleConditionsIsDeviceConditionArgs',
+    'FrontdoorRuleConditionsIsDeviceConditionArgsDict',
     'FrontdoorRuleConditionsPostArgsConditionArgs',
+    'FrontdoorRuleConditionsPostArgsConditionArgsDict',
     'FrontdoorRuleConditionsQueryStringConditionArgs',
+    'FrontdoorRuleConditionsQueryStringConditionArgsDict',
     'FrontdoorRuleConditionsRemoteAddressConditionArgs',
+    'FrontdoorRuleConditionsRemoteAddressConditionArgsDict',
     'FrontdoorRuleConditionsRequestBodyConditionArgs',
+    'FrontdoorRuleConditionsRequestBodyConditionArgsDict',
     'FrontdoorRuleConditionsRequestHeaderConditionArgs',
+    'FrontdoorRuleConditionsRequestHeaderConditionArgsDict',
     'FrontdoorRuleConditionsRequestMethodConditionArgs',
+    'FrontdoorRuleConditionsRequestMethodConditionArgsDict',
     'FrontdoorRuleConditionsRequestSchemeConditionArgs',
+    'FrontdoorRuleConditionsRequestSchemeConditionArgsDict',
     'FrontdoorRuleConditionsRequestUriConditionArgs',
+    'FrontdoorRuleConditionsRequestUriConditionArgsDict',
     'FrontdoorRuleConditionsServerPortConditionArgs',
+    'FrontdoorRuleConditionsServerPortConditionArgsDict',
     'FrontdoorRuleConditionsSocketAddressConditionArgs',
+    'FrontdoorRuleConditionsSocketAddressConditionArgsDict',
     'FrontdoorRuleConditionsSslProtocolConditionArgs',
+    'FrontdoorRuleConditionsSslProtocolConditionArgsDict',
     'FrontdoorRuleConditionsUrlFileExtensionConditionArgs',
+    'FrontdoorRuleConditionsUrlFileExtensionConditionArgsDict',
     'FrontdoorRuleConditionsUrlFilenameConditionArgs',
+    'FrontdoorRuleConditionsUrlFilenameConditionArgsDict',
     'FrontdoorRuleConditionsUrlPathConditionArgs',
+    'FrontdoorRuleConditionsUrlPathConditionArgsDict',
     'FrontdoorSecretSecretArgs',
+    'FrontdoorSecretSecretArgsDict',
     'FrontdoorSecretSecretCustomerCertificateArgs',
+    'FrontdoorSecretSecretCustomerCertificateArgsDict',
     'FrontdoorSecurityPolicySecurityPoliciesArgs',
+    'FrontdoorSecurityPolicySecurityPoliciesArgsDict',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallArgsDict',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class EndpointCustomDomainCdnManagedHttpsArgsDict(TypedDict):
+        certificate_type: pulumi.Input[str]
+        """
+        The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
+        """
+        protocol_type: pulumi.Input[str]
+        """
+        The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
+        """
+        tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+        """
+elif False:
+    EndpointCustomDomainCdnManagedHttpsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointCustomDomainCdnManagedHttpsArgs:
@@ -141,6 +242,25 @@ class EndpointCustomDomainCdnManagedHttpsArgs:
     def tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_version", value)
 
+
+if not MYPY:
+    class EndpointCustomDomainUserManagedHttpsArgsDict(TypedDict):
+        key_vault_certificate_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
+        """
+        key_vault_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Key Vault Secret that contains the HTTPS certificate.
+
+        > **NOTE** Either `key_vault_certificate_id` or `key_vault_secret_id` has to be specified.
+        """
+        tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
+        """
+elif False:
+    EndpointCustomDomainUserManagedHttpsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointCustomDomainUserManagedHttpsArgs:
@@ -204,6 +324,99 @@ class EndpointCustomDomainUserManagedHttpsArgs:
     def tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_version", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The Name which should be used for this Delivery Rule.
+        """
+        order: pulumi.Input[int]
+        """
+        The order used for this rule. The order values should be sequential and begin at `1`.
+        """
+        cache_expiration_action: NotRequired[pulumi.Input['EndpointDeliveryRuleCacheExpirationActionArgsDict']]
+        """
+        A `cache_expiration_action` block as defined above.
+        """
+        cache_key_query_string_action: NotRequired[pulumi.Input['EndpointDeliveryRuleCacheKeyQueryStringActionArgsDict']]
+        """
+        A `cache_key_query_string_action` block as defined above.
+        """
+        cookies_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgsDict']]]]
+        """
+        A `cookies_condition` block as defined above.
+        """
+        device_condition: NotRequired[pulumi.Input['EndpointDeliveryRuleDeviceConditionArgsDict']]
+        """
+        A `device_condition` block as defined below.
+        """
+        http_version_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArgsDict']]]]
+        """
+        A `http_version_condition` block as defined below.
+        """
+        modify_request_header_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArgsDict']]]]
+        """
+        A `modify_request_header_action` block as defined below.
+        """
+        modify_response_header_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArgsDict']]]]
+        """
+        A `modify_response_header_action` block as defined below.
+        """
+        post_arg_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArgsDict']]]]
+        """
+        A `post_arg_condition` block as defined below.
+        """
+        query_string_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArgsDict']]]]
+        """
+        A `query_string_condition` block as defined below.
+        """
+        remote_address_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArgsDict']]]]
+        """
+        A `remote_address_condition` block as defined below.
+        """
+        request_body_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArgsDict']]]]
+        """
+        A `request_body_condition` block as defined below.
+        """
+        request_header_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArgsDict']]]]
+        """
+        A `request_header_condition` block as defined below.
+        """
+        request_method_condition: NotRequired[pulumi.Input['EndpointDeliveryRuleRequestMethodConditionArgsDict']]
+        """
+        A `request_method_condition` block as defined below.
+        """
+        request_scheme_condition: NotRequired[pulumi.Input['EndpointDeliveryRuleRequestSchemeConditionArgsDict']]
+        """
+        A `request_scheme_condition` block as defined below.
+        """
+        request_uri_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArgsDict']]]]
+        """
+        A `request_uri_condition` block as defined below.
+        """
+        url_file_extension_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArgsDict']]]]
+        """
+        A `url_file_extension_condition` block as defined below.
+        """
+        url_file_name_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArgsDict']]]]
+        """
+        A `url_file_name_condition` block as defined below.
+        """
+        url_path_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgsDict']]]]
+        """
+        A `url_path_condition` block as defined below.
+        """
+        url_redirect_action: NotRequired[pulumi.Input['EndpointDeliveryRuleUrlRedirectActionArgsDict']]
+        """
+        A `url_redirect_action` block as defined below.
+        """
+        url_rewrite_action: NotRequired[pulumi.Input['EndpointDeliveryRuleUrlRewriteActionArgsDict']]
+        """
+        A `url_rewrite_action` block as defined below.
+        """
+elif False:
+    EndpointDeliveryRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleArgs:
@@ -562,6 +775,19 @@ class EndpointDeliveryRuleArgs:
         pulumi.set(self, "url_rewrite_action", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleCacheExpirationActionArgsDict(TypedDict):
+        behavior: pulumi.Input[str]
+        """
+        The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+        """
+elif False:
+    EndpointDeliveryRuleCacheExpirationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleCacheExpirationActionArgs:
     def __init__(__self__, *,
@@ -600,6 +826,19 @@ class EndpointDeliveryRuleCacheExpirationActionArgs:
         pulumi.set(self, "duration", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleCacheKeyQueryStringActionArgsDict(TypedDict):
+        behavior: pulumi.Input[str]
+        """
+        The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        Comma separated list of parameter values.
+        """
+elif False:
+    EndpointDeliveryRuleCacheKeyQueryStringActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
     def __init__(__self__, *,
@@ -637,6 +876,31 @@ class EndpointDeliveryRuleCacheKeyQueryStringActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleCookiesConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        selector: pulumi.Input[str]
+        """
+        Name of the cookie.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of values for the cookie. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleCookiesConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleCookiesConditionArgs:
@@ -723,6 +987,23 @@ class EndpointDeliveryRuleCookiesConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleDeviceConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Valid values are `Desktop` and `Mobile`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    EndpointDeliveryRuleDeviceConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleDeviceConditionArgs:
     def __init__(__self__, *,
@@ -776,6 +1057,23 @@ class EndpointDeliveryRuleDeviceConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleHttpVersionConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Valid values are `0.9`, `1.0`, `1.1` and `2.0`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    EndpointDeliveryRuleHttpVersionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleHttpVersionConditionArgs:
@@ -831,6 +1129,23 @@ class EndpointDeliveryRuleHttpVersionConditionArgs:
         pulumi.set(self, "operator", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleModifyRequestHeaderActionArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        """
+        name: pulumi.Input[str]
+        """
+        The header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+        """
+elif False:
+    EndpointDeliveryRuleModifyRequestHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleModifyRequestHeaderActionArgs:
     def __init__(__self__, *,
@@ -884,6 +1199,23 @@ class EndpointDeliveryRuleModifyRequestHeaderActionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleModifyResponseHeaderActionArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        """
+        name: pulumi.Input[str]
+        """
+        The header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+        """
+elif False:
+    EndpointDeliveryRuleModifyResponseHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleModifyResponseHeaderActionArgs:
     def __init__(__self__, *,
@@ -936,6 +1268,31 @@ class EndpointDeliveryRuleModifyResponseHeaderActionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRulePostArgConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        selector: pulumi.Input[str]
+        """
+        Name of the post arg.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRulePostArgConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRulePostArgConditionArgs:
@@ -1022,6 +1379,27 @@ class EndpointDeliveryRulePostArgConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleQueryStringConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleQueryStringConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleQueryStringConditionArgs:
     def __init__(__self__, *,
@@ -1092,6 +1470,23 @@ class EndpointDeliveryRuleQueryStringConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleRemoteAddressConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `GeoMatch` and `IPMatch`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+elif False:
+    EndpointDeliveryRuleRemoteAddressConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleRemoteAddressConditionArgs:
     def __init__(__self__, *,
@@ -1145,6 +1540,27 @@ class EndpointDeliveryRuleRemoteAddressConditionArgs:
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleRequestBodyConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleRequestBodyConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleRequestBodyConditionArgs:
@@ -1215,6 +1631,31 @@ class EndpointDeliveryRuleRequestBodyConditionArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleRequestHeaderConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        selector: pulumi.Input[str]
+        """
+        Header name.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of header values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleRequestHeaderConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleRequestHeaderConditionArgs:
@@ -1301,6 +1742,23 @@ class EndpointDeliveryRuleRequestHeaderConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleRequestMethodConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Valid values are `DELETE`, `GET`, `HEAD`, `OPTIONS`, `POST` and `PUT`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    EndpointDeliveryRuleRequestMethodConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleRequestMethodConditionArgs:
     def __init__(__self__, *,
@@ -1355,6 +1813,23 @@ class EndpointDeliveryRuleRequestMethodConditionArgs:
         pulumi.set(self, "operator", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleRequestSchemeConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Valid values are `HTTP` and `HTTPS`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Valid values are `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    EndpointDeliveryRuleRequestSchemeConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleRequestSchemeConditionArgs:
     def __init__(__self__, *,
@@ -1408,6 +1883,27 @@ class EndpointDeliveryRuleRequestSchemeConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleRequestUriConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleRequestUriConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleRequestUriConditionArgs:
@@ -1479,6 +1975,27 @@ class EndpointDeliveryRuleRequestUriConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleUrlFileExtensionConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleUrlFileExtensionConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
     def __init__(__self__, *,
@@ -1548,6 +2065,27 @@ class EndpointDeliveryRuleUrlFileExtensionConditionArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleUrlFileNameConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleUrlFileNameConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleUrlFileNameConditionArgs:
@@ -1619,6 +2157,27 @@ class EndpointDeliveryRuleUrlFileNameConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleUrlPathConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`, `RegEx` and `Wildcard`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of string values. This is required if `operator` is not `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Defaults to `false`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transforms. Valid values are `Lowercase` and `Uppercase`.
+        """
+elif False:
+    EndpointDeliveryRuleUrlPathConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleUrlPathConditionArgs:
     def __init__(__self__, *,
@@ -1688,6 +2247,35 @@ class EndpointDeliveryRuleUrlPathConditionArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class EndpointDeliveryRuleUrlRedirectActionArgsDict(TypedDict):
+        redirect_type: pulumi.Input[str]
+        """
+        Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+        """
+        fragment: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the fragment part of the URL. This value must not start with a `#`.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the hostname part of the URL.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the path part of the URL. This value must begin with a `/`.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
+        """
+        query_string: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+        """
+elif False:
+    EndpointDeliveryRuleUrlRedirectActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointDeliveryRuleUrlRedirectActionArgs:
@@ -1791,6 +2379,23 @@ class EndpointDeliveryRuleUrlRedirectActionArgs:
         pulumi.set(self, "query_string", value)
 
 
+if not MYPY:
+    class EndpointDeliveryRuleUrlRewriteActionArgsDict(TypedDict):
+        destination: pulumi.Input[str]
+        """
+        This value must start with a `/` and can't be longer than 260 characters.
+        """
+        source_pattern: pulumi.Input[str]
+        """
+        This value must start with a `/` and can't be longer than 260 characters.
+        """
+        preserve_unmatched_path: NotRequired[pulumi.Input[bool]]
+        """
+        Whether preserve an unmatched path. Defaults to `true`.
+        """
+elif False:
+    EndpointDeliveryRuleUrlRewriteActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointDeliveryRuleUrlRewriteActionArgs:
     def __init__(__self__, *,
@@ -1844,6 +2449,23 @@ class EndpointDeliveryRuleUrlRewriteActionArgs:
         pulumi.set(self, "preserve_unmatched_path", value)
 
 
+if not MYPY:
+    class EndpointGeoFilterArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The Action of the Geo Filter. Possible values include `Allow` and `Block`.
+        """
+        country_codes: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
+        """
+        relative_path: pulumi.Input[str]
+        """
+        The relative path applicable to geo filter.
+        """
+elif False:
+    EndpointGeoFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointGeoFilterArgs:
     def __init__(__self__, *,
@@ -1895,6 +2517,35 @@ class EndpointGeoFilterArgs:
     def relative_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "relative_path", value)
 
+
+if not MYPY:
+    class EndpointGlobalDeliveryRuleArgsDict(TypedDict):
+        cache_expiration_action: NotRequired[pulumi.Input['EndpointGlobalDeliveryRuleCacheExpirationActionArgsDict']]
+        """
+        A `cache_expiration_action` block as defined above.
+        """
+        cache_key_query_string_action: NotRequired[pulumi.Input['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgsDict']]
+        """
+        A `cache_key_query_string_action` block as defined above.
+        """
+        modify_request_header_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgsDict']]]]
+        """
+        A `modify_request_header_action` block as defined below.
+        """
+        modify_response_header_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgsDict']]]]
+        """
+        A `modify_response_header_action` block as defined below.
+        """
+        url_redirect_action: NotRequired[pulumi.Input['EndpointGlobalDeliveryRuleUrlRedirectActionArgsDict']]
+        """
+        A `url_redirect_action` block as defined below.
+        """
+        url_rewrite_action: NotRequired[pulumi.Input['EndpointGlobalDeliveryRuleUrlRewriteActionArgsDict']]
+        """
+        A `url_rewrite_action` block as defined below.
+        """
+elif False:
+    EndpointGlobalDeliveryRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointGlobalDeliveryRuleArgs:
@@ -1999,6 +2650,19 @@ class EndpointGlobalDeliveryRuleArgs:
         pulumi.set(self, "url_rewrite_action", value)
 
 
+if not MYPY:
+    class EndpointGlobalDeliveryRuleCacheExpirationActionArgsDict(TypedDict):
+        behavior: pulumi.Input[str]
+        """
+        The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
+        """
+elif False:
+    EndpointGlobalDeliveryRuleCacheExpirationActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
     def __init__(__self__, *,
@@ -2037,6 +2701,19 @@ class EndpointGlobalDeliveryRuleCacheExpirationActionArgs:
         pulumi.set(self, "duration", value)
 
 
+if not MYPY:
+    class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgsDict(TypedDict):
+        behavior: pulumi.Input[str]
+        """
+        The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        Comma separated list of parameter values.
+        """
+elif False:
+    EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs:
     def __init__(__self__, *,
@@ -2074,6 +2751,23 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        """
+        name: pulumi.Input[str]
+        """
+        The header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+        """
+elif False:
+    EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs:
@@ -2128,6 +2822,23 @@ class EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
+        """
+        name: pulumi.Input[str]
+        """
+        The header name.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
+        """
+elif False:
+    EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs:
     def __init__(__self__, *,
@@ -2180,6 +2891,35 @@ class EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EndpointGlobalDeliveryRuleUrlRedirectActionArgsDict(TypedDict):
+        redirect_type: pulumi.Input[str]
+        """
+        Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
+        """
+        fragment: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the fragment part of the URL. This value must not start with a `#`.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the hostname part of the URL.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the path part of the URL. This value must begin with a `/`.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the protocol part of the URL. Valid values are `MatchRequest`, `Http` and `Https`. Defaults to `MatchRequest`.
+        """
+        query_string: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the query string part of the URL. This value must not start with a `?` or `&` and must be in `<key>=<value>` format separated by `&`.
+        """
+elif False:
+    EndpointGlobalDeliveryRuleUrlRedirectActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
@@ -2283,6 +3023,23 @@ class EndpointGlobalDeliveryRuleUrlRedirectActionArgs:
         pulumi.set(self, "query_string", value)
 
 
+if not MYPY:
+    class EndpointGlobalDeliveryRuleUrlRewriteActionArgsDict(TypedDict):
+        destination: pulumi.Input[str]
+        """
+        This value must start with a `/` and can't be longer than 260 characters.
+        """
+        source_pattern: pulumi.Input[str]
+        """
+        This value must start with a `/` and can't be longer than 260 characters.
+        """
+        preserve_unmatched_path: NotRequired[pulumi.Input[bool]]
+        """
+        Whether preserve an unmatched path. Defaults to `true`.
+        """
+elif False:
+    EndpointGlobalDeliveryRuleUrlRewriteActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EndpointGlobalDeliveryRuleUrlRewriteActionArgs:
     def __init__(__self__, *,
@@ -2335,6 +3092,27 @@ class EndpointGlobalDeliveryRuleUrlRewriteActionArgs:
     def preserve_unmatched_path(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "preserve_unmatched_path", value)
 
+
+if not MYPY:
+    class EndpointOriginArgsDict(TypedDict):
+        host_name: pulumi.Input[str]
+        """
+        A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
+        """
+        http_port: NotRequired[pulumi.Input[int]]
+        """
+        The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
+        """
+        https_port: NotRequired[pulumi.Input[int]]
+        """
+        The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
+        """
+elif False:
+    EndpointOriginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EndpointOriginArgs:
@@ -2405,6 +3183,25 @@ class EndpointOriginArgs:
         pulumi.set(self, "https_port", value)
 
 
+if not MYPY:
+    class FrontdoorCustomDomainTlsArgsDict(TypedDict):
+        cdn_frontdoor_secret_id: NotRequired[pulumi.Input[str]]
+        """
+        Resource ID of the Front Door Secret.
+        """
+        certificate_type: NotRequired[pulumi.Input[str]]
+        """
+        Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+
+        ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+        """
+elif False:
+    FrontdoorCustomDomainTlsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorCustomDomainTlsArgs:
     def __init__(__self__, *,
@@ -2463,6 +3260,43 @@ class FrontdoorCustomDomainTlsArgs:
     def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "minimum_tls_version", value)
 
+
+if not MYPY:
+    class FrontdoorFirewallPolicyCustomRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        """
+        name: pulumi.Input[str]
+        """
+        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the rule is enabled or disabled? Defaults to `true`.
+        """
+        match_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgsDict']]]]
+        """
+        One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+        """
+        rate_limit_duration_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The rate limit duration in minutes. Defaults to `1`.
+        """
+        rate_limit_threshold: NotRequired[pulumi.Input[int]]
+        """
+        The rate limit threshold. Defaults to `10`.
+        """
+elif False:
+    FrontdoorFirewallPolicyCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorFirewallPolicyCustomRuleArgs:
@@ -2596,6 +3430,35 @@ class FrontdoorFirewallPolicyCustomRuleArgs:
         pulumi.set(self, "rate_limit_threshold", value)
 
 
+if not MYPY:
+    class FrontdoorFirewallPolicyCustomRuleMatchConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+        """
+        match_variable: pulumi.Input[str]
+        """
+        The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+        """
+        operator: pulumi.Input[str]
+        """
+        Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        """
+        negation_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Should the result of the condition be negated.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+        """
+elif False:
+    FrontdoorFirewallPolicyCustomRuleMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs:
     def __init__(__self__, *,
@@ -2696,6 +3559,31 @@ class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorFirewallPolicyManagedRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
+        """
+        type: pulumi.Input[str]
+        """
+        The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
+        """
+        version: pulumi.Input[str]
+        """
+        The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgsDict']]]]
+        """
+        One or more `exclusion` blocks as defined below.
+        """
+        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgsDict']]]]
+        """
+        One or more `override` blocks as defined below.
+        """
+elif False:
+    FrontdoorFirewallPolicyManagedRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorFirewallPolicyManagedRuleArgs:
     def __init__(__self__, *,
@@ -2780,6 +3668,27 @@ class FrontdoorFirewallPolicyManagedRuleArgs:
         pulumi.set(self, "overrides", value)
 
 
+if not MYPY:
+    class FrontdoorFirewallPolicyManagedRuleExclusionArgsDict(TypedDict):
+        match_variable: pulumi.Input[str]
+        """
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+
+        > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+        """
+        operator: pulumi.Input[str]
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        """
+        selector: pulumi.Input[str]
+        """
+        Selector for the value in the `match_variable` attribute this exclusion applies to.
+
+        > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+        """
+elif False:
+    FrontdoorFirewallPolicyManagedRuleExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorFirewallPolicyManagedRuleExclusionArgs:
     def __init__(__self__, *,
@@ -2840,6 +3749,23 @@ class FrontdoorFirewallPolicyManagedRuleExclusionArgs:
         pulumi.set(self, "selector", value)
 
 
+if not MYPY:
+    class FrontdoorFirewallPolicyManagedRuleOverrideArgsDict(TypedDict):
+        rule_group_name: pulumi.Input[str]
+        """
+        The managed rule group to override.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgsDict']]]]
+        """
+        One or more `exclusion` blocks as defined below.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgsDict']]]]
+        """
+        One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        """
+elif False:
+    FrontdoorFirewallPolicyManagedRuleOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorFirewallPolicyManagedRuleOverrideArgs:
     def __init__(__self__, *,
@@ -2893,6 +3819,27 @@ class FrontdoorFirewallPolicyManagedRuleOverrideArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgsDict(TypedDict):
+        match_variable: pulumi.Input[str]
+        """
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+
+        > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+        """
+        operator: pulumi.Input[str]
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        """
+        selector: pulumi.Input[str]
+        """
+        Selector for the value in the `match_variable` attribute this exclusion applies to.
+
+        > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+        """
+elif False:
+    FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs:
@@ -2953,6 +3900,29 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs:
     def selector(self, value: pulumi.Input[str]):
         pulumi.set(self, "selector", value)
 
+
+if not MYPY:
+    class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS `1.1` and below are `Allow`, `Log`, `Block`, and `Redirect`. For DRS `2.0` and above the possible values are `Log` or `AnomalyScoring`.
+
+        ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
+        """
+        rule_id: pulumi.Input[str]
+        """
+        Identifier for the managed rule.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the managed rule override enabled or disabled. Defaults to `false`
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgsDict']]]]
+        """
+        One or more `exclusion` blocks as defined below.
+        """
+elif False:
+    FrontdoorFirewallPolicyManagedRuleOverrideRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs:
@@ -3027,6 +3997,27 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs:
         pulumi.set(self, "exclusions", value)
 
 
+if not MYPY:
+    class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgsDict(TypedDict):
+        match_variable: pulumi.Input[str]
+        """
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`, `RequestBodyJsonArgNames`
+
+        > **NOTE:** `RequestBodyJsonArgNames` is only available on Default Rule Set (DRS) 2.0 or later
+        """
+        operator: pulumi.Input[str]
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        """
+        selector: pulumi.Input[str]
+        """
+        Selector for the value in the `match_variable` attribute this exclusion applies to.
+
+        > **NOTE:** `selector` must be set to `*` if `operator` is set to `EqualsAny`.
+        """
+elif False:
+    FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs:
     def __init__(__self__, *,
@@ -3086,6 +4077,29 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs:
     def selector(self, value: pulumi.Input[str]):
         pulumi.set(self, "selector", value)
 
+
+if not MYPY:
+    class FrontdoorOriginGroupHealthProbeArgsDict(TypedDict):
+        interval_in_seconds: pulumi.Input[int]
+        """
+        Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
+        """
+        protocol: pulumi.Input[str]
+        """
+        Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
+
+        > **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the `health_probe` settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
+        """
+        request_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
+        """
+elif False:
+    FrontdoorOriginGroupHealthProbeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorOriginGroupHealthProbeArgs:
@@ -3160,6 +4174,23 @@ class FrontdoorOriginGroupHealthProbeArgs:
         pulumi.set(self, "request_type", value)
 
 
+if not MYPY:
+    class FrontdoorOriginGroupLoadBalancingArgsDict(TypedDict):
+        additional_latency_in_milliseconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` milliseconds (inclusive). Defaults to `50`.
+        """
+        sample_size: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
+        """
+        successful_samples_required: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
+        """
+elif False:
+    FrontdoorOriginGroupLoadBalancingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorOriginGroupLoadBalancingArgs:
     def __init__(__self__, *,
@@ -3214,6 +4245,31 @@ class FrontdoorOriginGroupLoadBalancingArgs:
     def successful_samples_required(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "successful_samples_required", value)
 
+
+if not MYPY:
+    class FrontdoorOriginPrivateLinkArgsDict(TypedDict):
+        location: pulumi.Input[str]
+        """
+        Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
+        """
+        private_link_target_id: pulumi.Input[str]
+        """
+        The ID of the Azure Resource to connect to via the Private Link.
+
+        > **Note:** the `private_link_target_id` property must specify the Resource ID of the Private Link Service when using Load Balancer as an Origin.
+        """
+        request_message: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN FrontDoor Private Link Origin`.
+        """
+        target_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
+
+        > **NOTE:** `target_type` cannot be specified when using a Load Balancer as an Origin.
+        """
+elif False:
+    FrontdoorOriginPrivateLinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorOriginPrivateLinkArgs:
@@ -3291,6 +4347,31 @@ class FrontdoorOriginPrivateLinkArgs:
     def target_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_type", value)
 
+
+if not MYPY:
+    class FrontdoorRouteCacheArgsDict(TypedDict):
+        compression_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+
+        > **NOTE:** Content won't be compressed when the requested content is smaller than `1 KB` or larger than `8 MB`(inclusive).
+        """
+        content_types_to_compresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
+        """
+        query_string_caching_behavior: NotRequired[pulumi.Input[str]]
+        """
+        Defines how the Front Door Route will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults to `IgnoreQueryString`.
+
+        > **NOTE:** The value of the `query_string_caching_behavior` determines if the `query_strings` field will be used as an include list or an ignore list.
+        """
+        query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Query strings to include or ignore.
+        """
+elif False:
+    FrontdoorRouteCacheArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRouteCacheArgs:
@@ -3370,6 +4451,31 @@ class FrontdoorRouteCacheArgs:
     def query_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "query_strings", value)
 
+
+if not MYPY:
+    class FrontdoorRuleActionsArgsDict(TypedDict):
+        request_header_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgsDict']]]]
+        """
+        A `request_header_action` block as defined below.
+        """
+        response_header_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgsDict']]]]
+        """
+        A `response_header_action` block as defined below.
+        """
+        route_configuration_override_action: NotRequired[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgsDict']]
+        """
+        A `route_configuration_override_action` block as defined below.
+        """
+        url_redirect_action: NotRequired[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgsDict']]
+        """
+        A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        """
+        url_rewrite_action: NotRequired[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgsDict']]
+        """
+        A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        """
+elif False:
+    FrontdoorRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleActionsArgs:
@@ -3458,6 +4564,27 @@ class FrontdoorRuleActionsArgs:
         pulumi.set(self, "url_rewrite_action", value)
 
 
+if not MYPY:
+    class FrontdoorRuleActionsRequestHeaderActionArgsDict(TypedDict):
+        header_action: pulumi.Input[str]
+        """
+        The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+
+        > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+        """
+        header_name: pulumi.Input[str]
+        """
+        The name of the header to modify.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value to append or overwrite.
+
+        ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+        """
+elif False:
+    FrontdoorRuleActionsRequestHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleActionsRequestHeaderActionArgs:
     def __init__(__self__, *,
@@ -3519,6 +4646,27 @@ class FrontdoorRuleActionsRequestHeaderActionArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class FrontdoorRuleActionsResponseHeaderActionArgsDict(TypedDict):
+        header_action: pulumi.Input[str]
+        """
+        The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+
+        > **NOTE:** `Append` causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. `Overwrite` causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. `Delete` causes the header to be deleted from the request.
+        """
+        header_name: pulumi.Input[str]
+        """
+        The name of the header to modify.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value to append or overwrite.
+
+        ->**NOTE:** `value` is required if the `header_action` is set to `Append` or `Overwrite`.
+        """
+elif False:
+    FrontdoorRuleActionsResponseHeaderActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleActionsResponseHeaderActionArgs:
     def __init__(__self__, *,
@@ -3579,6 +4727,45 @@ class FrontdoorRuleActionsResponseHeaderActionArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class FrontdoorRuleActionsRouteConfigurationOverrideActionArgsDict(TypedDict):
+        cache_behavior: NotRequired[pulumi.Input[str]]
+        """
+        `HonorOrigin` the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. `Disabled` the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing` or `Disabled`.
+        """
+        cache_duration: NotRequired[pulumi.Input[str]]
+        """
+        When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+        """
+        cdn_frontdoor_origin_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The Front Door Origin Group resource ID that the request should be routed to. This overrides the configuration specified in the Front Door Endpoint route.
+        """
+        compression_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Front Door dynamically compress the content? Possible values include `true` or `false`.
+
+        ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than `1 byte` or larger than `1 MB`.
+        """
+        forwarding_protocol: NotRequired[pulumi.Input[str]]
+        """
+        The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`.
+
+        ->**NOTE:** If the `cdn_frontdoor_origin_group_id` is not defined you cannot set the `forwarding_protocol`.
+        """
+        query_string_caching_behavior: NotRequired[pulumi.Input[str]]
+        """
+        `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`.
+        """
+        query_string_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of query string parameter names.
+
+        ->**NOTE:** `query_string_parameters` is a required field when the `query_string_caching_behavior` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`.
+        """
+elif False:
+    FrontdoorRuleActionsRouteConfigurationOverrideActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
@@ -3711,6 +4898,35 @@ class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
         pulumi.set(self, "query_string_parameters", value)
 
 
+if not MYPY:
+    class FrontdoorRuleActionsUrlRedirectActionArgsDict(TypedDict):
+        destination_hostname: pulumi.Input[str]
+        """
+        The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host.
+        """
+        redirect_type: pulumi.Input[str]
+        """
+        The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+        """
+        destination_fragment: NotRequired[pulumi.Input[str]]
+        """
+        The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to `""`.
+        """
+        destination_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to `""`.
+        """
+        query_string: NotRequired[pulumi.Input[str]]
+        """
+        The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Maximum allowed length for this field is `2048` characters. Defaults to `""`.
+        """
+        redirect_protocol: NotRequired[pulumi.Input[str]]
+        """
+        The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+        """
+elif False:
+    FrontdoorRuleActionsUrlRedirectActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleActionsUrlRedirectActionArgs:
     def __init__(__self__, *,
@@ -3812,6 +5028,23 @@ class FrontdoorRuleActionsUrlRedirectActionArgs:
         pulumi.set(self, "redirect_protocol", value)
 
 
+if not MYPY:
+    class FrontdoorRuleActionsUrlRewriteActionArgsDict(TypedDict):
+        destination: pulumi.Input[str]
+        """
+        The destination path to use in the rewrite. The destination path overwrites the source pattern.
+        """
+        source_pattern: pulumi.Input[str]
+        """
+        The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+        """
+        preserve_unmatched_path: NotRequired[pulumi.Input[bool]]
+        """
+        Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+        """
+elif False:
+    FrontdoorRuleActionsUrlRewriteActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleActionsUrlRewriteActionArgs:
     def __init__(__self__, *,
@@ -3864,6 +5097,87 @@ class FrontdoorRuleActionsUrlRewriteActionArgs:
     def preserve_unmatched_path(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "preserve_unmatched_path", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsArgsDict(TypedDict):
+        client_port_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgsDict']]]]
+        """
+        A `client_port_condition` block as defined below.
+        """
+        cookies_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgsDict']]]]
+        """
+        A `cookies_condition` block as defined below.
+        """
+        host_name_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgsDict']]]]
+        """
+        A `host_name_condition` block as defined below.
+        """
+        http_version_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgsDict']]]]
+        """
+        A `http_version_condition` block as defined below.
+        """
+        is_device_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgsDict']]]]
+        """
+        A `is_device_condition` block as defined below.
+        """
+        post_args_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgsDict']]]]
+        """
+        A `post_args_condition` block as defined below.
+        """
+        query_string_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgsDict']]]]
+        """
+        A `query_string_condition` block as defined below.
+        """
+        remote_address_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgsDict']]]]
+        """
+        A `remote_address_condition` block as defined below.
+        """
+        request_body_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgsDict']]]]
+        """
+        A `request_body_condition` block as defined below.
+        """
+        request_header_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgsDict']]]]
+        """
+        A `request_header_condition` block as defined below.
+        """
+        request_method_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgsDict']]]]
+        """
+        A `request_method_condition` block as defined below.
+        """
+        request_scheme_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgsDict']]]]
+        """
+        A `request_scheme_condition` block as defined below.
+        """
+        request_uri_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgsDict']]]]
+        """
+        A `request_uri_condition` block as defined below.
+        """
+        server_port_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgsDict']]]]
+        """
+        A `server_port_condition` block as defined below.
+        """
+        socket_address_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgsDict']]]]
+        """
+        A `socket_address_condition` block as defined below.
+        """
+        ssl_protocol_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgsDict']]]]
+        """
+        A `ssl_protocol_condition` block as defined below.
+        """
+        url_file_extension_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgsDict']]]]
+        """
+        A `url_file_extension_condition` block as defined below.
+        """
+        url_filename_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgsDict']]]]
+        """
+        A `url_filename_condition` block as defined below.
+        """
+        url_path_conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgsDict']]]]
+        """
+        A `url_path_condition` block as defined below.
+        """
+elif False:
+    FrontdoorRuleConditionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsArgs:
@@ -4176,6 +5490,23 @@ class FrontdoorRuleConditionsArgs:
         pulumi.set(self, "url_path_conditions", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsClientPortConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsClientPortConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsClientPortConditionArgs:
     def __init__(__self__, *,
@@ -4229,6 +5560,31 @@ class FrontdoorRuleConditionsClientPortConditionArgs:
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsCookiesConditionArgsDict(TypedDict):
+        cookie_name: pulumi.Input[str]
+        """
+        A string value representing the name of the cookie.
+        """
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsCookiesConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsCookiesConditionArgs:
@@ -4315,6 +5671,27 @@ class FrontdoorRuleConditionsCookiesConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsHostNameConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsHostNameConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsHostNameConditionArgs:
     def __init__(__self__, *,
@@ -4385,6 +5762,23 @@ class FrontdoorRuleConditionsHostNameConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsHttpVersionConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    FrontdoorRuleConditionsHttpVersionConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsHttpVersionConditionArgs:
     def __init__(__self__, *,
@@ -4438,6 +5832,23 @@ class FrontdoorRuleConditionsHttpVersionConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsIsDeviceConditionArgsDict(TypedDict):
+        match_values: NotRequired[pulumi.Input[str]]
+        """
+        Which device should this rule match on? Possible values `Mobile` or `Desktop`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    FrontdoorRuleConditionsIsDeviceConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsIsDeviceConditionArgs:
@@ -4493,6 +5904,31 @@ class FrontdoorRuleConditionsIsDeviceConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsPostArgsConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        post_args_name: pulumi.Input[str]
+        """
+        A string value representing the name of the `POST` argument.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsPostArgsConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsPostArgsConditionArgs:
@@ -4579,6 +6015,27 @@ class FrontdoorRuleConditionsPostArgsConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsQueryStringConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsQueryStringConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsQueryStringConditionArgs:
     def __init__(__self__, *,
@@ -4649,6 +6106,25 @@ class FrontdoorRuleConditionsQueryStringConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsRemoteAddressConditionArgsDict(TypedDict):
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+
+        ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`. Defaults to `IPMatch`.
+        """
+elif False:
+    FrontdoorRuleConditionsRemoteAddressConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsRemoteAddressConditionArgs:
     def __init__(__self__, *,
@@ -4707,6 +6183,27 @@ class FrontdoorRuleConditionsRemoteAddressConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsRequestBodyConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsRequestBodyConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsRequestBodyConditionArgs:
@@ -4776,6 +6273,31 @@ class FrontdoorRuleConditionsRequestBodyConditionArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsRequestHeaderConditionArgsDict(TypedDict):
+        header_name: pulumi.Input[str]
+        """
+        A string value representing the name of the `POST` argument.
+        """
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsRequestHeaderConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsRequestHeaderConditionArgs:
@@ -4862,6 +6384,23 @@ class FrontdoorRuleConditionsRequestHeaderConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsRequestMethodConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    FrontdoorRuleConditionsRequestMethodConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsRequestMethodConditionArgs:
     def __init__(__self__, *,
@@ -4915,6 +6454,23 @@ class FrontdoorRuleConditionsRequestMethodConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsRequestSchemeConditionArgsDict(TypedDict):
+        match_values: NotRequired[pulumi.Input[str]]
+        """
+        The requests protocol to match. Possible values include `HTTP` or `HTTPS`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    FrontdoorRuleConditionsRequestSchemeConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsRequestSchemeConditionArgs:
@@ -4970,6 +6526,27 @@ class FrontdoorRuleConditionsRequestSchemeConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsRequestUriConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsRequestUriConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsRequestUriConditionArgs:
@@ -5041,6 +6618,23 @@ class FrontdoorRuleConditionsRequestUriConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsServerPortConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsServerPortConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsServerPortConditionArgs:
     def __init__(__self__, *,
@@ -5093,6 +6687,27 @@ class FrontdoorRuleConditionsServerPortConditionArgs:
     def negate_condition(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "negate_condition", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsSocketAddressConditionArgsDict(TypedDict):
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+
+        ->**NOTE:** See the `Specifying IP Address Ranges` section below on how to correctly define the `match_values` field.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IPMatch`.
+
+        ->**NOTE:** If the value of the `operator` field is set to `IpMatch` then the `match_values` field is also required.
+        """
+elif False:
+    FrontdoorRuleConditionsSocketAddressConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsSocketAddressConditionArgs:
@@ -5157,6 +6772,23 @@ class FrontdoorRuleConditionsSocketAddressConditionArgs:
         pulumi.set(self, "operator", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsSslProtocolConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of one or more HTTP methods. Possible values are `TLSv1`, `TLSv1.1` and `TLSv1.2` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+elif False:
+    FrontdoorRuleConditionsSslProtocolConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsSslProtocolConditionArgs:
     def __init__(__self__, *,
@@ -5210,6 +6842,27 @@ class FrontdoorRuleConditionsSslProtocolConditionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsUrlFileExtensionConditionArgsDict(TypedDict):
+        match_values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsUrlFileExtensionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
@@ -5279,6 +6932,29 @@ class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
     def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transforms", value)
 
+
+if not MYPY:
+    class FrontdoorRuleConditionsUrlFilenameConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+
+        > **NOTE:** The `match_values` field is only optional if the `operator` is set to `Any`.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsUrlFilenameConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorRuleConditionsUrlFilenameConditionArgs:
@@ -5354,6 +7030,27 @@ class FrontdoorRuleConditionsUrlFilenameConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorRuleConditionsUrlPathConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        negate_condition: NotRequired[pulumi.Input[bool]]
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Details can be found in the `Condition Transform List` below.
+        """
+elif False:
+    FrontdoorRuleConditionsUrlPathConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorRuleConditionsUrlPathConditionArgs:
     def __init__(__self__, *,
@@ -5424,6 +7121,15 @@ class FrontdoorRuleConditionsUrlPathConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class FrontdoorSecretSecretArgsDict(TypedDict):
+        customer_certificates: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgsDict']]]
+        """
+        A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
+        """
+elif False:
+    FrontdoorSecretSecretArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorSecretSecretArgs:
     def __init__(__self__, *,
@@ -5445,6 +7151,21 @@ class FrontdoorSecretSecretArgs:
     def customer_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]):
         pulumi.set(self, "customer_certificates", value)
 
+
+if not MYPY:
+    class FrontdoorSecretSecretCustomerCertificateArgsDict(TypedDict):
+        key_vault_certificate_id: pulumi.Input[str]
+        """
+        The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
+
+        ->**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionless_id` attribute as the `key_vault_certificate_id` fields value(e.g. `key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id`).
+        """
+        subject_alternative_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more `subject alternative names` contained within the key vault certificate.
+        """
+elif False:
+    FrontdoorSecretSecretCustomerCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorSecretSecretCustomerCertificateArgs:
@@ -5488,6 +7209,15 @@ class FrontdoorSecretSecretCustomerCertificateArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
+if not MYPY:
+    class FrontdoorSecurityPolicySecurityPoliciesArgsDict(TypedDict):
+        firewall: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgsDict']
+        """
+        An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        """
+elif False:
+    FrontdoorSecurityPolicySecurityPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorSecurityPolicySecurityPoliciesArgs:
     def __init__(__self__, *,
@@ -5509,6 +7239,19 @@ class FrontdoorSecurityPolicySecurityPoliciesArgs:
     def firewall(self, value: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallArgs']):
         pulumi.set(self, "firewall", value)
 
+
+if not MYPY:
+    class FrontdoorSecurityPolicySecurityPoliciesFirewallArgsDict(TypedDict):
+        association: pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict']
+        """
+        An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        """
+        cdn_frontdoor_firewall_policy_id: pulumi.Input[str]
+        """
+        The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        """
+elif False:
+    FrontdoorSecurityPolicySecurityPoliciesFirewallArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
@@ -5547,6 +7290,19 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallArgs:
         pulumi.set(self, "cdn_frontdoor_firewall_policy_id", value)
 
 
+if not MYPY:
+    class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict(TypedDict):
+        domains: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict']]]
+        """
+        One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        """
+        patterns_to_match: pulumi.Input[str]
+        """
+        The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+        """
+elif False:
+    FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
     def __init__(__self__, *,
@@ -5583,6 +7339,19 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs:
     def patterns_to_match(self, value: pulumi.Input[str]):
         pulumi.set(self, "patterns_to_match", value)
 
+
+if not MYPY:
+    class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict(TypedDict):
+        cdn_frontdoor_domain_id: pulumi.Input[str]
+        """
+        The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        """
+        active: NotRequired[pulumi.Input[bool]]
+        """
+        Is the Front Door Custom Domain/Endpoint activated?
+        """
+elif False:
+    FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs:

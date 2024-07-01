@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -194,7 +199,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -215,21 +220,21 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Radius"],
-            radius=azure.network.VpnServerConfigurationRadiusArgs(
-                servers=[azure.network.VpnServerConfigurationRadiusServerArgs(
-                    address="10.105.1.1",
-                    secret="vindicators-the-return-of-worldender",
-                    score=15,
-                )],
-            ))
+            radius={
+                "servers": [{
+                    "address": "10.105.1.1",
+                    "secret": "vindicators-the-return-of-worldender",
+                    "score": 15,
+                }],
+            })
         example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("example",
             name="example-VPNSCPG",
             vpn_server_configuration_id=example_vpn_server_configuration.id,
-            policies=[azure.network.VpnServerConfigurationPolicyGroupPolicyArgs(
-                name="policy1",
-                type="RadiusAzureGroupId",
-                value="6ad1bd08",
-            )])
+            policies=[{
+                "name": "policy1",
+                "type": "RadiusAzureGroupId",
+                "value": "6ad1bd08",
+            }])
         ```
 
         ## Import
@@ -244,7 +249,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_default: Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupPolicyArgs']]]] policies: One or more `policy` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]] policies: One or more `policy` blocks as documented below.
         :param pulumi.Input[int] priority: The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         """
@@ -271,21 +276,21 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Radius"],
-            radius=azure.network.VpnServerConfigurationRadiusArgs(
-                servers=[azure.network.VpnServerConfigurationRadiusServerArgs(
-                    address="10.105.1.1",
-                    secret="vindicators-the-return-of-worldender",
-                    score=15,
-                )],
-            ))
+            radius={
+                "servers": [{
+                    "address": "10.105.1.1",
+                    "secret": "vindicators-the-return-of-worldender",
+                    "score": 15,
+                }],
+            })
         example_vpn_server_configuration_policy_group = azure.network.VpnServerConfigurationPolicyGroup("example",
             name="example-VPNSCPG",
             vpn_server_configuration_id=example_vpn_server_configuration.id,
-            policies=[azure.network.VpnServerConfigurationPolicyGroupPolicyArgs(
-                name="policy1",
-                type="RadiusAzureGroupId",
-                value="6ad1bd08",
-            )])
+            policies=[{
+                "name": "policy1",
+                "type": "RadiusAzureGroupId",
+                "value": "6ad1bd08",
+            }])
         ```
 
         ## Import
@@ -313,7 +318,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  is_default: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -346,7 +351,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             is_default: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupPolicyArgs']]]]] = None,
+            policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None) -> 'VpnServerConfigurationPolicyGroup':
         """
@@ -358,7 +363,7 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_default: Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupPolicyArgs']]]] policies: One or more `policy` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupPolicyArgs', 'VpnServerConfigurationPolicyGroupPolicyArgsDict']]]] policies: One or more `policy` blocks as documented below.
         :param pulumi.Input[int] priority: The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         """

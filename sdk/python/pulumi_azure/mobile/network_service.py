@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -258,9 +263,9 @@ class NetworkService(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]]] = None,
+                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkServicePccRuleArgs', 'NetworkServicePccRuleArgsDict']]]]] = None,
                  service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']]] = None,
+                 service_qos_policy: Optional[pulumi.Input[Union['NetworkServiceServiceQosPolicyArgs', 'NetworkServiceServiceQosPolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -286,42 +291,42 @@ class NetworkService(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
-                    allocation_and_retention_priority_level=9,
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
-                        downlink="100 Mbps",
-                        uplink="10 Mbps",
-                    ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="100 Mbps",
-                    ),
-                ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
-                allocation_and_retention_priority_level=9,
-                qos_indicator=9,
-                preemption_capability="NotPreempt",
-                preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
-                    downlink="1 Gbps",
-                    uplink="100 Mbps",
-                ),
-            ),
+            pcc_rules=[{
+                "name": "default-rule",
+                "precedence": 1,
+                "trafficControlEnabled": True,
+                "qosPolicy": {
+                    "allocationAndRetentionPriorityLevel": 9,
+                    "qosIndicator": 9,
+                    "preemptionCapability": "NotPreempt",
+                    "preemptionVulnerability": "Preemptable",
+                    "guaranteedBitRate": {
+                        "downlink": "100 Mbps",
+                        "uplink": "10 Mbps",
+                    },
+                    "maximumBitRate": {
+                        "downlink": "1 Gbps",
+                        "uplink": "100 Mbps",
+                    },
+                },
+                "serviceDataFlowTemplates": [{
+                    "direction": "Uplink",
+                    "name": "IP-to-server",
+                    "ports": [],
+                    "protocols": ["ip"],
+                    "remoteIpLists": ["10.3.4.0/24"],
+                }],
+            }],
+            service_qos_policy={
+                "allocationAndRetentionPriorityLevel": 9,
+                "qosIndicator": 9,
+                "preemptionCapability": "NotPreempt",
+                "preemptionVulnerability": "Preemptable",
+                "maximumBitRate": {
+                    "downlink": "1 Gbps",
+                    "uplink": "100 Mbps",
+                },
+            },
             tags={
                 "key": "value",
             })
@@ -340,9 +345,9 @@ class NetworkService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] mobile_network_id: Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkServicePccRuleArgs', 'NetworkServicePccRuleArgsDict']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
-        :param pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        :param pulumi.Input[Union['NetworkServiceServiceQosPolicyArgs', 'NetworkServiceServiceQosPolicyArgsDict']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
         ...
@@ -374,42 +379,42 @@ class NetworkService(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example.location,
             service_precedence=0,
-            pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
-                name="default-rule",
-                precedence=1,
-                traffic_control_enabled=True,
-                qos_policy=azure.mobile.NetworkServicePccRuleQosPolicyArgs(
-                    allocation_and_retention_priority_level=9,
-                    qos_indicator=9,
-                    preemption_capability="NotPreempt",
-                    preemption_vulnerability="Preemptable",
-                    guaranteed_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs(
-                        downlink="100 Mbps",
-                        uplink="10 Mbps",
-                    ),
-                    maximum_bit_rate=azure.mobile.NetworkServicePccRuleQosPolicyMaximumBitRateArgs(
-                        downlink="1 Gbps",
-                        uplink="100 Mbps",
-                    ),
-                ),
-                service_data_flow_templates=[azure.mobile.NetworkServicePccRuleServiceDataFlowTemplateArgs(
-                    direction="Uplink",
-                    name="IP-to-server",
-                    ports=[],
-                    protocols=["ip"],
-                    remote_ip_lists=["10.3.4.0/24"],
-                )],
-            )],
-            service_qos_policy=azure.mobile.NetworkServiceServiceQosPolicyArgs(
-                allocation_and_retention_priority_level=9,
-                qos_indicator=9,
-                preemption_capability="NotPreempt",
-                preemption_vulnerability="Preemptable",
-                maximum_bit_rate=azure.mobile.NetworkServiceServiceQosPolicyMaximumBitRateArgs(
-                    downlink="1 Gbps",
-                    uplink="100 Mbps",
-                ),
-            ),
+            pcc_rules=[{
+                "name": "default-rule",
+                "precedence": 1,
+                "trafficControlEnabled": True,
+                "qosPolicy": {
+                    "allocationAndRetentionPriorityLevel": 9,
+                    "qosIndicator": 9,
+                    "preemptionCapability": "NotPreempt",
+                    "preemptionVulnerability": "Preemptable",
+                    "guaranteedBitRate": {
+                        "downlink": "100 Mbps",
+                        "uplink": "10 Mbps",
+                    },
+                    "maximumBitRate": {
+                        "downlink": "1 Gbps",
+                        "uplink": "100 Mbps",
+                    },
+                },
+                "serviceDataFlowTemplates": [{
+                    "direction": "Uplink",
+                    "name": "IP-to-server",
+                    "ports": [],
+                    "protocols": ["ip"],
+                    "remoteIpLists": ["10.3.4.0/24"],
+                }],
+            }],
+            service_qos_policy={
+                "allocationAndRetentionPriorityLevel": 9,
+                "qosIndicator": 9,
+                "preemptionCapability": "NotPreempt",
+                "preemptionVulnerability": "Preemptable",
+                "maximumBitRate": {
+                    "downlink": "1 Gbps",
+                    "uplink": "100 Mbps",
+                },
+            },
             tags={
                 "key": "value",
             })
@@ -441,9 +446,9 @@ class NetworkService(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]]] = None,
+                 pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkServicePccRuleArgs', 'NetworkServicePccRuleArgsDict']]]]] = None,
                  service_precedence: Optional[pulumi.Input[int]] = None,
-                 service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']]] = None,
+                 service_qos_policy: Optional[pulumi.Input[Union['NetworkServiceServiceQosPolicyArgs', 'NetworkServiceServiceQosPolicyArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -480,9 +485,9 @@ class NetworkService(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             mobile_network_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]]] = None,
+            pcc_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkServicePccRuleArgs', 'NetworkServicePccRuleArgsDict']]]]] = None,
             service_precedence: Optional[pulumi.Input[int]] = None,
-            service_qos_policy: Optional[pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']]] = None,
+            service_qos_policy: Optional[pulumi.Input[Union['NetworkServiceServiceQosPolicyArgs', 'NetworkServiceServiceQosPolicyArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NetworkService':
         """
         Get an existing NetworkService resource's state with the given name, id, and optional extra
@@ -494,9 +499,9 @@ class NetworkService(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Service should exist. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] mobile_network_id: Specifies the ID of the Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Mobile Network Service. Changing this forces a new Mobile Network Service to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkServicePccRuleArgs']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkServicePccRuleArgs', 'NetworkServicePccRuleArgsDict']]]] pcc_rules: A `pcc_rule` block as defined below. The set of PCC Rules that make up this service.
         :param pulumi.Input[int] service_precedence: A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network. Must be between `0` and `255`.
-        :param pulumi.Input[pulumi.InputType['NetworkServiceServiceQosPolicyArgs']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
+        :param pulumi.Input[Union['NetworkServiceServiceQosPolicyArgs', 'NetworkServiceServiceQosPolicyArgsDict']] service_qos_policy: A `service_qos_policy` block as defined below. The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a `pcc_rule`. If this field is not specified then the `sim_policy` of User Equipment (UE) will define the QoS settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

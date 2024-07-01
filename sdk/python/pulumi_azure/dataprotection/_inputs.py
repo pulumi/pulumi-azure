@@ -4,32 +4,91 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'BackupInstanceKubernetesClusterBackupDatasourceParametersArgs',
+    'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict',
     'BackupPolicyBlobStorageRetentionRuleArgs',
+    'BackupPolicyBlobStorageRetentionRuleArgsDict',
     'BackupPolicyBlobStorageRetentionRuleCriteriaArgs',
+    'BackupPolicyBlobStorageRetentionRuleCriteriaArgsDict',
     'BackupPolicyBlobStorageRetentionRuleLifeCycleArgs',
+    'BackupPolicyBlobStorageRetentionRuleLifeCycleArgsDict',
     'BackupPolicyDiskRetentionRuleArgs',
+    'BackupPolicyDiskRetentionRuleArgsDict',
     'BackupPolicyDiskRetentionRuleCriteriaArgs',
+    'BackupPolicyDiskRetentionRuleCriteriaArgsDict',
     'BackupPolicyKubernetesClusterDefaultRetentionRuleArgs',
+    'BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict',
     'BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs',
+    'BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgsDict',
     'BackupPolicyKubernetesClusterRetentionRuleArgs',
+    'BackupPolicyKubernetesClusterRetentionRuleArgsDict',
     'BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs',
+    'BackupPolicyKubernetesClusterRetentionRuleCriteriaArgsDict',
     'BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs',
+    'BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgsDict',
     'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs',
+    'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict',
     'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs',
+    'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgsDict',
     'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs',
+    'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict',
     'BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs',
+    'BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgsDict',
     'BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs',
+    'BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgsDict',
     'BackupPolicyPostgresqlRetentionRuleArgs',
+    'BackupPolicyPostgresqlRetentionRuleArgsDict',
     'BackupPolicyPostgresqlRetentionRuleCriteriaArgs',
+    'BackupPolicyPostgresqlRetentionRuleCriteriaArgsDict',
     'BackupVaultIdentityArgs',
+    'BackupVaultIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict(TypedDict):
+        cluster_scoped_resources_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to include cluster scope resources during backup. Default to `false`. Changing this forces a new resource to be created.
+        """
+        excluded_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the namespaces to be excluded during backup. Changing this forces a new resource to be created.
+        """
+        excluded_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the resource types to be excluded during backup. Changing this forces a new resource to be created.
+        """
+        included_namespaces: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the namespaces to be included during backup. Changing this forces a new resource to be created.
+        """
+        included_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the resource types to be included during backup. Changing this forces a new resource to be created.
+        """
+        label_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the resources with such label selectors to be included during backup. Changing this forces a new resource to be created.
+        """
+        volume_snapshot_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to take volume snapshots during backup. Default to `false`. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupInstanceKubernetesClusterBackupDatasourceParametersArgs:
@@ -150,6 +209,27 @@ class BackupInstanceKubernetesClusterBackupDatasourceParametersArgs:
         pulumi.set(self, "volume_snapshot_enabled", value)
 
 
+if not MYPY:
+    class BackupPolicyBlobStorageRetentionRuleArgsDict(TypedDict):
+        criteria: pulumi.Input['BackupPolicyBlobStorageRetentionRuleCriteriaArgsDict']
+        """
+        A `criteria` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        life_cycle: pulumi.Input['BackupPolicyBlobStorageRetentionRuleLifeCycleArgsDict']
+        """
+        A `life_cycle` block as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this retention rule. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        priority: pulumi.Input[int]
+        """
+        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+elif False:
+    BackupPolicyBlobStorageRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyBlobStorageRetentionRuleArgs:
     def __init__(__self__, *,
@@ -216,6 +296,35 @@ class BackupPolicyBlobStorageRetentionRuleArgs:
     def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
+
+if not MYPY:
+    class BackupPolicyBlobStorageRetentionRuleCriteriaArgsDict(TypedDict):
+        absolute_criteria: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        days_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Must be between `0` and `28`. `0` for last day within the month. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        months_of_years: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        scheduled_backup_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+elif False:
+    BackupPolicyBlobStorageRetentionRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyBlobStorageRetentionRuleCriteriaArgs:
@@ -320,6 +429,19 @@ class BackupPolicyBlobStorageRetentionRuleCriteriaArgs:
         pulumi.set(self, "weeks_of_months", value)
 
 
+if not MYPY:
+    class BackupPolicyBlobStorageRetentionRuleLifeCycleArgsDict(TypedDict):
+        data_store_type: pulumi.Input[str]
+        """
+        The type of data store. The only possible value is `VaultStore`. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+        duration: pulumi.Input[str]
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
+        """
+elif False:
+    BackupPolicyBlobStorageRetentionRuleLifeCycleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyBlobStorageRetentionRuleLifeCycleArgs:
     def __init__(__self__, *,
@@ -356,6 +478,27 @@ class BackupPolicyBlobStorageRetentionRuleLifeCycleArgs:
     def duration(self, value: pulumi.Input[str]):
         pulumi.set(self, "duration", value)
 
+
+if not MYPY:
+    class BackupPolicyDiskRetentionRuleArgsDict(TypedDict):
+        criteria: pulumi.Input['BackupPolicyDiskRetentionRuleCriteriaArgsDict']
+        """
+        A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
+        """
+        duration: pulumi.Input[str]
+        """
+        Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
+        """
+        priority: pulumi.Input[int]
+        """
+        Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.
+        """
+elif False:
+    BackupPolicyDiskRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyDiskRetentionRuleArgs:
@@ -424,6 +567,15 @@ class BackupPolicyDiskRetentionRuleArgs:
         pulumi.set(self, "priority", value)
 
 
+if not MYPY:
+    class BackupPolicyDiskRetentionRuleCriteriaArgsDict(TypedDict):
+        absolute_criteria: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
+        """
+elif False:
+    BackupPolicyDiskRetentionRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyDiskRetentionRuleCriteriaArgs:
     def __init__(__self__, *,
@@ -447,6 +599,15 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
         pulumi.set(self, "absolute_criteria", value)
 
 
+if not MYPY:
+    class BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict(TypedDict):
+        life_cycles: pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgsDict']]]
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyKubernetesClusterDefaultRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs:
     def __init__(__self__, *,
@@ -468,6 +629,19 @@ class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs:
     def life_cycles(self, value: pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs']]]):
         pulumi.set(self, "life_cycles", value)
 
+
+if not MYPY:
+    class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgsDict(TypedDict):
+        data_store_type: pulumi.Input[str]
+        """
+        The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        """
+        duration: pulumi.Input[str]
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs:
@@ -505,6 +679,27 @@ class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs:
     def duration(self, value: pulumi.Input[str]):
         pulumi.set(self, "duration", value)
 
+
+if not MYPY:
+    class BackupPolicyKubernetesClusterRetentionRuleArgsDict(TypedDict):
+        criteria: pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleCriteriaArgsDict']
+        """
+        A `criteria` block as defined below. Changing this forces a new resource to be created.
+        """
+        life_cycles: pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgsDict']]]
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this retention rule. Changing this forces a new resource to be created.
+        """
+        priority: pulumi.Input[int]
+        """
+        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyKubernetesClusterRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyKubernetesClusterRetentionRuleArgs:
@@ -572,6 +767,31 @@ class BackupPolicyKubernetesClusterRetentionRuleArgs:
     def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
+
+if not MYPY:
+    class BackupPolicyKubernetesClusterRetentionRuleCriteriaArgsDict(TypedDict):
+        absolute_criteria: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        """
+        days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        """
+        months_of_years: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+        """
+        scheduled_backup_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+        """
+        weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyKubernetesClusterRetentionRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs:
@@ -660,6 +880,19 @@ class BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs:
         pulumi.set(self, "weeks_of_months", value)
 
 
+if not MYPY:
+    class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgsDict(TypedDict):
+        data_store_type: pulumi.Input[str]
+        """
+        The type of data store. The only possible value is `OperationalStore`. Changing this forces a new resource to be created.
+        """
+        duration: pulumi.Input[str]
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs:
     def __init__(__self__, *,
@@ -697,6 +930,15 @@ class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs:
         pulumi.set(self, "duration", value)
 
 
+if not MYPY:
+    class BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict(TypedDict):
+        life_cycles: pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgsDict']]]
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs:
     def __init__(__self__, *,
@@ -718,6 +960,19 @@ class BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs:
     def life_cycles(self, value: pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs']]]):
         pulumi.set(self, "life_cycles", value)
 
+
+if not MYPY:
+    class BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgsDict(TypedDict):
+        data_store_type: pulumi.Input[str]
+        """
+        The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+        """
+        duration: pulumi.Input[str]
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs:
@@ -755,6 +1010,27 @@ class BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs:
     def duration(self, value: pulumi.Input[str]):
         pulumi.set(self, "duration", value)
 
+
+if not MYPY:
+    class BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict(TypedDict):
+        criteria: pulumi.Input['BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgsDict']
+        """
+        A `criteria` block as defined below. Changing this forces a new resource to be created.
+        """
+        life_cycles: pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgsDict']]]
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the retention rule. Changing this forces a new resource to be created.
+        """
+        priority: pulumi.Input[int]
+        """
+        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs:
@@ -822,6 +1098,31 @@ class BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs:
     def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
+
+if not MYPY:
+    class BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgsDict(TypedDict):
+        absolute_criteria: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        """
+        days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        """
+        months_of_years: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+        """
+        scheduled_backup_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+        """
+        weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs:
@@ -910,6 +1211,19 @@ class BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs:
         pulumi.set(self, "weeks_of_months", value)
 
 
+if not MYPY:
+    class BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgsDict(TypedDict):
+        data_store_type: pulumi.Input[str]
+        """
+        The type of data store. The only possible value is `VaultStore`. Changing this forces a new resource to be created.
+        """
+        duration: pulumi.Input[str]
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+elif False:
+    BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs:
     def __init__(__self__, *,
@@ -946,6 +1260,27 @@ class BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs:
     def duration(self, value: pulumi.Input[str]):
         pulumi.set(self, "duration", value)
 
+
+if not MYPY:
+    class BackupPolicyPostgresqlRetentionRuleArgsDict(TypedDict):
+        criteria: pulumi.Input['BackupPolicyPostgresqlRetentionRuleCriteriaArgsDict']
+        """
+        A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+        duration: pulumi.Input[str]
+        """
+        Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+        priority: pulumi.Input[int]
+        """
+        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+elif False:
+    BackupPolicyPostgresqlRetentionRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyPostgresqlRetentionRuleArgs:
@@ -1013,6 +1348,31 @@ class BackupPolicyPostgresqlRetentionRuleArgs:
     def priority(self, value: pulumi.Input[int]):
         pulumi.set(self, "priority", value)
 
+
+if not MYPY:
+    class BackupPolicyPostgresqlRetentionRuleCriteriaArgsDict(TypedDict):
+        absolute_criteria: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+        days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+        months_of_years: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+        scheduled_backup_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+        weeks_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
+        """
+elif False:
+    BackupPolicyPostgresqlRetentionRuleCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
@@ -1100,6 +1460,23 @@ class BackupPolicyPostgresqlRetentionRuleCriteriaArgs:
     def weeks_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weeks_of_months", value)
 
+
+if not MYPY:
+    class BackupVaultIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is `SystemAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this Backup Vault.
+        """
+elif False:
+    BackupVaultIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BackupVaultIdentityArgs:

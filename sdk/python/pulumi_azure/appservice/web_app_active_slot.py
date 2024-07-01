@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['WebAppActiveSlotArgs', 'WebAppActiveSlot']
@@ -139,11 +144,11 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
             name="example-windows-web-app-slot",
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config={})
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
 
@@ -191,11 +196,11 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("example",
             name="example-windows-web-app-slot",
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config={})
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("example", slot_id=example_windows_web_app_slot.id)
         ```
 

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -624,7 +629,7 @@ class NetworkInterface(pulumi.CustomResource):
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
                  ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -657,11 +662,11 @@ class NetworkInterface(pulumi.CustomResource):
             name="example-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         ```
 
         ## Import
@@ -690,7 +695,7 @@ class NetworkInterface(pulumi.CustomResource):
                > **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network.
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
@@ -729,11 +734,11 @@ class NetworkInterface(pulumi.CustomResource):
             name="example-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         ```
 
         ## Import
@@ -767,7 +772,7 @@ class NetworkInterface(pulumi.CustomResource):
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
                  enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  internal_dns_name_label: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
                  ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -826,7 +831,7 @@ class NetworkInterface(pulumi.CustomResource):
             enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
             internal_dns_name_label: Optional[pulumi.Input[str]] = None,
             internal_domain_name_suffix: Optional[pulumi.Input[str]] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]]] = None,
+            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]]] = None,
             ip_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mac_address: Optional[pulumi.Input[str]] = None,
@@ -861,7 +866,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created.
         :param pulumi.Input[str] internal_dns_name_label: The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         :param pulumi.Input[str] internal_domain_name_suffix: Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInterfaceIpConfigurationArgs', 'NetworkInterfaceIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below.
         :param pulumi.Input[bool] ip_forwarding_enabled: Should IP Forwarding be enabled? Defaults to `false`.
         :param pulumi.Input[str] location: The location where the Network Interface should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mac_address: The Media Access Control (MAC) Address of the Network Interface.

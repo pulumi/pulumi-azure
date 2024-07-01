@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -320,12 +325,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -350,37 +355,37 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             resource_group_name="example",
             scopes=[example.id],
             add_action_group_ids=[example_action_group.id],
-            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
+            condition={
+                "targetResourceType": {
+                    "operator": "Equals",
+                    "values": ["Microsoft.Compute/VirtualMachines"],
+                },
+                "severity": {
+                    "operator": "Equals",
+                    "values": [
                         "Sev0",
                         "Sev1",
                         "Sev2",
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
+                },
+            },
+            schedule={
+                "effectiveFrom": "2022-01-01T01:02:03",
+                "effectiveUntil": "2022-02-02T01:02:03",
+                "timeZone": "Pacific Standard Time",
+                "recurrence": {
+                    "dailies": [{
+                        "startTime": "17:00:00",
+                        "endTime": "09:00:00",
+                    }],
+                    "weeklies": [{
+                        "daysOfWeeks": [
                             "Saturday",
                             "Sunday",
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -397,12 +402,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_action_group_ids: Specifies a list of Action Group IDs.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupScheduleArgs']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs which will be the target of alert processing rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
@@ -433,37 +438,37 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             resource_group_name="example",
             scopes=[example.id],
             add_action_group_ids=[example_action_group.id],
-            condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleActionGroupConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
+            condition={
+                "targetResourceType": {
+                    "operator": "Equals",
+                    "values": ["Microsoft.Compute/VirtualMachines"],
+                },
+                "severity": {
+                    "operator": "Equals",
+                    "values": [
                         "Sev0",
                         "Sev1",
                         "Sev2",
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleActionGroupScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
+                },
+            },
+            schedule={
+                "effectiveFrom": "2022-01-01T01:02:03",
+                "effectiveUntil": "2022-02-02T01:02:03",
+                "timeZone": "Pacific Standard Time",
+                "recurrence": {
+                    "dailies": [{
+                        "startTime": "17:00:00",
+                        "endTime": "09:00:00",
+                    }],
+                    "weeklies": [{
+                        "daysOfWeeks": [
                             "Saturday",
                             "Sunday",
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -493,12 +498,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  add_action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -536,12 +541,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             add_action_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            condition: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupConditionArgs']]] = None,
+            condition: Optional[pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupScheduleArgs']]] = None,
+            schedule: Optional[pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AlertProcessingRuleActionGroup':
         """
@@ -552,12 +557,12 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_action_group_ids: Specifies a list of Action Group IDs.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupConditionArgs', 'AlertProcessingRuleActionGroupConditionArgsDict']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleActionGroupScheduleArgs']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleActionGroupScheduleArgs', 'AlertProcessingRuleActionGroupScheduleArgsDict']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs which will be the target of alert processing rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """

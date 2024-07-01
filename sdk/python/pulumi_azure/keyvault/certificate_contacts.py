@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -100,7 +105,7 @@ class CertificateContacts(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateContactsContactArgs', 'CertificateContactsContactArgsDict']]]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -137,14 +142,14 @@ class CertificateContacts(pulumi.CustomResource):
         example_certificate_contacts = azure.keyvault.CertificateContacts("example",
             key_vault_id=example_key_vault.id,
             contacts=[
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example@example.com",
-                    name="example",
-                    phone="01234567890",
-                ),
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example2@example.com",
-                ),
+                {
+                    "email": "example@example.com",
+                    "name": "example",
+                    "phone": "01234567890",
+                },
+                {
+                    "email": "example2@example.com",
+                },
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_access_policy]))
         ```
@@ -159,7 +164,7 @@ class CertificateContacts(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]] contacts: One or more `contact` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateContactsContactArgs', 'CertificateContactsContactArgsDict']]]] contacts: One or more `contact` blocks as defined below.
                -->
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """
@@ -203,14 +208,14 @@ class CertificateContacts(pulumi.CustomResource):
         example_certificate_contacts = azure.keyvault.CertificateContacts("example",
             key_vault_id=example_key_vault.id,
             contacts=[
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example@example.com",
-                    name="example",
-                    phone="01234567890",
-                ),
-                azure.keyvault.CertificateContactsContactArgs(
-                    email="example2@example.com",
-                ),
+                {
+                    "email": "example@example.com",
+                    "name": "example",
+                    "phone": "01234567890",
+                },
+                {
+                    "email": "example2@example.com",
+                },
             ],
             opts = pulumi.ResourceOptions(depends_on=[example_access_policy]))
         ```
@@ -238,7 +243,7 @@ class CertificateContacts(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]]] = None,
+                 contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateContactsContactArgs', 'CertificateContactsContactArgsDict']]]]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -265,7 +270,7 @@ class CertificateContacts(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]]] = None,
+            contacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateContactsContactArgs', 'CertificateContactsContactArgsDict']]]]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None) -> 'CertificateContacts':
         """
         Get an existing CertificateContacts resource's state with the given name, id, and optional extra
@@ -274,7 +279,7 @@ class CertificateContacts(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateContactsContactArgs']]]] contacts: One or more `contact` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateContactsContactArgs', 'CertificateContactsContactArgsDict']]]] contacts: One or more `contact` blocks as defined below.
                -->
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault. Changing this forces a new resource to be created.
         """

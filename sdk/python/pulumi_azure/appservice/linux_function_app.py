@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -1268,32 +1273,32 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsArgs']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsV2Args']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[Union['LinuxFunctionAppAuthSettingsArgs', 'LinuxFunctionAppAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']]] = None,
+                 backup: Optional[pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppConnectionStringArgs', 'LinuxFunctionAppConnectionStringArgsDict']]]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['LinuxFunctionAppIdentityArgs', 'LinuxFunctionAppIdentityArgsDict']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteConfigArgs']]] = None,
-                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['LinuxFunctionAppSiteConfigArgs', 'LinuxFunctionAppSiteConfigArgsDict']]] = None,
+                 sticky_settings: Optional[pulumi.Input[Union['LinuxFunctionAppStickySettingsArgs', 'LinuxFunctionAppStickySettingsArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppStorageAccountArgs', 'LinuxFunctionAppStorageAccountArgsDict']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1332,7 +1337,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1347,32 +1352,32 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App
                Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsArgs', 'LinuxFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppConnectionStringArgs', 'LinuxFunctionAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is the Function App enabled? Defaults to `true`.
         :param pulumi.Input[bool] ftp_publish_basic_authentication_enabled: Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppIdentityArgs', 'LinuxFunctionAppIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppSiteConfigArgs', 'LinuxFunctionAppSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppStickySettingsArgs', 'LinuxFunctionAppStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppStorageAccountArgs', 'LinuxFunctionAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
                > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
@@ -1426,7 +1431,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config={})
         ```
 
         ## Import
@@ -1453,32 +1458,32 @@ class LinuxFunctionApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsArgs']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsV2Args']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[Union['LinuxFunctionAppAuthSettingsArgs', 'LinuxFunctionAppAuthSettingsArgsDict']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']]] = None,
+                 backup: Optional[pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppConnectionStringArgs', 'LinuxFunctionAppConnectionStringArgsDict']]]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  ftp_publish_basic_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['LinuxFunctionAppIdentityArgs', 'LinuxFunctionAppIdentityArgsDict']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteConfigArgs']]] = None,
-                 sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']]] = None,
+                 site_config: Optional[pulumi.Input[Union['LinuxFunctionAppSiteConfigArgs', 'LinuxFunctionAppSiteConfigArgsDict']]] = None,
+                 sticky_settings: Optional[pulumi.Input[Union['LinuxFunctionAppStickySettingsArgs', 'LinuxFunctionAppStickySettingsArgsDict']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppStorageAccountArgs', 'LinuxFunctionAppStorageAccountArgsDict']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1555,14 +1560,14 @@ class LinuxFunctionApp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            auth_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsArgs']]] = None,
-            auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsV2Args']]] = None,
-            backup: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']]] = None,
+            auth_settings: Optional[pulumi.Input[Union['LinuxFunctionAppAuthSettingsArgs', 'LinuxFunctionAppAuthSettingsArgsDict']]] = None,
+            auth_settings_v2: Optional[pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']]] = None,
+            backup: Optional[pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']]] = None,
             builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
             client_certificate_mode: Optional[pulumi.Input[str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]]] = None,
+            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppConnectionStringArgs', 'LinuxFunctionAppConnectionStringArgsDict']]]]] = None,
             content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -1572,7 +1577,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
             functions_extension_version: Optional[pulumi.Input[str]] = None,
             hosting_environment_id: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['LinuxFunctionAppIdentityArgs', 'LinuxFunctionAppIdentityArgsDict']]] = None,
             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1584,12 +1589,12 @@ class LinuxFunctionApp(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_plan_id: Optional[pulumi.Input[str]] = None,
-            site_config: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteConfigArgs']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteCredentialArgs']]]]] = None,
-            sticky_settings: Optional[pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']]] = None,
+            site_config: Optional[pulumi.Input[Union['LinuxFunctionAppSiteConfigArgs', 'LinuxFunctionAppSiteConfigArgsDict']]] = None,
+            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSiteCredentialArgs', 'LinuxFunctionAppSiteCredentialArgsDict']]]]] = None,
+            sticky_settings: Optional[pulumi.Input[Union['LinuxFunctionAppStickySettingsArgs', 'LinuxFunctionAppStickySettingsArgsDict']]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppStorageAccountArgs', 'LinuxFunctionAppStorageAccountArgsDict']]]]] = None,
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1605,14 +1610,14 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App
                Settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppAuthSettingsV2Args']] auth_settings_v2: An `auth_settings_v2` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppBackupArgs']] backup: A `backup` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsArgs', 'LinuxFunctionAppAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppAuthSettingsV2Args', 'LinuxFunctionAppAuthSettingsV2ArgsDict']] auth_settings_v2: An `auth_settings_v2` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppBackupArgs', 'LinuxFunctionAppBackupArgsDict']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppConnectionStringArgs', 'LinuxFunctionAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`.
@@ -1622,7 +1627,7 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App.
         :param pulumi.Input[bool] https_only: Can the Function App only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppIdentityArgs']] identity: A `identity` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppIdentityArgs', 'LinuxFunctionAppIdentityArgsDict']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Linux Function App.
         :param pulumi.Input[str] location: The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
@@ -1634,12 +1639,12 @@ class LinuxFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LinuxFunctionAppStickySettingsArgs']] sticky_settings: A `sticky_settings` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppSiteConfigArgs', 'LinuxFunctionAppSiteConfigArgsDict']] site_config: A `site_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSiteCredentialArgs', 'LinuxFunctionAppSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[Union['LinuxFunctionAppStickySettingsArgs', 'LinuxFunctionAppStickySettingsArgsDict']] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxFunctionAppStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppStorageAccountArgs', 'LinuxFunctionAppStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App.
                
                > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.

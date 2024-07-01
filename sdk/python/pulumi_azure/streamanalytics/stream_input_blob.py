@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -349,7 +354,7 @@ class StreamInputBlob(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputBlobSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
@@ -390,10 +395,10 @@ class StreamInputBlob(pulumi.CustomResource):
             path_pattern="some-random-pattern",
             date_format="yyyy/MM/dd",
             time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            })
         ```
 
         ## Import
@@ -410,7 +415,7 @@ class StreamInputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Stream Input Blob. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['StreamInputBlobSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.
@@ -457,10 +462,10 @@ class StreamInputBlob(pulumi.CustomResource):
             path_pattern="some-random-pattern",
             date_format="yyyy/MM/dd",
             time_format="HH",
-            serialization=azure.streamanalytics.StreamInputBlobSerializationArgs(
-                type="Json",
-                encoding="UTF8",
-            ))
+            serialization={
+                "type": "Json",
+                "encoding": "UTF8",
+            })
         ```
 
         ## Import
@@ -490,7 +495,7 @@ class StreamInputBlob(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  path_pattern: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputBlobSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
                  storage_account_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
                  storage_container_name: Optional[pulumi.Input[str]] = None,
@@ -549,7 +554,7 @@ class StreamInputBlob(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             path_pattern: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            serialization: Optional[pulumi.Input[pulumi.InputType['StreamInputBlobSerializationArgs']]] = None,
+            serialization: Optional[pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']]] = None,
             storage_account_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
             storage_container_name: Optional[pulumi.Input[str]] = None,
@@ -566,7 +571,7 @@ class StreamInputBlob(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Stream Input Blob. Changing this forces a new resource to be created.
         :param pulumi.Input[str] path_pattern: The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['StreamInputBlobSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['StreamInputBlobSerializationArgs', 'StreamInputBlobSerializationArgsDict']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account.
         :param pulumi.Input[str] storage_account_name: The name of the Storage Account.
         :param pulumi.Input[str] storage_container_name: The name of the Container within the Storage Account.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -162,8 +167,8 @@ class MonitorTagRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datadog_monitor_id: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleLogArgs']]]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleMetricArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -183,30 +188,30 @@ class MonitorTagRule(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
+            datadog_organization={
+                "apiKey": "XXXX",
+                "applicationKey": "XXXX",
+            },
+            user={
+                "name": "Example",
+                "email": "abc@xyz.com",
+            },
             sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
-            logs=[azure.datadog.MonitorTagRuleLogArgs(
-                subscription_log_enabled=True,
-            )],
-            metrics=[azure.datadog.MonitorTagRuleMetricArgs(
-                filters=[azure.datadog.MonitorTagRuleMetricFilterArgs(
-                    name="Test",
-                    value="Logs",
-                    action="Include",
-                )],
-            )])
+            logs=[{
+                "subscriptionLogEnabled": True,
+            }],
+            metrics=[{
+                "filters": [{
+                    "name": "Test",
+                    "value": "Logs",
+                    "action": "Include",
+                }],
+            }])
         ```
 
         ## Import
@@ -220,8 +225,8 @@ class MonitorTagRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleLogArgs']]]] logs: A `log` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleMetricArgs']]]] metrics: A `metric` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]] logs: A `log` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]] metrics: A `metric` block as defined below.
         :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         """
         ...
@@ -247,30 +252,30 @@ class MonitorTagRule(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
-                api_key="XXXX",
-                application_key="XXXX",
-            ),
-            user=azure.datadog.MonitorUserArgs(
-                name="Example",
-                email="abc@xyz.com",
-            ),
+            datadog_organization={
+                "apiKey": "XXXX",
+                "applicationKey": "XXXX",
+            },
+            user={
+                "name": "Example",
+                "email": "abc@xyz.com",
+            },
             sku_name="Linked",
-            identity=azure.datadog.MonitorIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
-            logs=[azure.datadog.MonitorTagRuleLogArgs(
-                subscription_log_enabled=True,
-            )],
-            metrics=[azure.datadog.MonitorTagRuleMetricArgs(
-                filters=[azure.datadog.MonitorTagRuleMetricFilterArgs(
-                    name="Test",
-                    value="Logs",
-                    action="Include",
-                )],
-            )])
+            logs=[{
+                "subscriptionLogEnabled": True,
+            }],
+            metrics=[{
+                "filters": [{
+                    "name": "Test",
+                    "value": "Logs",
+                    "action": "Include",
+                }],
+            }])
         ```
 
         ## Import
@@ -297,8 +302,8 @@ class MonitorTagRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datadog_monitor_id: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleLogArgs']]]]] = None,
-                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleMetricArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -326,8 +331,8 @@ class MonitorTagRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             datadog_monitor_id: Optional[pulumi.Input[str]] = None,
-            logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleLogArgs']]]]] = None,
-            metrics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleMetricArgs']]]]] = None,
+            logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]]] = None,
+            metrics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'MonitorTagRule':
         """
         Get an existing MonitorTagRule resource's state with the given name, id, and optional extra
@@ -337,8 +342,8 @@ class MonitorTagRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleLogArgs']]]] logs: A `log` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MonitorTagRuleMetricArgs']]]] metrics: A `metric` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleLogArgs', 'MonitorTagRuleLogArgsDict']]]] logs: A `log` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MonitorTagRuleMetricArgs', 'MonitorTagRuleMetricArgsDict']]]] metrics: A `metric` block as defined below.
         :param pulumi.Input[str] name: The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

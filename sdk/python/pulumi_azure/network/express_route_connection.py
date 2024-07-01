@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -327,7 +332,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
+                 routing: Optional[pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -373,10 +378,10 @@ class ExpressRouteConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,
@@ -409,7 +414,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         ...
@@ -461,10 +466,10 @@ class ExpressRouteConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=5,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,
@@ -510,7 +515,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  express_route_gateway_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
+                 routing: Optional[pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
                  routing_weight: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -551,7 +556,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             express_route_gateway_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             private_link_fast_path_enabled: Optional[pulumi.Input[bool]] = None,
-            routing: Optional[pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']]] = None,
+            routing: Optional[pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']]] = None,
             routing_weight: Optional[pulumi.Input[int]] = None) -> 'ExpressRouteConnection':
         """
         Get an existing ExpressRouteConnection resource's state with the given name, id, and optional extra
@@ -567,7 +572,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
         :param pulumi.Input[str] express_route_gateway_id: The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Express Route Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_link_fast_path_enabled: Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass_enabled` must be set to `true`. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ExpressRouteConnectionRoutingArgs']] routing: A `routing` block as defined below.
+        :param pulumi.Input[Union['ExpressRouteConnectionRoutingArgs', 'ExpressRouteConnectionRoutingArgsDict']] routing: A `routing` block as defined below.
         :param pulumi.Input[int] routing_weight: The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['RegistryTaskScheduleRunNowArgs', 'RegistryTaskScheduleRunNow']
@@ -85,15 +90,15 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         example_registry_task = azure.containerservice.RegistryTask("example",
             name="example-task",
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
+            platform={
+                "os": "Linux",
+            },
+            docker_step={
+                "dockerfilePath": "Dockerfile",
+                "contextPath": "https://github.com/<user name>/acr-build-helloworld-node#main",
+                "contextAccessToken": "<github personal access token>",
+                "imageNames": ["helloworld:{{.Run.ID}}"],
+            })
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 
@@ -127,15 +132,15 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         example_registry_task = azure.containerservice.RegistryTask("example",
             name="example-task",
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
-                os="Linux",
-            ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
-                dockerfile_path="Dockerfile",
-                context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
-                context_access_token="<github personal access token>",
-                image_names=["helloworld:{{.Run.ID}}"],
-            ))
+            platform={
+                "os": "Linux",
+            },
+            docker_step={
+                "dockerfilePath": "Dockerfile",
+                "contextPath": "https://github.com/<user name>/acr-build-helloworld-node#main",
+                "contextAccessToken": "<github personal access token>",
+                "imageNames": ["helloworld:{{.Run.ID}}"],
+            })
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 

@@ -4,15 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationPlanArgs',
+    'ApplicationPlanArgsDict',
     'DefinitionAuthorizationArgs',
+    'DefinitionAuthorizationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationPlanArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
+        """
+        product: pulumi.Input[str]
+        """
+        Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
+        """
+        publisher: pulumi.Input[str]
+        """
+        Specifies the publisher of the plan. Changing this forces a new resource to be created.
+        """
+        version: pulumi.Input[str]
+        """
+        Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
+        """
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
+
+        > **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Managed Application. The `marketplace.Agreement` resource or AZ CLI tool can be used to do this.
+        """
+elif False:
+    ApplicationPlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationPlanArgs:
@@ -100,6 +136,19 @@ class ApplicationPlanArgs:
     def promotion_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "promotion_code", value)
 
+
+if not MYPY:
+    class DefinitionAuthorizationArgsDict(TypedDict):
+        role_definition_id: pulumi.Input[str]
+        """
+        Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
+        """
+        service_principal_id: pulumi.Input[str]
+        """
+        Specifies a service principal identifier for the provider. This is the identity that the provider will use to call ARM to manage the managed application resources.
+        """
+elif False:
+    DefinitionAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefinitionAuthorizationArgs:

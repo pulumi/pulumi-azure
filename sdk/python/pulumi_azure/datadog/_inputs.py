@@ -4,20 +4,71 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'MonitorDatadogOrganizationArgs',
+    'MonitorDatadogOrganizationArgsDict',
     'MonitorIdentityArgs',
+    'MonitorIdentityArgsDict',
     'MonitorTagRuleLogArgs',
+    'MonitorTagRuleLogArgsDict',
     'MonitorTagRuleLogFilterArgs',
+    'MonitorTagRuleLogFilterArgsDict',
     'MonitorTagRuleMetricArgs',
+    'MonitorTagRuleMetricArgsDict',
     'MonitorTagRuleMetricFilterArgs',
+    'MonitorTagRuleMetricFilterArgsDict',
     'MonitorUserArgs',
+    'MonitorUserArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class MonitorDatadogOrganizationArgsDict(TypedDict):
+        api_key: pulumi.Input[str]
+        """
+        Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
+        """
+        application_key: pulumi.Input[str]
+        """
+        Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
+        """
+        enterprise_app_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the enterprise_app. Changing this forces a new resource to be created.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Datadog Monitor.
+        """
+        linking_auth_code: NotRequired[pulumi.Input[str]]
+        """
+        The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
+        """
+        linking_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
+        """
+        redirect_uri: NotRequired[pulumi.Input[str]]
+        """
+        The redirect uri for linking. Changing this forces a new Datadog Monitor to be created.
+        """
+elif False:
+    MonitorDatadogOrganizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorDatadogOrganizationArgs:
@@ -152,6 +203,25 @@ class MonitorDatadogOrganizationArgs:
         pulumi.set(self, "redirect_uri", value)
 
 
+if not MYPY:
+    class MonitorIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
+
+        > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Datadog Monitor has been created. More details are available below.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
+        """
+elif False:
+    MonitorIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorIdentityArgs:
     def __init__(__self__, *,
@@ -209,6 +279,29 @@ class MonitorIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class MonitorTagRuleLogArgsDict(TypedDict):
+        aad_log_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether AAD logs should be sent for the Monitor resource?
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgsDict']]]]
+        """
+        A `filter` block as defined below.
+
+        > **NOTE:** List of filtering tags to be used for capturing logs. This only takes effect if `resource_log_enabled` flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+        resource_log_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Azure resource logs should be sent for the Monitor resource?
+        """
+        subscription_log_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Azure subscription logs should be sent for the Monitor resource?
+        """
+elif False:
+    MonitorTagRuleLogArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorTagRuleLogArgs:
@@ -285,6 +378,23 @@ class MonitorTagRuleLogArgs:
         pulumi.set(self, "subscription_log_enabled", value)
 
 
+if not MYPY:
+    class MonitorTagRuleLogFilterArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Allowed values Include or Exclude.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the Tag.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of the Tag.
+        """
+elif False:
+    MonitorTagRuleLogFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorTagRuleLogFilterArgs:
     def __init__(__self__, *,
@@ -337,6 +447,17 @@ class MonitorTagRuleLogFilterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class MonitorTagRuleMetricArgsDict(TypedDict):
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgsDict']]]]
+        """
+        A `filter` block as defined below.
+
+        > **NOTE:** List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
+        """
+elif False:
+    MonitorTagRuleMetricArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MonitorTagRuleMetricArgs:
     def __init__(__self__, *,
@@ -363,6 +484,23 @@ class MonitorTagRuleMetricArgs:
     def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
+
+if not MYPY:
+    class MonitorTagRuleMetricFilterArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Allowed values Include or Exclude.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the Tag.
+        """
+        value: pulumi.Input[str]
+        """
+        Value of the Tag.
+        """
+elif False:
+    MonitorTagRuleMetricFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorTagRuleMetricFilterArgs:
@@ -415,6 +553,23 @@ class MonitorTagRuleMetricFilterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class MonitorUserArgsDict(TypedDict):
+        email: pulumi.Input[str]
+        """
+        Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this user_info. Changing this forces a new resource to be created.
+        """
+        phone_number: NotRequired[pulumi.Input[str]]
+        """
+        Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
+        """
+elif False:
+    MonitorUserArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MonitorUserArgs:

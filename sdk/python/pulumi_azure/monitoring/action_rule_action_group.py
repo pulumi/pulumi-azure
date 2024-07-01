@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -289,12 +294,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_group_id: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['ActionRuleActionGroupConditionArgs', 'ActionRuleActionGroupConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['ActionRuleActionGroupScopeArgs', 'ActionRuleActionGroupScopeArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -319,10 +324,10 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             name="example-amar",
             resource_group_name=example.name,
             action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example.id],
-            ),
+            scope={
+                "type": "ResourceGroup",
+                "resourceIds": [example.id],
+            },
             tags={
                 "foo": "bar",
             })
@@ -339,12 +344,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_group_id: Specifies the resource id of monitor action group.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['ActionRuleActionGroupConditionArgs', 'ActionRuleActionGroupConditionArgsDict']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']] scope: A `scope` block as defined below.
+        :param pulumi.Input[Union['ActionRuleActionGroupScopeArgs', 'ActionRuleActionGroupScopeArgsDict']] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -375,10 +380,10 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             name="example-amar",
             resource_group_name=example.name,
             action_group_id=example_action_group.id,
-            scope=azure.monitoring.ActionRuleActionGroupScopeArgs(
-                type="ResourceGroup",
-                resource_ids=[example.id],
-            ),
+            scope={
+                "type": "ResourceGroup",
+                "resourceIds": [example.id],
+            },
             tags={
                 "foo": "bar",
             })
@@ -408,12 +413,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_group_id: Optional[pulumi.Input[str]] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['ActionRuleActionGroupConditionArgs', 'ActionRuleActionGroupConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']]] = None,
+                 scope: Optional[pulumi.Input[Union['ActionRuleActionGroupScopeArgs', 'ActionRuleActionGroupScopeArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -447,12 +452,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action_group_id: Optional[pulumi.Input[str]] = None,
-            condition: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']]] = None,
+            condition: Optional[pulumi.Input[Union['ActionRuleActionGroupConditionArgs', 'ActionRuleActionGroupConditionArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            scope: Optional[pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']]] = None,
+            scope: Optional[pulumi.Input[Union['ActionRuleActionGroupScopeArgs', 'ActionRuleActionGroupScopeArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ActionRuleActionGroup':
         """
         Get an existing ActionRuleActionGroup resource's state with the given name, id, and optional extra
@@ -462,12 +467,12 @@ class ActionRuleActionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_group_id: Specifies the resource id of monitor action group.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['ActionRuleActionGroupConditionArgs', 'ActionRuleActionGroupConditionArgsDict']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Action Rule.
         :param pulumi.Input[bool] enabled: Is the Action Rule enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ActionRuleActionGroupScopeArgs']] scope: A `scope` block as defined below.
+        :param pulumi.Input[Union['ActionRuleActionGroupScopeArgs', 'ActionRuleActionGroupScopeArgsDict']] scope: A `scope` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

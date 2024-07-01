@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ServerKeyArgs', 'ServerKey']
@@ -130,9 +135,9 @@ class ServerKey(pulumi.CustomResource):
             ssl_minimal_tls_version_enforced="TLS1_1",
             storage_mb=51200,
             version="5.7",
-            identity=azure.mysql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         server = azure.keyvault.AccessPolicy("server",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -238,9 +243,9 @@ class ServerKey(pulumi.CustomResource):
             ssl_minimal_tls_version_enforced="TLS1_1",
             storage_mb=51200,
             version="5.7",
-            identity=azure.mysql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         server = azure.keyvault.AccessPolicy("server",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

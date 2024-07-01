@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -579,12 +584,12 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
                  control_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
                  control_plane_access_name: Optional[pulumi.Input[str]] = None,
                  core_network_technology: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlaneIdentityArgs', 'NetworkPacketCoreControlPlaneIdentityArgsDict']]] = None,
                  interoperability_settings_json: Optional[pulumi.Input[str]] = None,
-                 local_diagnostics_access: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']]] = None,
+                 local_diagnostics_access: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs', 'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlanePlatformArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlanePlatformArgs', 'NetworkPacketCoreControlPlanePlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -630,13 +635,13 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
             control_plane_access_ipv4_gateway="192.168.1.1",
             control_plane_access_ipv4_subnet="192.168.1.0/25",
             site_ids=[example_network_site.id],
-            local_diagnostics_access=azure.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs(
-                authentication_type="AAD",
-            ),
-            platform=azure.mobile.NetworkPacketCoreControlPlanePlatformArgs(
-                type="AKS-HCI",
-                edge_device_id=example_device.id,
-            ),
+            local_diagnostics_access={
+                "authenticationType": "AAD",
+            },
+            platform={
+                "type": "AKS-HCI",
+                "edgeDeviceId": example_device.id,
+            },
             interoperability_settings_json=json.dumps({
                 "key": "value",
             }),
@@ -660,12 +665,12 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         :param pulumi.Input[str] control_plane_access_ipv4_subnet: The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_name: Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `5GC` and `EPC`.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['NetworkPacketCoreControlPlaneIdentityArgs', 'NetworkPacketCoreControlPlaneIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] interoperability_settings_json: Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+        :param pulumi.Input[Union['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs', 'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict']] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         :param pulumi.Input[str] name: Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlanePlatformArgs']] platform: A `platform` block as defined below.
+        :param pulumi.Input[Union['NetworkPacketCoreControlPlanePlatformArgs', 'NetworkPacketCoreControlPlanePlatformArgsDict']] platform: A `platform` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
         :param pulumi.Input[str] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.
@@ -717,13 +722,13 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
             control_plane_access_ipv4_gateway="192.168.1.1",
             control_plane_access_ipv4_subnet="192.168.1.0/25",
             site_ids=[example_network_site.id],
-            local_diagnostics_access=azure.mobile.NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs(
-                authentication_type="AAD",
-            ),
-            platform=azure.mobile.NetworkPacketCoreControlPlanePlatformArgs(
-                type="AKS-HCI",
-                edge_device_id=example_device.id,
-            ),
+            local_diagnostics_access={
+                "authenticationType": "AAD",
+            },
+            platform={
+                "type": "AKS-HCI",
+                "edgeDeviceId": example_device.id,
+            },
             interoperability_settings_json=json.dumps({
                 "key": "value",
             }),
@@ -760,12 +765,12 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
                  control_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
                  control_plane_access_name: Optional[pulumi.Input[str]] = None,
                  core_network_technology: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlaneIdentityArgs', 'NetworkPacketCoreControlPlaneIdentityArgsDict']]] = None,
                  interoperability_settings_json: Optional[pulumi.Input[str]] = None,
-                 local_diagnostics_access: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']]] = None,
+                 local_diagnostics_access: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs', 'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlanePlatformArgs']]] = None,
+                 platform: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlanePlatformArgs', 'NetworkPacketCoreControlPlanePlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -821,12 +826,12 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
             control_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
             control_plane_access_name: Optional[pulumi.Input[str]] = None,
             core_network_technology: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlaneIdentityArgs', 'NetworkPacketCoreControlPlaneIdentityArgsDict']]] = None,
             interoperability_settings_json: Optional[pulumi.Input[str]] = None,
-            local_diagnostics_access: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']]] = None,
+            local_diagnostics_access: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs', 'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            platform: Optional[pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlanePlatformArgs']]] = None,
+            platform: Optional[pulumi.Input[Union['NetworkPacketCoreControlPlanePlatformArgs', 'NetworkPacketCoreControlPlanePlatformArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             site_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -845,12 +850,12 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         :param pulumi.Input[str] control_plane_access_ipv4_subnet: The IPv4 subnet for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] control_plane_access_name: Specifies the logical name for this interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] core_network_technology: The core network technology generation. Possible values are `5GC` and `EPC`.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['NetworkPacketCoreControlPlaneIdentityArgs', 'NetworkPacketCoreControlPlaneIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] interoperability_settings_json: Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs']] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
+        :param pulumi.Input[Union['NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs', 'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict']] local_diagnostics_access: One or more `local_diagnostics_access` blocks as defined below. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         :param pulumi.Input[str] name: Specifies The name of the Mobile Network Packet Core Control Plane. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
-        :param pulumi.Input[pulumi.InputType['NetworkPacketCoreControlPlanePlatformArgs']] platform: A `platform` block as defined below.
+        :param pulumi.Input[Union['NetworkPacketCoreControlPlanePlatformArgs', 'NetworkPacketCoreControlPlanePlatformArgsDict']] platform: A `platform` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_ids: A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane.
         :param pulumi.Input[str] sku: The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`.

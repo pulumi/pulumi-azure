@@ -4,16 +4,35 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CatalogCatalogAdogitArgs',
+    'CatalogCatalogAdogitArgsDict',
     'CatalogCatalogGithubArgs',
+    'CatalogCatalogGithubArgsDict',
     'DevCenterIdentityArgs',
+    'DevCenterIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CatalogCatalogAdogitArgsDict(TypedDict):
+        branch: pulumi.Input[str]
+        key_vault_key_url: pulumi.Input[str]
+        path: pulumi.Input[str]
+        uri: pulumi.Input[str]
+elif False:
+    CatalogCatalogAdogitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CatalogCatalogAdogitArgs:
@@ -64,6 +83,15 @@ class CatalogCatalogAdogitArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class CatalogCatalogGithubArgsDict(TypedDict):
+        branch: pulumi.Input[str]
+        key_vault_key_url: pulumi.Input[str]
+        path: pulumi.Input[str]
+        uri: pulumi.Input[str]
+elif False:
+    CatalogCatalogGithubArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CatalogCatalogGithubArgs:
     def __init__(__self__, *,
@@ -112,6 +140,15 @@ class CatalogCatalogGithubArgs:
     def uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class DevCenterIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    DevCenterIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DevCenterIdentityArgs:

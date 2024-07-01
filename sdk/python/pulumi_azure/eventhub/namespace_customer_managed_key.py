@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['NamespaceCustomerManagedKeyInitArgs', 'NamespaceCustomerManagedKey']
@@ -206,9 +211,9 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
@@ -285,10 +290,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
@@ -394,9 +399,9 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
@@ -473,10 +478,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",

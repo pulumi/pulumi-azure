@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -130,7 +135,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 security_policies: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecurityPolicySecurityPoliciesArgs']]] = None,
+                 security_policies: Optional[pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Front Door (standard/premium) Security Policy.
@@ -157,24 +162,24 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             redirect_url="https://www.contoso.com",
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
-            custom_rules=[azure.cdn.FrontdoorFirewallPolicyCustomRuleArgs(
-                name="Rule1",
-                enabled=True,
-                priority=1,
-                rate_limit_duration_in_minutes=1,
-                rate_limit_threshold=10,
-                type="MatchRule",
-                action="Block",
-                match_conditions=[azure.cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs(
-                    match_variable="RemoteAddr",
-                    operator="IPMatch",
-                    negation_condition=False,
-                    match_values=[
+            custom_rules=[{
+                "name": "Rule1",
+                "enabled": True,
+                "priority": 1,
+                "rateLimitDurationInMinutes": 1,
+                "rateLimitThreshold": 10,
+                "type": "MatchRule",
+                "action": "Block",
+                "matchConditions": [{
+                    "matchVariable": "RemoteAddr",
+                    "operator": "IPMatch",
+                    "negationCondition": False,
+                    "matchValues": [
                         "192.168.1.0/24",
                         "10.0.1.0/24",
                     ],
-                )],
-            )])
+                }],
+            }])
         example_zone = azure.dns.Zone("example",
             name="sub-domain.domain.com",
             resource_group_name=example.name)
@@ -183,24 +188,24 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
             name="Example-Security-Policy",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            security_policies=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesArgs(
-                firewall=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs(
-                    cdn_frontdoor_firewall_policy_id=example_frontdoor_firewall_policy.id,
-                    association=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs(
-                        domains=[azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs(
-                            cdn_frontdoor_domain_id=example_frontdoor_custom_domain.id,
-                        )],
-                        patterns_to_match="/*",
-                    ),
-                ),
-            ))
+            security_policies={
+                "firewall": {
+                    "cdnFrontdoorFirewallPolicyId": example_frontdoor_firewall_policy.id,
+                    "association": {
+                        "domains": [{
+                            "cdnFrontdoorDomainId": example_frontdoor_custom_domain.id,
+                        }],
+                        "patternsToMatch": "/*",
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -215,7 +220,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorSecurityPolicySecurityPoliciesArgs']] security_policies: An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         ...
     @overload
@@ -248,24 +253,24 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             redirect_url="https://www.contoso.com",
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
-            custom_rules=[azure.cdn.FrontdoorFirewallPolicyCustomRuleArgs(
-                name="Rule1",
-                enabled=True,
-                priority=1,
-                rate_limit_duration_in_minutes=1,
-                rate_limit_threshold=10,
-                type="MatchRule",
-                action="Block",
-                match_conditions=[azure.cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs(
-                    match_variable="RemoteAddr",
-                    operator="IPMatch",
-                    negation_condition=False,
-                    match_values=[
+            custom_rules=[{
+                "name": "Rule1",
+                "enabled": True,
+                "priority": 1,
+                "rateLimitDurationInMinutes": 1,
+                "rateLimitThreshold": 10,
+                "type": "MatchRule",
+                "action": "Block",
+                "matchConditions": [{
+                    "matchVariable": "RemoteAddr",
+                    "operator": "IPMatch",
+                    "negationCondition": False,
+                    "matchValues": [
                         "192.168.1.0/24",
                         "10.0.1.0/24",
                     ],
-                )],
-            )])
+                }],
+            }])
         example_zone = azure.dns.Zone("example",
             name="sub-domain.domain.com",
             resource_group_name=example.name)
@@ -274,24 +279,24 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
             name="Example-Security-Policy",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
-            security_policies=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesArgs(
-                firewall=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs(
-                    cdn_frontdoor_firewall_policy_id=example_frontdoor_firewall_policy.id,
-                    association=azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs(
-                        domains=[azure.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs(
-                            cdn_frontdoor_domain_id=example_frontdoor_custom_domain.id,
-                        )],
-                        patterns_to_match="/*",
-                    ),
-                ),
-            ))
+            security_policies={
+                "firewall": {
+                    "cdnFrontdoorFirewallPolicyId": example_frontdoor_firewall_policy.id,
+                    "association": {
+                        "domains": [{
+                            "cdnFrontdoorDomainId": example_frontdoor_custom_domain.id,
+                        }],
+                        "patternsToMatch": "/*",
+                    },
+                },
+            })
         ```
 
         ## Import
@@ -319,7 +324,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 security_policies: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecurityPolicySecurityPoliciesArgs']]] = None,
+                 security_policies: Optional[pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -348,7 +353,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            security_policies: Optional[pulumi.Input[pulumi.InputType['FrontdoorSecurityPolicySecurityPoliciesArgs']]] = None) -> 'FrontdoorSecurityPolicy':
+            security_policies: Optional[pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']]] = None) -> 'FrontdoorSecurityPolicy':
         """
         Get an existing FrontdoorSecurityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -358,7 +363,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorSecurityPolicySecurityPoliciesArgs']] security_policies: An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

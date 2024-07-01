@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -722,8 +727,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
@@ -733,14 +738,14 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  escape_character: Optional[pulumi.Input[str]] = None,
                  first_row_as_header: Optional[pulumi.Input[bool]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']]] = None,
+                 http_server_location: Optional[pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_value: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  quote_character: Optional[pulumi.Input[str]] = None,
                  row_delimiter: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Delimited Text Dataset inside an Azure Data Factory.
@@ -767,11 +772,11 @@ class DatasetDelimitedText(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(
-                relative_url="http://www.bing.com",
-                path="foo/bar/",
-                filename="fizz.txt",
-            ),
+            http_server_location={
+                "relativeUrl": "http://www.bing.com",
+                "path": "foo/bar/",
+                "filename": "fizz.txt",
+            },
             column_delimiter=",",
             row_delimiter="NEW",
             encoding="UTF-8",
@@ -795,8 +800,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
                
                The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
@@ -806,7 +811,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[str] escape_character: The escape character. Defaults to `\\`.
         :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']] http_server_location: A `http_server_location` block as defined below.
                
                The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
@@ -815,7 +820,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
     @overload
@@ -848,11 +853,11 @@ class DatasetDelimitedText(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(
-                relative_url="http://www.bing.com",
-                path="foo/bar/",
-                filename="fizz.txt",
-            ),
+            http_server_location={
+                "relativeUrl": "http://www.bing.com",
+                "path": "foo/bar/",
+                "filename": "fizz.txt",
+            },
             column_delimiter=",",
             row_delimiter="NEW",
             encoding="UTF-8",
@@ -887,8 +892,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
                  column_delimiter: Optional[pulumi.Input[str]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
@@ -898,14 +903,14 @@ class DatasetDelimitedText(pulumi.CustomResource):
                  escape_character: Optional[pulumi.Input[str]] = None,
                  first_row_as_header: Optional[pulumi.Input[bool]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']]] = None,
+                 http_server_location: Optional[pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  null_value: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  quote_character: Optional[pulumi.Input[str]] = None,
                  row_delimiter: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -952,8 +957,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']]] = None,
-            azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']]] = None,
+            azure_blob_fs_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']]] = None,
+            azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']]] = None,
             column_delimiter: Optional[pulumi.Input[str]] = None,
             compression_codec: Optional[pulumi.Input[str]] = None,
             compression_level: Optional[pulumi.Input[str]] = None,
@@ -963,14 +968,14 @@ class DatasetDelimitedText(pulumi.CustomResource):
             escape_character: Optional[pulumi.Input[str]] = None,
             first_row_as_header: Optional[pulumi.Input[bool]] = None,
             folder: Optional[pulumi.Input[str]] = None,
-            http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']]] = None,
+            http_server_location: Optional[pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']]] = None,
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             null_value: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             quote_character: Optional[pulumi.Input[str]] = None,
             row_delimiter: Optional[pulumi.Input[str]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]]] = None) -> 'DatasetDelimitedText':
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]]] = None) -> 'DatasetDelimitedText':
         """
         Get an existing DatasetDelimitedText resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -982,8 +987,8 @@ class DatasetDelimitedText(pulumi.CustomResource):
                
                The following supported locations for a Delimited Text Dataset (exactly one of them must be set):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobFsLocationArgs']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextAzureBlobStorageLocationArgs']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[Union['DatasetDelimitedTextAzureBlobFsLocationArgs', 'DatasetDelimitedTextAzureBlobFsLocationArgsDict']] azure_blob_fs_location: An `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input[Union['DatasetDelimitedTextAzureBlobStorageLocationArgs', 'DatasetDelimitedTextAzureBlobStorageLocationArgsDict']] azure_blob_storage_location: An `azure_blob_storage_location` block as defined below.
         :param pulumi.Input[str] column_delimiter: The column delimiter. Defaults to `,`.
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive.
         :param pulumi.Input[str] compression_level: The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive.
@@ -993,7 +998,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[str] escape_character: The escape character. Defaults to `\\`.
         :param pulumi.Input[bool] first_row_as_header: When used as input, treat the first row of data as headers. When used as output, write the headers into the output as the first row of data. Defaults to `false`.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['DatasetDelimitedTextHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetDelimitedTextHttpServerLocationArgs', 'DatasetDelimitedTextHttpServerLocationArgsDict']] http_server_location: A `http_server_location` block as defined below.
                
                The following supported arguments are specific to Delimited Text Dataset:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
@@ -1002,7 +1007,7 @@ class DatasetDelimitedText(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] quote_character: The quote character. Defaults to `"`.
         :param pulumi.Input[str] row_delimiter: The row delimiter. Defaults to any of the following values on read: `\\r\\n`, `\\r`, `\\n`, and `\\n` or `\\r\\n` on write by mapping data flow and Copy activity respectively.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetDelimitedTextSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetDelimitedTextSchemaColumnArgs', 'DatasetDelimitedTextSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

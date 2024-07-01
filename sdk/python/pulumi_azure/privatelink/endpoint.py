@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -368,11 +373,11 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 private_dns_zone_group: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']]] = None,
-                 private_service_connection: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']]] = None,
+                 private_dns_zone_group: Optional[pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
+                 private_service_connection: Optional[pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -419,30 +424,30 @@ class Endpoint(pulumi.CustomResource):
             sku="Standard",
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name=example_public_ip.name,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_link_service = azure.privatedns.LinkService("example",
             name="example-privatelink",
             location=example.location,
             resource_group_name=example.name,
-            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                name=example_public_ip.name,
-                primary=True,
-                subnet_id=service.id,
-            )],
+            nat_ip_configurations=[{
+                "name": example_public_ip.name,
+                "primary": True,
+                "subnetId": service.id,
+            }],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
         example_endpoint = azure.privatelink.Endpoint("example",
             name="example-endpoint",
             location=example.location,
             resource_group_name=example.name,
             subnet_id=endpoint.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="example-privateserviceconnection",
-                private_connection_resource_id=example_link_service.id,
-                is_manual_connection=False,
-            ))
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "privateConnectionResourceId": example_link_service.id,
+                "isManualConnection": False,
+            })
         ```
 
         Using a Private Link Service Alias with existing resources:
@@ -462,12 +467,12 @@ class Endpoint(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             subnet_id=subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="example-privateserviceconnection",
-                private_connection_resource_alias="example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
-                is_manual_connection=True,
-                request_message="PL",
-            ))
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "privateConnectionResourceAlias": "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
+                "isManualConnection": True,
+                "requestMessage": "PL",
+            })
         ```
 
         Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
@@ -503,16 +508,16 @@ class Endpoint(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="example-privateserviceconnection",
-                private_connection_resource_id=example_account.id,
-                subresource_names=["blob"],
-                is_manual_connection=False,
-            ),
-            private_dns_zone_group=azure.privatelink.EndpointPrivateDnsZoneGroupArgs(
-                name="example-dns-zone-group",
-                private_dns_zone_ids=[example_zone.id],
-            ))
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "privateConnectionResourceId": example_account.id,
+                "subresourceNames": ["blob"],
+                "isManualConnection": False,
+            },
+            private_dns_zone_group={
+                "name": "example-dns-zone-group",
+                "privateDnsZoneIds": [example_zone.id],
+            })
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="example-link",
             resource_group_name=example.name,
@@ -541,11 +546,11 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
-        :param pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']] private_service_connection: A `private_service_connection` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -598,30 +603,30 @@ class Endpoint(pulumi.CustomResource):
             sku="Standard",
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name=example_public_ip.name,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_link_service = azure.privatedns.LinkService("example",
             name="example-privatelink",
             location=example.location,
             resource_group_name=example.name,
-            nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                name=example_public_ip.name,
-                primary=True,
-                subnet_id=service.id,
-            )],
+            nat_ip_configurations=[{
+                "name": example_public_ip.name,
+                "primary": True,
+                "subnetId": service.id,
+            }],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
         example_endpoint = azure.privatelink.Endpoint("example",
             name="example-endpoint",
             location=example.location,
             resource_group_name=example.name,
             subnet_id=endpoint.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="example-privateserviceconnection",
-                private_connection_resource_id=example_link_service.id,
-                is_manual_connection=False,
-            ))
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "privateConnectionResourceId": example_link_service.id,
+                "isManualConnection": False,
+            })
         ```
 
         Using a Private Link Service Alias with existing resources:
@@ -641,12 +646,12 @@ class Endpoint(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             subnet_id=subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="example-privateserviceconnection",
-                private_connection_resource_alias="example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
-                is_manual_connection=True,
-                request_message="PL",
-            ))
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "privateConnectionResourceAlias": "example-privatelinkservice.d20286c8-4ea5-11eb-9584-8f53157226c6.centralus.azure.privatelinkservice",
+                "isManualConnection": True,
+                "requestMessage": "PL",
+            })
         ```
 
         Using a Private Endpoint pointing to an *owned* Azure service, with proper DNS configuration:
@@ -682,16 +687,16 @@ class Endpoint(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
-                name="example-privateserviceconnection",
-                private_connection_resource_id=example_account.id,
-                subresource_names=["blob"],
-                is_manual_connection=False,
-            ),
-            private_dns_zone_group=azure.privatelink.EndpointPrivateDnsZoneGroupArgs(
-                name="example-dns-zone-group",
-                private_dns_zone_ids=[example_zone.id],
-            ))
+            private_service_connection={
+                "name": "example-privateserviceconnection",
+                "privateConnectionResourceId": example_account.id,
+                "subresourceNames": ["blob"],
+                "isManualConnection": False,
+            },
+            private_dns_zone_group={
+                "name": "example-dns-zone-group",
+                "privateDnsZoneIds": [example_zone.id],
+            })
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="example-link",
             resource_group_name=example.name,
@@ -733,11 +738,11 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 private_dns_zone_group: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']]] = None,
-                 private_service_connection: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']]] = None,
+                 private_dns_zone_group: Optional[pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
+                 private_service_connection: Optional[pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -778,15 +783,15 @@ class Endpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomDnsConfigArgs']]]]] = None,
+            custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]]] = None,
             custom_network_interface_name: Optional[pulumi.Input[str]] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]]] = None,
+            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]]] = None,
-            private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneConfigArgs']]]]] = None,
-            private_dns_zone_group: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']]] = None,
-            private_service_connection: Optional[pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]]] = None,
+            private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict']]]]] = None,
+            private_dns_zone_group: Optional[pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']]] = None,
+            private_service_connection: Optional[pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Endpoint':
@@ -797,15 +802,15 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointCustomDnsConfigArgs']]]] custom_dns_configs: A `custom_dns_configs` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]] custom_dns_configs: A `custom_dns_configs` block as defined below.
         :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointIpConfigurationArgs']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]] network_interfaces: A `network_interface` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneConfigArgs']]]] private_dns_zone_configs: A `private_dns_zone_configs` block as defined below.
-        :param pulumi.Input[pulumi.InputType['EndpointPrivateDnsZoneGroupArgs']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
-        :param pulumi.Input[pulumi.InputType['EndpointPrivateServiceConnectionArgs']] private_service_connection: A `private_service_connection` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]] network_interfaces: A `network_interface` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPrivateDnsZoneConfigArgs', 'EndpointPrivateDnsZoneConfigArgsDict']]]] private_dns_zone_configs: A `private_dns_zone_configs` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateDnsZoneGroupArgs', 'EndpointPrivateDnsZoneGroupArgsDict']] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
+        :param pulumi.Input[Union['EndpointPrivateServiceConnectionArgs', 'EndpointPrivateServiceConnectionArgsDict']] private_service_connection: A `private_service_connection` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.

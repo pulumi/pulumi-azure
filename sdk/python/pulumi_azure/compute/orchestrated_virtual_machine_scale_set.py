@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -1200,37 +1205,37 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+                 automatic_instance_repair: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetExtensionArgs', 'OrchestratedVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetIdentityArgs', 'OrchestratedVirtualMachineScaleSetIdentityArgsDict']]] = None,
                  instances: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]]] = None,
-                 os_disk: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsDiskArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+                 os_disk: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict']]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
-                 priority_mix: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]] = None,
+                 priority_mix: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
-                 source_image_reference: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
+                 source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
+                 termination_notification: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1271,39 +1276,39 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
                
                > **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
                
                > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetExtensionArgs', 'OrchestratedVirtualMachineScaleSetExtensionArgsDict']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetIdentityArgs', 'OrchestratedVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Virtual Machine Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']] os_profile: An `os_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']] os_profile: An `os_profile` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] priority_mix: a `priority_mix` block as defined below
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
@@ -1311,9 +1316,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                > **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
         :param pulumi.Input[str] sku_name: The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
                
@@ -1377,37 +1382,37 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']]] = None,
-                 automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+                 automatic_instance_repair: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]]] = None,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
-                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]]] = None,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetExtensionArgs', 'OrchestratedVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetIdentityArgs', 'OrchestratedVirtualMachineScaleSetIdentityArgsDict']]] = None,
                  instances: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]]] = None,
-                 os_disk: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsDiskArgs']]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+                 os_disk: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict']]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
-                 priority_mix: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]] = None,
+                 priority_mix: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
-                 source_image_reference: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
+                 source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
+                 termination_notification: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1471,37 +1476,37 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_capabilities: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']]] = None,
-            automatic_instance_repair: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']]] = None,
-            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']]] = None,
+            additional_capabilities: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']]] = None,
+            automatic_instance_repair: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
+            boot_diagnostics: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
-            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]]] = None,
+            data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
-            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]]] = None,
+            extensions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetExtensionArgs', 'OrchestratedVirtualMachineScaleSetExtensionArgsDict']]]]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetIdentityArgs', 'OrchestratedVirtualMachineScaleSetIdentityArgsDict']]] = None,
             instances: Optional[pulumi.Input[int]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_bid_price: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]]] = None,
-            os_disk: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsDiskArgs']]] = None,
-            os_profile: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]]] = None,
+            os_disk: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']]] = None,
+            os_profile: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']]] = None,
+            plan: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict']]] = None,
             platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
             priority: Optional[pulumi.Input[str]] = None,
-            priority_mix: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']]] = None,
+            priority_mix: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             single_placement_group: Optional[pulumi.Input[bool]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
-            source_image_reference: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
+            source_image_reference: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
+            termination_notification: Optional[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
             user_data_base64: Optional[pulumi.Input[str]] = None,
             zone_balance: Optional[pulumi.Input[bool]] = None,
@@ -1513,39 +1518,39 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs', 'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']] automatic_instance_repair: An `automatic_instance_repair` block as defined below.
                
                > **NOTE:** To enable the `automatic_instance_repair`, the Virtual Machine Scale Set must have an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs', 'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
                > **NOTE:** `capacity_reservation_group_id` cannot be specified with `proximity_placement_group_id`
                
                > **NOTE:** If `capacity_reservation_group_id` is specified the `single_placement_group` must be set to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetDataDiskArgs']]]] data_disks: One or more `data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetDataDiskArgs', 'OrchestratedVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should disks attached to this Virtual Machine Scale Set be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
                
                > **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetExtensionArgs', 'OrchestratedVirtualMachineScaleSetExtensionArgsDict']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetIdentityArgs', 'OrchestratedVirtualMachineScaleSetIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Virtual Machine Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the eviction_policy. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetOsProfileArgs']] os_profile: An `os_profile` block as defined below.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs', 'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsDiskArgs', 'OrchestratedVirtualMachineScaleSetOsDiskArgsDict']] os_disk: An `os_disk` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetOsProfileArgs', 'OrchestratedVirtualMachineScaleSetOsProfileArgsDict']] os_profile: An `os_profile` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPlanArgs', 'OrchestratedVirtualMachineScaleSetPlanArgsDict']] plan: A `plan` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
                
                > **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetPriorityMixArgs']] priority_mix: a `priority_mix` block as defined below
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetPriorityMixArgs', 'OrchestratedVirtualMachineScaleSetPriorityMixArgsDict']] priority_mix: a `priority_mix` block as defined below
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
@@ -1553,9 +1558,9 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                > **NOTE:** `single_placement_group` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `single_placement_group` field in your configuration file as the service will determine what this value should be based off of the value contained within the `sku_name` field of your configuration file. You may set the `single_placement_group` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
         :param pulumi.Input[str] sku_name: The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
         :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs', 'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
-        :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
+        :param pulumi.Input[Union['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs', 'OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict']] termination_notification: A `termination_notification` block as defined below.
         :param pulumi.Input[str] unique_id: The Unique ID for the Virtual Machine Scale Set.
         :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[bool] zone_balance: Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.

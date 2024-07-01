@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -359,13 +364,13 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
-                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]] = None,
-                 failover_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]] = None,
+                 azure_to_azure_settings: Optional[pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']]] = None,
+                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]]] = None,
+                 failover_recovery_group: Optional[pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
+                 recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanRecoveryGroupArgs', 'ReplicationRecoveryPlanRecoveryGroupArgsDict']]]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
-                 shutdown_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]] = None,
+                 shutdown_recovery_group: Optional[pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']]] = None,
                  source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -404,39 +409,39 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             name="vm-nic",
             location=primary.location,
             resource_group_name=primary.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm",
-                subnet_id=primary_subnet.id,
-                private_ip_address_allocation="Dynamic",
-                public_ip_address_id=primary_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "vm",
+                "subnetId": primary_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "publicIpAddressId": primary_public_ip.id,
+            }])
         vm = azure.compute.VirtualMachine("vm",
             name="vm",
             location=primary.location,
             resource_group_name=primary.name,
             vm_size="Standard_B1s",
             network_interface_ids=[vm_network_interface.id],
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="vm-os-disk",
-                os_type="Linux",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Premium_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                admin_username="test-admin-123",
-                admin_password="test-pwd-123",
-                computer_name="vm",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "vm-os-disk",
+                "osType": "Linux",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Premium_LRS",
+            },
+            os_profile={
+                "adminUsername": "test-admin-123",
+                "adminPassword": "test-pwd-123",
+                "computerName": "vm",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
             location=secondary.location,
@@ -517,18 +522,18 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             target_resource_group_id=secondary.id,
             target_recovery_fabric_id=secondary_fabric.id,
             target_recovery_protection_container_id=secondary_protection_container.id,
-            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
-                disk_id=vm.storage_os_disk.managed_disk_id,
-                staging_storage_account_id=primary_account.id,
-                target_resource_group_id=secondary.id,
-                target_disk_type="Premium_LRS",
-                target_replica_disk_type="Premium_LRS",
-            )],
-            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
-                source_network_interface_id=vm_network_interface.id,
-                target_subnet_name=secondary_subnet.name,
-                recovery_public_ip_address_id=secondary_public_ip.id,
-            )],
+            managed_disks=[{
+                "diskId": vm.storage_os_disk.managed_disk_id,
+                "stagingStorageAccountId": primary_account.id,
+                "targetResourceGroupId": secondary.id,
+                "targetDiskType": "Premium_LRS",
+                "targetReplicaDiskType": "Premium_LRS",
+            }],
+            network_interfaces=[{
+                "sourceNetworkInterfaceId": vm_network_interface.id,
+                "targetSubnetName": secondary_subnet.name,
+                "recoveryPublicIpAddressId": secondary_public_ip.id,
+            }],
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
@@ -538,11 +543,11 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             recovery_vault_id=vault.id,
             source_recovery_fabric_id=primary_fabric.id,
             target_recovery_fabric_id=secondary_fabric.id,
-            shutdown_recovery_group=azure.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs(),
-            failover_recovery_group=azure.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs(),
-            boot_recovery_groups=[azure.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs(
-                replicated_protected_items=[vm_replication.id],
-            )])
+            shutdown_recovery_group={},
+            failover_recovery_group={},
+            boot_recovery_groups=[{
+                "replicatedProtectedItems": [vm_replication.id],
+            }])
         ```
 
         ## Import
@@ -555,19 +560,19 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
                
                > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] failover_recovery_group: One `failover_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']] failover_recovery_group: One `failover_recovery_group` block as defined below.
                
                > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanRecoveryGroupArgs', 'ReplicationRecoveryPlanRecoveryGroupArgsDict']]]] recovery_groups: Three or more `recovery_group` block defined as below.
                
                > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
                
                > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.
@@ -614,39 +619,39 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             name="vm-nic",
             location=primary.location,
             resource_group_name=primary.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="vm",
-                subnet_id=primary_subnet.id,
-                private_ip_address_allocation="Dynamic",
-                public_ip_address_id=primary_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "vm",
+                "subnetId": primary_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+                "publicIpAddressId": primary_public_ip.id,
+            }])
         vm = azure.compute.VirtualMachine("vm",
             name="vm",
             location=primary.location,
             resource_group_name=primary.name,
             vm_size="Standard_B1s",
             network_interface_ids=[vm_network_interface.id],
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="vm-os-disk",
-                os_type="Linux",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Premium_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                admin_username="test-admin-123",
-                admin_password="test-pwd-123",
-                computer_name="vm",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "vm-os-disk",
+                "osType": "Linux",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Premium_LRS",
+            },
+            os_profile={
+                "adminUsername": "test-admin-123",
+                "adminPassword": "test-pwd-123",
+                "computerName": "vm",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
             location=secondary.location,
@@ -727,18 +732,18 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             target_resource_group_id=secondary.id,
             target_recovery_fabric_id=secondary_fabric.id,
             target_recovery_protection_container_id=secondary_protection_container.id,
-            managed_disks=[azure.siterecovery.ReplicatedVMManagedDiskArgs(
-                disk_id=vm.storage_os_disk.managed_disk_id,
-                staging_storage_account_id=primary_account.id,
-                target_resource_group_id=secondary.id,
-                target_disk_type="Premium_LRS",
-                target_replica_disk_type="Premium_LRS",
-            )],
-            network_interfaces=[azure.siterecovery.ReplicatedVMNetworkInterfaceArgs(
-                source_network_interface_id=vm_network_interface.id,
-                target_subnet_name=secondary_subnet.name,
-                recovery_public_ip_address_id=secondary_public_ip.id,
-            )],
+            managed_disks=[{
+                "diskId": vm.storage_os_disk.managed_disk_id,
+                "stagingStorageAccountId": primary_account.id,
+                "targetResourceGroupId": secondary.id,
+                "targetDiskType": "Premium_LRS",
+                "targetReplicaDiskType": "Premium_LRS",
+            }],
+            network_interfaces=[{
+                "sourceNetworkInterfaceId": vm_network_interface.id,
+                "targetSubnetName": secondary_subnet.name,
+                "recoveryPublicIpAddressId": secondary_public_ip.id,
+            }],
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
                     network_mapping,
@@ -748,11 +753,11 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             recovery_vault_id=vault.id,
             source_recovery_fabric_id=primary_fabric.id,
             target_recovery_fabric_id=secondary_fabric.id,
-            shutdown_recovery_group=azure.siterecovery.ReplicationRecoveryPlanShutdownRecoveryGroupArgs(),
-            failover_recovery_group=azure.siterecovery.ReplicationRecoveryPlanFailoverRecoveryGroupArgs(),
-            boot_recovery_groups=[azure.siterecovery.ReplicationRecoveryPlanBootRecoveryGroupArgs(
-                replicated_protected_items=[vm_replication.id],
-            )])
+            shutdown_recovery_group={},
+            failover_recovery_group={},
+            boot_recovery_groups=[{
+                "replicatedProtectedItems": [vm_replication.id],
+            }])
         ```
 
         ## Import
@@ -778,13 +783,13 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
-                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]] = None,
-                 failover_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]] = None,
+                 azure_to_azure_settings: Optional[pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']]] = None,
+                 boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]]] = None,
+                 failover_recovery_group: Optional[pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
+                 recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanRecoveryGroupArgs', 'ReplicationRecoveryPlanRecoveryGroupArgsDict']]]]] = None,
                  recovery_vault_id: Optional[pulumi.Input[str]] = None,
-                 shutdown_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]] = None,
+                 shutdown_recovery_group: Optional[pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']]] = None,
                  source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  target_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -821,13 +826,13 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            azure_to_azure_settings: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']]] = None,
-            boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]]] = None,
-            failover_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']]] = None,
+            azure_to_azure_settings: Optional[pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']]] = None,
+            boot_recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]]] = None,
+            failover_recovery_group: Optional[pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]]] = None,
+            recovery_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanRecoveryGroupArgs', 'ReplicationRecoveryPlanRecoveryGroupArgsDict']]]]] = None,
             recovery_vault_id: Optional[pulumi.Input[str]] = None,
-            shutdown_recovery_group: Optional[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']]] = None,
+            shutdown_recovery_group: Optional[pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']]] = None,
             source_recovery_fabric_id: Optional[pulumi.Input[str]] = None,
             target_recovery_fabric_id: Optional[pulumi.Input[str]] = None) -> 'ReplicationRecoveryPlan':
         """
@@ -837,19 +842,19 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanAzureToAzureSettingsArgs']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanBootRecoveryGroupArgs']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanAzureToAzureSettingsArgs', 'ReplicationRecoveryPlanAzureToAzureSettingsArgsDict']] azure_to_azure_settings: An `azure_to_azure_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanBootRecoveryGroupArgs', 'ReplicationRecoveryPlanBootRecoveryGroupArgsDict']]]] boot_recovery_groups: One or more `boot_recovery_group` blocks as defined below.
                
                > **NOTE:** At least one `boot_recovery_group` block will be required in the next major version of the AzureRM Provider.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanFailoverRecoveryGroupArgs']] failover_recovery_group: One `failover_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanFailoverRecoveryGroupArgs', 'ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict']] failover_recovery_group: One `failover_recovery_group` block as defined below.
                
                > **NOTE:** `failover_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] name: The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanRecoveryGroupArgs']]]] recovery_groups: Three or more `recovery_group` block defined as below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationRecoveryPlanRecoveryGroupArgs', 'ReplicationRecoveryPlanRecoveryGroupArgsDict']]]] recovery_groups: Three or more `recovery_group` block defined as below.
                
                > **Note:** The `recovery_group` block is deprecated in favor of `shutdown_recovery_group`, `failover_recovery_group` and `boot_recovery_group`. It will be removed in v4.0 of the Azure Provider.
         :param pulumi.Input[str] recovery_vault_id: The ID of the vault that should be updated. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ReplicationRecoveryPlanShutdownRecoveryGroupArgs']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
+        :param pulumi.Input[Union['ReplicationRecoveryPlanShutdownRecoveryGroupArgs', 'ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict']] shutdown_recovery_group: One `shutdown_recovery_group` block as defined below.
                
                > **NOTE:** `shutdown_recovery_group` will be required in the next major version of the AzureRM Provider.
         :param pulumi.Input[str] source_recovery_fabric_id: ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created.

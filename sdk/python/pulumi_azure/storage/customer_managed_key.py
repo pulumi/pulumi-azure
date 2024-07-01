@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['CustomerManagedKeyArgs', 'CustomerManagedKey']
@@ -315,9 +320,9 @@ class CustomerManagedKey(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         storage = azure.keyvault.AccessPolicy("storage",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -425,9 +430,9 @@ class CustomerManagedKey(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         storage = azure.keyvault.AccessPolicy("storage",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

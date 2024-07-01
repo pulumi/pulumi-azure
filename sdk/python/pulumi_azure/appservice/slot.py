@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -610,19 +615,19 @@ class Slot(pulumi.CustomResource):
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SlotIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['SlotLogsArgs']]] = None,
+                 logs: Optional[pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]]] = None,
+                 site_config: Optional[pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -653,43 +658,43 @@ class Slot(pulumi.CustomResource):
             name="some-app-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name=server.hex,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-            ),
+            site_config={
+                "dotnetFrameworkVersion": "v4.0",
+            },
             app_settings={
                 "SOME_KEY": "some-value",
             },
-            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
+            connection_strings=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }])
         example_slot = azure.appservice.Slot("example",
             name=server.hex,
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.SlotSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-            ),
+            site_config={
+                "dotnetFrameworkVersion": "v4.0",
+            },
             app_settings={
                 "SOME_KEY": "some-value",
             },
-            connection_strings=[azure.appservice.SlotConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
+            connection_strings=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }])
         ```
 
         ### Java 1.8)
@@ -711,31 +716,31 @@ class Slot(pulumi.CustomResource):
             name="some-app-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name=server.hex,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                java_version="1.8",
-                java_container="JETTY",
-                java_container_version="9.3",
-            ))
+            site_config={
+                "javaVersion": "1.8",
+                "javaContainer": "JETTY",
+                "javaContainerVersion": "9.3",
+            })
         example_slot = azure.appservice.Slot("example",
             name=server.hex,
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.SlotSiteConfigArgs(
-                java_version="1.8",
-                java_container="JETTY",
-                java_container_version="9.3",
-            ))
+            site_config={
+                "javaVersion": "1.8",
+                "javaContainer": "JETTY",
+                "javaContainerVersion": "9.3",
+            })
         ```
 
         ## Import
@@ -751,19 +756,19 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
-        :param pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -800,43 +805,43 @@ class Slot(pulumi.CustomResource):
             name="some-app-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name=server.hex,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-            ),
+            site_config={
+                "dotnetFrameworkVersion": "v4.0",
+            },
             app_settings={
                 "SOME_KEY": "some-value",
             },
-            connection_strings=[azure.appservice.AppServiceConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
+            connection_strings=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }])
         example_slot = azure.appservice.Slot("example",
             name=server.hex,
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.SlotSiteConfigArgs(
-                dotnet_framework_version="v4.0",
-            ),
+            site_config={
+                "dotnetFrameworkVersion": "v4.0",
+            },
             app_settings={
                 "SOME_KEY": "some-value",
             },
-            connection_strings=[azure.appservice.SlotConnectionStringArgs(
-                name="Database",
-                type="SQLServer",
-                value="Server=some-server.mydomain.com;Integrated Security=SSPI",
-            )])
+            connection_strings=[{
+                "name": "Database",
+                "type": "SQLServer",
+                "value": "Server=some-server.mydomain.com;Integrated Security=SSPI",
+            }])
         ```
 
         ### Java 1.8)
@@ -858,31 +863,31 @@ class Slot(pulumi.CustomResource):
             name="some-app-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name=server.hex,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.AppServiceSiteConfigArgs(
-                java_version="1.8",
-                java_container="JETTY",
-                java_container_version="9.3",
-            ))
+            site_config={
+                "javaVersion": "1.8",
+                "javaContainer": "JETTY",
+                "javaContainerVersion": "9.3",
+            })
         example_slot = azure.appservice.Slot("example",
             name=server.hex,
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
-            site_config=azure.appservice.SlotSiteConfigArgs(
-                java_version="1.8",
-                java_container="JETTY",
-                java_container_version="9.3",
-            ))
+            site_config={
+                "javaVersion": "1.8",
+                "javaContainer": "JETTY",
+                "javaContainerVersion": "9.3",
+            })
         ```
 
         ## Import
@@ -911,19 +916,19 @@ class Slot(pulumi.CustomResource):
                  app_service_name: Optional[pulumi.Input[str]] = None,
                  app_service_plan_id: Optional[pulumi.Input[str]] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
                  client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SlotIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['SlotLogsArgs']]] = None,
+                 logs: Optional[pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]]] = None,
+                 site_config: Optional[pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -972,21 +977,21 @@ class Slot(pulumi.CustomResource):
             app_service_name: Optional[pulumi.Input[str]] = None,
             app_service_plan_id: Optional[pulumi.Input[str]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            auth_settings: Optional[pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']]] = None,
+            auth_settings: Optional[pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']]] = None,
             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotConnectionStringArgs']]]]] = None,
+            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]]] = None,
             default_site_hostname: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['SlotIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']]] = None,
             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            logs: Optional[pulumi.Input[pulumi.InputType['SlotLogsArgs']]] = None,
+            logs: Optional[pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            site_config: Optional[pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotSiteCredentialArgs']]]]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]]] = None,
+            site_config: Optional[pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']]] = None,
+            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotSiteCredentialArgs', 'SlotSiteCredentialArgsDict']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Slot':
         """
         Get an existing Slot resource's state with the given name, id, and optional extra
@@ -998,21 +1003,21 @@ class Slot(pulumi.CustomResource):
         :param pulumi.Input[str] app_service_name: The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
-        :param pulumi.Input[pulumi.InputType['SlotAuthSettingsArgs']] auth_settings: A `auth_settings` block as defined below.
+        :param pulumi.Input[Union['SlotAuthSettingsArgs', 'SlotAuthSettingsArgsDict']] auth_settings: A `auth_settings` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotConnectionStringArgs']]]] connection_strings: An `connection_string` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotConnectionStringArgs', 'SlotConnectionStringArgsDict']]]] connection_strings: An `connection_string` block as defined below.
         :param pulumi.Input[str] default_site_hostname: The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net`
         :param pulumi.Input[bool] enabled: Is the App Service Slot Enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Can the App Service Slot only be accessed via HTTPS? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SlotIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['SlotIdentityArgs', 'SlotIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SlotLogsArgs']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['SlotLogsArgs', 'SlotLogsArgsDict']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the App Service Slot component. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SlotSiteConfigArgs']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Union['SlotSiteConfigArgs', 'SlotSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotSiteCredentialArgs', 'SlotSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service slot.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SlotStorageAccountArgs', 'SlotStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

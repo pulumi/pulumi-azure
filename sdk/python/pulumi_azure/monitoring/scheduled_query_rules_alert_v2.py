@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -749,14 +754,14 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -807,25 +812,25 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             window_duration="PT10M",
             scopes=example_insights.id,
             severity=4,
-            criterias=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaArgs(
-                query=\"\"\"requests
+            criterias=[{
+                "query": \"\"\"requests
           | summarize CountByCountry=count() by client_CountryOrRegion
         \"\"\",
-                time_aggregation_method="Maximum",
-                threshold=17.5,
-                operator="LessThan",
-                resource_id_column="client_CountryOrRegion",
-                metric_measure_column="CountByCountry",
-                dimensions=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs(
-                    name="client_CountryOrRegion",
-                    operator="Exclude",
-                    values=["123"],
-                )],
-                failing_periods=azure.monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs(
-                    minimum_failing_periods_to_trigger_alert=1,
-                    number_of_evaluation_periods=1,
-                ),
-            )],
+                "timeAggregationMethod": "Maximum",
+                "threshold": 17.5,
+                "operator": "LessThan",
+                "resourceIdColumn": "client_CountryOrRegion",
+                "metricMeasureColumn": "CountByCountry",
+                "dimensions": [{
+                    "name": "client_CountryOrRegion",
+                    "operator": "Exclude",
+                    "values": ["123"],
+                }],
+                "failingPeriods": {
+                    "minimumFailingPeriodsToTriggerAlert": 1,
+                    "numberOfEvaluationPeriods": 1,
+                },
+            }],
             auto_mitigation_enabled=True,
             workspace_alerts_storage_enabled=False,
             description="example sqr",
@@ -833,17 +838,17 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             enabled=True,
             query_time_range_override="PT1H",
             skip_query_validation=True,
-            action=azure.monitoring.ScheduledQueryRulesAlertV2ActionArgs(
-                action_groups=[example_action_group.id],
-                custom_properties={
+            action={
+                "actionGroups": [example_action_group.id],
+                "customProperties": {
                     "key": "value",
                     "key2": "value2",
                 },
-            ),
-            identity=azure.monitoring.ScheduledQueryRulesAlertV2IdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            },
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             tags={
                 "key": "value",
                 "key2": "value2",
@@ -861,9 +866,9 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']] action: An `action` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']] action: An `action` block as defined below.
         :param pulumi.Input[bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]] criterias: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
@@ -872,7 +877,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
                
                > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired. Possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D` and `P2D`.
                
@@ -933,25 +938,25 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             window_duration="PT10M",
             scopes=example_insights.id,
             severity=4,
-            criterias=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaArgs(
-                query=\"\"\"requests
+            criterias=[{
+                "query": \"\"\"requests
           | summarize CountByCountry=count() by client_CountryOrRegion
         \"\"\",
-                time_aggregation_method="Maximum",
-                threshold=17.5,
-                operator="LessThan",
-                resource_id_column="client_CountryOrRegion",
-                metric_measure_column="CountByCountry",
-                dimensions=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs(
-                    name="client_CountryOrRegion",
-                    operator="Exclude",
-                    values=["123"],
-                )],
-                failing_periods=azure.monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs(
-                    minimum_failing_periods_to_trigger_alert=1,
-                    number_of_evaluation_periods=1,
-                ),
-            )],
+                "timeAggregationMethod": "Maximum",
+                "threshold": 17.5,
+                "operator": "LessThan",
+                "resourceIdColumn": "client_CountryOrRegion",
+                "metricMeasureColumn": "CountByCountry",
+                "dimensions": [{
+                    "name": "client_CountryOrRegion",
+                    "operator": "Exclude",
+                    "values": ["123"],
+                }],
+                "failingPeriods": {
+                    "minimumFailingPeriodsToTriggerAlert": 1,
+                    "numberOfEvaluationPeriods": 1,
+                },
+            }],
             auto_mitigation_enabled=True,
             workspace_alerts_storage_enabled=False,
             description="example sqr",
@@ -959,17 +964,17 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             enabled=True,
             query_time_range_override="PT1H",
             skip_query_validation=True,
-            action=azure.monitoring.ScheduledQueryRulesAlertV2ActionArgs(
-                action_groups=[example_action_group.id],
-                custom_properties={
+            action={
+                "actionGroups": [example_action_group.id],
+                "customProperties": {
                     "key": "value",
                     "key2": "value2",
                 },
-            ),
-            identity=azure.monitoring.ScheduledQueryRulesAlertV2IdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            },
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             tags={
                 "key": "value",
                 "key2": "value2",
@@ -1000,14 +1005,14 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']]] = None,
+                 action: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  evaluation_frequency: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mute_actions_after_alert_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1072,15 +1077,15 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']]] = None,
+            action: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']]] = None,
             auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
             created_with_api_version: Optional[pulumi.Input[str]] = None,
-            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]]] = None,
+            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             evaluation_frequency: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']]] = None,
             is_a_legacy_log_analytics_rule: Optional[pulumi.Input[bool]] = None,
             is_workspace_alerts_storage_configured: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1102,10 +1107,10 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2ActionArgs']] action: An `action` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesAlertV2ActionArgs', 'ScheduledQueryRulesAlertV2ActionArgsDict']] action: An `action` block as defined below.
         :param pulumi.Input[bool] auto_mitigation_enabled: Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`.
         :param pulumi.Input[str] created_with_api_version: The api-version used when creating this alert rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2CriteriaArgs']]]] criterias: A `criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRulesAlertV2CriteriaArgs', 'ScheduledQueryRulesAlertV2CriteriaArgsDict']]]] criterias: A `criteria` block as defined below.
         :param pulumi.Input[str] description: Specifies the description of the scheduled query rule.
         :param pulumi.Input[str] display_name: Specifies the display name of the alert rule.
         :param pulumi.Input[bool] enabled: Specifies the flag which indicates whether this scheduled query rule is enabled. Value should be `true` or `false`. Defaults to `true`.
@@ -1114,7 +1119,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                > **Note** `evaluation_frequency` cannot be greater than the query look back which is `window_duration`*`number_of_evaluation_periods`.
                
                > **Note** `evaluation_frequency` cannot be greater than the `mute_actions_after_alert_duration`.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertV2IdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ScheduledQueryRulesAlertV2IdentityArgs', 'ScheduledQueryRulesAlertV2IdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] is_a_legacy_log_analytics_rule: True if this alert rule is a legacy Log Analytic Rule.
         :param pulumi.Input[bool] is_workspace_alerts_storage_configured: The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.

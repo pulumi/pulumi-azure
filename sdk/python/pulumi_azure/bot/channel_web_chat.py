@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -212,7 +217,7 @@ class ChannelWebChat(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]]] = None,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Web Chat integration for a Bot Channel
@@ -237,9 +242,9 @@ class ChannelWebChat(pulumi.CustomResource):
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
             resource_group_name=example.name,
-            sites=[azure.bot.ChannelWebChatSiteArgs(
-                name="TestSite",
-            )])
+            sites=[{
+                "name": "TestSite",
+            }])
         ```
 
         ## Import
@@ -258,7 +263,7 @@ class ChannelWebChat(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: A list of Web Chat Site names.
                
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         ...
     @overload
@@ -289,9 +294,9 @@ class ChannelWebChat(pulumi.CustomResource):
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
             resource_group_name=example.name,
-            sites=[azure.bot.ChannelWebChatSiteArgs(
-                name="TestSite",
-            )])
+            sites=[{
+                "name": "TestSite",
+            }])
         ```
 
         ## Import
@@ -321,7 +326,7 @@ class ChannelWebChat(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]]] = None,
+                 sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -354,7 +359,7 @@ class ChannelWebChat(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             site_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            sites: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]]] = None) -> 'ChannelWebChat':
+            sites: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]]] = None) -> 'ChannelWebChat':
         """
         Get an existing ChannelWebChat resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -368,7 +373,7 @@ class ChannelWebChat(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] site_names: A list of Web Chat Site names.
                
                > **NOTE:** `site_names` is deprecated and will be removed in favour of the property `site` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelWebChatSiteArgs']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelWebChatSiteArgs', 'ChannelWebChatSiteArgsDict']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

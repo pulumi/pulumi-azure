@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -292,7 +297,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
                  accelerator_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['SpringCloudCustomizedAcceleratorGitRepositoryArgs']]] = None,
+                 git_repository: Optional[pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
@@ -320,11 +325,11 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("example",
             name="example",
             spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
-            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
-                url="https://github.com/Azure-Samples/piggymetrics",
-                git_tag="spring.version.2.0.3",
-                interval_in_seconds=100,
-            ),
+            git_repository={
+                "url": "https://github.com/Azure-Samples/piggymetrics",
+                "gitTag": "spring.version.2.0.3",
+                "intervalInSeconds": 100,
+            },
             accelerator_tags=[
                 "tag-a",
                 "tag-b",
@@ -348,7 +353,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         :param pulumi.Input[str] accelerator_type: Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
         :param pulumi.Input[str] description: Specifies the description of the Spring Cloud Customized Accelerator.
         :param pulumi.Input[str] display_name: Specifies the display name of the Spring Cloud Customized Accelerator..
-        :param pulumi.Input[pulumi.InputType['SpringCloudCustomizedAcceleratorGitRepositoryArgs']] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']] git_repository: A `git_repository` block as defined below.
         :param pulumi.Input[str] icon_url: Specifies the icon URL of the Spring Cloud Customized Accelerator..
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[str] spring_cloud_accelerator_id: The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
@@ -382,11 +387,11 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         example_spring_cloud_customized_accelerator = azure.appplatform.SpringCloudCustomizedAccelerator("example",
             name="example",
             spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
-            git_repository=azure.appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs(
-                url="https://github.com/Azure-Samples/piggymetrics",
-                git_tag="spring.version.2.0.3",
-                interval_in_seconds=100,
-            ),
+            git_repository={
+                "url": "https://github.com/Azure-Samples/piggymetrics",
+                "gitTag": "spring.version.2.0.3",
+                "intervalInSeconds": 100,
+            },
             accelerator_tags=[
                 "tag-a",
                 "tag-b",
@@ -423,7 +428,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
                  accelerator_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 git_repository: Optional[pulumi.Input[pulumi.InputType['SpringCloudCustomizedAcceleratorGitRepositoryArgs']]] = None,
+                 git_repository: Optional[pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']]] = None,
                  icon_url: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None,
@@ -462,7 +467,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             accelerator_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            git_repository: Optional[pulumi.Input[pulumi.InputType['SpringCloudCustomizedAcceleratorGitRepositoryArgs']]] = None,
+            git_repository: Optional[pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']]] = None,
             icon_url: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             spring_cloud_accelerator_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudCustomizedAccelerator':
@@ -477,7 +482,7 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
         :param pulumi.Input[str] accelerator_type: Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`.
         :param pulumi.Input[str] description: Specifies the description of the Spring Cloud Customized Accelerator.
         :param pulumi.Input[str] display_name: Specifies the display name of the Spring Cloud Customized Accelerator..
-        :param pulumi.Input[pulumi.InputType['SpringCloudCustomizedAcceleratorGitRepositoryArgs']] git_repository: A `git_repository` block as defined below.
+        :param pulumi.Input[Union['SpringCloudCustomizedAcceleratorGitRepositoryArgs', 'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict']] git_repository: A `git_repository` block as defined below.
         :param pulumi.Input[str] icon_url: Specifies the icon URL of the Spring Cloud Customized Accelerator..
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[str] spring_cloud_accelerator_id: The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created.

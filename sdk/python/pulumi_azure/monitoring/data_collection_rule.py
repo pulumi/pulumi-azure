@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -440,16 +445,16 @@ class DataCollectionRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
-                 data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]]] = None,
-                 data_sources: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']]] = None,
+                 data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleDataFlowArgs', 'DataCollectionRuleDataFlowArgsDict']]]]] = None,
+                 data_sources: Optional[pulumi.Input[Union['DataCollectionRuleDataSourcesArgs', 'DataCollectionRuleDataSourcesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']]] = None,
+                 destinations: Optional[pulumi.Input[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]]] = None,
+                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -466,18 +471,18 @@ class DataCollectionRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]] data_flows: One or more `data_flow` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleDataFlowArgs', 'DataCollectionRuleDataFlowArgsDict']]]] data_flows: One or more `data_flow` blocks as defined below.
+        :param pulumi.Input[Union['DataCollectionRuleDataSourcesArgs', 'DataCollectionRuleDataSourcesArgsDict']] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
-        :param pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']] destinations: A `destinations` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict']] destinations: A `destinations` block as defined below.
+        :param pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
                > **NOTE** Once `kind` has been set, changing it forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]] stream_declarations: A `stream_declaration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict']]]] stream_declarations: A `stream_declaration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Rule.
         """
         ...
@@ -513,16 +518,16 @@ class DataCollectionRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
-                 data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]]] = None,
-                 data_sources: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']]] = None,
+                 data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleDataFlowArgs', 'DataCollectionRuleDataFlowArgsDict']]]]] = None,
+                 data_sources: Optional[pulumi.Input[Union['DataCollectionRuleDataSourcesArgs', 'DataCollectionRuleDataSourcesArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 destinations: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']]] = None,
+                 destinations: Optional[pulumi.Input[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]]] = None,
+                 stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -563,17 +568,17 @@ class DataCollectionRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             data_collection_endpoint_id: Optional[pulumi.Input[str]] = None,
-            data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]]] = None,
-            data_sources: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']]] = None,
+            data_flows: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleDataFlowArgs', 'DataCollectionRuleDataFlowArgsDict']]]]] = None,
+            data_sources: Optional[pulumi.Input[Union['DataCollectionRuleDataSourcesArgs', 'DataCollectionRuleDataSourcesArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            destinations: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']]] = None,
+            destinations: Optional[pulumi.Input[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict']]] = None,
+            identity: Optional[pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict']]] = None,
             immutable_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]]] = None,
+            stream_declarations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DataCollectionRule':
         """
         Get an existing DataCollectionRule resource's state with the given name, id, and optional extra
@@ -583,11 +588,11 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_id: The resource ID of the Data Collection Endpoint that this rule can be used with.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleDataFlowArgs']]]] data_flows: One or more `data_flow` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['DataCollectionRuleDataSourcesArgs']] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleDataFlowArgs', 'DataCollectionRuleDataFlowArgsDict']]]] data_flows: One or more `data_flow` blocks as defined below.
+        :param pulumi.Input[Union['DataCollectionRuleDataSourcesArgs', 'DataCollectionRuleDataSourcesArgsDict']] data_sources: A `data_sources` block as defined below. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
         :param pulumi.Input[str] description: The description of the Data Collection Rule.
-        :param pulumi.Input[pulumi.InputType['DataCollectionRuleDestinationsArgs']] destinations: A `destinations` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DataCollectionRuleIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DataCollectionRuleDestinationsArgs', 'DataCollectionRuleDestinationsArgsDict']] destinations: A `destinations` block as defined below.
+        :param pulumi.Input[Union['DataCollectionRuleIdentityArgs', 'DataCollectionRuleIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] immutable_id: The immutable ID of the Data Collection Rule.
         :param pulumi.Input[str] kind: The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed.
                
@@ -595,7 +600,7 @@ class DataCollectionRule(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataCollectionRuleStreamDeclarationArgs']]]] stream_declarations: A `stream_declaration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataCollectionRuleStreamDeclarationArgs', 'DataCollectionRuleStreamDeclarationArgsDict']]]] stream_declarations: A `stream_declaration` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Data Collection Rule.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

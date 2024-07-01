@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -420,12 +425,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_application_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 manage_action: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']]] = None,
+                 manage_action: Optional[pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_file: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]]] = None,
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Gallery Application Version.
@@ -468,17 +473,17 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             name="0.0.1",
             gallery_application_id=example_gallery_application.id,
             location=example_gallery_application.location,
-            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
-                install="[install command]",
-                remove="[remove command]",
-            ),
-            source=azure.compute.GalleryApplicationVersionSourceArgs(
-                media_link=example_blob.id,
-            ),
-            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
-                name=example_gallery_application.location,
-                regional_replica_count=1,
-            )])
+            manage_action={
+                "install": "[install command]",
+                "remove": "[remove command]",
+            },
+            source={
+                "mediaLink": example_blob.id,
+            },
+            target_regions=[{
+                "name": example_gallery_application.location,
+                "regionalReplicaCount": 1,
+            }])
         ```
 
         ## Import
@@ -497,12 +502,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_application_id: The ID of the Gallery Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']] manage_action: A `manage_action` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input[str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']] source: A `source` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']] source: A `source` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]] target_regions: One or more `target_region` blocks as defined below.
         """
         ...
     @overload
@@ -551,17 +556,17 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             name="0.0.1",
             gallery_application_id=example_gallery_application.id,
             location=example_gallery_application.location,
-            manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
-                install="[install command]",
-                remove="[remove command]",
-            ),
-            source=azure.compute.GalleryApplicationVersionSourceArgs(
-                media_link=example_blob.id,
-            ),
-            target_regions=[azure.compute.GalleryApplicationVersionTargetRegionArgs(
-                name=example_gallery_application.location,
-                regional_replica_count=1,
-            )])
+            manage_action={
+                "install": "[install command]",
+                "remove": "[remove command]",
+            },
+            source={
+                "mediaLink": example_blob.id,
+            },
+            target_regions=[{
+                "name": example_gallery_application.location,
+                "regionalReplicaCount": 1,
+            }])
         ```
 
         ## Import
@@ -593,12 +598,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  exclude_from_latest: Optional[pulumi.Input[bool]] = None,
                  gallery_application_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 manage_action: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']]] = None,
+                 manage_action: Optional[pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  package_file: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]]] = None,
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -644,12 +649,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
             gallery_application_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            manage_action: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']]] = None,
+            manage_action: Optional[pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             package_file: Optional[pulumi.Input[str]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']]] = None,
+            source: Optional[pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]]] = None) -> 'GalleryApplicationVersion':
+            target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]]] = None) -> 'GalleryApplicationVersion':
         """
         Get an existing GalleryApplicationVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -663,12 +668,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[bool] exclude_from_latest: Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`.
         :param pulumi.Input[str] gallery_application_id: The ID of the Gallery Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionManageActionArgs']] manage_action: A `manage_action` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionManageActionArgs', 'GalleryApplicationVersionManageActionArgsDict']] manage_action: A `manage_action` block as defined below.
         :param pulumi.Input[str] name: The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] package_file: Specifies the name of the package file on the VM. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionSourceArgs']] source: A `source` block as defined below.
+        :param pulumi.Input[Union['GalleryApplicationVersionSourceArgs', 'GalleryApplicationVersionSourceArgsDict']] source: A `source` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Gallery Application Version.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GalleryApplicationVersionTargetRegionArgs', 'GalleryApplicationVersionTargetRegionArgsDict']]]] target_regions: One or more `target_region` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ManagedStorageAccountArgs', 'ManagedStorageAccount']
@@ -294,14 +299,14 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                secret_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "secretPermissions": [
                     "Get",
                     "Delete",
                 ],
-                storage_permissions=[
+                "storagePermissions": [
                     "Get",
                     "List",
                     "Set",
@@ -311,7 +316,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            )])
+            }])
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
@@ -345,14 +350,14 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                secret_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "secretPermissions": [
                     "Get",
                     "Delete",
                 ],
-                storage_permissions=[
+                "storagePermissions": [
                     "Get",
                     "List",
                     "Set",
@@ -362,7 +367,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            )])
+            }])
         example_assignment = azure.authorization.Assignment("example",
             scope=example_account.id,
             role_definition_name="Storage Account Key Operator Service Role",
@@ -428,14 +433,14 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                secret_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "secretPermissions": [
                     "Get",
                     "Delete",
                 ],
-                storage_permissions=[
+                "storagePermissions": [
                     "Get",
                     "List",
                     "Set",
@@ -445,7 +450,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            )])
+            }])
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
@@ -479,14 +484,14 @@ class ManagedStorageAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                secret_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "secretPermissions": [
                     "Get",
                     "Delete",
                 ],
-                storage_permissions=[
+                "storagePermissions": [
                     "Get",
                     "List",
                     "Set",
@@ -496,7 +501,7 @@ class ManagedStorageAccount(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            )])
+            }])
         example_assignment = azure.authorization.Assignment("example",
             scope=example_account.id,
             role_definition_name="Storage Account Key Operator Service Role",

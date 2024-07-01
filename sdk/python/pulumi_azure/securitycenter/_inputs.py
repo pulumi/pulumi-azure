@@ -4,19 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AssessmentStatusArgs',
+    'AssessmentStatusArgsDict',
     'AutomationActionArgs',
+    'AutomationActionArgsDict',
     'AutomationSourceArgs',
+    'AutomationSourceArgsDict',
     'AutomationSourceRuleSetArgs',
+    'AutomationSourceRuleSetArgsDict',
     'AutomationSourceRuleSetRuleArgs',
+    'AutomationSourceRuleSetRuleArgsDict',
     'SubscriptionPricingExtensionArgs',
+    'SubscriptionPricingExtensionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AssessmentStatusArgsDict(TypedDict):
+        code: pulumi.Input[str]
+        """
+        Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
+        """
+        cause: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the cause of the assessment status.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the human readable description of the assessment status.
+        """
+elif False:
+    AssessmentStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssessmentStatusArgs:
@@ -71,6 +101,27 @@ class AssessmentStatusArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class AutomationActionArgsDict(TypedDict):
+        resource_id: pulumi.Input[str]
+        """
+        The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of Azure resource to send data to. Must be set to one of: `logicapp`, `eventhub` or `loganalytics`.
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        (Optional, but required when `type` is `eventhub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+        """
+        trigger_url: NotRequired[pulumi.Input[str]]
+        """
+        (Optional, but required when `type` is `logicapp`) The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under "See trigger history"
+        """
+elif False:
+    AutomationActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationActionArgs:
@@ -141,6 +192,21 @@ class AutomationActionArgs:
         pulumi.set(self, "trigger_url", value)
 
 
+if not MYPY:
+    class AutomationSourceArgsDict(TypedDict):
+        event_source: pulumi.Input[str]
+        """
+        Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
+        """
+        rule_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetArgsDict']]]]
+        """
+        A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
+
+        > **NOTE:** When multiple `rule_set` block are provided, a logical 'OR' is applied to the evaluation of them.
+        """
+elif False:
+    AutomationSourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationSourceArgs:
     def __init__(__self__, *,
@@ -183,6 +249,17 @@ class AutomationSourceArgs:
         pulumi.set(self, "rule_sets", value)
 
 
+if not MYPY:
+    class AutomationSourceRuleSetArgsDict(TypedDict):
+        rules: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgsDict']]]
+        """
+        One or more `rule` blocks as defined below.
+
+        > **NOTE:** This automation will trigger when all of the `rule`s in this `rule_set` are evaluated as 'true'. This is equivalent to a logical 'AND'.
+        """
+elif False:
+    AutomationSourceRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutomationSourceRuleSetArgs:
     def __init__(__self__, *,
@@ -208,6 +285,29 @@ class AutomationSourceRuleSetArgs:
     def rules(self, value: pulumi.Input[Sequence[pulumi.Input['AutomationSourceRuleSetRuleArgs']]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class AutomationSourceRuleSetRuleArgsDict(TypedDict):
+        expected_value: pulumi.Input[str]
+        """
+        A value that will be compared with the value in `property_path`.
+        """
+        operator: pulumi.Input[str]
+        """
+        The comparison operator to use, must be one of: `Contains`, `EndsWith`, `Equals`, `GreaterThan`, `GreaterThanOrEqualTo`, `LesserThan`, `LesserThanOrEqualTo`, `NotEquals`, `StartsWith`
+        """
+        property_path: pulumi.Input[str]
+        """
+        The JPath of the entity model property that should be checked.
+        """
+        property_type: pulumi.Input[str]
+        """
+        The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
+
+        > **NOTE:** The schema for Security Center alerts (when `event_source` is "Alerts") [can be found here](https://docs.microsoft.com/azure/security-center/alerts-schemas?tabs=schema-continuousexport)
+        """
+elif False:
+    AutomationSourceRuleSetRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutomationSourceRuleSetRuleArgs:
@@ -279,6 +379,23 @@ class AutomationSourceRuleSetRuleArgs:
     def property_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "property_type", value)
 
+
+if not MYPY:
+    class SubscriptionPricingExtensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of extension.
+        """
+        additional_extension_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key/Value pairs that are required for some extensions.
+
+        > **NOTE:** If an extension is not defined, it will not be enabled.
+
+        > **NOTE:** Changing the pricing tier to `Standard` affects all resources of the given type in the subscription and could be quite costly.
+        """
+elif False:
+    SubscriptionPricingExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionPricingExtensionArgs:

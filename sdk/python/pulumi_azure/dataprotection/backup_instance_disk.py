@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['BackupInstanceDiskArgs', 'BackupInstanceDisk']
@@ -252,9 +257,9 @@ class BackupInstanceDisk(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example1 = azure.authorization.Assignment("example1",
             scope=example.id,
             role_definition_name="Disk Snapshot Contributor",
@@ -325,9 +330,9 @@ class BackupInstanceDisk(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example1 = azure.authorization.Assignment("example1",
             scope=example.id,
             role_definition_name="Disk Snapshot Contributor",

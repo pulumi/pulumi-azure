@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['CapabilityArgs', 'Capability']
@@ -130,14 +135,14 @@ class Capability(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
+            default_node_pool={
+                "name": "example-value",
+                "nodeCount": "example-value",
+                "vmSize": "example-value",
+            },
+            identity={
+                "type": "example-value",
+            })
         example_target = azure.chaosstudio.Target("example",
             location=example_resource_group.location,
             target_resource_id=example.id,
@@ -189,14 +194,14 @@ class Capability(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="example-value",
-                node_count="example-value",
-                vm_size="example-value",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="example-value",
-            ))
+            default_node_pool={
+                "name": "example-value",
+                "nodeCount": "example-value",
+                "vmSize": "example-value",
+            },
+            identity={
+                "type": "example-value",
+            })
         example_target = azure.chaosstudio.Target("example",
             location=example_resource_group.location,
             target_resource_id=example.id,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -229,7 +234,7 @@ class AwaitableGetGrafanaResult(GetGrafanaResult):
             zone_redundancy_enabled=self.zone_redundancy_enabled)
 
 
-def get_grafana(identity: Optional[pulumi.InputType['GetGrafanaIdentityArgs']] = None,
+def get_grafana(identity: Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict']] = None,
                 name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGrafanaResult:
@@ -248,7 +253,7 @@ def get_grafana(identity: Optional[pulumi.InputType['GetGrafanaIdentityArgs']] =
     ```
 
 
-    :param pulumi.InputType['GetGrafanaIdentityArgs'] identity: The managed identity of the grafana resource.
+    :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict'] identity: The managed identity of the grafana resource.
     :param str name: Name of the grafana dashboard.
     :param str resource_group_name: Name of the resource group where resource belongs to.
     """
@@ -280,7 +285,7 @@ def get_grafana(identity: Optional[pulumi.InputType['GetGrafanaIdentityArgs']] =
 
 
 @_utilities.lift_output_func(get_grafana)
-def get_grafana_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType['GetGrafanaIdentityArgs']]]] = None,
+def get_grafana_output(identity: Optional[pulumi.Input[Optional[Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict']]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGrafanaResult]:
@@ -299,7 +304,7 @@ def get_grafana_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType
     ```
 
 
-    :param pulumi.InputType['GetGrafanaIdentityArgs'] identity: The managed identity of the grafana resource.
+    :param Union['GetGrafanaIdentityArgs', 'GetGrafanaIdentityArgsDict'] identity: The managed identity of the grafana resource.
     :param str name: Name of the grafana dashboard.
     :param str resource_group_name: Name of the resource group where resource belongs to.
     """

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from ._inputs import *
 
@@ -482,7 +487,7 @@ class Provider(pulumi.ProviderResource):
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
@@ -578,7 +583,7 @@ class Provider(pulumi.ProviderResource):
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,

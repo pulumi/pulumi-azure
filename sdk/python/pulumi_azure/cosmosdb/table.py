@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -209,7 +214,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['TableAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[Union['TableAutoscaleSettingsArgs', 'TableAutoscaleSettingsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -243,7 +248,7 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TableAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input[Union['TableAutoscaleSettingsArgs', 'TableAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.
@@ -300,7 +305,7 @@ class Table(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['TableAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[Union['TableAutoscaleSettingsArgs', 'TableAutoscaleSettingsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -333,7 +338,7 @@ class Table(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
-            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['TableAutoscaleSettingsArgs']]] = None,
+            autoscale_settings: Optional[pulumi.Input[Union['TableAutoscaleSettingsArgs', 'TableAutoscaleSettingsArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             throughput: Optional[pulumi.Input[int]] = None) -> 'Table':
@@ -345,7 +350,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TableAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input[Union['TableAutoscaleSettingsArgs', 'TableAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created.

@@ -4,20 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterExtensionIdentityArgs',
+    'ClusterExtensionIdentityArgsDict',
     'ClusterIdentityArgs',
+    'ClusterIdentityArgsDict',
     'FluxConfigurationBlobStorageArgs',
+    'FluxConfigurationBlobStorageArgsDict',
     'FluxConfigurationBlobStorageServicePrincipalArgs',
+    'FluxConfigurationBlobStorageServicePrincipalArgsDict',
     'FluxConfigurationBucketArgs',
+    'FluxConfigurationBucketArgsDict',
     'FluxConfigurationGitRepositoryArgs',
+    'FluxConfigurationGitRepositoryArgsDict',
     'FluxConfigurationKustomizationArgs',
+    'FluxConfigurationKustomizationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterExtensionIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ClusterExtensionIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterExtensionIdentityArgs:
@@ -73,6 +104,23 @@ class ClusterExtensionIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ClusterIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterIdentityArgs:
     def __init__(__self__, *,
@@ -126,6 +174,39 @@ class ClusterIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class FluxConfigurationBlobStorageArgsDict(TypedDict):
+        container_id: pulumi.Input[str]
+        """
+        Specifies the Azure Blob container ID.
+        """
+        account_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the account key (shared key) to access the storage account.
+        """
+        local_auth_reference: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        sas_token: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the shared access token to access the storage container.
+        """
+        service_principal: NotRequired[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgsDict']]
+        """
+        A `service_principal` block as defined below.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+        """
+elif False:
+    FluxConfigurationBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FluxConfigurationBlobStorageArgs:
@@ -245,6 +326,35 @@ class FluxConfigurationBlobStorageArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
+if not MYPY:
+    class FluxConfigurationBlobStorageServicePrincipalArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        Specifies the client ID for authenticating a Service Principal.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        Specifies the tenant ID for authenticating a Service Principal.
+        """
+        client_certificate_base64: NotRequired[pulumi.Input[str]]
+        """
+        Base64-encoded certificate used to authenticate a Service Principal .
+        """
+        client_certificate_password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the password for the certificate used to authenticate a Service Principal .
+        """
+        client_certificate_send_chain: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the client secret for authenticating a Service Principal.
+        """
+elif False:
+    FluxConfigurationBlobStorageServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FluxConfigurationBlobStorageServicePrincipalArgs:
     def __init__(__self__, *,
@@ -345,6 +455,43 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
     def client_secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_secret", value)
 
+
+if not MYPY:
+    class FluxConfigurationBucketArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        """
+        Specifies the bucket name to sync from the url endpoint for the flux configuration.
+        """
+        url: pulumi.Input[str]
+        """
+        Specifies the URL to sync for the flux configuration S3 bucket. It must start with `http://` or `https://`.
+        """
+        access_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the plaintext access key used to securely access the S3 bucket.
+        """
+        local_auth_reference: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+        """
+        secret_key_base64: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        tls_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specify whether to communicate with a bucket using TLS is enabled. Defaults to `true`.
+        """
+elif False:
+    FluxConfigurationBucketArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FluxConfigurationBucketArgs:
@@ -478,6 +625,55 @@ class FluxConfigurationBucketArgs:
     def tls_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "tls_enabled", value)
 
+
+if not MYPY:
+    class FluxConfigurationGitRepositoryArgsDict(TypedDict):
+        reference_type: pulumi.Input[str]
+        """
+        Specifies the source reference type for the GitRepository object. Possible values are `branch`, `commit`, `semver` and `tag`.
+        """
+        reference_value: pulumi.Input[str]
+        """
+        Specifies the source reference value for the GitRepository object.
+        """
+        url: pulumi.Input[str]
+        """
+        Specifies the URL to sync for the flux configuration git repository. It must start with `http://`, `https://`, `git@` or `ssh://`.
+        """
+        https_ca_cert_base64: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+        """
+        https_key_base64: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+        """
+        https_user: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+        """
+        local_auth_reference: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+        """
+        ssh_known_hosts_base64: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+        """
+        ssh_private_key_base64: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Base64-encoded SSH private key in PEM format.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to `600`.
+        """
+elif False:
+    FluxConfigurationGitRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FluxConfigurationGitRepositoryArgs:
@@ -658,6 +854,43 @@ class FluxConfigurationGitRepositoryArgs:
     def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
+
+if not MYPY:
+    class FluxConfigurationKustomizationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the kustomization.
+        """
+        depends_ons: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+        """
+        garbage_collection_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to `false`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the path in the source reference to reconcile on the cluster.
+        """
+        recreating_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to `false`.
+        """
+        retry_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to `600`.
+        """
+        sync_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The interval at which to re-reconcile the kustomization on the cluster. Defaults to `600`.
+        """
+        timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to `600`.
+        """
+elif False:
+    FluxConfigurationKustomizationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FluxConfigurationKustomizationArgs:

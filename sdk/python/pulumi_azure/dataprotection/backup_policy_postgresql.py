@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -258,7 +263,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                  default_retention_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -288,36 +293,36 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
             time_zone="India Standard Time",
             default_retention_duration="P4M",
             retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="weekly",
-                    duration="P6M",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="thursday",
-                    duration="P1W",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="monthly",
-                    duration="P1D",
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
+                {
+                    "name": "weekly",
+                    "duration": "P6M",
+                    "priority": 20,
+                    "criteria": {
+                        "absoluteCriteria": "FirstOfWeek",
+                    },
+                },
+                {
+                    "name": "thursday",
+                    "duration": "P1W",
+                    "priority": 25,
+                    "criteria": {
+                        "daysOfWeeks": ["Thursday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
+                {
+                    "name": "monthly",
+                    "duration": "P1D",
+                    "priority": 15,
+                    "criteria": {
+                        "weeksOfMonths": [
                             "First",
                             "Last",
                         ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
+                        "daysOfWeeks": ["Tuesday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
             ])
         ```
 
@@ -335,7 +340,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
@@ -371,36 +376,36 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
             time_zone="India Standard Time",
             default_retention_duration="P4M",
             retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="weekly",
-                    duration="P6M",
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="thursday",
-                    duration="P1W",
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlRetentionRuleArgs(
-                    name="monthly",
-                    duration="P1D",
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
+                {
+                    "name": "weekly",
+                    "duration": "P6M",
+                    "priority": 20,
+                    "criteria": {
+                        "absoluteCriteria": "FirstOfWeek",
+                    },
+                },
+                {
+                    "name": "thursday",
+                    "duration": "P1W",
+                    "priority": 25,
+                    "criteria": {
+                        "daysOfWeeks": ["Thursday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
+                {
+                    "name": "monthly",
+                    "duration": "P1D",
+                    "priority": 15,
+                    "criteria": {
+                        "weeksOfMonths": [
                             "First",
                             "Last",
                         ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
+                        "daysOfWeeks": ["Tuesday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
             ])
         ```
 
@@ -431,7 +436,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                  default_retention_duration: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -472,7 +477,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
             default_retention_duration: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]]] = None,
+            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None,
             vault_name: Optional[pulumi.Input[str]] = None) -> 'BackupPolicyPostgresql':
         """
@@ -486,7 +491,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         :param pulumi.Input[str] default_retention_duration: The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlRetentionRuleArgs', 'BackupPolicyPostgresqlRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """

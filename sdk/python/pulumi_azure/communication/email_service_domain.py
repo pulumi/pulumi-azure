@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -340,7 +345,7 @@ class EmailServiceDomain(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_engagement_tracking_enabled: Optional[pulumi.Input[bool]] = None,
-            verification_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailServiceDomainVerificationRecordArgs']]]]] = None) -> 'EmailServiceDomain':
+            verification_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict']]]]] = None) -> 'EmailServiceDomain':
         """
         Get an existing EmailServiceDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -355,7 +360,7 @@ class EmailServiceDomain(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Email Communication Service resource. If `domain_management` is `AzureManaged`, the name must be `AzureManagedDomain`. Changing this forces a new Email Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Email Communication Service.
         :param pulumi.Input[bool] user_engagement_tracking_enabled: Describes user engagement tracking is enabled or disabled. Defaults to `false`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailServiceDomainVerificationRecordArgs']]]] verification_records: (Optional) An `verification_records` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailServiceDomainVerificationRecordArgs', 'EmailServiceDomainVerificationRecordArgsDict']]]] verification_records: (Optional) An `verification_records` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ExpressRouteCircuitAuthorizationArgs', 'ExpressRouteCircuitAuthorization']
@@ -181,10 +186,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",
@@ -234,10 +239,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ),
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            },
             allow_classic_operations=False,
             tags={
                 "environment": "Production",

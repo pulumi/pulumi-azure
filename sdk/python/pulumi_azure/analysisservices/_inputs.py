@@ -4,14 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ServerIpv4FirewallRuleArgs',
+    'ServerIpv4FirewallRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ServerIpv4FirewallRuleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the firewall rule.
+        """
+        range_end: pulumi.Input[str]
+        """
+        End of the firewall rule range as IPv4 address.
+        """
+        range_start: pulumi.Input[str]
+        """
+        Start of the firewall rule range as IPv4 address.
+        """
+elif False:
+    ServerIpv4FirewallRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerIpv4FirewallRuleArgs:

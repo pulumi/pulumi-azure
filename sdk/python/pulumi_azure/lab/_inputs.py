@@ -4,27 +4,75 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LabAutoShutdownArgs',
+    'LabAutoShutdownArgsDict',
     'LabConnectionSettingArgs',
+    'LabConnectionSettingArgsDict',
     'LabNetworkArgs',
+    'LabNetworkArgsDict',
     'LabRosterArgs',
+    'LabRosterArgsDict',
     'LabSecurityArgs',
+    'LabSecurityArgsDict',
     'LabVirtualMachineArgs',
+    'LabVirtualMachineArgsDict',
     'LabVirtualMachineAdminUserArgs',
+    'LabVirtualMachineAdminUserArgsDict',
     'LabVirtualMachineImageReferenceArgs',
+    'LabVirtualMachineImageReferenceArgsDict',
     'LabVirtualMachineNonAdminUserArgs',
+    'LabVirtualMachineNonAdminUserArgsDict',
     'LabVirtualMachineSkuArgs',
+    'LabVirtualMachineSkuArgsDict',
     'ScheduleRecurrenceArgs',
+    'ScheduleRecurrenceArgsDict',
     'ServicePlanDefaultAutoShutdownArgs',
+    'ServicePlanDefaultAutoShutdownArgsDict',
     'ServicePlanDefaultConnectionArgs',
+    'ServicePlanDefaultConnectionArgsDict',
     'ServicePlanSupportArgs',
+    'ServicePlanSupportArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LabAutoShutdownArgsDict(TypedDict):
+        disconnect_delay: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+
+        > **NOTE:** The `shutdownOnDisconnect` is `Disabled` when `disconnect_delay` isn't specified.
+        """
+        idle_delay: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+        """
+        no_connect_delay: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+
+        > **NOTE:** The `shutdownWhenNotConnected` is `Disabled` when `no_connect_delay` isn't specified.
+        """
+        shutdown_on_idle: NotRequired[pulumi.Input[str]]
+        """
+        A VM will get shutdown when it has idled for a period of time. Possible values are `LowUsage` and `UserAbsence`.
+
+        > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
+        """
+elif False:
+    LabAutoShutdownArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabAutoShutdownArgs:
@@ -109,6 +157,23 @@ class LabAutoShutdownArgs:
         pulumi.set(self, "shutdown_on_idle", value)
 
 
+if not MYPY:
+    class LabConnectionSettingArgsDict(TypedDict):
+        client_rdp_access: NotRequired[pulumi.Input[str]]
+        """
+        The enabled access level for Client Access over RDP. Possible value is `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
+        """
+        client_ssh_access: NotRequired[pulumi.Input[str]]
+        """
+        The enabled access level for Client Access over SSH. Possible value is `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
+        """
+elif False:
+    LabConnectionSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabConnectionSettingArgs:
     def __init__(__self__, *,
@@ -155,6 +220,23 @@ class LabConnectionSettingArgs:
     def client_ssh_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_ssh_access", value)
 
+
+if not MYPY:
+    class LabNetworkArgsDict(TypedDict):
+        load_balancer_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the Load Balancer for the network profile of the Lab Service Lab.
+        """
+        public_ip_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the Public IP for the network profile of the Lab Service Lab.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the Subnet for the network profile of the Lab Service Lab.
+        """
+elif False:
+    LabNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabNetworkArgs:
@@ -210,6 +292,31 @@ class LabNetworkArgs:
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class LabRosterArgsDict(TypedDict):
+        active_directory_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The AAD group ID which this Lab Service Lab roster is populated from.
+        """
+        lms_instance: NotRequired[pulumi.Input[str]]
+        """
+        The base URI identifying the lms instance.
+        """
+        lti_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique id of the Azure Lab Service tool in the lms.
+        """
+        lti_context_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique context identifier for the Lab Service Lab in the lms.
+        """
+        lti_roster_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.
+        """
+elif False:
+    LabRosterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabRosterArgs:
@@ -298,6 +405,19 @@ class LabRosterArgs:
         pulumi.set(self, "lti_roster_endpoint", value)
 
 
+if not MYPY:
+    class LabSecurityArgsDict(TypedDict):
+        open_access_enabled: pulumi.Input[bool]
+        """
+        Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?
+        """
+        registration_code: NotRequired[pulumi.Input[str]]
+        """
+        The registration code for the Lab Service Lab.
+        """
+elif False:
+    LabSecurityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabSecurityArgs:
     def __init__(__self__, *,
@@ -335,6 +455,43 @@ class LabSecurityArgs:
     def registration_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registration_code", value)
 
+
+if not MYPY:
+    class LabVirtualMachineArgsDict(TypedDict):
+        admin_user: pulumi.Input['LabVirtualMachineAdminUserArgsDict']
+        """
+        An `admin_user` block as defined below.
+        """
+        image_reference: pulumi.Input['LabVirtualMachineImageReferenceArgsDict']
+        """
+        An `image_reference` block as defined below.
+        """
+        sku: pulumi.Input['LabVirtualMachineSkuArgsDict']
+        """
+        A `sku` block as defined below.
+        """
+        additional_capability_gpu_drivers_installed: NotRequired[pulumi.Input[bool]]
+        """
+        Is flagged to pre-install dedicated GPU drivers? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        create_option: NotRequired[pulumi.Input[str]]
+        """
+        The create option to indicate what Lab Service Lab VMs are created from. Possible values are `Image` and `TemplateVM`. Defaults to `Image`. Changing this forces a new resource to be created.
+        """
+        non_admin_user: NotRequired[pulumi.Input['LabVirtualMachineNonAdminUserArgsDict']]
+        """
+        A `non_admin_user` block as defined below.
+        """
+        shared_password_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the shared password enabled with the same password for all user VMs? Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        usage_quota: NotRequired[pulumi.Input[str]]
+        """
+        The initial quota allocated to each Lab Service Lab user. Defaults to `PT0S`. This value must be formatted as an ISO 8601 string.
+        """
+elif False:
+    LabVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabVirtualMachineArgs:
@@ -468,6 +625,19 @@ class LabVirtualMachineArgs:
         pulumi.set(self, "usage_quota", value)
 
 
+if not MYPY:
+    class LabVirtualMachineAdminUserArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password for the Lab user. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+        """
+elif False:
+    LabVirtualMachineAdminUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabVirtualMachineAdminUserArgs:
     def __init__(__self__, *,
@@ -504,6 +674,31 @@ class LabVirtualMachineAdminUserArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class LabVirtualMachineImageReferenceArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the image. Changing this forces a new resource to be created.
+        """
+        offer: NotRequired[pulumi.Input[str]]
+        """
+        The image offer if applicable. Changing this forces a new resource to be created.
+        """
+        publisher: NotRequired[pulumi.Input[str]]
+        """
+        The image publisher. Changing this forces a new resource to be created.
+        """
+        sku: NotRequired[pulumi.Input[str]]
+        """
+        The image SKU. Changing this forces a new resource to be created.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The image version specified on creation. Changing this forces a new resource to be created.
+        """
+elif False:
+    LabVirtualMachineImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabVirtualMachineImageReferenceArgs:
@@ -592,6 +787,19 @@ class LabVirtualMachineImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class LabVirtualMachineNonAdminUserArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password for the user.
+        """
+        username: pulumi.Input[str]
+        """
+        The username to use when signing in to Lab Service Lab VMs.
+        """
+elif False:
+    LabVirtualMachineNonAdminUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LabVirtualMachineNonAdminUserArgs:
     def __init__(__self__, *,
@@ -628,6 +836,21 @@ class LabVirtualMachineNonAdminUserArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class LabVirtualMachineSkuArgsDict(TypedDict):
+        capacity: pulumi.Input[int]
+        """
+        The capacity for the SKU. Possible values are between `0` and `400`.
+
+        > **NOTE:** Once `active_directory_group_id` is enabled, `capacity` wouldn't take effect, and it would be automatically set to the number of members in AAD Group by service API. So it has to use `ignore_changes` to avoid the difference of tf plan.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SKU. Changing this forces a new resource to be created.
+        """
+elif False:
+    LabVirtualMachineSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LabVirtualMachineSkuArgs:
@@ -669,6 +892,27 @@ class LabVirtualMachineSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ScheduleRecurrenceArgsDict(TypedDict):
+        expiration_date: pulumi.Input[str]
+        """
+        When the recurrence will expire in RFC-3339 format.
+        """
+        frequency: pulumi.Input[str]
+        """
+        The frequency of the recurrence. Possible values are `Daily` and `Weekly`.
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        The interval to invoke the schedule on. Possible values are between `1` and `365`.
+        """
+        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The interval to invoke the schedule on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+elif False:
+    ScheduleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleRecurrenceArgs:
@@ -738,6 +982,29 @@ class ScheduleRecurrenceArgs:
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "week_days", value)
 
+
+if not MYPY:
+    class ServicePlanDefaultAutoShutdownArgsDict(TypedDict):
+        disconnect_delay: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+        """
+        idle_delay: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
+        """
+        no_connect_delay: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
+        """
+        shutdown_on_idle: NotRequired[pulumi.Input[str]]
+        """
+        Will a VM get shutdown when it has idled for a period of time? Possible values are `LowUsage` and `UserAbsence`.
+
+        > **NOTE:** This property is `None` when it isn't specified. No need to set `idle_delay` when `shutdown_on_idle` isn't specified.
+        """
+elif False:
+    ServicePlanDefaultAutoShutdownArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePlanDefaultAutoShutdownArgs:
@@ -813,6 +1080,35 @@ class ServicePlanDefaultAutoShutdownArgs:
     def shutdown_on_idle(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "shutdown_on_idle", value)
 
+
+if not MYPY:
+    class ServicePlanDefaultConnectionArgsDict(TypedDict):
+        client_rdp_access: NotRequired[pulumi.Input[str]]
+        """
+        The enabled access level for Client Access over RDP. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
+        """
+        client_ssh_access: NotRequired[pulumi.Input[str]]
+        """
+        The enabled access level for Client Access over SSH. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
+        """
+        web_rdp_access: NotRequired[pulumi.Input[str]]
+        """
+        The enabled access level for Web Access over RDP. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
+        """
+        web_ssh_access: NotRequired[pulumi.Input[str]]
+        """
+        The enabled access level for Web Access over SSH. Possible values are `Private` and `Public`.
+
+        > **NOTE:** This property is `None` when it isn't specified.
+        """
+elif False:
+    ServicePlanDefaultConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePlanDefaultConnectionArgs:
@@ -900,6 +1196,27 @@ class ServicePlanDefaultConnectionArgs:
     def web_ssh_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "web_ssh_access", value)
 
+
+if not MYPY:
+    class ServicePlanSupportArgsDict(TypedDict):
+        email: NotRequired[pulumi.Input[str]]
+        """
+        The email address for the support contact.
+        """
+        instructions: NotRequired[pulumi.Input[str]]
+        """
+        The instructions for users of the Lab Service Plan.
+        """
+        phone: NotRequired[pulumi.Input[str]]
+        """
+        The phone number for the support contact.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The web address for users of the Lab Service Plan.
+        """
+elif False:
+    ServicePlanSupportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicePlanSupportArgs:

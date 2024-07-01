@@ -4,23 +4,57 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ConfigurationFeatureTargetingFilterArgs',
+    'ConfigurationFeatureTargetingFilterArgsDict',
     'ConfigurationFeatureTargetingFilterGroupArgs',
+    'ConfigurationFeatureTargetingFilterGroupArgsDict',
     'ConfigurationFeatureTimewindowFilterArgs',
+    'ConfigurationFeatureTimewindowFilterArgsDict',
     'ConfigurationStoreEncryptionArgs',
+    'ConfigurationStoreEncryptionArgsDict',
     'ConfigurationStoreIdentityArgs',
+    'ConfigurationStoreIdentityArgsDict',
     'ConfigurationStorePrimaryReadKeyArgs',
+    'ConfigurationStorePrimaryReadKeyArgsDict',
     'ConfigurationStorePrimaryWriteKeyArgs',
+    'ConfigurationStorePrimaryWriteKeyArgsDict',
     'ConfigurationStoreReplicaArgs',
+    'ConfigurationStoreReplicaArgsDict',
     'ConfigurationStoreSecondaryReadKeyArgs',
+    'ConfigurationStoreSecondaryReadKeyArgsDict',
     'ConfigurationStoreSecondaryWriteKeyArgs',
+    'ConfigurationStoreSecondaryWriteKeyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationFeatureTargetingFilterArgsDict(TypedDict):
+        default_rollout_percentage: pulumi.Input[int]
+        """
+        A number representing the percentage of the entire user base.
+        """
+        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgsDict']]]]
+        """
+        One or more `groups` blocks as defined below.
+        """
+        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of users to target for this feature.
+        """
+elif False:
+    ConfigurationFeatureTargetingFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationFeatureTargetingFilterArgs:
@@ -76,6 +110,19 @@ class ConfigurationFeatureTargetingFilterArgs:
         pulumi.set(self, "users", value)
 
 
+if not MYPY:
+    class ConfigurationFeatureTargetingFilterGroupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the group.
+        """
+        rollout_percentage: pulumi.Input[int]
+        """
+        Rollout percentage of the group.
+        """
+elif False:
+    ConfigurationFeatureTargetingFilterGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationFeatureTargetingFilterGroupArgs:
     def __init__(__self__, *,
@@ -112,6 +159,19 @@ class ConfigurationFeatureTargetingFilterGroupArgs:
     def rollout_percentage(self, value: pulumi.Input[int]):
         pulumi.set(self, "rollout_percentage", value)
 
+
+if not MYPY:
+    class ConfigurationFeatureTimewindowFilterArgsDict(TypedDict):
+        end: NotRequired[pulumi.Input[str]]
+        """
+        The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+        """
+elif False:
+    ConfigurationFeatureTimewindowFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationFeatureTimewindowFilterArgs:
@@ -152,6 +212,19 @@ class ConfigurationFeatureTimewindowFilterArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class ConfigurationStoreEncryptionArgsDict(TypedDict):
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the client id of the identity which will be used to access key vault.
+        """
+        key_vault_key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the URI of the key vault key used to encrypt data.
+        """
+elif False:
+    ConfigurationStoreEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationStoreEncryptionArgs:
     def __init__(__self__, *,
@@ -190,6 +263,29 @@ class ConfigurationStoreEncryptionArgs:
     def key_vault_key_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_key_identifier", value)
 
+
+if not MYPY:
+    class ConfigurationStoreIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ConfigurationStoreIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationStoreIdentityArgs:
@@ -265,6 +361,23 @@ class ConfigurationStoreIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ConfigurationStorePrimaryReadKeyArgsDict(TypedDict):
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Access Key.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        The Secret of the Access Key.
+        """
+elif False:
+    ConfigurationStorePrimaryReadKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationStorePrimaryReadKeyArgs:
     def __init__(__self__, *,
@@ -320,6 +433,23 @@ class ConfigurationStorePrimaryReadKeyArgs:
         pulumi.set(self, "secret", value)
 
 
+if not MYPY:
+    class ConfigurationStorePrimaryWriteKeyArgsDict(TypedDict):
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Access Key.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        The Secret of the Access Key.
+        """
+elif False:
+    ConfigurationStorePrimaryWriteKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationStorePrimaryWriteKeyArgs:
     def __init__(__self__, *,
@@ -374,6 +504,27 @@ class ConfigurationStorePrimaryWriteKeyArgs:
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class ConfigurationStoreReplicaArgsDict(TypedDict):
+        location: pulumi.Input[str]
+        """
+        Specifies the supported Azure location where the replica exists.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the replica.
+        """
+        endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the App Configuration Replica.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Access Key.
+        """
+elif False:
+    ConfigurationStoreReplicaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationStoreReplicaArgs:
@@ -444,6 +595,23 @@ class ConfigurationStoreReplicaArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class ConfigurationStoreSecondaryReadKeyArgsDict(TypedDict):
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Access Key.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        The Secret of the Access Key.
+        """
+elif False:
+    ConfigurationStoreSecondaryReadKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationStoreSecondaryReadKeyArgs:
     def __init__(__self__, *,
@@ -498,6 +666,23 @@ class ConfigurationStoreSecondaryReadKeyArgs:
     def secret(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class ConfigurationStoreSecondaryWriteKeyArgsDict(TypedDict):
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Access Key.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        The Secret of the Access Key.
+        """
+elif False:
+    ConfigurationStoreSecondaryWriteKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationStoreSecondaryWriteKeyArgs:

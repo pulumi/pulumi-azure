@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -180,25 +185,25 @@ class User(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
+            security={
+                "openAccessEnabled": False,
+            },
+            virtual_machine={
+                "adminUser": {
+                    "username": "testadmin",
+                    "password": "Password1234!",
+                },
+                "imageReference": {
+                    "publisher": "Canonical",
+                    "offer": "0001-com-ubuntu-server-jammy",
+                    "sku": "22_04-lts",
+                    "version": "latest",
+                },
+                "sku": {
+                    "name": "Classic_Fsv2_2_4GB_128_S_SSD",
+                    "capacity": 1,
+                },
+            })
         example_user = azure.lab.User("example",
             name="example-labuser",
             lab_id=example_lab.id,
@@ -243,25 +248,25 @@ class User(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
+            security={
+                "openAccessEnabled": False,
+            },
+            virtual_machine={
+                "adminUser": {
+                    "username": "testadmin",
+                    "password": "Password1234!",
+                },
+                "imageReference": {
+                    "publisher": "Canonical",
+                    "offer": "0001-com-ubuntu-server-jammy",
+                    "sku": "22_04-lts",
+                    "version": "latest",
+                },
+                "sku": {
+                    "name": "Classic_Fsv2_2_4GB_128_S_SSD",
+                    "capacity": 1,
+                },
+            })
         example_user = azure.lab.User("example",
             name="example-labuser",
             lab_id=example_lab.id,

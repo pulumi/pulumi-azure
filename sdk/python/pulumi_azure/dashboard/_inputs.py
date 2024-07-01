@@ -4,17 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GrafanaAzureMonitorWorkspaceIntegrationArgs',
+    'GrafanaAzureMonitorWorkspaceIntegrationArgsDict',
     'GrafanaIdentityArgs',
+    'GrafanaIdentityArgsDict',
     'GrafanaSmtpArgs',
+    'GrafanaSmtpArgsDict',
     'GetGrafanaIdentityArgs',
+    'GetGrafanaIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GrafanaAzureMonitorWorkspaceIntegrationArgsDict(TypedDict):
+        resource_id: pulumi.Input[str]
+        """
+        Specifies the resource ID of the connected Azure Monitor Workspace.
+        """
+elif False:
+    GrafanaAzureMonitorWorkspaceIntegrationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrafanaAzureMonitorWorkspaceIntegrationArgs:
@@ -37,6 +57,27 @@ class GrafanaAzureMonitorWorkspaceIntegrationArgs:
     def resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class GrafanaIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana. Changing this forces a new resource to be created.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    GrafanaIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrafanaIdentityArgs:
@@ -107,6 +148,43 @@ class GrafanaIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class GrafanaSmtpArgsDict(TypedDict):
+        from_address: pulumi.Input[str]
+        """
+        Address used when sending emails.
+        """
+        host: pulumi.Input[str]
+        """
+        SMTP server hostname with port, e.g. test.email.net:587
+        """
+        password: pulumi.Input[str]
+        """
+        Password of SMTP authentication.
+        """
+        start_tls_policy: pulumi.Input[str]
+        """
+        Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+        """
+        user: pulumi.Input[str]
+        """
+        User of SMTP authentication.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+        """
+        from_name: NotRequired[pulumi.Input[str]]
+        """
+        Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+        """
+        verification_skip_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether verify SSL for SMTP server. Defaults to `false`.
+        """
+elif False:
+    GrafanaSmtpArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GrafanaSmtpArgs:
@@ -237,6 +315,15 @@ class GrafanaSmtpArgs:
     def verification_skip_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "verification_skip_enabled", value)
 
+
+if not MYPY:
+    class GetGrafanaIdentityArgsDict(TypedDict):
+        principal_id: str
+        tenant_id: str
+        type: str
+        identity_ids: NotRequired[Sequence[str]]
+elif False:
+    GetGrafanaIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetGrafanaIdentityArgs:

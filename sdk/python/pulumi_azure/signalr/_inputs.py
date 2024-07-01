@@ -4,20 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ServiceCorArgs',
+    'ServiceCorArgsDict',
     'ServiceIdentityArgs',
+    'ServiceIdentityArgsDict',
     'ServiceLiveTraceArgs',
+    'ServiceLiveTraceArgsDict',
     'ServiceNetworkAclPrivateEndpointArgs',
+    'ServiceNetworkAclPrivateEndpointArgsDict',
     'ServiceNetworkAclPublicNetworkArgs',
+    'ServiceNetworkAclPublicNetworkArgsDict',
     'ServiceSkuArgs',
+    'ServiceSkuArgsDict',
     'ServiceUpstreamEndpointArgs',
+    'ServiceUpstreamEndpointArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ServiceCorArgsDict(TypedDict):
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        """
+elif False:
+    ServiceCorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceCorArgs:
@@ -40,6 +63,23 @@ class ServiceCorArgs:
     def allowed_origins(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_origins", value)
 
+
+if not MYPY:
+    class ServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are `SystemAssigned`, `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIdentityArgs:
@@ -106,6 +146,27 @@ class ServiceIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ServiceLiveTraceArgsDict(TypedDict):
+        connectivity_logs_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the live trace is enabled? Defaults to `true`.
+        """
+        http_request_logs_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
+        """
+        messaging_logs_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the log category `MessagingLogs` is enabled? Defaults to `true`
+        """
+elif False:
+    ServiceLiveTraceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceLiveTraceArgs:
@@ -178,6 +239,29 @@ class ServiceLiveTraceArgs:
         pulumi.set(self, "messaging_logs_enabled", value)
 
 
+if not MYPY:
+    class ServiceNetworkAclPrivateEndpointArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of the Private Endpoint which is based on the SignalR service.
+        """
+        allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+        """
+        denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+        """
+elif False:
+    ServiceNetworkAclPrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceNetworkAclPrivateEndpointArgs:
     def __init__(__self__, *,
@@ -244,6 +328,25 @@ class ServiceNetworkAclPrivateEndpointArgs:
         pulumi.set(self, "denied_request_types", value)
 
 
+if not MYPY:
+    class ServiceNetworkAclPublicNetworkArgsDict(TypedDict):
+        allowed_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Allow`, `allowed_request_types`cannot be set.
+        """
+        denied_request_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
+
+        > **Note:** When `default_action` is `Deny`, `denied_request_types`cannot be set.
+
+        > **Note:** `allowed_request_types` - (Optional) and `denied_request_types` cannot be set together.
+        """
+elif False:
+    ServiceNetworkAclPublicNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceNetworkAclPublicNetworkArgs:
     def __init__(__self__, *,
@@ -295,6 +398,21 @@ class ServiceNetworkAclPublicNetworkArgs:
         pulumi.set(self, "denied_request_types", value)
 
 
+if not MYPY:
+    class ServiceSkuArgsDict(TypedDict):
+        capacity: pulumi.Input[int]
+        """
+        Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
+
+        > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1`, `Premium_P1` and `Premium_P2`.
+        """
+elif False:
+    ServiceSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceSkuArgs:
     def __init__(__self__, *,
@@ -335,6 +453,31 @@ class ServiceSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ServiceUpstreamEndpointArgsDict(TypedDict):
+        category_patterns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The categories to match on, or `*` for all.
+        """
+        event_patterns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The events to match on, or `*` for all.
+        """
+        hub_patterns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The hubs to match on, or `*` for all.
+        """
+        url_template: pulumi.Input[str]
+        """
+        The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported.
+        """
+elif False:
+    ServiceUpstreamEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceUpstreamEndpointArgs:

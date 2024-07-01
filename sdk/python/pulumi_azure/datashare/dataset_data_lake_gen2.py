@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['DatasetDataLakeGen2Args', 'DatasetDataLakeGen2']
@@ -261,9 +266,9 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
@@ -332,9 +337,9 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
             name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,

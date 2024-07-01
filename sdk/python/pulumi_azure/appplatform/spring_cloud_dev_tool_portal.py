@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -230,7 +235,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudDevToolPortalSsoArgs']]] = None,
+                 sso: Optional[pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None,
                  __props__=None):
         """
         > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -256,16 +261,16 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
             public_network_access_enabled=True,
-            sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
-                scopes=[
+            sso={
+                "clientId": "example id",
+                "clientSecret": "example secret",
+                "metadataUrl": f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
+                "scopes": [
                     "openid",
                     "profile",
                     "email",
                 ],
-            ),
+            },
             application_accelerator_enabled=True,
             application_live_view_enabled=True)
         ```
@@ -285,7 +290,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudDevToolPortalSsoArgs']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']] sso: A `sso` block as defined below.
         """
         ...
     @overload
@@ -317,16 +322,16 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
             public_network_access_enabled=True,
-            sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
-                client_id="example id",
-                client_secret="example secret",
-                metadata_url=f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
-                scopes=[
+            sso={
+                "clientId": "example id",
+                "clientSecret": "example secret",
+                "metadataUrl": f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
+                "scopes": [
                     "openid",
                     "profile",
                     "email",
                 ],
-            ),
+            },
             application_accelerator_enabled=True,
             application_live_view_enabled=True)
         ```
@@ -359,7 +364,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-                 sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudDevToolPortalSsoArgs']]] = None,
+                 sso: Optional[pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -392,7 +397,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
-            sso: Optional[pulumi.Input[pulumi.InputType['SpringCloudDevToolPortalSsoArgs']]] = None) -> 'SpringCloudDevToolPortal':
+            sso: Optional[pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']]] = None) -> 'SpringCloudDevToolPortal':
         """
         Get an existing SpringCloudDevToolPortal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -405,7 +410,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled?
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudDevToolPortalSsoArgs']] sso: A `sso` block as defined below.
+        :param pulumi.Input[Union['SpringCloudDevToolPortalSsoArgs', 'SpringCloudDevToolPortalSsoArgsDict']] sso: A `sso` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

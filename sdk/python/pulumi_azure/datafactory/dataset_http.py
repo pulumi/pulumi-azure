@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -435,7 +440,7 @@ class DatasetHttp(pulumi.CustomResource):
                  relative_url: Optional[pulumi.Input[str]] = None,
                  request_body: Optional[pulumi.Input[str]] = None,
                  request_method: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Azure HTTP Dataset inside an Azure Data Factory.
@@ -490,7 +495,7 @@ class DatasetHttp(pulumi.CustomResource):
         :param pulumi.Input[str] relative_url: The relative URL based on the URL in the HTTP Linked Service.
         :param pulumi.Input[str] request_body: The body for the HTTP request.
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
     @overload
@@ -562,7 +567,7 @@ class DatasetHttp(pulumi.CustomResource):
                  relative_url: Optional[pulumi.Input[str]] = None,
                  request_body: Optional[pulumi.Input[str]] = None,
                  request_method: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -609,7 +614,7 @@ class DatasetHttp(pulumi.CustomResource):
             relative_url: Optional[pulumi.Input[str]] = None,
             request_body: Optional[pulumi.Input[str]] = None,
             request_method: Optional[pulumi.Input[str]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]]] = None) -> 'DatasetHttp':
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]]] = None) -> 'DatasetHttp':
         """
         Get an existing DatasetHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -630,7 +635,7 @@ class DatasetHttp(pulumi.CustomResource):
         :param pulumi.Input[str] relative_url: The relative URL based on the URL in the HTTP Linked Service.
         :param pulumi.Input[str] request_body: The body for the HTTP request.
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetHttpSchemaColumnArgs', 'DatasetHttpSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

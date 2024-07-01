@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -798,21 +803,21 @@ class Cluster(pulumi.CustomResource):
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
                  language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 optimized_auto_scale: Optional[pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']]] = None,
                  outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
                  public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']]] = None,
                  streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -831,10 +836,10 @@ class Cluster(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            },
             tags={
                 "Environment": "Production",
             })
@@ -855,25 +860,25 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_stop_enabled: Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
         :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
                > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
-        :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
+        :param pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
                
                > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
@@ -900,10 +905,10 @@ class Cluster(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            },
             tags={
                 "Environment": "Production",
             })
@@ -938,21 +943,21 @@ class Cluster(pulumi.CustomResource):
                  disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
                  language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+                 optimized_auto_scale: Optional[pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']]] = None,
                  outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
                  public_ip_type: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  purge_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']]] = None,
                  streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1008,22 +1013,22 @@ class Cluster(pulumi.CustomResource):
             disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']]] = None,
             language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            optimized_auto_scale: Optional[pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']]] = None,
+            optimized_auto_scale: Optional[pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']]] = None,
             outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
             public_ip_type: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             purge_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['ClusterSkuArgs']]] = None,
+            sku: Optional[pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']]] = None,
             streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             uri: Optional[pulumi.Input[str]] = None,
-            virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']]] = None,
+            virtual_network_configuration: Optional[pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
@@ -1038,26 +1043,26 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] data_ingestion_uri: The Kusto Cluster URI to be used for data ingestion.
         :param pulumi.Input[bool] disk_encryption_enabled: Specifies if the cluster's disks are encrypted.
         :param pulumi.Input[bool] double_encryption_enabled: Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ClusterIdentityArgs', 'ClusterIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] language_extensions: An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization.
                
                > **NOTE:** In `v4.0.0` and later version of the AzureRM Provider, `language_extensions` will be changed to a list of `language_extension` block. In each block, `name` and `image` are required. `name` is the name of the language extension, possible values are `PYTHON`, `R`. `image` is the image of the language extension, possible values are `Python3_6_5`, `Python3_10_8` and `R`.
         :param pulumi.Input[str] location: The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterOptimizedAutoScaleArgs']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
+        :param pulumi.Input[Union['ClusterOptimizedAutoScaleArgs', 'ClusterOptimizedAutoScaleArgsDict']] optimized_auto_scale: An `optimized_auto_scale` block as defined below.
         :param pulumi.Input[bool] outbound_network_access_restricted: Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`.
         :param pulumi.Input[str] public_ip_type: Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6). Defaults to `IPv4`.
         :param pulumi.Input[bool] public_network_access_enabled: Is the public network access enabled? Defaults to `true`.
         :param pulumi.Input[bool] purge_enabled: Specifies if the purge operations are enabled.
         :param pulumi.Input[str] resource_group_name: Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['ClusterSkuArgs', 'ClusterSkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[bool] streaming_ingestion_enabled: Specifies if the streaming ingest is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_external_tenants: Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
                
                > **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = ["MyTenantOnly"]` to `trusted_external_tenants = []`.
         :param pulumi.Input[str] uri: The FQDN of the Azure Kusto Cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
+        :param pulumi.Input[Union['ClusterVirtualNetworkConfigurationArgs', 'ClusterVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below.
                
                > **NOTE:** Currently removing `virtual_network_configuration` sets the `virtual_network_configuration` to `Disabled` state. But any changes to `virtual_network_configuration` in `Disabled` state forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.

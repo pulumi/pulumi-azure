@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -675,7 +680,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  resource_owner_password: Optional[pulumi.Input[str]] = None,
                  resource_owner_username: Optional[pulumi.Input[str]] = None,
                  support_state: Optional[pulumi.Input[bool]] = None,
-                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]]] = None,
+                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthorizationServerTokenBodyParameterArgs', 'AuthorizationServerTokenBodyParameterArgsDict']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -734,7 +739,7 @@ class AuthorizationServer(pulumi.CustomResource):
                
                > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]] token_body_parameters: A `token_body_parameter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthorizationServerTokenBodyParameterArgs', 'AuthorizationServerTokenBodyParameterArgsDict']]]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
         """
         ...
@@ -806,7 +811,7 @@ class AuthorizationServer(pulumi.CustomResource):
                  resource_owner_password: Optional[pulumi.Input[str]] = None,
                  resource_owner_username: Optional[pulumi.Input[str]] = None,
                  support_state: Optional[pulumi.Input[bool]] = None,
-                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]]] = None,
+                 token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthorizationServerTokenBodyParameterArgs', 'AuthorizationServerTokenBodyParameterArgsDict']]]]] = None,
                  token_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -881,7 +886,7 @@ class AuthorizationServer(pulumi.CustomResource):
             resource_owner_password: Optional[pulumi.Input[str]] = None,
             resource_owner_username: Optional[pulumi.Input[str]] = None,
             support_state: Optional[pulumi.Input[bool]] = None,
-            token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]]] = None,
+            token_body_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthorizationServerTokenBodyParameterArgs', 'AuthorizationServerTokenBodyParameterArgsDict']]]]] = None,
             token_endpoint: Optional[pulumi.Input[str]] = None) -> 'AuthorizationServer':
         """
         Get an existing AuthorizationServer resource's state with the given name, id, and optional extra
@@ -913,7 +918,7 @@ class AuthorizationServer(pulumi.CustomResource):
                
                > **NOTE:** This can only be specified when `grant_type` includes `resourceOwnerPassword`.
         :param pulumi.Input[bool] support_state: Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthorizationServerTokenBodyParameterArgs']]]] token_body_parameters: A `token_body_parameter` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AuthorizationServerTokenBodyParameterArgs', 'AuthorizationServerTokenBodyParameterArgsDict']]]] token_body_parameters: A `token_body_parameter` block as defined below.
         :param pulumi.Input[str] token_endpoint: The OAUTH Token Endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

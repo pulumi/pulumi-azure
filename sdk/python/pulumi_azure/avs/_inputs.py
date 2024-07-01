@@ -4,15 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PrivateCloudCircuitArgs',
+    'PrivateCloudCircuitArgsDict',
     'PrivateCloudManagementClusterArgs',
+    'PrivateCloudManagementClusterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PrivateCloudCircuitArgsDict(TypedDict):
+        express_route_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the ExpressRoute Circuit.
+        """
+        express_route_private_peering_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the ExpressRoute Circuit private peering.
+        """
+        primary_subnet_cidr: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR of the primary subnet.
+        """
+        secondary_subnet_cidr: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR of the secondary subnet.
+        """
+elif False:
+    PrivateCloudCircuitArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateCloudCircuitArgs:
@@ -84,6 +114,23 @@ class PrivateCloudCircuitArgs:
     def secondary_subnet_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secondary_subnet_cidr", value)
 
+
+if not MYPY:
+    class PrivateCloudManagementClusterArgsDict(TypedDict):
+        size: pulumi.Input[int]
+        """
+        The size of the management cluster. This field can not updated with `internet_connection_enabled` together.
+        """
+        hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of hosts in the management cluster.
+        """
+        id: NotRequired[pulumi.Input[int]]
+        """
+        The ID of the management cluster.
+        """
+elif False:
+    PrivateCloudManagementClusterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PrivateCloudManagementClusterArgs:

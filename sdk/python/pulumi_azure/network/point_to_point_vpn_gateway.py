@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -349,7 +354,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_configuration: Optional[pulumi.Input[pulumi.InputType['PointToPointVpnGatewayConnectionConfigurationArgs']]] = None,
+                 connection_configuration: Optional[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -387,9 +392,9 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            client_root_certificates=[{
+                "name": "DigiCert-Federated-ID-Root-CA",
+                "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -410,7 +415,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-            )])
+            }])
         example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("example",
             name="example-vpn-gateway",
             location=example.location,
@@ -418,12 +423,12 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,
-            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
-                name="example-gateway-config",
-                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
-                    address_prefixes=["10.0.2.0/24"],
-                ),
-            ))
+            connection_configuration={
+                "name": "example-gateway-config",
+                "vpnClientAddressPool": {
+                    "addressPrefixes": ["10.0.2.0/24"],
+                },
+            })
         ```
 
         ## Import
@@ -436,7 +441,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PointToPointVpnGatewayConnectionConfigurationArgs']] connection_configuration: A `connection_configuration` block as defined below.
+        :param pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']] connection_configuration: A `connection_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.
@@ -480,9 +485,9 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Certificate"],
-            client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
-                name="DigiCert-Federated-ID-Root-CA",
-                public_cert_data=\"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+            client_root_certificates=[{
+                "name": "DigiCert-Federated-ID-Root-CA",
+                "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -503,7 +508,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
-            )])
+            }])
         example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("example",
             name="example-vpn-gateway",
             location=example.location,
@@ -511,12 +516,12 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,
-            connection_configuration=azure.network.PointToPointVpnGatewayConnectionConfigurationArgs(
-                name="example-gateway-config",
-                vpn_client_address_pool=azure.network.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs(
-                    address_prefixes=["10.0.2.0/24"],
-                ),
-            ))
+            connection_configuration={
+                "name": "example-gateway-config",
+                "vpnClientAddressPool": {
+                    "addressPrefixes": ["10.0.2.0/24"],
+                },
+            })
         ```
 
         ## Import
@@ -542,7 +547,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_configuration: Optional[pulumi.Input[pulumi.InputType['PointToPointVpnGatewayConnectionConfigurationArgs']]] = None,
+                 connection_configuration: Optional[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -591,7 +596,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_configuration: Optional[pulumi.Input[pulumi.InputType['PointToPointVpnGatewayConnectionConfigurationArgs']]] = None,
+            connection_configuration: Optional[pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']]] = None,
             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -608,7 +613,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PointToPointVpnGatewayConnectionConfigurationArgs']] connection_configuration: A `connection_configuration` block as defined below.
+        :param pulumi.Input[Union['PointToPointVpnGatewayConnectionConfigurationArgs', 'PointToPointVpnGatewayConnectionConfigurationArgsDict']] connection_configuration: A `connection_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers for the Point-to-Site VPN Gateway.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Point-to-Site VPN Gateway. Changing this forces a new resource to be created.

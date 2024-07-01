@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -566,8 +571,8 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
-                 live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 live_trace: Optional[pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -596,14 +601,14 @@ class Service(pulumi.CustomResource):
             sku="Standard_S1",
             capacity=1,
             public_network_access_enabled=False,
-            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
-                enabled=True,
-                messaging_logs_enabled=True,
-                connectivity_logs_enabled=False,
-            ),
-            identity=azure.webpubsub.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            live_trace={
+                "enabled": True,
+                "messagingLogsEnabled": True,
+                "connectivityLogsEnabled": False,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         ```
 
         ## Import
@@ -620,8 +625,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] capacity: Specifies the number of units associated with this Web PubSub resource. Valid values are `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900` and `1000`.
                
                > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.
@@ -656,14 +661,14 @@ class Service(pulumi.CustomResource):
             sku="Standard_S1",
             capacity=1,
             public_network_access_enabled=False,
-            live_trace=azure.webpubsub.ServiceLiveTraceArgs(
-                enabled=True,
-                messaging_logs_enabled=True,
-                connectivity_logs_enabled=False,
-            ),
-            identity=azure.webpubsub.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            live_trace={
+                "enabled": True,
+                "messagingLogsEnabled": True,
+                "connectivityLogsEnabled": False,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         ```
 
         ## Import
@@ -691,8 +696,8 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
-                 live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+                 live_trace: Optional[pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -751,8 +756,8 @@ class Service(pulumi.CustomResource):
             capacity: Optional[pulumi.Input[int]] = None,
             external_ip: Optional[pulumi.Input[str]] = None,
             hostname: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
-            live_trace: Optional[pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
+            live_trace: Optional[pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']]] = None,
             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -781,8 +786,8 @@ class Service(pulumi.CustomResource):
                > **NOTE:** The valid capacity range for sku `Free_F1` is `1`, for sku `Premium_P2` is from `100` to `1000`, and from `1` to `100` for sku `Standard_S1` and `Premium_P1`.
         :param pulumi.Input[str] external_ip: The publicly accessible IP of the Web PubSub service.
         :param pulumi.Input[str] hostname: The FQDN of the Web PubSub service.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceLiveTraceArgs']] live_trace: A `live_trace` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceLiveTraceArgs', 'ServiceLiveTraceArgsDict']] live_trace: A `live_trace` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether to enable local auth? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Web PubSub service. Changing this forces a new resource to be created.

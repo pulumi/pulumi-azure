@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -284,7 +289,7 @@ class Workspace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspacePrivateEndpointConnectionArgs']]]]] = None,
+            private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspacePrivateEndpointConnectionArgs', 'WorkspacePrivateEndpointConnectionArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Workspace':
         """

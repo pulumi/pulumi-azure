@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ManagedInstanceActiveDirectoryAdministratorArgs', 'ManagedInstanceActiveDirectoryAdministrator']
@@ -229,9 +234,9 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             vcores=4,
             administrator_login="msadministrator",
             administrator_login_password="thisIsDog11",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
         example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
@@ -305,9 +310,9 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             vcores=4,
             administrator_login="msadministrator",
             administrator_login_password="thisIsDog11",
-            identity=azure.mssql.ManagedInstanceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
         example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,

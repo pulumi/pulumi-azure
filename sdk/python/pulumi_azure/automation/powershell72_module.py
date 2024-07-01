@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -161,7 +166,7 @@ class Powershell72Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
-                 module_link: Optional[pulumi.Input[pulumi.InputType['Powershell72ModuleModuleLinkArgs']]] = None,
+                 module_link: Optional[pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -185,9 +190,9 @@ class Powershell72Module(pulumi.CustomResource):
         example_powershell72_module = azure.automation.Powershell72Module("example",
             name="xActiveDirectory",
             automation_account_id=example_account.id,
-            module_link=azure.automation.Powershell72ModuleModuleLinkArgs(
-                uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            ))
+            module_link={
+                "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
+            })
         ```
 
         ## Import
@@ -201,7 +206,7 @@ class Powershell72Module(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_id: The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
-        :param pulumi.Input[pulumi.InputType['Powershell72ModuleModuleLinkArgs']] module_link: A `module_link` block as defined below.
+        :param pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']] module_link: A `module_link` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -231,9 +236,9 @@ class Powershell72Module(pulumi.CustomResource):
         example_powershell72_module = azure.automation.Powershell72Module("example",
             name="xActiveDirectory",
             automation_account_id=example_account.id,
-            module_link=azure.automation.Powershell72ModuleModuleLinkArgs(
-                uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-            ))
+            module_link={
+                "uri": "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
+            })
         ```
 
         ## Import
@@ -260,7 +265,7 @@ class Powershell72Module(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
-                 module_link: Optional[pulumi.Input[pulumi.InputType['Powershell72ModuleModuleLinkArgs']]] = None,
+                 module_link: Optional[pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -291,7 +296,7 @@ class Powershell72Module(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             automation_account_id: Optional[pulumi.Input[str]] = None,
-            module_link: Optional[pulumi.Input[pulumi.InputType['Powershell72ModuleModuleLinkArgs']]] = None,
+            module_link: Optional[pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Powershell72Module':
         """
@@ -302,7 +307,7 @@ class Powershell72Module(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_id: The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
-        :param pulumi.Input[pulumi.InputType['Powershell72ModuleModuleLinkArgs']] module_link: A `module_link` block as defined below.
+        :param pulumi.Input[Union['Powershell72ModuleModuleLinkArgs', 'Powershell72ModuleModuleLinkArgsDict']] module_link: A `module_link` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Module. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """

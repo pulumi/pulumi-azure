@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -160,7 +165,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationAssignmentConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
@@ -193,11 +198,11 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             name="example-nic",
             resource_group_name=example.name,
             location=example.location,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
             name="examplevm",
             resource_group_name=example.name,
@@ -206,19 +211,19 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             admin_username="adminuser",
             admin_password="P@$$w0rd1234!",
             network_interface_ids=[example_network_interface.id],
-            identity=azure.compute.WindowsVirtualMachineIdentityArgs(
-                type="SystemAssigned",
-            ),
-            os_disk=azure.compute.WindowsVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.WindowsVirtualMachineSourceImageReferenceArgs(
-                publisher="MicrosoftWindowsServer",
-                offer="WindowsServer",
-                sku="2019-Datacenter",
-                version="latest",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            },
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest",
+            })
         example_extension = azure.compute.Extension("example",
             name="AzurePolicyforWindows",
             virtual_machine_id=example_windows_virtual_machine.id,
@@ -230,32 +235,32 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             name="AzureWindowsBaseline",
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
-            configuration=azure.policy.VirtualMachineConfigurationAssignmentConfigurationArgs(
-                assignment_type="ApplyAndMonitor",
-                version="1.*",
-                parameters=[
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Minimum Password Length;ExpectedValue",
-                        value="16",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Minimum Password Age;ExpectedValue",
-                        value="0",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Maximum Password Age;ExpectedValue",
-                        value="30,45",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Enforce Password History;ExpectedValue",
-                        value="10",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Password Must Meet Complexity Requirements;ExpectedValue",
-                        value="1",
-                    ),
+            configuration={
+                "assignmentType": "ApplyAndMonitor",
+                "version": "1.*",
+                "parameters": [
+                    {
+                        "name": "Minimum Password Length;ExpectedValue",
+                        "value": "16",
+                    },
+                    {
+                        "name": "Minimum Password Age;ExpectedValue",
+                        "value": "0",
+                    },
+                    {
+                        "name": "Maximum Password Age;ExpectedValue",
+                        "value": "30,45",
+                    },
+                    {
+                        "name": "Enforce Password History;ExpectedValue",
+                        "value": "10",
+                    },
+                    {
+                        "name": "Password Must Meet Complexity Requirements;ExpectedValue",
+                        "value": "1",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -268,7 +273,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineConfigurationAssignmentConfigurationArgs']] configuration: A `configuration` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']] configuration: A `configuration` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.
@@ -307,11 +312,11 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             name="example-nic",
             resource_group_name=example.name,
             location=example.location,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
             name="examplevm",
             resource_group_name=example.name,
@@ -320,19 +325,19 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             admin_username="adminuser",
             admin_password="P@$$w0rd1234!",
             network_interface_ids=[example_network_interface.id],
-            identity=azure.compute.WindowsVirtualMachineIdentityArgs(
-                type="SystemAssigned",
-            ),
-            os_disk=azure.compute.WindowsVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.WindowsVirtualMachineSourceImageReferenceArgs(
-                publisher="MicrosoftWindowsServer",
-                offer="WindowsServer",
-                sku="2019-Datacenter",
-                version="latest",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            },
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "MicrosoftWindowsServer",
+                "offer": "WindowsServer",
+                "sku": "2019-Datacenter",
+                "version": "latest",
+            })
         example_extension = azure.compute.Extension("example",
             name="AzurePolicyforWindows",
             virtual_machine_id=example_windows_virtual_machine.id,
@@ -344,32 +349,32 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             name="AzureWindowsBaseline",
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
-            configuration=azure.policy.VirtualMachineConfigurationAssignmentConfigurationArgs(
-                assignment_type="ApplyAndMonitor",
-                version="1.*",
-                parameters=[
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Minimum Password Length;ExpectedValue",
-                        value="16",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Minimum Password Age;ExpectedValue",
-                        value="0",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Maximum Password Age;ExpectedValue",
-                        value="30,45",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Enforce Password History;ExpectedValue",
-                        value="10",
-                    ),
-                    azure.policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs(
-                        name="Password Must Meet Complexity Requirements;ExpectedValue",
-                        value="1",
-                    ),
+            configuration={
+                "assignmentType": "ApplyAndMonitor",
+                "version": "1.*",
+                "parameters": [
+                    {
+                        "name": "Minimum Password Length;ExpectedValue",
+                        "value": "16",
+                    },
+                    {
+                        "name": "Minimum Password Age;ExpectedValue",
+                        "value": "0",
+                    },
+                    {
+                        "name": "Maximum Password Age;ExpectedValue",
+                        "value": "30,45",
+                    },
+                    {
+                        "name": "Enforce Password History;ExpectedValue",
+                        "value": "10",
+                    },
+                    {
+                        "name": "Password Must Meet Complexity Requirements;ExpectedValue",
+                        "value": "1",
+                    },
                 ],
-            ))
+            })
         ```
 
         ## Import
@@ -395,7 +400,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationAssignmentConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
@@ -426,7 +431,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['VirtualMachineConfigurationAssignmentConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None) -> 'VirtualMachineConfigurationAssignment':
@@ -437,7 +442,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineConfigurationAssignmentConfigurationArgs']] configuration: A `configuration` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineConfigurationAssignmentConfigurationArgs', 'VirtualMachineConfigurationAssignmentConfigurationArgsDict']] configuration: A `configuration` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created.

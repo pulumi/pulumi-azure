@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -223,8 +228,8 @@ class CollectorPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ipfx_emission: Optional[pulumi.Input[pulumi.InputType['CollectorPolicyIpfxEmissionArgs']]] = None,
-                 ipfx_ingestion: Optional[pulumi.Input[pulumi.InputType['CollectorPolicyIpfxIngestionArgs']]] = None,
+                 ipfx_emission: Optional[pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
+                 ipfx_ingestion: Optional[pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -255,10 +260,10 @@ class CollectorPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=1,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
@@ -267,9 +272,9 @@ class CollectorPolicy(pulumi.CustomResource):
             primary_peer_address_prefix="192.168.199.0/30",
             secondary_peer_address_prefix="192.168.200.0/30",
             vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.6.0.0/24"],
-            ))
+            microsoft_peering_config={
+                "advertisedPublicPrefixes": ["123.6.0.0/24"],
+            })
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
             location=example.location,
@@ -279,12 +284,12 @@ class CollectorPolicy(pulumi.CustomResource):
             name="example-nfcp",
             traffic_collector_id=example_azure_traffic_collector.id,
             location=example.location,
-            ipfx_emission=azure.networkfunction.CollectorPolicyIpfxEmissionArgs(
-                destination_types="AzureMonitor",
-            ),
-            ipfx_ingestion=azure.networkfunction.CollectorPolicyIpfxIngestionArgs(
-                source_resource_ids=[example_express_route_circuit.id],
-            ),
+            ipfx_emission={
+                "destinationTypes": "AzureMonitor",
+            },
+            ipfx_ingestion={
+                "sourceResourceIds": [example_express_route_circuit.id],
+            },
             tags={
                 "key": "value",
             })
@@ -300,8 +305,8 @@ class CollectorPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CollectorPolicyIpfxEmissionArgs']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
-        :param pulumi.Input[pulumi.InputType['CollectorPolicyIpfxIngestionArgs']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Function Collector Policy.
@@ -338,10 +343,10 @@ class CollectorPolicy(pulumi.CustomResource):
             resource_group_name=example.name,
             express_route_port_id=example_express_route_port.id,
             bandwidth_in_gbps=1,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
-                tier="Standard",
-                family="MeteredData",
-            ))
+            sku={
+                "tier": "Standard",
+                "family": "MeteredData",
+            })
         example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
@@ -350,9 +355,9 @@ class CollectorPolicy(pulumi.CustomResource):
             primary_peer_address_prefix="192.168.199.0/30",
             secondary_peer_address_prefix="192.168.200.0/30",
             vlan_id=300,
-            microsoft_peering_config=azure.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs(
-                advertised_public_prefixes=["123.6.0.0/24"],
-            ))
+            microsoft_peering_config={
+                "advertisedPublicPrefixes": ["123.6.0.0/24"],
+            })
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
             location=example.location,
@@ -362,12 +367,12 @@ class CollectorPolicy(pulumi.CustomResource):
             name="example-nfcp",
             traffic_collector_id=example_azure_traffic_collector.id,
             location=example.location,
-            ipfx_emission=azure.networkfunction.CollectorPolicyIpfxEmissionArgs(
-                destination_types="AzureMonitor",
-            ),
-            ipfx_ingestion=azure.networkfunction.CollectorPolicyIpfxIngestionArgs(
-                source_resource_ids=[example_express_route_circuit.id],
-            ),
+            ipfx_emission={
+                "destinationTypes": "AzureMonitor",
+            },
+            ipfx_ingestion={
+                "sourceResourceIds": [example_express_route_circuit.id],
+            },
             tags={
                 "key": "value",
             })
@@ -396,8 +401,8 @@ class CollectorPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ipfx_emission: Optional[pulumi.Input[pulumi.InputType['CollectorPolicyIpfxEmissionArgs']]] = None,
-                 ipfx_ingestion: Optional[pulumi.Input[pulumi.InputType['CollectorPolicyIpfxIngestionArgs']]] = None,
+                 ipfx_emission: Optional[pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
+                 ipfx_ingestion: Optional[pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -433,8 +438,8 @@ class CollectorPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ipfx_emission: Optional[pulumi.Input[pulumi.InputType['CollectorPolicyIpfxEmissionArgs']]] = None,
-            ipfx_ingestion: Optional[pulumi.Input[pulumi.InputType['CollectorPolicyIpfxIngestionArgs']]] = None,
+            ipfx_emission: Optional[pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']]] = None,
+            ipfx_ingestion: Optional[pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -446,8 +451,8 @@ class CollectorPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CollectorPolicyIpfxEmissionArgs']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
-        :param pulumi.Input[pulumi.InputType['CollectorPolicyIpfxIngestionArgs']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxEmissionArgs', 'CollectorPolicyIpfxEmissionArgsDict']] ipfx_emission: An `ipfx_emission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
+        :param pulumi.Input[Union['CollectorPolicyIpfxIngestionArgs', 'CollectorPolicyIpfxIngestionArgsDict']] ipfx_ingestion: An `ipfx_ingestion` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Function Collector Policy.

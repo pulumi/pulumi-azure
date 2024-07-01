@@ -4,150 +4,303 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'HBaseClusterComponentVersionArgs',
+    'HBaseClusterComponentVersionArgsDict',
     'HBaseClusterComputeIsolationArgs',
+    'HBaseClusterComputeIsolationArgsDict',
     'HBaseClusterDiskEncryptionArgs',
+    'HBaseClusterDiskEncryptionArgsDict',
     'HBaseClusterExtensionArgs',
+    'HBaseClusterExtensionArgsDict',
     'HBaseClusterGatewayArgs',
+    'HBaseClusterGatewayArgsDict',
     'HBaseClusterMetastoresArgs',
+    'HBaseClusterMetastoresArgsDict',
     'HBaseClusterMetastoresAmbariArgs',
+    'HBaseClusterMetastoresAmbariArgsDict',
     'HBaseClusterMetastoresHiveArgs',
+    'HBaseClusterMetastoresHiveArgsDict',
     'HBaseClusterMetastoresOozieArgs',
+    'HBaseClusterMetastoresOozieArgsDict',
     'HBaseClusterMonitorArgs',
+    'HBaseClusterMonitorArgsDict',
     'HBaseClusterNetworkArgs',
+    'HBaseClusterNetworkArgsDict',
     'HBaseClusterPrivateLinkConfigurationArgs',
+    'HBaseClusterPrivateLinkConfigurationArgsDict',
     'HBaseClusterPrivateLinkConfigurationIpConfigurationArgs',
+    'HBaseClusterPrivateLinkConfigurationIpConfigurationArgsDict',
     'HBaseClusterRolesArgs',
+    'HBaseClusterRolesArgsDict',
     'HBaseClusterRolesHeadNodeArgs',
+    'HBaseClusterRolesHeadNodeArgsDict',
     'HBaseClusterRolesHeadNodeScriptActionArgs',
+    'HBaseClusterRolesHeadNodeScriptActionArgsDict',
     'HBaseClusterRolesWorkerNodeArgs',
+    'HBaseClusterRolesWorkerNodeArgsDict',
     'HBaseClusterRolesWorkerNodeAutoscaleArgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleArgsDict',
     'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict',
     'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict',
     'HBaseClusterRolesWorkerNodeScriptActionArgs',
+    'HBaseClusterRolesWorkerNodeScriptActionArgsDict',
     'HBaseClusterRolesZookeeperNodeArgs',
+    'HBaseClusterRolesZookeeperNodeArgsDict',
     'HBaseClusterRolesZookeeperNodeScriptActionArgs',
+    'HBaseClusterRolesZookeeperNodeScriptActionArgsDict',
     'HBaseClusterSecurityProfileArgs',
+    'HBaseClusterSecurityProfileArgsDict',
     'HBaseClusterStorageAccountArgs',
+    'HBaseClusterStorageAccountArgsDict',
     'HBaseClusterStorageAccountGen2Args',
+    'HBaseClusterStorageAccountGen2ArgsDict',
     'HadoopClusterComponentVersionArgs',
+    'HadoopClusterComponentVersionArgsDict',
     'HadoopClusterComputeIsolationArgs',
+    'HadoopClusterComputeIsolationArgsDict',
     'HadoopClusterDiskEncryptionArgs',
+    'HadoopClusterDiskEncryptionArgsDict',
     'HadoopClusterExtensionArgs',
+    'HadoopClusterExtensionArgsDict',
     'HadoopClusterGatewayArgs',
+    'HadoopClusterGatewayArgsDict',
     'HadoopClusterMetastoresArgs',
+    'HadoopClusterMetastoresArgsDict',
     'HadoopClusterMetastoresAmbariArgs',
+    'HadoopClusterMetastoresAmbariArgsDict',
     'HadoopClusterMetastoresHiveArgs',
+    'HadoopClusterMetastoresHiveArgsDict',
     'HadoopClusterMetastoresOozieArgs',
+    'HadoopClusterMetastoresOozieArgsDict',
     'HadoopClusterMonitorArgs',
+    'HadoopClusterMonitorArgsDict',
     'HadoopClusterNetworkArgs',
+    'HadoopClusterNetworkArgsDict',
     'HadoopClusterPrivateLinkConfigurationArgs',
+    'HadoopClusterPrivateLinkConfigurationArgsDict',
     'HadoopClusterPrivateLinkConfigurationIpConfigurationArgs',
+    'HadoopClusterPrivateLinkConfigurationIpConfigurationArgsDict',
     'HadoopClusterRolesArgs',
+    'HadoopClusterRolesArgsDict',
     'HadoopClusterRolesEdgeNodeArgs',
+    'HadoopClusterRolesEdgeNodeArgsDict',
     'HadoopClusterRolesEdgeNodeHttpsEndpointArgs',
+    'HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict',
     'HadoopClusterRolesEdgeNodeInstallScriptActionArgs',
+    'HadoopClusterRolesEdgeNodeInstallScriptActionArgsDict',
     'HadoopClusterRolesEdgeNodeUninstallScriptActionArgs',
+    'HadoopClusterRolesEdgeNodeUninstallScriptActionArgsDict',
     'HadoopClusterRolesHeadNodeArgs',
+    'HadoopClusterRolesHeadNodeArgsDict',
     'HadoopClusterRolesHeadNodeScriptActionArgs',
+    'HadoopClusterRolesHeadNodeScriptActionArgsDict',
     'HadoopClusterRolesWorkerNodeArgs',
+    'HadoopClusterRolesWorkerNodeArgsDict',
     'HadoopClusterRolesWorkerNodeAutoscaleArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleArgsDict',
     'HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleCapacityArgsDict',
     'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict',
     'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict',
     'HadoopClusterRolesWorkerNodeScriptActionArgs',
+    'HadoopClusterRolesWorkerNodeScriptActionArgsDict',
     'HadoopClusterRolesZookeeperNodeArgs',
+    'HadoopClusterRolesZookeeperNodeArgsDict',
     'HadoopClusterRolesZookeeperNodeScriptActionArgs',
+    'HadoopClusterRolesZookeeperNodeScriptActionArgsDict',
     'HadoopClusterSecurityProfileArgs',
+    'HadoopClusterSecurityProfileArgsDict',
     'HadoopClusterStorageAccountArgs',
+    'HadoopClusterStorageAccountArgsDict',
     'HadoopClusterStorageAccountGen2Args',
+    'HadoopClusterStorageAccountGen2ArgsDict',
     'InteractiveQueryClusterComponentVersionArgs',
+    'InteractiveQueryClusterComponentVersionArgsDict',
     'InteractiveQueryClusterComputeIsolationArgs',
+    'InteractiveQueryClusterComputeIsolationArgsDict',
     'InteractiveQueryClusterDiskEncryptionArgs',
+    'InteractiveQueryClusterDiskEncryptionArgsDict',
     'InteractiveQueryClusterExtensionArgs',
+    'InteractiveQueryClusterExtensionArgsDict',
     'InteractiveQueryClusterGatewayArgs',
+    'InteractiveQueryClusterGatewayArgsDict',
     'InteractiveQueryClusterMetastoresArgs',
+    'InteractiveQueryClusterMetastoresArgsDict',
     'InteractiveQueryClusterMetastoresAmbariArgs',
+    'InteractiveQueryClusterMetastoresAmbariArgsDict',
     'InteractiveQueryClusterMetastoresHiveArgs',
+    'InteractiveQueryClusterMetastoresHiveArgsDict',
     'InteractiveQueryClusterMetastoresOozieArgs',
+    'InteractiveQueryClusterMetastoresOozieArgsDict',
     'InteractiveQueryClusterMonitorArgs',
+    'InteractiveQueryClusterMonitorArgsDict',
     'InteractiveQueryClusterNetworkArgs',
+    'InteractiveQueryClusterNetworkArgsDict',
     'InteractiveQueryClusterPrivateLinkConfigurationArgs',
+    'InteractiveQueryClusterPrivateLinkConfigurationArgsDict',
     'InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs',
+    'InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgsDict',
     'InteractiveQueryClusterRolesArgs',
+    'InteractiveQueryClusterRolesArgsDict',
     'InteractiveQueryClusterRolesHeadNodeArgs',
+    'InteractiveQueryClusterRolesHeadNodeArgsDict',
     'InteractiveQueryClusterRolesHeadNodeScriptActionArgs',
+    'InteractiveQueryClusterRolesHeadNodeScriptActionArgsDict',
     'InteractiveQueryClusterRolesWorkerNodeArgs',
+    'InteractiveQueryClusterRolesWorkerNodeArgsDict',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgsDict',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict',
     'InteractiveQueryClusterRolesWorkerNodeScriptActionArgs',
+    'InteractiveQueryClusterRolesWorkerNodeScriptActionArgsDict',
     'InteractiveQueryClusterRolesZookeeperNodeArgs',
+    'InteractiveQueryClusterRolesZookeeperNodeArgsDict',
     'InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs',
+    'InteractiveQueryClusterRolesZookeeperNodeScriptActionArgsDict',
     'InteractiveQueryClusterSecurityProfileArgs',
+    'InteractiveQueryClusterSecurityProfileArgsDict',
     'InteractiveQueryClusterStorageAccountArgs',
+    'InteractiveQueryClusterStorageAccountArgsDict',
     'InteractiveQueryClusterStorageAccountGen2Args',
+    'InteractiveQueryClusterStorageAccountGen2ArgsDict',
     'KafkaClusterComponentVersionArgs',
+    'KafkaClusterComponentVersionArgsDict',
     'KafkaClusterComputeIsolationArgs',
+    'KafkaClusterComputeIsolationArgsDict',
     'KafkaClusterDiskEncryptionArgs',
+    'KafkaClusterDiskEncryptionArgsDict',
     'KafkaClusterExtensionArgs',
+    'KafkaClusterExtensionArgsDict',
     'KafkaClusterGatewayArgs',
+    'KafkaClusterGatewayArgsDict',
     'KafkaClusterMetastoresArgs',
+    'KafkaClusterMetastoresArgsDict',
     'KafkaClusterMetastoresAmbariArgs',
+    'KafkaClusterMetastoresAmbariArgsDict',
     'KafkaClusterMetastoresHiveArgs',
+    'KafkaClusterMetastoresHiveArgsDict',
     'KafkaClusterMetastoresOozieArgs',
+    'KafkaClusterMetastoresOozieArgsDict',
     'KafkaClusterMonitorArgs',
+    'KafkaClusterMonitorArgsDict',
     'KafkaClusterNetworkArgs',
+    'KafkaClusterNetworkArgsDict',
     'KafkaClusterPrivateLinkConfigurationArgs',
+    'KafkaClusterPrivateLinkConfigurationArgsDict',
     'KafkaClusterPrivateLinkConfigurationIpConfigurationArgs',
+    'KafkaClusterPrivateLinkConfigurationIpConfigurationArgsDict',
     'KafkaClusterRestProxyArgs',
+    'KafkaClusterRestProxyArgsDict',
     'KafkaClusterRolesArgs',
+    'KafkaClusterRolesArgsDict',
     'KafkaClusterRolesHeadNodeArgs',
+    'KafkaClusterRolesHeadNodeArgsDict',
     'KafkaClusterRolesHeadNodeScriptActionArgs',
+    'KafkaClusterRolesHeadNodeScriptActionArgsDict',
     'KafkaClusterRolesKafkaManagementNodeArgs',
+    'KafkaClusterRolesKafkaManagementNodeArgsDict',
     'KafkaClusterRolesKafkaManagementNodeScriptActionArgs',
+    'KafkaClusterRolesKafkaManagementNodeScriptActionArgsDict',
     'KafkaClusterRolesWorkerNodeArgs',
+    'KafkaClusterRolesWorkerNodeArgsDict',
     'KafkaClusterRolesWorkerNodeScriptActionArgs',
+    'KafkaClusterRolesWorkerNodeScriptActionArgsDict',
     'KafkaClusterRolesZookeeperNodeArgs',
+    'KafkaClusterRolesZookeeperNodeArgsDict',
     'KafkaClusterRolesZookeeperNodeScriptActionArgs',
+    'KafkaClusterRolesZookeeperNodeScriptActionArgsDict',
     'KafkaClusterSecurityProfileArgs',
+    'KafkaClusterSecurityProfileArgsDict',
     'KafkaClusterStorageAccountArgs',
+    'KafkaClusterStorageAccountArgsDict',
     'KafkaClusterStorageAccountGen2Args',
+    'KafkaClusterStorageAccountGen2ArgsDict',
     'SparkClusterComponentVersionArgs',
+    'SparkClusterComponentVersionArgsDict',
     'SparkClusterComputeIsolationArgs',
+    'SparkClusterComputeIsolationArgsDict',
     'SparkClusterDiskEncryptionArgs',
+    'SparkClusterDiskEncryptionArgsDict',
     'SparkClusterExtensionArgs',
+    'SparkClusterExtensionArgsDict',
     'SparkClusterGatewayArgs',
+    'SparkClusterGatewayArgsDict',
     'SparkClusterMetastoresArgs',
+    'SparkClusterMetastoresArgsDict',
     'SparkClusterMetastoresAmbariArgs',
+    'SparkClusterMetastoresAmbariArgsDict',
     'SparkClusterMetastoresHiveArgs',
+    'SparkClusterMetastoresHiveArgsDict',
     'SparkClusterMetastoresOozieArgs',
+    'SparkClusterMetastoresOozieArgsDict',
     'SparkClusterMonitorArgs',
+    'SparkClusterMonitorArgsDict',
     'SparkClusterNetworkArgs',
+    'SparkClusterNetworkArgsDict',
     'SparkClusterPrivateLinkConfigurationArgs',
+    'SparkClusterPrivateLinkConfigurationArgsDict',
     'SparkClusterPrivateLinkConfigurationIpConfigurationArgs',
+    'SparkClusterPrivateLinkConfigurationIpConfigurationArgsDict',
     'SparkClusterRolesArgs',
+    'SparkClusterRolesArgsDict',
     'SparkClusterRolesHeadNodeArgs',
+    'SparkClusterRolesHeadNodeArgsDict',
     'SparkClusterRolesHeadNodeScriptActionArgs',
+    'SparkClusterRolesHeadNodeScriptActionArgsDict',
     'SparkClusterRolesWorkerNodeArgs',
+    'SparkClusterRolesWorkerNodeArgsDict',
     'SparkClusterRolesWorkerNodeAutoscaleArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleArgsDict',
     'SparkClusterRolesWorkerNodeAutoscaleCapacityArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleCapacityArgsDict',
     'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict',
     'SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict',
     'SparkClusterRolesWorkerNodeScriptActionArgs',
+    'SparkClusterRolesWorkerNodeScriptActionArgsDict',
     'SparkClusterRolesZookeeperNodeArgs',
+    'SparkClusterRolesZookeeperNodeArgsDict',
     'SparkClusterRolesZookeeperNodeScriptActionArgs',
+    'SparkClusterRolesZookeeperNodeScriptActionArgsDict',
     'SparkClusterSecurityProfileArgs',
+    'SparkClusterSecurityProfileArgsDict',
     'SparkClusterStorageAccountArgs',
+    'SparkClusterStorageAccountArgsDict',
     'SparkClusterStorageAccountGen2Args',
+    'SparkClusterStorageAccountGen2ArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class HBaseClusterComponentVersionArgsDict(TypedDict):
+        hbase: pulumi.Input[str]
+        """
+        The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterComponentVersionArgs:
@@ -170,6 +323,19 @@ class HBaseClusterComponentVersionArgs:
     def hbase(self, value: pulumi.Input[str]):
         pulumi.set(self, "hbase", value)
 
+
+if not MYPY:
+    class HBaseClusterComputeIsolationArgsDict(TypedDict):
+        compute_isolation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
+        host_sku: NotRequired[pulumi.Input[str]]
+        """
+        The name of the host SKU.
+        """
+elif False:
+    HBaseClusterComputeIsolationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterComputeIsolationArgs:
@@ -209,6 +375,27 @@ class HBaseClusterComputeIsolationArgs:
     def host_sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_sku", value)
 
+
+if not MYPY:
+    class HBaseClusterDiskEncryptionArgsDict(TypedDict):
+        encryption_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        encryption_at_host_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        key_vault_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the key vault key.
+        """
+        key_vault_managed_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+elif False:
+    HBaseClusterDiskEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterDiskEncryptionArgs:
@@ -281,6 +468,19 @@ class HBaseClusterDiskEncryptionArgs:
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
+if not MYPY:
+    class HBaseClusterExtensionArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The workspace ID of the log analytics extension.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The workspace key of the log analytics extension.
+        """
+elif False:
+    HBaseClusterExtensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterExtensionArgs:
     def __init__(__self__, *,
@@ -317,6 +517,21 @@ class HBaseClusterExtensionArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class HBaseClusterGatewayArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+        """
+        username: pulumi.Input[str]
+        """
+        The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterGatewayArgs:
@@ -358,6 +573,23 @@ class HBaseClusterGatewayArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class HBaseClusterMetastoresArgsDict(TypedDict):
+        ambari: NotRequired[pulumi.Input['HBaseClusterMetastoresAmbariArgsDict']]
+        """
+        An `ambari` block as defined below.
+        """
+        hive: NotRequired[pulumi.Input['HBaseClusterMetastoresHiveArgsDict']]
+        """
+        A `hive` block as defined below.
+        """
+        oozie: NotRequired[pulumi.Input['HBaseClusterMetastoresOozieArgsDict']]
+        """
+        An `oozie` block as defined below.
+        """
+elif False:
+    HBaseClusterMetastoresArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterMetastoresArgs:
@@ -413,6 +645,27 @@ class HBaseClusterMetastoresArgs:
     def oozie(self, value: Optional[pulumi.Input['HBaseClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
+
+if not MYPY:
+    class HBaseClusterMetastoresAmbariArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterMetastoresAmbariArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterMetastoresAmbariArgs:
@@ -481,6 +734,27 @@ class HBaseClusterMetastoresAmbariArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class HBaseClusterMetastoresHiveArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterMetastoresHiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterMetastoresHiveArgs:
     def __init__(__self__, *,
@@ -547,6 +821,27 @@ class HBaseClusterMetastoresHiveArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class HBaseClusterMetastoresOozieArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterMetastoresOozieArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterMetastoresOozieArgs:
@@ -615,6 +910,19 @@ class HBaseClusterMetastoresOozieArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class HBaseClusterMonitorArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace ID.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace key.
+        """
+elif False:
+    HBaseClusterMonitorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterMonitorArgs:
     def __init__(__self__, *,
@@ -651,6 +959,21 @@ class HBaseClusterMonitorArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class HBaseClusterNetworkArgsDict(TypedDict):
+        connection_direction: NotRequired[pulumi.Input[str]]
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enable the private link the `connection_direction` must be set to `Outbound`.
+        """
+        private_link_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterNetworkArgs:
@@ -694,6 +1017,20 @@ class HBaseClusterNetworkArgs:
     def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
+
+if not MYPY:
+    class HBaseClusterPrivateLinkConfigurationArgsDict(TypedDict):
+        group_id: pulumi.Input[str]
+        """
+        The ID of the private link service group.
+        """
+        ip_configuration: pulumi.Input['HBaseClusterPrivateLinkConfigurationIpConfigurationArgsDict']
+        name: pulumi.Input[str]
+        """
+        The name of the private link configuration.
+        """
+elif False:
+    HBaseClusterPrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterPrivateLinkConfigurationArgs:
@@ -742,6 +1079,19 @@ class HBaseClusterPrivateLinkConfigurationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class HBaseClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        subnet_id: NotRequired[pulumi.Input[str]]
+elif False:
+    HBaseClusterPrivateLinkConfigurationIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
@@ -813,6 +1163,23 @@ class HBaseClusterPrivateLinkConfigurationIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class HBaseClusterRolesArgsDict(TypedDict):
+        head_node: pulumi.Input['HBaseClusterRolesHeadNodeArgsDict']
+        """
+        A `head_node` block as defined above.
+        """
+        worker_node: pulumi.Input['HBaseClusterRolesWorkerNodeArgsDict']
+        """
+        A `worker_node` block as defined below.
+        """
+        zookeeper_node: pulumi.Input['HBaseClusterRolesZookeeperNodeArgsDict']
+        """
+        A `zookeeper_node` block as defined below.
+        """
+elif False:
+    HBaseClusterRolesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterRolesArgs:
     def __init__(__self__, *,
@@ -864,6 +1231,43 @@ class HBaseClusterRolesArgs:
     def zookeeper_node(self, value: pulumi.Input['HBaseClusterRolesZookeeperNodeArgs']):
         pulumi.set(self, "zookeeper_node", value)
 
+
+if not MYPY:
+    class HBaseClusterRolesHeadNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterRolesHeadNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterRolesHeadNodeArgs:
@@ -990,6 +1394,23 @@ class HBaseClusterRolesHeadNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class HBaseClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    HBaseClusterRolesHeadNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -1042,6 +1463,51 @@ class HBaseClusterRolesHeadNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class HBaseClusterRolesWorkerNodeArgsDict(TypedDict):
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of instances which should be run for the Worker Nodes.
+        """
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        autoscale: NotRequired[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgsDict']]
+        """
+        A `autoscale` block as defined below.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterRolesWorkerNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterRolesWorkerNodeArgs:
@@ -1199,6 +1665,17 @@ class HBaseClusterRolesWorkerNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class HBaseClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
+        recurrence: NotRequired[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+        """
+        A `recurrence` block as defined below.
+
+        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+        """
+elif False:
+    HBaseClusterRolesWorkerNodeAutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
@@ -1225,6 +1702,19 @@ class HBaseClusterRolesWorkerNodeAutoscaleArgs:
     def recurrence(self, value: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
+
+if not MYPY:
+    class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict(TypedDict):
+        schedules: pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict']]]
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        timezone: pulumi.Input[str]
+        """
+        The time zone for the autoscale schedule times.
+        """
+elif False:
+    HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
@@ -1262,6 +1752,23 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     def timezone(self, value: pulumi.Input[str]):
         pulumi.set(self, "timezone", value)
 
+
+if not MYPY:
+    class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict(TypedDict):
+        days: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        time: pulumi.Input[str]
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+elif False:
+    HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
@@ -1315,6 +1822,23 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class HBaseClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    HBaseClusterRolesWorkerNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -1367,6 +1891,43 @@ class HBaseClusterRolesWorkerNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class HBaseClusterRolesZookeeperNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterRolesZookeeperNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterRolesZookeeperNodeArgs:
@@ -1493,6 +2054,23 @@ class HBaseClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class HBaseClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    HBaseClusterRolesZookeeperNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -1545,6 +2123,39 @@ class HBaseClusterRolesZookeeperNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class HBaseClusterSecurityProfileArgsDict(TypedDict):
+        aadds_resource_id: pulumi.Input[str]
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_user_password: pulumi.Input[str]
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_username: pulumi.Input[str]
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        msi_resource_id: pulumi.Input[str]
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HBaseClusterSecurityProfileArgs:
@@ -1659,6 +2270,31 @@ class HBaseClusterSecurityProfileArgs:
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
+if not MYPY:
+    class HBaseClusterStorageAccountArgsDict(TypedDict):
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        storage_account_key: pulumi.Input[str]
+        """
+        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        """
+        storage_container_id: pulumi.Input[str]
+        """
+        The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterStorageAccountArgs:
     def __init__(__self__, *,
@@ -1735,6 +2371,31 @@ class HBaseClusterStorageAccountArgs:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class HBaseClusterStorageAccountGen2ArgsDict(TypedDict):
+        filesystem_id: pulumi.Input[str]
+        """
+        The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        """
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        managed_identity_resource_id: pulumi.Input[str]
+        """
+        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: pulumi.Input[str]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    HBaseClusterStorageAccountGen2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HBaseClusterStorageAccountGen2Args:
     def __init__(__self__, *,
@@ -1810,6 +2471,15 @@ class HBaseClusterStorageAccountGen2Args:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class HadoopClusterComponentVersionArgsDict(TypedDict):
+        hadoop: pulumi.Input[str]
+        """
+        The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterComponentVersionArgs:
     def __init__(__self__, *,
@@ -1831,6 +2501,19 @@ class HadoopClusterComponentVersionArgs:
     def hadoop(self, value: pulumi.Input[str]):
         pulumi.set(self, "hadoop", value)
 
+
+if not MYPY:
+    class HadoopClusterComputeIsolationArgsDict(TypedDict):
+        compute_isolation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
+        host_sku: NotRequired[pulumi.Input[str]]
+        """
+        The name of the host SKU.
+        """
+elif False:
+    HadoopClusterComputeIsolationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterComputeIsolationArgs:
@@ -1870,6 +2553,27 @@ class HadoopClusterComputeIsolationArgs:
     def host_sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_sku", value)
 
+
+if not MYPY:
+    class HadoopClusterDiskEncryptionArgsDict(TypedDict):
+        encryption_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        encryption_at_host_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        key_vault_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the key vault key.
+        """
+        key_vault_managed_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+elif False:
+    HadoopClusterDiskEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterDiskEncryptionArgs:
@@ -1942,6 +2646,19 @@ class HadoopClusterDiskEncryptionArgs:
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
+if not MYPY:
+    class HadoopClusterExtensionArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The workspace ID of the log analytics extension.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The workspace key of the log analytics extension.
+        """
+elif False:
+    HadoopClusterExtensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterExtensionArgs:
     def __init__(__self__, *,
@@ -1978,6 +2695,21 @@ class HadoopClusterExtensionArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class HadoopClusterGatewayArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+        """
+        username: pulumi.Input[str]
+        """
+        The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterGatewayArgs:
@@ -2019,6 +2751,23 @@ class HadoopClusterGatewayArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class HadoopClusterMetastoresArgsDict(TypedDict):
+        ambari: NotRequired[pulumi.Input['HadoopClusterMetastoresAmbariArgsDict']]
+        """
+        An `ambari` block as defined below.
+        """
+        hive: NotRequired[pulumi.Input['HadoopClusterMetastoresHiveArgsDict']]
+        """
+        A `hive` block as defined below.
+        """
+        oozie: NotRequired[pulumi.Input['HadoopClusterMetastoresOozieArgsDict']]
+        """
+        An `oozie` block as defined below.
+        """
+elif False:
+    HadoopClusterMetastoresArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterMetastoresArgs:
@@ -2074,6 +2823,27 @@ class HadoopClusterMetastoresArgs:
     def oozie(self, value: Optional[pulumi.Input['HadoopClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
+
+if not MYPY:
+    class HadoopClusterMetastoresAmbariArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterMetastoresAmbariArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterMetastoresAmbariArgs:
@@ -2142,6 +2912,27 @@ class HadoopClusterMetastoresAmbariArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class HadoopClusterMetastoresHiveArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterMetastoresHiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterMetastoresHiveArgs:
     def __init__(__self__, *,
@@ -2208,6 +2999,27 @@ class HadoopClusterMetastoresHiveArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class HadoopClusterMetastoresOozieArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterMetastoresOozieArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterMetastoresOozieArgs:
@@ -2276,6 +3088,19 @@ class HadoopClusterMetastoresOozieArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class HadoopClusterMonitorArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace ID.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace key.
+        """
+elif False:
+    HadoopClusterMonitorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterMonitorArgs:
     def __init__(__self__, *,
@@ -2312,6 +3137,21 @@ class HadoopClusterMonitorArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class HadoopClusterNetworkArgsDict(TypedDict):
+        connection_direction: NotRequired[pulumi.Input[str]]
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+        """
+        private_link_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterNetworkArgs:
@@ -2355,6 +3195,20 @@ class HadoopClusterNetworkArgs:
     def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
+
+if not MYPY:
+    class HadoopClusterPrivateLinkConfigurationArgsDict(TypedDict):
+        group_id: pulumi.Input[str]
+        """
+        The ID of the private link service group.
+        """
+        ip_configuration: pulumi.Input['HadoopClusterPrivateLinkConfigurationIpConfigurationArgsDict']
+        name: pulumi.Input[str]
+        """
+        The name of the private link configuration.
+        """
+elif False:
+    HadoopClusterPrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterPrivateLinkConfigurationArgs:
@@ -2403,6 +3257,19 @@ class HadoopClusterPrivateLinkConfigurationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class HadoopClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        subnet_id: NotRequired[pulumi.Input[str]]
+elif False:
+    HadoopClusterPrivateLinkConfigurationIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
@@ -2474,6 +3341,27 @@ class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesArgsDict(TypedDict):
+        head_node: pulumi.Input['HadoopClusterRolesHeadNodeArgsDict']
+        """
+        A `head_node` block as defined above.
+        """
+        worker_node: pulumi.Input['HadoopClusterRolesWorkerNodeArgsDict']
+        """
+        A `worker_node` block as defined below.
+        """
+        zookeeper_node: pulumi.Input['HadoopClusterRolesZookeeperNodeArgsDict']
+        """
+        A `zookeeper_node` block as defined below.
+        """
+        edge_node: NotRequired[pulumi.Input['HadoopClusterRolesEdgeNodeArgsDict']]
+        """
+        A `edge_node` block as defined below.
+        """
+elif False:
+    HadoopClusterRolesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesArgs:
     def __init__(__self__, *,
@@ -2541,6 +3429,31 @@ class HadoopClusterRolesArgs:
     def edge_node(self, value: Optional[pulumi.Input['HadoopClusterRolesEdgeNodeArgs']]):
         pulumi.set(self, "edge_node", value)
 
+
+if not MYPY:
+    class HadoopClusterRolesEdgeNodeArgsDict(TypedDict):
+        install_script_actions: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgsDict']]]
+        """
+        A `install_script_action` block as defined below.
+        """
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of instances which should be run for the Worker Nodes.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
+        """
+        https_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict']]]]
+        """
+        The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
+        """
+        uninstall_script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgsDict']]]]
+        """
+        A `uninstall_script_actions` block as defined below.
+        """
+elif False:
+    HadoopClusterRolesEdgeNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterRolesEdgeNodeArgs:
@@ -2625,6 +3538,31 @@ class HadoopClusterRolesEdgeNodeArgs:
     def uninstall_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]):
         pulumi.set(self, "uninstall_script_actions", value)
 
+
+if not MYPY:
+    class HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict(TypedDict):
+        access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of access modes for the application.
+        """
+        destination_port: NotRequired[pulumi.Input[int]]
+        """
+        The destination port to connect to.
+        """
+        disable_gateway_auth: NotRequired[pulumi.Input[bool]]
+        """
+        The value indicates whether the gateway authentication is enabled or not.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The private ip address of the endpoint.
+        """
+        sub_domain_suffix: NotRequired[pulumi.Input[str]]
+        """
+        The application's subdomain suffix.
+        """
+elif False:
+    HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
@@ -2713,6 +3651,23 @@ class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
         pulumi.set(self, "sub_domain_suffix", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesEdgeNodeInstallScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the install script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI pointing to the script to run during the installation of the edge node.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script.
+        """
+elif False:
+    HadoopClusterRolesEdgeNodeInstallScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
     def __init__(__self__, *,
@@ -2766,6 +3721,23 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesEdgeNodeUninstallScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the uninstall script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI pointing to the script to run during the installation of the edge node.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script.
+        """
+elif False:
+    HadoopClusterRolesEdgeNodeUninstallScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
     def __init__(__self__, *,
@@ -2818,6 +3790,43 @@ class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class HadoopClusterRolesHeadNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterRolesHeadNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterRolesHeadNodeArgs:
@@ -2944,6 +3953,23 @@ class HadoopClusterRolesHeadNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    HadoopClusterRolesHeadNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -2996,6 +4022,51 @@ class HadoopClusterRolesHeadNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class HadoopClusterRolesWorkerNodeArgsDict(TypedDict):
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of instances which should be run for the Worker Nodes.
+        """
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        autoscale: NotRequired[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgsDict']]
+        """
+        A `autoscale` block as defined below.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterRolesWorkerNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeArgs:
@@ -3153,6 +4224,21 @@ class HadoopClusterRolesWorkerNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgsDict']]
+        """
+        A `capacity` block as defined below.
+        """
+        recurrence: NotRequired[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+        """
+        A `recurrence` block as defined below.
+
+        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+        """
+elif False:
+    HadoopClusterRolesWorkerNodeAutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
@@ -3196,6 +4282,19 @@ class HadoopClusterRolesWorkerNodeAutoscaleArgs:
         pulumi.set(self, "recurrence", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesWorkerNodeAutoscaleCapacityArgsDict(TypedDict):
+        max_instance_count: pulumi.Input[int]
+        """
+        The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        min_instance_count: pulumi.Input[int]
+        """
+        The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+elif False:
+    HadoopClusterRolesWorkerNodeAutoscaleCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs:
     def __init__(__self__, *,
@@ -3233,6 +4332,19 @@ class HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs:
         pulumi.set(self, "min_instance_count", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict(TypedDict):
+        schedules: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict']]]
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        timezone: pulumi.Input[str]
+        """
+        The time zone for the autoscale schedule times.
+        """
+elif False:
+    HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     def __init__(__self__, *,
@@ -3269,6 +4381,23 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     def timezone(self, value: pulumi.Input[str]):
         pulumi.set(self, "timezone", value)
 
+
+if not MYPY:
+    class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict(TypedDict):
+        days: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        time: pulumi.Input[str]
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+elif False:
+    HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
@@ -3322,6 +4451,23 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    HadoopClusterRolesWorkerNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -3374,6 +4520,43 @@ class HadoopClusterRolesWorkerNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class HadoopClusterRolesZookeeperNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterRolesZookeeperNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterRolesZookeeperNodeArgs:
@@ -3500,6 +4683,23 @@ class HadoopClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class HadoopClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    HadoopClusterRolesZookeeperNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -3552,6 +4752,39 @@ class HadoopClusterRolesZookeeperNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class HadoopClusterSecurityProfileArgsDict(TypedDict):
+        aadds_resource_id: pulumi.Input[str]
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_user_password: pulumi.Input[str]
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_username: pulumi.Input[str]
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        msi_resource_id: pulumi.Input[str]
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HadoopClusterSecurityProfileArgs:
@@ -3666,6 +4899,31 @@ class HadoopClusterSecurityProfileArgs:
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
+if not MYPY:
+    class HadoopClusterStorageAccountArgsDict(TypedDict):
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        storage_account_key: pulumi.Input[str]
+        """
+        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        """
+        storage_container_id: pulumi.Input[str]
+        """
+        The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterStorageAccountArgs:
     def __init__(__self__, *,
@@ -3742,6 +5000,31 @@ class HadoopClusterStorageAccountArgs:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class HadoopClusterStorageAccountGen2ArgsDict(TypedDict):
+        filesystem_id: pulumi.Input[str]
+        """
+        The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        """
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        managed_identity_resource_id: pulumi.Input[str]
+        """
+        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: pulumi.Input[str]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    HadoopClusterStorageAccountGen2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class HadoopClusterStorageAccountGen2Args:
     def __init__(__self__, *,
@@ -3817,6 +5100,15 @@ class HadoopClusterStorageAccountGen2Args:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterComponentVersionArgsDict(TypedDict):
+        interactive_hive: pulumi.Input[str]
+        """
+        The version of Interactive Query which should be used for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterComponentVersionArgs:
     def __init__(__self__, *,
@@ -3838,6 +5130,19 @@ class InteractiveQueryClusterComponentVersionArgs:
     def interactive_hive(self, value: pulumi.Input[str]):
         pulumi.set(self, "interactive_hive", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterComputeIsolationArgsDict(TypedDict):
+        compute_isolation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
+        host_sku: NotRequired[pulumi.Input[str]]
+        """
+        The name of the host SKU.
+        """
+elif False:
+    InteractiveQueryClusterComputeIsolationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterComputeIsolationArgs:
@@ -3877,6 +5182,27 @@ class InteractiveQueryClusterComputeIsolationArgs:
     def host_sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_sku", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterDiskEncryptionArgsDict(TypedDict):
+        encryption_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        encryption_at_host_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        key_vault_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the key vault key.
+        """
+        key_vault_managed_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+elif False:
+    InteractiveQueryClusterDiskEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterDiskEncryptionArgs:
@@ -3949,6 +5275,19 @@ class InteractiveQueryClusterDiskEncryptionArgs:
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterExtensionArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The workspace ID of the log analytics extension.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The workspace key of the log analytics extension.
+        """
+elif False:
+    InteractiveQueryClusterExtensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterExtensionArgs:
     def __init__(__self__, *,
@@ -3985,6 +5324,21 @@ class InteractiveQueryClusterExtensionArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterGatewayArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+        """
+        username: pulumi.Input[str]
+        """
+        The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterGatewayArgs:
@@ -4026,6 +5380,23 @@ class InteractiveQueryClusterGatewayArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterMetastoresArgsDict(TypedDict):
+        ambari: NotRequired[pulumi.Input['InteractiveQueryClusterMetastoresAmbariArgsDict']]
+        """
+        An `ambari` block as defined below.
+        """
+        hive: NotRequired[pulumi.Input['InteractiveQueryClusterMetastoresHiveArgsDict']]
+        """
+        A `hive` block as defined below.
+        """
+        oozie: NotRequired[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgsDict']]
+        """
+        An `oozie` block as defined below.
+        """
+elif False:
+    InteractiveQueryClusterMetastoresArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterMetastoresArgs:
@@ -4081,6 +5452,27 @@ class InteractiveQueryClusterMetastoresArgs:
     def oozie(self, value: Optional[pulumi.Input['InteractiveQueryClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterMetastoresAmbariArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterMetastoresAmbariArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterMetastoresAmbariArgs:
@@ -4149,6 +5541,27 @@ class InteractiveQueryClusterMetastoresAmbariArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterMetastoresHiveArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterMetastoresHiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterMetastoresHiveArgs:
     def __init__(__self__, *,
@@ -4215,6 +5628,27 @@ class InteractiveQueryClusterMetastoresHiveArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterMetastoresOozieArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterMetastoresOozieArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterMetastoresOozieArgs:
@@ -4283,6 +5717,19 @@ class InteractiveQueryClusterMetastoresOozieArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterMonitorArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace ID.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace key.
+        """
+elif False:
+    InteractiveQueryClusterMonitorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterMonitorArgs:
     def __init__(__self__, *,
@@ -4319,6 +5766,21 @@ class InteractiveQueryClusterMonitorArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterNetworkArgsDict(TypedDict):
+        connection_direction: NotRequired[pulumi.Input[str]]
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+        """
+        private_link_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterNetworkArgs:
@@ -4362,6 +5824,20 @@ class InteractiveQueryClusterNetworkArgs:
     def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterPrivateLinkConfigurationArgsDict(TypedDict):
+        group_id: pulumi.Input[str]
+        """
+        The ID of the private link service group.
+        """
+        ip_configuration: pulumi.Input['InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgsDict']
+        name: pulumi.Input[str]
+        """
+        The name of the private link configuration.
+        """
+elif False:
+    InteractiveQueryClusterPrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterPrivateLinkConfigurationArgs:
@@ -4410,6 +5886,19 @@ class InteractiveQueryClusterPrivateLinkConfigurationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        subnet_id: NotRequired[pulumi.Input[str]]
+elif False:
+    InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
@@ -4481,6 +5970,23 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterRolesArgsDict(TypedDict):
+        head_node: pulumi.Input['InteractiveQueryClusterRolesHeadNodeArgsDict']
+        """
+        A `head_node` block as defined above.
+        """
+        worker_node: pulumi.Input['InteractiveQueryClusterRolesWorkerNodeArgsDict']
+        """
+        A `worker_node` block as defined below.
+        """
+        zookeeper_node: pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgsDict']
+        """
+        A `zookeeper_node` block as defined below.
+        """
+elif False:
+    InteractiveQueryClusterRolesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterRolesArgs:
     def __init__(__self__, *,
@@ -4532,6 +6038,45 @@ class InteractiveQueryClusterRolesArgs:
     def zookeeper_node(self, value: pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeArgs']):
         pulumi.set(self, "zookeeper_node", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterRolesHeadNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+
+        > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D13_V2`).
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterRolesHeadNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterRolesHeadNodeArgs:
@@ -4662,6 +6207,23 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    InteractiveQueryClusterRolesHeadNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -4714,6 +6276,53 @@ class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterRolesWorkerNodeArgsDict(TypedDict):
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of instances which should be run for the Worker Nodes.
+        """
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+
+        > **NOTE:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
+        """
+        autoscale: NotRequired[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict']]
+        """
+        A `autoscale` block as defined below.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterRolesWorkerNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeArgs:
@@ -4875,6 +6484,16 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgsDict']]
+        recurrence: NotRequired[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+        """
+        A `recurrence` block as defined below.
+        """
+elif False:
+    InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
@@ -4914,6 +6533,13 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs:
         pulumi.set(self, "recurrence", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgsDict(TypedDict):
+        max_instance_count: pulumi.Input[int]
+        min_instance_count: pulumi.Input[int]
+elif False:
+    InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
     def __init__(__self__, *,
@@ -4940,6 +6566,19 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs:
     def min_instance_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "min_instance_count", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict(TypedDict):
+        schedules: pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict']]]
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        timezone: pulumi.Input[str]
+        """
+        The time zone for the autoscale schedule times.
+        """
+elif False:
+    InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
@@ -4977,6 +6616,23 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     def timezone(self, value: pulumi.Input[str]):
         pulumi.set(self, "timezone", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict(TypedDict):
+        days: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        time: pulumi.Input[str]
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+elif False:
+    InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
@@ -5030,6 +6686,23 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    InteractiveQueryClusterRolesWorkerNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -5082,6 +6755,43 @@ class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterRolesZookeeperNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterRolesZookeeperNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterRolesZookeeperNodeArgs:
@@ -5208,6 +6918,23 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    InteractiveQueryClusterRolesZookeeperNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -5260,6 +6987,39 @@ class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class InteractiveQueryClusterSecurityProfileArgsDict(TypedDict):
+        aadds_resource_id: pulumi.Input[str]
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_user_password: pulumi.Input[str]
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_username: pulumi.Input[str]
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        msi_resource_id: pulumi.Input[str]
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InteractiveQueryClusterSecurityProfileArgs:
@@ -5374,6 +7134,31 @@ class InteractiveQueryClusterSecurityProfileArgs:
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterStorageAccountArgsDict(TypedDict):
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        storage_account_key: pulumi.Input[str]
+        """
+        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        """
+        storage_container_id: pulumi.Input[str]
+        """
+        The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterStorageAccountArgs:
     def __init__(__self__, *,
@@ -5450,6 +7235,31 @@ class InteractiveQueryClusterStorageAccountArgs:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class InteractiveQueryClusterStorageAccountGen2ArgsDict(TypedDict):
+        filesystem_id: pulumi.Input[str]
+        """
+        The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        """
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        managed_identity_resource_id: pulumi.Input[str]
+        """
+        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: pulumi.Input[str]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    InteractiveQueryClusterStorageAccountGen2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class InteractiveQueryClusterStorageAccountGen2Args:
     def __init__(__self__, *,
@@ -5525,6 +7335,15 @@ class InteractiveQueryClusterStorageAccountGen2Args:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class KafkaClusterComponentVersionArgsDict(TypedDict):
+        kafka: pulumi.Input[str]
+        """
+        The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterComponentVersionArgs:
     def __init__(__self__, *,
@@ -5546,6 +7365,19 @@ class KafkaClusterComponentVersionArgs:
     def kafka(self, value: pulumi.Input[str]):
         pulumi.set(self, "kafka", value)
 
+
+if not MYPY:
+    class KafkaClusterComputeIsolationArgsDict(TypedDict):
+        compute_isolation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
+        host_sku: NotRequired[pulumi.Input[str]]
+        """
+        The name of the host SKU.
+        """
+elif False:
+    KafkaClusterComputeIsolationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterComputeIsolationArgs:
@@ -5585,6 +7417,27 @@ class KafkaClusterComputeIsolationArgs:
     def host_sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_sku", value)
 
+
+if not MYPY:
+    class KafkaClusterDiskEncryptionArgsDict(TypedDict):
+        encryption_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        encryption_at_host_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        key_vault_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the key vault key.
+        """
+        key_vault_managed_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+elif False:
+    KafkaClusterDiskEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterDiskEncryptionArgs:
@@ -5657,6 +7510,19 @@ class KafkaClusterDiskEncryptionArgs:
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
+if not MYPY:
+    class KafkaClusterExtensionArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The workspace ID of the log analytics extension.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The workspace key of the log analytics extension.
+        """
+elif False:
+    KafkaClusterExtensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterExtensionArgs:
     def __init__(__self__, *,
@@ -5693,6 +7559,21 @@ class KafkaClusterExtensionArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class KafkaClusterGatewayArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+        """
+        username: pulumi.Input[str]
+        """
+        The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterGatewayArgs:
@@ -5734,6 +7615,23 @@ class KafkaClusterGatewayArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class KafkaClusterMetastoresArgsDict(TypedDict):
+        ambari: NotRequired[pulumi.Input['KafkaClusterMetastoresAmbariArgsDict']]
+        """
+        An `ambari` block as defined below.
+        """
+        hive: NotRequired[pulumi.Input['KafkaClusterMetastoresHiveArgsDict']]
+        """
+        A `hive` block as defined below.
+        """
+        oozie: NotRequired[pulumi.Input['KafkaClusterMetastoresOozieArgsDict']]
+        """
+        An `oozie` block as defined below.
+        """
+elif False:
+    KafkaClusterMetastoresArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterMetastoresArgs:
@@ -5789,6 +7687,27 @@ class KafkaClusterMetastoresArgs:
     def oozie(self, value: Optional[pulumi.Input['KafkaClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
+
+if not MYPY:
+    class KafkaClusterMetastoresAmbariArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterMetastoresAmbariArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterMetastoresAmbariArgs:
@@ -5857,6 +7776,27 @@ class KafkaClusterMetastoresAmbariArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class KafkaClusterMetastoresHiveArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterMetastoresHiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterMetastoresHiveArgs:
     def __init__(__self__, *,
@@ -5923,6 +7863,27 @@ class KafkaClusterMetastoresHiveArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class KafkaClusterMetastoresOozieArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterMetastoresOozieArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterMetastoresOozieArgs:
@@ -5991,6 +7952,19 @@ class KafkaClusterMetastoresOozieArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class KafkaClusterMonitorArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace ID.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace key.
+        """
+elif False:
+    KafkaClusterMonitorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterMonitorArgs:
     def __init__(__self__, *,
@@ -6027,6 +8001,21 @@ class KafkaClusterMonitorArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class KafkaClusterNetworkArgsDict(TypedDict):
+        connection_direction: NotRequired[pulumi.Input[str]]
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+        """
+        private_link_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterNetworkArgs:
@@ -6070,6 +8059,20 @@ class KafkaClusterNetworkArgs:
     def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
+
+if not MYPY:
+    class KafkaClusterPrivateLinkConfigurationArgsDict(TypedDict):
+        group_id: pulumi.Input[str]
+        """
+        The ID of the private link service group.
+        """
+        ip_configuration: pulumi.Input['KafkaClusterPrivateLinkConfigurationIpConfigurationArgsDict']
+        name: pulumi.Input[str]
+        """
+        The name of the private link configuration.
+        """
+elif False:
+    KafkaClusterPrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterPrivateLinkConfigurationArgs:
@@ -6118,6 +8121,19 @@ class KafkaClusterPrivateLinkConfigurationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class KafkaClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        subnet_id: NotRequired[pulumi.Input[str]]
+elif False:
+    KafkaClusterPrivateLinkConfigurationIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
@@ -6189,6 +8205,21 @@ class KafkaClusterPrivateLinkConfigurationIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class KafkaClusterRestProxyArgsDict(TypedDict):
+        security_group_id: pulumi.Input[str]
+        """
+        The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
+        """
+        security_group_name: pulumi.Input[str]
+        """
+        The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
+
+        > **Note:** The `security_group_name` property will be Required in version 3.0 of the AzureRM Provider.
+        """
+elif False:
+    KafkaClusterRestProxyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterRestProxyArgs:
     def __init__(__self__, *,
@@ -6229,6 +8260,29 @@ class KafkaClusterRestProxyArgs:
     def security_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "security_group_name", value)
 
+
+if not MYPY:
+    class KafkaClusterRolesArgsDict(TypedDict):
+        head_node: pulumi.Input['KafkaClusterRolesHeadNodeArgsDict']
+        """
+        A `head_node` block as defined above.
+        """
+        worker_node: pulumi.Input['KafkaClusterRolesWorkerNodeArgsDict']
+        """
+        A `worker_node` block as defined below.
+        """
+        zookeeper_node: pulumi.Input['KafkaClusterRolesZookeeperNodeArgsDict']
+        """
+        A `zookeeper_node` block as defined below.
+        """
+        kafka_management_node: NotRequired[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgsDict']]
+        """
+        A `kafka_management_node` block as defined below.
+
+        > **Note:** This property has been deprecated and will be removed in version 4.0.
+        """
+elif False:
+    KafkaClusterRolesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterRolesArgs:
@@ -6301,6 +8355,43 @@ class KafkaClusterRolesArgs:
     def kafka_management_node(self, value: Optional[pulumi.Input['KafkaClusterRolesKafkaManagementNodeArgs']]):
         pulumi.set(self, "kafka_management_node", value)
 
+
+if not MYPY:
+    class KafkaClusterRolesHeadNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterRolesHeadNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterRolesHeadNodeArgs:
@@ -6427,6 +8518,23 @@ class KafkaClusterRolesHeadNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class KafkaClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    KafkaClusterRolesHeadNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -6479,6 +8587,43 @@ class KafkaClusterRolesHeadNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class KafkaClusterRolesKafkaManagementNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Kafka Management Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterRolesKafkaManagementNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterRolesKafkaManagementNodeArgs:
@@ -6605,6 +8750,23 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class KafkaClusterRolesKafkaManagementNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    KafkaClusterRolesKafkaManagementNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -6657,6 +8819,51 @@ class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class KafkaClusterRolesWorkerNodeArgsDict(TypedDict):
+        number_of_disks_per_node: pulumi.Input[int]
+        """
+        The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
+        """
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of instances which should be run for the Worker Nodes.
+        """
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterRolesWorkerNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterRolesWorkerNodeArgs:
@@ -6813,6 +9020,23 @@ class KafkaClusterRolesWorkerNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class KafkaClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    KafkaClusterRolesWorkerNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -6865,6 +9089,43 @@ class KafkaClusterRolesWorkerNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class KafkaClusterRolesZookeeperNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterRolesZookeeperNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterRolesZookeeperNodeArgs:
@@ -6991,6 +9252,23 @@ class KafkaClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class KafkaClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    KafkaClusterRolesZookeeperNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -7043,6 +9321,39 @@ class KafkaClusterRolesZookeeperNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class KafkaClusterSecurityProfileArgsDict(TypedDict):
+        aadds_resource_id: pulumi.Input[str]
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_user_password: pulumi.Input[str]
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_username: pulumi.Input[str]
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        msi_resource_id: pulumi.Input[str]
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KafkaClusterSecurityProfileArgs:
@@ -7157,6 +9468,31 @@ class KafkaClusterSecurityProfileArgs:
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
+if not MYPY:
+    class KafkaClusterStorageAccountArgsDict(TypedDict):
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        storage_account_key: pulumi.Input[str]
+        """
+        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        """
+        storage_container_id: pulumi.Input[str]
+        """
+        The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterStorageAccountArgs:
     def __init__(__self__, *,
@@ -7233,6 +9569,31 @@ class KafkaClusterStorageAccountArgs:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class KafkaClusterStorageAccountGen2ArgsDict(TypedDict):
+        filesystem_id: pulumi.Input[str]
+        """
+        The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        """
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        managed_identity_resource_id: pulumi.Input[str]
+        """
+        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: pulumi.Input[str]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    KafkaClusterStorageAccountGen2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KafkaClusterStorageAccountGen2Args:
     def __init__(__self__, *,
@@ -7308,6 +9669,15 @@ class KafkaClusterStorageAccountGen2Args:
         pulumi.set(self, "storage_resource_id", value)
 
 
+if not MYPY:
+    class SparkClusterComponentVersionArgsDict(TypedDict):
+        spark: pulumi.Input[str]
+        """
+        The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterComponentVersionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterComponentVersionArgs:
     def __init__(__self__, *,
@@ -7329,6 +9699,19 @@ class SparkClusterComponentVersionArgs:
     def spark(self, value: pulumi.Input[str]):
         pulumi.set(self, "spark", value)
 
+
+if not MYPY:
+    class SparkClusterComputeIsolationArgsDict(TypedDict):
+        compute_isolation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This field indicates whether enable compute isolation or not. Possible values are `true` or `false`.
+        """
+        host_sku: NotRequired[pulumi.Input[str]]
+        """
+        The name of the host SKU.
+        """
+elif False:
+    SparkClusterComputeIsolationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterComputeIsolationArgs:
@@ -7368,6 +9751,27 @@ class SparkClusterComputeIsolationArgs:
     def host_sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_sku", value)
 
+
+if not MYPY:
+    class SparkClusterDiskEncryptionArgsDict(TypedDict):
+        encryption_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        encryption_at_host_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        key_vault_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the key vault key.
+        """
+        key_vault_managed_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+elif False:
+    SparkClusterDiskEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterDiskEncryptionArgs:
@@ -7440,6 +9844,19 @@ class SparkClusterDiskEncryptionArgs:
         pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
+if not MYPY:
+    class SparkClusterExtensionArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The workspace ID of the log analytics extension.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The workspace key of the log analytics extension.
+        """
+elif False:
+    SparkClusterExtensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterExtensionArgs:
     def __init__(__self__, *,
@@ -7476,6 +9893,21 @@ class SparkClusterExtensionArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class SparkClusterGatewayArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password used for the Ambari Portal.
+
+        > **NOTE:** This password must be different from the one used for the `head_node`, `worker_node` and `zookeeper_node` roles.
+        """
+        username: pulumi.Input[str]
+        """
+        The username used for the Ambari Portal. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterGatewayArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterGatewayArgs:
@@ -7517,6 +9949,23 @@ class SparkClusterGatewayArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class SparkClusterMetastoresArgsDict(TypedDict):
+        ambari: NotRequired[pulumi.Input['SparkClusterMetastoresAmbariArgsDict']]
+        """
+        An `ambari` block as defined below.
+        """
+        hive: NotRequired[pulumi.Input['SparkClusterMetastoresHiveArgsDict']]
+        """
+        A `hive` block as defined below.
+        """
+        oozie: NotRequired[pulumi.Input['SparkClusterMetastoresOozieArgsDict']]
+        """
+        An `oozie` block as defined below.
+        """
+elif False:
+    SparkClusterMetastoresArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterMetastoresArgs:
@@ -7572,6 +10021,27 @@ class SparkClusterMetastoresArgs:
     def oozie(self, value: Optional[pulumi.Input['SparkClusterMetastoresOozieArgs']]):
         pulumi.set(self, "oozie", value)
 
+
+if not MYPY:
+    class SparkClusterMetastoresAmbariArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterMetastoresAmbariArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterMetastoresAmbariArgs:
@@ -7640,6 +10110,27 @@ class SparkClusterMetastoresAmbariArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class SparkClusterMetastoresHiveArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterMetastoresHiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterMetastoresHiveArgs:
     def __init__(__self__, *,
@@ -7706,6 +10197,27 @@ class SparkClusterMetastoresHiveArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class SparkClusterMetastoresOozieArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
+        """
+        password: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+        """
+        server: pulumi.Input[str]
+        """
+        The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
+        """
+        username: pulumi.Input[str]
+        """
+        The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterMetastoresOozieArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterMetastoresOozieArgs:
@@ -7774,6 +10286,19 @@ class SparkClusterMetastoresOozieArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class SparkClusterMonitorArgsDict(TypedDict):
+        log_analytics_workspace_id: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace ID.
+        """
+        primary_key: pulumi.Input[str]
+        """
+        The Operations Management Suite (OMS) workspace key.
+        """
+elif False:
+    SparkClusterMonitorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterMonitorArgs:
     def __init__(__self__, *,
@@ -7810,6 +10335,21 @@ class SparkClusterMonitorArgs:
     def primary_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "primary_key", value)
 
+
+if not MYPY:
+    class SparkClusterNetworkArgsDict(TypedDict):
+        connection_direction: NotRequired[pulumi.Input[str]]
+        """
+        The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
+
+        > **NOTE:** To enabled the private link the `connection_direction` must be set to `Outbound`.
+        """
+        private_link_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the private link enabled? Possible values include `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterNetworkArgs:
@@ -7853,6 +10393,20 @@ class SparkClusterNetworkArgs:
     def private_link_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "private_link_enabled", value)
 
+
+if not MYPY:
+    class SparkClusterPrivateLinkConfigurationArgsDict(TypedDict):
+        group_id: pulumi.Input[str]
+        """
+        The ID of the private link service group.
+        """
+        ip_configuration: pulumi.Input['SparkClusterPrivateLinkConfigurationIpConfigurationArgsDict']
+        name: pulumi.Input[str]
+        """
+        The name of the private link configuration.
+        """
+elif False:
+    SparkClusterPrivateLinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterPrivateLinkConfigurationArgs:
@@ -7901,6 +10455,19 @@ class SparkClusterPrivateLinkConfigurationArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SparkClusterPrivateLinkConfigurationIpConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        subnet_id: NotRequired[pulumi.Input[str]]
+elif False:
+    SparkClusterPrivateLinkConfigurationIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
@@ -7972,6 +10539,23 @@ class SparkClusterPrivateLinkConfigurationIpConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class SparkClusterRolesArgsDict(TypedDict):
+        head_node: pulumi.Input['SparkClusterRolesHeadNodeArgsDict']
+        """
+        A `head_node` block as defined above.
+        """
+        worker_node: pulumi.Input['SparkClusterRolesWorkerNodeArgsDict']
+        """
+        A `worker_node` block as defined below.
+        """
+        zookeeper_node: pulumi.Input['SparkClusterRolesZookeeperNodeArgsDict']
+        """
+        A `zookeeper_node` block as defined below.
+        """
+elif False:
+    SparkClusterRolesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterRolesArgs:
     def __init__(__self__, *,
@@ -8023,6 +10607,43 @@ class SparkClusterRolesArgs:
     def zookeeper_node(self, value: pulumi.Input['SparkClusterRolesZookeeperNodeArgs']):
         pulumi.set(self, "zookeeper_node", value)
 
+
+if not MYPY:
+    class SparkClusterRolesHeadNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Head Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined below.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterRolesHeadNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterRolesHeadNodeArgs:
@@ -8149,6 +10770,23 @@ class SparkClusterRolesHeadNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class SparkClusterRolesHeadNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    SparkClusterRolesHeadNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterRolesHeadNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -8201,6 +10839,51 @@ class SparkClusterRolesHeadNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class SparkClusterRolesWorkerNodeArgsDict(TypedDict):
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of instances which should be run for the Worker Nodes.
+        """
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        autoscale: NotRequired[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgsDict']]
+        """
+        A `autoscale` block as defined below.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterRolesWorkerNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeArgs:
@@ -8358,6 +11041,21 @@ class SparkClusterRolesWorkerNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class SparkClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleCapacityArgsDict']]
+        """
+        A `capacity` block as defined below.
+        """
+        recurrence: NotRequired[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]
+        """
+        A `recurrence` block as defined below.
+
+        > **NOTE:** Either a `capacity` or `recurrence` block must be specified - but not both.
+        """
+elif False:
+    SparkClusterRolesWorkerNodeAutoscaleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeAutoscaleArgs:
     def __init__(__self__, *,
@@ -8401,6 +11099,19 @@ class SparkClusterRolesWorkerNodeAutoscaleArgs:
         pulumi.set(self, "recurrence", value)
 
 
+if not MYPY:
+    class SparkClusterRolesWorkerNodeAutoscaleCapacityArgsDict(TypedDict):
+        max_instance_count: pulumi.Input[int]
+        """
+        The maximum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+        min_instance_count: pulumi.Input[int]
+        """
+        The minimum number of worker nodes to autoscale to based on the cluster's activity.
+        """
+elif False:
+    SparkClusterRolesWorkerNodeAutoscaleCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeAutoscaleCapacityArgs:
     def __init__(__self__, *,
@@ -8438,6 +11149,19 @@ class SparkClusterRolesWorkerNodeAutoscaleCapacityArgs:
         pulumi.set(self, "min_instance_count", value)
 
 
+if not MYPY:
+    class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict(TypedDict):
+        schedules: pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict']]]
+        """
+        A list of `schedule` blocks as defined below.
+        """
+        timezone: pulumi.Input[str]
+        """
+        The time zone for the autoscale schedule times.
+        """
+elif False:
+    SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     def __init__(__self__, *,
@@ -8474,6 +11198,23 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs:
     def timezone(self, value: pulumi.Input[str]):
         pulumi.set(self, "timezone", value)
 
+
+if not MYPY:
+    class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict(TypedDict):
+        days: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The days of the week to perform autoscale. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
+        target_instance_count: pulumi.Input[int]
+        """
+        The number of worker nodes to autoscale at the specified time.
+        """
+        time: pulumi.Input[str]
+        """
+        The time of day to perform the autoscale in 24hour format.
+        """
+elif False:
+    SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
@@ -8527,6 +11268,23 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class SparkClusterRolesWorkerNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    SparkClusterRolesWorkerNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterRolesWorkerNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -8579,6 +11337,43 @@ class SparkClusterRolesWorkerNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class SparkClusterRolesZookeeperNodeArgsDict(TypedDict):
+        username: pulumi.Input[str]
+        """
+        The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
+        """
+        script_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgsDict']]]]
+        """
+        The script action which will run on the cluster. One or more `script_actions` blocks as defined above.
+        """
+        ssh_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
+
+        > **NOTE:** Either a `password` or one or more `ssh_keys` must be specified - but not both.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+        virtual_network_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterRolesZookeeperNodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterRolesZookeeperNodeArgs:
@@ -8705,6 +11500,23 @@ class SparkClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "virtual_network_id", value)
 
 
+if not MYPY:
+    class SparkClusterRolesZookeeperNodeScriptActionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the script action.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI to the script.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters for the script provided.
+        """
+elif False:
+    SparkClusterRolesZookeeperNodeScriptActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterRolesZookeeperNodeScriptActionArgs:
     def __init__(__self__, *,
@@ -8757,6 +11569,39 @@ class SparkClusterRolesZookeeperNodeScriptActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class SparkClusterSecurityProfileArgsDict(TypedDict):
+        aadds_resource_id: pulumi.Input[str]
+        """
+        The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_user_password: pulumi.Input[str]
+        """
+        The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        domain_username: pulumi.Input[str]
+        """
+        The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
+        """
+        ldaps_urls: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
+        """
+        msi_resource_id: pulumi.Input[str]
+        """
+        The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
+        """
+        cluster_users_group_dns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterSecurityProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterSecurityProfileArgs:
@@ -8871,6 +11716,31 @@ class SparkClusterSecurityProfileArgs:
         pulumi.set(self, "cluster_users_group_dns", value)
 
 
+if not MYPY:
+    class SparkClusterStorageAccountArgsDict(TypedDict):
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        storage_account_key: pulumi.Input[str]
+        """
+        The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
+        """
+        storage_container_id: pulumi.Input[str]
+        """
+        The ID of the Storage Container. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SparkClusterStorageAccountArgs:
     def __init__(__self__, *,
@@ -8946,6 +11816,31 @@ class SparkClusterStorageAccountArgs:
     def storage_resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_resource_id", value)
 
+
+if not MYPY:
+    class SparkClusterStorageAccountGen2ArgsDict(TypedDict):
+        filesystem_id: pulumi.Input[str]
+        """
+        The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
+        """
+        is_default: pulumi.Input[bool]
+        """
+        Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
+
+        > **NOTE:** One of the `storage_account` or `storage_account_gen2` blocks must be marked as the default.
+        """
+        managed_identity_resource_id: pulumi.Input[str]
+        """
+        The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+
+        > **NOTE:** This can be obtained from the `id` of the `storage.Container` resource.
+        """
+        storage_resource_id: pulumi.Input[str]
+        """
+        The ID of the Storage Account. Changing this forces a new resource to be created.
+        """
+elif False:
+    SparkClusterStorageAccountGen2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SparkClusterStorageAccountGen2Args:

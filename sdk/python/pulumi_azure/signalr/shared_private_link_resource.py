@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResource']
@@ -239,21 +244,21 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["ManageContacts"],
-                key_permissions=["Create"],
-                secret_permissions=["Set"],
-            )])
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "certificatePermissions": ["ManageContacts"],
+                "keyPermissions": ["Create"],
+                "secretPermissions": ["Set"],
+            }])
         test = azure.signalr.Service("test",
             name="tfex-signalr",
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "Standard_S1",
+                "capacity": 1,
+            })
         example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("example",
             name="tfex-signalr-splr",
             signalr_service_id=example_azurerm_signalr_service["id"],
@@ -305,21 +310,21 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                certificate_permissions=["ManageContacts"],
-                key_permissions=["Create"],
-                secret_permissions=["Set"],
-            )])
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "certificatePermissions": ["ManageContacts"],
+                "keyPermissions": ["Create"],
+                "secretPermissions": ["Set"],
+            }])
         test = azure.signalr.Service("test",
             name="tfex-signalr",
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Standard_S1",
-                capacity=1,
-            ))
+            sku={
+                "name": "Standard_S1",
+                "capacity": 1,
+            })
         example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("example",
             name="tfex-signalr-splr",
             signalr_service_id=example_azurerm_signalr_service["id"],

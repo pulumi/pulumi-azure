@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -288,7 +293,7 @@ class AwaitableGetStandardResult(GetStandardResult):
 
 def get_standard(name: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
-                 site_config: Optional[pulumi.InputType['GetStandardSiteConfigArgs']] = None,
+                 site_config: Optional[Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict']] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardResult:
     """
@@ -350,7 +355,7 @@ def get_standard(name: Optional[str] = None,
 @_utilities.lift_output_func(get_standard)
 def get_standard_output(name: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
-                        site_config: Optional[pulumi.Input[Optional[pulumi.InputType['GetStandardSiteConfigArgs']]]] = None,
+                        site_config: Optional[pulumi.Input[Optional[Union['GetStandardSiteConfigArgs', 'GetStandardSiteConfigArgsDict']]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
     """

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SpringCloudActiveDeploymentArgs', 'SpringCloudActiveDeployment']
@@ -117,19 +122,19 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             name="example-springcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ),
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             environment_variables={
                 "Env": "Staging",
             })
@@ -177,19 +182,19 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             name="example-springcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
-                cpu="2",
-                memory="4Gi",
-            ),
+            quota={
+                "cpu": "2",
+                "memory": "4Gi",
+            },
             environment_variables={
                 "Env": "Staging",
             })
