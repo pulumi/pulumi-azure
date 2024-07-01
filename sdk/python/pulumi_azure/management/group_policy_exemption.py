@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['GroupPolicyExemptionArgs', 'GroupPolicyExemption']
@@ -343,9 +348,9 @@ class GroupPolicyExemption(pulumi.CustomResource):
             management_group_id=example_group.id,
             policy_definition_id=example.id,
             location="westus",
-            identity=azure.management.GroupPolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_group_policy_exemption = azure.management.GroupPolicyExemption("example",
             name="exemption1",
             management_group_id=example_group.id,
@@ -395,9 +400,9 @@ class GroupPolicyExemption(pulumi.CustomResource):
             management_group_id=example_group.id,
             policy_definition_id=example.id,
             location="westus",
-            identity=azure.management.GroupPolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_group_policy_exemption = azure.management.GroupPolicyExemption("example",
             name="exemption1",
             management_group_id=example_group.id,

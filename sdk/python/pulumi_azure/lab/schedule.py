@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -258,7 +263,7 @@ class Schedule(pulumi.CustomResource):
                  lab_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+                 recurrence: Optional[pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  stop_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
@@ -280,25 +285,25 @@ class Schedule(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
+            security={
+                "openAccessEnabled": False,
+            },
+            virtual_machine={
+                "adminUser": {
+                    "username": "testadmin",
+                    "password": "Password1234!",
+                },
+                "imageReference": {
+                    "publisher": "Canonical",
+                    "offer": "0001-com-ubuntu-server-jammy",
+                    "sku": "22_04-lts",
+                    "version": "latest",
+                },
+                "sku": {
+                    "name": "Classic_Fsv2_2_4GB_128_S_SSD",
+                    "capacity": 1,
+                },
+            })
         example_schedule = azure.lab.Schedule("example",
             name="example-labschedule",
             lab_id=example_lab.id,
@@ -319,7 +324,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] lab_id: The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The notes for the Schedule.
-        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']] recurrence: A `recurrence` block as defined below.
         :param pulumi.Input[str] start_time: When Lab User Virtual Machines will be started in RFC-3339 format.
         :param pulumi.Input[str] stop_time: When Lab User Virtual Machines will be stopped in RFC-3339 format.
         :param pulumi.Input[str] time_zone: The IANA Time Zone ID for the Schedule.
@@ -347,25 +352,25 @@ class Schedule(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=1,
-                ),
-            ))
+            security={
+                "openAccessEnabled": False,
+            },
+            virtual_machine={
+                "adminUser": {
+                    "username": "testadmin",
+                    "password": "Password1234!",
+                },
+                "imageReference": {
+                    "publisher": "Canonical",
+                    "offer": "0001-com-ubuntu-server-jammy",
+                    "sku": "22_04-lts",
+                    "version": "latest",
+                },
+                "sku": {
+                    "name": "Classic_Fsv2_2_4GB_128_S_SSD",
+                    "capacity": 1,
+                },
+            })
         example_schedule = azure.lab.Schedule("example",
             name="example-labschedule",
             lab_id=example_lab.id,
@@ -399,7 +404,7 @@ class Schedule(pulumi.CustomResource):
                  lab_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+                 recurrence: Optional[pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  stop_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
@@ -438,7 +443,7 @@ class Schedule(pulumi.CustomResource):
             lab_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
-            recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+            recurrence: Optional[pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
             stop_time: Optional[pulumi.Input[str]] = None,
             time_zone: Optional[pulumi.Input[str]] = None) -> 'Schedule':
@@ -452,7 +457,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] lab_id: The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The notes for the Schedule.
-        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input[Union['ScheduleRecurrenceArgs', 'ScheduleRecurrenceArgsDict']] recurrence: A `recurrence` block as defined below.
         :param pulumi.Input[str] start_time: When Lab User Virtual Machines will be started in RFC-3339 format.
         :param pulumi.Input[str] stop_time: When Lab User Virtual Machines will be stopped in RFC-3339 format.
         :param pulumi.Input[str] time_zone: The IANA Time Zone ID for the Schedule.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -318,15 +323,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorEndpointArgs']]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_watcher_id: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestConfigurationArgs']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestGroupArgs']]]]] = None,
+                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Network Connection Monitor.
@@ -360,37 +365,37 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             name="example-Nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="example-VM",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_D2s_v3",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk-example01",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostnametest01",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "osdisk-example01",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Standard_LRS",
+            },
+            os_profile={
+                "computerName": "hostnametest01",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         example_extension = azure.compute.Extension("example",
             name="example-VMExtension",
             virtual_machine_id=example_virtual_machine.id,
@@ -408,36 +413,36 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             network_watcher_id=example_network_watcher.id,
             location=example_network_watcher.location,
             endpoints=[
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="source",
-                    target_resource_id=example_virtual_machine.id,
-                    filter=azure.network.NetworkConnectionMonitorEndpointFilterArgs(
-                        items=[azure.network.NetworkConnectionMonitorEndpointFilterItemArgs(
-                            address=example_virtual_machine.id,
-                            type="AgentAddress",
-                        )],
-                        type="Include",
-                    ),
-                ),
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="destination",
-                    address="mycompany.io",
-                ),
+                {
+                    "name": "source",
+                    "targetResourceId": example_virtual_machine.id,
+                    "filter": {
+                        "items": [{
+                            "address": example_virtual_machine.id,
+                            "type": "AgentAddress",
+                        }],
+                        "type": "Include",
+                    },
+                },
+                {
+                    "name": "destination",
+                    "address": "mycompany.io",
+                },
             ],
-            test_configurations=[azure.network.NetworkConnectionMonitorTestConfigurationArgs(
-                name="tcpName",
-                protocol="Tcp",
-                test_frequency_in_seconds=60,
-                tcp_configuration=azure.network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs(
-                    port=80,
-                ),
-            )],
-            test_groups=[azure.network.NetworkConnectionMonitorTestGroupArgs(
-                name="exampletg",
-                destination_endpoints=["destination"],
-                source_endpoints=["source"],
-                test_configuration_names=["tcpName"],
-            )],
+            test_configurations=[{
+                "name": "tcpName",
+                "protocol": "Tcp",
+                "testFrequencyInSeconds": 60,
+                "tcpConfiguration": {
+                    "port": 80,
+                },
+            }],
+            test_groups=[{
+                "name": "exampletg",
+                "destinationEndpoints": ["destination"],
+                "sourceEndpoints": ["source"],
+                "testConfigurationNames": ["tcpName"],
+            }],
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id],
             opts = pulumi.ResourceOptions(depends_on=[example_extension]))
@@ -453,15 +458,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorEndpointArgs']]]] endpoints: A `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]] endpoints: A `endpoint` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_id: The ID of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The description of the Network Connection Monitor.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output_workspace_resource_ids: A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestConfigurationArgs']]]] test_configurations: A `test_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestGroupArgs']]]] test_groups: A `test_group` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]] test_configurations: A `test_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]] test_groups: A `test_group` block as defined below.
         """
         ...
     @overload
@@ -501,37 +506,37 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             name="example-Nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="example-VM",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_D2s_v3",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="osdisk-example01",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostnametest01",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ))
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "osdisk-example01",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Standard_LRS",
+            },
+            os_profile={
+                "computerName": "hostnametest01",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            })
         example_extension = azure.compute.Extension("example",
             name="example-VMExtension",
             virtual_machine_id=example_virtual_machine.id,
@@ -549,36 +554,36 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             network_watcher_id=example_network_watcher.id,
             location=example_network_watcher.location,
             endpoints=[
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="source",
-                    target_resource_id=example_virtual_machine.id,
-                    filter=azure.network.NetworkConnectionMonitorEndpointFilterArgs(
-                        items=[azure.network.NetworkConnectionMonitorEndpointFilterItemArgs(
-                            address=example_virtual_machine.id,
-                            type="AgentAddress",
-                        )],
-                        type="Include",
-                    ),
-                ),
-                azure.network.NetworkConnectionMonitorEndpointArgs(
-                    name="destination",
-                    address="mycompany.io",
-                ),
+                {
+                    "name": "source",
+                    "targetResourceId": example_virtual_machine.id,
+                    "filter": {
+                        "items": [{
+                            "address": example_virtual_machine.id,
+                            "type": "AgentAddress",
+                        }],
+                        "type": "Include",
+                    },
+                },
+                {
+                    "name": "destination",
+                    "address": "mycompany.io",
+                },
             ],
-            test_configurations=[azure.network.NetworkConnectionMonitorTestConfigurationArgs(
-                name="tcpName",
-                protocol="Tcp",
-                test_frequency_in_seconds=60,
-                tcp_configuration=azure.network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs(
-                    port=80,
-                ),
-            )],
-            test_groups=[azure.network.NetworkConnectionMonitorTestGroupArgs(
-                name="exampletg",
-                destination_endpoints=["destination"],
-                source_endpoints=["source"],
-                test_configuration_names=["tcpName"],
-            )],
+            test_configurations=[{
+                "name": "tcpName",
+                "protocol": "Tcp",
+                "testFrequencyInSeconds": 60,
+                "tcpConfiguration": {
+                    "port": 80,
+                },
+            }],
+            test_groups=[{
+                "name": "exampletg",
+                "destinationEndpoints": ["destination"],
+                "sourceEndpoints": ["source"],
+                "testConfigurationNames": ["tcpName"],
+            }],
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id],
             opts = pulumi.ResourceOptions(depends_on=[example_extension]))
@@ -607,15 +612,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorEndpointArgs']]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_watcher_id: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
                  output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestConfigurationArgs']]]]] = None,
-                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestGroupArgs']]]]] = None,
+                 test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+                 test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -652,15 +657,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorEndpointArgs']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_watcher_id: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
             output_workspace_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestConfigurationArgs']]]]] = None,
-            test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestGroupArgs']]]]] = None) -> 'NetworkConnectionMonitor':
+            test_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]]] = None,
+            test_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]]] = None) -> 'NetworkConnectionMonitor':
         """
         Get an existing NetworkConnectionMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -668,15 +673,15 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorEndpointArgs']]]] endpoints: A `endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorEndpointArgs', 'NetworkConnectionMonitorEndpointArgsDict']]]] endpoints: A `endpoint` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_id: The ID of the Network Watcher. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The description of the Network Connection Monitor.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] output_workspace_resource_ids: A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Connection Monitor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestConfigurationArgs']]]] test_configurations: A `test_configuration` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkConnectionMonitorTestGroupArgs']]]] test_groups: A `test_group` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestConfigurationArgs', 'NetworkConnectionMonitorTestConfigurationArgsDict']]]] test_configurations: A `test_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkConnectionMonitorTestGroupArgs', 'NetworkConnectionMonitorTestGroupArgsDict']]]] test_groups: A `test_group` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

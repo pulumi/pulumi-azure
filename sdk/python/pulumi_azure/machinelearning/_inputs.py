@@ -4,27 +4,71 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ComputeClusterIdentityArgs',
+    'ComputeClusterIdentityArgsDict',
     'ComputeClusterScaleSettingsArgs',
+    'ComputeClusterScaleSettingsArgsDict',
     'ComputeClusterSshArgs',
+    'ComputeClusterSshArgsDict',
     'ComputeInstanceAssignToUserArgs',
+    'ComputeInstanceAssignToUserArgsDict',
     'ComputeInstanceIdentityArgs',
+    'ComputeInstanceIdentityArgsDict',
     'ComputeInstanceSshArgs',
+    'ComputeInstanceSshArgsDict',
     'InferenceClusterIdentityArgs',
+    'InferenceClusterIdentityArgsDict',
     'InferenceClusterSslArgs',
+    'InferenceClusterSslArgsDict',
     'SynapseSparkIdentityArgs',
+    'SynapseSparkIdentityArgsDict',
     'WorkspaceEncryptionArgs',
+    'WorkspaceEncryptionArgsDict',
     'WorkspaceFeatureStoreArgs',
+    'WorkspaceFeatureStoreArgsDict',
     'WorkspaceIdentityArgs',
+    'WorkspaceIdentityArgsDict',
     'WorkspaceManagedNetworkArgs',
+    'WorkspaceManagedNetworkArgsDict',
     'WorkspaceServerlessComputeArgs',
+    'WorkspaceServerlessComputeArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ComputeClusterIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster.
+        """
+elif False:
+    ComputeClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeClusterIdentityArgs:
@@ -100,6 +144,23 @@ class ComputeClusterIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ComputeClusterScaleSettingsArgsDict(TypedDict):
+        max_node_count: pulumi.Input[int]
+        """
+        Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        min_node_count: pulumi.Input[int]
+        """
+        Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        scale_down_nodes_after_idle_duration: pulumi.Input[str]
+        """
+        Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+elif False:
+    ComputeClusterScaleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeClusterScaleSettingsArgs:
     def __init__(__self__, *,
@@ -151,6 +212,25 @@ class ComputeClusterScaleSettingsArgs:
     def scale_down_nodes_after_idle_duration(self, value: pulumi.Input[str]):
         pulumi.set(self, "scale_down_nodes_after_idle_duration", value)
 
+
+if not MYPY:
+    class ComputeClusterSshArgsDict(TypedDict):
+        admin_username: pulumi.Input[str]
+        """
+        Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        admin_password: NotRequired[pulumi.Input[str]]
+        """
+        Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+        """
+        key_value: NotRequired[pulumi.Input[str]]
+        """
+        SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+
+        > **NOTE:** At least one of `admin_password` and `key_value` shoud be specified.
+        """
+elif False:
+    ComputeClusterSshArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeClusterSshArgs:
@@ -210,6 +290,19 @@ class ComputeClusterSshArgs:
         pulumi.set(self, "key_value", value)
 
 
+if not MYPY:
+    class ComputeInstanceAssignToUserArgsDict(TypedDict):
+        object_id: NotRequired[pulumi.Input[str]]
+        """
+        User’s AAD Object Id.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        User’s AAD Tenant Id.
+        """
+elif False:
+    ComputeInstanceAssignToUserArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeInstanceAssignToUserArgs:
     def __init__(__self__, *,
@@ -248,6 +341,29 @@ class ComputeInstanceAssignToUserArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ComputeInstanceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance.
+        """
+elif False:
+    ComputeInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ComputeInstanceIdentityArgs:
@@ -323,6 +439,23 @@ class ComputeInstanceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ComputeInstanceSshArgsDict(TypedDict):
+        public_key: pulumi.Input[str]
+        """
+        Specifies the SSH rsa public key file as a string. Use "ssh-keygen -t rsa -b 2048" to generate your SSH key pairs.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        Describes the port for connecting through SSH.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The admin username of this Machine Learning Compute Instance.
+        """
+elif False:
+    ComputeInstanceSshArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ComputeInstanceSshArgs:
     def __init__(__self__, *,
@@ -376,6 +509,29 @@ class ComputeInstanceSshArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class InferenceClusterIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster.
+        """
+elif False:
+    InferenceClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceClusterIdentityArgs:
@@ -450,6 +606,31 @@ class InferenceClusterIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class InferenceClusterSslArgsDict(TypedDict):
+        cert: NotRequired[pulumi.Input[str]]
+        """
+        The certificate for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        """
+        cname: NotRequired[pulumi.Input[str]]
+        """
+        The cname of the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The key content for the SSL configuration.Conflicts with `ssl[0].leaf_domain_label`,`ssl[0].overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        """
+        leaf_domain_label: NotRequired[pulumi.Input[str]]
+        """
+        The leaf domain label for the SSL configuration. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname`. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        """
+        overwrite_existing_domain: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not to overwrite existing leaf domain. Conflicts with `ssl[0].cert`,`ssl[0].key`,`ssl[0].cname` Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to `""`.
+        """
+elif False:
+    InferenceClusterSslArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class InferenceClusterSslArgs:
@@ -538,6 +719,29 @@ class InferenceClusterSslArgs:
         pulumi.set(self, "overwrite_existing_domain", value)
 
 
+if not MYPY:
+    class SynapseSparkIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark.
+        """
+elif False:
+    SynapseSparkIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SynapseSparkIdentityArgs:
     def __init__(__self__, *,
@@ -612,6 +816,25 @@ class SynapseSparkIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class WorkspaceEncryptionArgsDict(TypedDict):
+        key_id: pulumi.Input[str]
+        """
+        The Key Vault URI to access the encryption key.
+        """
+        key_vault_id: pulumi.Input[str]
+        """
+        The ID of the keyVault where the customer owned encryption key is present.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The Key Vault URI to access the encryption key.
+
+        > **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
+        """
+elif False:
+    WorkspaceEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspaceEncryptionArgs:
     def __init__(__self__, *,
@@ -668,6 +891,25 @@ class WorkspaceEncryptionArgs:
     def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
+
+if not MYPY:
+    class WorkspaceFeatureStoreArgsDict(TypedDict):
+        computer_spark_runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Spark runtime.
+        """
+        offline_connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of offline store connection.
+        """
+        online_connection_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of online store connection.
+
+        > **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+        """
+elif False:
+    WorkspaceFeatureStoreArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceFeatureStoreArgs:
@@ -727,6 +969,29 @@ class WorkspaceFeatureStoreArgs:
     def online_connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "online_connection_name", value)
 
+
+if not MYPY:
+    class WorkspaceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    WorkspaceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceIdentityArgs:
@@ -802,6 +1067,15 @@ class WorkspaceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class WorkspaceManagedNetworkArgsDict(TypedDict):
+        isolation_mode: NotRequired[pulumi.Input[str]]
+        """
+        The isolation mode of the Machine Learning Workspace. Possible values are `Disabled`, `AllowOnlyApprovedOutbound`, and `AllowInternetOutbound`
+        """
+elif False:
+    WorkspaceManagedNetworkArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkspaceManagedNetworkArgs:
     def __init__(__self__, *,
@@ -824,6 +1098,21 @@ class WorkspaceManagedNetworkArgs:
     def isolation_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "isolation_mode", value)
 
+
+if not MYPY:
+    class WorkspaceServerlessComputeArgsDict(TypedDict):
+        public_ip_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should serverless compute nodes deployed in a custom Virtual Network have public IP addresses enabled for a workspace with private endpoint? Defaults to `false`.
+
+        > **Note:** `public_ip_enabled` cannot be updated from `true` to `false` when `subnet_id` is not set. `public_ip_enabled` must be set to `true` if `subnet_id` is not set and when `public_network_access_enabled` is `false`.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of an existing Virtual Network Subnet in which the serverless compute nodes should be deployed to.
+        """
+elif False:
+    WorkspaceServerlessComputeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspaceServerlessComputeArgs:

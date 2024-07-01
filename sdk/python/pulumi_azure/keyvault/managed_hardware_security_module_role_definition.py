@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -253,7 +258,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  vault_base_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -272,7 +277,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
         :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] permissions: One or more `permission` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]] permissions: One or more `permission` blocks as defined below.
         :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
         :param pulumi.Input[str] vault_base_url: The base URL of the managed hardware security module resource. Changing this forces a new KeyVault Role Definition to be created.
         """
@@ -311,7 +316,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  managed_hsm_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
                  role_name: Optional[pulumi.Input[str]] = None,
                  vault_base_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -344,7 +349,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             managed_hsm_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]]] = None,
             resource_manager_id: Optional[pulumi.Input[str]] = None,
             role_name: Optional[pulumi.Input[str]] = None,
             role_type: Optional[pulumi.Input[str]] = None,
@@ -358,7 +363,7 @@ class ManagedHardwareSecurityModuleRoleDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Specifies a text description about this KeyVault Role Definition.
         :param pulumi.Input[str] name: The name which should be used for this KeyVault Role Definition. Changing this forces a new KeyVault Role Definition to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs']]]] permissions: One or more `permission` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs', 'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict']]]] permissions: One or more `permission` blocks as defined below.
         :param pulumi.Input[str] resource_manager_id: The ID of the role definition resource without Key Vault base URL.
         :param pulumi.Input[str] role_name: Specify a name for this KeyVault Role Definition.
         :param pulumi.Input[str] role_type: The type of the role definition. Possible values are `AKVBuiltInRole` and `CustomRole`.

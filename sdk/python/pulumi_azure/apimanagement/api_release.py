@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ApiReleaseArgs', 'ApiRelease']
@@ -158,10 +163,10 @@ class ApiRelease(pulumi.CustomResource):
             display_name="Example API",
             path="example",
             protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
+            import_={
+                "contentFormat": "swagger-link-json",
+                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+            })
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",
             api_id=example_api.id)
@@ -214,10 +219,10 @@ class ApiRelease(pulumi.CustomResource):
             display_name="Example API",
             path="example",
             protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
-                content_format="swagger-link-json",
-                content_value="http://conferenceapi.azurewebsites.net/?format=json",
-            ))
+            import_={
+                "contentFormat": "swagger-link-json",
+                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+            })
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",
             api_id=example_api.id)

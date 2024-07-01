@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ProtectedVMArgs', 'ProtectedVM']
@@ -295,13 +300,13 @@ class ProtectedVM(pulumi.CustomResource):
             name="tfex-recovery-vault-policy",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=example_vault.name,
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ))
+            backup={
+                "frequency": "Daily",
+                "time": "23:00",
+            },
+            retention_daily={
+                "count": 10,
+            })
         example = azure.compute.get_virtual_machine_output(name="example-vm",
             resource_group_name=example_resource_group.name)
         vm1 = azure.backup.ProtectedVM("vm1",
@@ -361,13 +366,13 @@ class ProtectedVM(pulumi.CustomResource):
             name="tfex-recovery-vault-policy",
             resource_group_name=example_resource_group.name,
             recovery_vault_name=example_vault.name,
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ))
+            backup={
+                "frequency": "Daily",
+                "time": "23:00",
+            },
+            retention_daily={
+                "count": 10,
+            })
         example = azure.compute.get_virtual_machine_output(name="example-vm",
             resource_group_name=example_resource_group.name)
         vm1 = azure.backup.ProtectedVM("vm1",

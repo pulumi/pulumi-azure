@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['NetappVolumeAttachmentArgs', 'NetappVolumeAttachment']
@@ -168,16 +173,16 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             resource_group_name=test_azurerm_resource_group["name"],
             virtual_network_name=test_virtual_network.name,
             address_prefixes=["10.6.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="testdelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
+            delegations=[{
+                "name": "testdelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         gateway_subnet = azure.network.Subnet("gatewaySubnet",
             name="GatewaySubnet",
             resource_group_name=test_azurerm_resource_group["name"],
@@ -189,11 +194,11 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             resource_group_name=test_azurerm_resource_group["name"],
             type="ExpressRoute",
             sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=test.id,
-                subnet_id=gateway_subnet.id,
-            )])
+            ip_configurations=[{
+                "name": "vnetGatewayConfig",
+                "publicIpAddressId": test.id,
+                "subnetId": gateway_subnet.id,
+            }])
         test_account = azure.netapp.Account("test",
             name="example-NetAppAccount",
             location=test_azurerm_resource_group["location"],
@@ -217,22 +222,22 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             protocols=["NFSv3"],
             storage_quota_in_gb=100,
             azure_vmware_data_store_enabled=True,
-            export_policy_rules=[azure.netapp.VolumeExportPolicyRuleArgs(
-                rule_index=1,
-                allowed_clients=["0.0.0.0/0"],
-                protocols_enabled="NFSv3",
-                unix_read_only=False,
-                unix_read_write=True,
-                root_access_enabled=True,
-            )])
+            export_policy_rules=[{
+                "ruleIndex": 1,
+                "allowedClients": ["0.0.0.0/0"],
+                "protocolsEnabled": "NFSv3",
+                "unixReadOnly": False,
+                "unixReadWrite": True,
+                "rootAccessEnabled": True,
+            }])
         test_private_cloud = azure.avs.PrivateCloud("test",
             name="example-PC",
             resource_group_name=test_azurerm_resource_group["name"],
             location=test_azurerm_resource_group["location"],
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
+            management_cluster={
+                "size": 3,
+            },
             network_subnet_cidr="192.168.48.0/22")
         test_cluster = azure.avs.Cluster("test",
             name="example-vm-cluster",
@@ -309,16 +314,16 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             resource_group_name=test_azurerm_resource_group["name"],
             virtual_network_name=test_virtual_network.name,
             address_prefixes=["10.6.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="testdelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
+            delegations=[{
+                "name": "testdelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         gateway_subnet = azure.network.Subnet("gatewaySubnet",
             name="GatewaySubnet",
             resource_group_name=test_azurerm_resource_group["name"],
@@ -330,11 +335,11 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             resource_group_name=test_azurerm_resource_group["name"],
             type="ExpressRoute",
             sku="Standard",
-            ip_configurations=[azure.network.VirtualNetworkGatewayIpConfigurationArgs(
-                name="vnetGatewayConfig",
-                public_ip_address_id=test.id,
-                subnet_id=gateway_subnet.id,
-            )])
+            ip_configurations=[{
+                "name": "vnetGatewayConfig",
+                "publicIpAddressId": test.id,
+                "subnetId": gateway_subnet.id,
+            }])
         test_account = azure.netapp.Account("test",
             name="example-NetAppAccount",
             location=test_azurerm_resource_group["location"],
@@ -358,22 +363,22 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             protocols=["NFSv3"],
             storage_quota_in_gb=100,
             azure_vmware_data_store_enabled=True,
-            export_policy_rules=[azure.netapp.VolumeExportPolicyRuleArgs(
-                rule_index=1,
-                allowed_clients=["0.0.0.0/0"],
-                protocols_enabled="NFSv3",
-                unix_read_only=False,
-                unix_read_write=True,
-                root_access_enabled=True,
-            )])
+            export_policy_rules=[{
+                "ruleIndex": 1,
+                "allowedClients": ["0.0.0.0/0"],
+                "protocolsEnabled": "NFSv3",
+                "unixReadOnly": False,
+                "unixReadWrite": True,
+                "rootAccessEnabled": True,
+            }])
         test_private_cloud = azure.avs.PrivateCloud("test",
             name="example-PC",
             resource_group_name=test_azurerm_resource_group["name"],
             location=test_azurerm_resource_group["location"],
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
+            management_cluster={
+                "size": 3,
+            },
             network_subnet_cidr="192.168.48.0/22")
         test_cluster = azure.avs.Cluster("test",
             name="example-vm-cluster",

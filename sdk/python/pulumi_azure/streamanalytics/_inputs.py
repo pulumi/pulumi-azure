@@ -4,28 +4,63 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FunctionJavaScriptUDFInputArgs',
+    'FunctionJavaScriptUDFInputArgsDict',
     'FunctionJavaScriptUDFOutputArgs',
+    'FunctionJavaScriptUDFOutputArgsDict',
     'FunctionJavascriptUdaInputArgs',
+    'FunctionJavascriptUdaInputArgsDict',
     'FunctionJavascriptUdaOutputArgs',
+    'FunctionJavascriptUdaOutputArgsDict',
     'JobIdentityArgs',
+    'JobIdentityArgsDict',
     'JobJobStorageAccountArgs',
+    'JobJobStorageAccountArgsDict',
     'OutputBlobSerializationArgs',
+    'OutputBlobSerializationArgsDict',
     'OutputEventHubSerializationArgs',
+    'OutputEventHubSerializationArgsDict',
     'OutputServiceBusQueueSerializationArgs',
+    'OutputServiceBusQueueSerializationArgsDict',
     'OutputServicebusTopicSerializationArgs',
+    'OutputServicebusTopicSerializationArgsDict',
     'ReferenceInputBlobSerializationArgs',
+    'ReferenceInputBlobSerializationArgsDict',
     'StreamInputBlobSerializationArgs',
+    'StreamInputBlobSerializationArgsDict',
     'StreamInputEventHubSerializationArgs',
+    'StreamInputEventHubSerializationArgsDict',
     'StreamInputEventHubV2SerializationArgs',
+    'StreamInputEventHubV2SerializationArgsDict',
     'StreamInputIotHubSerializationArgs',
+    'StreamInputIotHubSerializationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FunctionJavaScriptUDFInputArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+        configuration_parameter: NotRequired[pulumi.Input[bool]]
+        """
+        Is this input parameter a configuration parameter? Defaults to `false`.
+        """
+elif False:
+    FunctionJavaScriptUDFInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionJavaScriptUDFInputArgs:
@@ -65,6 +100,15 @@ class FunctionJavaScriptUDFInputArgs:
         pulumi.set(self, "configuration_parameter", value)
 
 
+if not MYPY:
+    class FunctionJavaScriptUDFOutputArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+elif False:
+    FunctionJavaScriptUDFOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionJavaScriptUDFOutputArgs:
     def __init__(__self__, *,
@@ -86,6 +130,19 @@ class FunctionJavaScriptUDFOutputArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FunctionJavascriptUdaInputArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+        configuration_parameter: NotRequired[pulumi.Input[bool]]
+        """
+        Is this input parameter a configuration parameter? Defaults to `false`.
+        """
+elif False:
+    FunctionJavascriptUdaInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionJavascriptUdaInputArgs:
@@ -125,6 +182,15 @@ class FunctionJavascriptUdaInputArgs:
         pulumi.set(self, "configuration_parameter", value)
 
 
+if not MYPY:
+    class FunctionJavascriptUdaOutputArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
+        """
+elif False:
+    FunctionJavascriptUdaOutputArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionJavascriptUdaOutputArgs:
     def __init__(__self__, *,
@@ -146,6 +212,27 @@ class FunctionJavascriptUdaOutputArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class JobIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The identity id of the user assigned identity to use when type is `UserAssigned`
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    JobIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobIdentityArgs:
@@ -217,6 +304,23 @@ class JobIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class JobJobStorageAccountArgsDict(TypedDict):
+        account_key: pulumi.Input[str]
+        """
+        The account key for the Azure storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The name of the Azure storage account.
+        """
+        authentication_mode: NotRequired[pulumi.Input[str]]
+        """
+        The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
+        """
+elif False:
+    JobJobStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobJobStorageAccountArgs:
     def __init__(__self__, *,
@@ -269,6 +373,35 @@ class JobJobStorageAccountArgs:
     def authentication_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication_mode", value)
 
+
+if not MYPY:
+    class OutputBlobSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
+
+        > **NOTE:** `batch_max_wait_time` and `batch_min_rows` are required when `type` is set to `Parquet`
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+
+        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        """
+elif False:
+    OutputBlobSerializationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OutputBlobSerializationArgs:
@@ -356,6 +489,33 @@ class OutputBlobSerializationArgs:
         pulumi.set(self, "format", value)
 
 
+if not MYPY:
+    class OutputEventHubSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+
+        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        """
+elif False:
+    OutputEventHubSerializationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OutputEventHubSerializationArgs:
     def __init__(__self__, *,
@@ -437,6 +597,33 @@ class OutputEventHubSerializationArgs:
     def format(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "format", value)
 
+
+if not MYPY:
+    class OutputServiceBusQueueSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+
+        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        """
+elif False:
+    OutputServiceBusQueueSerializationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OutputServiceBusQueueSerializationArgs:
@@ -520,6 +707,33 @@ class OutputServiceBusQueueSerializationArgs:
         pulumi.set(self, "format", value)
 
 
+if not MYPY:
+    class OutputServicebusTopicSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv`, `Json` and `Parquet`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+        format: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
+
+        > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
+        """
+elif False:
+    OutputServicebusTopicSerializationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OutputServicebusTopicSerializationArgs:
     def __init__(__self__, *,
@@ -602,6 +816,27 @@ class OutputServicebusTopicSerializationArgs:
         pulumi.set(self, "format", value)
 
 
+if not MYPY:
+    class ReferenceInputBlobSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for the reference data. Possible values are `Avro`, `Csv` and `Json`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+elif False:
+    ReferenceInputBlobSerializationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ReferenceInputBlobSerializationArgs:
     def __init__(__self__, *,
@@ -663,6 +898,27 @@ class ReferenceInputBlobSerializationArgs:
     def field_delimiter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_delimiter", value)
 
+
+if not MYPY:
+    class StreamInputBlobSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+elif False:
+    StreamInputBlobSerializationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamInputBlobSerializationArgs:
@@ -726,6 +982,27 @@ class StreamInputBlobSerializationArgs:
         pulumi.set(self, "field_delimiter", value)
 
 
+if not MYPY:
+    class StreamInputEventHubSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+elif False:
+    StreamInputEventHubSerializationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamInputEventHubSerializationArgs:
     def __init__(__self__, *,
@@ -788,6 +1065,27 @@ class StreamInputEventHubSerializationArgs:
         pulumi.set(self, "field_delimiter", value)
 
 
+if not MYPY:
+    class StreamInputEventHubV2SerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+elif False:
+    StreamInputEventHubV2SerializationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamInputEventHubV2SerializationArgs:
     def __init__(__self__, *,
@@ -849,6 +1147,27 @@ class StreamInputEventHubV2SerializationArgs:
     def field_delimiter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "field_delimiter", value)
 
+
+if not MYPY:
+    class StreamInputIotHubSerializationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
+
+        > **NOTE:** This is required when `type` is set to `Csv` or `Json`.
+        """
+        field_delimiter: NotRequired[pulumi.Input[str]]
+        """
+        The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `	` (tab), `|` (pipe) and `;`.
+
+        > **NOTE:** This is required when `type` is set to `Csv`.
+        """
+elif False:
+    StreamInputIotHubSerializationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamInputIotHubSerializationArgs:

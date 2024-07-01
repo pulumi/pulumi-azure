@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['BackupInstancePostgresqlArgs', 'BackupInstancePostgresql']
@@ -274,9 +279,9 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example",
             location=example.location,
@@ -285,36 +290,36 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Create",
                         "Get",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Set",
                         "Get",
                         "Delete",
                         "Purge",
                         "Recover",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_backup_vault.identity.tenant_id,
-                    object_id=example_backup_vault.identity.principal_id,
-                    key_permissions=[
+                },
+                {
+                    "tenantId": example_backup_vault.identity.tenant_id,
+                    "objectId": example_backup_vault.identity.principal_id,
+                    "keyPermissions": [
                         "Create",
                         "Get",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Set",
                         "Get",
                         "Delete",
                         "Purge",
                         "Recover",
                     ],
-                ),
+                },
             ])
         example_secret = azure.keyvault.Secret("example",
             name="example",
@@ -408,9 +413,9 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example",
             location=example.location,
@@ -419,36 +424,36 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Create",
                         "Get",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Set",
                         "Get",
                         "Delete",
                         "Purge",
                         "Recover",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_backup_vault.identity.tenant_id,
-                    object_id=example_backup_vault.identity.principal_id,
-                    key_permissions=[
+                },
+                {
+                    "tenantId": example_backup_vault.identity.tenant_id,
+                    "objectId": example_backup_vault.identity.principal_id,
+                    "keyPermissions": [
                         "Create",
                         "Get",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Set",
                         "Get",
                         "Delete",
                         "Purge",
                         "Recover",
                     ],
-                ),
+                },
             ])
         example_secret = azure.keyvault.Secret("example",
             name="example",

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AccountCustomerManagedKeyInitArgs', 'AccountCustomerManagedKey']
@@ -156,10 +161,10 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             kind="Face",
             sku_name="E0",
             custom_subdomain_name="example-account",
-            identity=azure.cognitive.AccountIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-vault",
             location=example.location,
@@ -168,10 +173,10 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_account.identity.tenant_id,
-                    object_id=example_account.identity.principal_id,
-                    key_permissions=[
+                {
+                    "tenantId": example_account.identity.tenant_id,
+                    "objectId": example_account.identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "List",
@@ -185,12 +190,12 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Sign",
                         "Verify",
                     ],
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                    "secretPermissions": ["Get"],
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -206,12 +211,12 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Verify",
                         "GetRotationPolicy",
                     ],
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_user_assigned_identity.tenant_id,
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
+                    "secretPermissions": ["Get"],
+                },
+                {
+                    "tenantId": example_user_assigned_identity.tenant_id,
+                    "objectId": example_user_assigned_identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -226,8 +231,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Sign",
                         "Verify",
                     ],
-                    secret_permissions=["Get"],
-                ),
+                    "secretPermissions": ["Get"],
+                },
             ])
         example_key = azure.keyvault.Key("example",
             name="example-key",
@@ -294,10 +299,10 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             kind="Face",
             sku_name="E0",
             custom_subdomain_name="example-account",
-            identity=azure.cognitive.AccountIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-vault",
             location=example.location,
@@ -306,10 +311,10 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_account.identity.tenant_id,
-                    object_id=example_account.identity.principal_id,
-                    key_permissions=[
+                {
+                    "tenantId": example_account.identity.tenant_id,
+                    "objectId": example_account.identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "List",
@@ -323,12 +328,12 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Sign",
                         "Verify",
                     ],
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                    "secretPermissions": ["Get"],
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -344,12 +349,12 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Verify",
                         "GetRotationPolicy",
                     ],
-                    secret_permissions=["Get"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_user_assigned_identity.tenant_id,
-                    object_id=example_user_assigned_identity.principal_id,
-                    key_permissions=[
+                    "secretPermissions": ["Get"],
+                },
+                {
+                    "tenantId": example_user_assigned_identity.tenant_id,
+                    "objectId": example_user_assigned_identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -364,8 +369,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                         "Sign",
                         "Verify",
                     ],
-                    secret_permissions=["Get"],
-                ),
+                    "secretPermissions": ["Get"],
+                },
             ])
         example_key = azure.keyvault.Key("example",
             name="example-key",

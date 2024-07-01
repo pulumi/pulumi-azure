@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -320,7 +325,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
+                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
                  localized: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -348,13 +353,13 @@ class WorkbookTemplate(pulumi.CustomResource):
             location="West Europe",
             author="test author",
             priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
-                category="workbook",
-                name="test",
-                order=100,
-                resource_type="microsoft.insights/components",
-                type="tsg",
-            )],
+            galleries=[{
+                "category": "workbook",
+                "name": "test",
+                "order": 100,
+                "resourceType": "microsoft.insights/components",
+                "type": "tsg",
+            }],
             template_data=json.dumps({
                 "version": "Notebook/1.0",
                 "items": [{
@@ -412,7 +417,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.
@@ -446,13 +451,13 @@ class WorkbookTemplate(pulumi.CustomResource):
             location="West Europe",
             author="test author",
             priority=1,
-            galleries=[azure.appinsights.WorkbookTemplateGalleryArgs(
-                category="workbook",
-                name="test",
-                order=100,
-                resource_type="microsoft.insights/components",
-                type="tsg",
-            )],
+            galleries=[{
+                "category": "workbook",
+                "name": "test",
+                "order": 100,
+                "resourceType": "microsoft.insights/components",
+                "type": "tsg",
+            }],
             template_data=json.dumps({
                 "version": "Notebook/1.0",
                 "items": [{
@@ -523,7 +528,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  author: Optional[pulumi.Input[str]] = None,
-                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
+                 galleries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
                  localized: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -566,7 +571,7 @@ class WorkbookTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             author: Optional[pulumi.Input[str]] = None,
-            galleries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]]] = None,
+            galleries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]]] = None,
             localized: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -582,7 +587,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkbookTemplateGalleryArgs']]]] galleries: A `galleries` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkbookTemplateGalleryArgs', 'WorkbookTemplateGalleryArgsDict']]]] galleries: A `galleries` block as defined below.
         :param pulumi.Input[str] localized: Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created.

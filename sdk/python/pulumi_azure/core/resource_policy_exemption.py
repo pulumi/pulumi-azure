@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ResourcePolicyExemptionArgs', 'ResourcePolicyExemption']
@@ -350,9 +355,9 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_definition_id=example.id,
             location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
             name="exemption1",
             resource_id=example_resource_policy_assignment.resource_id,
@@ -409,9 +414,9 @@ class ResourcePolicyExemption(pulumi.CustomResource):
             resource_id=example_virtual_network.id,
             policy_definition_id=example.id,
             location=example_resource_group.location,
-            identity=azure.core.ResourcePolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_resource_policy_exemption = azure.core.ResourcePolicyExemption("example",
             name="exemption1",
             resource_id=example_resource_policy_assignment.resource_id,

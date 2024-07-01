@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ProjectArgs', 'Project']
@@ -296,9 +301,9 @@ class Project(pulumi.CustomResource):
             name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="example-value",
-            ))
+            identity={
+                "type": "example-value",
+            })
         example_project = azure.devcenter.Project("example",
             dev_center_id=example.id,
             location=example_resource_group.location,
@@ -354,9 +359,9 @@ class Project(pulumi.CustomResource):
             name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="example-value",
-            ))
+            identity={
+                "type": "example-value",
+            })
         example_project = azure.devcenter.Project("example",
             dev_center_id=example.id,
             location=example_resource_group.location,

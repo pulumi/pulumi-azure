@@ -4,27 +4,111 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountActiveDirectoryArgs',
+    'AccountActiveDirectoryArgsDict',
     'AccountIdentityArgs',
+    'AccountIdentityArgsDict',
     'SnapshotPolicyDailyScheduleArgs',
+    'SnapshotPolicyDailyScheduleArgsDict',
     'SnapshotPolicyHourlyScheduleArgs',
+    'SnapshotPolicyHourlyScheduleArgsDict',
     'SnapshotPolicyMonthlyScheduleArgs',
+    'SnapshotPolicyMonthlyScheduleArgsDict',
     'SnapshotPolicyWeeklyScheduleArgs',
+    'SnapshotPolicyWeeklyScheduleArgsDict',
     'VolumeDataProtectionReplicationArgs',
+    'VolumeDataProtectionReplicationArgsDict',
     'VolumeDataProtectionSnapshotPolicyArgs',
+    'VolumeDataProtectionSnapshotPolicyArgsDict',
     'VolumeExportPolicyRuleArgs',
+    'VolumeExportPolicyRuleArgsDict',
     'VolumeGroupSapHanaVolumeArgs',
+    'VolumeGroupSapHanaVolumeArgsDict',
     'VolumeGroupSapHanaVolumeDataProtectionReplicationArgs',
+    'VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict',
     'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs',
+    'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict',
     'VolumeGroupSapHanaVolumeExportPolicyRuleArgs',
+    'VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict',
     'GetAccountIdentityArgs',
+    'GetAccountIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountActiveDirectoryArgsDict(TypedDict):
+        dns_servers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
+        """
+        domain: pulumi.Input[str]
+        """
+        The name of the Active Directory domain.
+        """
+        password: pulumi.Input[str]
+        """
+        The password associated with the `username`.
+        """
+        smb_server_name: pulumi.Input[str]
+        """
+        The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
+        """
+        username: pulumi.Input[str]
+        """
+        The Username of Active Directory Domain Administrator.
+        """
+        aes_encryption_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled, AES encryption will be enabled for SMB communication. Defaults to `false`.
+        """
+        kerberos_ad_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the active directory machine.
+        """
+        kerberos_kdc_ip: NotRequired[pulumi.Input[str]]
+        """
+        kdc server IP addresses for the active directory machine.
+
+        > **IMPORTANT:** If you plan on using **Kerberos** volumes, both `ad_name` and `kdc_ip` are required in order to create the volume.
+        """
+        ldap_over_tls_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether or not the LDAP traffic needs to be secured via TLS. Defaults to `false`.
+        """
+        ldap_signing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether or not the LDAP traffic needs to be signed. Defaults to `false`.
+        """
+        local_nfs_users_with_ldap_allowed: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes. Defaults to `false`.
+        """
+        organizational_unit: NotRequired[pulumi.Input[str]]
+        """
+        The Organizational Unit (OU) within Active Directory where machines will be created. If blank, defaults to `CN=Computers`.
+        """
+        server_root_ca_certificate: NotRequired[pulumi.Input[str]]
+        """
+        When LDAP over SSL/TLS is enabled, the LDAP client is required to have a *base64 encoded Active Directory Certificate Service's self-signed root CA certificate*, this optional parameter is used only for dual protocol with LDAP user-mapping volumes. Required if `ldap_over_tls_enabled` is set to `true`.
+        """
+        site_name: NotRequired[pulumi.Input[str]]
+        """
+        The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to `Default-First-Site-Name`.
+        """
+elif False:
+    AccountActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountActiveDirectoryArgs:
@@ -256,6 +340,21 @@ class AccountActiveDirectoryArgs:
         pulumi.set(self, "site_name", value)
 
 
+if not MYPY:
+    class AccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The identity type, which can be `SystemAssigned` or `UserAssigned`. Only one type at a time is supported by Azure NetApp Files.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The identity id of the user assigned identity to use when type is `UserAssigned`
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountIdentityArgs:
     def __init__(__self__, *,
@@ -318,6 +417,23 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class SnapshotPolicyDailyScheduleArgsDict(TypedDict):
+        hour: pulumi.Input[int]
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        minute: pulumi.Input[int]
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        snapshots_to_keep: pulumi.Input[int]
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+elif False:
+    SnapshotPolicyDailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotPolicyDailyScheduleArgs:
     def __init__(__self__, *,
@@ -370,6 +486,19 @@ class SnapshotPolicyDailyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
+if not MYPY:
+    class SnapshotPolicyHourlyScheduleArgsDict(TypedDict):
+        minute: pulumi.Input[int]
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        snapshots_to_keep: pulumi.Input[int]
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+elif False:
+    SnapshotPolicyHourlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotPolicyHourlyScheduleArgs:
     def __init__(__self__, *,
@@ -406,6 +535,27 @@ class SnapshotPolicyHourlyScheduleArgs:
     def snapshots_to_keep(self, value: pulumi.Input[int]):
         pulumi.set(self, "snapshots_to_keep", value)
 
+
+if not MYPY:
+    class SnapshotPolicyMonthlyScheduleArgsDict(TypedDict):
+        days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        List of the days of the month when the snapshots will be created, valid range is from 1 to 30.
+        """
+        hour: pulumi.Input[int]
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        minute: pulumi.Input[int]
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        snapshots_to_keep: pulumi.Input[int]
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+elif False:
+    SnapshotPolicyMonthlyScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SnapshotPolicyMonthlyScheduleArgs:
@@ -474,6 +624,27 @@ class SnapshotPolicyMonthlyScheduleArgs:
         pulumi.set(self, "snapshots_to_keep", value)
 
 
+if not MYPY:
+    class SnapshotPolicyWeeklyScheduleArgsDict(TypedDict):
+        days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of the week days using English names when the snapshots will be created.
+        """
+        hour: pulumi.Input[int]
+        """
+        Hour of the day that the snapshots will be created, valid range is from 0 to 23.
+        """
+        minute: pulumi.Input[int]
+        """
+        Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
+        """
+        snapshots_to_keep: pulumi.Input[int]
+        """
+        How many hourly snapshots to keep, valid range is from 0 to 255.
+        """
+elif False:
+    SnapshotPolicyWeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SnapshotPolicyWeeklyScheduleArgs:
     def __init__(__self__, *,
@@ -540,6 +711,31 @@ class SnapshotPolicyWeeklyScheduleArgs:
     def snapshots_to_keep(self, value: pulumi.Input[int]):
         pulumi.set(self, "snapshots_to_keep", value)
 
+
+if not MYPY:
+    class VolumeDataProtectionReplicationArgsDict(TypedDict):
+        remote_volume_location: pulumi.Input[str]
+        """
+        Location of the primary volume. Changing this forces a new resource to be created.
+        """
+        remote_volume_resource_id: pulumi.Input[str]
+        """
+        Resource ID of the primary volume.
+        """
+        replication_frequency: pulumi.Input[str]
+        """
+        Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.
+
+        A full example of the `data_protection_replication` attribute can be found in the `./examples/netapp/volume_crr` directory within the GitHub Repository
+
+        > **NOTE:** `data_protection_replication` can be defined only once per secondary volume, adding a second instance of it is not supported.
+        """
+        endpoint_type: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint type, default value is `dst` for destination.
+        """
+elif False:
+    VolumeDataProtectionReplicationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeDataProtectionReplicationArgs:
@@ -617,6 +813,19 @@ class VolumeDataProtectionReplicationArgs:
         pulumi.set(self, "endpoint_type", value)
 
 
+if not MYPY:
+    class VolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
+        snapshot_policy_id: pulumi.Input[str]
+        """
+        Resource ID of the snapshot policy to apply to the volume.
+
+        A full example of the `data_protection_snapshot_policy` attribute usage can be found in the `./examples/netapp/nfsv3_volume_with_snapshot_policy` directory within the GitHub Repository
+
+        > **NOTE:** `data_protection_snapshot_policy` block can be used alone or with data_protection_replication in the primary volume only, if enabling it in the secondary, an error will be thrown.
+        """
+elif False:
+    VolumeDataProtectionSnapshotPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VolumeDataProtectionSnapshotPolicyArgs:
     def __init__(__self__, *,
@@ -646,6 +855,59 @@ class VolumeDataProtectionSnapshotPolicyArgs:
     def snapshot_policy_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "snapshot_policy_id", value)
 
+
+if not MYPY:
+    class VolumeExportPolicyRuleArgsDict(TypedDict):
+        allowed_clients: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of allowed clients IPv4 addresses.
+        """
+        rule_index: pulumi.Input[int]
+        """
+        The index number of the rule.
+        """
+        kerberos5_read_only_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Kerberos 5 read-only access permitted to this volume?
+        """
+        kerberos5_read_write_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Kerberos 5 read/write permitted to this volume?
+        """
+        kerberos5i_read_only_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Kerberos 5i read-only permitted to this volume?
+        """
+        kerberos5i_read_write_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Kerberos 5i read/write permitted to this volume?
+        """
+        kerberos5p_read_only_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Kerberos 5p read-only permitted to this volume?
+        """
+        kerberos5p_read_write_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Kerberos 5p read/write permitted to this volume?
+        """
+        protocols_enabled: NotRequired[pulumi.Input[str]]
+        """
+        A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
+        """
+        root_access_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is root access permitted to this volume?
+        """
+        unix_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Is the file system on unix read only?
+        """
+        unix_read_write: NotRequired[pulumi.Input[bool]]
+        """
+        Is the file system on unix read and write?
+        """
+elif False:
+    VolumeExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeExportPolicyRuleArgs:
@@ -843,6 +1105,80 @@ class VolumeExportPolicyRuleArgs:
     def unix_read_write(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unix_read_write", value)
 
+
+if not MYPY:
+    class VolumeGroupSapHanaVolumeArgsDict(TypedDict):
+        capacity_pool_id: pulumi.Input[str]
+        """
+        The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict']]]
+        """
+        One or more `export_policy_rule` blocks as defined below.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        protocols: pulumi.Input[str]
+        """
+        The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
+        """
+        security_style: pulumi.Input[str]
+        """
+        Volume security style. Possible values are `ntfs` and `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        service_level: pulumi.Input[str]
+        """
+        Volume security style. Possible values are `Premium`, `Standard` and `Ultra`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        snapshot_directory_visible: pulumi.Input[bool]
+        """
+        Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        storage_quota_in_gb: pulumi.Input[int]
+        """
+        The maximum Storage Quota allowed for a file system in Gigabytes.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        throughput_in_mibps: pulumi.Input[float]
+        """
+        Throughput of this volume in Mibps.
+        """
+        volume_path: pulumi.Input[str]
+        """
+        A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        volume_spec_name: pulumi.Input[str]
+        """
+        Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        data_protection_replication: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict']]
+        """
+        A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        """
+        data_protection_snapshot_policy: NotRequired[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict']]
+        """
+        A `data_protection_snapshot_policy` block as defined below.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Application Volume Group.
+        """
+        mount_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        proximity_placement_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A mapping of tags which should be assigned to the Application Volume Group.
+        """
+elif False:
+    VolumeGroupSapHanaVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeArgs:
@@ -1123,6 +1459,15 @@ class VolumeGroupSapHanaVolumeArgs:
         pulumi.set(self, "tags", value)
 
 
+if not MYPY:
+    class VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict(TypedDict):
+        remote_volume_location: pulumi.Input[str]
+        remote_volume_resource_id: pulumi.Input[str]
+        replication_frequency: pulumi.Input[str]
+        endpoint_type: NotRequired[pulumi.Input[str]]
+elif False:
+    VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     def __init__(__self__, *,
@@ -1173,6 +1518,15 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
         pulumi.set(self, "endpoint_type", value)
 
 
+if not MYPY:
+    class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict(TypedDict):
+        snapshot_policy_id: pulumi.Input[str]
+        """
+        Resource ID of the snapshot policy to apply to the volume.
+        """
+elif False:
+    VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
     def __init__(__self__, *,
@@ -1194,6 +1548,39 @@ class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
     def snapshot_policy_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "snapshot_policy_id", value)
 
+
+if not MYPY:
+    class VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict(TypedDict):
+        allowed_clients: pulumi.Input[str]
+        """
+        A comma-sperated list of allowed client IPv4 addresses.
+        """
+        nfsv3_enabled: pulumi.Input[bool]
+        """
+        Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
+        """
+        nfsv41_enabled: pulumi.Input[bool]
+        """
+        Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
+        """
+        rule_index: pulumi.Input[int]
+        """
+        The index number of the rule, must start at 1 and maximum 5.
+        """
+        root_access_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is root access permitted to this volume? Defaults to `true`.
+        """
+        unix_read_only: NotRequired[pulumi.Input[bool]]
+        """
+        Is the file system on unix read only? Defaults to `false.
+        """
+        unix_read_write: NotRequired[pulumi.Input[bool]]
+        """
+        Is the file system on unix read and write? Defaults to `true`.
+        """
+elif False:
+    VolumeGroupSapHanaVolumeExportPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
@@ -1309,6 +1696,15 @@ class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
     def unix_read_write(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unix_read_write", value)
 
+
+if not MYPY:
+    class GetAccountIdentityArgsDict(TypedDict):
+        principal_id: str
+        tenant_id: str
+        type: str
+        identity_ids: NotRequired[Sequence[str]]
+elif False:
+    GetAccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetAccountIdentityArgs:

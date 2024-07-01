@@ -4,19 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'NamespaceCustomerManagedKeyArgs',
+    'NamespaceCustomerManagedKeyArgsDict',
     'NamespaceIdentityArgs',
+    'NamespaceIdentityArgsDict',
     'NamespaceNetworkRuleSetArgs',
+    'NamespaceNetworkRuleSetArgsDict',
     'NamespaceNetworkRuleSetNetworkRuleArgs',
+    'NamespaceNetworkRuleSetNetworkRuleArgsDict',
     'SubscriptionClientScopedSubscriptionArgs',
+    'SubscriptionClientScopedSubscriptionArgsDict',
     'SubscriptionRuleCorrelationFilterArgs',
+    'SubscriptionRuleCorrelationFilterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NamespaceCustomerManagedKeyArgsDict(TypedDict):
+        identity_id: pulumi.Input[str]
+        """
+        The ID of the User Assigned Identity that has access to the key.
+        """
+        key_vault_key_id: pulumi.Input[str]
+        """
+        The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
+        """
+        infrastructure_encryption_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
+        """
+elif False:
+    NamespaceCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NamespaceCustomerManagedKeyArgs:
@@ -70,6 +100,29 @@ class NamespaceCustomerManagedKeyArgs:
     def infrastructure_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "infrastructure_encryption_enabled", value)
 
+
+if not MYPY:
+    class NamespaceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
+        """
+elif False:
+    NamespaceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NamespaceIdentityArgs:
@@ -144,6 +197,31 @@ class NamespaceIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class NamespaceNetworkRuleSetArgsDict(TypedDict):
+        default_action: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
+        """
+        network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgsDict']]]]
+        """
+        One or more `network_rules` blocks as defined below.
+        """
+        public_network_access_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
+        """
+        trusted_services_allowed: NotRequired[pulumi.Input[bool]]
+        """
+        Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
+        """
+elif False:
+    NamespaceNetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NamespaceNetworkRuleSetArgs:
@@ -232,6 +310,19 @@ class NamespaceNetworkRuleSetArgs:
         pulumi.set(self, "trusted_services_allowed", value)
 
 
+if not MYPY:
+    class NamespaceNetworkRuleSetNetworkRuleArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        The Subnet ID which should be able to access this ServiceBus Namespace.
+        """
+        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
+        """
+elif False:
+    NamespaceNetworkRuleSetNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NamespaceNetworkRuleSetNetworkRuleArgs:
     def __init__(__self__, *,
@@ -269,6 +360,25 @@ class NamespaceNetworkRuleSetNetworkRuleArgs:
     def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
+
+if not MYPY:
+    class SubscriptionClientScopedSubscriptionArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+
+        > **NOTE:** Client ID can be null or empty, but it must match the client ID set on the JMS client application. From the Azure Service Bus perspective, a null client ID and an empty client id have the same behavior. If the client ID is set to null or empty, it is only accessible to client applications whose client ID is also set to null or empty.
+        """
+        is_client_scoped_subscription_durable: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+        """
+        is_client_scoped_subscription_shareable: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
+        """
+elif False:
+    SubscriptionClientScopedSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionClientScopedSubscriptionArgs:
@@ -328,6 +438,49 @@ class SubscriptionClientScopedSubscriptionArgs:
     def is_client_scoped_subscription_shareable(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_client_scoped_subscription_shareable", value)
 
+
+if not MYPY:
+    class SubscriptionRuleCorrelationFilterArgsDict(TypedDict):
+        content_type: NotRequired[pulumi.Input[str]]
+        """
+        Content type of the message.
+        """
+        correlation_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the correlation.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Application specific label.
+        """
+        message_id: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the message.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+
+        > **NOTE:** When creating a subscription rule of type `CorrelationFilter` at least one property must be set in the `correlation_filter` block.
+        """
+        reply_to: NotRequired[pulumi.Input[str]]
+        """
+        Address of the queue to reply to.
+        """
+        reply_to_session_id: NotRequired[pulumi.Input[str]]
+        """
+        Session identifier to reply to.
+        """
+        session_id: NotRequired[pulumi.Input[str]]
+        """
+        Session identifier.
+        """
+        to: NotRequired[pulumi.Input[str]]
+        """
+        Address to send to.
+        """
+elif False:
+    SubscriptionRuleCorrelationFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SubscriptionRuleCorrelationFilterArgs:

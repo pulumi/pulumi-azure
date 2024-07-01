@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -468,7 +473,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureBlobSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureBlobSchemaColumnArgs', 'DatasetAzureBlobSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Blob Dataset inside an Azure Data Factory.
@@ -524,7 +529,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] path: The path of the Azure Blob.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureBlobSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureBlobSchemaColumnArgs', 'DatasetAzureBlobSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
     @overload
@@ -597,7 +602,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureBlobSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureBlobSchemaColumnArgs', 'DatasetAzureBlobSchemaColumnArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -646,7 +651,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             path: Optional[pulumi.Input[str]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureBlobSchemaColumnArgs']]]]] = None) -> 'DatasetAzureBlob':
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureBlobSchemaColumnArgs', 'DatasetAzureBlobSchemaColumnArgsDict']]]]] = None) -> 'DatasetAzureBlob':
         """
         Get an existing DatasetAzureBlob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -668,7 +673,7 @@ class DatasetAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] path: The path of the Azure Blob.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetAzureBlobSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatasetAzureBlobSchemaColumnArgs', 'DatasetAzureBlobSchemaColumnArgsDict']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

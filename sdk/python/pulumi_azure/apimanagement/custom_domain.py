@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -226,11 +231,11 @@ class CustomDomain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_id: Optional[pulumi.Input[str]] = None,
-                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]]] = None,
-                 portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
-                 scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None,
+                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
+                 managements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
+                 portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
+                 scms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a API Management Custom Domain.
@@ -260,29 +265,29 @@ class CustomDomain(pulumi.CustomResource):
         example_certificate = azure.keyvault.Certificate("example",
             name="example-certificate",
             key_vault_id=example.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=True,
-                ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
-                        action_type="AutoRenew",
-                    ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
-                        days_before_expiry=30,
-                    ),
-                )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
-                    key_usages=[
+            certificate_policy={
+                "issuerParameters": {
+                    "name": "Self",
+                },
+                "keyProperties": {
+                    "exportable": True,
+                    "keySize": 2048,
+                    "keyType": "RSA",
+                    "reuseKey": True,
+                },
+                "lifetimeActions": [{
+                    "action": {
+                        "actionType": "AutoRenew",
+                    },
+                    "trigger": {
+                        "daysBeforeExpiry": 30,
+                    },
+                }],
+                "secretProperties": {
+                    "contentType": "application/x-pkcs12",
+                },
+                "x509CertificateProperties": {
+                    "keyUsages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -290,26 +295,26 @@ class CustomDomain(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    subject="CN=api.example.com",
-                    validity_in_months=12,
-                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
-                        dns_names=[
+                    "subject": "CN=api.example.com",
+                    "validityInMonths": 12,
+                    "subjectAlternativeNames": {
+                        "dnsNames": [
                             "api.example.com",
                             "portal.example.com",
                         ],
-                    ),
-                ),
-            ))
+                    },
+                },
+            })
         example_custom_domain = azure.apimanagement.CustomDomain("example",
             api_management_id=example_service.id,
-            gateways=[azure.apimanagement.CustomDomainGatewayArgs(
-                host_name="api.example.com",
-                key_vault_id=example_certificate.versionless_secret_id,
-            )],
-            developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
-                host_name="portal.example.com",
-                key_vault_id=example_certificate.versionless_secret_id,
-            )])
+            gateways=[{
+                "hostName": "api.example.com",
+                "keyVaultId": example_certificate.versionless_secret_id,
+            }],
+            developer_portals=[{
+                "hostName": "portal.example.com",
+                "keyVaultId": example_certificate.versionless_secret_id,
+            }])
         ```
 
         ## Import
@@ -323,11 +328,11 @@ class CustomDomain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]] developer_portals: One or more `developer_portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]] gateways: One or more `gateway` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]] managements: One or more `management` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]] portals: One or more `portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]] scms: One or more `scm` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]] developer_portals: One or more `developer_portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]] gateways: One or more `gateway` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]] managements: One or more `management` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]] portals: One or more `portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]] scms: One or more `scm` blocks as defined below.
         """
         ...
     @overload
@@ -363,29 +368,29 @@ class CustomDomain(pulumi.CustomResource):
         example_certificate = azure.keyvault.Certificate("example",
             name="example-certificate",
             key_vault_id=example.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=True,
-                ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
-                        action_type="AutoRenew",
-                    ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
-                        days_before_expiry=30,
-                    ),
-                )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
-                    key_usages=[
+            certificate_policy={
+                "issuerParameters": {
+                    "name": "Self",
+                },
+                "keyProperties": {
+                    "exportable": True,
+                    "keySize": 2048,
+                    "keyType": "RSA",
+                    "reuseKey": True,
+                },
+                "lifetimeActions": [{
+                    "action": {
+                        "actionType": "AutoRenew",
+                    },
+                    "trigger": {
+                        "daysBeforeExpiry": 30,
+                    },
+                }],
+                "secretProperties": {
+                    "contentType": "application/x-pkcs12",
+                },
+                "x509CertificateProperties": {
+                    "keyUsages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -393,26 +398,26 @@ class CustomDomain(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    subject="CN=api.example.com",
-                    validity_in_months=12,
-                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
-                        dns_names=[
+                    "subject": "CN=api.example.com",
+                    "validityInMonths": 12,
+                    "subjectAlternativeNames": {
+                        "dnsNames": [
                             "api.example.com",
                             "portal.example.com",
                         ],
-                    ),
-                ),
-            ))
+                    },
+                },
+            })
         example_custom_domain = azure.apimanagement.CustomDomain("example",
             api_management_id=example_service.id,
-            gateways=[azure.apimanagement.CustomDomainGatewayArgs(
-                host_name="api.example.com",
-                key_vault_id=example_certificate.versionless_secret_id,
-            )],
-            developer_portals=[azure.apimanagement.CustomDomainDeveloperPortalArgs(
-                host_name="portal.example.com",
-                key_vault_id=example_certificate.versionless_secret_id,
-            )])
+            gateways=[{
+                "hostName": "api.example.com",
+                "keyVaultId": example_certificate.versionless_secret_id,
+            }],
+            developer_portals=[{
+                "hostName": "portal.example.com",
+                "keyVaultId": example_certificate.versionless_secret_id,
+            }])
         ```
 
         ## Import
@@ -439,11 +444,11 @@ class CustomDomain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_id: Optional[pulumi.Input[str]] = None,
-                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]]] = None,
-                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]]] = None,
-                 portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
-                 scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None,
+                 developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
+                 gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
+                 managements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
+                 portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
+                 scms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -472,11 +477,11 @@ class CustomDomain(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_id: Optional[pulumi.Input[str]] = None,
-            developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]]] = None,
-            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]]] = None,
-            managements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]]] = None,
-            portals: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]]] = None,
-            scms: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]]] = None) -> 'CustomDomain':
+            developer_portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]]] = None,
+            gateways: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]]] = None,
+            managements: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]]] = None,
+            portals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]]] = None,
+            scms: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]]] = None) -> 'CustomDomain':
         """
         Get an existing CustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -485,11 +490,11 @@ class CustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainDeveloperPortalArgs']]]] developer_portals: One or more `developer_portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainGatewayArgs']]]] gateways: One or more `gateway` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainManagementArgs']]]] managements: One or more `management` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainPortalArgs']]]] portals: One or more `portal` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDomainScmArgs']]]] scms: One or more `scm` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainDeveloperPortalArgs', 'CustomDomainDeveloperPortalArgsDict']]]] developer_portals: One or more `developer_portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainGatewayArgs', 'CustomDomainGatewayArgsDict']]]] gateways: One or more `gateway` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainManagementArgs', 'CustomDomainManagementArgsDict']]]] managements: One or more `management` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainPortalArgs', 'CustomDomainPortalArgsDict']]]] portals: One or more `portal` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomDomainScmArgs', 'CustomDomainScmArgsDict']]]] scms: One or more `scm` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

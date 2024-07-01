@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['RegistryScopeMapArgs', 'RegistryScopeMap']
@@ -212,12 +217,12 @@ class RegistryScopeMap(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    "location": "East US",
+                },
+                {
+                    "location": "West Europe",
+                },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",
@@ -268,12 +273,12 @@ class RegistryScopeMap(pulumi.CustomResource):
             sku="Premium",
             admin_enabled=False,
             georeplications=[
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="East US",
-                ),
-                azure.containerservice.RegistryGeoreplicationArgs(
-                    location="West Europe",
-                ),
+                {
+                    "location": "East US",
+                },
+                {
+                    "location": "West Europe",
+                },
             ])
         example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
             name="example-scope-map",

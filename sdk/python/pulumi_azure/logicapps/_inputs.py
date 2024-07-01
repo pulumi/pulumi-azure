@@ -4,46 +4,99 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ActionHttpRunAfterArgs',
+    'ActionHttpRunAfterArgsDict',
     'IntegrationAccountAgreementGuestIdentityArgs',
+    'IntegrationAccountAgreementGuestIdentityArgsDict',
     'IntegrationAccountAgreementHostIdentityArgs',
+    'IntegrationAccountAgreementHostIdentityArgsDict',
     'IntegrationAccountBatchConfigurationReleaseCriteriaArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaArgsDict',
     'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict',
     'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsDict',
     'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs',
+    'IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgsDict',
     'IntegrationAccountCertificateKeyVaultKeyArgs',
+    'IntegrationAccountCertificateKeyVaultKeyArgsDict',
     'IntegrationAccountPartnerBusinessIdentityArgs',
+    'IntegrationAccountPartnerBusinessIdentityArgsDict',
     'StandardConnectionStringArgs',
+    'StandardConnectionStringArgsDict',
     'StandardIdentityArgs',
+    'StandardIdentityArgsDict',
     'StandardSiteConfigArgs',
+    'StandardSiteConfigArgsDict',
     'StandardSiteConfigCorsArgs',
+    'StandardSiteConfigCorsArgsDict',
     'StandardSiteConfigIpRestrictionArgs',
+    'StandardSiteConfigIpRestrictionArgsDict',
     'StandardSiteConfigIpRestrictionHeadersArgs',
+    'StandardSiteConfigIpRestrictionHeadersArgsDict',
     'StandardSiteConfigScmIpRestrictionArgs',
+    'StandardSiteConfigScmIpRestrictionArgsDict',
     'StandardSiteConfigScmIpRestrictionHeadersArgs',
+    'StandardSiteConfigScmIpRestrictionHeadersArgsDict',
     'StandardSiteCredentialArgs',
+    'StandardSiteCredentialArgsDict',
     'TriggerRecurrenceScheduleArgs',
+    'TriggerRecurrenceScheduleArgsDict',
     'WorkflowAccessControlArgs',
+    'WorkflowAccessControlArgsDict',
     'WorkflowAccessControlActionArgs',
+    'WorkflowAccessControlActionArgsDict',
     'WorkflowAccessControlContentArgs',
+    'WorkflowAccessControlContentArgsDict',
     'WorkflowAccessControlTriggerArgs',
+    'WorkflowAccessControlTriggerArgsDict',
     'WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs',
+    'WorkflowAccessControlTriggerOpenAuthenticationPolicyArgsDict',
     'WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs',
+    'WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgsDict',
     'WorkflowAccessControlWorkflowManagementArgs',
+    'WorkflowAccessControlWorkflowManagementArgsDict',
     'WorkflowIdentityArgs',
+    'WorkflowIdentityArgsDict',
     'GetStandardSiteConfigArgs',
+    'GetStandardSiteConfigArgsDict',
     'GetStandardSiteConfigCorsArgs',
+    'GetStandardSiteConfigCorsArgsDict',
     'GetStandardSiteConfigIpRestrictionArgs',
+    'GetStandardSiteConfigIpRestrictionArgsDict',
     'GetStandardSiteConfigIpRestrictionHeadersArgs',
+    'GetStandardSiteConfigIpRestrictionHeadersArgsDict',
     'GetStandardSiteConfigScmIpRestrictionArgs',
+    'GetStandardSiteConfigScmIpRestrictionArgsDict',
     'GetStandardSiteConfigScmIpRestrictionHeadersArgs',
+    'GetStandardSiteConfigScmIpRestrictionHeadersArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ActionHttpRunAfterArgsDict(TypedDict):
+        action_name: pulumi.Input[str]
+        """
+        Specifies the name of the precedent HTTP Action.
+        """
+        action_result: pulumi.Input[str]
+        """
+        Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
+        """
+elif False:
+    ActionHttpRunAfterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionHttpRunAfterArgs:
@@ -82,6 +135,19 @@ class ActionHttpRunAfterArgs:
         pulumi.set(self, "action_result", value)
 
 
+if not MYPY:
+    class IntegrationAccountAgreementGuestIdentityArgsDict(TypedDict):
+        qualifier: pulumi.Input[str]
+        """
+        The authenticating body that provides unique guest identities to organizations.
+        """
+        value: pulumi.Input[str]
+        """
+        The value that identifies the documents that your logic apps receive.
+        """
+elif False:
+    IntegrationAccountAgreementGuestIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationAccountAgreementGuestIdentityArgs:
     def __init__(__self__, *,
@@ -119,6 +185,19 @@ class IntegrationAccountAgreementGuestIdentityArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class IntegrationAccountAgreementHostIdentityArgsDict(TypedDict):
+        qualifier: pulumi.Input[str]
+        """
+        The authenticating body that provides unique host identities to organizations.
+        """
+        value: pulumi.Input[str]
+        """
+        The value that identifies the documents that your logic apps receive.
+        """
+elif False:
+    IntegrationAccountAgreementHostIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationAccountAgreementHostIdentityArgs:
     def __init__(__self__, *,
@@ -155,6 +234,23 @@ class IntegrationAccountAgreementHostIdentityArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class IntegrationAccountBatchConfigurationReleaseCriteriaArgsDict(TypedDict):
+        batch_size: NotRequired[pulumi.Input[int]]
+        """
+        The batch size in bytes for the Logic App Integration Batch Configuration.
+        """
+        message_count: NotRequired[pulumi.Input[int]]
+        """
+        The message count for the Logic App Integration Batch Configuration.
+        """
+        recurrence: NotRequired[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict']]
+        """
+        A `recurrence` block as documented below.
+        """
+elif False:
+    IntegrationAccountBatchConfigurationReleaseCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
@@ -210,6 +306,35 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaArgs:
     def recurrence(self, value: Optional[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
 
+
+if not MYPY:
+    class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict(TypedDict):
+        frequency: pulumi.Input[str]
+        """
+        The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `NotSpecified`, `Second`, `Week` and `Year`.
+        """
+        interval: pulumi.Input[int]
+        """
+        The number of `frequency`s between runs.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        The end time of the schedule, formatted as an RFC3339 string.
+        """
+        schedule: NotRequired[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsDict']]
+        """
+        A `schedule` block as documented below.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        The start time of the schedule, formatted as an RFC3339 string.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The timezone of the start/end time.
+        """
+elif False:
+    IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
@@ -312,6 +437,31 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsDict(TypedDict):
+        hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+        """
+        minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        """
+        month_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        A list of days of the month that the job should execute on.
+        """
+        monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgsDict']]]]
+        """
+        A `monthly` block as documented below.
+        """
+        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+elif False:
+    IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
     def __init__(__self__, *,
@@ -399,6 +549,19 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs:
         pulumi.set(self, "week_days", value)
 
 
+if not MYPY:
+    class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgsDict(TypedDict):
+        week: pulumi.Input[int]
+        """
+        The occurrence of the week within the month.
+        """
+        weekday: pulumi.Input[str]
+        """
+        The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+elif False:
+    IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs:
     def __init__(__self__, *,
@@ -435,6 +598,23 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonth
     def weekday(self, value: pulumi.Input[str]):
         pulumi.set(self, "weekday", value)
 
+
+if not MYPY:
+    class IntegrationAccountCertificateKeyVaultKeyArgsDict(TypedDict):
+        key_name: pulumi.Input[str]
+        """
+        The name of Key Vault Key.
+        """
+        key_vault_id: pulumi.Input[str]
+        """
+        The ID of the Key Vault.
+        """
+        key_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Key Vault Key.
+        """
+elif False:
+    IntegrationAccountCertificateKeyVaultKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationAccountCertificateKeyVaultKeyArgs:
@@ -489,6 +669,19 @@ class IntegrationAccountCertificateKeyVaultKeyArgs:
         pulumi.set(self, "key_version", value)
 
 
+if not MYPY:
+    class IntegrationAccountPartnerBusinessIdentityArgsDict(TypedDict):
+        qualifier: pulumi.Input[str]
+        """
+        The authenticating body that provides unique business identities to organizations.
+        """
+        value: pulumi.Input[str]
+        """
+        The value that identifies the documents that your logic apps receive.
+        """
+elif False:
+    IntegrationAccountPartnerBusinessIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationAccountPartnerBusinessIdentityArgs:
     def __init__(__self__, *,
@@ -525,6 +718,23 @@ class IntegrationAccountPartnerBusinessIdentityArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class StandardConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the Connection String.
+        """
+elif False:
+    StandardConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandardConnectionStringArgs:
@@ -577,6 +787,31 @@ class StandardConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class StandardIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Logic App has been created. More details are available below.
+
+        > **NOTE:** The `identity_ids` is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+elif False:
+    StandardIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandardIdentityArgs:
@@ -655,6 +890,105 @@ class StandardIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class StandardSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Logic App be loaded at all times? Defaults to `false`.
+        """
+        app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The Auto-swap slot name.
+        """
+        cors: NotRequired[pulumi.Input['StandardSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined below.
+        """
+        dotnet_framework_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the .NET framework's CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this Logic App Only affects apps on the Premium plan.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        Path which will be checked for this Logic App health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgsDict']]]]
+        """
+        A list of `ip_restriction` objects representing IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
+        """
+        min_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+        """
+        public_network_access_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is public network access enabled? Defaults to `true`.
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        scm_min_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1` and `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Logic App `ip_restriction` configuration be used for the SCM too. Defaults to `false`.
+        """
+        use32_bit_worker_process: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+
+        > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should WebSockets be enabled?
+        """
+elif False:
+    StandardSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandardSiteConfigArgs:
@@ -1027,6 +1361,19 @@ class StandardSiteConfigArgs:
         pulumi.set(self, "websockets_enabled", value)
 
 
+if not MYPY:
+    class StandardSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials supported?
+        """
+elif False:
+    StandardSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StandardSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -1064,6 +1411,41 @@ class StandardSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class StandardSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['StandardSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific as a `ip_restriction` block as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    StandardSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandardSiteConfigIpRestrictionArgs:
@@ -1188,6 +1570,27 @@ class StandardSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class StandardSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    StandardSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StandardSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -1258,6 +1661,41 @@ class StandardSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class StandardSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['StandardSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    StandardSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StandardSiteConfigScmIpRestrictionArgs:
@@ -1382,6 +1820,27 @@ class StandardSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class StandardSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    StandardSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StandardSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -1453,6 +1912,19 @@ class StandardSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class StandardSiteCredentialArgsDict(TypedDict):
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password associated with the username, which can be used to publish to this App Service.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username which can be used to publish to this App Service
+        """
+elif False:
+    StandardSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StandardSiteCredentialArgs:
     def __init__(__self__, *,
@@ -1491,6 +1963,23 @@ class StandardSiteCredentialArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class TriggerRecurrenceScheduleArgsDict(TypedDict):
+        at_these_hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
+        """
+        at_these_minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
+        """
+        on_these_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of days when the trigger should run. Valid values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
+        """
+elif False:
+    TriggerRecurrenceScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerRecurrenceScheduleArgs:
@@ -1546,6 +2035,27 @@ class TriggerRecurrenceScheduleArgs:
     def on_these_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "on_these_days", value)
 
+
+if not MYPY:
+    class WorkflowAccessControlArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['WorkflowAccessControlActionArgsDict']]
+        """
+        A `action` block as defined below.
+        """
+        content: NotRequired[pulumi.Input['WorkflowAccessControlContentArgsDict']]
+        """
+        A `content` block as defined below.
+        """
+        trigger: NotRequired[pulumi.Input['WorkflowAccessControlTriggerArgsDict']]
+        """
+        A `trigger` block as defined below.
+        """
+        workflow_management: NotRequired[pulumi.Input['WorkflowAccessControlWorkflowManagementArgsDict']]
+        """
+        A `workflow_management` block as defined below.
+        """
+elif False:
+    WorkflowAccessControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowAccessControlArgs:
@@ -1618,6 +2128,15 @@ class WorkflowAccessControlArgs:
         pulumi.set(self, "workflow_management", value)
 
 
+if not MYPY:
+    class WorkflowAccessControlActionArgsDict(TypedDict):
+        allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the allowed caller IP address ranges.
+        """
+elif False:
+    WorkflowAccessControlActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowAccessControlActionArgs:
     def __init__(__self__, *,
@@ -1640,6 +2159,15 @@ class WorkflowAccessControlActionArgs:
         pulumi.set(self, "allowed_caller_ip_address_ranges", value)
 
 
+if not MYPY:
+    class WorkflowAccessControlContentArgsDict(TypedDict):
+        allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the allowed caller IP address ranges.
+        """
+elif False:
+    WorkflowAccessControlContentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowAccessControlContentArgs:
     def __init__(__self__, *,
@@ -1661,6 +2189,19 @@ class WorkflowAccessControlContentArgs:
     def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_caller_ip_address_ranges", value)
 
+
+if not MYPY:
+    class WorkflowAccessControlTriggerArgsDict(TypedDict):
+        allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the allowed caller IP address ranges.
+        """
+        open_authentication_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgsDict']]]]
+        """
+        A `open_authentication_policy` block as defined below.
+        """
+elif False:
+    WorkflowAccessControlTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowAccessControlTriggerArgs:
@@ -1700,6 +2241,19 @@ class WorkflowAccessControlTriggerArgs:
         pulumi.set(self, "open_authentication_policies", value)
 
 
+if not MYPY:
+    class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgsDict(TypedDict):
+        claims: pulumi.Input[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgsDict']]]
+        """
+        A `claim` block as defined below.
+        """
+        name: pulumi.Input[str]
+        """
+        The OAuth policy name for the Logic App Workflow.
+        """
+elif False:
+    WorkflowAccessControlTriggerOpenAuthenticationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs:
     def __init__(__self__, *,
@@ -1736,6 +2290,19 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the OAuth policy claim for the Logic App Workflow.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the OAuth policy claim for the Logic App Workflow.
+        """
+elif False:
+    WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs:
@@ -1774,6 +2341,15 @@ class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class WorkflowAccessControlWorkflowManagementArgsDict(TypedDict):
+        allowed_caller_ip_address_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the allowed caller IP address ranges.
+        """
+elif False:
+    WorkflowAccessControlWorkflowManagementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WorkflowAccessControlWorkflowManagementArgs:
     def __init__(__self__, *,
@@ -1795,6 +2371,29 @@ class WorkflowAccessControlWorkflowManagementArgs:
     def allowed_caller_ip_address_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "allowed_caller_ip_address_ranges", value)
 
+
+if not MYPY:
+    class WorkflowIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are `SystemAssigned`, `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow.
+        """
+elif False:
+    WorkflowIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkflowIdentityArgs:
@@ -1869,6 +2468,33 @@ class WorkflowIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class GetStandardSiteConfigArgsDict(TypedDict):
+        app_scale_limit: int
+        auto_swap_slot_name: str
+        cors: 'GetStandardSiteConfigCorsArgsDict'
+        elastic_instance_minimum: int
+        ftps_state: str
+        ip_restrictions: Sequence['GetStandardSiteConfigIpRestrictionArgsDict']
+        linux_fx_version: str
+        min_tls_version: str
+        pre_warmed_instance_count: int
+        scm_ip_restrictions: Sequence['GetStandardSiteConfigScmIpRestrictionArgsDict']
+        scm_min_tls_version: str
+        scm_type: str
+        vnet_route_all_enabled: bool
+        always_on: NotRequired[bool]
+        dotnet_framework_version: NotRequired[str]
+        health_check_path: NotRequired[str]
+        http2_enabled: NotRequired[bool]
+        public_network_access_enabled: NotRequired[bool]
+        runtime_scale_monitoring_enabled: NotRequired[bool]
+        scm_use_main_ip_restriction: NotRequired[bool]
+        use32_bit_worker_process: NotRequired[bool]
+        websockets_enabled: NotRequired[bool]
+elif False:
+    GetStandardSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetStandardSiteConfigArgs:
@@ -2126,6 +2752,13 @@ class GetStandardSiteConfigArgs:
         pulumi.set(self, "websockets_enabled", value)
 
 
+if not MYPY:
+    class GetStandardSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: Sequence[str]
+        support_credentials: NotRequired[bool]
+elif False:
+    GetStandardSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetStandardSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -2153,6 +2786,21 @@ class GetStandardSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[bool]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class GetStandardSiteConfigIpRestrictionArgsDict(TypedDict):
+        headers: 'GetStandardSiteConfigIpRestrictionHeadersArgsDict'
+        name: str
+        """
+        The name of this Logic App.
+        """
+        action: NotRequired[str]
+        ip_address: NotRequired[str]
+        priority: NotRequired[int]
+        service_tag: NotRequired[str]
+        virtual_network_subnet_id: NotRequired[str]
+elif False:
+    GetStandardSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetStandardSiteConfigIpRestrictionArgs:
@@ -2247,6 +2895,15 @@ class GetStandardSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class GetStandardSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[Sequence[str]]
+        x_fd_health_probe: NotRequired[str]
+        x_forwarded_fors: NotRequired[Sequence[str]]
+        x_forwarded_hosts: NotRequired[Sequence[str]]
+elif False:
+    GetStandardSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetStandardSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -2299,6 +2956,21 @@ class GetStandardSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[Sequence[str]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class GetStandardSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        headers: 'GetStandardSiteConfigScmIpRestrictionHeadersArgsDict'
+        name: str
+        """
+        The name of this Logic App.
+        """
+        action: NotRequired[str]
+        ip_address: NotRequired[str]
+        priority: NotRequired[int]
+        service_tag: NotRequired[str]
+        virtual_network_subnet_id: NotRequired[str]
+elif False:
+    GetStandardSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetStandardSiteConfigScmIpRestrictionArgs:
@@ -2392,6 +3064,15 @@ class GetStandardSiteConfigScmIpRestrictionArgs:
     def virtual_network_subnet_id(self, value: Optional[str]):
         pulumi.set(self, "virtual_network_subnet_id", value)
 
+
+if not MYPY:
+    class GetStandardSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[Sequence[str]]
+        x_fd_health_probe: NotRequired[str]
+        x_forwarded_fors: NotRequired[Sequence[str]]
+        x_forwarded_hosts: NotRequired[Sequence[str]]
+elif False:
+    GetStandardSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetStandardSiteConfigScmIpRestrictionHeadersArgs:

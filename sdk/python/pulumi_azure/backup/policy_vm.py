@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -455,18 +460,18 @@ class PolicyVM(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
-                 instant_restore_resource_group: Optional[pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']]] = None,
+                 backup: Optional[pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+                 instant_restore_resource_group: Optional[pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
                  instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']]] = None,
-                 retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
-                 retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
-                 retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
-                 tiering_policy: Optional[pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']]] = None,
+                 retention_daily: Optional[pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
+                 retention_monthly: Optional[pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
+                 retention_weekly: Optional[pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
+                 retention_yearly: Optional[pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
+                 tiering_policy: Optional[pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -491,39 +496,39 @@ class PolicyVM(pulumi.CustomResource):
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
             timezone="UTC",
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyVMRetentionWeeklyArgs(
-                count=42,
-                weekdays=[
+            backup={
+                "frequency": "Daily",
+                "time": "23:00",
+            },
+            retention_daily={
+                "count": 10,
+            },
+            retention_weekly={
+                "count": 42,
+                "weekdays": [
                     "Sunday",
                     "Wednesday",
                     "Friday",
                     "Saturday",
                 ],
-            ),
-            retention_monthly=azure.backup.PolicyVMRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
+            },
+            retention_monthly={
+                "count": 7,
+                "weekdays": [
                     "Sunday",
                     "Wednesday",
                 ],
-                weeks=[
+                "weeks": [
                     "First",
                     "Last",
                 ],
-            ),
-            retention_yearly=azure.backup.PolicyVMRetentionYearlyArgs(
-                count=77,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
+            },
+            retention_yearly={
+                "count": 77,
+                "weekdays": ["Sunday"],
+                "weeks": ["Last"],
+                "months": ["January"],
+            })
         ```
 
         ## Import
@@ -536,8 +541,8 @@ class PolicyVM(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-        :param pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        :param pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
                
                > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
@@ -545,11 +550,11 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']] tiering_policy: A `tiering_policy` block as defined below.
+        :param pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        :param pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        :param pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']] tiering_policy: A `tiering_policy` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         ...
@@ -580,39 +585,39 @@ class PolicyVM(pulumi.CustomResource):
             resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
             timezone="UTC",
-            backup=azure.backup.PolicyVMBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyVMRetentionDailyArgs(
-                count=10,
-            ),
-            retention_weekly=azure.backup.PolicyVMRetentionWeeklyArgs(
-                count=42,
-                weekdays=[
+            backup={
+                "frequency": "Daily",
+                "time": "23:00",
+            },
+            retention_daily={
+                "count": 10,
+            },
+            retention_weekly={
+                "count": 42,
+                "weekdays": [
                     "Sunday",
                     "Wednesday",
                     "Friday",
                     "Saturday",
                 ],
-            ),
-            retention_monthly=azure.backup.PolicyVMRetentionMonthlyArgs(
-                count=7,
-                weekdays=[
+            },
+            retention_monthly={
+                "count": 7,
+                "weekdays": [
                     "Sunday",
                     "Wednesday",
                 ],
-                weeks=[
+                "weeks": [
                     "First",
                     "Last",
                 ],
-            ),
-            retention_yearly=azure.backup.PolicyVMRetentionYearlyArgs(
-                count=77,
-                weekdays=["Sunday"],
-                weeks=["Last"],
-                months=["January"],
-            ))
+            },
+            retention_yearly={
+                "count": 77,
+                "weekdays": ["Sunday"],
+                "weeks": ["Last"],
+                "months": ["January"],
+            })
         ```
 
         ## Import
@@ -638,18 +643,18 @@ class PolicyVM(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
-                 instant_restore_resource_group: Optional[pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']]] = None,
+                 backup: Optional[pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+                 instant_restore_resource_group: Optional[pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
                  instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']]] = None,
-                 retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
-                 retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
-                 retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
-                 tiering_policy: Optional[pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']]] = None,
+                 retention_daily: Optional[pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
+                 retention_monthly: Optional[pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
+                 retention_weekly: Optional[pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
+                 retention_yearly: Optional[pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
+                 tiering_policy: Optional[pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -689,18 +694,18 @@ class PolicyVM(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup: Optional[pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']]] = None,
-            instant_restore_resource_group: Optional[pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']]] = None,
+            backup: Optional[pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+            instant_restore_resource_group: Optional[pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
             instant_restore_retention_days: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             policy_type: Optional[pulumi.Input[str]] = None,
             recovery_vault_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            retention_daily: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']]] = None,
-            retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
-            retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
-            retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
-            tiering_policy: Optional[pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']]] = None,
+            retention_daily: Optional[pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']]] = None,
+            retention_monthly: Optional[pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']]] = None,
+            retention_weekly: Optional[pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']]] = None,
+            retention_yearly: Optional[pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']]] = None,
+            tiering_policy: Optional[pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'PolicyVM':
         """
         Get an existing PolicyVM resource's state with the given name, id, and optional extra
@@ -709,8 +714,8 @@ class PolicyVM(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PolicyVMBackupArgs']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
-        :param pulumi.Input[pulumi.InputType['PolicyVMInstantRestoreResourceGroupArgs']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
+        :param pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
                
                > **NOTE:** `instant_restore_retention_days` **must** be set to `5` if the backup frequency is set to `Weekly`.
@@ -718,11 +723,11 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[str] policy_type: Type of the Backup Policy. Possible values are `V1` and `V2` where `V2` stands for the Enhanced Policy. Defaults to `V1`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionDailyArgs']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
-        :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
-        :param pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']] tiering_policy: A `tiering_policy` block as defined below.
+        :param pulumi.Input[Union['PolicyVMRetentionDailyArgs', 'PolicyVMRetentionDailyArgsDict']] retention_daily: Configures the policy daily retention as documented in the `retention_daily` block below. Required when backup frequency is `Daily`.
+        :param pulumi.Input[Union['PolicyVMRetentionMonthlyArgs', 'PolicyVMRetentionMonthlyArgsDict']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
+        :param pulumi.Input[Union['PolicyVMRetentionWeeklyArgs', 'PolicyVMRetentionWeeklyArgsDict']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
+        :param pulumi.Input[Union['PolicyVMRetentionYearlyArgs', 'PolicyVMRetentionYearlyArgsDict']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[Union['PolicyVMTieringPolicyArgs', 'PolicyVMTieringPolicyArgsDict']] tiering_policy: A `tiering_policy` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

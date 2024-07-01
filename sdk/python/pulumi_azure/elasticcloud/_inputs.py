@@ -4,17 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ElasticsearchLogsArgs',
+    'ElasticsearchLogsArgsDict',
     'ElasticsearchLogsFilteringTagArgs',
+    'ElasticsearchLogsFilteringTagArgsDict',
     'GetElasticsearchLogArgs',
+    'GetElasticsearchLogArgsDict',
     'GetElasticsearchLogFilteringTagArgs',
+    'GetElasticsearchLogFilteringTagArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ElasticsearchLogsArgsDict(TypedDict):
+        filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgsDict']]]]
+        """
+        A list of `filtering_tag` blocks as defined above.
+        """
+        send_activity_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        """
+        send_azuread_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        """
+        send_subscription_logs: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
+        """
+elif False:
+    ElasticsearchLogsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ElasticsearchLogsArgs:
@@ -87,6 +119,23 @@ class ElasticsearchLogsArgs:
         pulumi.set(self, "send_subscription_logs", value)
 
 
+if not MYPY:
+    class ElasticsearchLogsFilteringTagArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the name (key) of the Tag which should be filtered.
+        """
+        value: pulumi.Input[str]
+        """
+        Specifies the value of the Tag which should be filtered.
+        """
+elif False:
+    ElasticsearchLogsFilteringTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ElasticsearchLogsFilteringTagArgs:
     def __init__(__self__, *,
@@ -138,6 +187,27 @@ class ElasticsearchLogsFilteringTagArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class GetElasticsearchLogArgsDict(TypedDict):
+        filtering_tags: Sequence['GetElasticsearchLogFilteringTagArgsDict']
+        """
+        A list of `filtering_tag` blocks as defined above.
+        """
+        send_activity_logs: bool
+        """
+        Should the Azure Activity Logs should be sent to the Elasticsearch cluster?
+        """
+        send_azuread_logs: bool
+        """
+        Should the AzureAD Logs should be sent to the Elasticsearch cluster?
+        """
+        send_subscription_logs: bool
+        """
+        Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
+        """
+elif False:
+    GetElasticsearchLogArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetElasticsearchLogArgs:
@@ -205,6 +275,23 @@ class GetElasticsearchLogArgs:
     def send_subscription_logs(self, value: bool):
         pulumi.set(self, "send_subscription_logs", value)
 
+
+if not MYPY:
+    class GetElasticsearchLogFilteringTagArgsDict(TypedDict):
+        action: str
+        """
+        The type of action which is taken when the Tag matches the `name` and `value`.
+        """
+        name: str
+        """
+        The name of the Elasticsearch resource.
+        """
+        value: str
+        """
+        The value of the Tag which should be filtered.
+        """
+elif False:
+    GetElasticsearchLogFilteringTagArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetElasticsearchLogFilteringTagArgs:

@@ -4,17 +4,81 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ChannelDirectLineSiteArgs',
+    'ChannelDirectLineSiteArgsDict',
     'ChannelFacebookPageArgs',
+    'ChannelFacebookPageArgsDict',
     'ChannelLineLineChannelArgs',
+    'ChannelLineLineChannelArgsDict',
     'ChannelWebChatSiteArgs',
+    'ChannelWebChatSiteArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ChannelDirectLineSiteArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the site
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables/Disables this site. Defaults to `true`.
+        """
+        endpoint_parameters_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the endpoint parameters enabled for this site?
+        """
+        enhanced_authentication_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Id for the site
+        """
+        key: NotRequired[pulumi.Input[str]]
+        """
+        Primary key for accessing this site
+        """
+        key2: NotRequired[pulumi.Input[str]]
+        """
+        Secondary key for accessing this site
+        """
+        storage_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the storage site enabled for detailed logging? Defaults to `true`.
+        """
+        trusted_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
+        """
+        user_upload_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the user upload enabled for this site? Defaults to `true`.
+        """
+        v1_allowed: NotRequired[pulumi.Input[bool]]
+        """
+        Enables v1 of the Directline protocol for this site. Defaults to `true`.
+        """
+        v3_allowed: NotRequired[pulumi.Input[bool]]
+        """
+        Enables v3 of the Directline protocol for this site. Defaults to `true`.
+        """
+elif False:
+    ChannelDirectLineSiteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelDirectLineSiteArgs:
@@ -214,6 +278,19 @@ class ChannelDirectLineSiteArgs:
         pulumi.set(self, "v3_allowed", value)
 
 
+if not MYPY:
+    class ChannelFacebookPageArgsDict(TypedDict):
+        access_token: pulumi.Input[str]
+        """
+        The Facebook Page Access Token for the Facebook Channel.
+        """
+        id: pulumi.Input[str]
+        """
+        The Facebook Page ID for the Facebook Channel.
+        """
+elif False:
+    ChannelFacebookPageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ChannelFacebookPageArgs:
     def __init__(__self__, *,
@@ -251,6 +328,19 @@ class ChannelFacebookPageArgs:
         pulumi.set(self, "id", value)
 
 
+if not MYPY:
+    class ChannelLineLineChannelArgsDict(TypedDict):
+        access_token: pulumi.Input[str]
+        """
+        The access token which is used to call the Line Channel API.
+        """
+        secret: pulumi.Input[str]
+        """
+        The secret which is used to access the Line Channel.
+        """
+elif False:
+    ChannelLineLineChannelArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ChannelLineLineChannelArgs:
     def __init__(__self__, *,
@@ -287,6 +377,27 @@ class ChannelLineLineChannelArgs:
     def secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret", value)
 
+
+if not MYPY:
+    class ChannelWebChatSiteArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the site.
+        """
+        endpoint_parameters_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the endpoint parameters enabled for this site?
+        """
+        storage_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the storage site enabled for detailed logging? Defaults to `true`.
+        """
+        user_upload_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the user upload enabled for this site? Defaults to `true`.
+        """
+elif False:
+    ChannelWebChatSiteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ChannelWebChatSiteArgs:

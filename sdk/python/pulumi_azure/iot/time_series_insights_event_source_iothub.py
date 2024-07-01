@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['TimeSeriesInsightsEventSourceIothubArgs', 'TimeSeriesInsightsEventSourceIothub']
@@ -373,10 +378,10 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            })
         example_consumer_group = azure.iot.ConsumerGroup("example",
             name="example",
             iothub_name=example_io_t_hub.name,
@@ -394,10 +399,10 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
+            storage={
+                "name": storage.name,
+                "key": storage.primary_access_key,
+            })
         example_time_series_insights_event_source_iothub = azure.iot.TimeSeriesInsightsEventSourceIothub("example",
             name="example",
             location=example.location,
@@ -452,10 +457,10 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            })
         example_consumer_group = azure.iot.ConsumerGroup("example",
             name="example",
             iothub_name=example_io_t_hub.name,
@@ -473,10 +478,10 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
+            storage={
+                "name": storage.name,
+                "key": storage.primary_access_key,
+            })
         example_time_series_insights_event_source_iothub = azure.iot.TimeSeriesInsightsEventSourceIothub("example",
             name="example",
             location=example.location,

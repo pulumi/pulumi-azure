@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -358,9 +363,9 @@ class DataFlow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]]] = None,
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Data Flow inside an Azure Data Factory.
@@ -396,37 +401,37 @@ class DataFlow(pulumi.CustomResource):
             name="dataset1",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="foo.txt",
-            ),
+            azure_blob_storage_location={
+                "container": "container",
+                "path": "foo/bar/",
+                "filename": "foo.txt",
+            },
             encoding="UTF-8")
         example2 = azure.datafactory.DatasetJson("example2",
             name="dataset2",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="bar.txt",
-            ),
+            azure_blob_storage_location={
+                "container": "container",
+                "path": "foo/bar/",
+                "filename": "bar.txt",
+            },
             encoding="UTF-8")
         example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1",
             name="example",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
+            sources=[{
+                "name": "source1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                "name": "sink1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
             script=\"\"\"source(
           allowSchemaDrift: true, 
           validateSchema: false, 
@@ -442,18 +447,18 @@ class DataFlow(pulumi.CustomResource):
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
             name="example",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
+            sources=[{
+                "name": "source1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                "name": "sink1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
             script=\"\"\"source(
           allowSchemaDrift: true, 
           validateSchema: false, 
@@ -469,30 +474,30 @@ class DataFlow(pulumi.CustomResource):
         example_data_flow = azure.datafactory.DataFlow("example",
             name="example",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.DataFlowSourceArgs(
-                name="source1",
-                flowlet=azure.datafactory.DataFlowSourceFlowletArgs(
-                    name=example1_flowlet_data_flow.name,
-                    parameters={
+            sources=[{
+                "name": "source1",
+                "flowlet": {
+                    "name": example1_flowlet_data_flow.name,
+                    "parameters": {
                         "Key1": "value1",
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSourceDatasetArgs(
-                    name=example1.name,
-                ),
-            )],
-            sinks=[azure.datafactory.DataFlowSinkArgs(
-                name="sink1",
-                flowlet=azure.datafactory.DataFlowSinkFlowletArgs(
-                    name=example2_flowlet_data_flow.name,
-                    parameters={
+                },
+                "dataset": {
+                    "name": example1.name,
+                },
+            }],
+            sinks=[{
+                "name": "sink1",
+                "flowlet": {
+                    "name": example2_flowlet_data_flow.name,
+                    "parameters": {
                         "Key1": "value1",
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSinkDatasetArgs(
-                    name=example2.name,
-                ),
-            )],
+                },
+                "dataset": {
+                    "name": example2.name,
+                },
+            }],
             script=\"\"\"source(
           allowSchemaDrift: true, 
           validateSchema: false, 
@@ -524,9 +529,9 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]] transformations: One or more `transformation` blocks as defined below.
         """
         ...
     @overload
@@ -568,37 +573,37 @@ class DataFlow(pulumi.CustomResource):
             name="dataset1",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="foo.txt",
-            ),
+            azure_blob_storage_location={
+                "container": "container",
+                "path": "foo/bar/",
+                "filename": "foo.txt",
+            },
             encoding="UTF-8")
         example2 = azure.datafactory.DatasetJson("example2",
             name="dataset2",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
-            azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
-                container="container",
-                path="foo/bar/",
-                filename="bar.txt",
-            ),
+            azure_blob_storage_location={
+                "container": "container",
+                "path": "foo/bar/",
+                "filename": "bar.txt",
+            },
             encoding="UTF-8")
         example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1",
             name="example",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
+            sources=[{
+                "name": "source1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                "name": "sink1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
             script=\"\"\"source(
           allowSchemaDrift: true, 
           validateSchema: false, 
@@ -614,18 +619,18 @@ class DataFlow(pulumi.CustomResource):
         example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
             name="example",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
-                name="source1",
-                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
-            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
-                name="sink1",
-                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
-                    name=example_linked_custom_service.name,
-                ),
-            )],
+            sources=[{
+                "name": "source1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
+            sinks=[{
+                "name": "sink1",
+                "linkedService": {
+                    "name": example_linked_custom_service.name,
+                },
+            }],
             script=\"\"\"source(
           allowSchemaDrift: true, 
           validateSchema: false, 
@@ -641,30 +646,30 @@ class DataFlow(pulumi.CustomResource):
         example_data_flow = azure.datafactory.DataFlow("example",
             name="example",
             data_factory_id=example_factory.id,
-            sources=[azure.datafactory.DataFlowSourceArgs(
-                name="source1",
-                flowlet=azure.datafactory.DataFlowSourceFlowletArgs(
-                    name=example1_flowlet_data_flow.name,
-                    parameters={
+            sources=[{
+                "name": "source1",
+                "flowlet": {
+                    "name": example1_flowlet_data_flow.name,
+                    "parameters": {
                         "Key1": "value1",
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSourceDatasetArgs(
-                    name=example1.name,
-                ),
-            )],
-            sinks=[azure.datafactory.DataFlowSinkArgs(
-                name="sink1",
-                flowlet=azure.datafactory.DataFlowSinkFlowletArgs(
-                    name=example2_flowlet_data_flow.name,
-                    parameters={
+                },
+                "dataset": {
+                    "name": example1.name,
+                },
+            }],
+            sinks=[{
+                "name": "sink1",
+                "flowlet": {
+                    "name": example2_flowlet_data_flow.name,
+                    "parameters": {
                         "Key1": "value1",
                     },
-                ),
-                dataset=azure.datafactory.DataFlowSinkDatasetArgs(
-                    name=example2.name,
-                ),
-            )],
+                },
+                "dataset": {
+                    "name": example2.name,
+                },
+            }],
             script=\"\"\"source(
           allowSchemaDrift: true, 
           validateSchema: false, 
@@ -709,9 +714,9 @@ class DataFlow(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]]] = None,
-                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]]] = None,
+                 sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]]] = None,
+                 transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -754,9 +759,9 @@ class DataFlow(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             script: Optional[pulumi.Input[str]] = None,
             script_lines: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            sinks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]]] = None,
-            sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]]] = None,
-            transformations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]]] = None) -> 'DataFlow':
+            sinks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]]] = None,
+            sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]]] = None,
+            transformations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]]] = None) -> 'DataFlow':
         """
         Get an existing DataFlow resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -771,9 +776,9 @@ class DataFlow(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The script for the Data Factory Data Flow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] script_lines: The script lines for the Data Factory Data Flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSinkArgs']]]] sinks: One or more `sink` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowSourceArgs']]]] sources: One or more `source` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataFlowTransformationArgs']]]] transformations: One or more `transformation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSinkArgs', 'DataFlowSinkArgsDict']]]] sinks: One or more `sink` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowSourceArgs', 'DataFlowSourceArgsDict']]]] sources: One or more `source` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataFlowTransformationArgs', 'DataFlowTransformationArgsDict']]]] transformations: One or more `transformation` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

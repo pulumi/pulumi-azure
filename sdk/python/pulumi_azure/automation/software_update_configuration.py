@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -474,16 +479,16 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
                  duration: Optional[pulumi.Input[str]] = None,
-                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationLinuxArgs']]]]] = None,
+                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationLinuxArgs', 'SoftwareUpdateConfigurationLinuxArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None,
-                 post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPostTaskArgs']]]]] = None,
-                 pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPreTaskArgs']]]]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']]] = None,
+                 post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPostTaskArgs', 'SoftwareUpdateConfigurationPostTaskArgsDict']]]]] = None,
+                 pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPreTaskArgs', 'SoftwareUpdateConfigurationPreTaskArgsDict']]]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationScheduleArgs', 'SoftwareUpdateConfigurationScheduleArgsDict']]]]] = None,
+                 target: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationTargetArgs', 'SoftwareUpdateConfigurationTargetArgsDict']]] = None,
                  virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 windows: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']]] = None,
+                 windows: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']]] = None,
                  __props__=None):
         """
         Manages an Automation Software Update Configuraion.
@@ -521,18 +526,18 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             name="example",
             automation_account_id=example_account.id,
             operating_system="Linux",
-            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
-                classification_included="Security",
-                excluded_packages=["apt"],
-                included_packages=["vim"],
-                reboot="IfRequired",
-            )],
-            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
-                source=example_run_book.name,
-                parameters={
+            linuxes=[{
+                "classificationIncluded": "Security",
+                "excludedPackages": ["apt"],
+                "includedPackages": ["vim"],
+                "reboot": "IfRequired",
+            }],
+            pre_tasks=[{
+                "source": example_run_book.name,
+                "parameters": {
                     "COMPUTER_NAME": "Foo",
                 },
-            )],
+            }],
             duration="PT2H2M2S")
         ```
 
@@ -548,15 +553,15 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[str] duration: Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationLinuxArgs']]]] linuxes: A `linux` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationLinuxArgs', 'SoftwareUpdateConfigurationLinuxArgsDict']]]] linuxes: A `linux` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Automation. Changing this forces a new Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] non_azure_computer_names: Specifies a list of names of non-Azure machines for the software update configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPostTaskArgs']]]] post_tasks: A `post_task` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPreTaskArgs']]]] pre_tasks: A `pre_task` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]] schedules: A `schedule` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']] target: A `target` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPostTaskArgs', 'SoftwareUpdateConfigurationPostTaskArgsDict']]]] post_tasks: A `post_task` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPreTaskArgs', 'SoftwareUpdateConfigurationPreTaskArgsDict']]]] pre_tasks: A `pre_task` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationScheduleArgs', 'SoftwareUpdateConfigurationScheduleArgsDict']]]] schedules: A `schedule` blocks as defined below.
+        :param pulumi.Input[Union['SoftwareUpdateConfigurationTargetArgs', 'SoftwareUpdateConfigurationTargetArgsDict']] target: A `target` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_machine_ids: Specifies a list of Azure Resource IDs of azure virtual machines.
-        :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']] windows: A `windows` block as defined below.
+        :param pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']] windows: A `windows` block as defined below.
                
                > **NOTE:** One of `linux` or `windows` must be specified.
         """
@@ -602,18 +607,18 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             name="example",
             automation_account_id=example_account.id,
             operating_system="Linux",
-            linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
-                classification_included="Security",
-                excluded_packages=["apt"],
-                included_packages=["vim"],
-                reboot="IfRequired",
-            )],
-            pre_tasks=[azure.automation.SoftwareUpdateConfigurationPreTaskArgs(
-                source=example_run_book.name,
-                parameters={
+            linuxes=[{
+                "classificationIncluded": "Security",
+                "excludedPackages": ["apt"],
+                "includedPackages": ["vim"],
+                "reboot": "IfRequired",
+            }],
+            pre_tasks=[{
+                "source": example_run_book.name,
+                "parameters": {
                     "COMPUTER_NAME": "Foo",
                 },
-            )],
+            }],
             duration="PT2H2M2S")
         ```
 
@@ -642,16 +647,16 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
                  duration: Optional[pulumi.Input[str]] = None,
-                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationLinuxArgs']]]]] = None,
+                 linuxes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationLinuxArgs', 'SoftwareUpdateConfigurationLinuxArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None,
-                 post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPostTaskArgs']]]]] = None,
-                 pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPreTaskArgs']]]]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]]] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']]] = None,
+                 post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPostTaskArgs', 'SoftwareUpdateConfigurationPostTaskArgsDict']]]]] = None,
+                 pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPreTaskArgs', 'SoftwareUpdateConfigurationPreTaskArgsDict']]]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationScheduleArgs', 'SoftwareUpdateConfigurationScheduleArgsDict']]]]] = None,
+                 target: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationTargetArgs', 'SoftwareUpdateConfigurationTargetArgsDict']]] = None,
                  virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 windows: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']]] = None,
+                 windows: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -695,16 +700,16 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             error_code: Optional[pulumi.Input[str]] = None,
             error_meesage: Optional[pulumi.Input[str]] = None,
             error_message: Optional[pulumi.Input[str]] = None,
-            linuxes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationLinuxArgs']]]]] = None,
+            linuxes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationLinuxArgs', 'SoftwareUpdateConfigurationLinuxArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             non_azure_computer_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             operating_system: Optional[pulumi.Input[str]] = None,
-            post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPostTaskArgs']]]]] = None,
-            pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPreTaskArgs']]]]] = None,
-            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]]] = None,
-            target: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']]] = None,
+            post_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPostTaskArgs', 'SoftwareUpdateConfigurationPostTaskArgsDict']]]]] = None,
+            pre_tasks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPreTaskArgs', 'SoftwareUpdateConfigurationPreTaskArgsDict']]]]] = None,
+            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationScheduleArgs', 'SoftwareUpdateConfigurationScheduleArgsDict']]]]] = None,
+            target: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationTargetArgs', 'SoftwareUpdateConfigurationTargetArgsDict']]] = None,
             virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            windows: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']]] = None) -> 'SoftwareUpdateConfiguration':
+            windows: Optional[pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']]] = None) -> 'SoftwareUpdateConfiguration':
         """
         Get an existing SoftwareUpdateConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -716,15 +721,15 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] duration: Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`.
         :param pulumi.Input[str] error_code: The Error code when failed.
         :param pulumi.Input[str] error_meesage: The Error message indicating why the operation failed.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationLinuxArgs']]]] linuxes: A `linux` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationLinuxArgs', 'SoftwareUpdateConfigurationLinuxArgsDict']]]] linuxes: A `linux` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Automation. Changing this forces a new Automation to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] non_azure_computer_names: Specifies a list of names of non-Azure machines for the software update configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPostTaskArgs']]]] post_tasks: A `post_task` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationPreTaskArgs']]]] pre_tasks: A `pre_task` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]] schedules: A `schedule` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']] target: A `target` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPostTaskArgs', 'SoftwareUpdateConfigurationPostTaskArgsDict']]]] post_tasks: A `post_task` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationPreTaskArgs', 'SoftwareUpdateConfigurationPreTaskArgsDict']]]] pre_tasks: A `pre_task` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SoftwareUpdateConfigurationScheduleArgs', 'SoftwareUpdateConfigurationScheduleArgsDict']]]] schedules: A `schedule` blocks as defined below.
+        :param pulumi.Input[Union['SoftwareUpdateConfigurationTargetArgs', 'SoftwareUpdateConfigurationTargetArgsDict']] target: A `target` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_machine_ids: Specifies a list of Azure Resource IDs of azure virtual machines.
-        :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']] windows: A `windows` block as defined below.
+        :param pulumi.Input[Union['SoftwareUpdateConfigurationWindowsArgs', 'SoftwareUpdateConfigurationWindowsArgsDict']] windows: A `windows` block as defined below.
                
                > **NOTE:** One of `linux` or `windows` must be specified.
         """

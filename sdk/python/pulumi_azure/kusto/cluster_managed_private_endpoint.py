@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ClusterManagedPrivateEndpointArgs', 'ClusterManagedPrivateEndpoint']
@@ -277,10 +282,10 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
             name="examplekc",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            })
         example_account = azure.storage.Account("example",
             name="examplesa",
             resource_group_name=example.name,
@@ -338,10 +343,10 @@ class ClusterManagedPrivateEndpoint(pulumi.CustomResource):
             name="examplekc",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Dev(No SLA)_Standard_D11_v2",
-                capacity=1,
-            ))
+            sku={
+                "name": "Dev(No SLA)_Standard_D11_v2",
+                "capacity": 1,
+            })
         example_account = azure.storage.Account("example",
             name="examplesa",
             resource_group_name=example.name,

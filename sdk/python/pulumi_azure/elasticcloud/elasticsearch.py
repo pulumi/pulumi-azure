@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -401,7 +406,7 @@ class Elasticsearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_cloud_email_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['ElasticsearchLogsArgs']]] = None,
+                 logs: Optional[pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
                  monitoring_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -440,7 +445,7 @@ class Elasticsearch(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_cloud_email_address: Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[str] location: The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
-        :param pulumi.Input[pulumi.InputType['ElasticsearchLogsArgs']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']] logs: A `logs` block as defined below.
         :param pulumi.Input[bool] monitoring_enabled: Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
@@ -502,7 +507,7 @@ class Elasticsearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_cloud_email_address: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['ElasticsearchLogsArgs']]] = None,
+                 logs: Optional[pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
                  monitoring_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -555,7 +560,7 @@ class Elasticsearch(pulumi.CustomResource):
             kibana_service_url: Optional[pulumi.Input[str]] = None,
             kibana_sso_uri: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            logs: Optional[pulumi.Input[pulumi.InputType['ElasticsearchLogsArgs']]] = None,
+            logs: Optional[pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']]] = None,
             monitoring_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -576,7 +581,7 @@ class Elasticsearch(pulumi.CustomResource):
         :param pulumi.Input[str] kibana_service_url: The URL to the Kibana Dashboard associated with this Elasticsearch.
         :param pulumi.Input[str] kibana_sso_uri: The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch.
         :param pulumi.Input[str] location: The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.
-        :param pulumi.Input[pulumi.InputType['ElasticsearchLogsArgs']] logs: A `logs` block as defined below.
+        :param pulumi.Input[Union['ElasticsearchLogsArgs', 'ElasticsearchLogsArgsDict']] logs: A `logs` block as defined below.
         :param pulumi.Input[bool] monitoring_enabled: Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[str] name: The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created.

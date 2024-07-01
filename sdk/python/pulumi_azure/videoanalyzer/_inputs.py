@@ -4,15 +4,37 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AnalyzerIdentityArgs',
+    'AnalyzerIdentityArgsDict',
     'AnalyzerStorageAccountArgs',
+    'AnalyzerStorageAccountArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalyzerIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is `UserAssigned`.
+        """
+elif False:
+    AnalyzerIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyzerIdentityArgs:
@@ -50,6 +72,19 @@ class AnalyzerIdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class AnalyzerStorageAccountArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
+        """
+        user_assigned_identity_id: pulumi.Input[str]
+        """
+        Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
+        """
+elif False:
+    AnalyzerStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyzerStorageAccountArgs:

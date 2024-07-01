@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -734,7 +739,7 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -886,17 +891,17 @@ class ManagedInstance(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
@@ -940,7 +945,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.
@@ -1098,17 +1103,17 @@ class ManagedInstance(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Sql/managedInstances",
-                    actions=[
+            delegations=[{
+                "name": "managedinstancedelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Sql/managedInstances",
+                    "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
@@ -1165,7 +1170,7 @@ class ManagedInstance(pulumi.CustomResource):
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  collation: Optional[pulumi.Input[str]] = None,
                  dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -1248,7 +1253,7 @@ class ManagedInstance(pulumi.CustomResource):
             dns_zone: Optional[pulumi.Input[str]] = None,
             dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
@@ -1278,7 +1283,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] dns_zone: The Dns Zone where the SQL Managed Instance is located.
         :param pulumi.Input[str] dns_zone_partner_id: The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
-        :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceIdentityArgs', 'ManagedInstanceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`.

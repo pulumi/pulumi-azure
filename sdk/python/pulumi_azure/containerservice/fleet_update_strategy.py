@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -130,7 +135,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kubernetes_fleet_manager_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateStrategyStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Kubernetes Fleet Update Strategy.
@@ -151,13 +156,13 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
             name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
-            stages=[azure.containerservice.FleetUpdateStrategyStageArgs(
-                name="example-stage-1",
-                groups=[azure.containerservice.FleetUpdateStrategyStageGroupArgs(
-                    name="example-group-1",
-                )],
-                after_stage_wait_in_seconds=21,
-            )])
+            stages=[{
+                "name": "example-stage-1",
+                "groups": [{
+                    "name": "example-group-1",
+                }],
+                "afterStageWaitInSeconds": 21,
+            }])
         ```
 
         ## Import
@@ -172,7 +177,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateStrategyStageArgs']]]] stages: One or more `stage` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]] stages: One or more `stage` blocks as defined below.
         """
         ...
     @overload
@@ -199,13 +204,13 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
             name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
-            stages=[azure.containerservice.FleetUpdateStrategyStageArgs(
-                name="example-stage-1",
-                groups=[azure.containerservice.FleetUpdateStrategyStageGroupArgs(
-                    name="example-group-1",
-                )],
-                after_stage_wait_in_seconds=21,
-            )])
+            stages=[{
+                "name": "example-stage-1",
+                "groups": [{
+                    "name": "example-group-1",
+                }],
+                "afterStageWaitInSeconds": 21,
+            }])
         ```
 
         ## Import
@@ -233,7 +238,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kubernetes_fleet_manager_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateStrategyStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,7 +267,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             kubernetes_fleet_manager_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateStrategyStageArgs']]]]] = None) -> 'FleetUpdateStrategy':
+            stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]]] = None) -> 'FleetUpdateStrategy':
         """
         Get an existing FleetUpdateStrategy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -272,7 +277,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Kubernetes Fleet Update Strategy. Changing this forces a new Kubernetes Fleet Update Strategy to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateStrategyStageArgs']]]] stages: One or more `stage` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateStrategyStageArgs', 'FleetUpdateStrategyStageArgsDict']]]] stages: One or more `stage` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

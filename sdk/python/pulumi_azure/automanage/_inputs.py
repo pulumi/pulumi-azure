@@ -4,23 +4,69 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ConfigurationAntimalwareArgs',
+    'ConfigurationAntimalwareArgsDict',
     'ConfigurationAntimalwareExclusionsArgs',
+    'ConfigurationAntimalwareExclusionsArgsDict',
     'ConfigurationAzureSecurityBaselineArgs',
+    'ConfigurationAzureSecurityBaselineArgsDict',
     'ConfigurationBackupArgs',
+    'ConfigurationBackupArgsDict',
     'ConfigurationBackupRetentionPolicyArgs',
+    'ConfigurationBackupRetentionPolicyArgsDict',
     'ConfigurationBackupRetentionPolicyDailyScheduleArgs',
+    'ConfigurationBackupRetentionPolicyDailyScheduleArgsDict',
     'ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs',
+    'ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgsDict',
     'ConfigurationBackupRetentionPolicyWeeklyScheduleArgs',
+    'ConfigurationBackupRetentionPolicyWeeklyScheduleArgsDict',
     'ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs',
+    'ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgsDict',
     'ConfigurationBackupSchedulePolicyArgs',
+    'ConfigurationBackupSchedulePolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationAntimalwareArgsDict(TypedDict):
+        exclusions: NotRequired[pulumi.Input['ConfigurationAntimalwareExclusionsArgsDict']]
+        """
+        A `exclusions` block as defined below.
+        """
+        real_time_protection_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the real time protection is enabled. Defaults to `false`.
+        """
+        scheduled_scan_day: NotRequired[pulumi.Input[int]]
+        """
+        The day of the scheduled scan. Possible values are `0` to `8` where `0` is daily, `1` to `7` are the days of the week and `8` is Disabled. Defaults to `8`.
+        """
+        scheduled_scan_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the scheduled scan is enabled. Defaults to `false`.
+        """
+        scheduled_scan_time_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The time of the scheduled scan in minutes. Possible values are `0` to `1439` where `0` is 12:00 AM and `1439` is 11:59 PM.
+        """
+        scheduled_scan_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the scheduled scan. Possible values are `Quick` and `Full`. Defaults to `Quick`.
+        """
+elif False:
+    ConfigurationAntimalwareArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationAntimalwareArgs:
@@ -125,6 +171,23 @@ class ConfigurationAntimalwareArgs:
         pulumi.set(self, "scheduled_scan_type", value)
 
 
+if not MYPY:
+    class ConfigurationAntimalwareExclusionsArgsDict(TypedDict):
+        extensions: NotRequired[pulumi.Input[str]]
+        """
+        The extensions to exclude from the antimalware scan, separated by `;`. For example `.ext1;.ext2`.
+        """
+        paths: NotRequired[pulumi.Input[str]]
+        """
+        The paths to exclude from the antimalware scan, separated by `;`. For example `C:\\\\Windows\\\\Temp;D:\\\\Temp`.
+        """
+        processes: NotRequired[pulumi.Input[str]]
+        """
+        The processes to exclude from the antimalware scan, separated by `;`. For example `svchost.exe;notepad.exe`.
+        """
+elif False:
+    ConfigurationAntimalwareExclusionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationAntimalwareExclusionsArgs:
     def __init__(__self__, *,
@@ -180,6 +243,15 @@ class ConfigurationAntimalwareExclusionsArgs:
         pulumi.set(self, "processes", value)
 
 
+if not MYPY:
+    class ConfigurationAzureSecurityBaselineArgsDict(TypedDict):
+        assignment_type: NotRequired[pulumi.Input[str]]
+        """
+        The assignment type of the azure security baseline. Possible values are `ApplyAndAutoCorrect`, `ApplyAndMonitor`, `Audit` and `DeployAndAutoCorrect`. Defaults to `ApplyAndAutoCorrect`.
+        """
+elif False:
+    ConfigurationAzureSecurityBaselineArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationAzureSecurityBaselineArgs:
     def __init__(__self__, *,
@@ -202,6 +274,31 @@ class ConfigurationAzureSecurityBaselineArgs:
     def assignment_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "assignment_type", value)
 
+
+if not MYPY:
+    class ConfigurationBackupArgsDict(TypedDict):
+        instant_rp_retention_range_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention range in days of the backup policy. Defaults to `5`.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the backup policy.
+        """
+        retention_policy: NotRequired[pulumi.Input['ConfigurationBackupRetentionPolicyArgsDict']]
+        """
+        A `retention_policy` block as defined below.
+        """
+        schedule_policy: NotRequired[pulumi.Input['ConfigurationBackupSchedulePolicyArgsDict']]
+        """
+        A `schedule_policy` block as defined below.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The timezone of the backup policy. Defaults to `UTC`.
+        """
+elif False:
+    ConfigurationBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationBackupArgs:
@@ -290,6 +387,23 @@ class ConfigurationBackupArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class ConfigurationBackupRetentionPolicyArgsDict(TypedDict):
+        daily_schedule: NotRequired[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleArgsDict']]
+        """
+        A `daily_schedule` block as defined below.
+        """
+        retention_policy_type: NotRequired[pulumi.Input[str]]
+        """
+        The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
+        """
+        weekly_schedule: NotRequired[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleArgsDict']]
+        """
+        A `weekly_schedule` block as defined below.
+        """
+elif False:
+    ConfigurationBackupRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationBackupRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -345,6 +459,19 @@ class ConfigurationBackupRetentionPolicyArgs:
         pulumi.set(self, "weekly_schedule", value)
 
 
+if not MYPY:
+    class ConfigurationBackupRetentionPolicyDailyScheduleArgsDict(TypedDict):
+        retention_duration: NotRequired[pulumi.Input['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgsDict']]
+        """
+        A `retention_duration` block as defined below.
+        """
+        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The retention times of the backup policy.
+        """
+elif False:
+    ConfigurationBackupRetentionPolicyDailyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationBackupRetentionPolicyDailyScheduleArgs:
     def __init__(__self__, *,
@@ -383,6 +510,19 @@ class ConfigurationBackupRetentionPolicyDailyScheduleArgs:
     def retention_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "retention_times", value)
 
+
+if not MYPY:
+    class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgsDict(TypedDict):
+        count: NotRequired[pulumi.Input[int]]
+        """
+        The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+        """
+        duration_type: NotRequired[pulumi.Input[str]]
+        """
+        The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+        """
+elif False:
+    ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
@@ -423,6 +563,19 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
         pulumi.set(self, "duration_type", value)
 
 
+if not MYPY:
+    class ConfigurationBackupRetentionPolicyWeeklyScheduleArgsDict(TypedDict):
+        retention_duration: NotRequired[pulumi.Input['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgsDict']]
+        """
+        A `retention_duration` block as defined below.
+        """
+        retention_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The retention times of the backup policy.
+        """
+elif False:
+    ConfigurationBackupRetentionPolicyWeeklyScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs:
     def __init__(__self__, *,
@@ -462,6 +615,19 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleArgs:
         pulumi.set(self, "retention_times", value)
 
 
+if not MYPY:
+    class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgsDict(TypedDict):
+        count: NotRequired[pulumi.Input[int]]
+        """
+        The count of the retention duration of the backup policy. Valid value inside `daily_schedule` is `7` to `9999` and inside `weekly_schedule` is `1` to `5163`.
+        """
+        duration_type: NotRequired[pulumi.Input[str]]
+        """
+        The duration type of the retention duration of the backup policy. Valid value inside `daily_schedule` is `Days` and inside `weekly_schedule` is `Weeks`. Defaults to `Days`.
+        """
+elif False:
+    ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs:
     def __init__(__self__, *,
@@ -500,6 +666,27 @@ class ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs:
     def duration_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "duration_type", value)
 
+
+if not MYPY:
+    class ConfigurationBackupSchedulePolicyArgsDict(TypedDict):
+        schedule_policy_type: NotRequired[pulumi.Input[str]]
+        """
+        The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`. Defaults to `SimpleSchedulePolicy`.
+        """
+        schedule_run_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The schedule run days of the backup policy. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        schedule_run_frequency: NotRequired[pulumi.Input[str]]
+        """
+        The schedule run frequency of the backup policy. Possible values are `Daily` and `Weekly`. Defaults to `Daily`.
+        """
+        schedule_run_times: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The schedule run times of the backup policy.
+        """
+elif False:
+    ConfigurationBackupSchedulePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationBackupSchedulePolicyArgs:

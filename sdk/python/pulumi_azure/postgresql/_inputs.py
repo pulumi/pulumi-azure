@@ -4,20 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FlexibleServerAuthenticationArgs',
+    'FlexibleServerAuthenticationArgsDict',
     'FlexibleServerCustomerManagedKeyArgs',
+    'FlexibleServerCustomerManagedKeyArgsDict',
     'FlexibleServerHighAvailabilityArgs',
+    'FlexibleServerHighAvailabilityArgsDict',
     'FlexibleServerIdentityArgs',
+    'FlexibleServerIdentityArgsDict',
     'FlexibleServerMaintenanceWindowArgs',
+    'FlexibleServerMaintenanceWindowArgsDict',
     'ServerIdentityArgs',
+    'ServerIdentityArgsDict',
     'ServerThreatDetectionPolicyArgs',
+    'ServerThreatDetectionPolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FlexibleServerAuthenticationArgsDict(TypedDict):
+        active_directory_auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `false`.
+        """
+        password_auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to `true`.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. `active_directory_auth_enabled` must be set to `true`.
+
+        > **Note:** Setting `active_directory_auth_enabled` to `true` requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication).
+
+        > **Note:** `tenant_id` is required when `active_directory_auth_enabled` is set to `true`. And it should not be specified when `active_directory_auth_enabled` is set to `false`
+        """
+elif False:
+    FlexibleServerAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlexibleServerAuthenticationArgs:
@@ -81,6 +116,29 @@ class FlexibleServerAuthenticationArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class FlexibleServerCustomerManagedKeyArgsDict(TypedDict):
+        key_vault_key_id: pulumi.Input[str]
+        """
+        The ID of the Key Vault Key.
+        """
+        geo_backup_key_vault_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+        """
+        geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The geo backup user managed identity id for a Customer Managed Key. Should be added with `identity_ids`. It can't cross region and need identity in same region as geo backup.
+
+        > **Note:** `primary_user_assigned_identity_id` or `geo_backup_user_assigned_identity_id` is required when `type` is set to `UserAssigned`.
+        """
+        primary_user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identity_ids`.
+        """
+elif False:
+    FlexibleServerCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlexibleServerCustomerManagedKeyArgs:
@@ -156,6 +214,16 @@ class FlexibleServerCustomerManagedKeyArgs:
         pulumi.set(self, "primary_user_assigned_identity_id", value)
 
 
+if not MYPY:
+    class FlexibleServerHighAvailabilityArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        The high availability mode for the PostgreSQL Flexible Server. Possible value are `SameZone` or `ZoneRedundant`.
+        """
+        standby_availability_zone: NotRequired[pulumi.Input[str]]
+elif False:
+    FlexibleServerHighAvailabilityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlexibleServerHighAvailabilityArgs:
     def __init__(__self__, *,
@@ -189,6 +257,19 @@ class FlexibleServerHighAvailabilityArgs:
     def standby_availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "standby_availability_zone", value)
 
+
+if not MYPY:
+    class FlexibleServerIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with `customer_managed_key` block.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is `UserAssigned`.
+        """
+elif False:
+    FlexibleServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlexibleServerIdentityArgs:
@@ -226,6 +307,23 @@ class FlexibleServerIdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FlexibleServerMaintenanceWindowArgsDict(TypedDict):
+        day_of_week: NotRequired[pulumi.Input[int]]
+        """
+        The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
+        """
+        start_hour: NotRequired[pulumi.Input[int]]
+        """
+        The start hour for maintenance window. Defaults to `0`.
+        """
+        start_minute: NotRequired[pulumi.Input[int]]
+        """
+        The start minute for maintenance window. Defaults to `0`.
+        """
+elif False:
+    FlexibleServerMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlexibleServerMaintenanceWindowArgs:
@@ -282,6 +380,23 @@ class FlexibleServerMaintenanceWindowArgs:
         pulumi.set(self, "start_minute", value)
 
 
+if not MYPY:
+    class ServerIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is `SystemAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerIdentityArgs:
     def __init__(__self__, *,
@@ -335,6 +450,39 @@ class ServerIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ServerThreatDetectionPolicyArgsDict(TypedDict):
+        disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of alerts which should be disabled. Possible values are `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration` and `Unsafe_Action`.
+        """
+        email_account_admins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the account administrators be emailed when this alert is triggered?
+        """
+        email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of email addresses which alerts should be sent to.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the policy enabled?
+        """
+        retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days to keep in the Threat Detection audit logs.
+        """
+        storage_account_access_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the identifier key of the Threat Detection audit storage account.
+        """
+        storage_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs.
+        """
+elif False:
+    ServerThreatDetectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerThreatDetectionPolicyArgs:

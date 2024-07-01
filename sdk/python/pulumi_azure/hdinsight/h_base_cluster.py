@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -709,22 +714,22 @@ class HBaseCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']]] = None,
+                 component_version: Optional[pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: Optional[pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
+                 extension: Optional[pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
+                 monitor: Optional[pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['HBaseClusterPrivateLinkConfigurationArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -757,36 +762,36 @@ class HBaseCluster(pulumi.CustomResource):
             location=example.location,
             cluster_version="3.6",
             tier="Standard",
-            component_version=azure.hdinsight.HBaseClusterComponentVersionArgs(
-                hbase="1.1",
-            ),
-            gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.HBaseClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.HBaseClusterRolesArgs(
-                head_node=azure.hdinsight.HBaseClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.HBaseClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.HBaseClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            component_version={
+                "hbase": "1.1",
+            },
+            gateway={
+                "username": "acctestusrgw",
+                "password": "Password123!",
+            },
+            storage_accounts=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "headNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "workerNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "targetInstanceCount": 3,
+                },
+                "zookeeperNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
         ```
 
         ## Import
@@ -800,22 +805,22 @@ class HBaseCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']] extension: An `extension` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']] network: A `network` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']] roles: A `roles` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
@@ -856,36 +861,36 @@ class HBaseCluster(pulumi.CustomResource):
             location=example.location,
             cluster_version="3.6",
             tier="Standard",
-            component_version=azure.hdinsight.HBaseClusterComponentVersionArgs(
-                hbase="1.1",
-            ),
-            gateway=azure.hdinsight.HBaseClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password123!",
-            ),
-            storage_accounts=[azure.hdinsight.HBaseClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.HBaseClusterRolesArgs(
-                head_node=azure.hdinsight.HBaseClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.HBaseClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.HBaseClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_D3_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            component_version={
+                "hbase": "1.1",
+            },
+            gateway={
+                "username": "acctestusrgw",
+                "password": "Password123!",
+            },
+            storage_accounts=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "headNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "workerNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "targetInstanceCount": 3,
+                },
+                "zookeeperNode": {
+                    "vmSize": "Standard_D3_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
         ```
 
         ## Import
@@ -912,22 +917,22 @@ class HBaseCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']]] = None,
+                 component_version: Optional[pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: Optional[pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
+                 extension: Optional[pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
+                 monitor: Optional[pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['HBaseClusterPrivateLinkConfigurationArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -985,24 +990,24 @@ class HBaseCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
-            component_version: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']]] = None,
-            compute_isolation: Optional[pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']]] = None,
-            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]]] = None,
-            extension: Optional[pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']]] = None,
-            gateway: Optional[pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']]] = None,
+            component_version: Optional[pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']]] = None,
+            compute_isolation: Optional[pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']]] = None,
+            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]]] = None,
+            extension: Optional[pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']]] = None,
+            gateway: Optional[pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            metastores: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']]] = None,
-            monitor: Optional[pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']]] = None,
+            metastores: Optional[pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']]] = None,
+            monitor: Optional[pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']]] = None,
-            private_link_configuration: Optional[pulumi.Input[pulumi.InputType['HBaseClusterPrivateLinkConfigurationArgs']]] = None,
+            network: Optional[pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']]] = None,
+            private_link_configuration: Optional[pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            roles: Optional[pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']]] = None,
-            security_profile: Optional[pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']]] = None,
+            roles: Optional[pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']]] = None,
+            security_profile: Optional[pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-            storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]]] = None,
+            storage_account_gen2: Optional[pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             tls_min_version: Optional[pulumi.Input[str]] = None) -> 'HBaseCluster':
@@ -1014,24 +1019,24 @@ class HBaseCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterDiskEncryptionArgs']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterComponentVersionArgs', 'HBaseClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterComputeIsolationArgs', 'HBaseClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterDiskEncryptionArgs', 'HBaseClusterDiskEncryptionArgsDict']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterExtensionArgs', 'HBaseClusterExtensionArgsDict']] extension: An `extension` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterGatewayArgs', 'HBaseClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterMetastoresArgs', 'HBaseClusterMetastoresArgsDict']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterMonitorArgs', 'HBaseClusterMonitorArgsDict']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterNetworkArgs']] network: A `network` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterNetworkArgs', 'HBaseClusterNetworkArgsDict']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterPrivateLinkConfigurationArgs', 'HBaseClusterPrivateLinkConfigurationArgsDict']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['HBaseClusterRolesArgs', 'HBaseClusterRolesArgsDict']] roles: A `roles` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterSecurityProfileArgs', 'HBaseClusterSecurityProfileArgsDict']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight HBase Cluster.
-        :param pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HBaseClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Union['HBaseClusterStorageAccountGen2Args', 'HBaseClusterStorageAccountGen2ArgsDict']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HBaseClusterStorageAccountArgs', 'HBaseClusterStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight HBase Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.

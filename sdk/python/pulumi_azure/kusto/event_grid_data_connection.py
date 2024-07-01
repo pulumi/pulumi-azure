@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EventGridDataConnectionArgs', 'EventGridDataConnection']
@@ -571,10 +576,10 @@ class EventGridDataConnection(pulumi.CustomResource):
             name="examplekustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="example-kusto-database",
             resource_group_name=example.name,
@@ -613,10 +618,10 @@ class EventGridDataConnection(pulumi.CustomResource):
                 "Microsoft.Storage.BlobCreated",
                 "Microsoft.Storage.BlobRenamed",
             ],
-            retry_policy=azure.eventgrid.EventSubscriptionRetryPolicyArgs(
-                event_time_to_live=144,
-                max_delivery_attempts=10,
-            ))
+            retry_policy={
+                "eventTimeToLive": 144,
+                "maxDeliveryAttempts": 10,
+            })
         example_event_grid_data_connection = azure.kusto.EventGridDataConnection("example",
             name="my-kusto-eventgrid-data-connection",
             resource_group_name=example.name,
@@ -681,10 +686,10 @@ class EventGridDataConnection(pulumi.CustomResource):
             name="examplekustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="example-kusto-database",
             resource_group_name=example.name,
@@ -723,10 +728,10 @@ class EventGridDataConnection(pulumi.CustomResource):
                 "Microsoft.Storage.BlobCreated",
                 "Microsoft.Storage.BlobRenamed",
             ],
-            retry_policy=azure.eventgrid.EventSubscriptionRetryPolicyArgs(
-                event_time_to_live=144,
-                max_delivery_attempts=10,
-            ))
+            retry_policy={
+                "eventTimeToLive": 144,
+                "maxDeliveryAttempts": 10,
+            })
         example_event_grid_data_connection = azure.kusto.EventGridDataConnection("example",
             name="my-kusto-eventgrid-data-connection",
             resource_group_name=example.name,

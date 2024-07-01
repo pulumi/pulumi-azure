@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -465,7 +470,7 @@ class Plan(pulumi.CustomResource):
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -489,10 +494,10 @@ class Plan(pulumi.CustomResource):
             name="api-appserviceplan-pro",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         ```
 
         ### Shared / Consumption Plan)
@@ -509,10 +514,10 @@ class Plan(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            })
         ```
 
         ### Linux)
@@ -530,10 +535,10 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         ```
 
         ### Windows Container)
@@ -551,10 +556,10 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="xenon",
             is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="PremiumContainer",
-                size="PC2",
-            ))
+            sku={
+                "tier": "PremiumContainer",
+                "size": "PC2",
+            })
         ```
 
         ## Import
@@ -580,7 +585,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
                
@@ -612,10 +617,10 @@ class Plan(pulumi.CustomResource):
             name="api-appserviceplan-pro",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         ```
 
         ### Shared / Consumption Plan)
@@ -632,10 +637,10 @@ class Plan(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             kind="FunctionApp",
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Dynamic",
-                size="Y1",
-            ))
+            sku={
+                "tier": "Dynamic",
+                "size": "Y1",
+            })
         ```
 
         ### Linux)
@@ -653,10 +658,10 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="Linux",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Standard",
-                size="S1",
-            ))
+            sku={
+                "tier": "Standard",
+                "size": "S1",
+            })
         ```
 
         ### Windows Container)
@@ -674,10 +679,10 @@ class Plan(pulumi.CustomResource):
             resource_group_name=example.name,
             kind="xenon",
             is_xenon=True,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="PremiumContainer",
-                size="PC2",
-            ))
+            sku={
+                "tier": "PremiumContainer",
+                "size": "PC2",
+            })
         ```
 
         ## Import
@@ -712,7 +717,7 @@ class Plan(pulumi.CustomResource):
                  per_site_scaling: Optional[pulumi.Input[bool]] = None,
                  reserved: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -761,7 +766,7 @@ class Plan(pulumi.CustomResource):
             per_site_scaling: Optional[pulumi.Input[bool]] = None,
             reserved: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['PlanSkuArgs']]] = None,
+            sku: Optional[pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'Plan':
         """
@@ -785,7 +790,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[bool] per_site_scaling: Can Apps assigned to this App Service Plan be scaled independently? If set to `false` apps assigned to this plan will scale to all instances of the plan.
         :param pulumi.Input[bool] reserved: Is this App Service Plan `Reserved`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['PlanSkuArgs']] sku: A `sku` block as documented below.
+        :param pulumi.Input[Union['PlanSkuArgs', 'PlanSkuArgsDict']] sku: A `sku` block as documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the App Service Plan should be Zone Redundant. Changing this forces a new resource to be created.
                

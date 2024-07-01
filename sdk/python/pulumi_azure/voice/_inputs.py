@@ -4,14 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ServicesCommunicationsGatewayServiceLocationArgs',
+    'ServicesCommunicationsGatewayServiceLocationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ServicesCommunicationsGatewayServiceLocationArgsDict(TypedDict):
+        location: pulumi.Input[str]
+        """
+        Specifies the region in which the resources needed for Teams Calling will be deployed.
+        """
+        operator_addresses: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        IP address to use to contact the operator network from this region.
+        """
+        allowed_media_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the allowed source IP address or CIDR ranges for media.
+        """
+        allowed_signaling_source_address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the allowed source IP address or CIDR ranges for signaling.
+        """
+        esrp_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        IP address to use to contact the ESRP from this region.
+
+        !> **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
+        """
+elif False:
+    ServicesCommunicationsGatewayServiceLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServicesCommunicationsGatewayServiceLocationArgs:

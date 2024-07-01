@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -290,7 +295,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
-                 read_write_endpoint_failover_policy: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']]] = None,
+                 read_write_endpoint_failover_policy: Optional[pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
                  readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -352,10 +357,10 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             location=primary.location,
             managed_instance_name=primary.name,
             partner_managed_instance_id=secondary.id,
-            read_write_endpoint_failover_policy=azure.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
+            read_write_endpoint_failover_policy={
+                "mode": "Automatic",
+                "graceMinutes": 60,
+            })
         ```
 
         ## Import
@@ -372,7 +377,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[str] managed_instance_name: The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
         :param pulumi.Input[str] name: The name which should be used for this SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
         :param pulumi.Input[str] partner_managed_instance_id: ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created.
         """
@@ -440,10 +445,10 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             location=primary.location,
             managed_instance_name=primary.name,
             partner_managed_instance_id=secondary.id,
-            read_write_endpoint_failover_policy=azure.sql.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs(
-                mode="Automatic",
-                grace_minutes=60,
-            ))
+            read_write_endpoint_failover_policy={
+                "mode": "Automatic",
+                "graceMinutes": 60,
+            })
         ```
 
         ## Import
@@ -473,7 +478,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
                  managed_instance_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
-                 read_write_endpoint_failover_policy: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']]] = None,
+                 read_write_endpoint_failover_policy: Optional[pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
                  readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -516,8 +521,8 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             managed_instance_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
-            partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedInstanceFailoverGroupPartnerRegionArgs']]]]] = None,
-            read_write_endpoint_failover_policy: Optional[pulumi.Input[pulumi.InputType['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']]] = None,
+            partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict']]]]] = None,
+            read_write_endpoint_failover_policy: Optional[pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']]] = None,
             readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None) -> 'ManagedInstanceFailoverGroup':
@@ -532,8 +537,8 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[str] managed_instance_name: The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
         :param pulumi.Input[str] name: The name which should be used for this SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created.
         :param pulumi.Input[str] partner_managed_instance_id: ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ManagedInstanceFailoverGroupPartnerRegionArgs']]]] partner_regions: A `partner_region` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstanceFailoverGroupPartnerRegionArgs', 'ManagedInstanceFailoverGroupPartnerRegionArgsDict']]]] partner_regions: A `partner_region` block as defined below.
+        :param pulumi.Input[Union['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs', 'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict']] read_write_endpoint_failover_policy: A `read_write_endpoint_failover_policy` block as defined below.
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created.
         :param pulumi.Input[str] role: The partner replication role of the SQL Instance Failover Group.

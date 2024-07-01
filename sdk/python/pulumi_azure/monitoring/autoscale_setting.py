@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -322,9 +327,9 @@ class AutoscaleSetting(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
-                 predictive: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
+                 notification: Optional[pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
+                 predictive: Optional[pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
@@ -359,97 +364,97 @@ class AutoscaleSetting(pulumi.CustomResource):
             sku="Standard_F2",
             instances=2,
             admin_username="myadmin",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="myadmin",
-                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
-            )],
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="StandardSSD_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "myadmin",
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            }],
+            network_interfaces=[{
+                "name": "TestNetworkProfile",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "StandardSSD_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
             name="myAutoscaleSetting",
             resource_group_name=example.name,
             location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
-                name="defaultProfile",
-                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
-                    default=1,
-                    minimum=1,
-                    maximum=10,
-                ),
-                rules=[
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="GreaterThan",
-                            threshold=75,
-                            metric_namespace="microsoft.compute/virtualmachinescalesets",
-                            dimensions=[azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs(
-                                name="AppName",
-                                operator="Equals",
-                                values=["App1"],
-                            )],
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Increase",
-                            type="ChangeCount",
-                            value=1,
-                            cooldown="PT1M",
-                        ),
-                    ),
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="LessThan",
-                            threshold=25,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Decrease",
-                            type="ChangeCount",
-                            value=1,
-                            cooldown="PT1M",
-                        ),
-                    ),
+            profiles=[{
+                "name": "defaultProfile",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rules": [
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 75,
+                            "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                            "dimensions": [{
+                                "name": "AppName",
+                                "operator": "Equals",
+                                "values": ["App1"],
+                            }],
+                        },
+                        "scaleAction": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": 1,
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 25,
+                        },
+                        "scaleAction": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": 1,
+                            "cooldown": "PT1M",
+                        },
+                    },
                 ],
-            )],
-            predictive=azure.monitoring.AutoscaleSettingPredictiveArgs(
-                scale_mode="Enabled",
-                look_ahead_time="PT5M",
-            ),
-            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
-                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
-                    send_to_subscription_administrator=True,
-                    send_to_subscription_co_administrator=True,
-                    custom_emails=["admin@contoso.com"],
-                ),
-            ))
+            }],
+            predictive={
+                "scaleMode": "Enabled",
+                "lookAheadTime": "PT5M",
+            },
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
         ```
 
         ### Repeating On Weekends)
@@ -479,96 +484,96 @@ class AutoscaleSetting(pulumi.CustomResource):
             sku="Standard_F2",
             instances=2,
             admin_username="myadmin",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="myadmin",
-                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
-            )],
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="StandardSSD_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "myadmin",
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            }],
+            network_interfaces=[{
+                "name": "TestNetworkProfile",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "StandardSSD_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
             name="myAutoscaleSetting",
             resource_group_name=example.name,
             location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
-                name="Weekends",
-                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
-                    default=1,
-                    minimum=1,
-                    maximum=10,
-                ),
-                rules=[
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="GreaterThan",
-                            threshold=90,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Increase",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="LessThan",
-                            threshold=10,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Decrease",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
+            profiles=[{
+                "name": "Weekends",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rules": [
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 90,
+                        },
+                        "scaleAction": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 10,
+                        },
+                        "scaleAction": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
                 ],
-                recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
-                    timezone="Pacific Standard Time",
-                    days=[
+                "recurrence": {
+                    "timezone": "Pacific Standard Time",
+                    "days": [
                         "Saturday",
                         "Sunday",
                     ],
-                    hours=12,
-                    minutes=0,
-                ),
-            )],
-            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
-                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
-                    send_to_subscription_administrator=True,
-                    send_to_subscription_co_administrator=True,
-                    custom_emails=["admin@contoso.com"],
-                ),
-            ))
+                    "hours": 12,
+                    "minutes": 0,
+                },
+            }],
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
         ```
 
         ### For Fixed Dates)
@@ -598,93 +603,93 @@ class AutoscaleSetting(pulumi.CustomResource):
             sku="Standard_F2",
             instances=2,
             admin_username="myadmin",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="myadmin",
-                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
-            )],
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="StandardSSD_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "myadmin",
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            }],
+            network_interfaces=[{
+                "name": "TestNetworkProfile",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "StandardSSD_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
             name="myAutoscaleSetting",
             enabled=True,
             resource_group_name=example.name,
             location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
-                name="forJuly",
-                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
-                    default=1,
-                    minimum=1,
-                    maximum=10,
-                ),
-                rules=[
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="GreaterThan",
-                            threshold=90,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Increase",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="LessThan",
-                            threshold=10,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Decrease",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
+            profiles=[{
+                "name": "forJuly",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rules": [
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 90,
+                        },
+                        "scaleAction": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 10,
+                        },
+                        "scaleAction": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
                 ],
-                fixed_date=azure.monitoring.AutoscaleSettingProfileFixedDateArgs(
-                    timezone="Pacific Standard Time",
-                    start="2020-07-01T00:00:00Z",
-                    end="2020-07-31T23:59:59Z",
-                ),
-            )],
-            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
-                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
-                    send_to_subscription_administrator=True,
-                    send_to_subscription_co_administrator=True,
-                    custom_emails=["admin@contoso.com"],
-                ),
-            ))
+                "fixedDate": {
+                    "timezone": "Pacific Standard Time",
+                    "start": "2020-07-01T00:00:00Z",
+                    "end": "2020-07-31T23:59:59Z",
+                },
+            }],
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
         ```
 
         ## Import
@@ -700,9 +705,9 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']] notification: Specifies a `notification` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']] predictive: A `predictive` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']] predictive: A `predictive` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.
@@ -743,97 +748,97 @@ class AutoscaleSetting(pulumi.CustomResource):
             sku="Standard_F2",
             instances=2,
             admin_username="myadmin",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="myadmin",
-                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
-            )],
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="StandardSSD_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "myadmin",
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            }],
+            network_interfaces=[{
+                "name": "TestNetworkProfile",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "StandardSSD_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
             name="myAutoscaleSetting",
             resource_group_name=example.name,
             location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
-                name="defaultProfile",
-                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
-                    default=1,
-                    minimum=1,
-                    maximum=10,
-                ),
-                rules=[
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="GreaterThan",
-                            threshold=75,
-                            metric_namespace="microsoft.compute/virtualmachinescalesets",
-                            dimensions=[azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs(
-                                name="AppName",
-                                operator="Equals",
-                                values=["App1"],
-                            )],
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Increase",
-                            type="ChangeCount",
-                            value=1,
-                            cooldown="PT1M",
-                        ),
-                    ),
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="LessThan",
-                            threshold=25,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Decrease",
-                            type="ChangeCount",
-                            value=1,
-                            cooldown="PT1M",
-                        ),
-                    ),
+            profiles=[{
+                "name": "defaultProfile",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rules": [
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 75,
+                            "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                            "dimensions": [{
+                                "name": "AppName",
+                                "operator": "Equals",
+                                "values": ["App1"],
+                            }],
+                        },
+                        "scaleAction": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": 1,
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 25,
+                        },
+                        "scaleAction": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": 1,
+                            "cooldown": "PT1M",
+                        },
+                    },
                 ],
-            )],
-            predictive=azure.monitoring.AutoscaleSettingPredictiveArgs(
-                scale_mode="Enabled",
-                look_ahead_time="PT5M",
-            ),
-            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
-                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
-                    send_to_subscription_administrator=True,
-                    send_to_subscription_co_administrator=True,
-                    custom_emails=["admin@contoso.com"],
-                ),
-            ))
+            }],
+            predictive={
+                "scaleMode": "Enabled",
+                "lookAheadTime": "PT5M",
+            },
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
         ```
 
         ### Repeating On Weekends)
@@ -863,96 +868,96 @@ class AutoscaleSetting(pulumi.CustomResource):
             sku="Standard_F2",
             instances=2,
             admin_username="myadmin",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="myadmin",
-                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
-            )],
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="StandardSSD_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "myadmin",
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            }],
+            network_interfaces=[{
+                "name": "TestNetworkProfile",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "StandardSSD_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
             name="myAutoscaleSetting",
             resource_group_name=example.name,
             location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
-                name="Weekends",
-                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
-                    default=1,
-                    minimum=1,
-                    maximum=10,
-                ),
-                rules=[
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="GreaterThan",
-                            threshold=90,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Increase",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="LessThan",
-                            threshold=10,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Decrease",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
+            profiles=[{
+                "name": "Weekends",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rules": [
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 90,
+                        },
+                        "scaleAction": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 10,
+                        },
+                        "scaleAction": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
                 ],
-                recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
-                    timezone="Pacific Standard Time",
-                    days=[
+                "recurrence": {
+                    "timezone": "Pacific Standard Time",
+                    "days": [
                         "Saturday",
                         "Sunday",
                     ],
-                    hours=12,
-                    minutes=0,
-                ),
-            )],
-            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
-                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
-                    send_to_subscription_administrator=True,
-                    send_to_subscription_co_administrator=True,
-                    custom_emails=["admin@contoso.com"],
-                ),
-            ))
+                    "hours": 12,
+                    "minutes": 0,
+                },
+            }],
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
         ```
 
         ### For Fixed Dates)
@@ -982,93 +987,93 @@ class AutoscaleSetting(pulumi.CustomResource):
             sku="Standard_F2",
             instances=2,
             admin_username="myadmin",
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
-                username="myadmin",
-                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
-            )],
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="TestNetworkProfile",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="TestIPConfiguration",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="StandardSSD_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "myadmin",
+                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            }],
+            network_interfaces=[{
+                "name": "TestNetworkProfile",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "TestIPConfiguration",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "StandardSSD_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
             name="myAutoscaleSetting",
             enabled=True,
             resource_group_name=example.name,
             location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
-            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
-                name="forJuly",
-                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
-                    default=1,
-                    minimum=1,
-                    maximum=10,
-                ),
-                rules=[
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="GreaterThan",
-                            threshold=90,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Increase",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
-                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
-                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
-                            metric_name="Percentage CPU",
-                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
-                            time_grain="PT1M",
-                            statistic="Average",
-                            time_window="PT5M",
-                            time_aggregation="Average",
-                            operator="LessThan",
-                            threshold=10,
-                        ),
-                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
-                            direction="Decrease",
-                            type="ChangeCount",
-                            value=2,
-                            cooldown="PT1M",
-                        ),
-                    ),
+            profiles=[{
+                "name": "forJuly",
+                "capacity": {
+                    "default": 1,
+                    "minimum": 1,
+                    "maximum": 10,
+                },
+                "rules": [
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "GreaterThan",
+                            "threshold": 90,
+                        },
+                        "scaleAction": {
+                            "direction": "Increase",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
+                    {
+                        "metricTrigger": {
+                            "metricName": "Percentage CPU",
+                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
+                            "timeGrain": "PT1M",
+                            "statistic": "Average",
+                            "timeWindow": "PT5M",
+                            "timeAggregation": "Average",
+                            "operator": "LessThan",
+                            "threshold": 10,
+                        },
+                        "scaleAction": {
+                            "direction": "Decrease",
+                            "type": "ChangeCount",
+                            "value": 2,
+                            "cooldown": "PT1M",
+                        },
+                    },
                 ],
-                fixed_date=azure.monitoring.AutoscaleSettingProfileFixedDateArgs(
-                    timezone="Pacific Standard Time",
-                    start="2020-07-01T00:00:00Z",
-                    end="2020-07-31T23:59:59Z",
-                ),
-            )],
-            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
-                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
-                    send_to_subscription_administrator=True,
-                    send_to_subscription_co_administrator=True,
-                    custom_emails=["admin@contoso.com"],
-                ),
-            ))
+                "fixedDate": {
+                    "timezone": "Pacific Standard Time",
+                    "start": "2020-07-01T00:00:00Z",
+                    "end": "2020-07-31T23:59:59Z",
+                },
+            }],
+            notification={
+                "email": {
+                    "sendToSubscriptionAdministrator": True,
+                    "sendToSubscriptionCoAdministrator": True,
+                    "customEmails": ["admin@contoso.com"],
+                },
+            })
         ```
 
         ## Import
@@ -1097,9 +1102,9 @@ class AutoscaleSetting(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
-                 predictive: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']]] = None,
-                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
+                 notification: Optional[pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
+                 predictive: Optional[pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
@@ -1140,9 +1145,9 @@ class AutoscaleSetting(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notification: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']]] = None,
-            predictive: Optional[pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']]] = None,
-            profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]]] = None,
+            notification: Optional[pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']]] = None,
+            predictive: Optional[pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']]] = None,
+            profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None) -> 'AutoscaleSetting':
@@ -1156,9 +1161,9 @@ class AutoscaleSetting(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the AutoScale Setting. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['AutoscaleSettingNotificationArgs']] notification: Specifies a `notification` block as defined below.
-        :param pulumi.Input[pulumi.InputType['AutoscaleSettingPredictiveArgs']] predictive: A `predictive` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoscaleSettingProfileArgs']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingNotificationArgs', 'AutoscaleSettingNotificationArgsDict']] notification: Specifies a `notification` block as defined below.
+        :param pulumi.Input[Union['AutoscaleSettingPredictiveArgs', 'AutoscaleSettingPredictiveArgsDict']] predictive: A `predictive` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoscaleSettingProfileArgs', 'AutoscaleSettingProfileArgsDict']]]] profiles: Specifies one or more (up to 20) `profile` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -191,7 +196,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationAccountPartnerBusinessIdentityArgs']]]]] = None,
+                 business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -218,10 +223,10 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             name="example-iap",
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="ZZ",
-                value="AA",
-            )])
+            business_identities=[{
+                "qualifier": "ZZ",
+                "value": "AA",
+            }])
         ```
 
         ## Import
@@ -234,7 +239,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationAccountPartnerBusinessIdentityArgs']]]] business_identities: A `business_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]] business_identities: A `business_identity` block as documented below.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.
@@ -267,10 +272,10 @@ class IntegrationAccountPartner(pulumi.CustomResource):
             name="example-iap",
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
-                qualifier="ZZ",
-                value="AA",
-            )])
+            business_identities=[{
+                "qualifier": "ZZ",
+                "value": "AA",
+            }])
         ```
 
         ## Import
@@ -296,7 +301,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationAccountPartnerBusinessIdentityArgs']]]]] = None,
+                 business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -331,7 +336,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationAccountPartnerBusinessIdentityArgs']]]]] = None,
+            business_identities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]]] = None,
             integration_account_name: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -343,7 +348,7 @@ class IntegrationAccountPartner(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationAccountPartnerBusinessIdentityArgs']]]] business_identities: A `business_identity` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationAccountPartnerBusinessIdentityArgs', 'IntegrationAccountPartnerBusinessIdentityArgsDict']]]] business_identities: A `business_identity` block as documented below.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created.
         :param pulumi.Input[str] metadata: A JSON mapping of any Metadata for this Logic App Integration Account Partner.
         :param pulumi.Input[str] name: The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -296,12 +301,12 @@ class BudgetSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetSubscriptionFilterArgs', 'BudgetSubscriptionFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetSubscriptionNotificationArgs', 'BudgetSubscriptionNotificationArgsDict']]]]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  time_grain: Optional[pulumi.Input[str]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetSubscriptionTimePeriodArgs', 'BudgetSubscriptionTimePeriodArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Subscription Consumption Budget.
@@ -325,45 +330,45 @@ class BudgetSubscription(pulumi.CustomResource):
             subscription_id=current.id,
             amount=1000,
             time_grain="Monthly",
-            time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetSubscriptionFilterArgs(
-                dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example.name],
-                )],
-                tags=[azure.consumption.BudgetSubscriptionFilterTagArgs(
-                    name="foo",
-                    values=[
+            time_period={
+                "startDate": "2022-06-01T00:00:00Z",
+                "endDate": "2022-07-01T00:00:00Z",
+            },
+            filter={
+                "dimensions": [{
+                    "name": "ResourceGroupName",
+                    "values": [example.name],
+                }],
+                "tags": [{
+                    "name": "foo",
+                    "values": [
                         "bar",
                         "baz",
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
+                {
+                    "enabled": True,
+                    "threshold": 90,
+                    "operator": "EqualTo",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    contact_groups=[example_action_group.id],
-                    contact_roles=["Owner"],
-                ),
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
+                    "contactGroups": [example_action_group.id],
+                    "contactRoles": ["Owner"],
+                },
+                {
+                    "enabled": False,
+                    "threshold": 100,
+                    "operator": "GreaterThan",
+                    "thresholdType": "Forecasted",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                ),
+                },
             ])
         ```
 
@@ -379,14 +384,14 @@ class BudgetSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[str] etag: (Optional) The ETag of the Subscription Consumption Budget.
-        :param pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']] filter: A `filter` block as defined below.
+        :param pulumi.Input[Union['BudgetSubscriptionFilterArgs', 'BudgetSubscriptionFilterArgsDict']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetSubscriptionNotificationArgs', 'BudgetSubscriptionNotificationArgsDict']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
                
                > **NOTE:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']] time_period: A `time_period` block as defined below.
+        :param pulumi.Input[Union['BudgetSubscriptionTimePeriodArgs', 'BudgetSubscriptionTimePeriodArgsDict']] time_period: A `time_period` block as defined below.
         """
         ...
     @overload
@@ -416,45 +421,45 @@ class BudgetSubscription(pulumi.CustomResource):
             subscription_id=current.id,
             amount=1000,
             time_grain="Monthly",
-            time_period=azure.consumption.BudgetSubscriptionTimePeriodArgs(
-                start_date="2022-06-01T00:00:00Z",
-                end_date="2022-07-01T00:00:00Z",
-            ),
-            filter=azure.consumption.BudgetSubscriptionFilterArgs(
-                dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(
-                    name="ResourceGroupName",
-                    values=[example.name],
-                )],
-                tags=[azure.consumption.BudgetSubscriptionFilterTagArgs(
-                    name="foo",
-                    values=[
+            time_period={
+                "startDate": "2022-06-01T00:00:00Z",
+                "endDate": "2022-07-01T00:00:00Z",
+            },
+            filter={
+                "dimensions": [{
+                    "name": "ResourceGroupName",
+                    "values": [example.name],
+                }],
+                "tags": [{
+                    "name": "foo",
+                    "values": [
                         "bar",
                         "baz",
                     ],
-                )],
-            ),
+                }],
+            },
             notifications=[
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=True,
-                    threshold=90,
-                    operator="EqualTo",
-                    contact_emails=[
+                {
+                    "enabled": True,
+                    "threshold": 90,
+                    "operator": "EqualTo",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    contact_groups=[example_action_group.id],
-                    contact_roles=["Owner"],
-                ),
-                azure.consumption.BudgetSubscriptionNotificationArgs(
-                    enabled=False,
-                    threshold=100,
-                    operator="GreaterThan",
-                    threshold_type="Forecasted",
-                    contact_emails=[
+                    "contactGroups": [example_action_group.id],
+                    "contactRoles": ["Owner"],
+                },
+                {
+                    "enabled": False,
+                    "threshold": 100,
+                    "operator": "GreaterThan",
+                    "thresholdType": "Forecasted",
+                    "contactEmails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                ),
+                },
             ])
         ```
 
@@ -483,12 +488,12 @@ class BudgetSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amount: Optional[pulumi.Input[float]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 filter: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetSubscriptionFilterArgs', 'BudgetSubscriptionFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetSubscriptionNotificationArgs', 'BudgetSubscriptionNotificationArgsDict']]]]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  time_grain: Optional[pulumi.Input[str]] = None,
-                 time_period: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetSubscriptionTimePeriodArgs', 'BudgetSubscriptionTimePeriodArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -526,12 +531,12 @@ class BudgetSubscription(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             amount: Optional[pulumi.Input[float]] = None,
             etag: Optional[pulumi.Input[str]] = None,
-            filter: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']]] = None,
+            filter: Optional[pulumi.Input[Union['BudgetSubscriptionFilterArgs', 'BudgetSubscriptionFilterArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]]] = None,
+            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BudgetSubscriptionNotificationArgs', 'BudgetSubscriptionNotificationArgsDict']]]]] = None,
             subscription_id: Optional[pulumi.Input[str]] = None,
             time_grain: Optional[pulumi.Input[str]] = None,
-            time_period: Optional[pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']]] = None) -> 'BudgetSubscription':
+            time_period: Optional[pulumi.Input[Union['BudgetSubscriptionTimePeriodArgs', 'BudgetSubscriptionTimePeriodArgsDict']]] = None) -> 'BudgetSubscription':
         """
         Get an existing BudgetSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -541,14 +546,14 @@ class BudgetSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget.
         :param pulumi.Input[str] etag: (Optional) The ETag of the Subscription Consumption Budget.
-        :param pulumi.Input[pulumi.InputType['BudgetSubscriptionFilterArgs']] filter: A `filter` block as defined below.
+        :param pulumi.Input[Union['BudgetSubscriptionFilterArgs', 'BudgetSubscriptionFilterArgsDict']] filter: A `filter` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BudgetSubscriptionNotificationArgs']]]] notifications: One or more `notification` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BudgetSubscriptionNotificationArgs', 'BudgetSubscriptionNotificationArgsDict']]]] notifications: One or more `notification` blocks as defined below.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created.
                
                > **NOTE:** The `subscription_id` property can accept a subscription ID e.g. `00000000-0000-0000-0000-000000000000` or the subscription resource ID e.g. `/subscriptions/00000000-0000-0000-0000-000000000000`. In version 3.0 this property will only accept the subscription resource ID.
         :param pulumi.Input[str] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BudgetSubscriptionTimePeriodArgs']] time_period: A `time_period` block as defined below.
+        :param pulumi.Input[Union['BudgetSubscriptionTimePeriodArgs', 'BudgetSubscriptionTimePeriodArgsDict']] time_period: A `time_period` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

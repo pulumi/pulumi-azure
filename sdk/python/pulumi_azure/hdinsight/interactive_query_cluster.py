@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -741,23 +746,23 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
+                 component_version: Optional[pulumi.Input[Union['InteractiveQueryClusterComponentVersionArgs', 'InteractiveQueryClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: Optional[pulumi.Input[Union['InteractiveQueryClusterComputeIsolationArgs', 'InteractiveQueryClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterDiskEncryptionArgs', 'InteractiveQueryClusterDiskEncryptionArgsDict']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
+                 extension: Optional[pulumi.Input[Union['InteractiveQueryClusterExtensionArgs', 'InteractiveQueryClusterExtensionArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['InteractiveQueryClusterGatewayArgs', 'InteractiveQueryClusterGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[Union['InteractiveQueryClusterMetastoresArgs', 'InteractiveQueryClusterMetastoresArgsDict']]] = None,
+                 monitor: Optional[pulumi.Input[Union['InteractiveQueryClusterMonitorArgs', 'InteractiveQueryClusterMonitorArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['InteractiveQueryClusterNetworkArgs', 'InteractiveQueryClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[Union['InteractiveQueryClusterPrivateLinkConfigurationArgs', 'InteractiveQueryClusterPrivateLinkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Union['InteractiveQueryClusterRolesArgs', 'InteractiveQueryClusterRolesArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['InteractiveQueryClusterSecurityProfileArgs', 'InteractiveQueryClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[Union['InteractiveQueryClusterStorageAccountGen2Args', 'InteractiveQueryClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterStorageAccountArgs', 'InteractiveQueryClusterStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -790,36 +795,36 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             location=example.location,
             cluster_version="3.6",
             tier="Standard",
-            component_version=azure.hdinsight.InteractiveQueryClusterComponentVersionArgs(
-                interactive_hive="2.1",
-            ),
-            gateway=azure.hdinsight.InteractiveQueryClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password!",
-            ),
-            storage_accounts=[azure.hdinsight.InteractiveQueryClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.InteractiveQueryClusterRolesArgs(
-                head_node=azure.hdinsight.InteractiveQueryClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D13_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.InteractiveQueryClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D14_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.InteractiveQueryClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_A4_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            component_version={
+                "interactiveHive": "2.1",
+            },
+            gateway={
+                "username": "acctestusrgw",
+                "password": "Password!",
+            },
+            storage_accounts=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "headNode": {
+                    "vmSize": "Standard_D13_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "workerNode": {
+                    "vmSize": "Standard_D14_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "targetInstanceCount": 3,
+                },
+                "zookeeperNode": {
+                    "vmSize": "Standard_A4_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
         ```
 
         ## Import
@@ -833,23 +838,23 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterComponentVersionArgs', 'InteractiveQueryClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterComputeIsolationArgs', 'InteractiveQueryClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterDiskEncryptionArgs', 'InteractiveQueryClusterDiskEncryptionArgsDict']]]] disk_encryptions: A `disk_encryption` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterExtensionArgs', 'InteractiveQueryClusterExtensionArgsDict']] extension: An `extension` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterGatewayArgs', 'InteractiveQueryClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterMetastoresArgs', 'InteractiveQueryClusterMetastoresArgsDict']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterMonitorArgs', 'InteractiveQueryClusterMonitorArgsDict']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterNetworkArgs', 'InteractiveQueryClusterNetworkArgsDict']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterPrivateLinkConfigurationArgs', 'InteractiveQueryClusterPrivateLinkConfigurationArgsDict']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterRolesArgs', 'InteractiveQueryClusterRolesArgsDict']] roles: A `roles` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterSecurityProfileArgs', 'InteractiveQueryClusterSecurityProfileArgsDict']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['InteractiveQueryClusterStorageAccountGen2Args', 'InteractiveQueryClusterStorageAccountGen2ArgsDict']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterStorageAccountArgs', 'InteractiveQueryClusterStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
@@ -890,36 +895,36 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             location=example.location,
             cluster_version="3.6",
             tier="Standard",
-            component_version=azure.hdinsight.InteractiveQueryClusterComponentVersionArgs(
-                interactive_hive="2.1",
-            ),
-            gateway=azure.hdinsight.InteractiveQueryClusterGatewayArgs(
-                username="acctestusrgw",
-                password="Password!",
-            ),
-            storage_accounts=[azure.hdinsight.InteractiveQueryClusterStorageAccountArgs(
-                storage_container_id=example_container.id,
-                storage_account_key=example_account.primary_access_key,
-                is_default=True,
-            )],
-            roles=azure.hdinsight.InteractiveQueryClusterRolesArgs(
-                head_node=azure.hdinsight.InteractiveQueryClusterRolesHeadNodeArgs(
-                    vm_size="Standard_D13_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-                worker_node=azure.hdinsight.InteractiveQueryClusterRolesWorkerNodeArgs(
-                    vm_size="Standard_D14_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                    target_instance_count=3,
-                ),
-                zookeeper_node=azure.hdinsight.InteractiveQueryClusterRolesZookeeperNodeArgs(
-                    vm_size="Standard_A4_V2",
-                    username="acctestusrvm",
-                    password="AccTestvdSC4daf986!",
-                ),
-            ))
+            component_version={
+                "interactiveHive": "2.1",
+            },
+            gateway={
+                "username": "acctestusrgw",
+                "password": "Password!",
+            },
+            storage_accounts=[{
+                "storageContainerId": example_container.id,
+                "storageAccountKey": example_account.primary_access_key,
+                "isDefault": True,
+            }],
+            roles={
+                "headNode": {
+                    "vmSize": "Standard_D13_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+                "workerNode": {
+                    "vmSize": "Standard_D14_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                    "targetInstanceCount": 3,
+                },
+                "zookeeperNode": {
+                    "vmSize": "Standard_A4_V2",
+                    "username": "acctestusrvm",
+                    "password": "AccTestvdSC4daf986!",
+                },
+            })
         ```
 
         ## Import
@@ -946,23 +951,23 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
-                 component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
-                 compute_isolation: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']]] = None,
-                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
+                 component_version: Optional[pulumi.Input[Union['InteractiveQueryClusterComponentVersionArgs', 'InteractiveQueryClusterComponentVersionArgsDict']]] = None,
+                 compute_isolation: Optional[pulumi.Input[Union['InteractiveQueryClusterComputeIsolationArgs', 'InteractiveQueryClusterComputeIsolationArgsDict']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterDiskEncryptionArgs', 'InteractiveQueryClusterDiskEncryptionArgsDict']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-                 extension: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']]] = None,
-                 gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
+                 extension: Optional[pulumi.Input[Union['InteractiveQueryClusterExtensionArgs', 'InteractiveQueryClusterExtensionArgsDict']]] = None,
+                 gateway: Optional[pulumi.Input[Union['InteractiveQueryClusterGatewayArgs', 'InteractiveQueryClusterGatewayArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
-                 monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
+                 metastores: Optional[pulumi.Input[Union['InteractiveQueryClusterMetastoresArgs', 'InteractiveQueryClusterMetastoresArgsDict']]] = None,
+                 monitor: Optional[pulumi.Input[Union['InteractiveQueryClusterMonitorArgs', 'InteractiveQueryClusterMonitorArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
-                 private_link_configuration: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['InteractiveQueryClusterNetworkArgs', 'InteractiveQueryClusterNetworkArgsDict']]] = None,
+                 private_link_configuration: Optional[pulumi.Input[Union['InteractiveQueryClusterPrivateLinkConfigurationArgs', 'InteractiveQueryClusterPrivateLinkConfigurationArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
-                 security_profile: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']]] = None,
-                 storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]]] = None,
+                 roles: Optional[pulumi.Input[Union['InteractiveQueryClusterRolesArgs', 'InteractiveQueryClusterRolesArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['InteractiveQueryClusterSecurityProfileArgs', 'InteractiveQueryClusterSecurityProfileArgsDict']]] = None,
+                 storage_account_gen2: Optional[pulumi.Input[Union['InteractiveQueryClusterStorageAccountGen2Args', 'InteractiveQueryClusterStorageAccountGen2ArgsDict']]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterStorageAccountArgs', 'InteractiveQueryClusterStorageAccountArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tier: Optional[pulumi.Input[str]] = None,
                  tls_min_version: Optional[pulumi.Input[str]] = None,
@@ -1021,25 +1026,25 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
-            component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
-            compute_isolation: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']]] = None,
-            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
+            component_version: Optional[pulumi.Input[Union['InteractiveQueryClusterComponentVersionArgs', 'InteractiveQueryClusterComponentVersionArgsDict']]] = None,
+            compute_isolation: Optional[pulumi.Input[Union['InteractiveQueryClusterComputeIsolationArgs', 'InteractiveQueryClusterComputeIsolationArgsDict']]] = None,
+            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterDiskEncryptionArgs', 'InteractiveQueryClusterDiskEncryptionArgsDict']]]]] = None,
             encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
-            extension: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']]] = None,
-            gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
+            extension: Optional[pulumi.Input[Union['InteractiveQueryClusterExtensionArgs', 'InteractiveQueryClusterExtensionArgsDict']]] = None,
+            gateway: Optional[pulumi.Input[Union['InteractiveQueryClusterGatewayArgs', 'InteractiveQueryClusterGatewayArgsDict']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            metastores: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']]] = None,
-            monitor: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']]] = None,
+            metastores: Optional[pulumi.Input[Union['InteractiveQueryClusterMetastoresArgs', 'InteractiveQueryClusterMetastoresArgsDict']]] = None,
+            monitor: Optional[pulumi.Input[Union['InteractiveQueryClusterMonitorArgs', 'InteractiveQueryClusterMonitorArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']]] = None,
-            private_link_configuration: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']]] = None,
+            network: Optional[pulumi.Input[Union['InteractiveQueryClusterNetworkArgs', 'InteractiveQueryClusterNetworkArgsDict']]] = None,
+            private_link_configuration: Optional[pulumi.Input[Union['InteractiveQueryClusterPrivateLinkConfigurationArgs', 'InteractiveQueryClusterPrivateLinkConfigurationArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            roles: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']]] = None,
-            security_profile: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']]] = None,
+            roles: Optional[pulumi.Input[Union['InteractiveQueryClusterRolesArgs', 'InteractiveQueryClusterRolesArgsDict']]] = None,
+            security_profile: Optional[pulumi.Input[Union['InteractiveQueryClusterSecurityProfileArgs', 'InteractiveQueryClusterSecurityProfileArgsDict']]] = None,
             ssh_endpoint: Optional[pulumi.Input[str]] = None,
-            storage_account_gen2: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]]] = None,
+            storage_account_gen2: Optional[pulumi.Input[Union['InteractiveQueryClusterStorageAccountGen2Args', 'InteractiveQueryClusterStorageAccountGen2ArgsDict']]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterStorageAccountArgs', 'InteractiveQueryClusterStorageAccountArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tier: Optional[pulumi.Input[str]] = None,
             tls_min_version: Optional[pulumi.Input[str]] = None) -> 'InteractiveQueryCluster':
@@ -1051,25 +1056,25 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterComputeIsolationArgs']] compute_isolation: A `compute_isolation` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]] disk_encryptions: A `disk_encryption` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterComponentVersionArgs', 'InteractiveQueryClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterComputeIsolationArgs', 'InteractiveQueryClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterDiskEncryptionArgs', 'InteractiveQueryClusterDiskEncryptionArgsDict']]]] disk_encryptions: A `disk_encryption` block as defined below.
         :param pulumi.Input[bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterExtensionArgs']] extension: An `extension` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']] gateway: A `gateway` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterExtensionArgs', 'InteractiveQueryClusterExtensionArgsDict']] extension: An `extension` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterGatewayArgs', 'InteractiveQueryClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterMonitorArgs']] monitor: A `monitor` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterMetastoresArgs', 'InteractiveQueryClusterMetastoresArgsDict']] metastores: A `metastores` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterMonitorArgs', 'InteractiveQueryClusterMonitorArgsDict']] monitor: A `monitor` block as defined below.
         :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterNetworkArgs']] network: A `network` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterPrivateLinkConfigurationArgs']] private_link_configuration: A `private_link_configuration` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterNetworkArgs', 'InteractiveQueryClusterNetworkArgsDict']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterPrivateLinkConfigurationArgs', 'InteractiveQueryClusterPrivateLinkConfigurationArgsDict']] private_link_configuration: A `private_link_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterRolesArgs']] roles: A `roles` block as defined below.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterSecurityProfileArgs']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['InteractiveQueryClusterRolesArgs', 'InteractiveQueryClusterRolesArgsDict']] roles: A `roles` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterSecurityProfileArgs', 'InteractiveQueryClusterSecurityProfileArgsDict']] security_profile: A `security_profile` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] ssh_endpoint: The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster.
-        :param pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountGen2Args']] storage_account_gen2: A `storage_account_gen2` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterStorageAccountArgs']]]] storage_accounts: One or more `storage_account` block as defined below.
+        :param pulumi.Input[Union['InteractiveQueryClusterStorageAccountGen2Args', 'InteractiveQueryClusterStorageAccountGen2ArgsDict']] storage_account_gen2: A `storage_account_gen2` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InteractiveQueryClusterStorageAccountArgs', 'InteractiveQueryClusterStorageAccountArgsDict']]]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of Tags which should be assigned to this HDInsight Interactive Query Cluster.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Interactive Query Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.

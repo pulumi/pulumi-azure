@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -239,7 +244,7 @@ class SRVRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SRVRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SRVRecordRecordArgs', 'SRVRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -266,18 +271,18 @@ class SRVRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=1,
-                    weight=5,
-                    port=8080,
-                    target="target1.contoso.com",
-                ),
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=10,
-                    weight=10,
-                    port=8080,
-                    target="target2.contoso.com",
-                ),
+                {
+                    "priority": 1,
+                    "weight": 5,
+                    "port": 8080,
+                    "target": "target1.contoso.com",
+                },
+                {
+                    "priority": 10,
+                    "weight": 10,
+                    "port": 8080,
+                    "target": "target2.contoso.com",
+                },
             ],
             tags={
                 "Environment": "Production",
@@ -295,7 +300,7 @@ class SRVRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SRVRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SRVRecordRecordArgs', 'SRVRecordRecordArgsDict']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -328,18 +333,18 @@ class SRVRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=1,
-                    weight=5,
-                    port=8080,
-                    target="target1.contoso.com",
-                ),
-                azure.privatedns.SRVRecordRecordArgs(
-                    priority=10,
-                    weight=10,
-                    port=8080,
-                    target="target2.contoso.com",
-                ),
+                {
+                    "priority": 1,
+                    "weight": 5,
+                    "port": 8080,
+                    "target": "target1.contoso.com",
+                },
+                {
+                    "priority": 10,
+                    "weight": 10,
+                    "port": 8080,
+                    "target": "target2.contoso.com",
+                },
             ],
             tags={
                 "Environment": "Production",
@@ -370,7 +375,7 @@ class SRVRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SRVRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SRVRecordRecordArgs', 'SRVRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -411,7 +416,7 @@ class SRVRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SRVRecordRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SRVRecordRecordArgs', 'SRVRecordRecordArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
@@ -425,7 +430,7 @@ class SRVRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS SRV Record.
         :param pulumi.Input[str] name: The name of the DNS SRV Record. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SRVRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SRVRecordRecordArgs', 'SRVRecordRecordArgsDict']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.

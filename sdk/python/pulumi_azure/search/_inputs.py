@@ -4,15 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ServiceIdentityArgs',
+    'ServiceIdentityArgsDict',
     'ServiceQueryKeyArgs',
+    'ServiceQueryKeyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is `SystemAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceIdentityArgs:
@@ -67,6 +93,19 @@ class ServiceIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ServiceQueryKeyArgsDict(TypedDict):
+        key: NotRequired[pulumi.Input[str]]
+        """
+        The value of this Query Key.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The Name which should be used for this Search Service. Changing this forces a new Search Service to be created.
+        """
+elif False:
+    ServiceQueryKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceQueryKeyArgs:

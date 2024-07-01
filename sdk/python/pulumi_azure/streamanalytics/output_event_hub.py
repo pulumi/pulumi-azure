@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -387,7 +392,7 @@ class OutputEventHub(pulumi.CustomResource):
                  partition_key: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['OutputEventHubSerializationArgs', 'OutputEventHubSerializationArgsDict']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -427,9 +432,9 @@ class OutputEventHub(pulumi.CustomResource):
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.OutputEventHubSerializationArgs(
-                type="Avro",
-            ))
+            serialization={
+                "type": "Avro",
+            })
         ```
 
         ## Import
@@ -448,7 +453,7 @@ class OutputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] partition_key: The column that is used for the Event Hub partition key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Event Hub output.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['OutputEventHubSerializationArgs', 'OutputEventHubSerializationArgsDict']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.
@@ -494,9 +499,9 @@ class OutputEventHub(pulumi.CustomResource):
             servicebus_namespace=example_event_hub_namespace.name,
             shared_access_policy_key=example_event_hub_namespace.default_primary_key,
             shared_access_policy_name="RootManageSharedAccessKey",
-            serialization=azure.streamanalytics.OutputEventHubSerializationArgs(
-                type="Avro",
-            ))
+            serialization={
+                "type": "Avro",
+            })
         ```
 
         ## Import
@@ -528,7 +533,7 @@ class OutputEventHub(pulumi.CustomResource):
                  partition_key: Optional[pulumi.Input[str]] = None,
                  property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
+                 serialization: Optional[pulumi.Input[Union['OutputEventHubSerializationArgs', 'OutputEventHubSerializationArgsDict']]] = None,
                  servicebus_namespace: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_key: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -581,7 +586,7 @@ class OutputEventHub(pulumi.CustomResource):
             partition_key: Optional[pulumi.Input[str]] = None,
             property_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            serialization: Optional[pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']]] = None,
+            serialization: Optional[pulumi.Input[Union['OutputEventHubSerializationArgs', 'OutputEventHubSerializationArgsDict']]] = None,
             servicebus_namespace: Optional[pulumi.Input[str]] = None,
             shared_access_policy_key: Optional[pulumi.Input[str]] = None,
             shared_access_policy_name: Optional[pulumi.Input[str]] = None,
@@ -599,7 +604,7 @@ class OutputEventHub(pulumi.CustomResource):
         :param pulumi.Input[str] partition_key: The column that is used for the Event Hub partition key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] property_columns: A list of property columns to add to the Event Hub output.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['OutputEventHubSerializationArgs']] serialization: A `serialization` block as defined below.
+        :param pulumi.Input[Union['OutputEventHubSerializationArgs', 'OutputEventHubSerializationArgsDict']] serialization: A `serialization` block as defined below.
         :param pulumi.Input[str] servicebus_namespace: The namespace that is associated with the desired Event Hub, Service Bus Queue, Service Bus Topic, etc.
         :param pulumi.Input[str] shared_access_policy_key: The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`.
         :param pulumi.Input[str] shared_access_policy_name: The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`.

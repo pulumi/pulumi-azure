@@ -4,20 +4,83 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DeviceDevicePropertyArgs',
+    'DeviceDevicePropertyArgsDict',
     'OrderContactArgs',
+    'OrderContactArgsDict',
     'OrderReturnTrackingArgs',
+    'OrderReturnTrackingArgsDict',
     'OrderShipmentAddressArgs',
+    'OrderShipmentAddressArgsDict',
     'OrderShipmentHistoryArgs',
+    'OrderShipmentHistoryArgsDict',
     'OrderShipmentTrackingArgs',
+    'OrderShipmentTrackingArgsDict',
     'OrderStatusArgs',
+    'OrderStatusArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DeviceDevicePropertyArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The Data Box Edge/Gateway device local capacity in MB.
+        """
+        configured_role_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Type of compute roles configured.
+        """
+        culture: NotRequired[pulumi.Input[str]]
+        """
+        The Data Box Edge/Gateway device culture.
+        """
+        hcs_version: NotRequired[pulumi.Input[str]]
+        """
+        The device software version number of the device (e.g. 1.2.18105.6).
+        """
+        model: NotRequired[pulumi.Input[str]]
+        """
+        The Data Box Edge/Gateway device model.
+        """
+        node_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of nodes in the cluster.
+        """
+        serial_number: NotRequired[pulumi.Input[str]]
+        """
+        The Serial Number of Data Box Edge/Gateway device.
+        """
+        software_version: NotRequired[pulumi.Input[str]]
+        """
+        The Data Box Edge/Gateway device software version.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the Data Box Edge/Gateway device.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The Data Box Edge/Gateway device timezone.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the Data Box Edge/Gateway device.
+        """
+elif False:
+    DeviceDevicePropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeviceDevicePropertyArgs:
@@ -202,6 +265,27 @@ class DeviceDevicePropertyArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class OrderContactArgsDict(TypedDict):
+        company_name: pulumi.Input[str]
+        """
+        The name of the company. Changing this forces a new Databox Edge Order to be created.
+        """
+        emails: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The contact person name. Changing this forces a new Databox Edge Order to be created.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number. Changing this forces a new Databox Edge Order to be created.
+        """
+elif False:
+    OrderContactArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OrderContactArgs:
     def __init__(__self__, *,
@@ -268,6 +352,27 @@ class OrderContactArgs:
     def phone_number(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone_number", value)
 
+
+if not MYPY:
+    class OrderReturnTrackingArgsDict(TypedDict):
+        carrier_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the carrier used in the delivery.
+        """
+        serial_number: NotRequired[pulumi.Input[str]]
+        """
+        Serial number of the device being tracked.
+        """
+        tracking_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the tracking.
+        """
+        tracking_url: NotRequired[pulumi.Input[str]]
+        """
+        Tracking URL of the shipment.
+        """
+elif False:
+    OrderReturnTrackingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrderReturnTrackingArgs:
@@ -339,6 +444,31 @@ class OrderReturnTrackingArgs:
     def tracking_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tracking_url", value)
 
+
+if not MYPY:
+    class OrderShipmentAddressArgsDict(TypedDict):
+        addresses: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of upto 3 lines for address information.
+        """
+        city: pulumi.Input[str]
+        """
+        The city name. Changing this forces a new Databox Edge Order to be created.
+        """
+        country: pulumi.Input[str]
+        """
+        The name of the country to ship the Databox Edge Device to. Valid values are "Algeria", "Argentina", "Australia", "Austria", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belgium", "Bermuda", "Bolivia", "Bosnia and Herzegovina", "Brazil", "Bulgaria", "Canada", "Cayman Islands", "Chile", "Colombia", "Costa Rica", "Croatia", "Cyprus", "Czechia", "CÃ´te D'ivoire", "Denmark", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Estonia", "Ethiopia", "Finland", "France", "Georgia", "Germany", "Ghana", "Greece", "Guatemala", "Honduras", "Hong Kong SAR", "Hungary", "Iceland", "India", "Indonesia", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyzstan", "Latvia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macao SAR", "Malaysia", "Malta", "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Namibia", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Nigeria", "Norway", "Oman", "Pakistan", "Palestinian Authority", "Panama", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Republic of Korea", "Romania", "Russia", "Rwanda", "Saint Kitts And Nevis", "Saudi Arabia", "Senegal", "Serbia", "Singapore", "Slovakia", "Slovenia", "South Africa", "Spain", "Sri Lanka", "Sweden", "Switzerland", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Trinidad And Tobago", "Tunisia", "Turkey", "Turkmenistan", "U.S. Virgin Islands", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Yemen", "Zambia" or "Zimbabwe". Changing this forces a new Databox Edge Order to be created.
+        """
+        postal_code: pulumi.Input[str]
+        """
+        The postal code. Changing this forces a new Databox Edge Order to be created.
+        """
+        state: pulumi.Input[str]
+        """
+        The name of the state to ship the Databox Edge Device to. Changing this forces a new Databox Edge Order to be created.
+        """
+elif False:
+    OrderShipmentAddressArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrderShipmentAddressArgs:
@@ -422,6 +552,23 @@ class OrderShipmentAddressArgs:
         pulumi.set(self, "state", value)
 
 
+if not MYPY:
+    class OrderShipmentHistoryArgsDict(TypedDict):
+        additional_details: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Dictionary to hold generic information which is not stored by the already existing properties.
+        """
+        comments: NotRequired[pulumi.Input[str]]
+        """
+        Comments related to this status change.
+        """
+        last_update: NotRequired[pulumi.Input[str]]
+        """
+        Time of status update.
+        """
+elif False:
+    OrderShipmentHistoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class OrderShipmentHistoryArgs:
     def __init__(__self__, *,
@@ -476,6 +623,27 @@ class OrderShipmentHistoryArgs:
     def last_update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "last_update", value)
 
+
+if not MYPY:
+    class OrderShipmentTrackingArgsDict(TypedDict):
+        carrier_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the carrier used in the delivery.
+        """
+        serial_number: NotRequired[pulumi.Input[str]]
+        """
+        Serial number of the device being tracked.
+        """
+        tracking_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the tracking.
+        """
+        tracking_url: NotRequired[pulumi.Input[str]]
+        """
+        Tracking URL of the shipment.
+        """
+elif False:
+    OrderShipmentTrackingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrderShipmentTrackingArgs:
@@ -547,6 +715,27 @@ class OrderShipmentTrackingArgs:
     def tracking_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tracking_url", value)
 
+
+if not MYPY:
+    class OrderStatusArgsDict(TypedDict):
+        additional_details: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Dictionary to hold generic information which is not stored by the already existing properties.
+        """
+        comments: NotRequired[pulumi.Input[str]]
+        """
+        Comments related to this status change.
+        """
+        info: NotRequired[pulumi.Input[str]]
+        """
+        The current status of the order. Possible values include `Untracked`, `AwaitingFulfilment`, `AwaitingPreparation`, `AwaitingShipment`, `Shipped`, `Arriving`, `Delivered`, `ReplacementRequested`, `LostDevice`, `Declined`, `ReturnInitiated`, `AwaitingReturnShipment`, `ShippedBack` or `CollectedAtMicrosoft`.
+        """
+        last_update: NotRequired[pulumi.Input[str]]
+        """
+        Time of status update.
+        """
+elif False:
+    OrderStatusArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class OrderStatusArgs:

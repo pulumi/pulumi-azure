@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -245,7 +250,7 @@ class SharedImageGallery(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sharing: Optional[pulumi.Input[pulumi.InputType['SharedImageGallerySharingArgs']]] = None,
+                 sharing: Optional[pulumi.Input[Union['SharedImageGallerySharingArgs', 'SharedImageGallerySharingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -285,7 +290,7 @@ class SharedImageGallery(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SharedImageGallerySharingArgs']] sharing: A `sharing` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SharedImageGallerySharingArgs', 'SharedImageGallerySharingArgsDict']] sharing: A `sharing` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image Gallery.
         """
         ...
@@ -344,7 +349,7 @@ class SharedImageGallery(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 sharing: Optional[pulumi.Input[pulumi.InputType['SharedImageGallerySharingArgs']]] = None,
+                 sharing: Optional[pulumi.Input[Union['SharedImageGallerySharingArgs', 'SharedImageGallerySharingArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -378,7 +383,7 @@ class SharedImageGallery(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            sharing: Optional[pulumi.Input[pulumi.InputType['SharedImageGallerySharingArgs']]] = None,
+            sharing: Optional[pulumi.Input[Union['SharedImageGallerySharingArgs', 'SharedImageGallerySharingArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             unique_name: Optional[pulumi.Input[str]] = None) -> 'SharedImageGallery':
         """
@@ -392,7 +397,7 @@ class SharedImageGallery(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SharedImageGallerySharingArgs']] sharing: A `sharing` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SharedImageGallerySharingArgs', 'SharedImageGallerySharingArgsDict']] sharing: A `sharing` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image Gallery.
         :param pulumi.Input[str] unique_name: The Unique Name for this Shared Image Gallery.
         """

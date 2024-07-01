@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ExpressRouteAuthorizationArgs', 'ExpressRouteAuthorization']
@@ -147,9 +152,9 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
+            management_cluster={
+                "size": 3,
+            },
             network_subnet_cidr="192.168.48.0/22",
             internet_connection_enabled=False,
             nsxt_password="QazWsx13$Edc",
@@ -195,9 +200,9 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
-                size=3,
-            ),
+            management_cluster={
+                "size": 3,
+            },
             network_subnet_cidr="192.168.48.0/22",
             internet_connection_enabled=False,
             nsxt_password="QazWsx13$Edc",

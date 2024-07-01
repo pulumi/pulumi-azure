@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -298,11 +303,11 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingEnabledLogArgs']]]]] = None,
+                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingLogArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingLogArgs', 'AadDiagnosticSettingLogArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -331,34 +336,34 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             name="setting1",
             storage_account_id=example_account.id,
             enabled_logs=[
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="SignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="AuditLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="NonInteractiveUserSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="ServicePrincipalSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
+                {
+                    "category": "SignInLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
+                {
+                    "category": "AuditLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
+                {
+                    "category": "NonInteractiveUserSignInLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
+                {
+                    "category": "ServicePrincipalSignInLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
             ])
         ```
 
@@ -372,7 +377,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
                > **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -380,7 +385,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingLogArgs', 'AadDiagnosticSettingLogArgsDict']]]] logs: One or more `log` blocks as defined below.
                
                > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[str] name: The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.
@@ -419,34 +424,34 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             name="setting1",
             storage_account_id=example_account.id,
             enabled_logs=[
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="SignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="AuditLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="NonInteractiveUserSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
-                azure.monitoring.AadDiagnosticSettingEnabledLogArgs(
-                    category="ServicePrincipalSignInLogs",
-                    retention_policy=azure.monitoring.AadDiagnosticSettingEnabledLogRetentionPolicyArgs(
-                        enabled=True,
-                        days=1,
-                    ),
-                ),
+                {
+                    "category": "SignInLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
+                {
+                    "category": "AuditLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
+                {
+                    "category": "NonInteractiveUserSignInLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
+                {
+                    "category": "ServicePrincipalSignInLogs",
+                    "retentionPolicy": {
+                        "enabled": True,
+                        "days": 1,
+                    },
+                },
             ])
         ```
 
@@ -473,11 +478,11 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingEnabledLogArgs']]]]] = None,
+                 enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
                  eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingLogArgs']]]]] = None,
+                 logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingLogArgs', 'AadDiagnosticSettingLogArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -506,11 +511,11 @@ class AadDiagnosticSetting(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingEnabledLogArgs']]]]] = None,
+            enabled_logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]]] = None,
             eventhub_authorization_rule_id: Optional[pulumi.Input[str]] = None,
             eventhub_name: Optional[pulumi.Input[str]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
-            logs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingLogArgs']]]]] = None,
+            logs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingLogArgs', 'AadDiagnosticSettingLogArgsDict']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None) -> 'AadDiagnosticSetting':
         """
@@ -520,7 +525,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingEnabledLogArgs']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingEnabledLogArgs', 'AadDiagnosticSettingEnabledLogArgsDict']]]] enabled_logs: One or more `enabled_log` blocks as defined below.
                
                > **NOTE:** At least one `log` or `enabled_log` block must be specified. At least one type of Log must be enabled.
         :param pulumi.Input[str] eventhub_authorization_rule_id: Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. Changing this forces a new resource to be created.
@@ -528,7 +533,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
                > **NOTE:** This can be sourced from the `eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `eventhub.AuthorizationRule` resource.
         :param pulumi.Input[str] eventhub_name: Specifies the name of the Event Hub where Diagnostics Data should be sent. If not specified, the default Event Hub will be used. Changing this forces a new resource to be created.
         :param pulumi.Input[str] log_analytics_workspace_id: Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AadDiagnosticSettingLogArgs']]]] logs: One or more `log` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AadDiagnosticSettingLogArgs', 'AadDiagnosticSettingLogArgsDict']]]] logs: One or more `log` blocks as defined below.
                
                > **NOTE:** `log` is deprecated in favour of the `enabled_log` property and will be removed in version 4.0 of the AzureRM Provider.
         :param pulumi.Input[str] name: The name which should be used for this Monitor Azure Active Directory Diagnostic Setting. Changing this forces a new Monitor Azure Active Directory Diagnostic Setting to be created.

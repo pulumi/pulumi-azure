@@ -4,17 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'FileSystemEncryptionKeyArgs',
+    'FileSystemEncryptionKeyArgsDict',
     'FileSystemHsmSettingArgs',
+    'FileSystemHsmSettingArgsDict',
     'FileSystemIdentityArgs',
+    'FileSystemIdentityArgsDict',
     'FileSystemMaintenanceWindowArgs',
+    'FileSystemMaintenanceWindowArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class FileSystemEncryptionKeyArgsDict(TypedDict):
+        key_url: pulumi.Input[str]
+        """
+        The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+        """
+        source_vault_id: pulumi.Input[str]
+        """
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
+elif False:
+    FileSystemEncryptionKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileSystemEncryptionKeyArgs:
@@ -52,6 +76,25 @@ class FileSystemEncryptionKeyArgs:
     def source_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_vault_id", value)
 
+
+if not MYPY:
+    class FileSystemHsmSettingArgsDict(TypedDict):
+        container_id: pulumi.Input[str]
+        """
+        The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created.
+        """
+        logging_container_id: pulumi.Input[str]
+        """
+        The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created.
+        """
+        import_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created.
+
+        > **NOTE:** The roles `Contributor` and `Storage Blob Data Contributor` must be added to the Service Principal `HPC Cache Resource Provider` for the Storage Account. See official docs for more information.
+        """
+elif False:
+    FileSystemHsmSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileSystemHsmSettingArgs:
@@ -110,6 +153,19 @@ class FileSystemHsmSettingArgs:
         pulumi.set(self, "import_prefix", value)
 
 
+if not MYPY:
+    class FileSystemIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is `UserAssigned`. Changing this forces a new resource to be created.
+        """
+elif False:
+    FileSystemIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FileSystemIdentityArgs:
     def __init__(__self__, *,
@@ -146,6 +202,19 @@ class FileSystemIdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FileSystemMaintenanceWindowArgsDict(TypedDict):
+        day_of_week: pulumi.Input[str]
+        """
+        The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+        time_of_day_in_utc: pulumi.Input[str]
+        """
+        The time of day (in UTC) to start the maintenance window.
+        """
+elif False:
+    FileSystemMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FileSystemMaintenanceWindowArgs:

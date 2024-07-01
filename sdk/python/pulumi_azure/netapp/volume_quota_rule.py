@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['VolumeQuotaRuleArgs', 'VolumeQuotaRule']
@@ -266,16 +271,16 @@ class VolumeQuotaRule(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="netapp",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
+            delegations=[{
+                "name": "netapp",
+                "serviceDelegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_account = azure.netapp.Account("example",
             name="example-netappaccount",
             location=example.location,
@@ -379,16 +384,16 @@ class VolumeQuotaRule(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="netapp",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
+            delegations=[{
+                "name": "netapp",
+                "serviceDelegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example_account = azure.netapp.Account("example",
             name="example-netappaccount",
             location=example.location,

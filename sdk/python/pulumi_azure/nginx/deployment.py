@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -608,20 +613,20 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]]] = None,
+                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
-                 frontend_public: Optional[pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']]] = None,
+                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
+                 frontend_public: Optional[pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]]] = None,
+                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
                  managed_resource_group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -657,13 +662,13 @@ class Deployment(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "NGINX.NGINXPLUS/nginxDeployments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -672,12 +677,12 @@ class Deployment(pulumi.CustomResource):
             managed_resource_group="example",
             diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )],
+            frontend_public={
+                "ipAddresses": [example_public_ip.id],
+            },
+            network_interfaces=[{
+                "subnetId": example_subnet.id,
+            }],
             capacity=20,
             email="user@test.com")
         ```
@@ -692,21 +697,21 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.
         """
@@ -747,13 +752,13 @@ class Deployment(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="NGINX.NGINXPLUS/nginxDeployments",
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                ),
-            )])
+            delegations=[{
+                "name": "delegation",
+                "serviceDelegation": {
+                    "name": "NGINX.NGINXPLUS/nginxDeployments",
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                },
+            }])
         example_deployment = azure.nginx.Deployment("example",
             name="example-nginx",
             resource_group_name=example.name,
@@ -762,12 +767,12 @@ class Deployment(pulumi.CustomResource):
             managed_resource_group="example",
             diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
-                ip_addresses=[example_public_ip.id],
-            ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
-                subnet_id=example_subnet.id,
-            )],
+            frontend_public={
+                "ipAddresses": [example_public_ip.id],
+            },
+            network_interfaces=[{
+                "subnetId": example_subnet.id,
+            }],
             capacity=20,
             email="user@test.com")
         ```
@@ -795,20 +800,20 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]]] = None,
+                 auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
                  automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
                  diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
-                 frontend_public: Optional[pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']]] = None,
+                 frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
+                 frontend_public: Optional[pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]]] = None,
+                 logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
                  managed_resource_group: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -854,21 +859,21 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]]] = None,
+            auto_scale_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
             automatic_upgrade_channel: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']]] = None,
             diagnose_support_enabled: Optional[pulumi.Input[bool]] = None,
             email: Optional[pulumi.Input[str]] = None,
-            frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]]] = None,
-            frontend_public: Optional[pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']]] = None,
+            frontend_privates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
+            frontend_public: Optional[pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
+            identity: Optional[pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
             ip_address: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]]] = None,
+            logging_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
             managed_resource_group: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
             nginx_version: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
@@ -880,22 +885,22 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentAutoScaleProfileArgs']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]] auto_scale_profiles: An `auto_scale_profile` block as defined below.
         :param pulumi.Input[str] automatic_upgrade_channel: Specify the automatic upgrade channel for the NGINX deployment. Defaults to `stable`. The possible values are `stable` and `preview`.
         :param pulumi.Input[int] capacity: Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`.
                
                > **Note** For more information on NGINX capacity units, please refer to the [NGINX scaling guidance documentation](https://docs.nginx.com/nginxaas/azure/quickstart/scaling/)
         :param pulumi.Input[bool] diagnose_support_enabled: Should the metrics be exported to Azure Monitor?
         :param pulumi.Input[str] email: Specify the preferred support contact email address for receiving alerts and notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentFrontendPrivateArgs']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentFrontendPublicArgs']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['DeploymentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]] frontend_privates: One or more `frontend_private` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']] frontend_public: A `frontend_public` block as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] ip_address: The IP address of the deployment.
         :param pulumi.Input[str] location: The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentLoggingStorageAccountArgs']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]] logging_storage_accounts: One or more `logging_storage_account` blocks as defined below.
         :param pulumi.Input[str] managed_resource_group: Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] name: The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]] network_interfaces: One or more `network_interface` blocks as defined below. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[str] nginx_version: The version of deployed NGINX.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the NGINX Deployment.

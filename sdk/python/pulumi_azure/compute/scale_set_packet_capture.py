@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -319,14 +324,14 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureFilterArgs']]]]] = None,
-                 machine_scope: Optional[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureMachineScopeArgs']]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
+                 machine_scope: Optional[pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
                  maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
                  maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
                  maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_watcher_id: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -366,25 +371,25 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             computer_name_prefix="my-linux-computer-name-prefix",
             upgrade_mode="Automatic",
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )])
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            },
+            network_interfaces=[{
+                "name": "example",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "internal",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }])
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
             name="network-watcher",
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
@@ -397,13 +402,13 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             name="example-pc",
             network_watcher_id=example_network_watcher.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
-                file_path="/var/captures/packet.cap",
-            ),
-            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
-                include_instance_ids=["0"],
-                exclude_instance_ids=["1"],
-            ),
+            storage_location={
+                "filePath": "/var/captures/packet.cap",
+            },
+            machine_scope={
+                "includeInstanceIds": ["0"],
+                "excludeInstanceIds": ["1"],
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
 
@@ -419,14 +424,14 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureMachineScopeArgs']] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_id: The resource ID of the Network Watcher. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureStorageLocationArgs']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_scale_set_id: The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created.
         """
         ...
@@ -472,25 +477,25 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             computer_name_prefix="my-linux-computer-name-prefix",
             upgrade_mode="Automatic",
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                )],
-            )])
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            },
+            network_interfaces=[{
+                "name": "example",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "internal",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                }],
+            }])
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
             name="network-watcher",
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
@@ -503,13 +508,13 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             name="example-pc",
             network_watcher_id=example_network_watcher.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
-            storage_location=azure.compute.ScaleSetPacketCaptureStorageLocationArgs(
-                file_path="/var/captures/packet.cap",
-            ),
-            machine_scope=azure.compute.ScaleSetPacketCaptureMachineScopeArgs(
-                include_instance_ids=["0"],
-                exclude_instance_ids=["1"],
-            ),
+            storage_location={
+                "filePath": "/var/captures/packet.cap",
+            },
+            machine_scope={
+                "includeInstanceIds": ["0"],
+                "excludeInstanceIds": ["1"],
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
 
@@ -538,14 +543,14 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureFilterArgs']]]]] = None,
-                 machine_scope: Optional[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureMachineScopeArgs']]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
+                 machine_scope: Optional[pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
                  maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
                  maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
                  maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_watcher_id: Optional[pulumi.Input[str]] = None,
-                 storage_location: Optional[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureStorageLocationArgs']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
                  virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -581,14 +586,14 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureFilterArgs']]]]] = None,
-            machine_scope: Optional[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureMachineScopeArgs']]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]]] = None,
+            machine_scope: Optional[pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']]] = None,
             maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
             maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
             maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_watcher_id: Optional[pulumi.Input[str]] = None,
-            storage_location: Optional[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureStorageLocationArgs']]] = None,
+            storage_location: Optional[pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']]] = None,
             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None) -> 'ScaleSetPacketCapture':
         """
         Get an existing ScaleSetPacketCapture resource's state with the given name, id, and optional extra
@@ -597,14 +602,14 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureFilterArgs']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureMachineScopeArgs']] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScaleSetPacketCaptureFilterArgs', 'ScaleSetPacketCaptureFilterArgsDict']]]] filters: One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ScaleSetPacketCaptureMachineScopeArgs', 'ScaleSetPacketCaptureMachineScopeArgsDict']] machine_scope: A `machine_scope` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_packet: The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_bytes_per_session: Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created.
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_watcher_id: The resource ID of the Network Watcher. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ScaleSetPacketCaptureStorageLocationArgs']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ScaleSetPacketCaptureStorageLocationArgs', 'ScaleSetPacketCaptureStorageLocationArgsDict']] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_scale_set_id: The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

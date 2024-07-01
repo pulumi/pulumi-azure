@@ -4,16 +4,39 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LoadTestEncryptionArgs',
+    'LoadTestEncryptionArgsDict',
     'LoadTestEncryptionIdentityArgs',
+    'LoadTestEncryptionIdentityArgsDict',
     'LoadTestIdentityArgs',
+    'LoadTestIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LoadTestEncryptionArgsDict(TypedDict):
+        identity: pulumi.Input['LoadTestEncryptionIdentityArgsDict']
+        """
+        An `identity` block as defined below. Changing this forces a new Load Test to be created.
+        """
+        key_url: pulumi.Input[str]
+        """
+        The URI specifying the Key vault and key to be used to encrypt data in this resource. The URI should include the key version. Changing this forces a new Load Test to be created.
+        """
+elif False:
+    LoadTestEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadTestEncryptionArgs:
@@ -52,6 +75,19 @@ class LoadTestEncryptionArgs:
         pulumi.set(self, "key_url", value)
 
 
+if not MYPY:
+    class LoadTestEncryptionIdentityArgsDict(TypedDict):
+        identity_id: pulumi.Input[str]
+        """
+        The User Assigned Identity ID that should be assigned to this Load Test Encryption. Changing this forces a new Load Test to be created.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+        """
+elif False:
+    LoadTestEncryptionIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LoadTestEncryptionIdentityArgs:
     def __init__(__self__, *,
@@ -88,6 +124,28 @@ class LoadTestEncryptionIdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LoadTestIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Identity that should be assigned to this Load Test Encryption. Possible values are `SystemAssigned` or `UserAssigned`. Changing this forces a new Load Test to be created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of the User Assigned Identity IDs that should be assigned to this Load Test.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+        *
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+        """
+elif False:
+    LoadTestIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LoadTestIdentityArgs:
