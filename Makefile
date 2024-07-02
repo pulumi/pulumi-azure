@@ -171,11 +171,19 @@ ifneq ("$(wildcard upstream)","")
 	scripts/upstream.sh "$@" apply
 endif
 
+# Deprecated: Use `upstream.format_patches` instead
 upstream.finalize:
 	scripts/upstream.sh "$@" end_rebase
 
+# Deprecated: Use `upstream.checkout` instead
 upstream.rebase:
 	scripts/upstream.sh "$@" start_rebase
+
+upstream.checkout:
+	scripts/upstream.sh "$@" checkout
+
+upstream.format_patches:
+	scripts/upstream.sh "$@" format_patches
 
 bin/pulumi-java-gen: .pulumi-java-gen.version
 	pulumictl download-binary -n pulumi-language-java -v v$(shell cat .pulumi-java-gen.version) -r pulumi/pulumi-java
