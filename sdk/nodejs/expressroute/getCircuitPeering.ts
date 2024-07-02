@@ -5,9 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages an ExpressRoute Circuit Peering.
+ * Use this data source to access information about an existing ExpressRoute Circuit Peering.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.expressroute.getCircuitPeering({
+ *     peeringType: "example-peering",
+ *     expressRouteCircuitName: "example-expressroute",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
  */
 export function getCircuitPeering(args: GetCircuitPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetCircuitPeeringResult> {
 
@@ -85,9 +96,20 @@ export interface GetCircuitPeeringResult {
     readonly vlanId: number;
 }
 /**
- * Manages an ExpressRoute Circuit Peering.
+ * Use this data source to access information about an existing ExpressRoute Circuit Peering.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = azure.expressroute.getCircuitPeering({
+ *     peeringType: "example-peering",
+ *     expressRouteCircuitName: "example-expressroute",
+ *     resourceGroupName: "example-resources",
+ * });
+ * ```
  */
 export function getCircuitPeeringOutput(args: GetCircuitPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCircuitPeeringResult> {
     return pulumi.output(args).apply((a: any) => getCircuitPeering(a, opts))

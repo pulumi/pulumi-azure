@@ -19,7 +19,7 @@ class CacheAccessPolicyArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CacheAccessPolicy resource.
-        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
         """
@@ -32,7 +32,7 @@ class CacheAccessPolicyArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[str]:
         """
-        Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        Permissions that are going to be assigned to this Redis Cache Access Policy.
         """
         return pulumi.get(self, "permissions")
 
@@ -74,7 +74,7 @@ class _CacheAccessPolicyState:
         """
         Input properties used for looking up and filtering CacheAccessPolicy resources.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
-        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
         """
         if name is not None:
@@ -100,7 +100,7 @@ class _CacheAccessPolicyState:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[str]]:
         """
-        Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        Permissions that are going to be assigned to this Redis Cache Access Policy.
         """
         return pulumi.get(self, "permissions")
 
@@ -172,7 +172,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
-        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
         """
         ...
@@ -275,7 +275,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
-        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        :param pulumi.Input[str] permissions: Permissions that are going to be assigned to this Redis Cache Access Policy.
         :param pulumi.Input[str] redis_cache_id: The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -299,7 +299,7 @@ class CacheAccessPolicy(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[str]:
         """
-        Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        Permissions that are going to be assigned to this Redis Cache Access Policy.
         """
         return pulumi.get(self, "permissions")
 

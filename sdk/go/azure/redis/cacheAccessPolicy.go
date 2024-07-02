@@ -79,7 +79,7 @@ type CacheAccessPolicy struct {
 
 	// The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+	// Permissions that are going to be assigned to this Redis Cache Access Policy.
 	Permissions pulumi.StringOutput `pulumi:"permissions"`
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
 	RedisCacheId pulumi.StringOutput `pulumi:"redisCacheId"`
@@ -123,7 +123,7 @@ func GetCacheAccessPolicy(ctx *pulumi.Context,
 type cacheAccessPolicyState struct {
 	// The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
 	Name *string `pulumi:"name"`
-	// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+	// Permissions that are going to be assigned to this Redis Cache Access Policy.
 	Permissions *string `pulumi:"permissions"`
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
 	RedisCacheId *string `pulumi:"redisCacheId"`
@@ -132,7 +132,7 @@ type cacheAccessPolicyState struct {
 type CacheAccessPolicyState struct {
 	// The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
 	Name pulumi.StringPtrInput
-	// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+	// Permissions that are going to be assigned to this Redis Cache Access Policy.
 	Permissions pulumi.StringPtrInput
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
 	RedisCacheId pulumi.StringPtrInput
@@ -145,7 +145,7 @@ func (CacheAccessPolicyState) ElementType() reflect.Type {
 type cacheAccessPolicyArgs struct {
 	// The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
 	Name *string `pulumi:"name"`
-	// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+	// Permissions that are going to be assigned to this Redis Cache Access Policy.
 	Permissions string `pulumi:"permissions"`
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
 	RedisCacheId string `pulumi:"redisCacheId"`
@@ -155,7 +155,7 @@ type cacheAccessPolicyArgs struct {
 type CacheAccessPolicyArgs struct {
 	// The name of the Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
 	Name pulumi.StringPtrInput
-	// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+	// Permissions that are going to be assigned to this Redis Cache Access Policy.
 	Permissions pulumi.StringInput
 	// The ID of the Redis Cache. Changing this forces a new Redis Cache Access Policy to be created.
 	RedisCacheId pulumi.StringInput
@@ -253,7 +253,7 @@ func (o CacheAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheAccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+// Permissions that are going to be assigned to this Redis Cache Access Policy.
 func (o CacheAccessPolicyOutput) Permissions() pulumi.StringOutput {
 	return o.ApplyT(func(v *CacheAccessPolicy) pulumi.StringOutput { return v.Permissions }).(pulumi.StringOutput)
 }

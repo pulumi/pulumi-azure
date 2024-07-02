@@ -83,10 +83,10 @@ type Environment struct {
 	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
-	InfrastructureResourceGroupName pulumi.StringOutput `pulumi:"infrastructureResourceGroupName"`
+	InfrastructureResourceGroupName pulumi.StringPtrOutput `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId pulumi.StringPtrOutput `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -174,7 +174,7 @@ type environmentState struct {
 	InfrastructureResourceGroupName *string `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -223,7 +223,7 @@ type EnvironmentState struct {
 	InfrastructureResourceGroupName pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId pulumi.StringPtrInput
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -270,7 +270,7 @@ type environmentArgs struct {
 	InfrastructureResourceGroupName *string `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -308,7 +308,7 @@ type EnvironmentArgs struct {
 	InfrastructureResourceGroupName pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The Subnet must have a `/21` or larger address space.
 	InfrastructureSubnetId pulumi.StringPtrInput
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -446,13 +446,13 @@ func (o EnvironmentOutput) DockerBridgeCidr() pulumi.StringOutput {
 // Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 //
 // > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
-func (o EnvironmentOutput) InfrastructureResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.InfrastructureResourceGroupName }).(pulumi.StringOutput)
+func (o EnvironmentOutput) InfrastructureResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.InfrastructureResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 //
-// > **NOTE:** The Subnet must have a `/21` or larger address space.
+// > **Note:** The Subnet must have a `/21` or larger address space.
 func (o EnvironmentOutput) InfrastructureSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.InfrastructureSubnetId }).(pulumi.StringPtrOutput)
 }

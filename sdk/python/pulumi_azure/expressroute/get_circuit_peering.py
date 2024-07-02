@@ -199,9 +199,18 @@ def get_circuit_peering(express_route_circuit_name: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCircuitPeeringResult:
     """
-    Manages an ExpressRoute Circuit Peering.
+    Use this data source to access information about an existing ExpressRoute Circuit Peering.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.expressroute.get_circuit_peering(peering_type="example-peering",
+        express_route_circuit_name="example-expressroute",
+        resource_group_name="example-resources")
+    ```
 
 
     :param str express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.
@@ -239,9 +248,18 @@ def get_circuit_peering_output(express_route_circuit_name: Optional[pulumi.Input
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCircuitPeeringResult]:
     """
-    Manages an ExpressRoute Circuit Peering.
+    Use this data source to access information about an existing ExpressRoute Circuit Peering.
 
     ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example = azure.expressroute.get_circuit_peering(peering_type="example-peering",
+        express_route_circuit_name="example-expressroute",
+        resource_group_name="example-resources")
+    ```
 
 
     :param str express_route_circuit_name: The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created.

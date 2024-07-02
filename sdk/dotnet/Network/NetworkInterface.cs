@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Network
         /// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         /// </summary>
         [Output("internalDnsNameLabel")]
-        public Output<string> InternalDnsNameLabel { get; private set; } = null!;
+        public Output<string?> InternalDnsNameLabel { get; private set; } = null!;
 
         /// <summary>
         /// Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.

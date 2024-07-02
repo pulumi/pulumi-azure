@@ -14,6 +14,121 @@ import (
 
 // Manages a Backup Policy to back up PostgreSQL Flexible Server.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Name:              pulumi.String("example-backup-vault"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				DatastoreType:     pulumi.String("VaultStore"),
+//				Redundancy:        pulumi.String("LocallyRedundant"),
+//				Identity: &dataprotection.BackupVaultIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dataprotection.NewBackupPolicyPostgresqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyPostgresqlFlexibleServerArgs{
+//				Name:    pulumi.String("example-backup-policy"),
+//				VaultId: exampleBackupVault.ID(),
+//				BackupRepeatingTimeIntervals: pulumi.StringArray{
+//					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
+//				},
+//				TimeZone: pulumi.String("India Standard Time"),
+//				DefaultRetentionRule: &dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs{
+//					LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArray{
+//						&dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs{
+//							Duration:      pulumi.String("P4M"),
+//							DataStoreType: pulumi.String("VaultStore"),
+//						},
+//					},
+//				},
+//				RetentionRules: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArray{
+//					&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{
+//						Name: pulumi.String("weekly"),
+//						LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{
+//							&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{
+//								Duration:      pulumi.String("P6M"),
+//								DataStoreType: pulumi.String("VaultStore"),
+//							},
+//						},
+//						Priority: pulumi.Int(20),
+//						Criteria: &dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{
+//							AbsoluteCriteria: pulumi.String("FirstOfWeek"),
+//						},
+//					},
+//					&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{
+//						Name: pulumi.String("thursday"),
+//						LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{
+//							&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{
+//								Duration:      pulumi.String("P1W"),
+//								DataStoreType: pulumi.String("VaultStore"),
+//							},
+//						},
+//						Priority: pulumi.Int(25),
+//						Criteria: &dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{
+//							DaysOfWeeks: pulumi.StringArray{
+//								pulumi.String("Thursday"),
+//							},
+//							ScheduledBackupTimes: pulumi.StringArray{
+//								pulumi.String("2021-05-23T02:30:00Z"),
+//							},
+//						},
+//					},
+//					&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs{
+//						Name: pulumi.String("monthly"),
+//						LifeCycles: dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArray{
+//							&dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs{
+//								Duration:      pulumi.String("P1D"),
+//								DataStoreType: pulumi.String("VaultStore"),
+//							},
+//						},
+//						Priority: pulumi.Int(15),
+//						Criteria: &dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs{
+//							WeeksOfMonths: pulumi.StringArray{
+//								pulumi.String("First"),
+//								pulumi.String("Last"),
+//							},
+//							DaysOfWeeks: pulumi.StringArray{
+//								pulumi.String("Tuesday"),
+//							},
+//							ScheduledBackupTimes: pulumi.StringArray{
+//								pulumi.String("2021-05-23T02:30:00Z"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Backup Policy PostgreSQL Flexible Server's can be imported using the `resource id`, e.g.

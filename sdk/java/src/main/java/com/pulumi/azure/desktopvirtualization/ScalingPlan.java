@@ -221,14 +221,14 @@ public class ScalingPlan extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="hostPools", refs={List.class,ScalingPlanHostPool.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ScalingPlanHostPool>> hostPools;
+    private Output<List<ScalingPlanHostPool>> hostPools;
 
     /**
      * @return One or more `host_pool` blocks as defined below.
      * 
      */
-    public Output<Optional<List<ScalingPlanHostPool>>> hostPools() {
-        return Codegen.optional(this.hostPools);
+    public Output<List<ScalingPlanHostPool>> hostPools() {
+        return this.hostPools;
     }
     /**
      * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.

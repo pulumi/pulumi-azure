@@ -23,6 +23,8 @@ __all__ = [
     'PolicyVMRetentionMonthly',
     'PolicyVMRetentionWeekly',
     'PolicyVMRetentionYearly',
+    'PolicyVMTieringPolicy',
+    'PolicyVMTieringPolicyArchivedRestorePoint',
     'PolicyVMWorkloadProtectionPolicy',
     'PolicyVMWorkloadProtectionPolicyBackup',
     'PolicyVMWorkloadProtectionPolicyRetentionDaily',
@@ -726,6 +728,100 @@ class PolicyVMRetentionYearly(dict):
         The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
         """
         return pulumi.get(self, "weeks")
+
+
+@pulumi.output_type
+class PolicyVMTieringPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archivedRestorePoint":
+            suggest = "archived_restore_point"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyVMTieringPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyVMTieringPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyVMTieringPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archived_restore_point: 'outputs.PolicyVMTieringPolicyArchivedRestorePoint'):
+        """
+        :param 'PolicyVMTieringPolicyArchivedRestorePointArgs' archived_restore_point: An `archived_restore_point` block as defined below.
+        """
+        pulumi.set(__self__, "archived_restore_point", archived_restore_point)
+
+    @property
+    @pulumi.getter(name="archivedRestorePoint")
+    def archived_restore_point(self) -> 'outputs.PolicyVMTieringPolicyArchivedRestorePoint':
+        """
+        An `archived_restore_point` block as defined below.
+        """
+        return pulumi.get(self, "archived_restore_point")
+
+
+@pulumi.output_type
+class PolicyVMTieringPolicyArchivedRestorePoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationType":
+            suggest = "duration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyVMTieringPolicyArchivedRestorePoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyVMTieringPolicyArchivedRestorePoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyVMTieringPolicyArchivedRestorePoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: str,
+                 duration: Optional[int] = None,
+                 duration_type: Optional[str] = None):
+        """
+        :param str mode: The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+        :param int duration: The number of days/weeks/months/years to retain backups in current tier before tiering.
+        :param str duration_type: The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if duration_type is not None:
+            pulumi.set(__self__, "duration_type", duration_type)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[int]:
+        """
+        The number of days/weeks/months/years to retain backups in current tier before tiering.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="durationType")
+    def duration_type(self) -> Optional[str]:
+        """
+        The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+        """
+        return pulumi.get(self, "duration_type")
 
 
 @pulumi.output_type

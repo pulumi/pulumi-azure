@@ -37,7 +37,7 @@ class EnvironmentArgs:
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
-               > **NOTE:** The Subnet must have a `/21` or larger address space.
+               > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -121,7 +121,7 @@ class EnvironmentArgs:
         """
         The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
 
-        > **NOTE:** The Subnet must have a `/21` or larger address space.
+        > **Note:** The Subnet must have a `/21` or larger address space.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 
@@ -264,7 +264,7 @@ class _EnvironmentState:
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
-               > **NOTE:** The Subnet must have a `/21` or larger address space.
+               > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -389,7 +389,7 @@ class _EnvironmentState:
         """
         The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
 
-        > **NOTE:** The Subnet must have a `/21` or larger address space.
+        > **Note:** The Subnet must have a `/21` or larger address space.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 
@@ -607,7 +607,7 @@ class Environment(pulumi.CustomResource):
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
-               > **NOTE:** The Subnet must have a `/21` or larger address space.
+               > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -765,7 +765,7 @@ class Environment(pulumi.CustomResource):
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
-               > **NOTE:** The Subnet must have a `/21` or larger address space.
+               > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
@@ -843,7 +843,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="infrastructureResourceGroupName")
-    def infrastructure_resource_group_name(self) -> pulumi.Output[str]:
+    def infrastructure_resource_group_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
 
@@ -857,7 +857,7 @@ class Environment(pulumi.CustomResource):
         """
         The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
 
-        > **NOTE:** The Subnet must have a `/21` or larger address space.
+        > **Note:** The Subnet must have a `/21` or larger address space.
         """
         return pulumi.get(self, "infrastructure_subnet_id")
 

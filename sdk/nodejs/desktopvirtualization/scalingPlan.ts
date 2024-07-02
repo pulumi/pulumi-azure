@@ -162,7 +162,7 @@ export class ScalingPlan extends pulumi.CustomResource {
     /**
      * One or more `hostPool` blocks as defined below.
      */
-    public readonly hostPools!: pulumi.Output<outputs.desktopvirtualization.ScalingPlanHostPool[] | undefined>;
+    public readonly hostPools!: pulumi.Output<outputs.desktopvirtualization.ScalingPlanHostPool[]>;
     /**
      * The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
      */

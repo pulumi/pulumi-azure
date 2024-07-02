@@ -60,6 +60,10 @@ export interface GetDataCollectionEndpointResult {
      */
     readonly id: string;
     /**
+     * The immutable ID of the Data Collection Endpoint.
+     */
+    readonly immutableId: string;
+    /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      */
     readonly kind: string;

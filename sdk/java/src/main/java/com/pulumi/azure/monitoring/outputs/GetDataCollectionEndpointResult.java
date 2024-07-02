@@ -28,6 +28,11 @@ public final class GetDataCollectionEndpointResult {
      */
     private String id;
     /**
+     * @return The immutable ID of the Data Collection Endpoint.
+     * 
+     */
+    private String immutableId;
+    /**
      * @return The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      * 
      */
@@ -76,6 +81,13 @@ public final class GetDataCollectionEndpointResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The immutable ID of the Data Collection Endpoint.
+     * 
+     */
+    public String immutableId() {
+        return this.immutableId;
     }
     /**
      * @return The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
@@ -131,6 +143,7 @@ public final class GetDataCollectionEndpointResult {
         private String configurationAccessEndpoint;
         private String description;
         private String id;
+        private String immutableId;
         private String kind;
         private String location;
         private String logsIngestionEndpoint;
@@ -144,6 +157,7 @@ public final class GetDataCollectionEndpointResult {
     	      this.configurationAccessEndpoint = defaults.configurationAccessEndpoint;
     	      this.description = defaults.description;
     	      this.id = defaults.id;
+    	      this.immutableId = defaults.immutableId;
     	      this.kind = defaults.kind;
     	      this.location = defaults.location;
     	      this.logsIngestionEndpoint = defaults.logsIngestionEndpoint;
@@ -175,6 +189,14 @@ public final class GetDataCollectionEndpointResult {
               throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder immutableId(String immutableId) {
+            if (immutableId == null) {
+              throw new MissingRequiredPropertyException("GetDataCollectionEndpointResult", "immutableId");
+            }
+            this.immutableId = immutableId;
             return this;
         }
         @CustomType.Setter
@@ -238,6 +260,7 @@ public final class GetDataCollectionEndpointResult {
             _resultValue.configurationAccessEndpoint = configurationAccessEndpoint;
             _resultValue.description = description;
             _resultValue.id = id;
+            _resultValue.immutableId = immutableId;
             _resultValue.kind = kind;
             _resultValue.location = location;
             _resultValue.logsIngestionEndpoint = logsIngestionEndpoint;

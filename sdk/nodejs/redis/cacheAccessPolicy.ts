@@ -79,7 +79,7 @@ export class CacheAccessPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+     * Permissions that are going to be assigned to this Redis Cache Access Policy.
      */
     public readonly permissions!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export interface CacheAccessPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+     * Permissions that are going to be assigned to this Redis Cache Access Policy.
      */
     permissions?: pulumi.Input<string>;
     /**
@@ -147,7 +147,7 @@ export interface CacheAccessPolicyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+     * Permissions that are going to be assigned to this Redis Cache Access Policy.
      */
     permissions: pulumi.Input<string>;
     /**

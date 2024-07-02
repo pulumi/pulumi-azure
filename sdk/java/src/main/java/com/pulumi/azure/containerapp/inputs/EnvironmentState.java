@@ -101,7 +101,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+     * &gt; **Note:** The Subnet must have a `/21` or larger address space.
      * 
      */
     @Import(name="infrastructureSubnetId")
@@ -110,7 +110,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+     * &gt; **Note:** The Subnet must have a `/21` or larger address space.
      * 
      */
     public Optional<Output<String>> infrastructureSubnetId() {
@@ -462,7 +462,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param infrastructureSubnetId The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+         * &gt; **Note:** The Subnet must have a `/21` or larger address space.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param infrastructureSubnetId The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+         * &gt; **Note:** The Subnet must have a `/21` or larger address space.
          * 
          * @return builder
          * 

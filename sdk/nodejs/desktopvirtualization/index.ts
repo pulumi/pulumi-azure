@@ -45,6 +45,11 @@ export type ScalingPlan = import("./scalingPlan").ScalingPlan;
 export const ScalingPlan: typeof import("./scalingPlan").ScalingPlan = null as any;
 utilities.lazyLoad(exports, ["ScalingPlan"], () => require("./scalingPlan"));
 
+export { ScalingPlanHostPoolAssociationArgs, ScalingPlanHostPoolAssociationState } from "./scalingPlanHostPoolAssociation";
+export type ScalingPlanHostPoolAssociation = import("./scalingPlanHostPoolAssociation").ScalingPlanHostPoolAssociation;
+export const ScalingPlanHostPoolAssociation: typeof import("./scalingPlanHostPoolAssociation").ScalingPlanHostPoolAssociation = null as any;
+utilities.lazyLoad(exports, ["ScalingPlanHostPoolAssociation"], () => require("./scalingPlanHostPoolAssociation"));
+
 export { WorkspaceArgs, WorkspaceState } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -70,6 +75,8 @@ const _module = {
                 return new HostPool(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/scalingPlan:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
+            case "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation":
+                return new ScalingPlanHostPoolAssociation(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation":
@@ -84,5 +91,6 @@ pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/applicatio
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/getHostPoolRegistrationInfo", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/hostPool", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/scalingPlan", _module)
+pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/scalingPlanHostPoolAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/workspace", _module)
 pulumi.runtime.registerResourceModule("azure", "desktopvirtualization/workspaceApplicationGroupAssociation", _module)

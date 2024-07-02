@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Redis
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        /// Permissions that are going to be assigned to this Redis Cache Access Policy.
         /// </summary>
         [Output("permissions")]
         public Output<string> Permissions { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        /// Permissions that are going to be assigned to this Redis Cache Access Policy.
         /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Redis
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+        /// Permissions that are going to be assigned to this Redis Cache Access Policy.
         /// </summary>
         [Input("permissions")]
         public Input<string>? Permissions { get; set; }

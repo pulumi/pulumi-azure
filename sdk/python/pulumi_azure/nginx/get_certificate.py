@@ -21,16 +21,28 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, certificate_virtual_path=None, id=None, key_vault_secret_id=None, key_virtual_path=None, name=None, nginx_deployment_id=None):
+    def __init__(__self__, certificate_virtual_path=None, error_code=None, error_message=None, id=None, key_vault_secret_creation_date=None, key_vault_secret_id=None, key_vault_secret_version=None, key_virtual_path=None, name=None, nginx_deployment_id=None, sha1_thumbprint=None):
         if certificate_virtual_path and not isinstance(certificate_virtual_path, str):
             raise TypeError("Expected argument 'certificate_virtual_path' to be a str")
         pulumi.set(__self__, "certificate_virtual_path", certificate_virtual_path)
+        if error_code and not isinstance(error_code, str):
+            raise TypeError("Expected argument 'error_code' to be a str")
+        pulumi.set(__self__, "error_code", error_code)
+        if error_message and not isinstance(error_message, str):
+            raise TypeError("Expected argument 'error_message' to be a str")
+        pulumi.set(__self__, "error_message", error_message)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if key_vault_secret_creation_date and not isinstance(key_vault_secret_creation_date, str):
+            raise TypeError("Expected argument 'key_vault_secret_creation_date' to be a str")
+        pulumi.set(__self__, "key_vault_secret_creation_date", key_vault_secret_creation_date)
         if key_vault_secret_id and not isinstance(key_vault_secret_id, str):
             raise TypeError("Expected argument 'key_vault_secret_id' to be a str")
         pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if key_vault_secret_version and not isinstance(key_vault_secret_version, str):
+            raise TypeError("Expected argument 'key_vault_secret_version' to be a str")
+        pulumi.set(__self__, "key_vault_secret_version", key_vault_secret_version)
         if key_virtual_path and not isinstance(key_virtual_path, str):
             raise TypeError("Expected argument 'key_virtual_path' to be a str")
         pulumi.set(__self__, "key_virtual_path", key_virtual_path)
@@ -40,6 +52,9 @@ class GetCertificateResult:
         if nginx_deployment_id and not isinstance(nginx_deployment_id, str):
             raise TypeError("Expected argument 'nginx_deployment_id' to be a str")
         pulumi.set(__self__, "nginx_deployment_id", nginx_deployment_id)
+        if sha1_thumbprint and not isinstance(sha1_thumbprint, str):
+            raise TypeError("Expected argument 'sha1_thumbprint' to be a str")
+        pulumi.set(__self__, "sha1_thumbprint", sha1_thumbprint)
 
     @property
     @pulumi.getter(name="certificateVirtualPath")
@@ -50,6 +65,22 @@ class GetCertificateResult:
         return pulumi.get(self, "certificate_virtual_path")
 
     @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        The error code of the certificate error, if any.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message of the certificate error, if any.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -58,12 +89,28 @@ class GetCertificateResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="keyVaultSecretCreationDate")
+    def key_vault_secret_creation_date(self) -> str:
+        """
+        The date/time the certificate was created in Azure Key Vault.
+        """
+        return pulumi.get(self, "key_vault_secret_creation_date")
+
+    @property
     @pulumi.getter(name="keyVaultSecretId")
     def key_vault_secret_id(self) -> str:
         """
         The ID of the Key Vault Secret for the certificate.
         """
         return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretVersion")
+    def key_vault_secret_version(self) -> str:
+        """
+        The version of the certificate.
+        """
+        return pulumi.get(self, "key_vault_secret_version")
 
     @property
     @pulumi.getter(name="keyVirtualPath")
@@ -83,6 +130,14 @@ class GetCertificateResult:
     def nginx_deployment_id(self) -> str:
         return pulumi.get(self, "nginx_deployment_id")
 
+    @property
+    @pulumi.getter(name="sha1Thumbprint")
+    def sha1_thumbprint(self) -> str:
+        """
+        The SHA-1 thumbprint of the certificate.
+        """
+        return pulumi.get(self, "sha1_thumbprint")
+
 
 class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
@@ -91,11 +146,16 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             yield self
         return GetCertificateResult(
             certificate_virtual_path=self.certificate_virtual_path,
+            error_code=self.error_code,
+            error_message=self.error_message,
             id=self.id,
+            key_vault_secret_creation_date=self.key_vault_secret_creation_date,
             key_vault_secret_id=self.key_vault_secret_id,
+            key_vault_secret_version=self.key_vault_secret_version,
             key_virtual_path=self.key_virtual_path,
             name=self.name,
-            nginx_deployment_id=self.nginx_deployment_id)
+            nginx_deployment_id=self.nginx_deployment_id,
+            sha1_thumbprint=self.sha1_thumbprint)
 
 
 def get_certificate(name: Optional[str] = None,
@@ -127,11 +187,16 @@ def get_certificate(name: Optional[str] = None,
 
     return AwaitableGetCertificateResult(
         certificate_virtual_path=pulumi.get(__ret__, 'certificate_virtual_path'),
+        error_code=pulumi.get(__ret__, 'error_code'),
+        error_message=pulumi.get(__ret__, 'error_message'),
         id=pulumi.get(__ret__, 'id'),
+        key_vault_secret_creation_date=pulumi.get(__ret__, 'key_vault_secret_creation_date'),
         key_vault_secret_id=pulumi.get(__ret__, 'key_vault_secret_id'),
+        key_vault_secret_version=pulumi.get(__ret__, 'key_vault_secret_version'),
         key_virtual_path=pulumi.get(__ret__, 'key_virtual_path'),
         name=pulumi.get(__ret__, 'name'),
-        nginx_deployment_id=pulumi.get(__ret__, 'nginx_deployment_id'))
+        nginx_deployment_id=pulumi.get(__ret__, 'nginx_deployment_id'),
+        sha1_thumbprint=pulumi.get(__ret__, 'sha1_thumbprint'))
 
 
 @_utilities.lift_output_func(get_certificate)

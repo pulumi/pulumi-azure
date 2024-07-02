@@ -1519,7 +1519,7 @@ export namespace apimanagement {
          */
         virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.ServiceAdditionalLocationVirtualNetworkConfiguration>;
         /**
-         * A list of availability zones. Changing this forces a new resource to be created.
+         * A list of availability zones.
          */
         zones?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -15466,6 +15466,28 @@ export namespace backup {
         weeks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface PolicyVMTieringPolicy {
+        /**
+         * An `archivedRestorePoint` block as defined below.
+         */
+        archivedRestorePoint: pulumi.Input<inputs.backup.PolicyVMTieringPolicyArchivedRestorePoint>;
+    }
+
+    export interface PolicyVMTieringPolicyArchivedRestorePoint {
+        /**
+         * The number of days/weeks/months/years to retain backups in current tier before tiering.
+         */
+        duration?: pulumi.Input<number>;
+        /**
+         * The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+         */
+        durationType?: pulumi.Input<string>;
+        /**
+         * The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+         */
+        mode: pulumi.Input<string>;
+    }
+
     export interface PolicyVMWorkloadProtectionPolicy {
         /**
          * A `backup` block as defined below.
@@ -22652,9 +22674,9 @@ export namespace containerapp {
         /**
          * Workload profile type for the workloads to run on. Possible values include `Consumption`, `D4`, `D8`, `D16`, `D32`, `E4`, `E8`, `E16` and `E32`.
          *
-         * > **NOTE:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
+         * > **Note:** A `Consumption` type must have a name of `Consumption` and an environment may only have one `Consumption` Workload Profile.
          *
-         * > **NOTE:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
+         * > **Note:** Defining a `Consumption` profile is optional, however, Environments created without an initial Workload Profile cannot have them added at a later time and must be recreated. Similarly, an environment created with Profiles must always have at least one defined Profile, removing all profiles will force a recreation of the resource.
          */
         workloadProfileType: pulumi.Input<string>;
     }
@@ -48721,6 +48743,10 @@ export namespace redhatopenshift {
          */
         fipsEnabled?: pulumi.Input<boolean>;
         /**
+         * The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+         */
+        managedResourceGroupName?: pulumi.Input<string>;
+        /**
          * The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
          */
         pullSecret?: pulumi.Input<string>;
@@ -48779,6 +48805,10 @@ export namespace redhatopenshift {
          * The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
          */
         podCidr: pulumi.Input<string>;
+        /**
+         * Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+         */
+        preconfiguredNetworkSecurityGroupEnabled?: pulumi.Input<boolean>;
         /**
          * The network range used by the OpenShift service. Changing this forces a new resource to be created.
          */

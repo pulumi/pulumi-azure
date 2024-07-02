@@ -10973,7 +10973,7 @@ type ServiceAdditionalLocation struct {
 	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration *ServiceAdditionalLocationVirtualNetworkConfiguration `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones. Changing this forces a new resource to be created.
+	// A list of availability zones.
 	Zones []string `pulumi:"zones"`
 }
 
@@ -11007,7 +11007,7 @@ type ServiceAdditionalLocationArgs struct {
 	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
 	// A `virtualNetworkConfiguration` block as defined below. Required when `virtualNetworkType` is `External` or `Internal`.
 	VirtualNetworkConfiguration ServiceAdditionalLocationVirtualNetworkConfigurationPtrInput `pulumi:"virtualNetworkConfiguration"`
-	// A list of availability zones. Changing this forces a new resource to be created.
+	// A list of availability zones.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
 
@@ -11106,7 +11106,7 @@ func (o ServiceAdditionalLocationOutput) VirtualNetworkConfiguration() ServiceAd
 	}).(ServiceAdditionalLocationVirtualNetworkConfigurationPtrOutput)
 }
 
-// A list of availability zones. Changing this forces a new resource to be created.
+// A list of availability zones.
 func (o ServiceAdditionalLocationOutput) Zones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) []string { return v.Zones }).(pulumi.StringArrayOutput)
 }

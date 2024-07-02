@@ -85,6 +85,8 @@ class ClusterClusterProfile(dict):
         suggest = None
         if key == "fipsEnabled":
             suggest = "fips_enabled"
+        elif key == "managedResourceGroupName":
+            suggest = "managed_resource_group_name"
         elif key == "pullSecret":
             suggest = "pull_secret"
         elif key == "resourceGroupId":
@@ -105,12 +107,14 @@ class ClusterClusterProfile(dict):
                  domain: str,
                  version: str,
                  fips_enabled: Optional[bool] = None,
+                 managed_resource_group_name: Optional[str] = None,
                  pull_secret: Optional[str] = None,
                  resource_group_id: Optional[str] = None):
         """
         :param str domain: The custom domain for the cluster. For more info, see [Prepare a custom domain for your cluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#prepare-a-custom-domain-for-your-cluster-optional). Changing this forces a new resource to be created.
         :param str version: The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
         :param bool fips_enabled: Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
+        :param str managed_resource_group_name: The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
         :param str pull_secret: The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
         :param str resource_group_id: The resource group that the cluster profile is attached to.
         """
@@ -118,6 +122,8 @@ class ClusterClusterProfile(dict):
         pulumi.set(__self__, "version", version)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if managed_resource_group_name is not None:
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if pull_secret is not None:
             pulumi.set(__self__, "pull_secret", pull_secret)
         if resource_group_id is not None:
@@ -146,6 +152,14 @@ class ClusterClusterProfile(dict):
         Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "fips_enabled")
+
+    @property
+    @pulumi.getter(name="managedResourceGroupName")
+    def managed_resource_group_name(self) -> Optional[str]:
+        """
+        The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "managed_resource_group_name")
 
     @property
     @pulumi.getter(name="pullSecret")
@@ -314,6 +328,8 @@ class ClusterNetworkProfile(dict):
             suggest = "service_cidr"
         elif key == "outboundType":
             suggest = "outbound_type"
+        elif key == "preconfiguredNetworkSecurityGroupEnabled":
+            suggest = "preconfigured_network_security_group_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterNetworkProfile. Access the value via the '{suggest}' property getter instead.")
@@ -329,16 +345,20 @@ class ClusterNetworkProfile(dict):
     def __init__(__self__, *,
                  pod_cidr: str,
                  service_cidr: str,
-                 outbound_type: Optional[str] = None):
+                 outbound_type: Optional[str] = None,
+                 preconfigured_network_security_group_enabled: Optional[bool] = None):
         """
         :param str pod_cidr: The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
         :param str service_cidr: The network range used by the OpenShift service. Changing this forces a new resource to be created.
         :param str outbound_type: The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
+        :param bool preconfigured_network_security_group_enabled: Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "pod_cidr", pod_cidr)
         pulumi.set(__self__, "service_cidr", service_cidr)
         if outbound_type is not None:
             pulumi.set(__self__, "outbound_type", outbound_type)
+        if preconfigured_network_security_group_enabled is not None:
+            pulumi.set(__self__, "preconfigured_network_security_group_enabled", preconfigured_network_security_group_enabled)
 
     @property
     @pulumi.getter(name="podCidr")
@@ -363,6 +383,14 @@ class ClusterNetworkProfile(dict):
         The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "outbound_type")
+
+    @property
+    @pulumi.getter(name="preconfiguredNetworkSecurityGroupEnabled")
+    def preconfigured_network_security_group_enabled(self) -> Optional[bool]:
+        """
+        Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "preconfigured_network_security_group_enabled")
 
 
 @pulumi.output_type

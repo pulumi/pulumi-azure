@@ -86,7 +86,7 @@ namespace Pulumi.Azure.AnalysisServices
         /// Indicates if the Power BI service is allowed to access or not.
         /// </summary>
         [Output("enablePowerBiService")]
-        public Output<bool?> EnablePowerBiService { get; private set; } = null!;
+        public Output<bool> EnablePowerBiService { get; private set; } = null!;
 
         /// <summary>
         /// One or more `ipv4_firewall_rule` block(s) as defined below.
@@ -105,6 +105,9 @@ namespace Pulumi.Azure.AnalysisServices
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("powerBiServiceEnabled")]
+        public Output<bool> PowerBiServiceEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
@@ -244,6 +247,9 @@ namespace Pulumi.Azure.AnalysisServices
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("powerBiServiceEnabled")]
+        public Input<bool>? PowerBiServiceEnabled { get; set; }
+
         /// <summary>
         /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
         /// </summary>
@@ -339,6 +345,9 @@ namespace Pulumi.Azure.AnalysisServices
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("powerBiServiceEnabled")]
+        public Input<bool>? PowerBiServiceEnabled { get; set; }
 
         /// <summary>
         /// Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.

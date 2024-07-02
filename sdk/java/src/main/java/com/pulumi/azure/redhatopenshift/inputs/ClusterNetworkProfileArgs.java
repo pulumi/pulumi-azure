@@ -6,6 +6,7 @@ package com.pulumi.azure.redhatopenshift.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -47,6 +48,21 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="preconfiguredNetworkSecurityGroupEnabled")
+    private @Nullable Output<Boolean> preconfiguredNetworkSecurityGroupEnabled;
+
+    /**
+     * @return Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> preconfiguredNetworkSecurityGroupEnabled() {
+        return Optional.ofNullable(this.preconfiguredNetworkSecurityGroupEnabled);
+    }
+
+    /**
      * The network range used by the OpenShift service. Changing this forces a new resource to be created.
      * 
      */
@@ -66,6 +82,7 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
     private ClusterNetworkProfileArgs(ClusterNetworkProfileArgs $) {
         this.outboundType = $.outboundType;
         this.podCidr = $.podCidr;
+        this.preconfiguredNetworkSecurityGroupEnabled = $.preconfiguredNetworkSecurityGroupEnabled;
         this.serviceCidr = $.serviceCidr;
     }
 
@@ -127,6 +144,27 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
          */
         public Builder podCidr(String podCidr) {
             return podCidr(Output.of(podCidr));
+        }
+
+        /**
+         * @param preconfiguredNetworkSecurityGroupEnabled Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preconfiguredNetworkSecurityGroupEnabled(@Nullable Output<Boolean> preconfiguredNetworkSecurityGroupEnabled) {
+            $.preconfiguredNetworkSecurityGroupEnabled = preconfiguredNetworkSecurityGroupEnabled;
+            return this;
+        }
+
+        /**
+         * @param preconfiguredNetworkSecurityGroupEnabled Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preconfiguredNetworkSecurityGroupEnabled(Boolean preconfiguredNetworkSecurityGroupEnabled) {
+            return preconfiguredNetworkSecurityGroupEnabled(Output.of(preconfiguredNetworkSecurityGroupEnabled));
         }
 
         /**

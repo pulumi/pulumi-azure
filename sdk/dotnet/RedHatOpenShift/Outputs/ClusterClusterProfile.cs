@@ -22,6 +22,10 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly bool? FipsEnabled;
         /// <summary>
+        /// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? ManagedResourceGroupName;
+        /// <summary>
         /// The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PullSecret;
@@ -40,6 +44,8 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
 
             bool? fipsEnabled,
 
+            string? managedResourceGroupName,
+
             string? pullSecret,
 
             string? resourceGroupId,
@@ -48,6 +54,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         {
             Domain = domain;
             FipsEnabled = fipsEnabled;
+            ManagedResourceGroupName = managedResourceGroupName;
             PullSecret = pullSecret;
             ResourceGroupId = resourceGroupId;
             Version = version;

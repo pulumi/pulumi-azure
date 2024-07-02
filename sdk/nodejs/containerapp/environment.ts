@@ -91,11 +91,11 @@ export class Environment extends pulumi.CustomResource {
      *
      * > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
      */
-    public readonly infrastructureResourceGroupName!: pulumi.Output<string>;
+    public readonly infrastructureResourceGroupName!: pulumi.Output<string | undefined>;
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *
-     * > **NOTE:** The Subnet must have a `/21` or larger address space.
+     * > **Note:** The Subnet must have a `/21` or larger address space.
      */
     public readonly infrastructureSubnetId!: pulumi.Output<string | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface EnvironmentState {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *
-     * > **NOTE:** The Subnet must have a `/21` or larger address space.
+     * > **Note:** The Subnet must have a `/21` or larger address space.
      */
     infrastructureSubnetId?: pulumi.Input<string>;
     /**
@@ -320,7 +320,7 @@ export interface EnvironmentArgs {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *
-     * > **NOTE:** The Subnet must have a `/21` or larger address space.
+     * > **Note:** The Subnet must have a `/21` or larger address space.
      */
     infrastructureSubnetId?: pulumi.Input<string>;
     /**

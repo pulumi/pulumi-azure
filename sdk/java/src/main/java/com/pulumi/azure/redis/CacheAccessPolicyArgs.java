@@ -32,14 +32,14 @@ public final class CacheAccessPolicyArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+     * Permissions that are going to be assigned to this Redis Cache Access Policy.
      * 
      */
     @Import(name="permissions", required=true)
     private Output<String> permissions;
 
     /**
-     * @return Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+     * @return Permissions that are going to be assigned to this Redis Cache Access Policy.
      * 
      */
     public Output<String> permissions() {
@@ -109,7 +109,7 @@ public final class CacheAccessPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param permissions Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+         * @param permissions Permissions that are going to be assigned to this Redis Cache Access Policy.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class CacheAccessPolicyArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param permissions Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+         * @param permissions Permissions that are going to be assigned to this Redis Cache Access Policy.
          * 
          * @return builder
          * 

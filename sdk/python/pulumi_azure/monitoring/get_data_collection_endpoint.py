@@ -21,7 +21,7 @@ class GetDataCollectionEndpointResult:
     """
     A collection of values returned by getDataCollectionEndpoint.
     """
-    def __init__(__self__, configuration_access_endpoint=None, description=None, id=None, kind=None, location=None, logs_ingestion_endpoint=None, name=None, public_network_access_enabled=None, resource_group_name=None, tags=None):
+    def __init__(__self__, configuration_access_endpoint=None, description=None, id=None, immutable_id=None, kind=None, location=None, logs_ingestion_endpoint=None, name=None, public_network_access_enabled=None, resource_group_name=None, tags=None):
         if configuration_access_endpoint and not isinstance(configuration_access_endpoint, str):
             raise TypeError("Expected argument 'configuration_access_endpoint' to be a str")
         pulumi.set(__self__, "configuration_access_endpoint", configuration_access_endpoint)
@@ -31,6 +31,9 @@ class GetDataCollectionEndpointResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if immutable_id and not isinstance(immutable_id, str):
+            raise TypeError("Expected argument 'immutable_id' to be a str")
+        pulumi.set(__self__, "immutable_id", immutable_id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -76,6 +79,14 @@ class GetDataCollectionEndpointResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> str:
+        """
+        The immutable ID of the Data Collection Endpoint.
+        """
+        return pulumi.get(self, "immutable_id")
 
     @property
     @pulumi.getter
@@ -137,6 +148,7 @@ class AwaitableGetDataCollectionEndpointResult(GetDataCollectionEndpointResult):
             configuration_access_endpoint=self.configuration_access_endpoint,
             description=self.description,
             id=self.id,
+            immutable_id=self.immutable_id,
             kind=self.kind,
             location=self.location,
             logs_ingestion_endpoint=self.logs_ingestion_endpoint,
@@ -177,6 +189,7 @@ def get_data_collection_endpoint(name: Optional[str] = None,
         configuration_access_endpoint=pulumi.get(__ret__, 'configuration_access_endpoint'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        immutable_id=pulumi.get(__ret__, 'immutable_id'),
         kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         logs_ingestion_endpoint=pulumi.get(__ret__, 'logs_ingestion_endpoint'),

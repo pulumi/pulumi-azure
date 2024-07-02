@@ -27,6 +27,7 @@ class PolicyVMArgs:
                  retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
+                 tiering_policy: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PolicyVM resource.
@@ -43,6 +44,7 @@ class PolicyVMArgs:
         :param pulumi.Input['PolicyVMRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input['PolicyVMRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input['PolicyVMTieringPolicyArgs'] tiering_policy: A `tiering_policy` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         pulumi.set(__self__, "backup", backup)
@@ -64,6 +66,8 @@ class PolicyVMArgs:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -202,6 +206,18 @@ class PolicyVMArgs:
         pulumi.set(self, "retention_yearly", value)
 
     @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]:
+        """
+        A `tiering_policy` block as defined below.
+        """
+        return pulumi.get(self, "tiering_policy")
+
+    @tiering_policy.setter
+    def tiering_policy(self, value: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]):
+        pulumi.set(self, "tiering_policy", value)
+
+    @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -228,6 +244,7 @@ class _PolicyVMState:
                  retention_monthly: Optional[pulumi.Input['PolicyVMRetentionMonthlyArgs']] = None,
                  retention_weekly: Optional[pulumi.Input['PolicyVMRetentionWeeklyArgs']] = None,
                  retention_yearly: Optional[pulumi.Input['PolicyVMRetentionYearlyArgs']] = None,
+                 tiering_policy: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']] = None,
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PolicyVM resources.
@@ -244,6 +261,7 @@ class _PolicyVMState:
         :param pulumi.Input['PolicyVMRetentionMonthlyArgs'] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input['PolicyVMRetentionWeeklyArgs'] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input['PolicyVMRetentionYearlyArgs'] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input['PolicyVMTieringPolicyArgs'] tiering_policy: A `tiering_policy` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         if backup is not None:
@@ -268,6 +286,8 @@ class _PolicyVMState:
             pulumi.set(__self__, "retention_weekly", retention_weekly)
         if retention_yearly is not None:
             pulumi.set(__self__, "retention_yearly", retention_yearly)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -406,6 +426,18 @@ class _PolicyVMState:
         pulumi.set(self, "retention_yearly", value)
 
     @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]:
+        """
+        A `tiering_policy` block as defined below.
+        """
+        return pulumi.get(self, "tiering_policy")
+
+    @tiering_policy.setter
+    def tiering_policy(self, value: Optional[pulumi.Input['PolicyVMTieringPolicyArgs']]):
+        pulumi.set(self, "tiering_policy", value)
+
+    @property
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
@@ -434,6 +466,7 @@ class PolicyVM(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
                  retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
                  retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
+                 tiering_policy: Optional[pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -516,6 +549,7 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']] tiering_policy: A `tiering_policy` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         ...
@@ -615,6 +649,7 @@ class PolicyVM(pulumi.CustomResource):
                  retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
                  retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
                  retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
+                 tiering_policy: Optional[pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -642,6 +677,7 @@ class PolicyVM(pulumi.CustomResource):
             __props__.__dict__["retention_monthly"] = retention_monthly
             __props__.__dict__["retention_weekly"] = retention_weekly
             __props__.__dict__["retention_yearly"] = retention_yearly
+            __props__.__dict__["tiering_policy"] = tiering_policy
             __props__.__dict__["timezone"] = timezone
         super(PolicyVM, __self__).__init__(
             'azure:backup/policyVM:PolicyVM',
@@ -664,6 +700,7 @@ class PolicyVM(pulumi.CustomResource):
             retention_monthly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']]] = None,
             retention_weekly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']]] = None,
             retention_yearly: Optional[pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']]] = None,
+            tiering_policy: Optional[pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'PolicyVM':
         """
         Get an existing PolicyVM resource's state with the given name, id, and optional extra
@@ -685,6 +722,7 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionMonthlyArgs']] retention_monthly: Configures the policy monthly retention as documented in the `retention_monthly` block below.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionWeeklyArgs']] retention_weekly: Configures the policy weekly retention as documented in the `retention_weekly` block below. Required when backup frequency is `Weekly`.
         :param pulumi.Input[pulumi.InputType['PolicyVMRetentionYearlyArgs']] retention_yearly: Configures the policy yearly retention as documented in the `retention_yearly` block below.
+        :param pulumi.Input[pulumi.InputType['PolicyVMTieringPolicyArgs']] tiering_policy: A `tiering_policy` block as defined below.
         :param pulumi.Input[str] timezone: Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -702,6 +740,7 @@ class PolicyVM(pulumi.CustomResource):
         __props__.__dict__["retention_monthly"] = retention_monthly
         __props__.__dict__["retention_weekly"] = retention_weekly
         __props__.__dict__["retention_yearly"] = retention_yearly
+        __props__.__dict__["tiering_policy"] = tiering_policy
         __props__.__dict__["timezone"] = timezone
         return PolicyVM(resource_name, opts=opts, __props__=__props__)
 
@@ -794,6 +833,14 @@ class PolicyVM(pulumi.CustomResource):
         Configures the policy yearly retention as documented in the `retention_yearly` block below.
         """
         return pulumi.get(self, "retention_yearly")
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> pulumi.Output[Optional['outputs.PolicyVMTieringPolicy']]:
+        """
+        A `tiering_policy` block as defined below.
+        """
+        return pulumi.get(self, "tiering_policy")
 
     @property
     @pulumi.getter

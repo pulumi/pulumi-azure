@@ -22,6 +22,8 @@ __all__ = [
     'PolicyVMRetentionMonthlyArgs',
     'PolicyVMRetentionWeeklyArgs',
     'PolicyVMRetentionYearlyArgs',
+    'PolicyVMTieringPolicyArgs',
+    'PolicyVMTieringPolicyArchivedRestorePointArgs',
     'PolicyVMWorkloadProtectionPolicyArgs',
     'PolicyVMWorkloadProtectionPolicyBackupArgs',
     'PolicyVMWorkloadProtectionPolicyRetentionDailyArgs',
@@ -783,6 +785,82 @@ class PolicyVMRetentionYearlyArgs:
     @weeks.setter
     def weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "weeks", value)
+
+
+@pulumi.input_type
+class PolicyVMTieringPolicyArgs:
+    def __init__(__self__, *,
+                 archived_restore_point: pulumi.Input['PolicyVMTieringPolicyArchivedRestorePointArgs']):
+        """
+        :param pulumi.Input['PolicyVMTieringPolicyArchivedRestorePointArgs'] archived_restore_point: An `archived_restore_point` block as defined below.
+        """
+        pulumi.set(__self__, "archived_restore_point", archived_restore_point)
+
+    @property
+    @pulumi.getter(name="archivedRestorePoint")
+    def archived_restore_point(self) -> pulumi.Input['PolicyVMTieringPolicyArchivedRestorePointArgs']:
+        """
+        An `archived_restore_point` block as defined below.
+        """
+        return pulumi.get(self, "archived_restore_point")
+
+    @archived_restore_point.setter
+    def archived_restore_point(self, value: pulumi.Input['PolicyVMTieringPolicyArchivedRestorePointArgs']):
+        pulumi.set(self, "archived_restore_point", value)
+
+
+@pulumi.input_type
+class PolicyVMTieringPolicyArchivedRestorePointArgs:
+    def __init__(__self__, *,
+                 mode: pulumi.Input[str],
+                 duration: Optional[pulumi.Input[int]] = None,
+                 duration_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] mode: The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+        :param pulumi.Input[int] duration: The number of days/weeks/months/years to retain backups in current tier before tiering.
+        :param pulumi.Input[str] duration_type: The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+        """
+        pulumi.set(__self__, "mode", mode)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if duration_type is not None:
+            pulumi.set(__self__, "duration_type", duration_type)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[str]:
+        """
+        The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days/weeks/months/years to retain backups in current tier before tiering.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="durationType")
+    def duration_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+        """
+        return pulumi.get(self, "duration_type")
+
+    @duration_type.setter
+    def duration_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "duration_type", value)
 
 
 @pulumi.input_type

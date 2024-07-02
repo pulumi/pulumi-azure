@@ -146,14 +146,14 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags assigned to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags assigned to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -395,7 +395,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+         * @param tags A mapping of tags assigned to the resource.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class AutomationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+         * @param tags A mapping of tags assigned to the resource.
          * 
          * @return builder
          * 

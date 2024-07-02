@@ -193,6 +193,8 @@ type ClusterClusterProfile struct {
 	Domain string `pulumi:"domain"`
 	// Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
+	// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
 	PullSecret *string `pulumi:"pullSecret"`
 	// The resource group that the cluster profile is attached to.
@@ -217,6 +219,8 @@ type ClusterClusterProfileArgs struct {
 	Domain pulumi.StringInput `pulumi:"domain"`
 	// Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
 	FipsEnabled pulumi.BoolPtrInput `pulumi:"fipsEnabled"`
+	// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+	ManagedResourceGroupName pulumi.StringPtrInput `pulumi:"managedResourceGroupName"`
 	// The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
 	PullSecret pulumi.StringPtrInput `pulumi:"pullSecret"`
 	// The resource group that the cluster profile is attached to.
@@ -312,6 +316,11 @@ func (o ClusterClusterProfileOutput) FipsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterClusterProfile) *bool { return v.FipsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+func (o ClusterClusterProfileOutput) ManagedResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterClusterProfile) *string { return v.ManagedResourceGroupName }).(pulumi.StringPtrOutput)
+}
+
 // The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
 func (o ClusterClusterProfileOutput) PullSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterProfile) *string { return v.PullSecret }).(pulumi.StringPtrOutput)
@@ -369,6 +378,16 @@ func (o ClusterClusterProfilePtrOutput) FipsEnabled() pulumi.BoolPtrOutput {
 		}
 		return v.FipsEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+func (o ClusterClusterProfilePtrOutput) ManagedResourceGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterClusterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedResourceGroupName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
@@ -783,6 +802,8 @@ type ClusterNetworkProfile struct {
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
 	PodCidr string `pulumi:"podCidr"`
+	// Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+	PreconfiguredNetworkSecurityGroupEnabled *bool `pulumi:"preconfiguredNetworkSecurityGroupEnabled"`
 	// The network range used by the OpenShift service. Changing this forces a new resource to be created.
 	ServiceCidr string `pulumi:"serviceCidr"`
 }
@@ -803,6 +824,8 @@ type ClusterNetworkProfileArgs struct {
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringInput `pulumi:"podCidr"`
+	// Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+	PreconfiguredNetworkSecurityGroupEnabled pulumi.BoolPtrInput `pulumi:"preconfiguredNetworkSecurityGroupEnabled"`
 	// The network range used by the OpenShift service. Changing this forces a new resource to be created.
 	ServiceCidr pulumi.StringInput `pulumi:"serviceCidr"`
 }
@@ -894,6 +917,11 @@ func (o ClusterNetworkProfileOutput) PodCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNetworkProfile) string { return v.PodCidr }).(pulumi.StringOutput)
 }
 
+// Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+func (o ClusterNetworkProfileOutput) PreconfiguredNetworkSecurityGroupEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterNetworkProfile) *bool { return v.PreconfiguredNetworkSecurityGroupEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The network range used by the OpenShift service. Changing this forces a new resource to be created.
 func (o ClusterNetworkProfileOutput) ServiceCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterNetworkProfile) string { return v.ServiceCidr }).(pulumi.StringOutput)
@@ -941,6 +969,16 @@ func (o ClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
 		}
 		return &v.PodCidr
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+func (o ClusterNetworkProfilePtrOutput) PreconfiguredNetworkSecurityGroupEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkProfile) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreconfiguredNetworkSecurityGroupEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The network range used by the OpenShift service. Changing this forces a new resource to be created.

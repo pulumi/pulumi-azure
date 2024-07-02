@@ -248,14 +248,14 @@ public class Automation extends com.pulumi.resources.CustomResource {
         return this.sources;
     }
     /**
-     * A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags assigned to the resource.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+     * @return A mapping of tags assigned to the resource.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

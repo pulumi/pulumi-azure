@@ -22,6 +22,10 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly string PodCidr;
         /// <summary>
+        /// Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly bool? PreconfiguredNetworkSecurityGroupEnabled;
+        /// <summary>
         /// The network range used by the OpenShift service. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string ServiceCidr;
@@ -32,10 +36,13 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
 
             string podCidr,
 
+            bool? preconfiguredNetworkSecurityGroupEnabled,
+
             string serviceCidr)
         {
             OutboundType = outboundType;
             PodCidr = podCidr;
+            PreconfiguredNetworkSecurityGroupEnabled = preconfiguredNetworkSecurityGroupEnabled;
             ServiceCidr = serviceCidr;
         }
     }

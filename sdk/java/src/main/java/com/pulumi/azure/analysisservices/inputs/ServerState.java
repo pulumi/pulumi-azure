@@ -52,14 +52,22 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     /**
      * Indicates if the Power BI service is allowed to access or not.
      * 
+     * @deprecated
+     * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="enablePowerBiService")
     private @Nullable Output<Boolean> enablePowerBiService;
 
     /**
      * @return Indicates if the Power BI service is allowed to access or not.
      * 
+     * @deprecated
+     * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enablePowerBiService() {
         return Optional.ofNullable(this.enablePowerBiService);
     }
@@ -107,6 +115,13 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    @Import(name="powerBiServiceEnabled")
+    private @Nullable Output<Boolean> powerBiServiceEnabled;
+
+    public Optional<Output<Boolean>> powerBiServiceEnabled() {
+        return Optional.ofNullable(this.powerBiServiceEnabled);
     }
 
     /**
@@ -193,6 +208,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         this.ipv4FirewallRules = $.ipv4FirewallRules;
         this.location = $.location;
         this.name = $.name;
+        this.powerBiServiceEnabled = $.powerBiServiceEnabled;
         this.querypoolConnectionMode = $.querypoolConnectionMode;
         this.resourceGroupName = $.resourceGroupName;
         this.serverFullName = $.serverFullName;
@@ -275,7 +291,11 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enablePowerBiService(@Nullable Output<Boolean> enablePowerBiService) {
             $.enablePowerBiService = enablePowerBiService;
             return this;
@@ -286,7 +306,11 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enablePowerBiService(Boolean enablePowerBiService) {
             return enablePowerBiService(Output.of(enablePowerBiService));
         }
@@ -362,6 +386,15 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder powerBiServiceEnabled(@Nullable Output<Boolean> powerBiServiceEnabled) {
+            $.powerBiServiceEnabled = powerBiServiceEnabled;
+            return this;
+        }
+
+        public Builder powerBiServiceEnabled(Boolean powerBiServiceEnabled) {
+            return powerBiServiceEnabled(Output.of(powerBiServiceEnabled));
         }
 
         /**

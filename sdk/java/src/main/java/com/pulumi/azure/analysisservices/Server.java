@@ -119,16 +119,20 @@ public class Server extends com.pulumi.resources.CustomResource {
     /**
      * Indicates if the Power BI service is allowed to access or not.
      * 
+     * @deprecated
+     * The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enablePowerBiService", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enablePowerBiService;
+    private Output<Boolean> enablePowerBiService;
 
     /**
      * @return Indicates if the Power BI service is allowed to access or not.
      * 
      */
-    public Output<Optional<Boolean>> enablePowerBiService() {
-        return Codegen.optional(this.enablePowerBiService);
+    public Output<Boolean> enablePowerBiService() {
+        return this.enablePowerBiService;
     }
     /**
      * One or more `ipv4_firewall_rule` block(s) as defined below.
@@ -171,6 +175,12 @@ public class Server extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    @Export(name="powerBiServiceEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> powerBiServiceEnabled;
+
+    public Output<Boolean> powerBiServiceEnabled() {
+        return this.powerBiServiceEnabled;
     }
     /**
      * Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.

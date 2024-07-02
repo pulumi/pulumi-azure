@@ -138,7 +138,7 @@ export class Automation extends pulumi.CustomResource {
      */
     public readonly sources!: pulumi.Output<outputs.securitycenter.AutomationSource[]>;
     /**
-     * A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags assigned to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -232,7 +232,7 @@ export interface AutomationState {
      */
     sources?: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
     /**
-     * A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -276,7 +276,7 @@ export interface AutomationArgs {
      */
     sources: pulumi.Input<pulumi.Input<inputs.securitycenter.AutomationSource>[]>;
     /**
-     * A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+     * A mapping of tags assigned to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

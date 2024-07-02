@@ -523,6 +523,342 @@ func (o LoadTestIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetEncryption struct {
+	// An `identity` block as defined below.
+	Identities []GetEncryptionIdentity `pulumi:"identities"`
+	// The URI specifying the Key vault and key to be used to encrypt data in this resource.
+	KeyUrl string `pulumi:"keyUrl"`
+}
+
+// GetEncryptionInput is an input type that accepts GetEncryptionArgs and GetEncryptionOutput values.
+// You can construct a concrete instance of `GetEncryptionInput` via:
+//
+//	GetEncryptionArgs{...}
+type GetEncryptionInput interface {
+	pulumi.Input
+
+	ToGetEncryptionOutput() GetEncryptionOutput
+	ToGetEncryptionOutputWithContext(context.Context) GetEncryptionOutput
+}
+
+type GetEncryptionArgs struct {
+	// An `identity` block as defined below.
+	Identities GetEncryptionIdentityArrayInput `pulumi:"identities"`
+	// The URI specifying the Key vault and key to be used to encrypt data in this resource.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+}
+
+func (GetEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEncryption)(nil)).Elem()
+}
+
+func (i GetEncryptionArgs) ToGetEncryptionOutput() GetEncryptionOutput {
+	return i.ToGetEncryptionOutputWithContext(context.Background())
+}
+
+func (i GetEncryptionArgs) ToGetEncryptionOutputWithContext(ctx context.Context) GetEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEncryptionOutput)
+}
+
+// GetEncryptionArrayInput is an input type that accepts GetEncryptionArray and GetEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetEncryptionArrayInput` via:
+//
+//	GetEncryptionArray{ GetEncryptionArgs{...} }
+type GetEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToGetEncryptionArrayOutput() GetEncryptionArrayOutput
+	ToGetEncryptionArrayOutputWithContext(context.Context) GetEncryptionArrayOutput
+}
+
+type GetEncryptionArray []GetEncryptionInput
+
+func (GetEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEncryption)(nil)).Elem()
+}
+
+func (i GetEncryptionArray) ToGetEncryptionArrayOutput() GetEncryptionArrayOutput {
+	return i.ToGetEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetEncryptionArray) ToGetEncryptionArrayOutputWithContext(ctx context.Context) GetEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEncryptionArrayOutput)
+}
+
+type GetEncryptionOutput struct{ *pulumi.OutputState }
+
+func (GetEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEncryption)(nil)).Elem()
+}
+
+func (o GetEncryptionOutput) ToGetEncryptionOutput() GetEncryptionOutput {
+	return o
+}
+
+func (o GetEncryptionOutput) ToGetEncryptionOutputWithContext(ctx context.Context) GetEncryptionOutput {
+	return o
+}
+
+// An `identity` block as defined below.
+func (o GetEncryptionOutput) Identities() GetEncryptionIdentityArrayOutput {
+	return o.ApplyT(func(v GetEncryption) []GetEncryptionIdentity { return v.Identities }).(GetEncryptionIdentityArrayOutput)
+}
+
+// The URI specifying the Key vault and key to be used to encrypt data in this resource.
+func (o GetEncryptionOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEncryption) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+type GetEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEncryption)(nil)).Elem()
+}
+
+func (o GetEncryptionArrayOutput) ToGetEncryptionArrayOutput() GetEncryptionArrayOutput {
+	return o
+}
+
+func (o GetEncryptionArrayOutput) ToGetEncryptionArrayOutputWithContext(ctx context.Context) GetEncryptionArrayOutput {
+	return o
+}
+
+func (o GetEncryptionArrayOutput) Index(i pulumi.IntInput) GetEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEncryption {
+		return vs[0].([]GetEncryption)[vs[1].(int)]
+	}).(GetEncryptionOutput)
+}
+
+type GetEncryptionIdentity struct {
+	// The User Assigned Identity ID that is assigned to this Load Test Encryption.
+	IdentityId string `pulumi:"identityId"`
+	// Type of Managed Service Identity that is assigned to this Load Test Encryption.
+	Type string `pulumi:"type"`
+}
+
+// GetEncryptionIdentityInput is an input type that accepts GetEncryptionIdentityArgs and GetEncryptionIdentityOutput values.
+// You can construct a concrete instance of `GetEncryptionIdentityInput` via:
+//
+//	GetEncryptionIdentityArgs{...}
+type GetEncryptionIdentityInput interface {
+	pulumi.Input
+
+	ToGetEncryptionIdentityOutput() GetEncryptionIdentityOutput
+	ToGetEncryptionIdentityOutputWithContext(context.Context) GetEncryptionIdentityOutput
+}
+
+type GetEncryptionIdentityArgs struct {
+	// The User Assigned Identity ID that is assigned to this Load Test Encryption.
+	IdentityId pulumi.StringInput `pulumi:"identityId"`
+	// Type of Managed Service Identity that is assigned to this Load Test Encryption.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetEncryptionIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEncryptionIdentity)(nil)).Elem()
+}
+
+func (i GetEncryptionIdentityArgs) ToGetEncryptionIdentityOutput() GetEncryptionIdentityOutput {
+	return i.ToGetEncryptionIdentityOutputWithContext(context.Background())
+}
+
+func (i GetEncryptionIdentityArgs) ToGetEncryptionIdentityOutputWithContext(ctx context.Context) GetEncryptionIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEncryptionIdentityOutput)
+}
+
+// GetEncryptionIdentityArrayInput is an input type that accepts GetEncryptionIdentityArray and GetEncryptionIdentityArrayOutput values.
+// You can construct a concrete instance of `GetEncryptionIdentityArrayInput` via:
+//
+//	GetEncryptionIdentityArray{ GetEncryptionIdentityArgs{...} }
+type GetEncryptionIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetEncryptionIdentityArrayOutput() GetEncryptionIdentityArrayOutput
+	ToGetEncryptionIdentityArrayOutputWithContext(context.Context) GetEncryptionIdentityArrayOutput
+}
+
+type GetEncryptionIdentityArray []GetEncryptionIdentityInput
+
+func (GetEncryptionIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEncryptionIdentity)(nil)).Elem()
+}
+
+func (i GetEncryptionIdentityArray) ToGetEncryptionIdentityArrayOutput() GetEncryptionIdentityArrayOutput {
+	return i.ToGetEncryptionIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetEncryptionIdentityArray) ToGetEncryptionIdentityArrayOutputWithContext(ctx context.Context) GetEncryptionIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEncryptionIdentityArrayOutput)
+}
+
+type GetEncryptionIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetEncryptionIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEncryptionIdentity)(nil)).Elem()
+}
+
+func (o GetEncryptionIdentityOutput) ToGetEncryptionIdentityOutput() GetEncryptionIdentityOutput {
+	return o
+}
+
+func (o GetEncryptionIdentityOutput) ToGetEncryptionIdentityOutputWithContext(ctx context.Context) GetEncryptionIdentityOutput {
+	return o
+}
+
+// The User Assigned Identity ID that is assigned to this Load Test Encryption.
+func (o GetEncryptionIdentityOutput) IdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEncryptionIdentity) string { return v.IdentityId }).(pulumi.StringOutput)
+}
+
+// Type of Managed Service Identity that is assigned to this Load Test Encryption.
+func (o GetEncryptionIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEncryptionIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetEncryptionIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEncryptionIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEncryptionIdentity)(nil)).Elem()
+}
+
+func (o GetEncryptionIdentityArrayOutput) ToGetEncryptionIdentityArrayOutput() GetEncryptionIdentityArrayOutput {
+	return o
+}
+
+func (o GetEncryptionIdentityArrayOutput) ToGetEncryptionIdentityArrayOutputWithContext(ctx context.Context) GetEncryptionIdentityArrayOutput {
+	return o
+}
+
+func (o GetEncryptionIdentityArrayOutput) Index(i pulumi.IntInput) GetEncryptionIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEncryptionIdentity {
+		return vs[0].([]GetEncryptionIdentity)[vs[1].(int)]
+	}).(GetEncryptionIdentityOutput)
+}
+
+type GetIdentity struct {
+	// The list of the User Assigned Identity IDs that is assigned to this Load Test Service.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+	TenantId string `pulumi:"tenantId"`
+	// Type of Managed Service Identity that is assigned to this Load Test Encryption.
+	Type string `pulumi:"type"`
+}
+
+// GetIdentityInput is an input type that accepts GetIdentityArgs and GetIdentityOutput values.
+// You can construct a concrete instance of `GetIdentityInput` via:
+//
+//	GetIdentityArgs{...}
+type GetIdentityInput interface {
+	pulumi.Input
+
+	ToGetIdentityOutput() GetIdentityOutput
+	ToGetIdentityOutputWithContext(context.Context) GetIdentityOutput
+}
+
+type GetIdentityArgs struct {
+	// The list of the User Assigned Identity IDs that is assigned to this Load Test Service.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// Type of Managed Service Identity that is assigned to this Load Test Encryption.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentity)(nil)).Elem()
+}
+
+func (i GetIdentityArgs) ToGetIdentityOutput() GetIdentityOutput {
+	return i.ToGetIdentityOutputWithContext(context.Background())
+}
+
+func (i GetIdentityArgs) ToGetIdentityOutputWithContext(ctx context.Context) GetIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityOutput)
+}
+
+// GetIdentityArrayInput is an input type that accepts GetIdentityArray and GetIdentityArrayOutput values.
+// You can construct a concrete instance of `GetIdentityArrayInput` via:
+//
+//	GetIdentityArray{ GetIdentityArgs{...} }
+type GetIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetIdentityArrayOutput() GetIdentityArrayOutput
+	ToGetIdentityArrayOutputWithContext(context.Context) GetIdentityArrayOutput
+}
+
+type GetIdentityArray []GetIdentityInput
+
+func (GetIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentity)(nil)).Elem()
+}
+
+func (i GetIdentityArray) ToGetIdentityArrayOutput() GetIdentityArrayOutput {
+	return i.ToGetIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetIdentityArray) ToGetIdentityArrayOutputWithContext(ctx context.Context) GetIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityArrayOutput)
+}
+
+type GetIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentity)(nil)).Elem()
+}
+
+func (o GetIdentityOutput) ToGetIdentityOutput() GetIdentityOutput {
+	return o
+}
+
+func (o GetIdentityOutput) ToGetIdentityOutputWithContext(ctx context.Context) GetIdentityOutput {
+	return o
+}
+
+// The list of the User Assigned Identity IDs that is assigned to this Load Test Service.
+func (o GetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+func (o GetIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+func (o GetIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// Type of Managed Service Identity that is assigned to this Load Test Encryption.
+func (o GetIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentity)(nil)).Elem()
+}
+
+func (o GetIdentityArrayOutput) ToGetIdentityArrayOutput() GetIdentityArrayOutput {
+	return o
+}
+
+func (o GetIdentityArrayOutput) ToGetIdentityArrayOutputWithContext(ctx context.Context) GetIdentityArrayOutput {
+	return o
+}
+
+func (o GetIdentityArrayOutput) Index(i pulumi.IntInput) GetIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIdentity {
+		return vs[0].([]GetIdentity)[vs[1].(int)]
+	}).(GetIdentityOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestEncryptionInput)(nil)).Elem(), LoadTestEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestEncryptionPtrInput)(nil)).Elem(), LoadTestEncryptionArgs{})
@@ -530,10 +866,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestEncryptionIdentityPtrInput)(nil)).Elem(), LoadTestEncryptionIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestIdentityInput)(nil)).Elem(), LoadTestIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadTestIdentityPtrInput)(nil)).Elem(), LoadTestIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEncryptionInput)(nil)).Elem(), GetEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEncryptionArrayInput)(nil)).Elem(), GetEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEncryptionIdentityInput)(nil)).Elem(), GetEncryptionIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEncryptionIdentityArrayInput)(nil)).Elem(), GetEncryptionIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityInput)(nil)).Elem(), GetIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityArrayInput)(nil)).Elem(), GetIdentityArray{})
 	pulumi.RegisterOutputType(LoadTestEncryptionOutput{})
 	pulumi.RegisterOutputType(LoadTestEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(LoadTestEncryptionIdentityOutput{})
 	pulumi.RegisterOutputType(LoadTestEncryptionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(LoadTestIdentityOutput{})
 	pulumi.RegisterOutputType(LoadTestIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GetEncryptionOutput{})
+	pulumi.RegisterOutputType(GetEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(GetEncryptionIdentityOutput{})
+	pulumi.RegisterOutputType(GetEncryptionIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetIdentityOutput{})
+	pulumi.RegisterOutputType(GetIdentityArrayOutput{})
 }

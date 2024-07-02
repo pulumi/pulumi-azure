@@ -12,6 +12,7 @@ import com.pulumi.azure.backup.outputs.PolicyVMRetentionDaily;
 import com.pulumi.azure.backup.outputs.PolicyVMRetentionMonthly;
 import com.pulumi.azure.backup.outputs.PolicyVMRetentionWeekly;
 import com.pulumi.azure.backup.outputs.PolicyVMRetentionYearly;
+import com.pulumi.azure.backup.outputs.PolicyVMTieringPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -281,6 +282,20 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<PolicyVMRetentionYearly>> retentionYearly() {
         return Codegen.optional(this.retentionYearly);
+    }
+    /**
+     * A `tiering_policy` block as defined below.
+     * 
+     */
+    @Export(name="tieringPolicy", refs={PolicyVMTieringPolicy.class}, tree="[0]")
+    private Output</* @Nullable */ PolicyVMTieringPolicy> tieringPolicy;
+
+    /**
+     * @return A `tiering_policy` block as defined below.
+     * 
+     */
+    public Output<Optional<PolicyVMTieringPolicy>> tieringPolicy() {
+        return Codegen.optional(this.tieringPolicy);
     }
     /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
