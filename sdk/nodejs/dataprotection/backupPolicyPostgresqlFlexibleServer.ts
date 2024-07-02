@@ -9,6 +9,81 @@ import * as utilities from "../utilities";
 /**
  * Manages a Backup Policy to back up PostgreSQL Flexible Server.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     name: "example-backup-vault",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     datastoreType: "VaultStore",
+ *     redundancy: "LocallyRedundant",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleBackupPolicyPostgresqlFlexibleServer = new azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example", {
+ *     name: "example-backup-policy",
+ *     vaultId: exampleBackupVault.id,
+ *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
+ *     timeZone: "India Standard Time",
+ *     defaultRetentionRule: {
+ *         lifeCycles: [{
+ *             duration: "P4M",
+ *             dataStoreType: "VaultStore",
+ *         }],
+ *     },
+ *     retentionRules: [
+ *         {
+ *             name: "weekly",
+ *             lifeCycles: [{
+ *                 duration: "P6M",
+ *                 dataStoreType: "VaultStore",
+ *             }],
+ *             priority: 20,
+ *             criteria: {
+ *                 absoluteCriteria: "FirstOfWeek",
+ *             },
+ *         },
+ *         {
+ *             name: "thursday",
+ *             lifeCycles: [{
+ *                 duration: "P1W",
+ *                 dataStoreType: "VaultStore",
+ *             }],
+ *             priority: 25,
+ *             criteria: {
+ *                 daysOfWeeks: ["Thursday"],
+ *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
+ *             },
+ *         },
+ *         {
+ *             name: "monthly",
+ *             lifeCycles: [{
+ *                 duration: "P1D",
+ *                 dataStoreType: "VaultStore",
+ *             }],
+ *             priority: 15,
+ *             criteria: {
+ *                 weeksOfMonths: [
+ *                     "First",
+ *                     "Last",
+ *                 ],
+ *                 daysOfWeeks: ["Tuesday"],
+ *                 scheduledBackupTimes: ["2021-05-23T02:30:00Z"],
+ *             },
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Backup Policy PostgreSQL Flexible Server's can be imported using the `resource id`, e.g.

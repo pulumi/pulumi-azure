@@ -25,6 +25,12 @@ namespace Pulumi.Azure.RedHatOpenShift.Inputs
         public Input<string> PodCidr { get; set; } = null!;
 
         /// <summary>
+        /// Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("preconfiguredNetworkSecurityGroupEnabled")]
+        public Input<bool>? PreconfiguredNetworkSecurityGroupEnabled { get; set; }
+
+        /// <summary>
         /// The network range used by the OpenShift service. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceCidr", required: true)]

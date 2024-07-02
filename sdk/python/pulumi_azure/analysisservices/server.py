@@ -24,6 +24,7 @@ class ServerArgs:
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 power_bi_service_enabled: Optional[pulumi.Input[bool]] = None,
                  querypool_connection_mode: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -46,6 +47,9 @@ class ServerArgs:
         if backup_blob_container_uri is not None:
             pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
         if enable_power_bi_service is not None:
+            warnings.warn("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_power_bi_service is deprecated: The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_power_bi_service is not None:
             pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
         if ipv4_firewall_rules is not None:
             pulumi.set(__self__, "ipv4_firewall_rules", ipv4_firewall_rules)
@@ -53,6 +57,8 @@ class ServerArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if power_bi_service_enabled is not None:
+            pulumi.set(__self__, "power_bi_service_enabled", power_bi_service_enabled)
         if querypool_connection_mode is not None:
             pulumi.set(__self__, "querypool_connection_mode", querypool_connection_mode)
         if tags is not None:
@@ -108,6 +114,7 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="enablePowerBiService")
+    @_utilities.deprecated("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_power_bi_service(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates if the Power BI service is allowed to access or not.
@@ -155,6 +162,15 @@ class ServerArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="powerBiServiceEnabled")
+    def power_bi_service_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "power_bi_service_enabled")
+
+    @power_bi_service_enabled.setter
+    def power_bi_service_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "power_bi_service_enabled", value)
+
+    @property
     @pulumi.getter(name="querypoolConnectionMode")
     def querypool_connection_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -188,6 +204,7 @@ class _ServerState:
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 power_bi_service_enabled: Optional[pulumi.Input[bool]] = None,
                  querypool_connection_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_full_name: Optional[pulumi.Input[str]] = None,
@@ -212,6 +229,9 @@ class _ServerState:
         if backup_blob_container_uri is not None:
             pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
         if enable_power_bi_service is not None:
+            warnings.warn("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_power_bi_service is deprecated: The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_power_bi_service is not None:
             pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
         if ipv4_firewall_rules is not None:
             pulumi.set(__self__, "ipv4_firewall_rules", ipv4_firewall_rules)
@@ -219,6 +239,8 @@ class _ServerState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if power_bi_service_enabled is not None:
+            pulumi.set(__self__, "power_bi_service_enabled", power_bi_service_enabled)
         if querypool_connection_mode is not None:
             pulumi.set(__self__, "querypool_connection_mode", querypool_connection_mode)
         if resource_group_name is not None:
@@ -256,6 +278,7 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="enablePowerBiService")
+    @_utilities.deprecated("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_power_bi_service(self) -> Optional[pulumi.Input[bool]]:
         """
         Indicates if the Power BI service is allowed to access or not.
@@ -301,6 +324,15 @@ class _ServerState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="powerBiServiceEnabled")
+    def power_bi_service_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "power_bi_service_enabled")
+
+    @power_bi_service_enabled.setter
+    def power_bi_service_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "power_bi_service_enabled", value)
 
     @property
     @pulumi.getter(name="querypoolConnectionMode")
@@ -374,6 +406,7 @@ class Server(pulumi.CustomResource):
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 power_bi_service_enabled: Optional[pulumi.Input[bool]] = None,
                  querypool_connection_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -497,6 +530,7 @@ class Server(pulumi.CustomResource):
                  ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 power_bi_service_enabled: Optional[pulumi.Input[bool]] = None,
                  querypool_connection_mode: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
@@ -516,6 +550,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["ipv4_firewall_rules"] = ipv4_firewall_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["power_bi_service_enabled"] = power_bi_service_enabled
             __props__.__dict__["querypool_connection_mode"] = querypool_connection_mode
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -543,6 +578,7 @@ class Server(pulumi.CustomResource):
             ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerIpv4FirewallRuleArgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            power_bi_service_enabled: Optional[pulumi.Input[bool]] = None,
             querypool_connection_mode: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             server_full_name: Optional[pulumi.Input[str]] = None,
@@ -577,6 +613,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["ipv4_firewall_rules"] = ipv4_firewall_rules
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["power_bi_service_enabled"] = power_bi_service_enabled
         __props__.__dict__["querypool_connection_mode"] = querypool_connection_mode
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["server_full_name"] = server_full_name
@@ -602,7 +639,8 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePowerBiService")
-    def enable_power_bi_service(self) -> pulumi.Output[Optional[bool]]:
+    @_utilities.deprecated("""The property `enable_power_bi_service` has been superseded by `power_bi_service_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+    def enable_power_bi_service(self) -> pulumi.Output[bool]:
         """
         Indicates if the Power BI service is allowed to access or not.
         """
@@ -631,6 +669,11 @@ class Server(pulumi.CustomResource):
         The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="powerBiServiceEnabled")
+    def power_bi_service_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "power_bi_service_enabled")
 
     @property
     @pulumi.getter(name="querypoolConnectionMode")

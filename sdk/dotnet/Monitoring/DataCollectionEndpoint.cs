@@ -69,6 +69,12 @@ namespace Pulumi.Azure.Monitoring
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The immutable ID of the Data Collection Endpoint.
+        /// </summary>
+        [Output("immutableId")]
+        public Output<string> ImmutableId { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
         /// </summary>
         [Output("kind")]
@@ -223,6 +229,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The immutable ID of the Data Collection Endpoint.
+        /// </summary>
+        [Input("immutableId")]
+        public Input<string>? ImmutableId { get; set; }
 
         /// <summary>
         /// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.

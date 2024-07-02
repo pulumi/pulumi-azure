@@ -48,6 +48,21 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The immutable ID of the Data Collection Endpoint.
+     * 
+     */
+    @Import(name="immutableId")
+    private @Nullable Output<String> immutableId;
+
+    /**
+     * @return The immutable ID of the Data Collection Endpoint.
+     * 
+     */
+    public Optional<Output<String>> immutableId() {
+        return Optional.ofNullable(this.immutableId);
+    }
+
+    /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      * 
      */
@@ -157,6 +172,7 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
     private DataCollectionEndpointState(DataCollectionEndpointState $) {
         this.configurationAccessEndpoint = $.configurationAccessEndpoint;
         this.description = $.description;
+        this.immutableId = $.immutableId;
         this.kind = $.kind;
         this.location = $.location;
         this.logsIngestionEndpoint = $.logsIngestionEndpoint;
@@ -224,6 +240,27 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param immutableId The immutable ID of the Data Collection Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutableId(@Nullable Output<String> immutableId) {
+            $.immutableId = immutableId;
+            return this;
+        }
+
+        /**
+         * @param immutableId The immutable ID of the Data Collection Endpoint.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder immutableId(String immutableId) {
+            return immutableId(Output.of(immutableId));
         }
 
         /**

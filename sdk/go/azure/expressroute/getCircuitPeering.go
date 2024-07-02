@@ -11,9 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an ExpressRoute Circuit Peering.
+// Use this data source to access information about an existing ExpressRoute Circuit Peering.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/expressroute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := expressroute.GetCircuitPeering(ctx, &expressroute.GetCircuitPeeringArgs{
+//				PeeringType:             "example-peering",
+//				ExpressRouteCircuitName: "example-expressroute",
+//				ResourceGroupName:       "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetCircuitPeering(ctx *pulumi.Context, args *GetCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*GetCircuitPeeringResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCircuitPeeringResult

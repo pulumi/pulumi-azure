@@ -16,7 +16,8 @@ class ServerTransparentDataEncryptionArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
-                 key_vault_key_id: Optional[pulumi.Input[str]] = None):
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerTransparentDataEncryption resource.
         :param pulumi.Input[str] server_id: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
@@ -32,6 +33,8 @@ class ServerTransparentDataEncryptionArgs:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
 
     @property
     @pulumi.getter(name="serverId")
@@ -73,12 +76,22 @@ class ServerTransparentDataEncryptionArgs:
     def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
+
 
 @pulumi.input_type
 class _ServerTransparentDataEncryptionState:
     def __init__(__self__, *,
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
@@ -94,6 +107,8 @@ class _ServerTransparentDataEncryptionState:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if managed_hsm_key_id is not None:
+            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
 
@@ -126,6 +141,15 @@ class _ServerTransparentDataEncryptionState:
         pulumi.set(self, "key_vault_key_id", value)
 
     @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "managed_hsm_key_id")
+
+    @managed_hsm_key_id.setter
+    def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_hsm_key_id", value)
+
+    @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -145,6 +169,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -428,6 +453,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -440,6 +466,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
 
             __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
@@ -455,6 +482,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+            managed_hsm_key_id: Optional[pulumi.Input[str]] = None,
             server_id: Optional[pulumi.Input[str]] = None) -> 'ServerTransparentDataEncryption':
         """
         Get an existing ServerTransparentDataEncryption resource's state with the given name, id, and optional extra
@@ -477,6 +505,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
 
         __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
+        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["server_id"] = server_id
         return ServerTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
 
@@ -499,6 +528,11 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         > **NOTE:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="managedHsmKeyId")
+    def managed_hsm_key_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "managed_hsm_key_id")
 
     @property
     @pulumi.getter(name="serverId")

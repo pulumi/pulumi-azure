@@ -62,14 +62,24 @@ type LookupCertificateArgs struct {
 type LookupCertificateResult struct {
 	// The path to the certificate file of the certificate.
 	CertificateVirtualPath string `pulumi:"certificateVirtualPath"`
+	// The error code of the certificate error, if any.
+	ErrorCode string `pulumi:"errorCode"`
+	// The error message of the certificate error, if any.
+	ErrorMessage string `pulumi:"errorMessage"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The date/time the certificate was created in Azure Key Vault.
+	KeyVaultSecretCreationDate string `pulumi:"keyVaultSecretCreationDate"`
 	// The ID of the Key Vault Secret for the certificate.
 	KeyVaultSecretId string `pulumi:"keyVaultSecretId"`
+	// The version of the certificate.
+	KeyVaultSecretVersion string `pulumi:"keyVaultSecretVersion"`
 	// The path to the key file of the certificate.
 	KeyVirtualPath    string `pulumi:"keyVirtualPath"`
 	Name              string `pulumi:"name"`
 	NginxDeploymentId string `pulumi:"nginxDeploymentId"`
+	// The SHA-1 thumbprint of the certificate.
+	Sha1Thumbprint string `pulumi:"sha1Thumbprint"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -117,14 +127,34 @@ func (o LookupCertificateResultOutput) CertificateVirtualPath() pulumi.StringOut
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateVirtualPath }).(pulumi.StringOutput)
 }
 
+// The error code of the certificate error, if any.
+func (o LookupCertificateResultOutput) ErrorCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ErrorCode }).(pulumi.StringOutput)
+}
+
+// The error message of the certificate error, if any.
+func (o LookupCertificateResultOutput) ErrorMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.ErrorMessage }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The date/time the certificate was created in Azure Key Vault.
+func (o LookupCertificateResultOutput) KeyVaultSecretCreationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.KeyVaultSecretCreationDate }).(pulumi.StringOutput)
+}
+
 // The ID of the Key Vault Secret for the certificate.
 func (o LookupCertificateResultOutput) KeyVaultSecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.KeyVaultSecretId }).(pulumi.StringOutput)
+}
+
+// The version of the certificate.
+func (o LookupCertificateResultOutput) KeyVaultSecretVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.KeyVaultSecretVersion }).(pulumi.StringOutput)
 }
 
 // The path to the key file of the certificate.
@@ -138,6 +168,11 @@ func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupCertificateResultOutput) NginxDeploymentId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.NginxDeploymentId }).(pulumi.StringOutput)
+}
+
+// The SHA-1 thumbprint of the certificate.
+func (o LookupCertificateResultOutput) Sha1Thumbprint() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Sha1Thumbprint }).(pulumi.StringOutput)
 }
 
 func init() {

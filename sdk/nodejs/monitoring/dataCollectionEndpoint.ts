@@ -75,6 +75,10 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The immutable ID of the Data Collection Endpoint.
+     */
+    public /*out*/ readonly immutableId!: pulumi.Output<string>;
+    /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             const state = argsOrState as DataCollectionEndpointState | undefined;
             resourceInputs["configurationAccessEndpoint"] = state ? state.configurationAccessEndpoint : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["immutableId"] = state ? state.immutableId : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["logsIngestionEndpoint"] = state ? state.logsIngestionEndpoint : undefined;
@@ -138,6 +143,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["configurationAccessEndpoint"] = undefined /*out*/;
+            resourceInputs["immutableId"] = undefined /*out*/;
             resourceInputs["logsIngestionEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -157,6 +163,10 @@ export interface DataCollectionEndpointState {
      * Specifies a description for the Data Collection Endpoint.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The immutable ID of the Data Collection Endpoint.
+     */
+    immutableId?: pulumi.Input<string>;
     /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      */

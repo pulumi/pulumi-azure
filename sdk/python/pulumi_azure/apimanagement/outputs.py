@@ -4990,7 +4990,7 @@ class ServiceAdditionalLocation(dict):
                > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
         :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
-        :param Sequence[str] zones: A list of availability zones. Changing this forces a new resource to be created.
+        :param Sequence[str] zones: A list of availability zones.
         """
         pulumi.set(__self__, "location", location)
         if capacity is not None:
@@ -5080,7 +5080,7 @@ class ServiceAdditionalLocation(dict):
     @pulumi.getter
     def zones(self) -> Optional[Sequence[str]]:
         """
-        A list of availability zones. Changing this forces a new resource to be created.
+        A list of availability zones.
         """
         return pulumi.get(self, "zones")
 

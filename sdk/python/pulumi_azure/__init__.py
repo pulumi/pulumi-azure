@@ -3971,6 +3971,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "desktopvirtualization/scalingPlanHostPoolAssociation",
+  "fqn": "pulumi_azure.desktopvirtualization",
+  "classes": {
+   "azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation": "ScalingPlanHostPoolAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "desktopvirtualization/workspace",
   "fqn": "pulumi_azure.desktopvirtualization",
   "classes": {

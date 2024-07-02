@@ -5,6 +5,7 @@ package com.pulumi.azure.redhatopenshift.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +23,11 @@ public final class ClusterNetworkProfile {
      * 
      */
     private String podCidr;
+    /**
+     * @return Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable Boolean preconfiguredNetworkSecurityGroupEnabled;
     /**
      * @return The network range used by the OpenShift service. Changing this forces a new resource to be created.
      * 
@@ -44,6 +50,13 @@ public final class ClusterNetworkProfile {
         return this.podCidr;
     }
     /**
+     * @return Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Boolean> preconfiguredNetworkSecurityGroupEnabled() {
+        return Optional.ofNullable(this.preconfiguredNetworkSecurityGroupEnabled);
+    }
+    /**
      * @return The network range used by the OpenShift service. Changing this forces a new resource to be created.
      * 
      */
@@ -62,12 +75,14 @@ public final class ClusterNetworkProfile {
     public static final class Builder {
         private @Nullable String outboundType;
         private String podCidr;
+        private @Nullable Boolean preconfiguredNetworkSecurityGroupEnabled;
         private String serviceCidr;
         public Builder() {}
         public Builder(ClusterNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.outboundType = defaults.outboundType;
     	      this.podCidr = defaults.podCidr;
+    	      this.preconfiguredNetworkSecurityGroupEnabled = defaults.preconfiguredNetworkSecurityGroupEnabled;
     	      this.serviceCidr = defaults.serviceCidr;
         }
 
@@ -86,6 +101,12 @@ public final class ClusterNetworkProfile {
             return this;
         }
         @CustomType.Setter
+        public Builder preconfiguredNetworkSecurityGroupEnabled(@Nullable Boolean preconfiguredNetworkSecurityGroupEnabled) {
+
+            this.preconfiguredNetworkSecurityGroupEnabled = preconfiguredNetworkSecurityGroupEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceCidr(String serviceCidr) {
             if (serviceCidr == null) {
               throw new MissingRequiredPropertyException("ClusterNetworkProfile", "serviceCidr");
@@ -97,6 +118,7 @@ public final class ClusterNetworkProfile {
             final var _resultValue = new ClusterNetworkProfile();
             _resultValue.outboundType = outboundType;
             _resultValue.podCidr = podCidr;
+            _resultValue.preconfiguredNetworkSecurityGroupEnabled = preconfiguredNetworkSecurityGroupEnabled;
             _resultValue.serviceCidr = serviceCidr;
             return _resultValue;
         }

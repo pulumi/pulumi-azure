@@ -501,14 +501,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.skuName;
     }
     /**
-     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
+     * Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
      * 
      */
     @Export(name="storageAccountType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAccountType;
 
     /**
-     * @return Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`.
+     * @return Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
      * 
      */
     public Output<Optional<String>> storageAccountType() {

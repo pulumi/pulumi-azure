@@ -2272,6 +2272,318 @@ func (o PolicyVMRetentionYearlyPtrOutput) Weeks() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type PolicyVMTieringPolicy struct {
+	// An `archivedRestorePoint` block as defined below.
+	ArchivedRestorePoint PolicyVMTieringPolicyArchivedRestorePoint `pulumi:"archivedRestorePoint"`
+}
+
+// PolicyVMTieringPolicyInput is an input type that accepts PolicyVMTieringPolicyArgs and PolicyVMTieringPolicyOutput values.
+// You can construct a concrete instance of `PolicyVMTieringPolicyInput` via:
+//
+//	PolicyVMTieringPolicyArgs{...}
+type PolicyVMTieringPolicyInput interface {
+	pulumi.Input
+
+	ToPolicyVMTieringPolicyOutput() PolicyVMTieringPolicyOutput
+	ToPolicyVMTieringPolicyOutputWithContext(context.Context) PolicyVMTieringPolicyOutput
+}
+
+type PolicyVMTieringPolicyArgs struct {
+	// An `archivedRestorePoint` block as defined below.
+	ArchivedRestorePoint PolicyVMTieringPolicyArchivedRestorePointInput `pulumi:"archivedRestorePoint"`
+}
+
+func (PolicyVMTieringPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMTieringPolicy)(nil)).Elem()
+}
+
+func (i PolicyVMTieringPolicyArgs) ToPolicyVMTieringPolicyOutput() PolicyVMTieringPolicyOutput {
+	return i.ToPolicyVMTieringPolicyOutputWithContext(context.Background())
+}
+
+func (i PolicyVMTieringPolicyArgs) ToPolicyVMTieringPolicyOutputWithContext(ctx context.Context) PolicyVMTieringPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMTieringPolicyOutput)
+}
+
+func (i PolicyVMTieringPolicyArgs) ToPolicyVMTieringPolicyPtrOutput() PolicyVMTieringPolicyPtrOutput {
+	return i.ToPolicyVMTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMTieringPolicyArgs) ToPolicyVMTieringPolicyPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMTieringPolicyOutput).ToPolicyVMTieringPolicyPtrOutputWithContext(ctx)
+}
+
+// PolicyVMTieringPolicyPtrInput is an input type that accepts PolicyVMTieringPolicyArgs, PolicyVMTieringPolicyPtr and PolicyVMTieringPolicyPtrOutput values.
+// You can construct a concrete instance of `PolicyVMTieringPolicyPtrInput` via:
+//
+//	        PolicyVMTieringPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMTieringPolicyPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMTieringPolicyPtrOutput() PolicyVMTieringPolicyPtrOutput
+	ToPolicyVMTieringPolicyPtrOutputWithContext(context.Context) PolicyVMTieringPolicyPtrOutput
+}
+
+type policyVMTieringPolicyPtrType PolicyVMTieringPolicyArgs
+
+func PolicyVMTieringPolicyPtr(v *PolicyVMTieringPolicyArgs) PolicyVMTieringPolicyPtrInput {
+	return (*policyVMTieringPolicyPtrType)(v)
+}
+
+func (*policyVMTieringPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMTieringPolicy)(nil)).Elem()
+}
+
+func (i *policyVMTieringPolicyPtrType) ToPolicyVMTieringPolicyPtrOutput() PolicyVMTieringPolicyPtrOutput {
+	return i.ToPolicyVMTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMTieringPolicyPtrType) ToPolicyVMTieringPolicyPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMTieringPolicyPtrOutput)
+}
+
+type PolicyVMTieringPolicyOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMTieringPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMTieringPolicy)(nil)).Elem()
+}
+
+func (o PolicyVMTieringPolicyOutput) ToPolicyVMTieringPolicyOutput() PolicyVMTieringPolicyOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyOutput) ToPolicyVMTieringPolicyOutputWithContext(ctx context.Context) PolicyVMTieringPolicyOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyOutput) ToPolicyVMTieringPolicyPtrOutput() PolicyVMTieringPolicyPtrOutput {
+	return o.ToPolicyVMTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMTieringPolicyOutput) ToPolicyVMTieringPolicyPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMTieringPolicy) *PolicyVMTieringPolicy {
+		return &v
+	}).(PolicyVMTieringPolicyPtrOutput)
+}
+
+// An `archivedRestorePoint` block as defined below.
+func (o PolicyVMTieringPolicyOutput) ArchivedRestorePoint() PolicyVMTieringPolicyArchivedRestorePointOutput {
+	return o.ApplyT(func(v PolicyVMTieringPolicy) PolicyVMTieringPolicyArchivedRestorePoint { return v.ArchivedRestorePoint }).(PolicyVMTieringPolicyArchivedRestorePointOutput)
+}
+
+type PolicyVMTieringPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMTieringPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMTieringPolicy)(nil)).Elem()
+}
+
+func (o PolicyVMTieringPolicyPtrOutput) ToPolicyVMTieringPolicyPtrOutput() PolicyVMTieringPolicyPtrOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyPtrOutput) ToPolicyVMTieringPolicyPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyPtrOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyPtrOutput) Elem() PolicyVMTieringPolicyOutput {
+	return o.ApplyT(func(v *PolicyVMTieringPolicy) PolicyVMTieringPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMTieringPolicy
+		return ret
+	}).(PolicyVMTieringPolicyOutput)
+}
+
+// An `archivedRestorePoint` block as defined below.
+func (o PolicyVMTieringPolicyPtrOutput) ArchivedRestorePoint() PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return o.ApplyT(func(v *PolicyVMTieringPolicy) *PolicyVMTieringPolicyArchivedRestorePoint {
+		if v == nil {
+			return nil
+		}
+		return &v.ArchivedRestorePoint
+	}).(PolicyVMTieringPolicyArchivedRestorePointPtrOutput)
+}
+
+type PolicyVMTieringPolicyArchivedRestorePoint struct {
+	// The number of days/weeks/months/years to retain backups in current tier before tiering.
+	Duration *int `pulumi:"duration"`
+	// The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+	DurationType *string `pulumi:"durationType"`
+	// The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+	Mode string `pulumi:"mode"`
+}
+
+// PolicyVMTieringPolicyArchivedRestorePointInput is an input type that accepts PolicyVMTieringPolicyArchivedRestorePointArgs and PolicyVMTieringPolicyArchivedRestorePointOutput values.
+// You can construct a concrete instance of `PolicyVMTieringPolicyArchivedRestorePointInput` via:
+//
+//	PolicyVMTieringPolicyArchivedRestorePointArgs{...}
+type PolicyVMTieringPolicyArchivedRestorePointInput interface {
+	pulumi.Input
+
+	ToPolicyVMTieringPolicyArchivedRestorePointOutput() PolicyVMTieringPolicyArchivedRestorePointOutput
+	ToPolicyVMTieringPolicyArchivedRestorePointOutputWithContext(context.Context) PolicyVMTieringPolicyArchivedRestorePointOutput
+}
+
+type PolicyVMTieringPolicyArchivedRestorePointArgs struct {
+	// The number of days/weeks/months/years to retain backups in current tier before tiering.
+	Duration pulumi.IntPtrInput `pulumi:"duration"`
+	// The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+	DurationType pulumi.StringPtrInput `pulumi:"durationType"`
+	// The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (PolicyVMTieringPolicyArchivedRestorePointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMTieringPolicyArchivedRestorePoint)(nil)).Elem()
+}
+
+func (i PolicyVMTieringPolicyArchivedRestorePointArgs) ToPolicyVMTieringPolicyArchivedRestorePointOutput() PolicyVMTieringPolicyArchivedRestorePointOutput {
+	return i.ToPolicyVMTieringPolicyArchivedRestorePointOutputWithContext(context.Background())
+}
+
+func (i PolicyVMTieringPolicyArchivedRestorePointArgs) ToPolicyVMTieringPolicyArchivedRestorePointOutputWithContext(ctx context.Context) PolicyVMTieringPolicyArchivedRestorePointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMTieringPolicyArchivedRestorePointOutput)
+}
+
+func (i PolicyVMTieringPolicyArchivedRestorePointArgs) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutput() PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return i.ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMTieringPolicyArchivedRestorePointArgs) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMTieringPolicyArchivedRestorePointOutput).ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(ctx)
+}
+
+// PolicyVMTieringPolicyArchivedRestorePointPtrInput is an input type that accepts PolicyVMTieringPolicyArchivedRestorePointArgs, PolicyVMTieringPolicyArchivedRestorePointPtr and PolicyVMTieringPolicyArchivedRestorePointPtrOutput values.
+// You can construct a concrete instance of `PolicyVMTieringPolicyArchivedRestorePointPtrInput` via:
+//
+//	        PolicyVMTieringPolicyArchivedRestorePointArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMTieringPolicyArchivedRestorePointPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMTieringPolicyArchivedRestorePointPtrOutput() PolicyVMTieringPolicyArchivedRestorePointPtrOutput
+	ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(context.Context) PolicyVMTieringPolicyArchivedRestorePointPtrOutput
+}
+
+type policyVMTieringPolicyArchivedRestorePointPtrType PolicyVMTieringPolicyArchivedRestorePointArgs
+
+func PolicyVMTieringPolicyArchivedRestorePointPtr(v *PolicyVMTieringPolicyArchivedRestorePointArgs) PolicyVMTieringPolicyArchivedRestorePointPtrInput {
+	return (*policyVMTieringPolicyArchivedRestorePointPtrType)(v)
+}
+
+func (*policyVMTieringPolicyArchivedRestorePointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMTieringPolicyArchivedRestorePoint)(nil)).Elem()
+}
+
+func (i *policyVMTieringPolicyArchivedRestorePointPtrType) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutput() PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return i.ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMTieringPolicyArchivedRestorePointPtrType) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMTieringPolicyArchivedRestorePointPtrOutput)
+}
+
+type PolicyVMTieringPolicyArchivedRestorePointOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMTieringPolicyArchivedRestorePointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMTieringPolicyArchivedRestorePoint)(nil)).Elem()
+}
+
+func (o PolicyVMTieringPolicyArchivedRestorePointOutput) ToPolicyVMTieringPolicyArchivedRestorePointOutput() PolicyVMTieringPolicyArchivedRestorePointOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyArchivedRestorePointOutput) ToPolicyVMTieringPolicyArchivedRestorePointOutputWithContext(ctx context.Context) PolicyVMTieringPolicyArchivedRestorePointOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyArchivedRestorePointOutput) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutput() PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return o.ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMTieringPolicyArchivedRestorePointOutput) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMTieringPolicyArchivedRestorePoint) *PolicyVMTieringPolicyArchivedRestorePoint {
+		return &v
+	}).(PolicyVMTieringPolicyArchivedRestorePointPtrOutput)
+}
+
+// The number of days/weeks/months/years to retain backups in current tier before tiering.
+func (o PolicyVMTieringPolicyArchivedRestorePointOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyVMTieringPolicyArchivedRestorePoint) *int { return v.Duration }).(pulumi.IntPtrOutput)
+}
+
+// The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+func (o PolicyVMTieringPolicyArchivedRestorePointOutput) DurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyVMTieringPolicyArchivedRestorePoint) *string { return v.DurationType }).(pulumi.StringPtrOutput)
+}
+
+// The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+func (o PolicyVMTieringPolicyArchivedRestorePointOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyVMTieringPolicyArchivedRestorePoint) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type PolicyVMTieringPolicyArchivedRestorePointPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMTieringPolicyArchivedRestorePointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMTieringPolicyArchivedRestorePoint)(nil)).Elem()
+}
+
+func (o PolicyVMTieringPolicyArchivedRestorePointPtrOutput) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutput() PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyArchivedRestorePointPtrOutput) ToPolicyVMTieringPolicyArchivedRestorePointPtrOutputWithContext(ctx context.Context) PolicyVMTieringPolicyArchivedRestorePointPtrOutput {
+	return o
+}
+
+func (o PolicyVMTieringPolicyArchivedRestorePointPtrOutput) Elem() PolicyVMTieringPolicyArchivedRestorePointOutput {
+	return o.ApplyT(func(v *PolicyVMTieringPolicyArchivedRestorePoint) PolicyVMTieringPolicyArchivedRestorePoint {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMTieringPolicyArchivedRestorePoint
+		return ret
+	}).(PolicyVMTieringPolicyArchivedRestorePointOutput)
+}
+
+// The number of days/weeks/months/years to retain backups in current tier before tiering.
+func (o PolicyVMTieringPolicyArchivedRestorePointPtrOutput) Duration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMTieringPolicyArchivedRestorePoint) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.IntPtrOutput)
+}
+
+// The retention duration type. Possible values are `Days`, `Weeks`, `Months` and `Years`.
+func (o PolicyVMTieringPolicyArchivedRestorePointPtrOutput) DurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVMTieringPolicyArchivedRestorePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tiering mode to control automatic tiering of recovery points. Possible values are `TierAfter` and `TierRecommended`.
+func (o PolicyVMTieringPolicyArchivedRestorePointPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVMTieringPolicyArchivedRestorePoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 type PolicyVMWorkloadProtectionPolicy struct {
 	// A `backup` block as defined below.
 	Backup PolicyVMWorkloadProtectionPolicyBackup `pulumi:"backup"`
@@ -3568,6 +3880,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionWeeklyPtrInput)(nil)).Elem(), PolicyVMRetentionWeeklyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionYearlyInput)(nil)).Elem(), PolicyVMRetentionYearlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionYearlyPtrInput)(nil)).Elem(), PolicyVMRetentionYearlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMTieringPolicyInput)(nil)).Elem(), PolicyVMTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMTieringPolicyPtrInput)(nil)).Elem(), PolicyVMTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMTieringPolicyArchivedRestorePointInput)(nil)).Elem(), PolicyVMTieringPolicyArchivedRestorePointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMTieringPolicyArchivedRestorePointPtrInput)(nil)).Elem(), PolicyVMTieringPolicyArchivedRestorePointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyArrayInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyBackupInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyBackupArgs{})
@@ -3607,6 +3923,10 @@ func init() {
 	pulumi.RegisterOutputType(PolicyVMRetentionWeeklyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionYearlyOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionYearlyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMTieringPolicyOutput{})
+	pulumi.RegisterOutputType(PolicyVMTieringPolicyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMTieringPolicyArchivedRestorePointOutput{})
+	pulumi.RegisterOutputType(PolicyVMTieringPolicyArchivedRestorePointPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyArrayOutput{})
 	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyBackupOutput{})

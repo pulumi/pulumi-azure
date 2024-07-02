@@ -144,7 +144,7 @@ type Automation struct {
 	Scopes pulumi.StringArrayOutput `pulumi:"scopes"`
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources AutomationSourceArrayOutput `pulumi:"sources"`
-	// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -208,7 +208,7 @@ type automationState struct {
 	Scopes []string `pulumi:"scopes"`
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources []AutomationSource `pulumi:"sources"`
-	// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -231,7 +231,7 @@ type AutomationState struct {
 	Scopes pulumi.StringArrayInput
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources AutomationSourceArrayInput
-	// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -258,7 +258,7 @@ type automationArgs struct {
 	Scopes []string `pulumi:"scopes"`
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources []AutomationSource `pulumi:"sources"`
-	// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -282,7 +282,7 @@ type AutomationArgs struct {
 	Scopes pulumi.StringArrayInput
 	// One or more `source` blocks as defined below. A `source` defines what data types will be processed and a set of rules to filter that data.
 	Sources AutomationSourceArrayInput
-	// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+	// A mapping of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 }
 
@@ -415,7 +415,7 @@ func (o AutomationOutput) Sources() AutomationSourceArrayOutput {
 	return o.ApplyT(func(v *Automation) AutomationSourceArrayOutput { return v.Sources }).(AutomationSourceArrayOutput)
 }
 
-// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+// A mapping of tags assigned to the resource.
 func (o AutomationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Automation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

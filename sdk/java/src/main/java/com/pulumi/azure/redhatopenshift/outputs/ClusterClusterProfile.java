@@ -24,6 +24,11 @@ public final class ClusterClusterProfile {
      */
     private @Nullable Boolean fipsEnabled;
     /**
+     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String managedResourceGroupName;
+    /**
      * @return The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
      * 
      */
@@ -53,6 +58,13 @@ public final class ClusterClusterProfile {
      */
     public Optional<Boolean> fipsEnabled() {
         return Optional.ofNullable(this.fipsEnabled);
+    }
+    /**
+     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> managedResourceGroupName() {
+        return Optional.ofNullable(this.managedResourceGroupName);
     }
     /**
      * @return The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
@@ -87,6 +99,7 @@ public final class ClusterClusterProfile {
     public static final class Builder {
         private String domain;
         private @Nullable Boolean fipsEnabled;
+        private @Nullable String managedResourceGroupName;
         private @Nullable String pullSecret;
         private @Nullable String resourceGroupId;
         private String version;
@@ -95,6 +108,7 @@ public final class ClusterClusterProfile {
     	      Objects.requireNonNull(defaults);
     	      this.domain = defaults.domain;
     	      this.fipsEnabled = defaults.fipsEnabled;
+    	      this.managedResourceGroupName = defaults.managedResourceGroupName;
     	      this.pullSecret = defaults.pullSecret;
     	      this.resourceGroupId = defaults.resourceGroupId;
     	      this.version = defaults.version;
@@ -112,6 +126,12 @@ public final class ClusterClusterProfile {
         public Builder fipsEnabled(@Nullable Boolean fipsEnabled) {
 
             this.fipsEnabled = fipsEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder managedResourceGroupName(@Nullable String managedResourceGroupName) {
+
+            this.managedResourceGroupName = managedResourceGroupName;
             return this;
         }
         @CustomType.Setter
@@ -138,6 +158,7 @@ public final class ClusterClusterProfile {
             final var _resultValue = new ClusterClusterProfile();
             _resultValue.domain = domain;
             _resultValue.fipsEnabled = fipsEnabled;
+            _resultValue.managedResourceGroupName = managedResourceGroupName;
             _resultValue.pullSecret = pullSecret;
             _resultValue.resourceGroupId = resourceGroupId;
             _resultValue.version = version;

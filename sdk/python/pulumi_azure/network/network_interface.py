@@ -970,7 +970,7 @@ class NetworkInterface(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="internalDnsNameLabel")
-    def internal_dns_name_label(self) -> pulumi.Output[str]:
+    def internal_dns_name_label(self) -> pulumi.Output[Optional[str]]:
         """
         The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
         """

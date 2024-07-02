@@ -145,14 +145,14 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * A list of availability zones. Changing this forces a new resource to be created.
+     * A list of availability zones.
      * 
      */
     @Import(name="zones")
     private @Nullable Output<List<String>> zones;
 
     /**
-     * @return A list of availability zones. Changing this forces a new resource to be created.
+     * @return A list of availability zones.
      * 
      */
     public Optional<Output<List<String>>> zones() {
@@ -384,7 +384,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param zones A list of availability zones. Changing this forces a new resource to be created.
+         * @param zones A list of availability zones.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param zones A list of availability zones. Changing this forces a new resource to be created.
+         * @param zones A list of availability zones.
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param zones A list of availability zones. Changing this forces a new resource to be created.
+         * @param zones A list of availability zones.
          * 
          * @return builder
          * 

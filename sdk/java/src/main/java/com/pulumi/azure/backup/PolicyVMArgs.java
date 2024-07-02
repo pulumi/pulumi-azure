@@ -9,6 +9,7 @@ import com.pulumi.azure.backup.inputs.PolicyVMRetentionDailyArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMRetentionMonthlyArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMRetentionWeeklyArgs;
 import com.pulumi.azure.backup.inputs.PolicyVMRetentionYearlyArgs;
+import com.pulumi.azure.backup.inputs.PolicyVMTieringPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -193,6 +194,21 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `tiering_policy` block as defined below.
+     * 
+     */
+    @Import(name="tieringPolicy")
+    private @Nullable Output<PolicyVMTieringPolicyArgs> tieringPolicy;
+
+    /**
+     * @return A `tiering_policy` block as defined below.
+     * 
+     */
+    public Optional<Output<PolicyVMTieringPolicyArgs>> tieringPolicy() {
+        return Optional.ofNullable(this.tieringPolicy);
+    }
+
+    /**
      * Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
      * 
      */
@@ -221,6 +237,7 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
         this.retentionMonthly = $.retentionMonthly;
         this.retentionWeekly = $.retentionWeekly;
         this.retentionYearly = $.retentionYearly;
+        this.tieringPolicy = $.tieringPolicy;
         this.timezone = $.timezone;
     }
 
@@ -475,6 +492,27 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder retentionYearly(PolicyVMRetentionYearlyArgs retentionYearly) {
             return retentionYearly(Output.of(retentionYearly));
+        }
+
+        /**
+         * @param tieringPolicy A `tiering_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tieringPolicy(@Nullable Output<PolicyVMTieringPolicyArgs> tieringPolicy) {
+            $.tieringPolicy = tieringPolicy;
+            return this;
+        }
+
+        /**
+         * @param tieringPolicy A `tiering_policy` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tieringPolicy(PolicyVMTieringPolicyArgs tieringPolicy) {
+            return tieringPolicy(Output.of(tieringPolicy));
         }
 
         /**

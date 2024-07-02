@@ -13,6 +13,7 @@ from .get_host_pool_registration_info import *
 from .get_workspace import *
 from .host_pool import *
 from .scaling_plan import *
+from .scaling_plan_host_pool_association import *
 from .workspace import *
 from .workspace_application_group_association import *
 from ._inputs import *

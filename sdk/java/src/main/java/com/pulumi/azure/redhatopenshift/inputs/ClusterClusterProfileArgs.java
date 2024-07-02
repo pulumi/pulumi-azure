@@ -48,6 +48,21 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="managedResourceGroupName")
+    private @Nullable Output<String> managedResourceGroupName;
+
+    /**
+     * @return The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> managedResourceGroupName() {
+        return Optional.ofNullable(this.managedResourceGroupName);
+    }
+
+    /**
      * The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
      * 
      */
@@ -97,6 +112,7 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
     private ClusterClusterProfileArgs(ClusterClusterProfileArgs $) {
         this.domain = $.domain;
         this.fipsEnabled = $.fipsEnabled;
+        this.managedResourceGroupName = $.managedResourceGroupName;
         this.pullSecret = $.pullSecret;
         this.resourceGroupId = $.resourceGroupId;
         this.version = $.version;
@@ -160,6 +176,27 @@ public final class ClusterClusterProfileArgs extends com.pulumi.resources.Resour
          */
         public Builder fipsEnabled(Boolean fipsEnabled) {
             return fipsEnabled(Output.of(fipsEnabled));
+        }
+
+        /**
+         * @param managedResourceGroupName The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedResourceGroupName(@Nullable Output<String> managedResourceGroupName) {
+            $.managedResourceGroupName = managedResourceGroupName;
+            return this;
+        }
+
+        /**
+         * @param managedResourceGroupName The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedResourceGroupName(String managedResourceGroupName) {
+            return managedResourceGroupName(Output.of(managedResourceGroupName));
         }
 
         /**

@@ -253,6 +253,12 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
     public Output<Optional<String>> keyVaultKeyId() {
         return Codegen.optional(this.keyVaultKeyId);
     }
+    @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> managedHsmKeyId;
+
+    public Output<Optional<String>> managedHsmKeyId() {
+        return Codegen.optional(this.managedHsmKeyId);
+    }
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      * 

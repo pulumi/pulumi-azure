@@ -233,14 +233,14 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="internalDnsNameLabel", refs={String.class}, tree="[0]")
-    private Output<String> internalDnsNameLabel;
+    private Output</* @Nullable */ String> internalDnsNameLabel;
 
     /**
      * @return The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
      * 
      */
-    public Output<String> internalDnsNameLabel() {
-        return this.internalDnsNameLabel;
+    public Output<Optional<String>> internalDnsNameLabel() {
+        return Codegen.optional(this.internalDnsNameLabel);
     }
     /**
      * Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`.

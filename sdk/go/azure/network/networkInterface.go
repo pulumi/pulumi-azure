@@ -116,7 +116,7 @@ type NetworkInterface struct {
 	// Deprecated: The property `enableIpForwarding` has been superseded by `ipForwardingEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableIpForwarding pulumi.BoolOutput `pulumi:"enableIpForwarding"`
 	// The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
-	InternalDnsNameLabel pulumi.StringOutput `pulumi:"internalDnsNameLabel"`
+	InternalDnsNameLabel pulumi.StringPtrOutput `pulumi:"internalDnsNameLabel"`
 	// Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.
 	InternalDomainNameSuffix pulumi.StringOutput `pulumi:"internalDomainNameSuffix"`
 	// One or more `ipConfiguration` blocks as defined below.
@@ -507,8 +507,8 @@ func (o NetworkInterfaceOutput) EnableIpForwarding() pulumi.BoolOutput {
 }
 
 // The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network.
-func (o NetworkInterfaceOutput) InternalDnsNameLabel() pulumi.StringOutput {
-	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.InternalDnsNameLabel }).(pulumi.StringOutput)
+func (o NetworkInterfaceOutput) InternalDnsNameLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkInterface) pulumi.StringPtrOutput { return v.InternalDnsNameLabel }).(pulumi.StringPtrOutput)
 }
 
 // Even if `internalDnsNameLabel` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internalDomainNameSuffix`.

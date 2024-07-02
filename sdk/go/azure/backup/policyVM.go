@@ -134,6 +134,8 @@ type PolicyVM struct {
 	RetentionWeekly PolicyVMRetentionWeeklyPtrOutput `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyVMRetentionYearlyPtrOutput `pulumi:"retentionYearly"`
+	// A `tieringPolicy` block as defined below.
+	TieringPolicy PolicyVMTieringPolicyPtrOutput `pulumi:"tieringPolicy"`
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
 }
@@ -201,6 +203,8 @@ type policyVMState struct {
 	RetentionWeekly *PolicyVMRetentionWeekly `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly *PolicyVMRetentionYearly `pulumi:"retentionYearly"`
+	// A `tieringPolicy` block as defined below.
+	TieringPolicy *PolicyVMTieringPolicy `pulumi:"tieringPolicy"`
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
@@ -230,6 +234,8 @@ type PolicyVMState struct {
 	RetentionWeekly PolicyVMRetentionWeeklyPtrInput
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyVMRetentionYearlyPtrInput
+	// A `tieringPolicy` block as defined below.
+	TieringPolicy PolicyVMTieringPolicyPtrInput
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
@@ -263,6 +269,8 @@ type policyVMArgs struct {
 	RetentionWeekly *PolicyVMRetentionWeekly `pulumi:"retentionWeekly"`
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly *PolicyVMRetentionYearly `pulumi:"retentionYearly"`
+	// A `tieringPolicy` block as defined below.
+	TieringPolicy *PolicyVMTieringPolicy `pulumi:"tieringPolicy"`
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone *string `pulumi:"timezone"`
 }
@@ -293,6 +301,8 @@ type PolicyVMArgs struct {
 	RetentionWeekly PolicyVMRetentionWeeklyPtrInput
 	// Configures the policy yearly retention as documented in the `retentionYearly` block below.
 	RetentionYearly PolicyVMRetentionYearlyPtrInput
+	// A `tieringPolicy` block as defined below.
+	TieringPolicy PolicyVMTieringPolicyPtrInput
 	// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
 	Timezone pulumi.StringPtrInput
 }
@@ -439,6 +449,11 @@ func (o PolicyVMOutput) RetentionWeekly() PolicyVMRetentionWeeklyPtrOutput {
 // Configures the policy yearly retention as documented in the `retentionYearly` block below.
 func (o PolicyVMOutput) RetentionYearly() PolicyVMRetentionYearlyPtrOutput {
 	return o.ApplyT(func(v *PolicyVM) PolicyVMRetentionYearlyPtrOutput { return v.RetentionYearly }).(PolicyVMRetentionYearlyPtrOutput)
+}
+
+// A `tieringPolicy` block as defined below.
+func (o PolicyVMOutput) TieringPolicy() PolicyVMTieringPolicyPtrOutput {
+	return o.ApplyT(func(v *PolicyVM) PolicyVMTieringPolicyPtrOutput { return v.TieringPolicy }).(PolicyVMTieringPolicyPtrOutput)
 }
 
 // Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

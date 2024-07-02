@@ -16,15 +16,35 @@ public final class GetCertificateResult {
      */
     private String certificateVirtualPath;
     /**
+     * @return The error code of the certificate error, if any.
+     * 
+     */
+    private String errorCode;
+    /**
+     * @return The error message of the certificate error, if any.
+     * 
+     */
+    private String errorMessage;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
+     * @return The date/time the certificate was created in Azure Key Vault.
+     * 
+     */
+    private String keyVaultSecretCreationDate;
+    /**
      * @return The ID of the Key Vault Secret for the certificate.
      * 
      */
     private String keyVaultSecretId;
+    /**
+     * @return The version of the certificate.
+     * 
+     */
+    private String keyVaultSecretVersion;
     /**
      * @return The path to the key file of the certificate.
      * 
@@ -32,6 +52,11 @@ public final class GetCertificateResult {
     private String keyVirtualPath;
     private String name;
     private String nginxDeploymentId;
+    /**
+     * @return The SHA-1 thumbprint of the certificate.
+     * 
+     */
+    private String sha1Thumbprint;
 
     private GetCertificateResult() {}
     /**
@@ -42,6 +67,20 @@ public final class GetCertificateResult {
         return this.certificateVirtualPath;
     }
     /**
+     * @return The error code of the certificate error, if any.
+     * 
+     */
+    public String errorCode() {
+        return this.errorCode;
+    }
+    /**
+     * @return The error message of the certificate error, if any.
+     * 
+     */
+    public String errorMessage() {
+        return this.errorMessage;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -49,11 +88,25 @@ public final class GetCertificateResult {
         return this.id;
     }
     /**
+     * @return The date/time the certificate was created in Azure Key Vault.
+     * 
+     */
+    public String keyVaultSecretCreationDate() {
+        return this.keyVaultSecretCreationDate;
+    }
+    /**
      * @return The ID of the Key Vault Secret for the certificate.
      * 
      */
     public String keyVaultSecretId() {
         return this.keyVaultSecretId;
+    }
+    /**
+     * @return The version of the certificate.
+     * 
+     */
+    public String keyVaultSecretVersion() {
+        return this.keyVaultSecretVersion;
     }
     /**
      * @return The path to the key file of the certificate.
@@ -68,6 +121,13 @@ public final class GetCertificateResult {
     public String nginxDeploymentId() {
         return this.nginxDeploymentId;
     }
+    /**
+     * @return The SHA-1 thumbprint of the certificate.
+     * 
+     */
+    public String sha1Thumbprint() {
+        return this.sha1Thumbprint;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,20 +139,30 @@ public final class GetCertificateResult {
     @CustomType.Builder
     public static final class Builder {
         private String certificateVirtualPath;
+        private String errorCode;
+        private String errorMessage;
         private String id;
+        private String keyVaultSecretCreationDate;
         private String keyVaultSecretId;
+        private String keyVaultSecretVersion;
         private String keyVirtualPath;
         private String name;
         private String nginxDeploymentId;
+        private String sha1Thumbprint;
         public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateVirtualPath = defaults.certificateVirtualPath;
+    	      this.errorCode = defaults.errorCode;
+    	      this.errorMessage = defaults.errorMessage;
     	      this.id = defaults.id;
+    	      this.keyVaultSecretCreationDate = defaults.keyVaultSecretCreationDate;
     	      this.keyVaultSecretId = defaults.keyVaultSecretId;
+    	      this.keyVaultSecretVersion = defaults.keyVaultSecretVersion;
     	      this.keyVirtualPath = defaults.keyVirtualPath;
     	      this.name = defaults.name;
     	      this.nginxDeploymentId = defaults.nginxDeploymentId;
+    	      this.sha1Thumbprint = defaults.sha1Thumbprint;
         }
 
         @CustomType.Setter
@@ -104,6 +174,22 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder errorCode(String errorCode) {
+            if (errorCode == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "errorCode");
+            }
+            this.errorCode = errorCode;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder errorMessage(String errorMessage) {
+            if (errorMessage == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "errorMessage");
+            }
+            this.errorMessage = errorMessage;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetCertificateResult", "id");
@@ -112,11 +198,27 @@ public final class GetCertificateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder keyVaultSecretCreationDate(String keyVaultSecretCreationDate) {
+            if (keyVaultSecretCreationDate == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "keyVaultSecretCreationDate");
+            }
+            this.keyVaultSecretCreationDate = keyVaultSecretCreationDate;
+            return this;
+        }
+        @CustomType.Setter
         public Builder keyVaultSecretId(String keyVaultSecretId) {
             if (keyVaultSecretId == null) {
               throw new MissingRequiredPropertyException("GetCertificateResult", "keyVaultSecretId");
             }
             this.keyVaultSecretId = keyVaultSecretId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder keyVaultSecretVersion(String keyVaultSecretVersion) {
+            if (keyVaultSecretVersion == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "keyVaultSecretVersion");
+            }
+            this.keyVaultSecretVersion = keyVaultSecretVersion;
             return this;
         }
         @CustomType.Setter
@@ -143,14 +245,27 @@ public final class GetCertificateResult {
             this.nginxDeploymentId = nginxDeploymentId;
             return this;
         }
+        @CustomType.Setter
+        public Builder sha1Thumbprint(String sha1Thumbprint) {
+            if (sha1Thumbprint == null) {
+              throw new MissingRequiredPropertyException("GetCertificateResult", "sha1Thumbprint");
+            }
+            this.sha1Thumbprint = sha1Thumbprint;
+            return this;
+        }
         public GetCertificateResult build() {
             final var _resultValue = new GetCertificateResult();
             _resultValue.certificateVirtualPath = certificateVirtualPath;
+            _resultValue.errorCode = errorCode;
+            _resultValue.errorMessage = errorMessage;
             _resultValue.id = id;
+            _resultValue.keyVaultSecretCreationDate = keyVaultSecretCreationDate;
             _resultValue.keyVaultSecretId = keyVaultSecretId;
+            _resultValue.keyVaultSecretVersion = keyVaultSecretVersion;
             _resultValue.keyVirtualPath = keyVirtualPath;
             _resultValue.name = name;
             _resultValue.nginxDeploymentId = nginxDeploymentId;
+            _resultValue.sha1Thumbprint = sha1Thumbprint;
             return _resultValue;
         }
     }

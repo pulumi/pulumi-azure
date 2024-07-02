@@ -176,6 +176,7 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
      * > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
     public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
+    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
@@ -196,6 +197,7 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
             const state = argsOrState as ServerTransparentDataEncryptionState | undefined;
             resourceInputs["autoRotationEnabled"] = state ? state.autoRotationEnabled : undefined;
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
+            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as ServerTransparentDataEncryptionArgs | undefined;
@@ -204,6 +206,7 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
             }
             resourceInputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
+            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -227,6 +230,7 @@ export interface ServerTransparentDataEncryptionState {
      * > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
@@ -249,6 +253,7 @@ export interface ServerTransparentDataEncryptionArgs {
      * > **NOTE:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string>;
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */

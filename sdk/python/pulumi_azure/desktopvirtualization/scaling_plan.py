@@ -723,7 +723,7 @@ class ScalingPlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostPools")
-    def host_pools(self) -> pulumi.Output[Optional[Sequence['outputs.ScalingPlanHostPool']]]:
+    def host_pools(self) -> pulumi.Output[Sequence['outputs.ScalingPlanHostPool']]:
         """
         One or more `host_pool` blocks as defined below.
         """

@@ -79,12 +79,14 @@ class ClusterClusterProfileArgs:
                  domain: pulumi.Input[str],
                  version: pulumi.Input[str],
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
+                 managed_resource_group_name: Optional[pulumi.Input[str]] = None,
                  pull_secret: Optional[pulumi.Input[str]] = None,
                  resource_group_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] domain: The custom domain for the cluster. For more info, see [Prepare a custom domain for your cluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#prepare-a-custom-domain-for-your-cluster-optional). Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] fips_enabled: Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] managed_resource_group_name: The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pull_secret: The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_id: The resource group that the cluster profile is attached to.
         """
@@ -92,6 +94,8 @@ class ClusterClusterProfileArgs:
         pulumi.set(__self__, "version", version)
         if fips_enabled is not None:
             pulumi.set(__self__, "fips_enabled", fips_enabled)
+        if managed_resource_group_name is not None:
+            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
         if pull_secret is not None:
             pulumi.set(__self__, "pull_secret", pull_secret)
         if resource_group_id is not None:
@@ -132,6 +136,18 @@ class ClusterClusterProfileArgs:
     @fips_enabled.setter
     def fips_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "fips_enabled", value)
+
+    @property
+    @pulumi.getter(name="managedResourceGroupName")
+    def managed_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "managed_resource_group_name")
+
+    @managed_resource_group_name.setter
+    def managed_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "managed_resource_group_name", value)
 
     @property
     @pulumi.getter(name="pullSecret")
@@ -290,16 +306,20 @@ class ClusterNetworkProfileArgs:
     def __init__(__self__, *,
                  pod_cidr: pulumi.Input[str],
                  service_cidr: pulumi.Input[str],
-                 outbound_type: Optional[pulumi.Input[str]] = None):
+                 outbound_type: Optional[pulumi.Input[str]] = None,
+                 preconfigured_network_security_group_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_cidr: The network range used by the OpenShift service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] preconfigured_network_security_group_enabled: Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "pod_cidr", pod_cidr)
         pulumi.set(__self__, "service_cidr", service_cidr)
         if outbound_type is not None:
             pulumi.set(__self__, "outbound_type", outbound_type)
+        if preconfigured_network_security_group_enabled is not None:
+            pulumi.set(__self__, "preconfigured_network_security_group_enabled", preconfigured_network_security_group_enabled)
 
     @property
     @pulumi.getter(name="podCidr")
@@ -336,6 +356,18 @@ class ClusterNetworkProfileArgs:
     @outbound_type.setter
     def outbound_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "outbound_type", value)
+
+    @property
+    @pulumi.getter(name="preconfiguredNetworkSecurityGroupEnabled")
+    def preconfigured_network_security_group_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "preconfigured_network_security_group_enabled")
+
+    @preconfigured_network_security_group_enabled.setter
+    def preconfigured_network_security_group_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preconfigured_network_security_group_enabled", value)
 
 
 @pulumi.input_type

@@ -233,6 +233,78 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
         """
         Manages a Backup Policy to back up PostgreSQL Flexible Server.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("example",
+            name="example-backup-vault",
+            resource_group_name=example.name,
+            location=example.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_backup_policy_postgresql_flexible_server = azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example",
+            name="example-backup-policy",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
+            default_retention_rule=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs(
+                life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs(
+                    duration="P4M",
+                    data_store_type="VaultStore",
+                )],
+            ),
+            retention_rules=[
+                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
+                    name="weekly",
+                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
+                        duration="P6M",
+                        data_store_type="VaultStore",
+                    )],
+                    priority=20,
+                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
+                        absolute_criteria="FirstOfWeek",
+                    ),
+                ),
+                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
+                    name="thursday",
+                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
+                        duration="P1W",
+                        data_store_type="VaultStore",
+                    )],
+                    priority=25,
+                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
+                        days_of_weeks=["Thursday"],
+                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
+                    ),
+                ),
+                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
+                    name="monthly",
+                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
+                        duration="P1D",
+                        data_store_type="VaultStore",
+                    )],
+                    priority=15,
+                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
+                        weeks_of_months=[
+                            "First",
+                            "Last",
+                        ],
+                        days_of_weeks=["Tuesday"],
+                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
+                    ),
+                ),
+            ])
+        ```
+
         ## Import
 
         Backup Policy PostgreSQL Flexible Server's can be imported using the `resource id`, e.g.
@@ -258,6 +330,78 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Policy to back up PostgreSQL Flexible Server.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("example",
+            name="example-backup-vault",
+            resource_group_name=example.name,
+            location=example.location,
+            datastore_type="VaultStore",
+            redundancy="LocallyRedundant",
+            identity=azure.dataprotection.BackupVaultIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_backup_policy_postgresql_flexible_server = azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example",
+            name="example-backup-policy",
+            vault_id=example_backup_vault.id,
+            backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
+            time_zone="India Standard Time",
+            default_retention_rule=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs(
+                life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs(
+                    duration="P4M",
+                    data_store_type="VaultStore",
+                )],
+            ),
+            retention_rules=[
+                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
+                    name="weekly",
+                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
+                        duration="P6M",
+                        data_store_type="VaultStore",
+                    )],
+                    priority=20,
+                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
+                        absolute_criteria="FirstOfWeek",
+                    ),
+                ),
+                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
+                    name="thursday",
+                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
+                        duration="P1W",
+                        data_store_type="VaultStore",
+                    )],
+                    priority=25,
+                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
+                        days_of_weeks=["Thursday"],
+                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
+                    ),
+                ),
+                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
+                    name="monthly",
+                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
+                        duration="P1D",
+                        data_store_type="VaultStore",
+                    )],
+                    priority=15,
+                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
+                        weeks_of_months=[
+                            "First",
+                            "Last",
+                        ],
+                        days_of_weeks=["Tuesday"],
+                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
+                    ),
+                ),
+            ])
+        ```
 
         ## Import
 

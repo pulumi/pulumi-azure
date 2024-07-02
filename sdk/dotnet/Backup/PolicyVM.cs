@@ -177,6 +177,12 @@ namespace Pulumi.Azure.Backup
         public Output<Outputs.PolicyVMRetentionYearly?> RetentionYearly { get; private set; } = null!;
 
         /// <summary>
+        /// A `tiering_policy` block as defined below.
+        /// </summary>
+        [Output("tieringPolicy")]
+        public Output<Outputs.PolicyVMTieringPolicy?> TieringPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
         [Output("timezone")]
@@ -297,6 +303,12 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyVMRetentionYearlyArgs>? RetentionYearly { get; set; }
 
         /// <summary>
+        /// A `tiering_policy` block as defined below.
+        /// </summary>
+        [Input("tieringPolicy")]
+        public Input<Inputs.PolicyVMTieringPolicyArgs>? TieringPolicy { get; set; }
+
+        /// <summary>
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`
         /// </summary>
         [Input("timezone")]
@@ -377,6 +389,12 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("retentionYearly")]
         public Input<Inputs.PolicyVMRetentionYearlyGetArgs>? RetentionYearly { get; set; }
+
+        /// <summary>
+        /// A `tiering_policy` block as defined below.
+        /// </summary>
+        [Input("tieringPolicy")]
+        public Input<Inputs.PolicyVMTieringPolicyGetArgs>? TieringPolicy { get; set; }
 
         /// <summary>
         /// Specifies the timezone. [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Defaults to `UTC`

@@ -70,6 +70,8 @@ type DataCollectionEndpoint struct {
 	ConfigurationAccessEndpoint pulumi.StringOutput `pulumi:"configurationAccessEndpoint"`
 	// Specifies a description for the Data Collection Endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The immutable ID of the Data Collection Endpoint.
+	ImmutableId pulumi.StringOutput `pulumi:"immutableId"`
 	// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
@@ -123,6 +125,8 @@ type dataCollectionEndpointState struct {
 	ConfigurationAccessEndpoint *string `pulumi:"configurationAccessEndpoint"`
 	// Specifies a description for the Data Collection Endpoint.
 	Description *string `pulumi:"description"`
+	// The immutable ID of the Data Collection Endpoint.
+	ImmutableId *string `pulumi:"immutableId"`
 	// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
@@ -144,6 +148,8 @@ type DataCollectionEndpointState struct {
 	ConfigurationAccessEndpoint pulumi.StringPtrInput
 	// Specifies a description for the Data Collection Endpoint.
 	Description pulumi.StringPtrInput
+	// The immutable ID of the Data Collection Endpoint.
+	ImmutableId pulumi.StringPtrInput
 	// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
@@ -294,6 +300,11 @@ func (o DataCollectionEndpointOutput) ConfigurationAccessEndpoint() pulumi.Strin
 // Specifies a description for the Data Collection Endpoint.
 func (o DataCollectionEndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The immutable ID of the Data Collection Endpoint.
+func (o DataCollectionEndpointOutput) ImmutableId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.ImmutableId }).(pulumi.StringOutput)
 }
 
 // The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.

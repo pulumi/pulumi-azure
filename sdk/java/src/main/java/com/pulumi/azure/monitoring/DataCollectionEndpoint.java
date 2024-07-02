@@ -107,6 +107,20 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
+     * The immutable ID of the Data Collection Endpoint.
+     * 
+     */
+    @Export(name="immutableId", refs={String.class}, tree="[0]")
+    private Output<String> immutableId;
+
+    /**
+     * @return The immutable ID of the Data Collection Endpoint.
+     * 
+     */
+    public Output<String> immutableId() {
+        return this.immutableId;
+    }
+    /**
      * The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
      * 
      */

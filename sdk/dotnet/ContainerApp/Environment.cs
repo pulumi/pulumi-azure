@@ -89,12 +89,12 @@ namespace Pulumi.Azure.ContainerApp
         /// &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         /// </summary>
         [Output("infrastructureResourceGroupName")]
-        public Output<string> InfrastructureResourceGroupName { get; private set; } = null!;
+        public Output<string?> InfrastructureResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
         /// 
-        /// &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+        /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
         /// </summary>
         [Output("infrastructureSubnetId")]
         public Output<string?> InfrastructureSubnetId { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
         /// 
-        /// &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+        /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
         /// </summary>
         [Input("infrastructureSubnetId")]
         public Input<string>? InfrastructureSubnetId { get; set; }
@@ -384,7 +384,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
         /// 
-        /// &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
+        /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
         /// </summary>
         [Input("infrastructureSubnetId")]
         public Input<string>? InfrastructureSubnetId { get; set; }

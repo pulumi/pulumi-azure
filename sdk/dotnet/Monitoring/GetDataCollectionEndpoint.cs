@@ -128,6 +128,10 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The immutable ID of the Data Collection Endpoint.
+        /// </summary>
+        public readonly string ImmutableId;
+        /// <summary>
         /// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
         /// </summary>
         public readonly string Kind;
@@ -158,6 +162,8 @@ namespace Pulumi.Azure.Monitoring
 
             string id,
 
+            string immutableId,
+
             string kind,
 
             string location,
@@ -175,6 +181,7 @@ namespace Pulumi.Azure.Monitoring
             ConfigurationAccessEndpoint = configurationAccessEndpoint;
             Description = description;
             Id = id;
+            ImmutableId = immutableId;
             Kind = kind;
             Location = location;
             LogsIngestionEndpoint = logsIngestionEndpoint;

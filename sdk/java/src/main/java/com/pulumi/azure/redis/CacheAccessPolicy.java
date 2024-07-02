@@ -104,14 +104,14 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+     * Permissions that are going to be assigned to this Redis Cache Access Policy.
      * 
      */
     @Export(name="permissions", refs={String.class}, tree="[0]")
     private Output<String> permissions;
 
     /**
-     * @return Permissions that are going to be assigned to this Redis Cache Access Policy. Changing this forces a new Redis Cache Access Policy to be created.
+     * @return Permissions that are going to be assigned to this Redis Cache Access Policy.
      * 
      */
     public Output<String> permissions() {

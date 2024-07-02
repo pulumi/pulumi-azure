@@ -48,7 +48,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly Outputs.ServiceAdditionalLocationVirtualNetworkConfiguration? VirtualNetworkConfiguration;
         /// <summary>
-        /// A list of availability zones. Changing this forces a new resource to be created.
+        /// A list of availability zones.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 

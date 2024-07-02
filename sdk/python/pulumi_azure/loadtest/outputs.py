@@ -14,6 +14,9 @@ __all__ = [
     'LoadTestEncryption',
     'LoadTestEncryptionIdentity',
     'LoadTestIdentity',
+    'GetEncryptionResult',
+    'GetEncryptionIdentityResult',
+    'GetIdentityResult',
 ]
 
 @pulumi.output_type
@@ -183,5 +186,114 @@ class LoadTestIdentity(dict):
         The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GetEncryptionResult(dict):
+    def __init__(__self__, *,
+                 identities: Sequence['outputs.GetEncryptionIdentityResult'],
+                 key_url: str):
+        """
+        :param Sequence['GetEncryptionIdentityArgs'] identities: An `identity` block as defined below.
+        :param str key_url: The URI specifying the Key vault and key to be used to encrypt data in this resource.
+        """
+        pulumi.set(__self__, "identities", identities)
+        pulumi.set(__self__, "key_url", key_url)
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetEncryptionIdentityResult']:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> str:
+        """
+        The URI specifying the Key vault and key to be used to encrypt data in this resource.
+        """
+        return pulumi.get(self, "key_url")
+
+
+@pulumi.output_type
+class GetEncryptionIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_id: str,
+                 type: str):
+        """
+        :param str identity_id: The User Assigned Identity ID that is assigned to this Load Test Encryption.
+        :param str type: Type of Managed Service Identity that is assigned to this Load Test Encryption.
+        """
+        pulumi.set(__self__, "identity_id", identity_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> str:
+        """
+        The User Assigned Identity ID that is assigned to this Load Test Encryption.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of Managed Service Identity that is assigned to this Load Test Encryption.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: The list of the User Assigned Identity IDs that is assigned to this Load Test Service.
+        :param str principal_id: The Principal ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+        :param str tenant_id: The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+        :param str type: Type of Managed Service Identity that is assigned to this Load Test Encryption.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of the User Assigned Identity IDs that is assigned to this Load Test Service.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test Service.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of Managed Service Identity that is assigned to this Load Test Encryption.
+        """
+        return pulumi.get(self, "type")
 
 

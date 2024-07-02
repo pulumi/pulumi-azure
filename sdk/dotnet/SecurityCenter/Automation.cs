@@ -167,7 +167,7 @@ namespace Pulumi.Azure.SecurityCenter
         public Output<ImmutableArray<Outputs.AutomationSource>> Sources { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags assigned to the resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -378,7 +378,7 @@ namespace Pulumi.Azure.SecurityCenter
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags assigned to the resource. Changing this forces a new resource to be created.
+        /// A mapping of tags assigned to the resource.
         /// </summary>
         public InputMap<string> Tags
         {

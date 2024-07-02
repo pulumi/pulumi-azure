@@ -120,40 +120,75 @@ namespace Pulumi.Azure.Nginx
         /// </summary>
         public readonly string CertificateVirtualPath;
         /// <summary>
+        /// The error code of the certificate error, if any.
+        /// </summary>
+        public readonly string ErrorCode;
+        /// <summary>
+        /// The error message of the certificate error, if any.
+        /// </summary>
+        public readonly string ErrorMessage;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The date/time the certificate was created in Azure Key Vault.
+        /// </summary>
+        public readonly string KeyVaultSecretCreationDate;
+        /// <summary>
         /// The ID of the Key Vault Secret for the certificate.
         /// </summary>
         public readonly string KeyVaultSecretId;
+        /// <summary>
+        /// The version of the certificate.
+        /// </summary>
+        public readonly string KeyVaultSecretVersion;
         /// <summary>
         /// The path to the key file of the certificate.
         /// </summary>
         public readonly string KeyVirtualPath;
         public readonly string Name;
         public readonly string NginxDeploymentId;
+        /// <summary>
+        /// The SHA-1 thumbprint of the certificate.
+        /// </summary>
+        public readonly string Sha1Thumbprint;
 
         [OutputConstructor]
         private GetCertificateResult(
             string certificateVirtualPath,
 
+            string errorCode,
+
+            string errorMessage,
+
             string id,
 
+            string keyVaultSecretCreationDate,
+
             string keyVaultSecretId,
+
+            string keyVaultSecretVersion,
 
             string keyVirtualPath,
 
             string name,
 
-            string nginxDeploymentId)
+            string nginxDeploymentId,
+
+            string sha1Thumbprint)
         {
             CertificateVirtualPath = certificateVirtualPath;
+            ErrorCode = errorCode;
+            ErrorMessage = errorMessage;
             Id = id;
+            KeyVaultSecretCreationDate = keyVaultSecretCreationDate;
             KeyVaultSecretId = keyVaultSecretId;
+            KeyVaultSecretVersion = keyVaultSecretVersion;
             KeyVirtualPath = keyVirtualPath;
             Name = name;
             NginxDeploymentId = nginxDeploymentId;
+            Sha1Thumbprint = sha1Thumbprint;
         }
     }
 }

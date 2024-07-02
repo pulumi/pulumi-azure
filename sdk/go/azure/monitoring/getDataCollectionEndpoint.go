@@ -66,6 +66,8 @@ type LookupDataCollectionEndpointResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The immutable ID of the Data Collection Endpoint.
+	ImmutableId string `pulumi:"immutableId"`
 	// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
 	Kind string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Endpoint should exist.
@@ -133,6 +135,11 @@ func (o LookupDataCollectionEndpointResultOutput) Description() pulumi.StringOut
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDataCollectionEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCollectionEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The immutable ID of the Data Collection Endpoint.
+func (o LookupDataCollectionEndpointResultOutput) ImmutableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCollectionEndpointResult) string { return v.ImmutableId }).(pulumi.StringOutput)
 }
 
 // The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.

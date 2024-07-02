@@ -135,6 +135,7 @@ class _DataCollectionEndpointState:
     def __init__(__self__, *,
                  configuration_access_endpoint: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 immutable_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  logs_ingestion_endpoint: Optional[pulumi.Input[str]] = None,
@@ -146,6 +147,7 @@ class _DataCollectionEndpointState:
         Input properties used for looking up and filtering DataCollectionEndpoint resources.
         :param pulumi.Input[str] configuration_access_endpoint: The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
         :param pulumi.Input[str] description: Specifies a description for the Data Collection Endpoint.
+        :param pulumi.Input[str] immutable_id: The immutable ID of the Data Collection Endpoint.
         :param pulumi.Input[str] kind: The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[str] logs_ingestion_endpoint: The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
@@ -158,6 +160,8 @@ class _DataCollectionEndpointState:
             pulumi.set(__self__, "configuration_access_endpoint", configuration_access_endpoint)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if immutable_id is not None:
+            pulumi.set(__self__, "immutable_id", immutable_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -196,6 +200,18 @@ class _DataCollectionEndpointState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The immutable ID of the Data Collection Endpoint.
+        """
+        return pulumi.get(self, "immutable_id")
+
+    @immutable_id.setter
+    def immutable_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "immutable_id", value)
 
     @property
     @pulumi.getter
@@ -416,6 +432,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["configuration_access_endpoint"] = None
+            __props__.__dict__["immutable_id"] = None
             __props__.__dict__["logs_ingestion_endpoint"] = None
         super(DataCollectionEndpoint, __self__).__init__(
             'azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint',
@@ -429,6 +446,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration_access_endpoint: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            immutable_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             logs_ingestion_endpoint: Optional[pulumi.Input[str]] = None,
@@ -445,6 +463,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_access_endpoint: The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
         :param pulumi.Input[str] description: Specifies a description for the Data Collection Endpoint.
+        :param pulumi.Input[str] immutable_id: The immutable ID of the Data Collection Endpoint.
         :param pulumi.Input[str] kind: The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
         :param pulumi.Input[str] location: The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
         :param pulumi.Input[str] logs_ingestion_endpoint: The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
@@ -459,6 +478,7 @@ class DataCollectionEndpoint(pulumi.CustomResource):
 
         __props__.__dict__["configuration_access_endpoint"] = configuration_access_endpoint
         __props__.__dict__["description"] = description
+        __props__.__dict__["immutable_id"] = immutable_id
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["logs_ingestion_endpoint"] = logs_ingestion_endpoint
@@ -483,6 +503,14 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         Specifies a description for the Data Collection Endpoint.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> pulumi.Output[str]:
+        """
+        The immutable ID of the Data Collection Endpoint.
+        """
+        return pulumi.get(self, "immutable_id")
 
     @property
     @pulumi.getter

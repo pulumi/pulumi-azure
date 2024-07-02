@@ -24,6 +24,12 @@ namespace Pulumi.Azure.RedHatOpenShift.Inputs
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        /// <summary>
+        /// The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("managedResourceGroupName")]
+        public Input<string>? ManagedResourceGroupName { get; set; }
+
         [Input("pullSecret")]
         private Input<string>? _pullSecret;
 

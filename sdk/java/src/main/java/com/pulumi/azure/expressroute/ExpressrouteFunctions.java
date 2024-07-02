@@ -15,11 +15,9 @@ import java.util.concurrent.CompletableFuture;
 
 public final class ExpressrouteFunctions {
     /**
-     * Manages an ExpressRoute Circuit Peering.
+     * Use this data source to access information about an existing ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
-     * 
-     * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -45,7 +43,7 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name("example-peering")
+     *             .peeringType("example-peering")
      *             .expressRouteCircuitName("example-expressroute")
      *             .resourceGroupName("example-resources")
      *             .build());
@@ -61,11 +59,9 @@ public final class ExpressrouteFunctions {
         return getCircuitPeering(args, InvokeOptions.Empty);
     }
     /**
-     * Manages an ExpressRoute Circuit Peering.
+     * Use this data source to access information about an existing ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
-     * 
-     * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -91,7 +87,7 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name("example-peering")
+     *             .peeringType("example-peering")
      *             .expressRouteCircuitName("example-expressroute")
      *             .resourceGroupName("example-resources")
      *             .build());
@@ -107,11 +103,9 @@ public final class ExpressrouteFunctions {
         return getCircuitPeeringPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Manages an ExpressRoute Circuit Peering.
+     * Use this data source to access information about an existing ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
-     * 
-     * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -137,7 +131,7 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name("example-peering")
+     *             .peeringType("example-peering")
      *             .expressRouteCircuitName("example-expressroute")
      *             .resourceGroupName("example-resources")
      *             .build());
@@ -153,11 +147,9 @@ public final class ExpressrouteFunctions {
         return Deployment.getInstance().invoke("azure:expressroute/getCircuitPeering:getCircuitPeering", TypeShape.of(GetCircuitPeeringResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Manages an ExpressRoute Circuit Peering.
+     * Use this data source to access information about an existing ExpressRoute Circuit Peering.
      * 
      * ## Example Usage
-     * 
-     * ### Creating A Microsoft Peering)
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -183,7 +175,7 @@ public final class ExpressrouteFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ExpressrouteFunctions.getCircuitPeering(GetCircuitPeeringArgs.builder()
-     *             .name("example-peering")
+     *             .peeringType("example-peering")
      *             .expressRouteCircuitName("example-expressroute")
      *             .resourceGroupName("example-resources")
      *             .build());

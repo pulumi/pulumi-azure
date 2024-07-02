@@ -52,19 +52,39 @@ export interface GetCertificateResult {
      */
     readonly certificateVirtualPath: string;
     /**
+     * The error code of the certificate error, if any.
+     */
+    readonly errorCode: string;
+    /**
+     * The error message of the certificate error, if any.
+     */
+    readonly errorMessage: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
+     * The date/time the certificate was created in Azure Key Vault.
+     */
+    readonly keyVaultSecretCreationDate: string;
+    /**
      * The ID of the Key Vault Secret for the certificate.
      */
     readonly keyVaultSecretId: string;
+    /**
+     * The version of the certificate.
+     */
+    readonly keyVaultSecretVersion: string;
     /**
      * The path to the key file of the certificate.
      */
     readonly keyVirtualPath: string;
     readonly name: string;
     readonly nginxDeploymentId: string;
+    /**
+     * The SHA-1 thumbprint of the certificate.
+     */
+    readonly sha1Thumbprint: string;
 }
 /**
  * Use this data source to access information about an existing NGINX Certificate.
