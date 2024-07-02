@@ -46,19 +46,18 @@ index e6f8ebf9c3..10531eccb9 100644
  			},
  
 diff --git a/internal/services/analysisservices/analysis_services_server_resource.go b/internal/services/analysisservices/analysis_services_server_resource.go
-index 40c52aa5bd..dab70b9c5c 100644
+index 68b328649c..d39553248c 100644
 --- a/internal/services/analysisservices/analysis_services_server_resource.go
 +++ b/internal/services/analysisservices/analysis_services_server_resource.go
-@@ -6,6 +6,8 @@ package analysisservices
+@@ -6,6 +6,7 @@ package analysisservices
  import (
  	"bytes"
  	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
  	"log"
  	"strings"
  	"time"
-@@ -120,7 +122,8 @@ func resourceAnalysisServicesServer() *pluginsdk.Resource {
+@@ -126,7 +127,8 @@ func resourceAnalysisServicesServer() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(servers.ConnectionModeAll),
  					string(servers.ConnectionModeReadOnly),
@@ -562,7 +561,7 @@ index 36c461cbdc..e063184038 100644
  		"username": {
  			Type:     pluginsdk.TypeString,
 diff --git a/internal/services/iotcentral/iotcentral_application_resource.go b/internal/services/iotcentral/iotcentral_application_resource.go
-index e15c10ac79..ebcdb70c0b 100644
+index db4cc26a57..a7deedb063 100644
 --- a/internal/services/iotcentral/iotcentral_application_resource.go
 +++ b/internal/services/iotcentral/iotcentral_application_resource.go
 @@ -90,7 +90,7 @@ func resourceIotCentralApplication() *pluginsdk.Resource {
@@ -575,7 +574,7 @@ index e15c10ac79..ebcdb70c0b 100644
  			},
  			"template": {
 diff --git a/internal/services/iothub/iothub_resource.go b/internal/services/iothub/iothub_resource.go
-index 3d40271135..277d4b1670 100644
+index 85ee108b8d..fa7c22d87a 100644
 --- a/internal/services/iothub/iothub_resource.go
 +++ b/internal/services/iothub/iothub_resource.go
 @@ -13,6 +13,8 @@ import (
@@ -587,7 +586,7 @@ index 3d40271135..277d4b1670 100644
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
-@@ -345,7 +347,7 @@ func resourceIotHub() *pluginsdk.Resource {
+@@ -357,7 +359,7 @@ func resourceIotHub() *pluginsdk.Resource {
  							Optional:         true,
  							ForceNew:         true,
  							Default:          string(devices.EncodingAvro),
@@ -1748,7 +1747,7 @@ index b25ef6d5c9..a585a495ad 100644
  
  			"storage_mode_type": {
 diff --git a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
-index 89270c4bd0..a98177ebbc 100644
+index 39f551a769..ed55aa52c4 100644
 --- a/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
 +++ b/internal/services/recoveryservices/site_recovery_replicated_vm_resource.go
 @@ -227,7 +227,7 @@ func resourceSiteRecoveryReplicatedVM() *pluginsdk.Resource {
@@ -1837,7 +1836,7 @@ index 7cb0c666d8..bedb1e8223 100644
  
  			"outputs": {
 diff --git a/internal/services/securitycenter/security_center_automation_resource.go b/internal/services/securitycenter/security_center_automation_resource.go
-index 0756a64ade..e4b858a999 100644
+index 80b56994a3..b8954de4ac 100644
 --- a/internal/services/securitycenter/security_center_automation_resource.go
 +++ b/internal/services/securitycenter/security_center_automation_resource.go
 @@ -5,6 +5,8 @@ package securitycenter

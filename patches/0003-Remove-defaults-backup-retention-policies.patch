@@ -6,10 +6,10 @@ Subject: [PATCH] Remove defaults backup retention policies
 Fixes #1318
 
 diff --git a/internal/services/recoveryservices/backup_policy_vm_resource.go b/internal/services/recoveryservices/backup_policy_vm_resource.go
-index bdfd54eedc..e0ef5fa8f0 100644
+index 1b39e30a01..f3df59c354 100644
 --- a/internal/services/recoveryservices/backup_policy_vm_resource.go
 +++ b/internal/services/recoveryservices/backup_policy_vm_resource.go
-@@ -1072,10 +1072,11 @@ func resourceBackupProtectionPolicyVMSchema() map[string]*pluginsdk.Schema {
+@@ -1200,10 +1200,11 @@ func resourceBackupProtectionPolicyVMSchema() map[string]*pluginsdk.Schema {
  						},
  					},
  
@@ -22,7 +22,7 @@ index bdfd54eedc..e0ef5fa8f0 100644
  						ConflictsWith: []string{
  							"retention_monthly.0.weeks",
  							"retention_monthly.0.weekdays",
-@@ -1186,10 +1187,11 @@ func resourceBackupProtectionPolicyVMSchema() map[string]*pluginsdk.Schema {
+@@ -1314,10 +1315,11 @@ func resourceBackupProtectionPolicyVMSchema() map[string]*pluginsdk.Schema {
  						},
  					},
  

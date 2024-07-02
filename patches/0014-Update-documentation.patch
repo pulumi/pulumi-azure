@@ -229,7 +229,7 @@ index a078984a7b..1dff00245c 100644
  * `ip_addresses` - (Optional) IP address, or a range of IP addresses, from which to accept requests. When specifying a range, note that the range is inclusive.  
  * `signed_version` - (Optional) Specifies the signed storage service version to use to authorize requests made with this account SAS. Defaults to `2017-07-29`.
 diff --git a/website/docs/guides/3.0-upgrade-guide.html.markdown b/website/docs/guides/3.0-upgrade-guide.html.markdown
-index a6e28af30a..d1804e780b 100644
+index 9a676c124f..684bf153a7 100644
 --- a/website/docs/guides/3.0-upgrade-guide.html.markdown
 +++ b/website/docs/guides/3.0-upgrade-guide.html.markdown
 @@ -222,6 +222,7 @@ The `azurerm_app_service` data source has been superseded by the `azurerm_linux_
@@ -249,7 +249,7 @@ index a6e28af30a..d1804e780b 100644
  
  The deprecated field `start_task.environment` will be removed in favour of the `start_task.common_environment_properties` properties.
 diff --git a/website/docs/r/api_management.html.markdown b/website/docs/r/api_management.html.markdown
-index 3028d8fdb7..ad73383d68 100644
+index a2e59b2cc0..d9dc21a792 100644
 --- a/website/docs/r/api_management.html.markdown
 +++ b/website/docs/r/api_management.html.markdown
 @@ -31,7 +31,7 @@ resource "azurerm_api_management" "example" {
@@ -572,7 +572,7 @@ index e22526a383..feff83d72e 100644
  
  * `min_tls_version` - (Optional) The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 diff --git a/website/docs/r/app_service_certificate.html.markdown b/website/docs/r/app_service_certificate.html.markdown
-index 6cd2598464..c8510b1c99 100644
+index 53e3926433..cfbf80a9a4 100644
 --- a/website/docs/r/app_service_certificate.html.markdown
 +++ b/website/docs/r/app_service_certificate.html.markdown
 @@ -13,7 +13,7 @@ Manages an App Service certificate.
