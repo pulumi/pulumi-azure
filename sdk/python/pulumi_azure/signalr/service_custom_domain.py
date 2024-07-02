@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ServiceCustomDomainArgs', 'ServiceCustomDomain']
@@ -188,13 +193,13 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-signalr",
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Premium_P1",
-                capacity=1,
-            ),
-            identity=azure.signalr.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            sku={
+                "name": "Premium_P1",
+                "capacity": 1,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-keyvault",
             location=example.location,
@@ -202,40 +207,40 @@ class ServiceCustomDomain(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=test_azurerm_signalr_service["identity"][0]["principalId"],
-                    certificate_permissions=[
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": test_azurerm_signalr_service["identity"][0]["principalId"],
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
+                },
             ])
         example_certificate = azure.keyvault.Certificate("example",
             name="imported-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="certificate-to-import.pfx").result,
-                password="",
-            ))
+            certificate={
+                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "password": "",
+            })
         test = azure.signalr.ServiceCustomCertificate("test",
             name="example-cert",
             signalr_service_id=example_service.id,
@@ -289,13 +294,13 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-signalr",
             location=test_azurerm_resource_group["location"],
             resource_group_name=test_azurerm_resource_group["name"],
-            sku=azure.signalr.ServiceSkuArgs(
-                name="Premium_P1",
-                capacity=1,
-            ),
-            identity=azure.signalr.ServiceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            sku={
+                "name": "Premium_P1",
+                "capacity": 1,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-keyvault",
             location=example.location,
@@ -303,40 +308,40 @@ class ServiceCustomDomain(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    certificate_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=test_azurerm_signalr_service["identity"][0]["principalId"],
-                    certificate_permissions=[
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": test_azurerm_signalr_service["identity"][0]["principalId"],
+                    "certificatePermissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    secret_permissions=[
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                ),
+                },
             ])
         example_certificate = azure.keyvault.Certificate("example",
             name="imported-cert",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=std.filebase64(input="certificate-to-import.pfx").result,
-                password="",
-            ))
+            certificate={
+                "contents": std.filebase64(input="certificate-to-import.pfx").result,
+                "password": "",
+            })
         test = azure.signalr.ServiceCustomCertificate("test",
             name="example-cert",
             signalr_service_id=example_service.id,

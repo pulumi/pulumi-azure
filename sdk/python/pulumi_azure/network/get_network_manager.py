@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 
@@ -155,9 +160,9 @@ def get_network_manager(name: Optional[str] = None,
         name="example-network-manager",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        scope=azure.network.NetworkManagerScopeArgs(
-            subscription_ids=[current.id],
-        ),
+        scope={
+            "subscriptionIds": [current.id],
+        },
         scope_accesses=[
             "Connectivity",
             "SecurityAdmin",
@@ -210,9 +215,9 @@ def get_network_manager_output(name: Optional[pulumi.Input[str]] = None,
         name="example-network-manager",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
-        scope=azure.network.NetworkManagerScopeArgs(
-            subscription_ids=[current.id],
-        ),
+        scope={
+            "subscriptionIds": [current.id],
+        },
         scope_accesses=[
             "Connectivity",
             "SecurityAdmin",

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -260,7 +265,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[str]] = None,
-                 service_principal_key: Optional[pulumi.Input[pulumi.InputType['CredentialServicePrincipalServicePrincipalKeyArgs']]] = None,
+                 service_principal_key: Optional[pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -287,21 +292,21 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": [
                     "Create",
                     "Get",
                 ],
-                secret_permissions=[
+                "secretPermissions": [
                     "Set",
                     "Get",
                     "Delete",
                     "Purge",
                     "Recover",
                 ],
-            )])
+            }])
         example_secret = azure.keyvault.Secret("example",
             name="example",
             value="example-secret",
@@ -316,11 +321,11 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             tenant_id=current.tenant_id,
             service_principal_id=current.client_id,
-            service_principal_key=azure.datafactory.CredentialServicePrincipalServicePrincipalKeyArgs(
-                linked_service_name=example_linked_service_key_vault.name,
-                secret_name=example_secret.name,
-                secret_version=example_secret.version,
-            ),
+            service_principal_key={
+                "linkedServiceName": example_linked_service_key_vault.name,
+                "secretName": example_secret.name,
+                "secretVersion": example_secret.version,
+            },
             annotations=[
                 "1",
                 "2",
@@ -342,7 +347,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description for the Data Factory Credential.
         :param pulumi.Input[str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_principal_id: The Client ID of the Service Principal.
-        :param pulumi.Input[pulumi.InputType['CredentialServicePrincipalServicePrincipalKeyArgs']] service_principal_key: A `service_principal_key` block as defined below.
+        :param pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']] service_principal_key: A `service_principal_key` block as defined below.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Service Principal.
         """
         ...
@@ -375,21 +380,21 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": [
                     "Create",
                     "Get",
                 ],
-                secret_permissions=[
+                "secretPermissions": [
                     "Set",
                     "Get",
                     "Delete",
                     "Purge",
                     "Recover",
                 ],
-            )])
+            }])
         example_secret = azure.keyvault.Secret("example",
             name="example",
             value="example-secret",
@@ -404,11 +409,11 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             tenant_id=current.tenant_id,
             service_principal_id=current.client_id,
-            service_principal_key=azure.datafactory.CredentialServicePrincipalServicePrincipalKeyArgs(
-                linked_service_name=example_linked_service_key_vault.name,
-                secret_name=example_secret.name,
-                secret_version=example_secret.version,
-            ),
+            service_principal_key={
+                "linkedServiceName": example_linked_service_key_vault.name,
+                "secretName": example_secret.name,
+                "secretVersion": example_secret.version,
+            },
             annotations=[
                 "1",
                 "2",
@@ -443,7 +448,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_principal_id: Optional[pulumi.Input[str]] = None,
-                 service_principal_key: Optional[pulumi.Input[pulumi.InputType['CredentialServicePrincipalServicePrincipalKeyArgs']]] = None,
+                 service_principal_key: Optional[pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -482,7 +487,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             service_principal_id: Optional[pulumi.Input[str]] = None,
-            service_principal_key: Optional[pulumi.Input[pulumi.InputType['CredentialServicePrincipalServicePrincipalKeyArgs']]] = None,
+            service_principal_key: Optional[pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']]] = None,
             tenant_id: Optional[pulumi.Input[str]] = None) -> 'CredentialServicePrincipal':
         """
         Get an existing CredentialServicePrincipal resource's state with the given name, id, and optional extra
@@ -496,7 +501,7 @@ class CredentialServicePrincipal(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description for the Data Factory Credential.
         :param pulumi.Input[str] name: Specifies the name of the Credential. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_principal_id: The Client ID of the Service Principal.
-        :param pulumi.Input[pulumi.InputType['CredentialServicePrincipalServicePrincipalKeyArgs']] service_principal_key: A `service_principal_key` block as defined below.
+        :param pulumi.Input[Union['CredentialServicePrincipalServicePrincipalKeyArgs', 'CredentialServicePrincipalServicePrincipalKeyArgsDict']] service_principal_key: A `service_principal_key` block as defined below.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Service Principal.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

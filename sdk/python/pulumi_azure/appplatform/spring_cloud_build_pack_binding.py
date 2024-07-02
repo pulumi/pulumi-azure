@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -162,7 +167,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  binding_type: Optional[pulumi.Input[str]] = None,
-                 launch: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildPackBindingLaunchArgs']]] = None,
+                 launch: Optional[pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_builder_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -188,28 +193,28 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
             name="example",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
-                name="mix",
-                build_pack_ids=["tanzu-Build Packs/java-azure"],
-            )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
-                id="io.Build Packs.stacks.bionic",
-                version="base",
-            ))
+            build_pack_groups=[{
+                "name": "mix",
+                "buildPackIds": ["tanzu-Build Packs/java-azure"],
+            }],
+            stack={
+                "id": "io.Build Packs.stacks.bionic",
+                "version": "base",
+            })
         example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
             name="example",
             spring_cloud_builder_id=example_spring_cloud_builder.id,
             binding_type="ApplicationInsights",
-            launch=azure.appplatform.SpringCloudBuildPackBindingLaunchArgs(
-                properties={
+            launch={
+                "properties": {
                     "abc": "def",
                     "any-string": "any-string",
                     "sampling-rate": "12.0",
                 },
-                secrets={
+                "secrets": {
                     "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -223,7 +228,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] binding_type: Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
-        :param pulumi.Input[pulumi.InputType['SpringCloudBuildPackBindingLaunchArgs']] launch: A `launch` block as defined below.
+        :param pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']] launch: A `launch` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         :param pulumi.Input[str] spring_cloud_builder_id: The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         """
@@ -255,28 +260,28 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
             name="example",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
-                name="mix",
-                build_pack_ids=["tanzu-Build Packs/java-azure"],
-            )],
-            stack=azure.appplatform.SpringCloudBuilderStackArgs(
-                id="io.Build Packs.stacks.bionic",
-                version="base",
-            ))
+            build_pack_groups=[{
+                "name": "mix",
+                "buildPackIds": ["tanzu-Build Packs/java-azure"],
+            }],
+            stack={
+                "id": "io.Build Packs.stacks.bionic",
+                "version": "base",
+            })
         example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
             name="example",
             spring_cloud_builder_id=example_spring_cloud_builder.id,
             binding_type="ApplicationInsights",
-            launch=azure.appplatform.SpringCloudBuildPackBindingLaunchArgs(
-                properties={
+            launch={
+                "properties": {
                     "abc": "def",
                     "any-string": "any-string",
                     "sampling-rate": "12.0",
                 },
-                secrets={
+                "secrets": {
                     "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -303,7 +308,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  binding_type: Optional[pulumi.Input[str]] = None,
-                 launch: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildPackBindingLaunchArgs']]] = None,
+                 launch: Optional[pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_builder_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -332,7 +337,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             binding_type: Optional[pulumi.Input[str]] = None,
-            launch: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildPackBindingLaunchArgs']]] = None,
+            launch: Optional[pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             spring_cloud_builder_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudBuildPackBinding':
         """
@@ -343,7 +348,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] binding_type: Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
-        :param pulumi.Input[pulumi.InputType['SpringCloudBuildPackBindingLaunchArgs']] launch: A `launch` block as defined below.
+        :param pulumi.Input[Union['SpringCloudBuildPackBindingLaunchArgs', 'SpringCloudBuildPackBindingLaunchArgsDict']] launch: A `launch` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Pack Binding. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         :param pulumi.Input[str] spring_cloud_builder_id: The ID of the Spring Cloud Builder. Changing this forces a new Spring Cloud Build Pack Binding to be created.
         """

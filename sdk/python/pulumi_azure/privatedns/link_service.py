@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -381,7 +386,7 @@ class LinkService(pulumi.CustomResource):
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]]] = None,
+                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -422,10 +427,10 @@ class LinkService(pulumi.CustomResource):
             sku="Standard",
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name=example_public_ip.name,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_link_service = azure.privatedns.LinkService("example",
             name="example-privatelink",
             resource_group_name=example.name,
@@ -434,20 +439,20 @@ class LinkService(pulumi.CustomResource):
             visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
             nat_ip_configurations=[
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="primary",
-                    private_ip_address="10.5.1.17",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=True,
-                ),
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="secondary",
-                    private_ip_address="10.5.1.18",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=False,
-                ),
+                {
+                    "name": "primary",
+                    "privateIpAddress": "10.5.1.17",
+                    "privateIpAddressVersion": "IPv4",
+                    "subnetId": example_subnet.id,
+                    "primary": True,
+                },
+                {
+                    "name": "secondary",
+                    "privateIpAddress": "10.5.1.18",
+                    "privateIpAddressVersion": "IPv4",
+                    "subnetId": example_subnet.id,
+                    "primary": False,
+                },
             ])
         ```
 
@@ -467,7 +472,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.
@@ -516,10 +521,10 @@ class LinkService(pulumi.CustomResource):
             sku="Standard",
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name=example_public_ip.name,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": example_public_ip.name,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_link_service = azure.privatedns.LinkService("example",
             name="example-privatelink",
             resource_group_name=example.name,
@@ -528,20 +533,20 @@ class LinkService(pulumi.CustomResource):
             visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
             nat_ip_configurations=[
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="primary",
-                    private_ip_address="10.5.1.17",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=True,
-                ),
-                azure.privatedns.LinkServiceNatIpConfigurationArgs(
-                    name="secondary",
-                    private_ip_address="10.5.1.18",
-                    private_ip_address_version="IPv4",
-                    subnet_id=example_subnet.id,
-                    primary=False,
-                ),
+                {
+                    "name": "primary",
+                    "privateIpAddress": "10.5.1.17",
+                    "privateIpAddressVersion": "IPv4",
+                    "subnetId": example_subnet.id,
+                    "primary": True,
+                },
+                {
+                    "name": "secondary",
+                    "privateIpAddress": "10.5.1.18",
+                    "privateIpAddressVersion": "IPv4",
+                    "subnetId": example_subnet.id,
+                    "primary": False,
+                },
             ])
         ```
 
@@ -574,7 +579,7 @@ class LinkService(pulumi.CustomResource):
                  load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]]] = None,
+                 nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -621,7 +626,7 @@ class LinkService(pulumi.CustomResource):
             load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]]] = None,
+            nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'LinkService':
@@ -639,7 +644,7 @@ class LinkService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_frontend_ip_configuration_ids: A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of this Private Link Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinkServiceNatIpConfigurationArgs']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LinkServiceNatIpConfigurationArgs', 'LinkServiceNatIpConfigurationArgsDict']]]] nat_ip_configurations: One or more (up to 8) `nat_ip_configuration` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] visibility_subscription_ids: A list of Subscription UUID/GUID's that will be able to see this Private Link Service.

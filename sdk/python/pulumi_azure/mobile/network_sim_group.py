@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -234,7 +239,7 @@ class NetworkSimGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_key_url: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['NetworkSimGroupIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['NetworkSimGroupIdentityArgs', 'NetworkSimGroupIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -269,10 +274,10 @@ class NetworkSimGroup(pulumi.CustomResource):
             location=example_resource_group.location,
             mobile_network_id=example_network.id,
             encryption_key_url=example_get_key.id,
-            identity=azure.mobile.NetworkSimGroupIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example.id],
-            ),
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identityIds": [example.id],
+            },
             tags={
                 "key": "value",
             })
@@ -289,7 +294,7 @@ class NetworkSimGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encryption_key_url: A key to encrypt the SIM data that belongs to this SIM group.
-        :param pulumi.Input[pulumi.InputType['NetworkSimGroupIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['NetworkSimGroupIdentityArgs', 'NetworkSimGroupIdentityArgsDict']] identity: An `identity` block as defined below.
                
                > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.
@@ -332,10 +337,10 @@ class NetworkSimGroup(pulumi.CustomResource):
             location=example_resource_group.location,
             mobile_network_id=example_network.id,
             encryption_key_url=example_get_key.id,
-            identity=azure.mobile.NetworkSimGroupIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example.id],
-            ),
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identityIds": [example.id],
+            },
             tags={
                 "key": "value",
             })
@@ -365,7 +370,7 @@ class NetworkSimGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_key_url: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['NetworkSimGroupIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['NetworkSimGroupIdentityArgs', 'NetworkSimGroupIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mobile_network_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -398,7 +403,7 @@ class NetworkSimGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             encryption_key_url: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['NetworkSimGroupIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['NetworkSimGroupIdentityArgs', 'NetworkSimGroupIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             mobile_network_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -411,7 +416,7 @@ class NetworkSimGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] encryption_key_url: A key to encrypt the SIM data that belongs to this SIM group.
-        :param pulumi.Input[pulumi.InputType['NetworkSimGroupIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['NetworkSimGroupIdentityArgs', 'NetworkSimGroupIdentityArgsDict']] identity: An `identity` block as defined below.
                
                > **NOTE:** A `UserAssigned` identity must be specified when `encryption_key_url` is specified.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created.

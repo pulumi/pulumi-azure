@@ -4,14 +4,43 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DefinitionPermissionArgs',
+    'DefinitionPermissionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DefinitionPermissionArgsDict(TypedDict):
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+        """
+        data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+        """
+        not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+        """
+        not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+        """
+elif False:
+    DefinitionPermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DefinitionPermissionArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -485,13 +490,13 @@ class Service(pulumi.CustomResource):
                  domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
-                 initial_replica_set: Optional[pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']]] = None,
+                 initial_replica_set: Optional[pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['ServiceNotificationsArgs']]] = None,
+                 notifications: Optional[pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secure_ldap: Optional[pulumi.Input[pulumi.InputType['ServiceSecureLdapArgs']]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
+                 secure_ldap: Optional[pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
+                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -521,50 +526,50 @@ class Service(pulumi.CustomResource):
             location=deploy.location,
             resource_group_name=deploy.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowSyncWithAzureAD",
-                    priority=101,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="443",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowRD",
-                    priority=201,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="3389",
-                    source_address_prefix="CorpNetSaw",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowPSRemoting",
-                    priority=301,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="5986",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowLDAPS",
-                    priority=401,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="636",
-                    source_address_prefix="*",
-                    destination_address_prefix="*",
-                ),
+                {
+                    "name": "AllowSyncWithAzureAD",
+                    "priority": 101,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "443",
+                    "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                    "destinationAddressPrefix": "*",
+                },
+                {
+                    "name": "AllowRD",
+                    "priority": 201,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "3389",
+                    "sourceAddressPrefix": "CorpNetSaw",
+                    "destinationAddressPrefix": "*",
+                },
+                {
+                    "name": "AllowPSRemoting",
+                    "priority": 301,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "5986",
+                    "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                    "destinationAddressPrefix": "*",
+                },
+                {
+                    "name": "AllowLDAPS",
+                    "priority": 401,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "636",
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "*",
+                },
             ])
         deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
@@ -590,22 +595,22 @@ class Service(pulumi.CustomResource):
             domain_name="widgetslogin.net",
             sku="Enterprise",
             filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
-                subnet_id=deploy_subnet.id,
-            ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
-                additional_recipients=[
+            initial_replica_set={
+                "subnetId": deploy_subnet.id,
+            },
+            notifications={
+                "additionalRecipients": [
                     "notifyA@example.net",
                     "notifyB@example.org",
                 ],
-                notify_dc_admins=True,
-                notify_global_admins=True,
-            ),
-            security=azure.domainservices.ServiceSecurityArgs(
-                sync_kerberos_passwords=True,
-                sync_ntlm_passwords=True,
-                sync_on_prem_passwords=True,
-            ),
+                "notifyDcAdmins": True,
+                "notifyGlobalAdmins": True,
+            },
+            security={
+                "syncKerberosPasswords": True,
+                "syncNtlmPasswords": True,
+                "syncOnPremPasswords": True,
+            },
             tags={
                 "Environment": "prod",
             },
@@ -628,13 +633,13 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] domain_name: The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+        :param pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         :param pulumi.Input[str] location: The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ServiceNotificationsArgs']] notifications: A `notifications` block as defined below.
+        :param pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']] notifications: A `notifications` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ServiceSecureLdapArgs']] secure_ldap: A `secure_ldap` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']] secure_ldap: A `secure_ldap` block as defined below.
+        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
@@ -670,50 +675,50 @@ class Service(pulumi.CustomResource):
             location=deploy.location,
             resource_group_name=deploy.name,
             security_rules=[
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowSyncWithAzureAD",
-                    priority=101,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="443",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowRD",
-                    priority=201,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="3389",
-                    source_address_prefix="CorpNetSaw",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowPSRemoting",
-                    priority=301,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="5986",
-                    source_address_prefix="AzureActiveDirectoryDomainServices",
-                    destination_address_prefix="*",
-                ),
-                azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                    name="AllowLDAPS",
-                    priority=401,
-                    direction="Inbound",
-                    access="Allow",
-                    protocol="Tcp",
-                    source_port_range="*",
-                    destination_port_range="636",
-                    source_address_prefix="*",
-                    destination_address_prefix="*",
-                ),
+                {
+                    "name": "AllowSyncWithAzureAD",
+                    "priority": 101,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "443",
+                    "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                    "destinationAddressPrefix": "*",
+                },
+                {
+                    "name": "AllowRD",
+                    "priority": 201,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "3389",
+                    "sourceAddressPrefix": "CorpNetSaw",
+                    "destinationAddressPrefix": "*",
+                },
+                {
+                    "name": "AllowPSRemoting",
+                    "priority": 301,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "5986",
+                    "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                    "destinationAddressPrefix": "*",
+                },
+                {
+                    "name": "AllowLDAPS",
+                    "priority": 401,
+                    "direction": "Inbound",
+                    "access": "Allow",
+                    "protocol": "Tcp",
+                    "sourcePortRange": "*",
+                    "destinationPortRange": "636",
+                    "sourceAddressPrefix": "*",
+                    "destinationAddressPrefix": "*",
+                },
             ])
         deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
@@ -739,22 +744,22 @@ class Service(pulumi.CustomResource):
             domain_name="widgetslogin.net",
             sku="Enterprise",
             filtered_sync_enabled=False,
-            initial_replica_set=azure.domainservices.ServiceInitialReplicaSetArgs(
-                subnet_id=deploy_subnet.id,
-            ),
-            notifications=azure.domainservices.ServiceNotificationsArgs(
-                additional_recipients=[
+            initial_replica_set={
+                "subnetId": deploy_subnet.id,
+            },
+            notifications={
+                "additionalRecipients": [
                     "notifyA@example.net",
                     "notifyB@example.org",
                 ],
-                notify_dc_admins=True,
-                notify_global_admins=True,
-            ),
-            security=azure.domainservices.ServiceSecurityArgs(
-                sync_kerberos_passwords=True,
-                sync_ntlm_passwords=True,
-                sync_on_prem_passwords=True,
-            ),
+                "notifyDcAdmins": True,
+                "notifyGlobalAdmins": True,
+            },
+            security={
+                "syncKerberosPasswords": True,
+                "syncNtlmPasswords": True,
+                "syncOnPremPasswords": True,
+            },
             tags={
                 "Environment": "prod",
             },
@@ -790,13 +795,13 @@ class Service(pulumi.CustomResource):
                  domain_configuration_type: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
-                 initial_replica_set: Optional[pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']]] = None,
+                 initial_replica_set: Optional[pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['ServiceNotificationsArgs']]] = None,
+                 notifications: Optional[pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 secure_ldap: Optional[pulumi.Input[pulumi.InputType['ServiceSecureLdapArgs']]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
+                 secure_ldap: Optional[pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
+                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -847,14 +852,14 @@ class Service(pulumi.CustomResource):
             domain_configuration_type: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             filtered_sync_enabled: Optional[pulumi.Input[bool]] = None,
-            initial_replica_set: Optional[pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']]] = None,
+            initial_replica_set: Optional[pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notifications: Optional[pulumi.Input[pulumi.InputType['ServiceNotificationsArgs']]] = None,
+            notifications: Optional[pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
-            secure_ldap: Optional[pulumi.Input[pulumi.InputType['ServiceSecureLdapArgs']]] = None,
-            security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
+            secure_ldap: Optional[pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']]] = None,
+            security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             sync_owner: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -871,14 +876,14 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] domain_configuration_type: The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] domain_name: The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] filtered_sync_enabled: Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['ServiceInitialReplicaSetArgs']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
+        :param pulumi.Input[Union['ServiceInitialReplicaSetArgs', 'ServiceInitialReplicaSetArgsDict']] initial_replica_set: An `initial_replica_set` block as defined below. The initial replica set inherits the same location as the Domain Service resource.
         :param pulumi.Input[str] location: The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ServiceNotificationsArgs']] notifications: A `notifications` block as defined below.
+        :param pulumi.Input[Union['ServiceNotificationsArgs', 'ServiceNotificationsArgsDict']] notifications: A `notifications` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_id: The Azure resource ID for the domain service.
-        :param pulumi.Input[pulumi.InputType['ServiceSecureLdapArgs']] secure_ldap: A `secure_ldap` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['ServiceSecureLdapArgs', 'ServiceSecureLdapArgsDict']] secure_ldap: A `secure_ldap` block as defined below.
+        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[str] sku: The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """

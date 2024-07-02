@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['VirtualNetworkDnsServersArgs', 'VirtualNetworkDnsServers']
@@ -113,10 +118,10 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=example.location,
             resource_group_name=example.name,
-            subnets=[azure.network.VirtualNetworkSubnetArgs(
-                name="subnet1",
-                address_prefix="10.0.1.0/24",
-            )])
+            subnets=[{
+                "name": "subnet1",
+                "addressPrefix": "10.0.1.0/24",
+            }])
         example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,
             dns_servers=[
@@ -160,10 +165,10 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"],
             location=example.location,
             resource_group_name=example.name,
-            subnets=[azure.network.VirtualNetworkSubnetArgs(
-                name="subnet1",
-                address_prefix="10.0.1.0/24",
-            )])
+            subnets=[{
+                "name": "subnet1",
+                "addressPrefix": "10.0.1.0/24",
+            }])
         example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,
             dns_servers=[

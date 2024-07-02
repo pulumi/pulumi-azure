@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -196,7 +201,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -221,19 +226,19 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("example",
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
-                name="fake",
-                label="master",
-                patterns=["app/dev"],
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                search_paths=[
+            repositories=[{
+                "name": "fake",
+                "label": "master",
+                "patterns": ["app/dev"],
+                "uri": "https://github.com/Azure-Samples/piggymetrics",
+                "searchPaths": [
                     "dir1",
                     "dir2",
                 ],
-                strict_host_key_checking=False,
-                username="adminuser",
-                password="H@Sh1CoR3!",
-            )])
+                "strictHostKeyChecking": False,
+                "username": "adminuser",
+                "password": "H@Sh1CoR3!",
+            }])
         ```
 
         ## Import
@@ -249,7 +254,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         :param pulumi.Input[int] refresh_interval_in_seconds: Specifies how often to check repository updates. Minimum value is 0.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]] repositories: One or more `repository` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         ...
@@ -280,19 +285,19 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         example_spring_cloud_configuration_service = azure.appplatform.SpringCloudConfigurationService("example",
             name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
-            repositories=[azure.appplatform.SpringCloudConfigurationServiceRepositoryArgs(
-                name="fake",
-                label="master",
-                patterns=["app/dev"],
-                uri="https://github.com/Azure-Samples/piggymetrics",
-                search_paths=[
+            repositories=[{
+                "name": "fake",
+                "label": "master",
+                "patterns": ["app/dev"],
+                "uri": "https://github.com/Azure-Samples/piggymetrics",
+                "searchPaths": [
                     "dir1",
                     "dir2",
                 ],
-                strict_host_key_checking=False,
-                username="adminuser",
-                password="H@Sh1CoR3!",
-            )])
+                "strictHostKeyChecking": False,
+                "username": "adminuser",
+                "password": "H@Sh1CoR3!",
+            }])
         ```
 
         ## Import
@@ -321,7 +326,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                  generation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -352,7 +357,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
             generation: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             refresh_interval_in_seconds: Optional[pulumi.Input[int]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]]] = None,
+            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]]] = None,
             spring_cloud_service_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudConfigurationService':
         """
         Get an existing SpringCloudConfigurationService resource's state with the given name, id, and optional extra
@@ -364,7 +369,7 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
         :param pulumi.Input[str] generation: The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created.
         :param pulumi.Input[int] refresh_interval_in_seconds: Specifies how often to check repository updates. Minimum value is 0.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudConfigurationServiceRepositoryArgs']]]] repositories: One or more `repository` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpringCloudConfigurationServiceRepositoryArgs', 'SpringCloudConfigurationServiceRepositoryArgsDict']]]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

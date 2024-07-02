@@ -4,15 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountIdentityArgs',
+    'AccountIdentityArgsDict',
     'AccountManagedResourceArgs',
+    'AccountManagedResourceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are `UserAssigned` and `SystemAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -87,6 +119,23 @@ class AccountIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class AccountManagedResourceArgsDict(TypedDict):
+        event_hub_namespace_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the managed event hub namespace.
+        """
+        resource_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the managed resource group.
+        """
+        storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the managed storage account.
+        """
+elif False:
+    AccountManagedResourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountManagedResourceArgs:

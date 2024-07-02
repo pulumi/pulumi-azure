@@ -4,15 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ApplicationIdentityArgs',
+    'ApplicationIdentityArgsDict',
     'ApplicationNetworkRuleSetIpRuleArgs',
+    'ApplicationNetworkRuleSetIpRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ApplicationIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this IoT Central Application. The only possible value is `SystemAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ApplicationIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationIdentityArgs:
@@ -67,6 +93,19 @@ class ApplicationIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ApplicationNetworkRuleSetIpRuleArgsDict(TypedDict):
+        ip_mask: pulumi.Input[str]
+        """
+        The IP address range in CIDR notation for the IP Rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the IP Rule
+        """
+elif False:
+    ApplicationNetworkRuleSetIpRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ApplicationNetworkRuleSetIpRuleArgs:

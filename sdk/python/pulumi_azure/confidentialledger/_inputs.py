@@ -4,15 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LedgerAzureadBasedServicePrincipalArgs',
+    'LedgerAzureadBasedServicePrincipalArgsDict',
     'LedgerCertificateBasedSecurityPrincipalArgs',
+    'LedgerCertificateBasedSecurityPrincipalArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LedgerAzureadBasedServicePrincipalArgsDict(TypedDict):
+        ledger_role_name: pulumi.Input[str]
+        """
+        Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+        """
+        principal_id: pulumi.Input[str]
+        """
+        Specifies the Principal ID of the AzureAD Service Principal.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        Specifies the Tenant ID for this AzureAD Service Principal.
+        """
+elif False:
+    LedgerAzureadBasedServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LedgerAzureadBasedServicePrincipalArgs:
@@ -65,6 +91,19 @@ class LedgerAzureadBasedServicePrincipalArgs:
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class LedgerCertificateBasedSecurityPrincipalArgsDict(TypedDict):
+        ledger_role_name: pulumi.Input[str]
+        """
+        Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
+        """
+        pem_public_key: pulumi.Input[str]
+        """
+        The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
+        """
+elif False:
+    LedgerCertificateBasedSecurityPrincipalArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LedgerCertificateBasedSecurityPrincipalArgs:

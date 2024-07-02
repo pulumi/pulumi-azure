@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
@@ -114,9 +119,9 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             name="example-cluster",
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="keyvaultkeyexample",
             location=example.location,
@@ -124,25 +129,25 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Create",
                         "Get",
                         "GetRotationPolicy",
                     ],
-                    secret_permissions=["Set"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_cluster.identity.tenant_id,
-                    object_id=example_cluster.identity.principal_id,
-                    key_permissions=[
+                    "secretPermissions": ["Set"],
+                },
+                {
+                    "tenantId": example_cluster.identity.tenant_id,
+                    "objectId": example_cluster.identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Unwrapkey",
                         "Wrapkey",
                     ],
-                ),
+                },
             ],
             tags={
                 "environment": "Production",
@@ -201,9 +206,9 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             name="example-cluster",
             resource_group_name=example.name,
             location=example.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="keyvaultkeyexample",
             location=example.location,
@@ -211,25 +216,25 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    key_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "keyPermissions": [
                         "Create",
                         "Get",
                         "GetRotationPolicy",
                     ],
-                    secret_permissions=["Set"],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=example_cluster.identity.tenant_id,
-                    object_id=example_cluster.identity.principal_id,
-                    key_permissions=[
+                    "secretPermissions": ["Set"],
+                },
+                {
+                    "tenantId": example_cluster.identity.tenant_id,
+                    "objectId": example_cluster.identity.principal_id,
+                    "keyPermissions": [
                         "Get",
                         "Unwrapkey",
                         "Wrapkey",
                     ],
-                ),
+                },
             ],
             tags={
                 "environment": "Production",

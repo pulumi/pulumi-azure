@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -378,7 +383,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_json: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppFunctionFileArgs']]]]] = None,
+                 files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -418,11 +423,11 @@ class FunctionAppFunction(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.LinuxFunctionAppSiteConfigApplicationStackArgs(
-                    python_version="3.9",
-                ),
-            ))
+            site_config={
+                "applicationStack": {
+                    "pythonVersion": "3.9",
+                },
+            })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
             name="example-function-app-function",
             function_app_id=example_linux_function_app.id,
@@ -481,19 +486,19 @@ class FunctionAppFunction(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.WindowsFunctionAppSiteConfigApplicationStackArgs(
-                    dotnet_version="6",
-                ),
-            ))
+            site_config={
+                "applicationStack": {
+                    "dotnetVersion": "6",
+                },
+            })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
             name="example-function-app-function",
             function_app_id=example_windows_function_app.id,
             language="CSharp",
-            files=[azure.appservice.FunctionAppFunctionFileArgs(
-                name="run.csx",
-                content=std.file(input="exampledata/run.csx").result,
-            )],
+            files=[{
+                "name": "run.csx",
+                "content": std.file(input="exampledata/run.csx").result,
+            }],
             test_data=json.dumps({
                 "name": "Azure",
             }),
@@ -530,7 +535,7 @@ class FunctionAppFunction(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_json: The config for this Function in JSON format.
         :param pulumi.Input[bool] enabled: Should this function be enabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppFunctionFileArgs']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.
                
@@ -578,11 +583,11 @@ class FunctionAppFunction(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.LinuxFunctionAppSiteConfigApplicationStackArgs(
-                    python_version="3.9",
-                ),
-            ))
+            site_config={
+                "applicationStack": {
+                    "pythonVersion": "3.9",
+                },
+            })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
             name="example-function-app-function",
             function_app_id=example_linux_function_app.id,
@@ -641,19 +646,19 @@ class FunctionAppFunction(pulumi.CustomResource):
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs(
-                application_stack=azure.appservice.WindowsFunctionAppSiteConfigApplicationStackArgs(
-                    dotnet_version="6",
-                ),
-            ))
+            site_config={
+                "applicationStack": {
+                    "dotnetVersion": "6",
+                },
+            })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
             name="example-function-app-function",
             function_app_id=example_windows_function_app.id,
             language="CSharp",
-            files=[azure.appservice.FunctionAppFunctionFileArgs(
-                name="run.csx",
-                content=std.file(input="exampledata/run.csx").result,
-            )],
+            files=[{
+                "name": "run.csx",
+                "content": std.file(input="exampledata/run.csx").result,
+            }],
             test_data=json.dumps({
                 "name": "Azure",
             }),
@@ -703,7 +708,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config_json: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppFunctionFileArgs']]]]] = None,
+                 files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  language: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -748,7 +753,7 @@ class FunctionAppFunction(pulumi.CustomResource):
             config_json: Optional[pulumi.Input[str]] = None,
             config_url: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            files: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppFunctionFileArgs']]]]] = None,
+            files: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]]] = None,
             function_app_id: Optional[pulumi.Input[str]] = None,
             invocation_url: Optional[pulumi.Input[str]] = None,
             language: Optional[pulumi.Input[str]] = None,
@@ -769,7 +774,7 @@ class FunctionAppFunction(pulumi.CustomResource):
         :param pulumi.Input[str] config_json: The config for this Function in JSON format.
         :param pulumi.Input[str] config_url: The URL of the configuration JSON.
         :param pulumi.Input[bool] enabled: Should this function be enabled. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionAppFunctionFileArgs']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionAppFunctionFileArgs', 'FunctionAppFunctionFileArgsDict']]]] files: A `file` block as detailed below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] function_app_id: The ID of the Function App in which this function should reside. Changing this forces a new resource to be created.
         :param pulumi.Input[str] invocation_url: The invocation URL.
         :param pulumi.Input[str] language: The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`.

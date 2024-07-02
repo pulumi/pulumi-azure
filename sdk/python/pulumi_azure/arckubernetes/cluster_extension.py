@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -371,7 +376,7 @@ class ClusterExtension(pulumi.CustomResource):
                  configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extension_type: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterExtensionIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ClusterExtensionIdentityArgs', 'ClusterExtensionIdentityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  release_namespace: Optional[pulumi.Input[str]] = None,
                  release_train: Optional[pulumi.Input[str]] = None,
@@ -396,9 +401,9 @@ class ClusterExtension(pulumi.CustomResource):
             resource_group_name=example.name,
             location="West Europe",
             agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "ENV": "Test",
             })
@@ -422,7 +427,7 @@ class ClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterExtensionIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[Union['ClusterExtensionIdentityArgs', 'ClusterExtensionIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
@@ -453,9 +458,9 @@ class ClusterExtension(pulumi.CustomResource):
             resource_group_name=example.name,
             location="West Europe",
             agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
-            identity=azure.arckubernetes.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "ENV": "Test",
             })
@@ -492,7 +497,7 @@ class ClusterExtension(pulumi.CustomResource):
                  configuration_protected_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  extension_type: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterExtensionIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ClusterExtensionIdentityArgs', 'ClusterExtensionIdentityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  release_namespace: Optional[pulumi.Input[str]] = None,
                  release_train: Optional[pulumi.Input[str]] = None,
@@ -539,7 +544,7 @@ class ClusterExtension(pulumi.CustomResource):
             configuration_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             current_version: Optional[pulumi.Input[str]] = None,
             extension_type: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ClusterExtensionIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ClusterExtensionIdentityArgs', 'ClusterExtensionIdentityArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             release_namespace: Optional[pulumi.Input[str]] = None,
             release_train: Optional[pulumi.Input[str]] = None,
@@ -557,7 +562,7 @@ class ClusterExtension(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
         :param pulumi.Input[str] current_version: The current version of the extension.
         :param pulumi.Input[str] extension_type: Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterExtensionIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
+        :param pulumi.Input[Union['ClusterExtensionIdentityArgs', 'ClusterExtensionIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_namespace: Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Arc Kubernetes Cluster Extension to be created.
         :param pulumi.Input[str] release_train: The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Arc Kubernetes Cluster Extension to be created.

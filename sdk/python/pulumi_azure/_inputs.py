@@ -4,30 +4,75 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 
 __all__ = [
     'ProviderFeaturesArgs',
+    'ProviderFeaturesArgsDict',
     'ProviderFeaturesApiManagementArgs',
+    'ProviderFeaturesApiManagementArgsDict',
     'ProviderFeaturesAppConfigurationArgs',
+    'ProviderFeaturesAppConfigurationArgsDict',
     'ProviderFeaturesApplicationInsightsArgs',
+    'ProviderFeaturesApplicationInsightsArgsDict',
     'ProviderFeaturesCognitiveAccountArgs',
+    'ProviderFeaturesCognitiveAccountArgsDict',
     'ProviderFeaturesKeyVaultArgs',
+    'ProviderFeaturesKeyVaultArgsDict',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
+    'ProviderFeaturesLogAnalyticsWorkspaceArgsDict',
     'ProviderFeaturesMachineLearningArgs',
+    'ProviderFeaturesMachineLearningArgsDict',
     'ProviderFeaturesManagedDiskArgs',
+    'ProviderFeaturesManagedDiskArgsDict',
     'ProviderFeaturesPostgresqlFlexibleServerArgs',
+    'ProviderFeaturesPostgresqlFlexibleServerArgsDict',
     'ProviderFeaturesRecoveryServiceArgs',
+    'ProviderFeaturesRecoveryServiceArgsDict',
     'ProviderFeaturesRecoveryServicesVaultsArgs',
+    'ProviderFeaturesRecoveryServicesVaultsArgsDict',
     'ProviderFeaturesResourceGroupArgs',
+    'ProviderFeaturesResourceGroupArgsDict',
     'ProviderFeaturesSubscriptionArgs',
+    'ProviderFeaturesSubscriptionArgsDict',
     'ProviderFeaturesTemplateDeploymentArgs',
+    'ProviderFeaturesTemplateDeploymentArgsDict',
     'ProviderFeaturesVirtualMachineArgs',
+    'ProviderFeaturesVirtualMachineArgsDict',
     'ProviderFeaturesVirtualMachineScaleSetArgs',
+    'ProviderFeaturesVirtualMachineScaleSetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ProviderFeaturesArgsDict(TypedDict):
+        api_management: NotRequired[pulumi.Input['ProviderFeaturesApiManagementArgsDict']]
+        app_configuration: NotRequired[pulumi.Input['ProviderFeaturesAppConfigurationArgsDict']]
+        application_insights: NotRequired[pulumi.Input['ProviderFeaturesApplicationInsightsArgsDict']]
+        cognitive_account: NotRequired[pulumi.Input['ProviderFeaturesCognitiveAccountArgsDict']]
+        key_vault: NotRequired[pulumi.Input['ProviderFeaturesKeyVaultArgsDict']]
+        log_analytics_workspace: NotRequired[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgsDict']]
+        machine_learning: NotRequired[pulumi.Input['ProviderFeaturesMachineLearningArgsDict']]
+        managed_disk: NotRequired[pulumi.Input['ProviderFeaturesManagedDiskArgsDict']]
+        postgresql_flexible_server: NotRequired[pulumi.Input['ProviderFeaturesPostgresqlFlexibleServerArgsDict']]
+        recovery_service: NotRequired[pulumi.Input['ProviderFeaturesRecoveryServiceArgsDict']]
+        recovery_services_vaults: NotRequired[pulumi.Input['ProviderFeaturesRecoveryServicesVaultsArgsDict']]
+        resource_group: NotRequired[pulumi.Input['ProviderFeaturesResourceGroupArgsDict']]
+        subscription: NotRequired[pulumi.Input['ProviderFeaturesSubscriptionArgsDict']]
+        template_deployment: NotRequired[pulumi.Input['ProviderFeaturesTemplateDeploymentArgsDict']]
+        virtual_machine: NotRequired[pulumi.Input['ProviderFeaturesVirtualMachineArgsDict']]
+        virtual_machine_scale_set: NotRequired[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgsDict']]
+elif False:
+    ProviderFeaturesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesArgs:
@@ -226,6 +271,13 @@ class ProviderFeaturesArgs:
         pulumi.set(self, "virtual_machine_scale_set", value)
 
 
+if not MYPY:
+    class ProviderFeaturesApiManagementArgsDict(TypedDict):
+        purge_soft_delete_on_destroy: NotRequired[pulumi.Input[bool]]
+        recover_soft_deleted: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesApiManagementArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesApiManagementArgs:
     def __init__(__self__, *,
@@ -254,6 +306,13 @@ class ProviderFeaturesApiManagementArgs:
     def recover_soft_deleted(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "recover_soft_deleted", value)
 
+
+if not MYPY:
+    class ProviderFeaturesAppConfigurationArgsDict(TypedDict):
+        purge_soft_delete_on_destroy: NotRequired[pulumi.Input[bool]]
+        recover_soft_deleted: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesAppConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesAppConfigurationArgs:
@@ -284,6 +343,12 @@ class ProviderFeaturesAppConfigurationArgs:
         pulumi.set(self, "recover_soft_deleted", value)
 
 
+if not MYPY:
+    class ProviderFeaturesApplicationInsightsArgsDict(TypedDict):
+        disable_generated_rule: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesApplicationInsightsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesApplicationInsightsArgs:
     def __init__(__self__, *,
@@ -301,6 +366,12 @@ class ProviderFeaturesApplicationInsightsArgs:
         pulumi.set(self, "disable_generated_rule", value)
 
 
+if not MYPY:
+    class ProviderFeaturesCognitiveAccountArgsDict(TypedDict):
+        purge_soft_delete_on_destroy: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesCognitiveAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesCognitiveAccountArgs:
     def __init__(__self__, *,
@@ -317,6 +388,55 @@ class ProviderFeaturesCognitiveAccountArgs:
     def purge_soft_delete_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "purge_soft_delete_on_destroy", value)
 
+
+if not MYPY:
+    class ProviderFeaturesKeyVaultArgsDict(TypedDict):
+        purge_soft_delete_on_destroy: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.KeyVault` resources will be permanently deleted (e.g purged), when destroyed
+        """
+        purge_soft_deleted_certificates_on_destroy: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.Certificate` resources will be permanently deleted (e.g purged), when destroyed
+        """
+        purge_soft_deleted_hardware_security_module_keys_on_destroy: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be permanently deleted (e.g purged), when destroyed
+        """
+        purge_soft_deleted_hardware_security_modules_on_destroy: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModule` resources will be permanently deleted (e.g purged), when destroyed
+        """
+        purge_soft_deleted_keys_on_destroy: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.Key` resources will be permanently deleted (e.g purged), when destroyed
+        """
+        purge_soft_deleted_secrets_on_destroy: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.Secret` resources will be permanently deleted (e.g purged), when destroyed
+        """
+        recover_soft_deleted_certificates: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.Certificate` resources will be restored, instead of creating new ones
+        """
+        recover_soft_deleted_hardware_security_module_keys: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.ManagedHardwareSecurityModuleKey` resources will be restored, instead of creating new ones
+        """
+        recover_soft_deleted_key_vaults: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.KeyVault` resources will be restored, instead of creating new ones
+        """
+        recover_soft_deleted_keys: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.Key` resources will be restored, instead of creating new ones
+        """
+        recover_soft_deleted_secrets: NotRequired[pulumi.Input[bool]]
+        """
+        When enabled soft-deleted `keyvault.Secret` resources will be restored, instead of creating new ones
+        """
+elif False:
+    ProviderFeaturesKeyVaultArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesKeyVaultArgs:
@@ -501,6 +621,12 @@ class ProviderFeaturesKeyVaultArgs:
         pulumi.set(self, "recover_soft_deleted_secrets", value)
 
 
+if not MYPY:
+    class ProviderFeaturesLogAnalyticsWorkspaceArgsDict(TypedDict):
+        permanently_delete_on_destroy: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesLogAnalyticsWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesLogAnalyticsWorkspaceArgs:
     def __init__(__self__, *,
@@ -517,6 +643,12 @@ class ProviderFeaturesLogAnalyticsWorkspaceArgs:
     def permanently_delete_on_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "permanently_delete_on_destroy", value)
 
+
+if not MYPY:
+    class ProviderFeaturesMachineLearningArgsDict(TypedDict):
+        purge_soft_deleted_workspace_on_destroy: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesMachineLearningArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesMachineLearningArgs:
@@ -535,6 +667,12 @@ class ProviderFeaturesMachineLearningArgs:
         pulumi.set(self, "purge_soft_deleted_workspace_on_destroy", value)
 
 
+if not MYPY:
+    class ProviderFeaturesManagedDiskArgsDict(TypedDict):
+        expand_without_downtime: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesManagedDiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesManagedDiskArgs:
     def __init__(__self__, *,
@@ -552,6 +690,12 @@ class ProviderFeaturesManagedDiskArgs:
         pulumi.set(self, "expand_without_downtime", value)
 
 
+if not MYPY:
+    class ProviderFeaturesPostgresqlFlexibleServerArgsDict(TypedDict):
+        restart_server_on_configuration_value_change: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesPostgresqlFlexibleServerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesPostgresqlFlexibleServerArgs:
     def __init__(__self__, *,
@@ -568,6 +712,13 @@ class ProviderFeaturesPostgresqlFlexibleServerArgs:
     def restart_server_on_configuration_value_change(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "restart_server_on_configuration_value_change", value)
 
+
+if not MYPY:
+    class ProviderFeaturesRecoveryServiceArgsDict(TypedDict):
+        purge_protected_items_from_vault_on_destroy: NotRequired[pulumi.Input[bool]]
+        vm_backup_stop_protection_and_retain_data_on_destroy: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesRecoveryServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesRecoveryServiceArgs:
@@ -598,6 +749,12 @@ class ProviderFeaturesRecoveryServiceArgs:
         pulumi.set(self, "vm_backup_stop_protection_and_retain_data_on_destroy", value)
 
 
+if not MYPY:
+    class ProviderFeaturesRecoveryServicesVaultsArgsDict(TypedDict):
+        recover_soft_deleted_backup_protected_vm: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesRecoveryServicesVaultsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesRecoveryServicesVaultsArgs:
     def __init__(__self__, *,
@@ -614,6 +771,12 @@ class ProviderFeaturesRecoveryServicesVaultsArgs:
     def recover_soft_deleted_backup_protected_vm(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "recover_soft_deleted_backup_protected_vm", value)
 
+
+if not MYPY:
+    class ProviderFeaturesResourceGroupArgsDict(TypedDict):
+        prevent_deletion_if_contains_resources: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesResourceGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesResourceGroupArgs:
@@ -632,6 +795,12 @@ class ProviderFeaturesResourceGroupArgs:
         pulumi.set(self, "prevent_deletion_if_contains_resources", value)
 
 
+if not MYPY:
+    class ProviderFeaturesSubscriptionArgsDict(TypedDict):
+        prevent_cancellation_on_destroy: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesSubscriptionArgs:
     def __init__(__self__, *,
@@ -649,6 +818,12 @@ class ProviderFeaturesSubscriptionArgs:
         pulumi.set(self, "prevent_cancellation_on_destroy", value)
 
 
+if not MYPY:
+    class ProviderFeaturesTemplateDeploymentArgsDict(TypedDict):
+        delete_nested_items_during_deletion: pulumi.Input[bool]
+elif False:
+    ProviderFeaturesTemplateDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ProviderFeaturesTemplateDeploymentArgs:
     def __init__(__self__, *,
@@ -664,6 +839,15 @@ class ProviderFeaturesTemplateDeploymentArgs:
     def delete_nested_items_during_deletion(self, value: pulumi.Input[bool]):
         pulumi.set(self, "delete_nested_items_during_deletion", value)
 
+
+if not MYPY:
+    class ProviderFeaturesVirtualMachineArgsDict(TypedDict):
+        delete_os_disk_on_deletion: NotRequired[pulumi.Input[bool]]
+        detach_implicit_data_disk_on_deletion: NotRequired[pulumi.Input[bool]]
+        graceful_shutdown: NotRequired[pulumi.Input[bool]]
+        skip_shutdown_and_force_delete: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesVirtualMachineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesVirtualMachineArgs:
@@ -717,6 +901,15 @@ class ProviderFeaturesVirtualMachineArgs:
     def skip_shutdown_and_force_delete(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_shutdown_and_force_delete", value)
 
+
+if not MYPY:
+    class ProviderFeaturesVirtualMachineScaleSetArgsDict(TypedDict):
+        force_delete: NotRequired[pulumi.Input[bool]]
+        reimage_on_manual_upgrade: NotRequired[pulumi.Input[bool]]
+        roll_instances_when_required: NotRequired[pulumi.Input[bool]]
+        scale_to_zero_before_deletion: NotRequired[pulumi.Input[bool]]
+elif False:
+    ProviderFeaturesVirtualMachineScaleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ProviderFeaturesVirtualMachineScaleSetArgs:

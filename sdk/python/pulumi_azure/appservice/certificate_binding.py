@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['CertificateBindingArgs', 'CertificateBinding']
@@ -194,10 +199,10 @@ class CertificateBinding(pulumi.CustomResource):
             name="appserviceplan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Premium",
-                size="P1",
-            ))
+            sku={
+                "tier": "Premium",
+                "size": "P1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name="mywebapp",
             location=example_resource_group.location,
@@ -216,9 +221,9 @@ class CertificateBinding(pulumi.CustomResource):
             zone_name=example.name,
             resource_group_name=example.resource_group_name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_app_service.custom_domain_verification_id,
-            )])
+            records=[{
+                "value": example_app_service.custom_domain_verification_id,
+            }])
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
             hostname=std.trim_output(input=example_c_name_record.fqdn,
                 cutset=".").apply(lambda invoke: invoke.result),
@@ -269,10 +274,10 @@ class CertificateBinding(pulumi.CustomResource):
             name="appserviceplan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.appservice.PlanSkuArgs(
-                tier="Premium",
-                size="P1",
-            ))
+            sku={
+                "tier": "Premium",
+                "size": "P1",
+            })
         example_app_service = azure.appservice.AppService("example",
             name="mywebapp",
             location=example_resource_group.location,
@@ -291,9 +296,9 @@ class CertificateBinding(pulumi.CustomResource):
             zone_name=example.name,
             resource_group_name=example.resource_group_name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_app_service.custom_domain_verification_id,
-            )])
+            records=[{
+                "value": example_app_service.custom_domain_verification_id,
+            }])
         example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
             hostname=std.trim_output(input=example_c_name_record.fqdn,
                 cutset=".").apply(lambda invoke: invoke.result),

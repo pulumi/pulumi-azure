@@ -4,23 +4,79 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CacheAccessPolicyAccessRuleArgs',
+    'CacheAccessPolicyAccessRuleArgsDict',
     'CacheDefaultAccessPolicyArgs',
+    'CacheDefaultAccessPolicyArgsDict',
     'CacheDefaultAccessPolicyAccessRuleArgs',
+    'CacheDefaultAccessPolicyAccessRuleArgsDict',
     'CacheDirectoryActiveDirectoryArgs',
+    'CacheDirectoryActiveDirectoryArgsDict',
     'CacheDirectoryFlatFileArgs',
+    'CacheDirectoryFlatFileArgsDict',
     'CacheDirectoryLdapArgs',
+    'CacheDirectoryLdapArgsDict',
     'CacheDirectoryLdapBindArgs',
+    'CacheDirectoryLdapBindArgsDict',
     'CacheDnsArgs',
+    'CacheDnsArgsDict',
     'CacheIdentityArgs',
+    'CacheIdentityArgsDict',
     'CacheNfsTargetNamespaceJunctionArgs',
+    'CacheNfsTargetNamespaceJunctionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CacheAccessPolicyAccessRuleArgsDict(TypedDict):
+        access: pulumi.Input[str]
+        """
+        The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+        """
+        scope: pulumi.Input[str]
+        """
+        The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+
+        > **NOTE:** Each `access_rule` should set a unique `scope`.
+        """
+        anonymous_gid: NotRequired[pulumi.Input[int]]
+        """
+        The anonymous GID used when `root_squash_enabled` is `true`.
+        """
+        anonymous_uid: NotRequired[pulumi.Input[int]]
+        """
+        The anonymous UID used when `root_squash_enabled` is `true`.
+        """
+        filter: NotRequired[pulumi.Input[str]]
+        """
+        The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+        """
+        root_squash_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
+        """
+        submount_access_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether allow access to subdirectories under the root export?
+        """
+        suid_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
+        """
+elif False:
+    CacheAccessPolicyAccessRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheAccessPolicyAccessRuleArgs:
@@ -159,6 +215,15 @@ class CacheAccessPolicyAccessRuleArgs:
         pulumi.set(self, "suid_enabled", value)
 
 
+if not MYPY:
+    class CacheDefaultAccessPolicyArgsDict(TypedDict):
+        access_rules: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgsDict']]]
+        """
+        One or more `access_rule` blocks (up to three) as defined above.
+        """
+elif False:
+    CacheDefaultAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CacheDefaultAccessPolicyArgs:
     def __init__(__self__, *,
@@ -180,6 +245,45 @@ class CacheDefaultAccessPolicyArgs:
     def access_rules(self, value: pulumi.Input[Sequence[pulumi.Input['CacheDefaultAccessPolicyAccessRuleArgs']]]):
         pulumi.set(self, "access_rules", value)
 
+
+if not MYPY:
+    class CacheDefaultAccessPolicyAccessRuleArgsDict(TypedDict):
+        access: pulumi.Input[str]
+        """
+        The access level for this rule. Possible values are: `rw`, `ro`, `no`.
+        """
+        scope: pulumi.Input[str]
+        """
+        The scope of this rule. The `scope` and (potentially) the `filter` determine which clients match the rule. Possible values are: `default`, `network`, `host`.
+
+        > **Note:** Each `access_rule` should set a unique `scope`.
+        """
+        anonymous_gid: NotRequired[pulumi.Input[int]]
+        """
+        The anonymous GID used when `root_squash_enabled` is `true`.
+        """
+        anonymous_uid: NotRequired[pulumi.Input[int]]
+        """
+        The anonymous UID used when `root_squash_enabled` is `true`.
+        """
+        filter: NotRequired[pulumi.Input[str]]
+        """
+        The filter applied to the `scope` for this rule. The filter's format depends on its scope: `default` scope matches all clients and has no filter value; `network` scope takes a CIDR format; `host` takes an IP address or fully qualified domain name. If a client does not match any filter rule and there is no default rule, access is denied.
+        """
+        root_squash_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable [root squash](https://docs.microsoft.com/azure/hpc-cache/access-policies#root-squash)?
+        """
+        submount_access_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether allow access to subdirectories under the root export?
+        """
+        suid_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether [SUID](https://docs.microsoft.com/azure/hpc-cache/access-policies#suid) is allowed?
+        """
+elif False:
+    CacheDefaultAccessPolicyAccessRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheDefaultAccessPolicyAccessRuleArgs:
@@ -318,6 +422,39 @@ class CacheDefaultAccessPolicyAccessRuleArgs:
         pulumi.set(self, "suid_enabled", value)
 
 
+if not MYPY:
+    class CacheDirectoryActiveDirectoryArgsDict(TypedDict):
+        cache_netbios_name: pulumi.Input[str]
+        """
+        The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
+        """
+        dns_primary_ip: pulumi.Input[str]
+        """
+        The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+        """
+        domain_name: pulumi.Input[str]
+        """
+        The fully qualified domain name of the Active Directory domain controller.
+        """
+        domain_netbios_name: pulumi.Input[str]
+        """
+        The Active Directory domain's NetBIOS name.
+        """
+        password: pulumi.Input[str]
+        """
+        The password of the Active Directory domain administrator.
+        """
+        username: pulumi.Input[str]
+        """
+        The username of the Active Directory domain administrator.
+        """
+        dns_secondary_ip: NotRequired[pulumi.Input[str]]
+        """
+        The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.
+        """
+elif False:
+    CacheDirectoryActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CacheDirectoryActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -431,6 +568,19 @@ class CacheDirectoryActiveDirectoryArgs:
         pulumi.set(self, "dns_secondary_ip", value)
 
 
+if not MYPY:
+    class CacheDirectoryFlatFileArgsDict(TypedDict):
+        group_file_uri: pulumi.Input[str]
+        """
+        The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
+        """
+        password_file_uri: pulumi.Input[str]
+        """
+        The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
+        """
+elif False:
+    CacheDirectoryFlatFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CacheDirectoryFlatFileArgs:
     def __init__(__self__, *,
@@ -467,6 +617,35 @@ class CacheDirectoryFlatFileArgs:
     def password_file_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "password_file_uri", value)
 
+
+if not MYPY:
+    class CacheDirectoryLdapArgsDict(TypedDict):
+        base_dn: pulumi.Input[str]
+        """
+        The base distinguished name (DN) for the LDAP domain.
+        """
+        server: pulumi.Input[str]
+        """
+        The FQDN or IP address of the LDAP server.
+        """
+        bind: NotRequired[pulumi.Input['CacheDirectoryLdapBindArgsDict']]
+        """
+        A `bind` block as defined above.
+        """
+        certificate_validation_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of the CA certificate to validate the LDAP secure connection.
+        """
+        download_certificate_automatically: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided.
+        """
+        encrypted: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the LDAP connection should be encrypted?
+        """
+elif False:
+    CacheDirectoryLdapArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheDirectoryLdapArgs:
@@ -569,6 +748,19 @@ class CacheDirectoryLdapArgs:
         pulumi.set(self, "encrypted", value)
 
 
+if not MYPY:
+    class CacheDirectoryLdapBindArgsDict(TypedDict):
+        dn: pulumi.Input[str]
+        """
+        The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
+        """
+        password: pulumi.Input[str]
+        """
+        The Bind password to be used in the secure LDAP connection.
+        """
+elif False:
+    CacheDirectoryLdapBindArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CacheDirectoryLdapBindArgs:
     def __init__(__self__, *,
@@ -605,6 +797,19 @@ class CacheDirectoryLdapBindArgs:
     def password(self, value: pulumi.Input[str]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class CacheDnsArgsDict(TypedDict):
+        servers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
+        """
+        search_domain: NotRequired[pulumi.Input[str]]
+        """
+        The DNS search domain for the HPC Cache.
+        """
+elif False:
+    CacheDnsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheDnsArgs:
@@ -643,6 +848,29 @@ class CacheDnsArgs:
     def search_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "search_domain", value)
 
+
+if not MYPY:
+    class CacheIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both). Changing this forces a new resource to be created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    CacheIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheIdentityArgs:
@@ -717,6 +945,27 @@ class CacheIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class CacheNfsTargetNamespaceJunctionArgsDict(TypedDict):
+        namespace_path: pulumi.Input[str]
+        """
+        The client-facing file path of this NFS target within the HPC Cache NFS Target.
+        """
+        nfs_export: pulumi.Input[str]
+        """
+        The NFS export of this NFS target within the HPC Cache NFS Target.
+        """
+        access_policy_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the access policy applied to this target. Defaults to `default`.
+        """
+        target_path: NotRequired[pulumi.Input[str]]
+        """
+        The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `""`, in which case the whole `nfs_export` is exported.
+        """
+elif False:
+    CacheNfsTargetNamespaceJunctionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CacheNfsTargetNamespaceJunctionArgs:

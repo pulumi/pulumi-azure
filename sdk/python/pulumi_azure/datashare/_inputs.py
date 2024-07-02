@@ -4,16 +4,45 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountIdentityArgs',
+    'AccountIdentityArgsDict',
     'DatasetBlobStorageStorageAccountArgs',
+    'DatasetBlobStorageStorageAccountArgsDict',
     'ShareSnapshotScheduleArgs',
+    'ShareSnapshotScheduleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created.
+
+        > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Data Share Account has been created. More details are available below.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
+        """
+elif False:
+    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -73,6 +102,23 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class DatasetBlobStorageStorageAccountArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+        """
+        resource_group_name: pulumi.Input[str]
+        """
+        The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+        """
+        subscription_id: pulumi.Input[str]
+        """
+        The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+        """
+elif False:
+    DatasetBlobStorageStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetBlobStorageStorageAccountArgs:
     def __init__(__self__, *,
@@ -124,6 +170,23 @@ class DatasetBlobStorageStorageAccountArgs:
     def subscription_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subscription_id", value)
 
+
+if not MYPY:
+    class ShareSnapshotScheduleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the snapshot schedule.
+        """
+        recurrence: pulumi.Input[str]
+        """
+        The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
+        """
+        start_time: pulumi.Input[str]
+        """
+        The synchronization with the source data's start time.
+        """
+elif False:
+    ShareSnapshotScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ShareSnapshotScheduleArgs:

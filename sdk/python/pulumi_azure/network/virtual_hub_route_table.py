@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -163,7 +168,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -213,13 +218,13 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             name="example-vhubroutetable",
             virtual_hub_id=example_virtual_hub.id,
             labels=["label1"],
-            routes=[azure.network.VirtualHubRouteTableRouteArgs(
-                name="example-route",
-                destinations_type="CIDR",
-                destinations=["10.0.0.0/16"],
-                next_hop_type="ResourceId",
-                next_hop=example_virtual_hub_connection.id,
-            )])
+            routes=[{
+                "name": "example-route",
+                "destinationsType": "CIDR",
+                "destinations": ["10.0.0.0/16"],
+                "nextHopType": "ResourceId",
+                "nextHop": example_virtual_hub_connection.id,
+            }])
         ```
 
         ## Import
@@ -234,7 +239,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
         ...
@@ -290,13 +295,13 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             name="example-vhubroutetable",
             virtual_hub_id=example_virtual_hub.id,
             labels=["label1"],
-            routes=[azure.network.VirtualHubRouteTableRouteArgs(
-                name="example-route",
-                destinations_type="CIDR",
-                destinations=["10.0.0.0/16"],
-                next_hop_type="ResourceId",
-                next_hop=example_virtual_hub_connection.id,
-            )])
+            routes=[{
+                "name": "example-route",
+                "destinationsType": "CIDR",
+                "destinations": ["10.0.0.0/16"],
+                "nextHopType": "ResourceId",
+                "nextHop": example_virtual_hub_connection.id,
+            }])
         ```
 
         ## Import
@@ -324,7 +329,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]]] = None,
+                 routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -353,7 +358,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]]] = None,
+            routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'VirtualHubRouteTable':
         """
         Get an existing VirtualHubRouteTable resource's state with the given name, id, and optional extra
@@ -364,7 +369,7 @@ class VirtualHubRouteTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels associated with this route table.
         :param pulumi.Input[str] name: The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableRouteArgs']]]] routes: One or more `route` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualHubRouteTableRouteArgs', 'VirtualHubRouteTableRouteArgsDict']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

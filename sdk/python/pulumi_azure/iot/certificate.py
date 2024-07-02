@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -212,10 +217,10 @@ class Certificate(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            })
         example_certificate = azure.iot.Certificate("example",
             name="example",
             resource_group_name=example.name,
@@ -263,10 +268,10 @@ class Certificate(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="B1",
-                capacity=1,
-            ))
+            sku={
+                "name": "B1",
+                "capacity": 1,
+            })
         example_certificate = azure.iot.Certificate("example",
             name="example",
             resource_group_name=example.name,

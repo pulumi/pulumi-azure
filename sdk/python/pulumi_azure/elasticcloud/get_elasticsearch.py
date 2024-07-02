@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -211,7 +216,7 @@ class AwaitableGetElasticsearchResult(GetElasticsearchResult):
             tags=self.tags)
 
 
-def get_elasticsearch(logs: Optional[Sequence[pulumi.InputType['GetElasticsearchLogArgs']]] = None,
+def get_elasticsearch(logs: Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']]] = None,
                       name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticsearchResult:
@@ -231,7 +236,7 @@ def get_elasticsearch(logs: Optional[Sequence[pulumi.InputType['GetElasticsearch
     ```
 
 
-    :param Sequence[pulumi.InputType['GetElasticsearchLogArgs']] logs: A `logs` block as defined below.
+    :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.
     :param str name: The name of the Elasticsearch resource.
     :param str resource_group_name: The name of the resource group in which the Elasticsearch exists.
     """
@@ -261,7 +266,7 @@ def get_elasticsearch(logs: Optional[Sequence[pulumi.InputType['GetElasticsearch
 
 
 @_utilities.lift_output_func(get_elasticsearch)
-def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetElasticsearchLogArgs']]]]] = None,
+def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']]]]] = None,
                              name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetElasticsearchResult]:
@@ -281,7 +286,7 @@ def get_elasticsearch_output(logs: Optional[pulumi.Input[Optional[Sequence[pulum
     ```
 
 
-    :param Sequence[pulumi.InputType['GetElasticsearchLogArgs']] logs: A `logs` block as defined below.
+    :param Sequence[Union['GetElasticsearchLogArgs', 'GetElasticsearchLogArgsDict']] logs: A `logs` block as defined below.
     :param str name: The name of the Elasticsearch resource.
     :param str resource_group_name: The name of the resource group in which the Elasticsearch exists.
     """

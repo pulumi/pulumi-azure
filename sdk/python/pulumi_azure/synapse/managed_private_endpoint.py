@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpoint']
@@ -209,9 +214,9 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_firewall_rule = azure.synapse.FirewallRule("example",
             name="AllowAll",
             synapse_workspace_id=example_workspace.id,
@@ -288,9 +293,9 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_firewall_rule = azure.synapse.FirewallRule("example",
             name="AllowAll",
             synapse_workspace_id=example_workspace.id,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['MedtechServiceFhirDestinationArgs', 'MedtechServiceFhirDestination']
@@ -265,10 +270,10 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
             resource_group_name=example.name,
             workspace_id=example_workspace.id,
             kind="fhir-R4",
-            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
-                authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-                audience="https://examplefhir.fhir.azurehealthcareapis.com",
-            ))
+            authentication={
+                "authority": "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                "audience": "https://examplefhir.fhir.azurehealthcareapis.com",
+            })
         example_medtech_service = azure.healthcare.MedtechService("example",
             name="examplemt",
             workspace_id=example_workspace.id,
@@ -370,10 +375,10 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
             resource_group_name=example.name,
             workspace_id=example_workspace.id,
             kind="fhir-R4",
-            authentication=azure.healthcare.FhirServiceAuthenticationArgs(
-                authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-                audience="https://examplefhir.fhir.azurehealthcareapis.com",
-            ))
+            authentication={
+                "authority": "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                "audience": "https://examplefhir.fhir.azurehealthcareapis.com",
+            })
         example_medtech_service = azure.healthcare.MedtechService("example",
             name="examplemt",
             workspace_id=example_workspace.id,

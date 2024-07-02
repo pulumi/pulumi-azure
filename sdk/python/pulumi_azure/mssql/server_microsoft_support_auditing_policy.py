@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ServerMicrosoftSupportAuditingPolicyArgs', 'ServerMicrosoftSupportAuditingPolicy']
@@ -302,9 +307,9 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
             minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
@@ -328,15 +333,15 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["127.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-                bypasses=["AzureServices"],
-            ),
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            network_rules={
+                "defaultAction": "Deny",
+                "ipRules": ["127.0.0.1"],
+                "virtualNetworkSubnetIds": [example_subnet.id],
+                "bypasses": ["AzureServices"],
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
@@ -437,9 +442,9 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!",
             minimum_tls_version="1.2",
-            identity=azure.mssql.ServerIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
@@ -463,15 +468,15 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             account_replication_type="LRS",
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
-            network_rules=azure.storage.AccountNetworkRulesArgs(
-                default_action="Deny",
-                ip_rules=["127.0.0.1"],
-                virtual_network_subnet_ids=[example_subnet.id],
-                bypasses=["AzureServices"],
-            ),
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            network_rules={
+                "defaultAction": "Deny",
+                "ipRules": ["127.0.0.1"],
+                "virtualNetworkSubnetIds": [example_subnet.id],
+                "bypasses": ["AzureServices"],
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,

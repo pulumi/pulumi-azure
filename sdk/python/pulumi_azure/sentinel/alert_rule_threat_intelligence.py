@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AlertRuleThreatIntelligenceArgs', 'AlertRuleThreatIntelligence']
@@ -186,10 +191,10 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/SecurityInsights",
+            })
         example = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
         example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("example",
@@ -242,10 +247,10 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
-            plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
-                publisher="Microsoft",
-                product="OMSGallery/SecurityInsights",
-            ))
+            plan={
+                "publisher": "Microsoft",
+                "product": "OMSGallery/SecurityInsights",
+            })
         example = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
         example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("example",

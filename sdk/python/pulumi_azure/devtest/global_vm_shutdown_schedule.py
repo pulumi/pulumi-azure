@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -257,7 +262,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                  daily_recurrence_time: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 notification_settings: Optional[pulumi.Input[pulumi.InputType['GlobalVMShutdownScheduleNotificationSettingsArgs']]] = None,
+                 notification_settings: Optional[pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
@@ -290,28 +295,28 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             name="sample-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="SampleVM",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             size="Standard_B2s",
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                name="myosdisk-example",
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "name": "myosdisk-example",
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
             admin_username="testadmin",
             admin_password="Password1234!",
             disable_password_authentication=False)
@@ -321,11 +326,11 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             enabled=True,
             daily_recurrence_time="1100",
             timezone="Pacific Standard Time",
-            notification_settings=azure.devtest.GlobalVMShutdownScheduleNotificationSettingsArgs(
-                enabled=True,
-                time_in_minutes=60,
-                webhook_url="https://sample-webhook-url.example.com",
-            ))
+            notification_settings={
+                "enabled": True,
+                "timeInMinutes": 60,
+                "webhookUrl": "https://sample-webhook-url.example.com",
+            })
         ```
 
         ## Import
@@ -343,7 +348,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         :param pulumi.Input[bool] enabled: Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GlobalVMShutdownScheduleNotificationSettingsArgs']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
+        :param pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.
@@ -382,28 +387,28 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             name="sample-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="SampleVM",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             size="Standard_B2s",
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                name="myosdisk-example",
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "name": "myosdisk-example",
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
             admin_username="testadmin",
             admin_password="Password1234!",
             disable_password_authentication=False)
@@ -413,11 +418,11 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             enabled=True,
             daily_recurrence_time="1100",
             timezone="Pacific Standard Time",
-            notification_settings=azure.devtest.GlobalVMShutdownScheduleNotificationSettingsArgs(
-                enabled=True,
-                time_in_minutes=60,
-                webhook_url="https://sample-webhook-url.example.com",
-            ))
+            notification_settings={
+                "enabled": True,
+                "timeInMinutes": 60,
+                "webhookUrl": "https://sample-webhook-url.example.com",
+            })
         ```
 
         ## Import
@@ -448,7 +453,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
                  daily_recurrence_time: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 notification_settings: Optional[pulumi.Input[pulumi.InputType['GlobalVMShutdownScheduleNotificationSettingsArgs']]] = None,
+                 notification_settings: Optional[pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
@@ -489,7 +494,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             daily_recurrence_time: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            notification_settings: Optional[pulumi.Input[pulumi.InputType['GlobalVMShutdownScheduleNotificationSettingsArgs']]] = None,
+            notification_settings: Optional[pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None) -> 'GlobalVMShutdownSchedule':
@@ -503,7 +508,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] daily_recurrence_time: The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
         :param pulumi.Input[bool] enabled: Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[str] location: The location where the schedule is created. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GlobalVMShutdownScheduleNotificationSettingsArgs']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
+        :param pulumi.Input[Union['GlobalVMShutdownScheduleNotificationSettingsArgs', 'GlobalVMShutdownScheduleNotificationSettingsArgsDict']] notification_settings: The notification setting of a schedule. A `notification_settings` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone: The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[str] virtual_machine_id: The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
@@ -219,13 +224,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         cluster = azure.keyvault.AccessPolicy("cluster",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
@@ -317,13 +322,13 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ),
-            identity=azure.kusto.ClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         cluster = azure.keyvault.AccessPolicy("cluster",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,

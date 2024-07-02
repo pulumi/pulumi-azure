@@ -4,23 +4,73 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DatabaseImportArgs',
+    'DatabaseImportArgsDict',
     'DatabaseThreatDetectionPolicyArgs',
+    'DatabaseThreatDetectionPolicyArgsDict',
     'FailoverGroupPartnerServerArgs',
+    'FailoverGroupPartnerServerArgsDict',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
+    'FailoverGroupReadWriteEndpointFailoverPolicyArgsDict',
     'FailoverGroupReadonlyEndpointFailoverPolicyArgs',
+    'FailoverGroupReadonlyEndpointFailoverPolicyArgsDict',
     'ManagedInstanceFailoverGroupPartnerRegionArgs',
+    'ManagedInstanceFailoverGroupPartnerRegionArgsDict',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict',
     'ManagedInstanceIdentityArgs',
+    'ManagedInstanceIdentityArgsDict',
     'SqlServerIdentityArgs',
+    'SqlServerIdentityArgsDict',
     'SqlServerThreatDetectionPolicyArgs',
+    'SqlServerThreatDetectionPolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatabaseImportArgsDict(TypedDict):
+        administrator_login: pulumi.Input[str]
+        """
+        Specifies the name of the SQL administrator.
+        """
+        administrator_login_password: pulumi.Input[str]
+        """
+        Specifies the password of the SQL administrator.
+        """
+        authentication_type: pulumi.Input[str]
+        """
+        Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+        """
+        storage_key: pulumi.Input[str]
+        """
+        Specifies the access key for the storage account.
+        """
+        storage_key_type: pulumi.Input[str]
+        """
+        Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+        """
+        storage_uri: pulumi.Input[str]
+        """
+        Specifies the blob URI of the .bacpac file.
+        """
+        operation_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of import operation being performed. The only allowable value is `Import`. Defaults to `Import`.
+        """
+elif False:
+    DatabaseImportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseImportArgs:
@@ -134,6 +184,39 @@ class DatabaseImportArgs:
     def operation_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operation_mode", value)
 
+
+if not MYPY:
+    class DatabaseThreatDetectionPolicyArgsDict(TypedDict):
+        disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        """
+        email_account_admins: NotRequired[pulumi.Input[str]]
+        """
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Disabled` and `Enabled`. Defaults to `Disabled`.
+        """
+        email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of email addresses which alerts should be sent to.
+        """
+        retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days to keep in the Threat Detection audit logs.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The State of the Policy. Possible values are `Enabled`, `Disabled` or `New`. Defaults to `Disabled`.
+        """
+        storage_account_access_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        """
+        storage_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        """
+elif False:
+    DatabaseThreatDetectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseThreatDetectionPolicyArgs:
@@ -254,6 +337,23 @@ class DatabaseThreatDetectionPolicyArgs:
         pulumi.set(self, "storage_endpoint", value)
 
 
+if not MYPY:
+    class FailoverGroupPartnerServerArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        the SQL server ID
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        the location of the failover group.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        local replication role of the failover group instance.
+        """
+elif False:
+    FailoverGroupPartnerServerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupPartnerServerArgs:
     def __init__(__self__, *,
@@ -308,6 +408,19 @@ class FailoverGroupPartnerServerArgs:
         pulumi.set(self, "role", value)
 
 
+if not MYPY:
+    class FailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        the failover mode. Possible values are `Manual`, `Automatic`
+        """
+        grace_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
+        """
+elif False:
+    FailoverGroupReadWriteEndpointFailoverPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
@@ -346,6 +459,15 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
         pulumi.set(self, "grace_minutes", value)
 
 
+if not MYPY:
+    class FailoverGroupReadonlyEndpointFailoverPolicyArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
+        """
+elif False:
+    FailoverGroupReadonlyEndpointFailoverPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupReadonlyEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
@@ -367,6 +489,19 @@ class FailoverGroupReadonlyEndpointFailoverPolicyArgs:
     def mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "mode", value)
 
+
+if not MYPY:
+    class ManagedInstanceFailoverGroupPartnerRegionArgsDict(TypedDict):
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The partner replication role of the SQL Instance Failover Group.
+        """
+elif False:
+    ManagedInstanceFailoverGroupPartnerRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedInstanceFailoverGroupPartnerRegionArgs:
@@ -407,6 +542,19 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
         pulumi.set(self, "role", value)
 
 
+if not MYPY:
+    class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        The failover mode. Possible values are `Manual`, `Automatic`
+        """
+        grace_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+elif False:
+    ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
@@ -444,6 +592,23 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
 
+
+if not MYPY:
+    class ManagedInstanceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is `SystemAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+elif False:
+    ManagedInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedInstanceIdentityArgs:
@@ -498,6 +663,25 @@ class ManagedInstanceIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class SqlServerIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is `SystemAssigned`.
+
+        > **NOTE:** The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and the Microsoft SQL Server has been created. More details are available below.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        """
+elif False:
+    SqlServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlServerIdentityArgs:
@@ -556,6 +740,39 @@ class SqlServerIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class SqlServerThreatDetectionPolicyArgsDict(TypedDict):
+        disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Data_Exfiltration`, `Sql_Injection`, `Sql_Injection_Vulnerability` and `Unsafe_Action"`,.
+        """
+        email_account_admins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the account administrators be emailed when this alert is triggered?
+        """
+        email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of email addresses which alerts should be sent to.
+        """
+        retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days to keep in the Threat Detection audit logs.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The State of the Policy. Possible values are `Disabled`, `Enabled` and `New`. Defaults to `Disabled`.
+        """
+        storage_account_access_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        """
+        storage_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        """
+elif False:
+    SqlServerThreatDetectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SqlServerThreatDetectionPolicyArgs:

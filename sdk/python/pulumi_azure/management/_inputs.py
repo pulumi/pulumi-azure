@@ -4,19 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GroupPolicyAssignmentIdentityArgs',
+    'GroupPolicyAssignmentIdentityArgsDict',
     'GroupPolicyAssignmentNonComplianceMessageArgs',
+    'GroupPolicyAssignmentNonComplianceMessageArgsDict',
     'GroupPolicyAssignmentOverrideArgs',
+    'GroupPolicyAssignmentOverrideArgsDict',
     'GroupPolicyAssignmentOverrideSelectorArgs',
+    'GroupPolicyAssignmentOverrideSelectorArgsDict',
     'GroupPolicyAssignmentResourceSelectorArgs',
+    'GroupPolicyAssignmentResourceSelectorArgsDict',
     'GroupPolicyAssignmentResourceSelectorSelectorArgs',
+    'GroupPolicyAssignmentResourceSelectorSelectorArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GroupPolicyAssignmentIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID of the Policy Assignment for this Management Group.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID of the Policy Assignment for this Management Group.
+        """
+elif False:
+    GroupPolicyAssignmentIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupPolicyAssignmentIdentityArgs:
@@ -92,6 +128,19 @@ class GroupPolicyAssignmentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class GroupPolicyAssignmentNonComplianceMessageArgsDict(TypedDict):
+        content: pulumi.Input[str]
+        """
+        The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
+        """
+        policy_definition_reference_id: NotRequired[pulumi.Input[str]]
+        """
+        When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
+        """
+elif False:
+    GroupPolicyAssignmentNonComplianceMessageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupPolicyAssignmentNonComplianceMessageArgs:
     def __init__(__self__, *,
@@ -130,6 +179,19 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
         pulumi.set(self, "policy_definition_reference_id", value)
 
 
+if not MYPY:
+    class GroupPolicyAssignmentOverrideArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
+        """
+        selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgsDict']]]]
+        """
+        One or more `override_selector` block as defined below.
+        """
+elif False:
+    GroupPolicyAssignmentOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupPolicyAssignmentOverrideArgs:
     def __init__(__self__, *,
@@ -167,6 +229,14 @@ class GroupPolicyAssignmentOverrideArgs:
     def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
+
+if not MYPY:
+    class GroupPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
+        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        kind: NotRequired[pulumi.Input[str]]
+        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    GroupPolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupPolicyAssignmentOverrideSelectorArgs:
@@ -209,6 +279,19 @@ class GroupPolicyAssignmentOverrideSelectorArgs:
         pulumi.set(self, "not_ins", value)
 
 
+if not MYPY:
+    class GroupPolicyAssignmentResourceSelectorArgsDict(TypedDict):
+        selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgsDict']]]
+        """
+        One or more `resource_selector` block as defined below.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a name for the resource selector.
+        """
+elif False:
+    GroupPolicyAssignmentResourceSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GroupPolicyAssignmentResourceSelectorArgs:
     def __init__(__self__, *,
@@ -246,6 +329,14 @@ class GroupPolicyAssignmentResourceSelectorArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class GroupPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
+        kind: pulumi.Input[str]
+        ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    GroupPolicyAssignmentResourceSelectorSelectorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GroupPolicyAssignmentResourceSelectorSelectorArgs:

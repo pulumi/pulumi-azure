@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -231,10 +236,10 @@ class SpringCloudConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
@@ -257,15 +262,15 @@ class SpringCloudConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -285,9 +290,9 @@ class SpringCloudConnection(pulumi.CustomResource):
             name="examplespringcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="exampledeployment",
             spring_cloud_app_id=example_spring_cloud_app.id)
@@ -295,9 +300,9 @@ class SpringCloudConnection(pulumi.CustomResource):
             name="example-serviceconnector",
             spring_cloud_id=example_spring_cloud_java_deployment.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                "type": "systemAssignedIdentity",
+            })
         ```
 
         ## Import
@@ -310,7 +315,7 @@ class SpringCloudConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
@@ -339,15 +344,15 @@ class SpringCloudConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-                max_interval_in_seconds=10,
-                max_staleness_prefix=200,
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+                "maxIntervalInSeconds": 10,
+                "maxStalenessPrefix": 200,
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
@@ -367,9 +372,9 @@ class SpringCloudConnection(pulumi.CustomResource):
             name="examplespringcloudapp",
             resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
             name="exampledeployment",
             spring_cloud_app_id=example_spring_cloud_app.id)
@@ -377,9 +382,9 @@ class SpringCloudConnection(pulumi.CustomResource):
             name="example-serviceconnector",
             spring_cloud_id=example_spring_cloud_java_deployment.id,
             target_resource_id=example_sql_database.id,
-            authentication=azure.appplatform.SpringCloudConnectionAuthenticationArgs(
-                type="systemAssignedIdentity",
-            ))
+            authentication={
+                "type": "systemAssignedIdentity",
+            })
         ```
 
         ## Import
@@ -405,10 +410,10 @@ class SpringCloudConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
+                 authentication: Optional[pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
                  client_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
+                 secret_store: Optional[pulumi.Input[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
                  spring_cloud_id: Optional[pulumi.Input[str]] = None,
                  target_resource_id: Optional[pulumi.Input[str]] = None,
                  vnet_solution: Optional[pulumi.Input[str]] = None,
@@ -444,10 +449,10 @@ class SpringCloudConnection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']]] = None,
+            authentication: Optional[pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']]] = None,
             client_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            secret_store: Optional[pulumi.Input[pulumi.InputType['SpringCloudConnectionSecretStoreArgs']]] = None,
+            secret_store: Optional[pulumi.Input[Union['SpringCloudConnectionSecretStoreArgs', 'SpringCloudConnectionSecretStoreArgsDict']]] = None,
             spring_cloud_id: Optional[pulumi.Input[str]] = None,
             target_resource_id: Optional[pulumi.Input[str]] = None,
             vnet_solution: Optional[pulumi.Input[str]] = None) -> 'SpringCloudConnection':
@@ -458,7 +463,7 @@ class SpringCloudConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudConnectionAuthenticationArgs']] authentication: The authentication info. An `authentication` block as defined below.
+        :param pulumi.Input[Union['SpringCloudConnectionAuthenticationArgs', 'SpringCloudConnectionAuthenticationArgsDict']] authentication: The authentication info. An `authentication` block as defined below.
         :param pulumi.Input[str] name: The name of the service connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_id: The ID of the data source spring cloud. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).

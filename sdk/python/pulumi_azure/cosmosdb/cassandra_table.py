@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -249,11 +254,11 @@ class CassandraTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraTableAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
                  cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -273,16 +278,16 @@ class CassandraTable(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
-                name="EnableCassandra",
-            )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            capabilities=[{
+                "name": "EnableCassandra",
+            }],
+            consistency_policy={
+                "consistencyLevel": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,
@@ -291,21 +296,21 @@ class CassandraTable(pulumi.CustomResource):
         example_cassandra_table = azure.cosmosdb.CassandraTable("example",
             name="testtable",
             cassandra_keyspace_id=example_cassandra_keyspace.id,
-            schema=azure.cosmosdb.CassandraTableSchemaArgs(
-                columns=[
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test1",
-                        type="ascii",
-                    ),
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test2",
-                        type="int",
-                    ),
+            schema={
+                "columns": [
+                    {
+                        "name": "test1",
+                        "type": "ascii",
+                    },
+                    {
+                        "name": "test2",
+                        "type": "int",
+                    },
                 ],
-                partition_keys=[azure.cosmosdb.CassandraTableSchemaPartitionKeyArgs(
-                    name="test1",
-                )],
-            ))
+                "partitionKeys": [{
+                    "name": "test1",
+                }],
+            })
         ```
 
         ## Import
@@ -324,7 +329,7 @@ class CassandraTable(pulumi.CustomResource):
         :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']] schema: A `schema` block as defined below.
+        :param pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']] schema: A `schema` block as defined below.
         """
         ...
     @overload
@@ -349,16 +354,16 @@ class CassandraTable(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             offer_type="Standard",
-            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
-                name="EnableCassandra",
-            )],
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="Strong",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            capabilities=[{
+                "name": "EnableCassandra",
+            }],
+            consistency_policy={
+                "consistencyLevel": "Strong",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,
@@ -367,21 +372,21 @@ class CassandraTable(pulumi.CustomResource):
         example_cassandra_table = azure.cosmosdb.CassandraTable("example",
             name="testtable",
             cassandra_keyspace_id=example_cassandra_keyspace.id,
-            schema=azure.cosmosdb.CassandraTableSchemaArgs(
-                columns=[
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test1",
-                        type="ascii",
-                    ),
-                    azure.cosmosdb.CassandraTableSchemaColumnArgs(
-                        name="test2",
-                        type="int",
-                    ),
+            schema={
+                "columns": [
+                    {
+                        "name": "test1",
+                        "type": "ascii",
+                    },
+                    {
+                        "name": "test2",
+                        "type": "int",
+                    },
                 ],
-                partition_keys=[azure.cosmosdb.CassandraTableSchemaPartitionKeyArgs(
-                    name="test1",
-                )],
-            ))
+                "partitionKeys": [{
+                    "name": "test1",
+                }],
+            })
         ```
 
         ## Import
@@ -408,11 +413,11 @@ class CassandraTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraTableAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
                  cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 schema: Optional[pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']]] = None,
+                 schema: Optional[pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -445,11 +450,11 @@ class CassandraTable(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['CassandraTableAutoscaleSettingsArgs']]] = None,
+            autoscale_settings: Optional[pulumi.Input[Union['CassandraTableAutoscaleSettingsArgs', 'CassandraTableAutoscaleSettingsArgsDict']]] = None,
             cassandra_keyspace_id: Optional[pulumi.Input[str]] = None,
             default_ttl: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            schema: Optional[pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']]] = None,
+            schema: Optional[pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']]] = None,
             throughput: Optional[pulumi.Input[int]] = None) -> 'CassandraTable':
         """
         Get an existing CassandraTable resource's state with the given name, id, and optional extra
@@ -464,7 +469,7 @@ class CassandraTable(pulumi.CustomResource):
         :param pulumi.Input[str] cassandra_keyspace_id: The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['CassandraTableSchemaArgs']] schema: A `schema` block as defined below.
+        :param pulumi.Input[Union['CassandraTableSchemaArgs', 'CassandraTableSchemaArgsDict']] schema: A `schema` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

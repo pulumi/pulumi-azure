@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -244,7 +249,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
                  file_path: Optional[pulumi.Input[str]] = None,
                  folder_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Data Share Blob Storage Dataset.
@@ -263,9 +268,9 @@ class DatasetBlobStorage(pulumi.CustomResource):
             name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
@@ -289,11 +294,11 @@ class DatasetBlobStorage(pulumi.CustomResource):
             name="example-dsbsds-file",
             data_share_id=example_share.id,
             container_name=example_container.name,
-            storage_account=azure.datashare.DatasetBlobStorageStorageAccountArgs(
-                name=example_account2.name,
-                resource_group_name=example_account2.resource_group_name,
-                subscription_id="00000000-0000-0000-0000-000000000000",
-            ),
+            storage_account={
+                "name": example_account2.name,
+                "resourceGroupName": example_account2.resource_group_name,
+                "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            },
             file_path="myfile.txt",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
@@ -313,7 +318,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -338,9 +343,9 @@ class DatasetBlobStorage(pulumi.CustomResource):
             name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datashare.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_share = azure.datashare.Share("example",
             name="example_ds",
             account_id=example_account.id,
@@ -364,11 +369,11 @@ class DatasetBlobStorage(pulumi.CustomResource):
             name="example-dsbsds-file",
             data_share_id=example_share.id,
             container_name=example_container.name,
-            storage_account=azure.datashare.DatasetBlobStorageStorageAccountArgs(
-                name=example_account2.name,
-                resource_group_name=example_account2.resource_group_name,
-                subscription_id="00000000-0000-0000-0000-000000000000",
-            ),
+            storage_account={
+                "name": example_account2.name,
+                "resourceGroupName": example_account2.resource_group_name,
+                "subscriptionId": "00000000-0000-0000-0000-000000000000",
+            },
             file_path="myfile.txt",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         ```
@@ -401,7 +406,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
                  file_path: Optional[pulumi.Input[str]] = None,
                  folder_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,7 +445,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
             file_path: Optional[pulumi.Input[str]] = None,
             folder_path: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            storage_account: Optional[pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']]] = None) -> 'DatasetBlobStorage':
+            storage_account: Optional[pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']]] = None) -> 'DatasetBlobStorage':
         """
         Get an existing DatasetBlobStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -454,7 +459,7 @@ class DatasetBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] file_path: The path of the file in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] folder_path: The path of the folder in the storage container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
         :param pulumi.Input[str] name: The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created.
-        :param pulumi.Input[pulumi.InputType['DatasetBlobStorageStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['DatasetBlobStorageStorageAccountArgs', 'DatasetBlobStorageStorageAccountArgsDict']] storage_account: A `storage_account` block as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

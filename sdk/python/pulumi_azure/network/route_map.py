@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -130,7 +135,7 @@ class RouteMap(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteMapRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -158,20 +163,20 @@ class RouteMap(pulumi.CustomResource):
         example_route_map = azure.network.RouteMap("example",
             name="example-rm",
             virtual_hub_id=example_virtual_hub.id,
-            rules=[azure.network.RouteMapRuleArgs(
-                name="rule1",
-                next_step_if_matched="Continue",
-                actions=[azure.network.RouteMapRuleActionArgs(
-                    type="Add",
-                    parameters=[azure.network.RouteMapRuleActionParameterArgs(
-                        as_paths=["22334"],
-                    )],
-                )],
-                match_criterions=[azure.network.RouteMapRuleMatchCriterionArgs(
-                    match_condition="Contains",
-                    route_prefixes=["10.0.0.0/8"],
-                )],
-            )])
+            rules=[{
+                "name": "rule1",
+                "nextStepIfMatched": "Continue",
+                "actions": [{
+                    "type": "Add",
+                    "parameters": [{
+                        "asPaths": ["22334"],
+                    }],
+                }],
+                "matchCriterions": [{
+                    "matchCondition": "Contains",
+                    "routePrefixes": ["10.0.0.0/8"],
+                }],
+            }])
         ```
 
         ## Import
@@ -185,7 +190,7 @@ class RouteMap(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Route Map. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteMapRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         ...
@@ -219,20 +224,20 @@ class RouteMap(pulumi.CustomResource):
         example_route_map = azure.network.RouteMap("example",
             name="example-rm",
             virtual_hub_id=example_virtual_hub.id,
-            rules=[azure.network.RouteMapRuleArgs(
-                name="rule1",
-                next_step_if_matched="Continue",
-                actions=[azure.network.RouteMapRuleActionArgs(
-                    type="Add",
-                    parameters=[azure.network.RouteMapRuleActionParameterArgs(
-                        as_paths=["22334"],
-                    )],
-                )],
-                match_criterions=[azure.network.RouteMapRuleMatchCriterionArgs(
-                    match_condition="Contains",
-                    route_prefixes=["10.0.0.0/8"],
-                )],
-            )])
+            rules=[{
+                "name": "rule1",
+                "nextStepIfMatched": "Continue",
+                "actions": [{
+                    "type": "Add",
+                    "parameters": [{
+                        "asPaths": ["22334"],
+                    }],
+                }],
+                "matchCriterions": [{
+                    "matchCondition": "Contains",
+                    "routePrefixes": ["10.0.0.0/8"],
+                }],
+            }])
         ```
 
         ## Import
@@ -259,7 +264,7 @@ class RouteMap(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteMapRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -286,7 +291,7 @@ class RouteMap(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteMapRuleArgs']]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'RouteMap':
         """
         Get an existing RouteMap resource's state with the given name, id, and optional extra
@@ -296,7 +301,7 @@ class RouteMap(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Route Map. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteMapRuleArgs']]]] rules: A `rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RouteMapRuleArgs', 'RouteMapRuleArgsDict']]]] rules: A `rule` block as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -445,19 +450,19 @@ class Lab(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_shutdown: Optional[pulumi.Input[pulumi.InputType['LabAutoShutdownArgs']]] = None,
-                 connection_setting: Optional[pulumi.Input[pulumi.InputType['LabConnectionSettingArgs']]] = None,
+                 auto_shutdown: Optional[pulumi.Input[Union['LabAutoShutdownArgs', 'LabAutoShutdownArgsDict']]] = None,
+                 connection_setting: Optional[pulumi.Input[Union['LabConnectionSettingArgs', 'LabConnectionSettingArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['LabNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['LabNetworkArgs', 'LabNetworkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roster: Optional[pulumi.Input[pulumi.InputType['LabRosterArgs']]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['LabSecurityArgs']]] = None,
+                 roster: Optional[pulumi.Input[Union['LabRosterArgs', 'LabRosterArgsDict']]] = None,
+                 security: Optional[pulumi.Input[Union['LabSecurityArgs', 'LabSecurityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 virtual_machine: Optional[pulumi.Input[pulumi.InputType['LabVirtualMachineArgs']]] = None,
+                 virtual_machine: Optional[pulumi.Input[Union['LabVirtualMachineArgs', 'LabVirtualMachineArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Lab Service Lab.
@@ -476,25 +481,25 @@ class Lab(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=0,
-                ),
-            ))
+            security={
+                "openAccessEnabled": False,
+            },
+            virtual_machine={
+                "adminUser": {
+                    "username": "testadmin",
+                    "password": "Password1234!",
+                },
+                "imageReference": {
+                    "publisher": "Canonical",
+                    "offer": "0001-com-ubuntu-server-jammy",
+                    "sku": "22_04-lts",
+                    "version": "latest",
+                },
+                "sku": {
+                    "name": "Classic_Fsv2_2_4GB_128_S_SSD",
+                    "capacity": 0,
+                },
+            })
         ```
 
         ## Import
@@ -507,19 +512,19 @@ class Lab(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LabAutoShutdownArgs']] auto_shutdown: An `auto_shutdown` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LabConnectionSettingArgs']] connection_setting: A `connection_setting` block as defined below.
+        :param pulumi.Input[Union['LabAutoShutdownArgs', 'LabAutoShutdownArgsDict']] auto_shutdown: An `auto_shutdown` block as defined below.
+        :param pulumi.Input[Union['LabConnectionSettingArgs', 'LabConnectionSettingArgsDict']] connection_setting: A `connection_setting` block as defined below.
         :param pulumi.Input[str] description: The description of the Lab Service Lab.
         :param pulumi.Input[str] lab_plan_id: The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`.
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Lab should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Lab. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LabNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['LabNetworkArgs', 'LabNetworkArgsDict']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Lab Service Lab should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LabRosterArgs']] roster: A `roster` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LabSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['LabRosterArgs', 'LabRosterArgsDict']] roster: A `roster` block as defined below.
+        :param pulumi.Input[Union['LabSecurityArgs', 'LabSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Lab.
         :param pulumi.Input[str] title: The title of the Lab Service Lab.
-        :param pulumi.Input[pulumi.InputType['LabVirtualMachineArgs']] virtual_machine: A `virtual_machine` block as defined below.
+        :param pulumi.Input[Union['LabVirtualMachineArgs', 'LabVirtualMachineArgsDict']] virtual_machine: A `virtual_machine` block as defined below.
         """
         ...
     @overload
@@ -544,25 +549,25 @@ class Lab(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
-                open_access_enabled=False,
-            ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
-                    username="testadmin",
-                    password="Password1234!",
-                ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
-                    publisher="Canonical",
-                    offer="0001-com-ubuntu-server-jammy",
-                    sku="22_04-lts",
-                    version="latest",
-                ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
-                    name="Classic_Fsv2_2_4GB_128_S_SSD",
-                    capacity=0,
-                ),
-            ))
+            security={
+                "openAccessEnabled": False,
+            },
+            virtual_machine={
+                "adminUser": {
+                    "username": "testadmin",
+                    "password": "Password1234!",
+                },
+                "imageReference": {
+                    "publisher": "Canonical",
+                    "offer": "0001-com-ubuntu-server-jammy",
+                    "sku": "22_04-lts",
+                    "version": "latest",
+                },
+                "sku": {
+                    "name": "Classic_Fsv2_2_4GB_128_S_SSD",
+                    "capacity": 0,
+                },
+            })
         ```
 
         ## Import
@@ -588,19 +593,19 @@ class Lab(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_shutdown: Optional[pulumi.Input[pulumi.InputType['LabAutoShutdownArgs']]] = None,
-                 connection_setting: Optional[pulumi.Input[pulumi.InputType['LabConnectionSettingArgs']]] = None,
+                 auto_shutdown: Optional[pulumi.Input[Union['LabAutoShutdownArgs', 'LabAutoShutdownArgsDict']]] = None,
+                 connection_setting: Optional[pulumi.Input[Union['LabConnectionSettingArgs', 'LabConnectionSettingArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lab_plan_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['LabNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[Union['LabNetworkArgs', 'LabNetworkArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 roster: Optional[pulumi.Input[pulumi.InputType['LabRosterArgs']]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['LabSecurityArgs']]] = None,
+                 roster: Optional[pulumi.Input[Union['LabRosterArgs', 'LabRosterArgsDict']]] = None,
+                 security: Optional[pulumi.Input[Union['LabSecurityArgs', 'LabSecurityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  title: Optional[pulumi.Input[str]] = None,
-                 virtual_machine: Optional[pulumi.Input[pulumi.InputType['LabVirtualMachineArgs']]] = None,
+                 virtual_machine: Optional[pulumi.Input[Union['LabVirtualMachineArgs', 'LabVirtualMachineArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -643,19 +648,19 @@ class Lab(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_shutdown: Optional[pulumi.Input[pulumi.InputType['LabAutoShutdownArgs']]] = None,
-            connection_setting: Optional[pulumi.Input[pulumi.InputType['LabConnectionSettingArgs']]] = None,
+            auto_shutdown: Optional[pulumi.Input[Union['LabAutoShutdownArgs', 'LabAutoShutdownArgsDict']]] = None,
+            connection_setting: Optional[pulumi.Input[Union['LabConnectionSettingArgs', 'LabConnectionSettingArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             lab_plan_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['LabNetworkArgs']]] = None,
+            network: Optional[pulumi.Input[Union['LabNetworkArgs', 'LabNetworkArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            roster: Optional[pulumi.Input[pulumi.InputType['LabRosterArgs']]] = None,
-            security: Optional[pulumi.Input[pulumi.InputType['LabSecurityArgs']]] = None,
+            roster: Optional[pulumi.Input[Union['LabRosterArgs', 'LabRosterArgsDict']]] = None,
+            security: Optional[pulumi.Input[Union['LabSecurityArgs', 'LabSecurityArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             title: Optional[pulumi.Input[str]] = None,
-            virtual_machine: Optional[pulumi.Input[pulumi.InputType['LabVirtualMachineArgs']]] = None) -> 'Lab':
+            virtual_machine: Optional[pulumi.Input[Union['LabVirtualMachineArgs', 'LabVirtualMachineArgsDict']]] = None) -> 'Lab':
         """
         Get an existing Lab resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -663,19 +668,19 @@ class Lab(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LabAutoShutdownArgs']] auto_shutdown: An `auto_shutdown` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LabConnectionSettingArgs']] connection_setting: A `connection_setting` block as defined below.
+        :param pulumi.Input[Union['LabAutoShutdownArgs', 'LabAutoShutdownArgsDict']] auto_shutdown: An `auto_shutdown` block as defined below.
+        :param pulumi.Input[Union['LabConnectionSettingArgs', 'LabConnectionSettingArgsDict']] connection_setting: A `connection_setting` block as defined below.
         :param pulumi.Input[str] description: The description of the Lab Service Lab.
         :param pulumi.Input[str] lab_plan_id: The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`.
         :param pulumi.Input[str] location: The Azure Region where the Lab Service Lab should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Lab. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LabNetworkArgs']] network: A `network` block as defined below.
+        :param pulumi.Input[Union['LabNetworkArgs', 'LabNetworkArgsDict']] network: A `network` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Lab Service Lab should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LabRosterArgs']] roster: A `roster` block as defined below.
-        :param pulumi.Input[pulumi.InputType['LabSecurityArgs']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['LabRosterArgs', 'LabRosterArgsDict']] roster: A `roster` block as defined below.
+        :param pulumi.Input[Union['LabSecurityArgs', 'LabSecurityArgsDict']] security: A `security` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Lab.
         :param pulumi.Input[str] title: The title of the Lab Service Lab.
-        :param pulumi.Input[pulumi.InputType['LabVirtualMachineArgs']] virtual_machine: A `virtual_machine` block as defined below.
+        :param pulumi.Input[Union['LabVirtualMachineArgs', 'LabVirtualMachineArgsDict']] virtual_machine: A `virtual_machine` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

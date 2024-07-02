@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -237,7 +242,7 @@ class SubscriptionRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 correlation_filter: Optional[pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']]] = None,
+                 correlation_filter: Optional[pulumi.Input[Union['SubscriptionRuleCorrelationFilterArgs', 'SubscriptionRuleCorrelationFilterArgsDict']]] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input[str]] = None,
@@ -309,13 +314,13 @@ class SubscriptionRule(pulumi.CustomResource):
             name="tfex_servicebus_rule",
             subscription_id=example_subscription.id,
             filter_type="CorrelationFilter",
-            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
-                correlation_id="high",
-                label="red",
-                properties={
+            correlation_filter={
+                "correlationId": "high",
+                "label": "red",
+                "properties": {
                     "customProperty": "value",
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -329,7 +334,7 @@ class SubscriptionRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
-        :param pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']] correlation_filter: A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        :param pulumi.Input[Union['SubscriptionRuleCorrelationFilterArgs', 'SubscriptionRuleCorrelationFilterArgsDict']] correlation_filter: A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
         :param pulumi.Input[str] filter_type: Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_filter: Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
@@ -407,13 +412,13 @@ class SubscriptionRule(pulumi.CustomResource):
             name="tfex_servicebus_rule",
             subscription_id=example_subscription.id,
             filter_type="CorrelationFilter",
-            correlation_filter=azure.servicebus.SubscriptionRuleCorrelationFilterArgs(
-                correlation_id="high",
-                label="red",
-                properties={
+            correlation_filter={
+                "correlationId": "high",
+                "label": "red",
+                "properties": {
                     "customProperty": "value",
                 },
-            ))
+            })
         ```
 
         ## Import
@@ -440,7 +445,7 @@ class SubscriptionRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
-                 correlation_filter: Optional[pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']]] = None,
+                 correlation_filter: Optional[pulumi.Input[Union['SubscriptionRuleCorrelationFilterArgs', 'SubscriptionRuleCorrelationFilterArgsDict']]] = None,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input[str]] = None,
@@ -478,7 +483,7 @@ class SubscriptionRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[str]] = None,
-            correlation_filter: Optional[pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']]] = None,
+            correlation_filter: Optional[pulumi.Input[Union['SubscriptionRuleCorrelationFilterArgs', 'SubscriptionRuleCorrelationFilterArgsDict']]] = None,
             filter_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sql_filter: Optional[pulumi.Input[str]] = None,
@@ -492,7 +497,7 @@ class SubscriptionRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action: Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage.
-        :param pulumi.Input[pulumi.InputType['SubscriptionRuleCorrelationFilterArgs']] correlation_filter: A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
+        :param pulumi.Input[Union['SubscriptionRuleCorrelationFilterArgs', 'SubscriptionRuleCorrelationFilterArgsDict']] correlation_filter: A `correlation_filter` block as documented below to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`.
         :param pulumi.Input[str] filter_type: Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_filter: Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.

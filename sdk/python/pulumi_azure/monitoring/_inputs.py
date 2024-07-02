@@ -4,159 +4,325 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AadDiagnosticSettingEnabledLogArgs',
+    'AadDiagnosticSettingEnabledLogArgsDict',
     'AadDiagnosticSettingEnabledLogRetentionPolicyArgs',
+    'AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict',
     'AadDiagnosticSettingLogArgs',
+    'AadDiagnosticSettingLogArgsDict',
     'AadDiagnosticSettingLogRetentionPolicyArgs',
+    'AadDiagnosticSettingLogRetentionPolicyArgsDict',
     'ActionGroupArmRoleReceiverArgs',
+    'ActionGroupArmRoleReceiverArgsDict',
     'ActionGroupAutomationRunbookReceiverArgs',
+    'ActionGroupAutomationRunbookReceiverArgsDict',
     'ActionGroupAzureAppPushReceiverArgs',
+    'ActionGroupAzureAppPushReceiverArgsDict',
     'ActionGroupAzureFunctionReceiverArgs',
+    'ActionGroupAzureFunctionReceiverArgsDict',
     'ActionGroupEmailReceiverArgs',
+    'ActionGroupEmailReceiverArgsDict',
     'ActionGroupEventHubReceiverArgs',
+    'ActionGroupEventHubReceiverArgsDict',
     'ActionGroupItsmReceiverArgs',
+    'ActionGroupItsmReceiverArgsDict',
     'ActionGroupLogicAppReceiverArgs',
+    'ActionGroupLogicAppReceiverArgsDict',
     'ActionGroupSmsReceiverArgs',
+    'ActionGroupSmsReceiverArgsDict',
     'ActionGroupVoiceReceiverArgs',
+    'ActionGroupVoiceReceiverArgsDict',
     'ActionGroupWebhookReceiverArgs',
+    'ActionGroupWebhookReceiverArgsDict',
     'ActionGroupWebhookReceiverAadAuthArgs',
+    'ActionGroupWebhookReceiverAadAuthArgsDict',
     'ActionRuleActionGroupConditionArgs',
+    'ActionRuleActionGroupConditionArgsDict',
     'ActionRuleActionGroupConditionAlertContextArgs',
+    'ActionRuleActionGroupConditionAlertContextArgsDict',
     'ActionRuleActionGroupConditionAlertRuleIdArgs',
+    'ActionRuleActionGroupConditionAlertRuleIdArgsDict',
     'ActionRuleActionGroupConditionDescriptionArgs',
+    'ActionRuleActionGroupConditionDescriptionArgsDict',
     'ActionRuleActionGroupConditionMonitorArgs',
+    'ActionRuleActionGroupConditionMonitorArgsDict',
     'ActionRuleActionGroupConditionMonitorServiceArgs',
+    'ActionRuleActionGroupConditionMonitorServiceArgsDict',
     'ActionRuleActionGroupConditionSeverityArgs',
+    'ActionRuleActionGroupConditionSeverityArgsDict',
     'ActionRuleActionGroupConditionTargetResourceTypeArgs',
+    'ActionRuleActionGroupConditionTargetResourceTypeArgsDict',
     'ActionRuleActionGroupScopeArgs',
+    'ActionRuleActionGroupScopeArgsDict',
     'ActionRuleSuppressionConditionArgs',
+    'ActionRuleSuppressionConditionArgsDict',
     'ActionRuleSuppressionConditionAlertContextArgs',
+    'ActionRuleSuppressionConditionAlertContextArgsDict',
     'ActionRuleSuppressionConditionAlertRuleIdArgs',
+    'ActionRuleSuppressionConditionAlertRuleIdArgsDict',
     'ActionRuleSuppressionConditionDescriptionArgs',
+    'ActionRuleSuppressionConditionDescriptionArgsDict',
     'ActionRuleSuppressionConditionMonitorArgs',
+    'ActionRuleSuppressionConditionMonitorArgsDict',
     'ActionRuleSuppressionConditionMonitorServiceArgs',
+    'ActionRuleSuppressionConditionMonitorServiceArgsDict',
     'ActionRuleSuppressionConditionSeverityArgs',
+    'ActionRuleSuppressionConditionSeverityArgsDict',
     'ActionRuleSuppressionConditionTargetResourceTypeArgs',
+    'ActionRuleSuppressionConditionTargetResourceTypeArgsDict',
     'ActionRuleSuppressionScopeArgs',
+    'ActionRuleSuppressionScopeArgsDict',
     'ActionRuleSuppressionSuppressionArgs',
+    'ActionRuleSuppressionSuppressionArgsDict',
     'ActionRuleSuppressionSuppressionScheduleArgs',
+    'ActionRuleSuppressionSuppressionScheduleArgsDict',
     'ActivityLogAlertActionArgs',
+    'ActivityLogAlertActionArgsDict',
     'ActivityLogAlertCriteriaArgs',
+    'ActivityLogAlertCriteriaArgsDict',
     'ActivityLogAlertCriteriaResourceHealthArgs',
+    'ActivityLogAlertCriteriaResourceHealthArgsDict',
     'ActivityLogAlertCriteriaServiceHealthArgs',
+    'ActivityLogAlertCriteriaServiceHealthArgsDict',
     'AlertProcessingRuleActionGroupConditionArgs',
+    'AlertProcessingRuleActionGroupConditionArgsDict',
     'AlertProcessingRuleActionGroupConditionAlertContextArgs',
+    'AlertProcessingRuleActionGroupConditionAlertContextArgsDict',
     'AlertProcessingRuleActionGroupConditionAlertRuleIdArgs',
+    'AlertProcessingRuleActionGroupConditionAlertRuleIdArgsDict',
     'AlertProcessingRuleActionGroupConditionAlertRuleNameArgs',
+    'AlertProcessingRuleActionGroupConditionAlertRuleNameArgsDict',
     'AlertProcessingRuleActionGroupConditionDescriptionArgs',
+    'AlertProcessingRuleActionGroupConditionDescriptionArgsDict',
     'AlertProcessingRuleActionGroupConditionMonitorConditionArgs',
+    'AlertProcessingRuleActionGroupConditionMonitorConditionArgsDict',
     'AlertProcessingRuleActionGroupConditionMonitorServiceArgs',
+    'AlertProcessingRuleActionGroupConditionMonitorServiceArgsDict',
     'AlertProcessingRuleActionGroupConditionSeverityArgs',
+    'AlertProcessingRuleActionGroupConditionSeverityArgsDict',
     'AlertProcessingRuleActionGroupConditionSignalTypeArgs',
+    'AlertProcessingRuleActionGroupConditionSignalTypeArgsDict',
     'AlertProcessingRuleActionGroupConditionTargetResourceArgs',
+    'AlertProcessingRuleActionGroupConditionTargetResourceArgsDict',
     'AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs',
+    'AlertProcessingRuleActionGroupConditionTargetResourceGroupArgsDict',
     'AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs',
+    'AlertProcessingRuleActionGroupConditionTargetResourceTypeArgsDict',
     'AlertProcessingRuleActionGroupScheduleArgs',
+    'AlertProcessingRuleActionGroupScheduleArgsDict',
     'AlertProcessingRuleActionGroupScheduleRecurrenceArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceArgsDict',
     'AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgsDict',
     'AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgsDict',
     'AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgsDict',
     'AlertProcessingRuleSuppressionConditionArgs',
+    'AlertProcessingRuleSuppressionConditionArgsDict',
     'AlertProcessingRuleSuppressionConditionAlertContextArgs',
+    'AlertProcessingRuleSuppressionConditionAlertContextArgsDict',
     'AlertProcessingRuleSuppressionConditionAlertRuleIdArgs',
+    'AlertProcessingRuleSuppressionConditionAlertRuleIdArgsDict',
     'AlertProcessingRuleSuppressionConditionAlertRuleNameArgs',
+    'AlertProcessingRuleSuppressionConditionAlertRuleNameArgsDict',
     'AlertProcessingRuleSuppressionConditionDescriptionArgs',
+    'AlertProcessingRuleSuppressionConditionDescriptionArgsDict',
     'AlertProcessingRuleSuppressionConditionMonitorConditionArgs',
+    'AlertProcessingRuleSuppressionConditionMonitorConditionArgsDict',
     'AlertProcessingRuleSuppressionConditionMonitorServiceArgs',
+    'AlertProcessingRuleSuppressionConditionMonitorServiceArgsDict',
     'AlertProcessingRuleSuppressionConditionSeverityArgs',
+    'AlertProcessingRuleSuppressionConditionSeverityArgsDict',
     'AlertProcessingRuleSuppressionConditionSignalTypeArgs',
+    'AlertProcessingRuleSuppressionConditionSignalTypeArgsDict',
     'AlertProcessingRuleSuppressionConditionTargetResourceArgs',
+    'AlertProcessingRuleSuppressionConditionTargetResourceArgsDict',
     'AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs',
+    'AlertProcessingRuleSuppressionConditionTargetResourceGroupArgsDict',
     'AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs',
+    'AlertProcessingRuleSuppressionConditionTargetResourceTypeArgsDict',
     'AlertProcessingRuleSuppressionScheduleArgs',
+    'AlertProcessingRuleSuppressionScheduleArgsDict',
     'AlertProcessingRuleSuppressionScheduleRecurrenceArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceArgsDict',
     'AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgsDict',
     'AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgsDict',
     'AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgsDict',
     'AlertPrometheusRuleGroupRuleArgs',
+    'AlertPrometheusRuleGroupRuleArgsDict',
     'AlertPrometheusRuleGroupRuleActionArgs',
+    'AlertPrometheusRuleGroupRuleActionArgsDict',
     'AlertPrometheusRuleGroupRuleAlertResolutionArgs',
+    'AlertPrometheusRuleGroupRuleAlertResolutionArgsDict',
     'AutoscaleSettingNotificationArgs',
+    'AutoscaleSettingNotificationArgsDict',
     'AutoscaleSettingNotificationEmailArgs',
+    'AutoscaleSettingNotificationEmailArgsDict',
     'AutoscaleSettingNotificationWebhookArgs',
+    'AutoscaleSettingNotificationWebhookArgsDict',
     'AutoscaleSettingPredictiveArgs',
+    'AutoscaleSettingPredictiveArgsDict',
     'AutoscaleSettingProfileArgs',
+    'AutoscaleSettingProfileArgsDict',
     'AutoscaleSettingProfileCapacityArgs',
+    'AutoscaleSettingProfileCapacityArgsDict',
     'AutoscaleSettingProfileFixedDateArgs',
+    'AutoscaleSettingProfileFixedDateArgsDict',
     'AutoscaleSettingProfileRecurrenceArgs',
+    'AutoscaleSettingProfileRecurrenceArgsDict',
     'AutoscaleSettingProfileRuleArgs',
+    'AutoscaleSettingProfileRuleArgsDict',
     'AutoscaleSettingProfileRuleMetricTriggerArgs',
+    'AutoscaleSettingProfileRuleMetricTriggerArgsDict',
     'AutoscaleSettingProfileRuleMetricTriggerDimensionArgs',
+    'AutoscaleSettingProfileRuleMetricTriggerDimensionArgsDict',
     'AutoscaleSettingProfileRuleScaleActionArgs',
+    'AutoscaleSettingProfileRuleScaleActionArgsDict',
     'DataCollectionRuleDataFlowArgs',
+    'DataCollectionRuleDataFlowArgsDict',
     'DataCollectionRuleDataSourcesArgs',
+    'DataCollectionRuleDataSourcesArgsDict',
     'DataCollectionRuleDataSourcesDataImportArgs',
+    'DataCollectionRuleDataSourcesDataImportArgsDict',
     'DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs',
+    'DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgsDict',
     'DataCollectionRuleDataSourcesExtensionArgs',
+    'DataCollectionRuleDataSourcesExtensionArgsDict',
     'DataCollectionRuleDataSourcesIisLogArgs',
+    'DataCollectionRuleDataSourcesIisLogArgsDict',
     'DataCollectionRuleDataSourcesLogFileArgs',
+    'DataCollectionRuleDataSourcesLogFileArgsDict',
     'DataCollectionRuleDataSourcesLogFileSettingsArgs',
+    'DataCollectionRuleDataSourcesLogFileSettingsArgsDict',
     'DataCollectionRuleDataSourcesLogFileSettingsTextArgs',
+    'DataCollectionRuleDataSourcesLogFileSettingsTextArgsDict',
     'DataCollectionRuleDataSourcesPerformanceCounterArgs',
+    'DataCollectionRuleDataSourcesPerformanceCounterArgsDict',
     'DataCollectionRuleDataSourcesPlatformTelemetryArgs',
+    'DataCollectionRuleDataSourcesPlatformTelemetryArgsDict',
     'DataCollectionRuleDataSourcesPrometheusForwarderArgs',
+    'DataCollectionRuleDataSourcesPrometheusForwarderArgsDict',
     'DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs',
+    'DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgsDict',
     'DataCollectionRuleDataSourcesSyslogArgs',
+    'DataCollectionRuleDataSourcesSyslogArgsDict',
     'DataCollectionRuleDataSourcesWindowsEventLogArgs',
+    'DataCollectionRuleDataSourcesWindowsEventLogArgsDict',
     'DataCollectionRuleDataSourcesWindowsFirewallLogArgs',
+    'DataCollectionRuleDataSourcesWindowsFirewallLogArgsDict',
     'DataCollectionRuleDestinationsArgs',
+    'DataCollectionRuleDestinationsArgsDict',
     'DataCollectionRuleDestinationsAzureMonitorMetricsArgs',
+    'DataCollectionRuleDestinationsAzureMonitorMetricsArgsDict',
     'DataCollectionRuleDestinationsEventHubArgs',
+    'DataCollectionRuleDestinationsEventHubArgsDict',
     'DataCollectionRuleDestinationsEventHubDirectArgs',
+    'DataCollectionRuleDestinationsEventHubDirectArgsDict',
     'DataCollectionRuleDestinationsLogAnalyticArgs',
+    'DataCollectionRuleDestinationsLogAnalyticArgsDict',
     'DataCollectionRuleDestinationsMonitorAccountArgs',
+    'DataCollectionRuleDestinationsMonitorAccountArgsDict',
     'DataCollectionRuleDestinationsStorageBlobArgs',
+    'DataCollectionRuleDestinationsStorageBlobArgsDict',
     'DataCollectionRuleDestinationsStorageBlobDirectArgs',
+    'DataCollectionRuleDestinationsStorageBlobDirectArgsDict',
     'DataCollectionRuleDestinationsStorageTableDirectArgs',
+    'DataCollectionRuleDestinationsStorageTableDirectArgsDict',
     'DataCollectionRuleIdentityArgs',
+    'DataCollectionRuleIdentityArgsDict',
     'DataCollectionRuleStreamDeclarationArgs',
+    'DataCollectionRuleStreamDeclarationArgsDict',
     'DataCollectionRuleStreamDeclarationColumnArgs',
+    'DataCollectionRuleStreamDeclarationColumnArgsDict',
     'DiagnosticSettingEnabledLogArgs',
+    'DiagnosticSettingEnabledLogArgsDict',
     'DiagnosticSettingEnabledLogRetentionPolicyArgs',
+    'DiagnosticSettingEnabledLogRetentionPolicyArgsDict',
     'DiagnosticSettingLogArgs',
+    'DiagnosticSettingLogArgsDict',
     'DiagnosticSettingLogRetentionPolicyArgs',
+    'DiagnosticSettingLogRetentionPolicyArgsDict',
     'DiagnosticSettingMetricArgs',
+    'DiagnosticSettingMetricArgsDict',
     'DiagnosticSettingMetricRetentionPolicyArgs',
+    'DiagnosticSettingMetricRetentionPolicyArgsDict',
     'LogProfileRetentionPolicyArgs',
+    'LogProfileRetentionPolicyArgsDict',
     'LogzMonitorPlanArgs',
+    'LogzMonitorPlanArgsDict',
     'LogzMonitorUserArgs',
+    'LogzMonitorUserArgsDict',
     'LogzSubAccountTagRuleTagFilterArgs',
+    'LogzSubAccountTagRuleTagFilterArgsDict',
     'LogzSubAccountUserArgs',
+    'LogzSubAccountUserArgsDict',
     'LogzTagRuleTagFilterArgs',
+    'LogzTagRuleTagFilterArgsDict',
     'MetricAlertActionArgs',
+    'MetricAlertActionArgsDict',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs',
+    'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgsDict',
     'MetricAlertCriteriaArgs',
+    'MetricAlertCriteriaArgsDict',
     'MetricAlertCriteriaDimensionArgs',
+    'MetricAlertCriteriaDimensionArgsDict',
     'MetricAlertDynamicCriteriaArgs',
+    'MetricAlertDynamicCriteriaArgsDict',
     'MetricAlertDynamicCriteriaDimensionArgs',
+    'MetricAlertDynamicCriteriaDimensionArgsDict',
     'ScheduledQueryRulesAlertActionArgs',
+    'ScheduledQueryRulesAlertActionArgsDict',
     'ScheduledQueryRulesAlertTriggerArgs',
+    'ScheduledQueryRulesAlertTriggerArgsDict',
     'ScheduledQueryRulesAlertTriggerMetricTriggerArgs',
+    'ScheduledQueryRulesAlertTriggerMetricTriggerArgsDict',
     'ScheduledQueryRulesAlertV2ActionArgs',
+    'ScheduledQueryRulesAlertV2ActionArgsDict',
     'ScheduledQueryRulesAlertV2CriteriaArgs',
+    'ScheduledQueryRulesAlertV2CriteriaArgsDict',
     'ScheduledQueryRulesAlertV2CriteriaDimensionArgs',
+    'ScheduledQueryRulesAlertV2CriteriaDimensionArgsDict',
     'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs',
+    'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgsDict',
     'ScheduledQueryRulesAlertV2IdentityArgs',
+    'ScheduledQueryRulesAlertV2IdentityArgsDict',
     'ScheduledQueryRulesLogCriteriaArgs',
+    'ScheduledQueryRulesLogCriteriaArgsDict',
     'ScheduledQueryRulesLogCriteriaDimensionArgs',
+    'ScheduledQueryRulesLogCriteriaDimensionArgsDict',
     'SmartDetectorAlertRuleActionGroupArgs',
+    'SmartDetectorAlertRuleActionGroupArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AadDiagnosticSettingEnabledLogArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        The log category for the Azure Active Directory Diagnostic.
+        """
+        retention_policy: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict']
+        """
+        A `retention_policy` block as defined below.
+        """
+elif False:
+    AadDiagnosticSettingEnabledLogArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AadDiagnosticSettingEnabledLogArgs:
@@ -194,6 +360,19 @@ class AadDiagnosticSettingEnabledLogArgs:
     def retention_policy(self, value: pulumi.Input['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']):
         pulumi.set(self, "retention_policy", value)
 
+
+if not MYPY:
+    class AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days for which this Retention Policy should apply. Defaults to `0`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this Retention Policy enabled? Defaults to `false`.
+        """
+elif False:
+    AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
@@ -233,6 +412,23 @@ class AadDiagnosticSettingEnabledLogRetentionPolicyArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class AadDiagnosticSettingLogArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        The log category for the Azure Active Directory Diagnostic.
+        """
+        retention_policy: pulumi.Input['AadDiagnosticSettingLogRetentionPolicyArgsDict']
+        """
+        A `retention_policy` block as defined below.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this Diagnostic Log enabled? Defaults to `true`.
+        """
+elif False:
+    AadDiagnosticSettingLogArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AadDiagnosticSettingLogArgs:
@@ -287,6 +483,19 @@ class AadDiagnosticSettingLogArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class AadDiagnosticSettingLogRetentionPolicyArgsDict(TypedDict):
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days for which this Retention Policy should apply. Defaults to `0`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this Retention Policy enabled? Defaults to `false`.
+        """
+elif False:
+    AadDiagnosticSettingLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AadDiagnosticSettingLogRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -325,6 +534,23 @@ class AadDiagnosticSettingLogRetentionPolicyArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ActionGroupArmRoleReceiverArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the ARM role receiver.
+        """
+        role_id: pulumi.Input[str]
+        """
+        The arm role id.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the common alert schema.
+        """
+elif False:
+    ActionGroupArmRoleReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupArmRoleReceiverArgs:
@@ -378,6 +604,39 @@ class ActionGroupArmRoleReceiverArgs:
     def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
+
+if not MYPY:
+    class ActionGroupAutomationRunbookReceiverArgsDict(TypedDict):
+        automation_account_id: pulumi.Input[str]
+        """
+        The automation account ID which holds this runbook and authenticates to Azure resources.
+        """
+        is_global_runbook: pulumi.Input[bool]
+        """
+        Indicates whether this instance is global runbook.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the automation runbook receiver.
+        """
+        runbook_name: pulumi.Input[str]
+        """
+        The name for this runbook.
+        """
+        service_uri: pulumi.Input[str]
+        """
+        The URI where webhooks should be sent.
+        """
+        webhook_resource_id: pulumi.Input[str]
+        """
+        The resource id for webhook linked to this runbook.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the common alert schema.
+        """
+elif False:
+    ActionGroupAutomationRunbookReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupAutomationRunbookReceiverArgs:
@@ -492,6 +751,19 @@ class ActionGroupAutomationRunbookReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class ActionGroupAzureAppPushReceiverArgsDict(TypedDict):
+        email_address: pulumi.Input[str]
+        """
+        The email address of the user signed into the mobile app who will receive push notifications from this receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Azure app push receiver.
+        """
+elif False:
+    ActionGroupAzureAppPushReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionGroupAzureAppPushReceiverArgs:
     def __init__(__self__, *,
@@ -528,6 +800,31 @@ class ActionGroupAzureAppPushReceiverArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ActionGroupAzureFunctionReceiverArgsDict(TypedDict):
+        function_app_resource_id: pulumi.Input[str]
+        """
+        The Azure resource ID of the function app.
+        """
+        function_name: pulumi.Input[str]
+        """
+        The function name in the function app.
+        """
+        http_trigger_url: pulumi.Input[str]
+        """
+        The HTTP trigger url where HTTP request sent to.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Azure Function receiver.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the common alert schema.
+        """
+elif False:
+    ActionGroupAzureFunctionReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupAzureFunctionReceiverArgs:
@@ -612,6 +909,23 @@ class ActionGroupAzureFunctionReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class ActionGroupEmailReceiverArgsDict(TypedDict):
+        email_address: pulumi.Input[str]
+        """
+        The email address of this receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the common alert schema.
+        """
+elif False:
+    ActionGroupEmailReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionGroupEmailReceiverArgs:
     def __init__(__self__, *,
@@ -664,6 +978,41 @@ class ActionGroupEmailReceiverArgs:
     def use_common_alert_schema(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_common_alert_schema", value)
 
+
+if not MYPY:
+    class ActionGroupEventHubReceiverArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the EventHub Receiver, must be unique within action group.
+        """
+        event_hub_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of the respective Event Hub.
+        """
+        event_hub_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the specific Event Hub queue.
+        """
+        event_hub_namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace name of the Event Hub.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+
+        > **NOTE:** `event_hub_id` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use `event_hub_name`, `event_hub_name`,and `subscription_id` instead. And `event_hub_name`, `event_hub_name` will be required properties in version 4.0.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the subscription containing this Event Hub.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to use common alert schema.
+        """
+elif False:
+    ActionGroupEventHubReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupEventHubReceiverArgs:
@@ -791,6 +1140,33 @@ class ActionGroupEventHubReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class ActionGroupItsmReceiverArgsDict(TypedDict):
+        connection_id: pulumi.Input[str]
+        """
+        The unique connection identifier of the ITSM connection.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the ITSM receiver.
+        """
+        region: pulumi.Input[str]
+        """
+        The region of the workspace.
+
+        > **NOTE** `ticket_configuration` should be JSON blob with `PayloadRevision` and `WorkItemType` keys (e.g., `ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\"}"`), and `ticket_configuration="{}"` will return an error, see more at this [REST API issue](https://github.com/Azure/azure-rest-api-specs/issues/20488)
+        """
+        ticket_configuration: pulumi.Input[str]
+        """
+        A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        The Azure Log Analytics workspace ID where this connection is defined. Format is `<subscription id>|<workspace id>`, for example `00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000`.
+        """
+elif False:
+    ActionGroupItsmReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionGroupItsmReceiverArgs:
     def __init__(__self__, *,
@@ -877,6 +1253,27 @@ class ActionGroupItsmReceiverArgs:
         pulumi.set(self, "workspace_id", value)
 
 
+if not MYPY:
+    class ActionGroupLogicAppReceiverArgsDict(TypedDict):
+        callback_url: pulumi.Input[str]
+        """
+        The callback url where HTTP request sent to.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the logic app receiver.
+        """
+        resource_id: pulumi.Input[str]
+        """
+        The Azure resource ID of the logic app.
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the common alert schema.
+        """
+elif False:
+    ActionGroupLogicAppReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionGroupLogicAppReceiverArgs:
     def __init__(__self__, *,
@@ -945,6 +1342,23 @@ class ActionGroupLogicAppReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class ActionGroupSmsReceiverArgsDict(TypedDict):
+        country_code: pulumi.Input[str]
+        """
+        The country code of the SMS receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the SMS receiver.
+        """
+elif False:
+    ActionGroupSmsReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionGroupSmsReceiverArgs:
     def __init__(__self__, *,
@@ -997,6 +1411,23 @@ class ActionGroupSmsReceiverArgs:
         pulumi.set(self, "phone_number", value)
 
 
+if not MYPY:
+    class ActionGroupVoiceReceiverArgsDict(TypedDict):
+        country_code: pulumi.Input[str]
+        """
+        The country code of the voice receiver.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the voice receiver.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        The phone number of the voice receiver.
+        """
+elif False:
+    ActionGroupVoiceReceiverArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionGroupVoiceReceiverArgs:
     def __init__(__self__, *,
@@ -1048,6 +1479,29 @@ class ActionGroupVoiceReceiverArgs:
     def phone_number(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone_number", value)
 
+
+if not MYPY:
+    class ActionGroupWebhookReceiverArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
+        """
+        service_uri: pulumi.Input[str]
+        """
+        The URI where webhooks should be sent.
+        """
+        aad_auth: NotRequired[pulumi.Input['ActionGroupWebhookReceiverAadAuthArgsDict']]
+        """
+        The `aad_auth` block as defined below.
+
+        > **NOTE:** Before adding a secure webhook receiver by setting `aad_auth`, please read [the configuration instruction of the AAD application](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#secure-webhook).
+        """
+        use_common_alert_schema: NotRequired[pulumi.Input[bool]]
+        """
+        Enables or disables the common alert schema.
+        """
+elif False:
+    ActionGroupWebhookReceiverArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionGroupWebhookReceiverArgs:
@@ -1122,6 +1576,23 @@ class ActionGroupWebhookReceiverArgs:
         pulumi.set(self, "use_common_alert_schema", value)
 
 
+if not MYPY:
+    class ActionGroupWebhookReceiverAadAuthArgsDict(TypedDict):
+        object_id: pulumi.Input[str]
+        """
+        The webhook application object Id for AAD auth.
+        """
+        identifier_uri: NotRequired[pulumi.Input[str]]
+        """
+        The identifier URI for AAD auth.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id for AAD auth.
+        """
+elif False:
+    ActionGroupWebhookReceiverAadAuthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionGroupWebhookReceiverAadAuthArgs:
     def __init__(__self__, *,
@@ -1175,6 +1646,39 @@ class ActionGroupWebhookReceiverAadAuthArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ActionRuleActionGroupConditionArgsDict(TypedDict):
+        alert_context: NotRequired[pulumi.Input['ActionRuleActionGroupConditionAlertContextArgsDict']]
+        """
+        A `alert_context` block as defined below.
+        """
+        alert_rule_id: NotRequired[pulumi.Input['ActionRuleActionGroupConditionAlertRuleIdArgsDict']]
+        """
+        A `alert_rule_id` block as defined below.
+        """
+        description: NotRequired[pulumi.Input['ActionRuleActionGroupConditionDescriptionArgsDict']]
+        """
+        A `description` block as defined below.
+        """
+        monitor: NotRequired[pulumi.Input['ActionRuleActionGroupConditionMonitorArgsDict']]
+        """
+        A `monitor` block as defined below.
+        """
+        monitor_service: NotRequired[pulumi.Input['ActionRuleActionGroupConditionMonitorServiceArgsDict']]
+        """
+        A `monitor_service` block as defined below.
+        """
+        severity: NotRequired[pulumi.Input['ActionRuleActionGroupConditionSeverityArgsDict']]
+        """
+        A `severity` block as defined below.
+        """
+        target_resource_type: NotRequired[pulumi.Input['ActionRuleActionGroupConditionTargetResourceTypeArgsDict']]
+        """
+        A `target_resource_type` block as defined below.
+        """
+elif False:
+    ActionRuleActionGroupConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleActionGroupConditionArgs:
@@ -1295,6 +1799,19 @@ class ActionRuleActionGroupConditionArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
+if not MYPY:
+    class ActionRuleActionGroupConditionAlertContextArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition.
+        """
+elif False:
+    ActionRuleActionGroupConditionAlertContextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleActionGroupConditionAlertContextArgs:
     def __init__(__self__, *,
@@ -1331,6 +1848,19 @@ class ActionRuleActionGroupConditionAlertContextArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ActionRuleActionGroupConditionAlertRuleIdArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition.
+        """
+elif False:
+    ActionRuleActionGroupConditionAlertRuleIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleActionGroupConditionAlertRuleIdArgs:
@@ -1369,6 +1899,19 @@ class ActionRuleActionGroupConditionAlertRuleIdArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ActionRuleActionGroupConditionDescriptionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition.
+        """
+elif False:
+    ActionRuleActionGroupConditionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleActionGroupConditionDescriptionArgs:
     def __init__(__self__, *,
@@ -1405,6 +1948,19 @@ class ActionRuleActionGroupConditionDescriptionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ActionRuleActionGroupConditionMonitorArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+elif False:
+    ActionRuleActionGroupConditionMonitorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleActionGroupConditionMonitorArgs:
@@ -1443,6 +1999,19 @@ class ActionRuleActionGroupConditionMonitorArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ActionRuleActionGroupConditionMonitorServiceArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
+        """
+elif False:
+    ActionRuleActionGroupConditionMonitorServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleActionGroupConditionMonitorServiceArgs:
     def __init__(__self__, *,
@@ -1479,6 +2048,19 @@ class ActionRuleActionGroupConditionMonitorServiceArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ActionRuleActionGroupConditionSeverityArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+elif False:
+    ActionRuleActionGroupConditionSeverityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleActionGroupConditionSeverityArgs:
@@ -1517,6 +2099,19 @@ class ActionRuleActionGroupConditionSeverityArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ActionRuleActionGroupConditionTargetResourceTypeArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource types.
+        """
+elif False:
+    ActionRuleActionGroupConditionTargetResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleActionGroupConditionTargetResourceTypeArgs:
     def __init__(__self__, *,
@@ -1554,6 +2149,19 @@ class ActionRuleActionGroupConditionTargetResourceTypeArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ActionRuleActionGroupScopeArgsDict(TypedDict):
+        resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of resource IDs of the given scope type which will be the target of action rule.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+        """
+elif False:
+    ActionRuleActionGroupScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleActionGroupScopeArgs:
     def __init__(__self__, *,
@@ -1590,6 +2198,39 @@ class ActionRuleActionGroupScopeArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class ActionRuleSuppressionConditionArgsDict(TypedDict):
+        alert_context: NotRequired[pulumi.Input['ActionRuleSuppressionConditionAlertContextArgsDict']]
+        """
+        A `alert_context` block as defined below.
+        """
+        alert_rule_id: NotRequired[pulumi.Input['ActionRuleSuppressionConditionAlertRuleIdArgsDict']]
+        """
+        A `alert_rule_id` block as defined below.
+        """
+        description: NotRequired[pulumi.Input['ActionRuleSuppressionConditionDescriptionArgsDict']]
+        """
+        A `description` block as defined below.
+        """
+        monitor: NotRequired[pulumi.Input['ActionRuleSuppressionConditionMonitorArgsDict']]
+        """
+        A `monitor` block as defined below.
+        """
+        monitor_service: NotRequired[pulumi.Input['ActionRuleSuppressionConditionMonitorServiceArgsDict']]
+        """
+        A `monitor_service` block as defined below.
+        """
+        severity: NotRequired[pulumi.Input['ActionRuleSuppressionConditionSeverityArgsDict']]
+        """
+        A `severity` block as defined below.
+        """
+        target_resource_type: NotRequired[pulumi.Input['ActionRuleSuppressionConditionTargetResourceTypeArgsDict']]
+        """
+        A `target_resource_type` block as defined below.
+        """
+elif False:
+    ActionRuleSuppressionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleSuppressionConditionArgs:
@@ -1710,6 +2351,19 @@ class ActionRuleSuppressionConditionArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
+if not MYPY:
+    class ActionRuleSuppressionConditionAlertContextArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition.
+        """
+elif False:
+    ActionRuleSuppressionConditionAlertContextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleSuppressionConditionAlertContextArgs:
     def __init__(__self__, *,
@@ -1746,6 +2400,19 @@ class ActionRuleSuppressionConditionAlertContextArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ActionRuleSuppressionConditionAlertRuleIdArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition.
+        """
+elif False:
+    ActionRuleSuppressionConditionAlertRuleIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleSuppressionConditionAlertRuleIdArgs:
@@ -1784,6 +2451,19 @@ class ActionRuleSuppressionConditionAlertRuleIdArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ActionRuleSuppressionConditionDescriptionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition.
+        """
+elif False:
+    ActionRuleSuppressionConditionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleSuppressionConditionDescriptionArgs:
     def __init__(__self__, *,
@@ -1820,6 +2500,19 @@ class ActionRuleSuppressionConditionDescriptionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ActionRuleSuppressionConditionMonitorArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+elif False:
+    ActionRuleSuppressionConditionMonitorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleSuppressionConditionMonitorArgs:
@@ -1858,6 +2551,19 @@ class ActionRuleSuppressionConditionMonitorArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ActionRuleSuppressionConditionMonitorServiceArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Resource Health`, `Smart Detector` and `VM Insights - Health`.
+        """
+elif False:
+    ActionRuleSuppressionConditionMonitorServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleSuppressionConditionMonitorServiceArgs:
     def __init__(__self__, *,
@@ -1894,6 +2600,19 @@ class ActionRuleSuppressionConditionMonitorServiceArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ActionRuleSuppressionConditionSeverityArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+elif False:
+    ActionRuleSuppressionConditionSeverityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleSuppressionConditionSeverityArgs:
@@ -1932,6 +2651,19 @@ class ActionRuleSuppressionConditionSeverityArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ActionRuleSuppressionConditionTargetResourceTypeArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource types.
+        """
+elif False:
+    ActionRuleSuppressionConditionTargetResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleSuppressionConditionTargetResourceTypeArgs:
     def __init__(__self__, *,
@@ -1968,6 +2700,19 @@ class ActionRuleSuppressionConditionTargetResourceTypeArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ActionRuleSuppressionScopeArgsDict(TypedDict):
+        resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of resource IDs of the given scope type which will be the target of action rule.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
+        """
+elif False:
+    ActionRuleSuppressionScopeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleSuppressionScopeArgs:
@@ -2006,6 +2751,19 @@ class ActionRuleSuppressionScopeArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ActionRuleSuppressionSuppressionArgsDict(TypedDict):
+        recurrence_type: pulumi.Input[str]
+        """
+        Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
+        """
+        schedule: NotRequired[pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgsDict']]
+        """
+        A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
+        """
+elif False:
+    ActionRuleSuppressionSuppressionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActionRuleSuppressionSuppressionArgs:
     def __init__(__self__, *,
@@ -2043,6 +2801,27 @@ class ActionRuleSuppressionSuppressionArgs:
     def schedule(self, value: Optional[pulumi.Input['ActionRuleSuppressionSuppressionScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
+
+if not MYPY:
+    class ActionRuleSuppressionSuppressionScheduleArgsDict(TypedDict):
+        end_date_utc: pulumi.Input[str]
+        """
+        specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
+        """
+        start_date_utc: pulumi.Input[str]
+        """
+        specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
+        """
+        recurrence_monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
+        """
+        recurrence_weeklies: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
+        """
+elif False:
+    ActionRuleSuppressionSuppressionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActionRuleSuppressionSuppressionScheduleArgs:
@@ -2113,6 +2892,19 @@ class ActionRuleSuppressionSuppressionScheduleArgs:
         pulumi.set(self, "recurrence_weeklies", value)
 
 
+if not MYPY:
+    class ActivityLogAlertActionArgsDict(TypedDict):
+        action_group_id: pulumi.Input[str]
+        """
+        The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource.
+        """
+        webhook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
+        """
+elif False:
+    ActivityLogAlertActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActivityLogAlertActionArgs:
     def __init__(__self__, *,
@@ -2150,6 +2942,113 @@ class ActivityLogAlertActionArgs:
     def webhook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "webhook_properties", value)
 
+
+if not MYPY:
+    class ActivityLogAlertCriteriaArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
+        """
+        caller: NotRequired[pulumi.Input[str]]
+        """
+        The email address or Azure Active Directory identifier of the user who performed the operation.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+        """
+        levels: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
+
+        > **NOTE:** `level` and `levels` are mutually exclusive.
+        """
+        operation_name: NotRequired[pulumi.Input[str]]
+        """
+        The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `<resourceProvider>/<resourceType>/<operation>`.
+        """
+        recommendation_category: NotRequired[pulumi.Input[str]]
+        """
+        The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence`, `HighAvailability` and `Performance`. It is only allowed when `category` is `Recommendation`.
+        """
+        recommendation_impact: NotRequired[pulumi.Input[str]]
+        """
+        The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
+        """
+        recommendation_type: NotRequired[pulumi.Input[str]]
+        """
+        The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
+        """
+        resource_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of resource group monitored by the activity log alert.
+        """
+        resource_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of names of resource groups monitored by the activity log alert.
+
+        > **NOTE:** `resource_group` and `resource_groups` are mutually exclusive.
+        """
+        resource_healths: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaResourceHealthArgsDict']]]]
+        """
+        A block to define fine grain resource health settings.
+        """
+        resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
+        """
+        resource_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of specific resources monitored by the activity log alert. It should be within one of the `scopes`.
+
+        > **NOTE:** `resource_id` and `resource_ids` are mutually exclusive.
+        """
+        resource_provider: NotRequired[pulumi.Input[str]]
+        """
+        The name of the resource provider monitored by the activity log alert.
+        """
+        resource_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of names of resource providers monitored by the activity log alert.
+
+        > **NOTE:** `resource_provider` and `resource_providers` are mutually exclusive.
+        """
+        resource_type: NotRequired[pulumi.Input[str]]
+        """
+        The resource type monitored by the activity log alert.
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of resource types monitored by the activity log alert.
+
+        > **NOTE:** `resource_type` and `resource_types` are mutually exclusive.
+        """
+        service_healths: NotRequired[pulumi.Input[Sequence[pulumi.Input['ActivityLogAlertCriteriaServiceHealthArgsDict']]]]
+        """
+        A block to define fine grain service health settings.
+        """
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+        """
+        statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of status of the event. For example, `Started`, `Failed`, or `Succeeded`.
+
+        > **NOTE:** `status` and `statuses` are mutually exclusive.
+        """
+        sub_status: NotRequired[pulumi.Input[str]]
+        """
+        The sub status of the event.
+        """
+        sub_statuses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of sub status of the event.
+
+        > **NOTE:** `sub_status` and `sub_statuses` are mutually exclusive.
+        """
+elif False:
+    ActivityLogAlertCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ActivityLogAlertCriteriaArgs:
@@ -2537,6 +3436,23 @@ class ActivityLogAlertCriteriaArgs:
         pulumi.set(self, "sub_statuses", value)
 
 
+if not MYPY:
+    class ActivityLogAlertCriteriaResourceHealthArgsDict(TypedDict):
+        currents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+        """
+        previouses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
+        """
+        reasons: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
+        """
+elif False:
+    ActivityLogAlertCriteriaResourceHealthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActivityLogAlertCriteriaResourceHealthArgs:
     def __init__(__self__, *,
@@ -2592,6 +3508,23 @@ class ActivityLogAlertCriteriaResourceHealthArgs:
         pulumi.set(self, "reasons", value)
 
 
+if not MYPY:
+    class ActivityLogAlertCriteriaServiceHealthArgsDict(TypedDict):
+        events: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
+        """
+        locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Locations this alert will monitor. For example, `West Europe`.
+        """
+        services: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Services this alert will monitor. For example, `Activity Logs & Alerts`, `Action Groups`. Defaults to all Services.
+        """
+elif False:
+    ActivityLogAlertCriteriaServiceHealthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ActivityLogAlertCriteriaServiceHealthArgs:
     def __init__(__self__, *,
@@ -2646,6 +3579,57 @@ class ActivityLogAlertCriteriaServiceHealthArgs:
     def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "services", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionArgsDict(TypedDict):
+        alert_context: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertContextArgsDict']]
+        """
+        A `alert_context` block as defined above.
+        """
+        alert_rule_id: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleIdArgsDict']]
+        """
+        A `alert_rule_id` block as defined above.
+        """
+        alert_rule_name: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleNameArgsDict']]
+        """
+        A `alert_rule_name` block as defined above.
+        """
+        description: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionDescriptionArgsDict']]
+        """
+        A `description` block as defined below.
+        """
+        monitor_condition: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorConditionArgsDict']]
+        """
+        A `monitor_condition` block as defined below.
+        """
+        monitor_service: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorServiceArgsDict']]
+        """
+        A `monitor_service` block as defined below.
+        """
+        severity: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionSeverityArgsDict']]
+        """
+        A `severity` block as defined below.
+        """
+        signal_type: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionSignalTypeArgsDict']]
+        """
+        A `signal_type` block as defined below.
+        """
+        target_resource: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceArgsDict']]
+        """
+        A `target_resource` block as defined below.
+        """
+        target_resource_group: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgsDict']]
+        """
+        A `target_resource_group` block as defined below.
+        """
+        target_resource_type: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgsDict']]
+        """
+        A `target_resource_type` block as defined below.
+
+        > **Note:** At least one of the `alert_context`, `alert_rule_id`, `alert_rule_name`, `description`, `monitor_condition`, `monitor_service`, `severity`, `signal_type`, `target_resource`, `target_resource_group`, `target_resource_type` must be specified.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionArgs:
@@ -2834,6 +3818,19 @@ class AlertProcessingRuleActionGroupConditionArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionAlertContextArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionAlertContextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionAlertContextArgs:
     def __init__(__self__, *,
@@ -2870,6 +3867,19 @@ class AlertProcessingRuleActionGroupConditionAlertContextArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionAlertRuleIdArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionAlertRuleIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionAlertRuleIdArgs:
@@ -2908,6 +3918,19 @@ class AlertProcessingRuleActionGroupConditionAlertRuleIdArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionAlertRuleNameArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionAlertRuleNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionAlertRuleNameArgs:
     def __init__(__self__, *,
@@ -2944,6 +3967,19 @@ class AlertProcessingRuleActionGroupConditionAlertRuleNameArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionDescriptionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionDescriptionArgs:
@@ -2982,6 +4018,19 @@ class AlertProcessingRuleActionGroupConditionDescriptionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionMonitorConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionMonitorConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionMonitorConditionArgs:
     def __init__(__self__, *,
@@ -3018,6 +4067,19 @@ class AlertProcessingRuleActionGroupConditionMonitorConditionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionMonitorServiceArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionMonitorServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionMonitorServiceArgs:
@@ -3056,6 +4118,19 @@ class AlertProcessingRuleActionGroupConditionMonitorServiceArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionSeverityArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionSeverityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionSeverityArgs:
     def __init__(__self__, *,
@@ -3092,6 +4167,19 @@ class AlertProcessingRuleActionGroupConditionSeverityArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionSignalTypeArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionSignalTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionSignalTypeArgs:
@@ -3130,6 +4218,19 @@ class AlertProcessingRuleActionGroupConditionSignalTypeArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionTargetResourceArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource IDs.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionTargetResourceArgs:
     def __init__(__self__, *,
@@ -3166,6 +4267,19 @@ class AlertProcessingRuleActionGroupConditionTargetResourceArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionTargetResourceGroupArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource group IDs.
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionTargetResourceGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs:
@@ -3204,6 +4318,19 @@ class AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupConditionTargetResourceTypeArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+        """
+elif False:
+    AlertProcessingRuleActionGroupConditionTargetResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs:
     def __init__(__self__, *,
@@ -3240,6 +4367,27 @@ class AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupScheduleArgsDict(TypedDict):
+        effective_from: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+        """
+        effective_until: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+        """
+        recurrence: NotRequired[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgsDict']]
+        """
+        A `recurrence` block as defined above.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+elif False:
+    AlertProcessingRuleActionGroupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupScheduleArgs:
@@ -3312,6 +4460,23 @@ class AlertProcessingRuleActionGroupScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupScheduleRecurrenceArgsDict(TypedDict):
+        dailies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgsDict']]]]
+        """
+        One or more `daily` blocks as defined above.
+        """
+        monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgsDict']]]]
+        """
+        One or more `monthly` blocks as defined above.
+        """
+        weeklies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgsDict']]]]
+        """
+        One or more `weekly` blocks as defined below.
+        """
+elif False:
+    AlertProcessingRuleActionGroupScheduleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupScheduleRecurrenceArgs:
     def __init__(__self__, *,
@@ -3367,6 +4532,19 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceArgs:
         pulumi.set(self, "weeklies", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgsDict(TypedDict):
+        end_time: pulumi.Input[str]
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        start_time: pulumi.Input[str]
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+elif False:
+    AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs:
     def __init__(__self__, *,
@@ -3403,6 +4581,23 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs:
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgsDict(TypedDict):
+        days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+elif False:
+    AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs:
@@ -3458,6 +4653,23 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgsDict(TypedDict):
+        days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+elif False:
+    AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
     def __init__(__self__, *,
@@ -3511,6 +4723,55 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
     def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionArgsDict(TypedDict):
+        alert_context: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertContextArgsDict']]
+        """
+        A `alert_context` block as defined above.
+        """
+        alert_rule_id: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleIdArgsDict']]
+        """
+        A `alert_rule_id` block as defined above.
+        """
+        alert_rule_name: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleNameArgsDict']]
+        """
+        A `alert_rule_name` block as defined above.
+        """
+        description: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionDescriptionArgsDict']]
+        """
+        A `description` block as defined below.
+        """
+        monitor_condition: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorConditionArgsDict']]
+        """
+        A `monitor_condition` block as defined below.
+        """
+        monitor_service: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorServiceArgsDict']]
+        """
+        A `monitor_service` block as defined below.
+        """
+        severity: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionSeverityArgsDict']]
+        """
+        A `severity` block as defined below.
+        """
+        signal_type: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionSignalTypeArgsDict']]
+        """
+        A `signal_type` block as defined below.
+        """
+        target_resource: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceArgsDict']]
+        """
+        A `target_resource` block as defined below.
+        """
+        target_resource_group: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgsDict']]
+        """
+        A `target_resource_group` block as defined below.
+        """
+        target_resource_type: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgsDict']]
+        """
+        A `target_resource_type` block as defined below.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionArgs:
@@ -3695,6 +4956,19 @@ class AlertProcessingRuleSuppressionConditionArgs:
         pulumi.set(self, "target_resource_type", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionAlertContextArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionAlertContextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionAlertContextArgs:
     def __init__(__self__, *,
@@ -3731,6 +5005,19 @@ class AlertProcessingRuleSuppressionConditionAlertContextArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionAlertRuleIdArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionAlertRuleIdArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionAlertRuleIdArgs:
@@ -3769,6 +5056,19 @@ class AlertProcessingRuleSuppressionConditionAlertRuleIdArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionAlertRuleNameArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionAlertRuleNameArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionAlertRuleNameArgs:
     def __init__(__self__, *,
@@ -3805,6 +5105,19 @@ class AlertProcessingRuleSuppressionConditionAlertRuleNameArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionDescriptionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionDescriptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionDescriptionArgs:
@@ -3843,6 +5156,19 @@ class AlertProcessingRuleSuppressionConditionDescriptionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionMonitorConditionArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionMonitorConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionMonitorConditionArgs:
     def __init__(__self__, *,
@@ -3879,6 +5205,19 @@ class AlertProcessingRuleSuppressionConditionMonitorConditionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionMonitorServiceArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionMonitorServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionMonitorServiceArgs:
@@ -3917,6 +5256,19 @@ class AlertProcessingRuleSuppressionConditionMonitorServiceArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionSeverityArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionSeverityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionSeverityArgs:
     def __init__(__self__, *,
@@ -3953,6 +5305,19 @@ class AlertProcessingRuleSuppressionConditionSeverityArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionSignalTypeArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionSignalTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionSignalTypeArgs:
@@ -3991,6 +5356,19 @@ class AlertProcessingRuleSuppressionConditionSignalTypeArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionTargetResourceArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource IDs.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionTargetResourceArgs:
     def __init__(__self__, *,
@@ -4027,6 +5405,19 @@ class AlertProcessingRuleSuppressionConditionTargetResourceArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionTargetResourceGroupArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource group IDs.
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionTargetResourceGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs:
@@ -4065,6 +5456,19 @@ class AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionConditionTargetResourceTypeArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+        """
+elif False:
+    AlertProcessingRuleSuppressionConditionTargetResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs:
     def __init__(__self__, *,
@@ -4101,6 +5505,27 @@ class AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionScheduleArgsDict(TypedDict):
+        effective_from: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+        """
+        effective_until: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+        """
+        recurrence: NotRequired[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgsDict']]
+        """
+        A `recurrence` block as defined above.
+        """
+        time_zone: NotRequired[pulumi.Input[str]]
+        """
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+elif False:
+    AlertProcessingRuleSuppressionScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionScheduleArgs:
@@ -4173,6 +5598,23 @@ class AlertProcessingRuleSuppressionScheduleArgs:
         pulumi.set(self, "time_zone", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionScheduleRecurrenceArgsDict(TypedDict):
+        dailies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgsDict']]]]
+        """
+        One or more `daily` blocks as defined above.
+        """
+        monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgsDict']]]]
+        """
+        One or more `monthly` blocks as defined above.
+        """
+        weeklies: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgsDict']]]]
+        """
+        One or more `weekly` blocks as defined below.
+        """
+elif False:
+    AlertProcessingRuleSuppressionScheduleRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionScheduleRecurrenceArgs:
     def __init__(__self__, *,
@@ -4228,6 +5670,19 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceArgs:
         pulumi.set(self, "weeklies", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgsDict(TypedDict):
+        end_time: pulumi.Input[str]
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        start_time: pulumi.Input[str]
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+elif False:
+    AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs:
     def __init__(__self__, *,
@@ -4264,6 +5719,23 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs:
     def start_time(self, value: pulumi.Input[str]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgsDict(TypedDict):
+        days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+elif False:
+    AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs:
@@ -4319,6 +5791,23 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgsDict(TypedDict):
+        days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and `Saturday`.
+        """
+        end_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+elif False:
+    AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
     def __init__(__self__, *,
@@ -4372,6 +5861,51 @@ class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
     def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
 
+
+if not MYPY:
+    class AlertPrometheusRuleGroupRuleArgsDict(TypedDict):
+        expression: pulumi.Input[str]
+        """
+        Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgsDict']]]]
+        """
+        An `action` block as defined below.
+        """
+        alert: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Alert rule name.
+        """
+        alert_resolution: NotRequired[pulumi.Input['AlertPrometheusRuleGroupRuleAlertResolutionArgsDict']]
+        """
+        An `alert_resolution` block as defined below.
+        """
+        annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this rule enabled? Possible values are `true` and `false`.
+        """
+        for_: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format.
+        """
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies the labels to add or overwrite before storing the result.
+        """
+        record: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the recorded metrics name.
+        """
+        severity: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
+        """
+elif False:
+    AlertPrometheusRuleGroupRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AlertPrometheusRuleGroupRuleArgs:
@@ -4539,6 +6073,21 @@ class AlertPrometheusRuleGroupRuleArgs:
         pulumi.set(self, "severity", value)
 
 
+if not MYPY:
+    class AlertPrometheusRuleGroupRuleActionArgsDict(TypedDict):
+        action_group_id: pulumi.Input[str]
+        """
+        Specifies the resource id of the monitor action group.
+        """
+        action_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies the properties of an action group object.
+
+        > **Note:** `action_properties` can only be configured for IcM Connector Action Groups for now. Other public features will be supported in the future.
+        """
+elif False:
+    AlertPrometheusRuleGroupRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertPrometheusRuleGroupRuleActionArgs:
     def __init__(__self__, *,
@@ -4581,6 +6130,19 @@ class AlertPrometheusRuleGroupRuleActionArgs:
         pulumi.set(self, "action_properties", value)
 
 
+if not MYPY:
+    class AlertPrometheusRuleGroupRuleAlertResolutionArgsDict(TypedDict):
+        auto_resolved: NotRequired[pulumi.Input[bool]]
+        """
+        Is the alert auto-resolution? Possible values are `true` and `false`.
+        """
+        time_to_resolve: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+        """
+elif False:
+    AlertPrometheusRuleGroupRuleAlertResolutionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AlertPrometheusRuleGroupRuleAlertResolutionArgs:
     def __init__(__self__, *,
@@ -4620,6 +6182,19 @@ class AlertPrometheusRuleGroupRuleAlertResolutionArgs:
         pulumi.set(self, "time_to_resolve", value)
 
 
+if not MYPY:
+    class AutoscaleSettingNotificationArgsDict(TypedDict):
+        email: NotRequired[pulumi.Input['AutoscaleSettingNotificationEmailArgsDict']]
+        """
+        A `email` block as defined below.
+        """
+        webhooks: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingNotificationWebhookArgsDict']]]]
+        """
+        One or more `webhook` blocks as defined below.
+        """
+elif False:
+    AutoscaleSettingNotificationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingNotificationArgs:
     def __init__(__self__, *,
@@ -4658,6 +6233,23 @@ class AutoscaleSettingNotificationArgs:
     def webhooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingNotificationWebhookArgs']]]]):
         pulumi.set(self, "webhooks", value)
 
+
+if not MYPY:
+    class AutoscaleSettingNotificationEmailArgsDict(TypedDict):
+        custom_emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of custom email addresses to which the email notifications will be sent.
+        """
+        send_to_subscription_administrator: NotRequired[pulumi.Input[bool]]
+        """
+        Should email notifications be sent to the subscription administrator? Defaults to `false`.
+        """
+        send_to_subscription_co_administrator: NotRequired[pulumi.Input[bool]]
+        """
+        Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
+        """
+elif False:
+    AutoscaleSettingNotificationEmailArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleSettingNotificationEmailArgs:
@@ -4714,6 +6306,19 @@ class AutoscaleSettingNotificationEmailArgs:
         pulumi.set(self, "send_to_subscription_co_administrator", value)
 
 
+if not MYPY:
+    class AutoscaleSettingNotificationWebhookArgsDict(TypedDict):
+        service_uri: pulumi.Input[str]
+        """
+        The HTTPS URI which should receive scale notifications.
+        """
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of settings.
+        """
+elif False:
+    AutoscaleSettingNotificationWebhookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingNotificationWebhookArgs:
     def __init__(__self__, *,
@@ -4752,6 +6357,19 @@ class AutoscaleSettingNotificationWebhookArgs:
         pulumi.set(self, "properties", value)
 
 
+if not MYPY:
+    class AutoscaleSettingPredictiveArgsDict(TypedDict):
+        scale_mode: pulumi.Input[str]
+        """
+        Specifies the predictive scale mode. Possible values are `Enabled` or `ForecastOnly`.
+        """
+        look_ahead_time: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the amount of time by which instances are launched in advance. It must be between `PT1M` and `PT1H` in ISO 8601 format.
+        """
+elif False:
+    AutoscaleSettingPredictiveArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingPredictiveArgs:
     def __init__(__self__, *,
@@ -4789,6 +6407,31 @@ class AutoscaleSettingPredictiveArgs:
     def look_ahead_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "look_ahead_time", value)
 
+
+if not MYPY:
+    class AutoscaleSettingProfileArgsDict(TypedDict):
+        capacity: pulumi.Input['AutoscaleSettingProfileCapacityArgsDict']
+        """
+        A `capacity` block as defined below.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the profile.
+        """
+        fixed_date: NotRequired[pulumi.Input['AutoscaleSettingProfileFixedDateArgsDict']]
+        """
+        A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
+        """
+        recurrence: NotRequired[pulumi.Input['AutoscaleSettingProfileRecurrenceArgsDict']]
+        """
+        A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleArgsDict']]]]
+        """
+        One or more (up to 10) `rule` blocks as defined below.
+        """
+elif False:
+    AutoscaleSettingProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleSettingProfileArgs:
@@ -4875,6 +6518,25 @@ class AutoscaleSettingProfileArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class AutoscaleSettingProfileCapacityArgsDict(TypedDict):
+        default: pulumi.Input[int]
+        """
+        The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
+        """
+        maximum: pulumi.Input[int]
+        """
+        The maximum number of instances for this resource. Valid values are between `0` and `1000`.
+
+        > **NOTE:** The maximum number of instances is also limited by the amount of Cores available in the subscription.
+        """
+        minimum: pulumi.Input[int]
+        """
+        The minimum number of instances for this resource. Valid values are between `0` and `1000`.
+        """
+elif False:
+    AutoscaleSettingProfileCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingProfileCapacityArgs:
     def __init__(__self__, *,
@@ -4931,6 +6593,23 @@ class AutoscaleSettingProfileCapacityArgs:
         pulumi.set(self, "minimum", value)
 
 
+if not MYPY:
+    class AutoscaleSettingProfileFixedDateArgsDict(TypedDict):
+        end: pulumi.Input[str]
+        """
+        Specifies the end date for the profile, formatted as an RFC3339 date string.
+        """
+        start: pulumi.Input[str]
+        """
+        Specifies the start date for the profile, formatted as an RFC3339 date string.
+        """
+        timezone: NotRequired[pulumi.Input[str]]
+        """
+        The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        """
+elif False:
+    AutoscaleSettingProfileFixedDateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingProfileFixedDateArgs:
     def __init__(__self__, *,
@@ -4983,6 +6662,27 @@ class AutoscaleSettingProfileFixedDateArgs:
     def timezone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timezone", value)
 
+
+if not MYPY:
+    class AutoscaleSettingProfileRecurrenceArgsDict(TypedDict):
+        days: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
+        hours: pulumi.Input[int]
+        """
+        A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
+        """
+        minutes: pulumi.Input[int]
+        """
+        A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+        """
+        timezone: NotRequired[pulumi.Input[str]]
+        """
+        The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
+        """
+elif False:
+    AutoscaleSettingProfileRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleSettingProfileRecurrenceArgs:
@@ -5052,6 +6752,19 @@ class AutoscaleSettingProfileRecurrenceArgs:
         pulumi.set(self, "timezone", value)
 
 
+if not MYPY:
+    class AutoscaleSettingProfileRuleArgsDict(TypedDict):
+        metric_trigger: pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerArgsDict']
+        """
+        A `metric_trigger` block as defined below.
+        """
+        scale_action: pulumi.Input['AutoscaleSettingProfileRuleScaleActionArgsDict']
+        """
+        A `scale_action` block as defined below.
+        """
+elif False:
+    AutoscaleSettingProfileRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingProfileRuleArgs:
     def __init__(__self__, *,
@@ -5088,6 +6801,57 @@ class AutoscaleSettingProfileRuleArgs:
     def scale_action(self, value: pulumi.Input['AutoscaleSettingProfileRuleScaleActionArgs']):
         pulumi.set(self, "scale_action", value)
 
+
+if not MYPY:
+    class AutoscaleSettingProfileRuleMetricTriggerArgsDict(TypedDict):
+        metric_name: pulumi.Input[str]
+        """
+        The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
+
+        > **NOTE:** The allowed value of `metric_name` highly depends on the targeting resource type, please visit [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) for more details.
+        """
+        metric_resource_id: pulumi.Input[str]
+        """
+        The ID of the Resource which the Rule monitors.
+        """
+        operator: pulumi.Input[str]
+        """
+        Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
+        """
+        statistic: pulumi.Input[str]
+        """
+        Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Max`, `Min` and `Sum`.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Specifies the threshold of the metric that triggers the scale action.
+        """
+        time_aggregation: pulumi.Input[str]
+        """
+        Specifies how the data that's collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`.
+        """
+        time_grain: pulumi.Input[str]
+        """
+        Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
+        """
+        time_window: pulumi.Input[str]
+        """
+        Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgsDict']]]]
+        """
+        One or more `dimensions` block as defined below.
+        """
+        divide_by_instance_count: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to enable metric divide by instance count.
+        """
+        metric_namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
+        """
+elif False:
+    AutoscaleSettingProfileRuleMetricTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleSettingProfileRuleMetricTriggerArgs:
@@ -5268,6 +7032,23 @@ class AutoscaleSettingProfileRuleMetricTriggerArgs:
         pulumi.set(self, "metric_namespace", value)
 
 
+if not MYPY:
+    class AutoscaleSettingProfileRuleMetricTriggerDimensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the dimension.
+        """
+        operator: pulumi.Input[str]
+        """
+        The dimension operator. Possible values are `Equals` and `NotEquals`. `Equals` means being equal to any of the values. `NotEquals` means being not equal to any of the values.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of dimension values.
+        """
+elif False:
+    AutoscaleSettingProfileRuleMetricTriggerDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AutoscaleSettingProfileRuleMetricTriggerDimensionArgs:
     def __init__(__self__, *,
@@ -5319,6 +7100,27 @@ class AutoscaleSettingProfileRuleMetricTriggerDimensionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class AutoscaleSettingProfileRuleScaleActionArgsDict(TypedDict):
+        cooldown: pulumi.Input[str]
+        """
+        The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+        """
+        direction: pulumi.Input[str]
+        """
+        The scale direction. Possible values are `Increase` and `Decrease`.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
+        """
+        value: pulumi.Input[int]
+        """
+        The number of instances involved in the scaling action.
+        """
+elif False:
+    AutoscaleSettingProfileRuleScaleActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AutoscaleSettingProfileRuleScaleActionArgs:
@@ -5386,6 +7188,31 @@ class AutoscaleSettingProfileRuleScaleActionArgs:
     def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataFlowArgsDict(TypedDict):
+        destinations: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`, and `Microsoft-PrometheusMetrics`.
+        """
+        built_in_transform: NotRequired[pulumi.Input[str]]
+        """
+        The built-in transform to transform stream data.
+        """
+        output_stream: NotRequired[pulumi.Input[str]]
+        """
+        The output stream of the transform. Only required if the data flow changes data to a different stream.
+        """
+        transform_kql: NotRequired[pulumi.Input[str]]
+        """
+        The KQL query to transform stream data.
+        """
+elif False:
+    DataCollectionRuleDataFlowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataFlowArgs:
@@ -5471,6 +7298,51 @@ class DataCollectionRuleDataFlowArgs:
     def transform_kql(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transform_kql", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesArgsDict(TypedDict):
+        data_import: NotRequired[pulumi.Input['DataCollectionRuleDataSourcesDataImportArgsDict']]
+        """
+        A `data_import` block as defined above.
+        """
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgsDict']]]]
+        """
+        One or more `extension` blocks as defined below.
+        """
+        iis_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesIisLogArgsDict']]]]
+        """
+        One or more `iis_log` blocks as defined below.
+        """
+        log_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesLogFileArgsDict']]]]
+        """
+        One or more `log_file` blocks as defined below.
+        """
+        performance_counters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgsDict']]]]
+        """
+        One or more `performance_counter` blocks as defined below.
+        """
+        platform_telemetries: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPlatformTelemetryArgsDict']]]]
+        """
+        One or more `platform_telemetry` blocks as defined below.
+        """
+        prometheus_forwarders: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderArgsDict']]]]
+        """
+        One or more `prometheus_forwarder` blocks as defined below.
+        """
+        syslogs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgsDict']]]]
+        """
+        One or more `syslog` blocks as defined below.
+        """
+        windows_event_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgsDict']]]]
+        """
+        One or more `windows_event_log` blocks as defined below.
+        """
+        windows_firewall_logs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsFirewallLogArgsDict']]]]
+        """
+        One or more `windows_firewall_log` blocks as defined below.
+        """
+elif False:
+    DataCollectionRuleDataSourcesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesArgs:
@@ -5639,6 +7511,15 @@ class DataCollectionRuleDataSourcesArgs:
         pulumi.set(self, "windows_firewall_logs", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesDataImportArgsDict(TypedDict):
+        event_hub_data_sources: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgsDict']]]
+        """
+        An `event_hub_data_source` block as defined below.
+        """
+elif False:
+    DataCollectionRuleDataSourcesDataImportArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesDataImportArgs:
     def __init__(__self__, *,
@@ -5660,6 +7541,23 @@ class DataCollectionRuleDataSourcesDataImportArgs:
     def event_hub_data_sources(self, value: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs']]]):
         pulumi.set(self, "event_hub_data_sources", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        stream: pulumi.Input[str]
+        """
+        The stream to collect from Event Hub. Possible value should be a custom stream name.
+        """
+        consumer_group: NotRequired[pulumi.Input[str]]
+        """
+        The Event Hub consumer group name.
+        """
+elif False:
+    DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs:
@@ -5713,6 +7611,31 @@ class DataCollectionRuleDataSourcesDataImportEventHubDataSourceArgs:
     def consumer_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_group", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesExtensionArgsDict(TypedDict):
+        extension_name: pulumi.Input[str]
+        """
+        The name of the VM extension.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`, `Microsoft-WindowsEvent`.
+        """
+        extension_json: NotRequired[pulumi.Input[str]]
+        """
+        A JSON String which specifies the extension setting.
+        """
+        input_data_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
+        """
+elif False:
+    DataCollectionRuleDataSourcesExtensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesExtensionArgs:
@@ -5798,6 +7721,23 @@ class DataCollectionRuleDataSourcesExtensionArgs:
         pulumi.set(self, "input_data_sources", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesIisLogArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-W3CIISLog`.
+        """
+        log_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of absolute paths where the log files are located.
+        """
+elif False:
+    DataCollectionRuleDataSourcesIisLogArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesIisLogArgs:
     def __init__(__self__, *,
@@ -5850,6 +7790,31 @@ class DataCollectionRuleDataSourcesIisLogArgs:
     def log_directories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "log_directories", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesLogFileArgsDict(TypedDict):
+        file_patterns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of file patterns where the log files are located. For example, `C:\\\\JavaLogs\\\\*.log`.
+        """
+        format: pulumi.Input[str]
+        """
+        The data format of the log files. possible value is `text`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
+        """
+        settings: NotRequired[pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsArgsDict']]
+        """
+        A `settings` block as defined below.
+        """
+elif False:
+    DataCollectionRuleDataSourcesLogFileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesLogFileArgs:
@@ -5934,6 +7899,15 @@ class DataCollectionRuleDataSourcesLogFileArgs:
         pulumi.set(self, "settings", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesLogFileSettingsArgsDict(TypedDict):
+        text: pulumi.Input['DataCollectionRuleDataSourcesLogFileSettingsTextArgsDict']
+        """
+        A `text` block as defined below.
+        """
+elif False:
+    DataCollectionRuleDataSourcesLogFileSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesLogFileSettingsArgs:
     def __init__(__self__, *,
@@ -5956,6 +7930,15 @@ class DataCollectionRuleDataSourcesLogFileSettingsArgs:
         pulumi.set(self, "text", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesLogFileSettingsTextArgsDict(TypedDict):
+        record_start_timestamp_format: pulumi.Input[str]
+        """
+        The timestamp format of the text log files. Possible values are `ISO 8601`, `YYYY-MM-DD HH:MM:SS`, `M/D/YYYY HH:MM:SS AM/PM`, `Mon DD, YYYY HH:MM:SS`, `yyMMdd HH:mm:ss`, `ddMMyy HH:mm:ss`, `MMM d hh:mm:ss`, `dd/MMM/yyyy:HH:mm:ss zzz`,and `yyyy-MM-ddTHH:mm:ssK`.
+        """
+elif False:
+    DataCollectionRuleDataSourcesLogFileSettingsTextArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesLogFileSettingsTextArgs:
     def __init__(__self__, *,
@@ -5977,6 +7960,27 @@ class DataCollectionRuleDataSourcesLogFileSettingsTextArgs:
     def record_start_timestamp_format(self, value: pulumi.Input[str]):
         pulumi.set(self, "record_start_timestamp_format", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesPerformanceCounterArgsDict(TypedDict):
+        counter_specifiers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of specifier names of the performance counters you want to collect. To get a list of performance counters on Windows, run the command `typeperf`. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) for more information.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        sampling_frequency_in_seconds: pulumi.Input[int]
+        """
+        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `sampling_frequency_in_seconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
+        """
+elif False:
+    DataCollectionRuleDataSourcesPerformanceCounterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesPerformanceCounterArgs:
@@ -6045,6 +8049,19 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
         pulumi.set(self, "streams", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesPlatformTelemetryArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft.Cache/redis:Metrics-Group-All`.
+        """
+elif False:
+    DataCollectionRuleDataSourcesPlatformTelemetryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesPlatformTelemetryArgs:
     def __init__(__self__, *,
@@ -6081,6 +8098,23 @@ class DataCollectionRuleDataSourcesPlatformTelemetryArgs:
     def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "streams", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesPrometheusForwarderArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-PrometheusMetrics`.
+        """
+        label_include_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgsDict']]]]
+        """
+        One or more `label_include_filter` blocks as defined above.
+        """
+elif False:
+    DataCollectionRuleDataSourcesPrometheusForwarderArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesPrometheusForwarderArgs:
@@ -6135,6 +8169,19 @@ class DataCollectionRuleDataSourcesPrometheusForwarderArgs:
         pulumi.set(self, "label_include_filters", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgsDict(TypedDict):
+        label: pulumi.Input[str]
+        """
+        The label of the filter. This label should be unique across all `label_include_fileter` block. Possible value is `microsoft_metrics_include_label`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the filter.
+        """
+elif False:
+    DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs:
     def __init__(__self__, *,
@@ -6171,6 +8218,29 @@ class DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDataSourcesSyslogArgsDict(TypedDict):
+        facility_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `alert`, `*`, `audit`, `auth`, `authpriv`, `clock`, `cron`, `daemon`, `ftp`, `kern`, `local5`, `local4`, `local1`, `local7`, `local6`, `local3`, `local2`, `local0`, `lpr`, `mail`, `mark`, `news`, `nopri`, `ntp`, `syslog`, `user` and `uucp`.
+        """
+        log_levels: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`, `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Syslog`,and `Microsoft-CiscoAsa`, and `Microsoft-CommonSecurityLog`.
+
+        > **Note:** In 4.0 or later version of the provider, `streams` will be required. In 3.x version of provider, if `streams` is not specified in creation, it is default to `["Microsoft-Syslog"]`. if `streams` need to be modified (include change other value to the default value), it must be explicitly specified.
+        """
+elif False:
+    DataCollectionRuleDataSourcesSyslogArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDataSourcesSyslogArgs:
@@ -6244,6 +8314,23 @@ class DataCollectionRuleDataSourcesSyslogArgs:
         pulumi.set(self, "streams", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesWindowsEventLogArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-Event`,and `Microsoft-WindowsEvent`, `Microsoft-RomeDetectionEvent`, and `Microsoft-SecurityEvent`.
+        """
+        x_path_queries: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
+        """
+elif False:
+    DataCollectionRuleDataSourcesWindowsEventLogArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesWindowsEventLogArgs:
     def __init__(__self__, *,
@@ -6296,6 +8383,19 @@ class DataCollectionRuleDataSourcesWindowsEventLogArgs:
         pulumi.set(self, "x_path_queries", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDataSourcesWindowsFirewallLogArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+        """
+        streams: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+        """
+elif False:
+    DataCollectionRuleDataSourcesWindowsFirewallLogArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDataSourcesWindowsFirewallLogArgs:
     def __init__(__self__, *,
@@ -6332,6 +8432,47 @@ class DataCollectionRuleDataSourcesWindowsFirewallLogArgs:
     def streams(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "streams", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDestinationsArgsDict(TypedDict):
+        azure_monitor_metrics: NotRequired[pulumi.Input['DataCollectionRuleDestinationsAzureMonitorMetricsArgsDict']]
+        """
+        A `azure_monitor_metrics` block as defined above.
+        """
+        event_hub: NotRequired[pulumi.Input['DataCollectionRuleDestinationsEventHubArgsDict']]
+        """
+        One or more `event_hub` blocks as defined below.
+        """
+        event_hub_direct: NotRequired[pulumi.Input['DataCollectionRuleDestinationsEventHubDirectArgsDict']]
+        """
+        One or more `event_hub` blocks as defined below.
+        """
+        log_analytics: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgsDict']]]]
+        """
+        One or more `log_analytics` blocks as defined below.
+        """
+        monitor_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsMonitorAccountArgsDict']]]]
+        """
+        One or more `monitor_account` blocks as defined below.
+        """
+        storage_blob_directs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobDirectArgsDict']]]]
+        """
+        One or more `storage_blob_direct` blocks as defined below.
+        """
+        storage_blobs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobArgsDict']]]]
+        """
+        One or more `storage_blob` blocks as defined below.
+        """
+        storage_table_directs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageTableDirectArgsDict']]]]
+        """
+        One or more `storage_table_direct` blocks as defined below.
+
+        > **NOTE** `event_hub_direct`, `storage_blob_direct`, and `storage_table_direct` are only available for rules of kind `AgentDirectToStore`.
+
+        > **NOTE** At least one of `azure_monitor_metrics`, `event_hub`, `event_hub_direct`, `log_analytics`, `monitor_account`, `storage_blob`, `storage_blob_direct`,and `storage_table_direct` blocks must be specified.
+        """
+elif False:
+    DataCollectionRuleDestinationsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDestinationsArgs:
@@ -6476,6 +8617,15 @@ class DataCollectionRuleDestinationsArgs:
         pulumi.set(self, "storage_table_directs", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDestinationsAzureMonitorMetricsArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+elif False:
+    DataCollectionRuleDestinationsAzureMonitorMetricsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDestinationsAzureMonitorMetricsArgs:
     def __init__(__self__, *,
@@ -6497,6 +8647,19 @@ class DataCollectionRuleDestinationsAzureMonitorMetricsArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDestinationsEventHubArgsDict(TypedDict):
+        event_hub_id: pulumi.Input[str]
+        """
+        The resource ID of the Event Hub.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+elif False:
+    DataCollectionRuleDestinationsEventHubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDestinationsEventHubArgs:
@@ -6535,6 +8698,19 @@ class DataCollectionRuleDestinationsEventHubArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDestinationsEventHubDirectArgsDict(TypedDict):
+        event_hub_id: pulumi.Input[str]
+        """
+        The resource ID of the Event Hub.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+elif False:
+    DataCollectionRuleDestinationsEventHubDirectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDestinationsEventHubDirectArgs:
     def __init__(__self__, *,
@@ -6571,6 +8747,19 @@ class DataCollectionRuleDestinationsEventHubDirectArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDestinationsLogAnalyticArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        workspace_resource_id: pulumi.Input[str]
+        """
+        The ID of a Log Analytic Workspace resource.
+        """
+elif False:
+    DataCollectionRuleDestinationsLogAnalyticArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDestinationsLogAnalyticArgs:
@@ -6609,6 +8798,19 @@ class DataCollectionRuleDestinationsLogAnalyticArgs:
         pulumi.set(self, "workspace_resource_id", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDestinationsMonitorAccountArgsDict(TypedDict):
+        monitor_account_id: pulumi.Input[str]
+        """
+        The resource ID of the Monitor Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+elif False:
+    DataCollectionRuleDestinationsMonitorAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDestinationsMonitorAccountArgs:
     def __init__(__self__, *,
@@ -6645,6 +8847,23 @@ class DataCollectionRuleDestinationsMonitorAccountArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DataCollectionRuleDestinationsStorageBlobArgsDict(TypedDict):
+        container_name: pulumi.Input[str]
+        """
+        The Storage Container name.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        storage_account_id: pulumi.Input[str]
+        """
+        The resource ID of the Storage Account.
+        """
+elif False:
+    DataCollectionRuleDestinationsStorageBlobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleDestinationsStorageBlobArgs:
@@ -6698,6 +8917,23 @@ class DataCollectionRuleDestinationsStorageBlobArgs:
         pulumi.set(self, "storage_account_id", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDestinationsStorageBlobDirectArgsDict(TypedDict):
+        container_name: pulumi.Input[str]
+        """
+        The Storage Container name.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        storage_account_id: pulumi.Input[str]
+        """
+        The resource ID of the Storage Account.
+        """
+elif False:
+    DataCollectionRuleDestinationsStorageBlobDirectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDestinationsStorageBlobDirectArgs:
     def __init__(__self__, *,
@@ -6750,6 +8986,23 @@ class DataCollectionRuleDestinationsStorageBlobDirectArgs:
         pulumi.set(self, "storage_account_id", value)
 
 
+if not MYPY:
+    class DataCollectionRuleDestinationsStorageTableDirectArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+        """
+        storage_account_id: pulumi.Input[str]
+        """
+        The resource ID of the Storage Account.
+        """
+        table_name: pulumi.Input[str]
+        """
+        The Storage Table name.
+        """
+elif False:
+    DataCollectionRuleDestinationsStorageTableDirectArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleDestinationsStorageTableDirectArgs:
     def __init__(__self__, *,
@@ -6801,6 +9054,29 @@ class DataCollectionRuleDestinationsStorageTableDirectArgs:
     def table_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "table_name", value)
 
+
+if not MYPY:
+    class DataCollectionRuleIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are `SystemAssigned` and `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    DataCollectionRuleIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataCollectionRuleIdentityArgs:
@@ -6876,6 +9152,19 @@ class DataCollectionRuleIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class DataCollectionRuleStreamDeclarationArgsDict(TypedDict):
+        columns: pulumi.Input[Sequence[pulumi.Input['DataCollectionRuleStreamDeclarationColumnArgsDict']]]
+        """
+        One or more `column` blocks as defined above.
+        """
+        stream_name: pulumi.Input[str]
+        """
+        The name of the custom stream. This name should be unique across all `stream_declaration` blocks and must begin with a prefix of `Custom-`.
+        """
+elif False:
+    DataCollectionRuleStreamDeclarationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleStreamDeclarationArgs:
     def __init__(__self__, *,
@@ -6913,6 +9202,19 @@ class DataCollectionRuleStreamDeclarationArgs:
         pulumi.set(self, "stream_name", value)
 
 
+if not MYPY:
+    class DataCollectionRuleStreamDeclarationColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the column data. Possible values are `string`, `int`, `long`, `real`, `boolean`, `datetime`,and `dynamic`.
+        """
+elif False:
+    DataCollectionRuleStreamDeclarationColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataCollectionRuleStreamDeclarationColumnArgs:
     def __init__(__self__, *,
@@ -6949,6 +9251,31 @@ class DataCollectionRuleStreamDeclarationColumnArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DiagnosticSettingEnabledLogArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        """
+        The name of a Diagnostic Log Category for this Resource.
+
+        > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+        """
+        category_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of a Diagnostic Log Category Group for this Resource.
+
+        > **NOTE:** Not all resources have category groups available.
+
+        > **NOTE:** Exactly one of `category` or `category_group` must be specified.
+        """
+        retention_policy: NotRequired[pulumi.Input['DiagnosticSettingEnabledLogRetentionPolicyArgsDict']]
+        """
+        A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+        """
+elif False:
+    DiagnosticSettingEnabledLogArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiagnosticSettingEnabledLogArgs:
@@ -7025,6 +9352,22 @@ class DiagnosticSettingEnabledLogArgs:
         pulumi.set(self, "retention_policy", value)
 
 
+if not MYPY:
+    class DiagnosticSettingEnabledLogRetentionPolicyArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Is this Retention Policy enabled?
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days for which this Retention Policy should apply.
+
+
+        > **NOTE:** Setting this to `0` will retain the events indefinitely.
+        """
+elif False:
+    DiagnosticSettingEnabledLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -7068,6 +9411,35 @@ class DiagnosticSettingEnabledLogRetentionPolicyArgs:
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
+
+if not MYPY:
+    class DiagnosticSettingLogArgsDict(TypedDict):
+        category: NotRequired[pulumi.Input[str]]
+        """
+        The name of a Diagnostic Log Category for this Resource.
+
+        > **NOTE:** The Log Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source or [list of service specific schemas](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#service-specific-schemas) to identify which categories are available for a given Resource.
+        """
+        category_group: NotRequired[pulumi.Input[str]]
+        """
+        The name of a Diagnostic Log Category Group for this Resource.
+
+        > **NOTE:** Not all resources have category groups available.
+
+        > **NOTE:** Exactly one of `category` or `category_group` must be specified.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this Diagnostic Log enabled? Defaults to `true`.
+        """
+        retention_policy: NotRequired[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgsDict']]
+        """
+        A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+        """
+elif False:
+    DiagnosticSettingLogArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiagnosticSettingLogArgs:
@@ -7160,6 +9532,22 @@ class DiagnosticSettingLogArgs:
         pulumi.set(self, "retention_policy", value)
 
 
+if not MYPY:
+    class DiagnosticSettingLogRetentionPolicyArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Is this Retention Policy enabled?
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days for which this Retention Policy should apply.
+
+
+        > **NOTE:** Setting this to `0` will retain the events indefinitely.
+        """
+elif False:
+    DiagnosticSettingLogRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiagnosticSettingLogRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -7203,6 +9591,27 @@ class DiagnosticSettingLogRetentionPolicyArgs:
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
+
+if not MYPY:
+    class DiagnosticSettingMetricArgsDict(TypedDict):
+        category: pulumi.Input[str]
+        """
+        The name of a Diagnostic Metric Category for this Resource.
+
+        > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this Diagnostic Metric enabled? Defaults to `true`.
+        """
+        retention_policy: NotRequired[pulumi.Input['DiagnosticSettingMetricRetentionPolicyArgsDict']]
+        """
+        A `retention_policy` block as defined below.
+
+        !> **NOTE:** `retention_policy` has been deprecated in favor of `storage.ManagementPolicy` resource - to learn more information on the deprecation [in the Azure documentation](https://aka.ms/diagnostic_settings_log_retention).
+        """
+elif False:
+    DiagnosticSettingMetricArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DiagnosticSettingMetricArgs:
@@ -7270,6 +9679,22 @@ class DiagnosticSettingMetricArgs:
         pulumi.set(self, "retention_policy", value)
 
 
+if not MYPY:
+    class DiagnosticSettingMetricRetentionPolicyArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Is this Retention Policy enabled?
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days for which this Retention Policy should apply.
+
+
+        > **NOTE:** Setting this to `0` will retain the events indefinitely.
+        """
+elif False:
+    DiagnosticSettingMetricRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DiagnosticSettingMetricRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -7314,6 +9739,19 @@ class DiagnosticSettingMetricRetentionPolicyArgs:
         pulumi.set(self, "days", value)
 
 
+if not MYPY:
+    class LogProfileRetentionPolicyArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        A boolean value to indicate whether the retention policy is enabled.
+        """
+        days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days for the retention policy. Defaults to `0`.
+        """
+elif False:
+    LogProfileRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogProfileRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -7351,6 +9789,27 @@ class LogProfileRetentionPolicyArgs:
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
+
+if not MYPY:
+    class LogzMonitorPlanArgsDict(TypedDict):
+        billing_cycle: pulumi.Input[str]
+        """
+        Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
+        """
+        effective_date: pulumi.Input[str]
+        """
+        Date when plan was applied. Changing this forces a new logz Monitor to be created.
+        """
+        usage_type: pulumi.Input[str]
+        """
+        Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
+        """
+        plan_id: NotRequired[pulumi.Input[str]]
+        """
+        Plan id as published by Logz. The only possible value is `100gb14days`. Defaults to `100gb14days`. Changing this forces a new logz Monitor to be created.
+        """
+elif False:
+    LogzMonitorPlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogzMonitorPlanArgs:
@@ -7419,6 +9878,29 @@ class LogzMonitorPlanArgs:
     def plan_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "plan_id", value)
 
+
+if not MYPY:
+    class LogzMonitorUserArgsDict(TypedDict):
+        email: pulumi.Input[str]
+        """
+        Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+
+        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
+        """
+        first_name: pulumi.Input[str]
+        """
+        First Name of the user. Changing this forces a new logz Monitor to be created.
+        """
+        last_name: pulumi.Input[str]
+        """
+        Last Name of the user. Changing this forces a new logz Monitor to be created.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
+        """
+elif False:
+    LogzMonitorUserArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogzMonitorUserArgs:
@@ -7491,6 +9973,23 @@ class LogzMonitorUserArgs:
         pulumi.set(self, "phone_number", value)
 
 
+if not MYPY:
+    class LogzSubAccountTagRuleTagFilterArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the tag to match.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the tag to match.
+        """
+elif False:
+    LogzSubAccountTagRuleTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogzSubAccountTagRuleTagFilterArgs:
     def __init__(__self__, *,
@@ -7543,6 +10042,29 @@ class LogzSubAccountTagRuleTagFilterArgs:
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class LogzSubAccountUserArgsDict(TypedDict):
+        email: pulumi.Input[str]
+        """
+        Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
+
+        > **NOTE** If you use the Azure CLI to authenticate to Azure, the Email of your Azure account needs to be granted the admin permission in your Logz.io account. Otherwise, you may not be able to delete this resource. There is no such limitation for the Service Principal authentication.
+        """
+        first_name: pulumi.Input[str]
+        """
+        First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+        """
+        last_name: pulumi.Input[str]
+        """
+        Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
+        """
+        phone_number: pulumi.Input[str]
+        """
+        Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
+        """
+elif False:
+    LogzSubAccountUserArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LogzSubAccountUserArgs:
@@ -7615,6 +10137,23 @@ class LogzSubAccountUserArgs:
         pulumi.set(self, "phone_number", value)
 
 
+if not MYPY:
+    class LogzTagRuleTagFilterArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of this `tag_filter`.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of this `tag_filter`.
+        """
+elif False:
+    LogzTagRuleTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LogzTagRuleTagFilterArgs:
     def __init__(__self__, *,
@@ -7668,6 +10207,19 @@ class LogzTagRuleTagFilterArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class MetricAlertActionArgsDict(TypedDict):
+        action_group_id: pulumi.Input[str]
+        """
+        The ID of the Action Group can be sourced from the `monitoring.ActionGroup` resource
+        """
+        webhook_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
+        """
+elif False:
+    MetricAlertActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricAlertActionArgs:
     def __init__(__self__, *,
@@ -7705,6 +10257,23 @@ class MetricAlertActionArgs:
     def webhook_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "webhook_properties", value)
 
+
+if not MYPY:
+    class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgsDict(TypedDict):
+        component_id: pulumi.Input[str]
+        """
+        The ID of the Application Insights Resource.
+        """
+        failed_location_count: pulumi.Input[int]
+        """
+        The number of failed locations.
+        """
+        web_test_id: pulumi.Input[str]
+        """
+        The ID of the Application Insights Web Test.
+        """
+elif False:
+    MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs:
@@ -7757,6 +10326,39 @@ class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs:
     def web_test_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "web_test_id", value)
 
+
+if not MYPY:
+    class MetricAlertCriteriaArgsDict(TypedDict):
+        aggregation: pulumi.Input[str]
+        """
+        The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+        """
+        metric_name: pulumi.Input[str]
+        """
+        One of the metric names to be monitored.
+        """
+        metric_namespace: pulumi.Input[str]
+        """
+        One of the metric namespaces to be monitored.
+        """
+        operator: pulumi.Input[str]
+        """
+        The criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
+        """
+        threshold: pulumi.Input[float]
+        """
+        The criteria threshold value that activates the alert.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgsDict']]]]
+        """
+        One or more `dimension` blocks as defined below.
+        """
+        skip_metric_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to `false`.
+        """
+elif False:
+    MetricAlertCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricAlertCriteriaArgs:
@@ -7872,6 +10474,23 @@ class MetricAlertCriteriaArgs:
         pulumi.set(self, "skip_metric_validation", value)
 
 
+if not MYPY:
+    class MetricAlertCriteriaDimensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        One of the dimension names.
+        """
+        operator: pulumi.Input[str]
+        """
+        The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of dimension values.
+        """
+elif False:
+    MetricAlertCriteriaDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricAlertCriteriaDimensionArgs:
     def __init__(__self__, *,
@@ -7923,6 +10542,51 @@ class MetricAlertCriteriaDimensionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class MetricAlertDynamicCriteriaArgsDict(TypedDict):
+        aggregation: pulumi.Input[str]
+        """
+        The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
+        """
+        alert_sensitivity: pulumi.Input[str]
+        """
+        The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
+        """
+        metric_name: pulumi.Input[str]
+        """
+        One of the metric names to be monitored.
+        """
+        metric_namespace: pulumi.Input[str]
+        """
+        One of the metric namespaces to be monitored.
+        """
+        operator: pulumi.Input[str]
+        """
+        The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetricAlertDynamicCriteriaDimensionArgsDict']]]]
+        """
+        One or more `dimension` blocks as defined below.
+        """
+        evaluation_failure_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`. Defaults to `4`.
+        """
+        evaluation_total_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points. Defaults to `4`.
+        """
+        ignore_data_before: NotRequired[pulumi.Input[str]]
+        """
+        The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+        """
+        skip_metric_validation: NotRequired[pulumi.Input[bool]]
+        """
+        Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
+        """
+elif False:
+    MetricAlertDynamicCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MetricAlertDynamicCriteriaArgs:
@@ -8086,6 +10750,23 @@ class MetricAlertDynamicCriteriaArgs:
         pulumi.set(self, "skip_metric_validation", value)
 
 
+if not MYPY:
+    class MetricAlertDynamicCriteriaDimensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        One of the dimension names.
+        """
+        operator: pulumi.Input[str]
+        """
+        The dimension operator. Possible values are `Include`, `Exclude` and `StartsWith`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of dimension values.
+        """
+elif False:
+    MetricAlertDynamicCriteriaDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MetricAlertDynamicCriteriaDimensionArgs:
     def __init__(__self__, *,
@@ -8137,6 +10818,23 @@ class MetricAlertDynamicCriteriaDimensionArgs:
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
 
+
+if not MYPY:
+    class ScheduledQueryRulesAlertActionArgsDict(TypedDict):
+        action_groups: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of action group reference resource IDs.
+        """
+        custom_webhook_payload: NotRequired[pulumi.Input[str]]
+        """
+        Custom payload to be sent for all webhook payloads in alerting action.
+        """
+        email_subject: NotRequired[pulumi.Input[str]]
+        """
+        Custom subject override for all email ids in Azure action group.
+        """
+elif False:
+    ScheduledQueryRulesAlertActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryRulesAlertActionArgs:
@@ -8192,6 +10890,23 @@ class ScheduledQueryRulesAlertActionArgs:
         pulumi.set(self, "email_subject", value)
 
 
+if not MYPY:
+    class ScheduledQueryRulesAlertTriggerArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
+        """
+        metric_trigger: NotRequired[pulumi.Input['ScheduledQueryRulesAlertTriggerMetricTriggerArgsDict']]
+        """
+        A `metric_trigger` block as defined above. Trigger condition for metric query rule.
+        """
+elif False:
+    ScheduledQueryRulesAlertTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryRulesAlertTriggerArgs:
     def __init__(__self__, *,
@@ -8244,6 +10959,27 @@ class ScheduledQueryRulesAlertTriggerArgs:
     def metric_trigger(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerMetricTriggerArgs']]):
         pulumi.set(self, "metric_trigger", value)
 
+
+if not MYPY:
+    class ScheduledQueryRulesAlertTriggerMetricTriggerArgsDict(TypedDict):
+        metric_trigger_type: pulumi.Input[str]
+        """
+        Metric Trigger Type - 'Consecutive' or 'Total'.
+        """
+        operator: pulumi.Input[str]
+        """
+        Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
+        """
+        threshold: pulumi.Input[float]
+        """
+        The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
+        """
+        metric_column: NotRequired[pulumi.Input[str]]
+        """
+        Evaluation of metric on a particular column.
+        """
+elif False:
+    ScheduledQueryRulesAlertTriggerMetricTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
@@ -8313,6 +11049,19 @@ class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
         pulumi.set(self, "metric_column", value)
 
 
+if not MYPY:
+    class ScheduledQueryRulesAlertV2ActionArgsDict(TypedDict):
+        action_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of Action Group resource IDs to invoke when the alert fires.
+        """
+        custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies the properties of an alert payload.
+        """
+elif False:
+    ScheduledQueryRulesAlertV2ActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryRulesAlertV2ActionArgs:
     def __init__(__self__, *,
@@ -8351,6 +11100,45 @@ class ScheduledQueryRulesAlertV2ActionArgs:
     def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "custom_properties", value)
 
+
+if not MYPY:
+    class ScheduledQueryRulesAlertV2CriteriaArgsDict(TypedDict):
+        operator: pulumi.Input[str]
+        """
+        Specifies the criteria operator. Possible values are `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        """
+        query: pulumi.Input[str]
+        """
+        The query to run on logs. The results returned by this query are used to populate the alert.
+        """
+        threshold: pulumi.Input[float]
+        """
+        Specifies the criteria threshold value that activates the alert.
+        """
+        time_aggregation_method: pulumi.Input[str]
+        """
+        The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgsDict']]]]
+        """
+        A `dimension` block as defined below.
+        """
+        failing_periods: NotRequired[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgsDict']]
+        """
+        A `failing_periods` block as defined below.
+        """
+        metric_measure_column: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the column containing the metric measure number.
+
+        > **Note** `metric_measure_column` is required if `time_aggregation_method` is `Average`, `Maximum`, `Minimum`, or `Total`. And `metric_measure_column` can not be specified if `time_aggregation_method` is `Count`.
+        """
+        resource_id_column: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
+        """
+elif False:
+    ScheduledQueryRulesAlertV2CriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryRulesAlertV2CriteriaArgs:
@@ -8487,6 +11275,23 @@ class ScheduledQueryRulesAlertV2CriteriaArgs:
         pulumi.set(self, "resource_id_column", value)
 
 
+if not MYPY:
+    class ScheduledQueryRulesAlertV2CriteriaDimensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the dimension.
+        """
+        operator: pulumi.Input[str]
+        """
+        Operator for dimension values. Possible values are `Exclude`,and `Include`.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of dimension values. Use a wildcard `*` to collect all.
+        """
+elif False:
+    ScheduledQueryRulesAlertV2CriteriaDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryRulesAlertV2CriteriaDimensionArgs:
     def __init__(__self__, *,
@@ -8539,6 +11344,23 @@ class ScheduledQueryRulesAlertV2CriteriaDimensionArgs:
         pulumi.set(self, "values", value)
 
 
+if not MYPY:
+    class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgsDict(TypedDict):
+        minimum_failing_periods_to_trigger_alert: pulumi.Input[int]
+        """
+        Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+        """
+        number_of_evaluation_periods: pulumi.Input[int]
+        """
+        Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+
+        > **Note** The query look back which is `window_duration`*`number_of_evaluation_periods` cannot exceed 48 hours.
+
+        > **Note** `number_of_evaluation_periods` must be `1` for queries that do not project timestamp column
+        """
+elif False:
+    ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs:
     def __init__(__self__, *,
@@ -8583,6 +11405,29 @@ class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs:
     def number_of_evaluation_periods(self, value: pulumi.Input[int]):
         pulumi.set(self, "number_of_evaluation_periods", value)
 
+
+if not MYPY:
+    class ScheduledQueryRulesAlertV2IdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Scheduled Query Rule. Possible values are `SystemAssigned`, `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Scheduled Query Rule.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`. The identity associated must have required roles, read the [Azure documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-the-alert-rule-details) for more information.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
+elif False:
+    ScheduledQueryRulesAlertV2IdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryRulesAlertV2IdentityArgs:
@@ -8658,6 +11503,19 @@ class ScheduledQueryRulesAlertV2IdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ScheduledQueryRulesLogCriteriaArgsDict(TypedDict):
+        dimensions: pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesLogCriteriaDimensionArgsDict']]]
+        """
+        A `dimension` block as defined below.
+        """
+        metric_name: pulumi.Input[str]
+        """
+        Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+        """
+elif False:
+    ScheduledQueryRulesLogCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduledQueryRulesLogCriteriaArgs:
     def __init__(__self__, *,
@@ -8694,6 +11552,23 @@ class ScheduledQueryRulesLogCriteriaArgs:
     def metric_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "metric_name", value)
 
+
+if not MYPY:
+    class ScheduledQueryRulesLogCriteriaDimensionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Name of the dimension.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of dimension values.
+        """
+        operator: NotRequired[pulumi.Input[str]]
+        """
+        Operator for dimension values, - 'Include'. Defaults to `Include`.
+        """
+elif False:
+    ScheduledQueryRulesLogCriteriaDimensionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduledQueryRulesLogCriteriaDimensionArgs:
@@ -8747,6 +11622,23 @@ class ScheduledQueryRulesLogCriteriaDimensionArgs:
     def operator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operator", value)
 
+
+if not MYPY:
+    class SmartDetectorAlertRuleActionGroupArgsDict(TypedDict):
+        ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies the action group ids.
+        """
+        email_subject: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+        """
+        webhook_payload: NotRequired[pulumi.Input[str]]
+        """
+        A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+        """
+elif False:
+    SmartDetectorAlertRuleActionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SmartDetectorAlertRuleActionGroupArgs:

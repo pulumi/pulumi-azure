@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -390,7 +395,7 @@ class Application(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -418,12 +423,12 @@ class Application(pulumi.CustomResource):
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedAppDefinition",
             description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id=std.split(separator="/",
+            authorizations=[{
+                "servicePrincipalId": current.object_id,
+                "roleDefinitionId": std.split(separator="/",
                     text=builtin.id).result[len(std.split(separator="/",
                     text=builtin.id).result) - 1],
-            )])
+            }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
             location=example.location,
@@ -463,7 +468,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
                
                > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -497,12 +502,12 @@ class Application(pulumi.CustomResource):
             package_file_uri="https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
             display_name="TestManagedAppDefinition",
             description="Test Managed App Definition",
-            authorizations=[azure.managedapplication.DefinitionAuthorizationArgs(
-                service_principal_id=current.object_id,
-                role_definition_id=std.split(separator="/",
+            authorizations=[{
+                "servicePrincipalId": current.object_id,
+                "roleDefinitionId": std.split(separator="/",
                     text=builtin.id).result[len(std.split(separator="/",
                     text=builtin.id).result) - 1],
-            )])
+            }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
             location=example.location,
@@ -553,7 +558,7 @@ class Application(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  parameter_values: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -600,7 +605,7 @@ class Application(pulumi.CustomResource):
             outputs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             parameter_values: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['ApplicationPlanArgs']]] = None,
+            plan: Optional[pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Application':
         """
@@ -620,7 +625,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A mapping of name and value pairs to pass to the managed application as parameters.
                
                > **NOTE:** `parameters` only supports values with `string` or `secureString` type and will be deprecated in version 4.0 of the provider - please use `parameter_values` instead which supports more parameter types.
-        :param pulumi.Input[pulumi.InputType['ApplicationPlanArgs']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ApplicationPlanArgs', 'ApplicationPlanArgsDict']] plan: One `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """

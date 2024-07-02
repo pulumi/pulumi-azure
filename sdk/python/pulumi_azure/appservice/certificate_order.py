@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -660,7 +665,7 @@ class CertificateOrder(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_certificate_not_renewable_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_renew: Optional[pulumi.Input[bool]] = None,
-            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArgs']]]]] = None,
+            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateOrderCertificateArgs', 'CertificateOrderCertificateArgsDict']]]]] = None,
             csr: Optional[pulumi.Input[str]] = None,
             distinguished_name: Optional[pulumi.Input[str]] = None,
             domain_verification_token: Optional[pulumi.Input[str]] = None,
@@ -686,7 +691,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArgs']]]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateOrderCertificateArgs', 'CertificateOrderCertificateArgsDict']]]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
                

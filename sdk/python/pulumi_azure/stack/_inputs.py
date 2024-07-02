@@ -4,14 +4,41 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'HciClusterIdentityArgs',
+    'HciClusterIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class HciClusterIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is `SystemAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
+
+        > **NOTE** If unspecified the Tenant ID of the Provider will be used.
+        """
+elif False:
+    HciClusterIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HciClusterIdentityArgs:

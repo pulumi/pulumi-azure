@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -354,11 +359,11 @@ class ScalingPlan(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  exclusion_tag: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
-                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]]] = None,
+                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScheduleArgs']]]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -387,8 +392,8 @@ class ScalingPlan(pulumi.CustomResource):
             name="AVD-AutoScale",
             scope=example_resource_group.id,
             description="AVD AutoScale Role",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=[
+            permissions=[{
+                "actions": [
                     "Microsoft.Insights/eventtypes/values/read",
                     "Microsoft.Compute/virtualMachines/deallocate/action",
                     "Microsoft.Compute/virtualMachines/restart/action",
@@ -404,8 +409,8 @@ class ScalingPlan(pulumi.CustomResource):
                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
                 ],
-                not_actions=[],
-            )],
+                "notActions": [],
+            }],
             assignable_scopes=[example_resource_group.id])
         example = azuread.get_service_principal(display_name="Azure Virtual Desktop")
         example_assignment = azure.authorization.Assignment("example",
@@ -428,36 +433,36 @@ class ScalingPlan(pulumi.CustomResource):
             friendly_name="Scaling Plan Example",
             description="Example Scaling Plan",
             time_zone="GMT Standard Time",
-            schedules=[azure.desktopvirtualization.ScalingPlanScheduleArgs(
-                name="Weekdays",
-                days_of_weeks=[
+            schedules=[{
+                "name": "Weekdays",
+                "daysOfWeeks": [
                     "Monday",
                     "Tuesday",
                     "Wednesday",
                     "Thursday",
                     "Friday",
                 ],
-                ramp_up_start_time="05:00",
-                ramp_up_load_balancing_algorithm="BreadthFirst",
-                ramp_up_minimum_hosts_percent=20,
-                ramp_up_capacity_threshold_percent=10,
-                peak_start_time="09:00",
-                peak_load_balancing_algorithm="BreadthFirst",
-                ramp_down_start_time="19:00",
-                ramp_down_load_balancing_algorithm="DepthFirst",
-                ramp_down_minimum_hosts_percent=10,
-                ramp_down_force_logoff_users=False,
-                ramp_down_wait_time_minutes=45,
-                ramp_down_notification_message="Please log off in the next 45 minutes...",
-                ramp_down_capacity_threshold_percent=5,
-                ramp_down_stop_hosts_when="ZeroSessions",
-                off_peak_start_time="22:00",
-                off_peak_load_balancing_algorithm="DepthFirst",
-            )],
-            host_pools=[azure.desktopvirtualization.ScalingPlanHostPoolArgs(
-                hostpool_id=example_host_pool.id,
-                scaling_plan_enabled=True,
-            )])
+                "rampUpStartTime": "05:00",
+                "rampUpLoadBalancingAlgorithm": "BreadthFirst",
+                "rampUpMinimumHostsPercent": 20,
+                "rampUpCapacityThresholdPercent": 10,
+                "peakStartTime": "09:00",
+                "peakLoadBalancingAlgorithm": "BreadthFirst",
+                "rampDownStartTime": "19:00",
+                "rampDownLoadBalancingAlgorithm": "DepthFirst",
+                "rampDownMinimumHostsPercent": 10,
+                "rampDownForceLogoffUsers": False,
+                "rampDownWaitTimeMinutes": 45,
+                "rampDownNotificationMessage": "Please log off in the next 45 minutes...",
+                "rampDownCapacityThresholdPercent": 5,
+                "rampDownStopHostsWhen": "ZeroSessions",
+                "offPeakStartTime": "22:00",
+                "offPeakLoadBalancingAlgorithm": "DepthFirst",
+            }],
+            host_pools=[{
+                "hostpoolId": example_host_pool.id,
+                "scalingPlanEnabled": True,
+            }])
         ```
 
         ## Import
@@ -473,11 +478,11 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the Scaling Plan.
         :param pulumi.Input[str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]] host_pools: One or more `host_pool` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScheduleArgs']]]] schedules: One or more `schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
@@ -512,8 +517,8 @@ class ScalingPlan(pulumi.CustomResource):
             name="AVD-AutoScale",
             scope=example_resource_group.id,
             description="AVD AutoScale Role",
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=[
+            permissions=[{
+                "actions": [
                     "Microsoft.Insights/eventtypes/values/read",
                     "Microsoft.Compute/virtualMachines/deallocate/action",
                     "Microsoft.Compute/virtualMachines/restart/action",
@@ -529,8 +534,8 @@ class ScalingPlan(pulumi.CustomResource):
                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
                 ],
-                not_actions=[],
-            )],
+                "notActions": [],
+            }],
             assignable_scopes=[example_resource_group.id])
         example = azuread.get_service_principal(display_name="Azure Virtual Desktop")
         example_assignment = azure.authorization.Assignment("example",
@@ -553,36 +558,36 @@ class ScalingPlan(pulumi.CustomResource):
             friendly_name="Scaling Plan Example",
             description="Example Scaling Plan",
             time_zone="GMT Standard Time",
-            schedules=[azure.desktopvirtualization.ScalingPlanScheduleArgs(
-                name="Weekdays",
-                days_of_weeks=[
+            schedules=[{
+                "name": "Weekdays",
+                "daysOfWeeks": [
                     "Monday",
                     "Tuesday",
                     "Wednesday",
                     "Thursday",
                     "Friday",
                 ],
-                ramp_up_start_time="05:00",
-                ramp_up_load_balancing_algorithm="BreadthFirst",
-                ramp_up_minimum_hosts_percent=20,
-                ramp_up_capacity_threshold_percent=10,
-                peak_start_time="09:00",
-                peak_load_balancing_algorithm="BreadthFirst",
-                ramp_down_start_time="19:00",
-                ramp_down_load_balancing_algorithm="DepthFirst",
-                ramp_down_minimum_hosts_percent=10,
-                ramp_down_force_logoff_users=False,
-                ramp_down_wait_time_minutes=45,
-                ramp_down_notification_message="Please log off in the next 45 minutes...",
-                ramp_down_capacity_threshold_percent=5,
-                ramp_down_stop_hosts_when="ZeroSessions",
-                off_peak_start_time="22:00",
-                off_peak_load_balancing_algorithm="DepthFirst",
-            )],
-            host_pools=[azure.desktopvirtualization.ScalingPlanHostPoolArgs(
-                hostpool_id=example_host_pool.id,
-                scaling_plan_enabled=True,
-            )])
+                "rampUpStartTime": "05:00",
+                "rampUpLoadBalancingAlgorithm": "BreadthFirst",
+                "rampUpMinimumHostsPercent": 20,
+                "rampUpCapacityThresholdPercent": 10,
+                "peakStartTime": "09:00",
+                "peakLoadBalancingAlgorithm": "BreadthFirst",
+                "rampDownStartTime": "19:00",
+                "rampDownLoadBalancingAlgorithm": "DepthFirst",
+                "rampDownMinimumHostsPercent": 10,
+                "rampDownForceLogoffUsers": False,
+                "rampDownWaitTimeMinutes": 45,
+                "rampDownNotificationMessage": "Please log off in the next 45 minutes...",
+                "rampDownCapacityThresholdPercent": 5,
+                "rampDownStopHostsWhen": "ZeroSessions",
+                "offPeakStartTime": "22:00",
+                "offPeakLoadBalancingAlgorithm": "DepthFirst",
+            }],
+            host_pools=[{
+                "hostpoolId": example_host_pool.id,
+                "scalingPlanEnabled": True,
+            }])
         ```
 
         ## Import
@@ -611,11 +616,11 @@ class ScalingPlan(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  exclusion_tag: Optional[pulumi.Input[str]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
-                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]]] = None,
+                 host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScheduleArgs']]]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -656,11 +661,11 @@ class ScalingPlan(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             exclusion_tag: Optional[pulumi.Input[str]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
-            host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]]] = None,
+            host_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScheduleArgs']]]]] = None,
+            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None) -> 'ScalingPlan':
         """
@@ -673,11 +678,11 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the Scaling Plan.
         :param pulumi.Input[str] exclusion_tag: The name of the tag associated with the VMs you want to exclude from autoscaling.
         :param pulumi.Input[str] friendly_name: Friendly name of the Scaling Plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanHostPoolArgs']]]] host_pools: One or more `host_pool` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanHostPoolArgs', 'ScalingPlanHostPoolArgsDict']]]] host_pools: One or more `host_pool` blocks as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScalingPlanScheduleArgs']]]] schedules: One or more `schedule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScheduleArgs', 'ScalingPlanScheduleArgsDict']]]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """

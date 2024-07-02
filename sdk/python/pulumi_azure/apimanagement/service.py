@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -1070,31 +1075,31 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
-                 delegation: Optional[pulumi.Input[pulumi.InputType['ServiceDelegationArgs']]] = None,
+                 delegation: Optional[pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
                  gateway_disabled: Optional[pulumi.Input[bool]] = None,
-                 hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 hostname_configuration: Optional[pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
-                 protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['ServicePolicyArgs', 'ServicePolicyArgsDict']]] = None,
+                 protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
-                 sign_in: Optional[pulumi.Input[pulumi.InputType['ServiceSignInArgs']]] = None,
-                 sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
+                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 sign_in: Optional[pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
+                 sign_up: Optional[pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
+                 tenant_access: Optional[pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
                  virtual_network_type: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1127,18 +1132,18 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more `certificate` blocks (up to 10) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]] additional_locations: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]] certificates: One or more `certificate` blocks (up to 10) as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
-        :param pulumi.Input[pulumi.InputType['ServiceDelegationArgs']] delegation: A `delegation` block as defined below.
+        :param pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']] delegation: A `delegation` block as defined below.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
-        :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']] hostname_configuration: A `hostname_configuration` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
         :param pulumi.Input[str] name: The name of the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
-        :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
                > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
@@ -1148,17 +1153,17 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] publisher_email: The email of publisher/company.
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceSignInArgs']] sign_in: A `sign_in` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
+        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']] sign_in: A `sign_in` block as defined below.
+        :param pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
                > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']] tenant_access: A `tenant_access` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']] tenant_access: A `tenant_access` block as defined below.
+        :param pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).
@@ -1214,31 +1219,31 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+                 additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
-                 delegation: Optional[pulumi.Input[pulumi.InputType['ServiceDelegationArgs']]] = None,
+                 delegation: Optional[pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
                  gateway_disabled: Optional[pulumi.Input[bool]] = None,
-                 hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+                 hostname_configuration: Optional[pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_api_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_sender_email: Optional[pulumi.Input[str]] = None,
-                 policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
-                 protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+                 policy: Optional[pulumi.Input[Union['ServicePolicyArgs', 'ServicePolicyArgsDict']]] = None,
+                 protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
                  public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  publisher_email: Optional[pulumi.Input[str]] = None,
                  publisher_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
-                 sign_in: Optional[pulumi.Input[pulumi.InputType['ServiceSignInArgs']]] = None,
-                 sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
+                 security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+                 sign_in: Optional[pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
+                 sign_up: Optional[pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
-                 virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
+                 tenant_access: Optional[pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
+                 virtual_network_configuration: Optional[pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
                  virtual_network_type: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1303,25 +1308,25 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]]] = None,
-            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]]] = None,
+            additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]]] = None,
+            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
-            delegation: Optional[pulumi.Input[pulumi.InputType['ServiceDelegationArgs']]] = None,
+            delegation: Optional[pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']]] = None,
             developer_portal_url: Optional[pulumi.Input[str]] = None,
             gateway_disabled: Optional[pulumi.Input[bool]] = None,
             gateway_regional_url: Optional[pulumi.Input[str]] = None,
             gateway_url: Optional[pulumi.Input[str]] = None,
-            hostname_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ServiceIdentityArgs']]] = None,
+            hostname_configuration: Optional[pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']]] = None,
+            identity: Optional[pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             management_api_url: Optional[pulumi.Input[str]] = None,
             min_api_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notification_sender_email: Optional[pulumi.Input[str]] = None,
-            policy: Optional[pulumi.Input[pulumi.InputType['ServicePolicyArgs']]] = None,
+            policy: Optional[pulumi.Input[Union['ServicePolicyArgs', 'ServicePolicyArgsDict']]] = None,
             portal_url: Optional[pulumi.Input[str]] = None,
             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            protocols: Optional[pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']]] = None,
+            protocols: Optional[pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']]] = None,
             public_ip_address_id: Optional[pulumi.Input[str]] = None,
             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1329,13 +1334,13 @@ class Service(pulumi.CustomResource):
             publisher_name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             scm_url: Optional[pulumi.Input[str]] = None,
-            security: Optional[pulumi.Input[pulumi.InputType['ServiceSecurityArgs']]] = None,
-            sign_in: Optional[pulumi.Input[pulumi.InputType['ServiceSignInArgs']]] = None,
-            sign_up: Optional[pulumi.Input[pulumi.InputType['ServiceSignUpArgs']]] = None,
+            security: Optional[pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']]] = None,
+            sign_in: Optional[pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']]] = None,
+            sign_up: Optional[pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tenant_access: Optional[pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']]] = None,
-            virtual_network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']]] = None,
+            tenant_access: Optional[pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']]] = None,
+            virtual_network_configuration: Optional[pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']]] = None,
             virtual_network_type: Optional[pulumi.Input[str]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Service':
         """
@@ -1345,16 +1350,16 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceAdditionalLocationArgs']]]] additional_locations: One or more `additional_location` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCertificateArgs']]]] certificates: One or more `certificate` blocks (up to 10) as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAdditionalLocationArgs', 'ServiceAdditionalLocationArgsDict']]]] additional_locations: One or more `additional_location` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCertificateArgs', 'ServiceCertificateArgsDict']]]] certificates: One or more `certificate` blocks (up to 10) as defined below.
         :param pulumi.Input[bool] client_certificate_enabled: Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`.
-        :param pulumi.Input[pulumi.InputType['ServiceDelegationArgs']] delegation: A `delegation` block as defined below.
+        :param pulumi.Input[Union['ServiceDelegationArgs', 'ServiceDelegationArgsDict']] delegation: A `delegation` block as defined below.
         :param pulumi.Input[str] developer_portal_url: The URL for the Developer Portal associated with this API Management service.
         :param pulumi.Input[bool] gateway_disabled: Disable the gateway in main region? This is only supported when `additional_location` is set.
         :param pulumi.Input[str] gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param pulumi.Input[str] gateway_url: The URL of the Gateway for the API Management Service.
-        :param pulumi.Input[pulumi.InputType['ServiceHostnameConfigurationArgs']] hostname_configuration: A `hostname_configuration` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['ServiceHostnameConfigurationArgs', 'ServiceHostnameConfigurationArgsDict']] hostname_configuration: A `hostname_configuration` block as defined below.
+        :param pulumi.Input[Union['ServiceIdentityArgs', 'ServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location where the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] management_api_url: The URL for the Management API associated with this API Management service.
         :param pulumi.Input[str] min_api_version: The version which the control plane API calls to API Management service are limited with version equal to or newer than.
@@ -1362,7 +1367,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] notification_sender_email: Email address from which the notification will be sent.
         :param pulumi.Input[str] portal_url: The URL for the Publisher Portal associated with this API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_addresses: The Private IP addresses of the API Management Service. Available only when the API Manager instance is using Virtual Network mode.
-        :param pulumi.Input[pulumi.InputType['ServiceProtocolsArgs']] protocols: A `protocols` block as defined below.
+        :param pulumi.Input[Union['ServiceProtocolsArgs', 'ServiceProtocolsArgsDict']] protocols: A `protocols` block as defined below.
         :param pulumi.Input[str] public_ip_address_id: ID of a standard SKU IPv4 Public IP.
                
                > **NOTE:** Custom public IPs are only supported on the `Premium` and `Developer` tiers when deployed in a virtual network.
@@ -1374,17 +1379,17 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] publisher_name: The name of publisher/company.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scm_url: The URL for the SCM (Source Code Management) Endpoint associated with this API Management service.
-        :param pulumi.Input[pulumi.InputType['ServiceSecurityArgs']] security: A `security` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceSignInArgs']] sign_in: A `sign_in` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceSignUpArgs']] sign_up: A `sign_up` block as defined below.
+        :param pulumi.Input[Union['ServiceSecurityArgs', 'ServiceSecurityArgsDict']] security: A `security` block as defined below.
+        :param pulumi.Input[Union['ServiceSignInArgs', 'ServiceSignInArgsDict']] sign_in: A `sign_in` block as defined below.
+        :param pulumi.Input[Union['ServiceSignUpArgs', 'ServiceSignUpArgsDict']] sign_up: A `sign_up` block as defined below.
         :param pulumi.Input[str] sku_name: `sku_name` is a string consisting of two parts separated by an underscore(\\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`).
                
                > **NOTE:** Premium SKU's are limited to a default maximum of 12 (i.e. `Premium_12`), this can, however, be increased via support request.
                
                > **NOTE:** Consumption SKU capacity should be 0 (e.g. `Consumption_0`) as this tier includes automatic scaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceTenantAccessArgs']] tenant_access: A `tenant_access` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceVirtualNetworkConfigurationArgs']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param pulumi.Input[Union['ServiceTenantAccessArgs', 'ServiceTenantAccessArgsDict']] tenant_access: A `tenant_access` block as defined below.
+        :param pulumi.Input[Union['ServiceVirtualNetworkConfigurationArgs', 'ServiceVirtualNetworkConfigurationArgsDict']] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param pulumi.Input[str] virtual_network_type: The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`.
                
                > **NOTE:** Please ensure that in the subnet, inbound port 3443 is open when `virtual_network_type` is `Internal` or `External`. And please ensure other necessary ports are open according to [api management network configuration](https://learn.microsoft.com/azure/api-management/virtual-network-reference).

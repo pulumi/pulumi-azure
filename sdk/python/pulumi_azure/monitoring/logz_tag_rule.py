@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -197,7 +202,7 @@ class LogzTagRule(pulumi.CustomResource):
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogzTagRuleTagFilterArgs', 'LogzTagRuleTagFilterArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a logz Tag Rule.
@@ -217,30 +222,30 @@ class LogzTagRule(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "billingCycle": "MONTHLY",
+                "effectiveDate": "2022-06-06T00:00:00Z",
+                "usageType": "COMMITTED",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         example_logz_tag_rule = azure.monitoring.LogzTagRule("example",
             logz_monitor_id=example_logz_monitor.id,
             tag_filters=[
-                azure.monitoring.LogzTagRuleTagFilterArgs(
-                    name="name1",
-                    action="Include",
-                    value="value1",
-                ),
-                azure.monitoring.LogzTagRuleTagFilterArgs(
-                    name="name2",
-                    action="Exclude",
-                    value="value2",
-                ),
+                {
+                    "name": "name1",
+                    "action": "Include",
+                    "value": "value1",
+                },
+                {
+                    "name": "name2",
+                    "action": "Exclude",
+                    "value": "value2",
+                },
             ],
             send_aad_logs=True,
             send_activity_logs=True,
@@ -261,7 +266,7 @@ class LogzTagRule(pulumi.CustomResource):
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from Azure resources should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogzTagRuleTagFilterArgs', 'LogzTagRuleTagFilterArgsDict']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         ...
     @overload
@@ -287,30 +292,30 @@ class LogzTagRule(pulumi.CustomResource):
             name="example-monitor",
             resource_group_name=example.name,
             location=example.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
-                billing_cycle="MONTHLY",
-                effective_date="2022-06-06T00:00:00Z",
-                usage_type="COMMITTED",
-            ),
-            user=azure.monitoring.LogzMonitorUserArgs(
-                email="user@example.com",
-                first_name="Example",
-                last_name="User",
-                phone_number="+12313803556",
-            ))
+            plan={
+                "billingCycle": "MONTHLY",
+                "effectiveDate": "2022-06-06T00:00:00Z",
+                "usageType": "COMMITTED",
+            },
+            user={
+                "email": "user@example.com",
+                "firstName": "Example",
+                "lastName": "User",
+                "phoneNumber": "+12313803556",
+            })
         example_logz_tag_rule = azure.monitoring.LogzTagRule("example",
             logz_monitor_id=example_logz_monitor.id,
             tag_filters=[
-                azure.monitoring.LogzTagRuleTagFilterArgs(
-                    name="name1",
-                    action="Include",
-                    value="value1",
-                ),
-                azure.monitoring.LogzTagRuleTagFilterArgs(
-                    name="name2",
-                    action="Exclude",
-                    value="value2",
-                ),
+                {
+                    "name": "name1",
+                    "action": "Include",
+                    "value": "value1",
+                },
+                {
+                    "name": "name2",
+                    "action": "Exclude",
+                    "value": "value2",
+                },
             ],
             send_aad_logs=True,
             send_activity_logs=True,
@@ -344,7 +349,7 @@ class LogzTagRule(pulumi.CustomResource):
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogzTagRuleTagFilterArgs', 'LogzTagRuleTagFilterArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,7 +380,7 @@ class LogzTagRule(pulumi.CustomResource):
             send_aad_logs: Optional[pulumi.Input[bool]] = None,
             send_activity_logs: Optional[pulumi.Input[bool]] = None,
             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-            tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]]] = None) -> 'LogzTagRule':
+            tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogzTagRuleTagFilterArgs', 'LogzTagRuleTagFilterArgsDict']]]]] = None) -> 'LogzTagRule':
         """
         Get an existing LogzTagRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -387,7 +392,7 @@ class LogzTagRule(pulumi.CustomResource):
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from Azure resources should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzTagRuleTagFilterArgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LogzTagRuleTagFilterArgs', 'LogzTagRuleTagFilterArgsDict']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

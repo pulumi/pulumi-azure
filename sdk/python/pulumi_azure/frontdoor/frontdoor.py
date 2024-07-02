@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -512,16 +517,16 @@ class Frontdoor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]]] = None,
-                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]]] = None,
-                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolSettingArgs']]]]] = None,
-                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]]] = None,
+                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
+                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
+                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
+                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
-                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]]] = None,
+                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
                  load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -549,40 +554,40 @@ class Frontdoor(pulumi.CustomResource):
         example_frontdoor = azure.frontdoor.Frontdoor("example",
             name="example-FrontDoor",
             resource_group_name=example.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
+            routing_rules=[{
+                "name": "exampleRoutingRule1",
+                "acceptedProtocols": [
                     "Http",
                     "Https",
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )])
+                "patternsToMatches": ["/*"],
+                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "forwardingConfiguration": {
+                    "forwardingProtocol": "MatchRequest",
+                    "backendPoolName": "exampleBackendBing",
+                },
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pools=[{
+                "name": "exampleBackendBing",
+                "backends": [{
+                    "hostHeader": "www.bing.com",
+                    "address": "www.bing.com",
+                    "httpPort": 80,
+                    "httpsPort": 443,
+                }],
+                "loadBalancingName": "exampleLoadBalancingSettings1",
+                "healthProbeName": "exampleHealthProbeSetting1",
+            }],
+            frontend_endpoints=[{
+                "name": "exampleFrontendEndpoint1",
+                "hostName": "example-FrontDoor.azurefd.net",
+            }])
         ```
 
         ## Import
@@ -595,18 +600,18 @@ class Frontdoor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolSettingArgs']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]] backend_pools: A `backend_pool` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]] backend_pools: A `backend_pool` block as defined below.
                
                > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]] routing_rules: A `routing_rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]] routing_rules: A `routing_rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -640,40 +645,40 @@ class Frontdoor(pulumi.CustomResource):
         example_frontdoor = azure.frontdoor.Frontdoor("example",
             name="example-FrontDoor",
             resource_group_name=example.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
+            routing_rules=[{
+                "name": "exampleRoutingRule1",
+                "acceptedProtocols": [
                     "Http",
                     "Https",
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
-            frontend_endpoints=[azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                name="exampleFrontendEndpoint1",
-                host_name="example-FrontDoor.azurefd.net",
-            )])
+                "patternsToMatches": ["/*"],
+                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "forwardingConfiguration": {
+                    "forwardingProtocol": "MatchRequest",
+                    "backendPoolName": "exampleBackendBing",
+                },
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pools=[{
+                "name": "exampleBackendBing",
+                "backends": [{
+                    "hostHeader": "www.bing.com",
+                    "address": "www.bing.com",
+                    "httpPort": 80,
+                    "httpsPort": 443,
+                }],
+                "loadBalancingName": "exampleLoadBalancingSettings1",
+                "healthProbeName": "exampleHealthProbeSetting1",
+            }],
+            frontend_endpoints=[{
+                "name": "exampleFrontendEndpoint1",
+                "hostName": "example-FrontDoor.azurefd.net",
+            }])
         ```
 
         ## Import
@@ -699,16 +704,16 @@ class Frontdoor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]]] = None,
-                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]]] = None,
-                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolSettingArgs']]]]] = None,
-                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]]] = None,
+                 backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
+                 backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
+                 backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
+                 backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
-                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]]] = None,
+                 frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
                  load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -760,23 +765,23 @@ class Frontdoor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]]] = None,
+            backend_pool_health_probes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]]] = None,
             backend_pool_health_probes_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             backend_pool_load_balancing_settings_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]]] = None,
-            backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolSettingArgs']]]]] = None,
-            backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]]] = None,
+            backend_pool_load_balancings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]]] = None,
+            backend_pool_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]]] = None,
+            backend_pools: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]]] = None,
             backend_pools_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             cname: Optional[pulumi.Input[str]] = None,
-            explicit_resource_orders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorExplicitResourceOrderArgs']]]]] = None,
+            explicit_resource_orders: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorExplicitResourceOrderArgs', 'FrontdoorExplicitResourceOrderArgsDict']]]]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
-            frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]]] = None,
+            frontend_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]]] = None,
             frontend_endpoints_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             header_frontdoor_id: Optional[pulumi.Input[str]] = None,
             load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]]] = None,
+            routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]]] = None,
             routing_rules_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Frontdoor':
         """
@@ -786,24 +791,24 @@ class Frontdoor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolHealthProbeArgs']]]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolHealthProbeArgs', 'FrontdoorBackendPoolHealthProbeArgsDict']]]] backend_pool_health_probes: A `backend_pool_health_probe` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_health_probes_map: A map/dictionary of Backend Pool Health Probe Names (key) to the Backend Pool Health Probe ID (value)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pool_load_balancing_settings_map: A map/dictionary of Backend Pool Load Balancing Setting Names (key) to the Backend Pool Load Balancing Setting ID (value)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolLoadBalancingArgs']]]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolSettingArgs']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorBackendPoolArgs']]]] backend_pools: A `backend_pool` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolLoadBalancingArgs', 'FrontdoorBackendPoolLoadBalancingArgsDict']]]] backend_pool_load_balancings: A `backend_pool_load_balancing` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolSettingArgs', 'FrontdoorBackendPoolSettingArgsDict']]]] backend_pool_settings: A `backend_pool_settings` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorBackendPoolArgs', 'FrontdoorBackendPoolArgsDict']]]] backend_pools: A `backend_pool` block as defined below.
                
                > Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backend_pools_map: A map/dictionary of Backend Pool Names (key) to the Backend Pool ID (value)
         :param pulumi.Input[str] cname: The host that each frontendEndpoint must CNAME to.
         :param pulumi.Input[str] friendly_name: A friendly name for the Front Door service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorFrontendEndpointArgs']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFrontendEndpointArgs', 'FrontdoorFrontendEndpointArgsDict']]]] frontend_endpoints: A `frontend_endpoint` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] frontend_endpoints_map: A map/dictionary of Frontend Endpoint Names (key) to the Frontend Endpoint ID (value)
         :param pulumi.Input[str] header_frontdoor_id: The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend.
         :param pulumi.Input[bool] load_balancer_enabled: Should the Front Door Load Balancer be Enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrontdoorRoutingRuleArgs']]]] routing_rules: A `routing_rule` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorRoutingRuleArgs', 'FrontdoorRoutingRuleArgsDict']]]] routing_rules: A `routing_rule` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] routing_rules_map: A map/dictionary of Routing Rule Names (key) to the Routing Rule ID (value)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """

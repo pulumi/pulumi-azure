@@ -4,20 +4,47 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountCustomerManagedKeyArgs',
+    'AccountCustomerManagedKeyArgsDict',
     'AccountIdentityArgs',
+    'AccountIdentityArgsDict',
     'AccountNetworkAclsArgs',
+    'AccountNetworkAclsArgsDict',
     'AccountNetworkAclsVirtualNetworkRuleArgs',
+    'AccountNetworkAclsVirtualNetworkRuleArgsDict',
     'AccountStorageArgs',
+    'AccountStorageArgsDict',
     'DeploymentModelArgs',
+    'DeploymentModelArgsDict',
     'DeploymentScaleArgs',
+    'DeploymentScaleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountCustomerManagedKeyArgsDict(TypedDict):
+        key_vault_key_id: pulumi.Input[str]
+        """
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+        """
+elif False:
+    AccountCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountCustomerManagedKeyArgs:
@@ -56,6 +83,29 @@ class AccountCustomerManagedKeyArgs:
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
 
+
+if not MYPY:
+    class AccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -131,6 +181,23 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AccountNetworkAclsArgsDict(TypedDict):
+        default_action: pulumi.Input[str]
+        """
+        The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
+        """
+        virtual_network_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgsDict']]]]
+        """
+        A `virtual_network_rules` block as defined below.
+        """
+elif False:
+    AccountNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountNetworkAclsArgs:
     def __init__(__self__, *,
@@ -185,6 +252,19 @@ class AccountNetworkAclsArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
+if not MYPY:
+    class AccountNetworkAclsVirtualNetworkRuleArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        The ID of the subnet which should be able to access this Cognitive Account.
+        """
+        ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Whether ignore missing vnet service endpoint or not. Default to `false`.
+        """
+elif False:
+    AccountNetworkAclsVirtualNetworkRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountNetworkAclsVirtualNetworkRuleArgs:
     def __init__(__self__, *,
@@ -222,6 +302,21 @@ class AccountNetworkAclsVirtualNetworkRuleArgs:
     def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
+
+if not MYPY:
+    class AccountStorageArgsDict(TypedDict):
+        storage_account_id: pulumi.Input[str]
+        """
+        Full resource id of a Microsoft.Storage resource.
+        """
+        identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client ID of the managed identity associated with the storage resource.
+
+        > **NOTE:** Not all `kind` support a `storage` block. For example the `kind` `OpenAI` does not support it.
+        """
+elif False:
+    AccountStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountStorageArgs:
@@ -264,6 +359,23 @@ class AccountStorageArgs:
     def identity_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "identity_client_id", value)
 
+
+if not MYPY:
+    class DeploymentModelArgsDict(TypedDict):
+        format: pulumi.Input[str]
+        """
+        The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is `OpenAI`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Cognitive Services Account Deployment model. If `version` is not specified, the default version of the model at the time will be assigned.
+        """
+elif False:
+    DeploymentModelArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentModelArgs:
@@ -317,6 +429,31 @@ class DeploymentModelArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class DeploymentScaleArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The name of the SKU. Ex - `Standard` or `P3`. It is typically a letter+number code. Changing this forces a new resource to be created.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Tokens-per-Minute (TPM). The unit of measure for this field is in the thousands of Tokens-per-Minute. Defaults to `1` which means that the limitation is `1000` tokens per minute. If the resources SKU supports scale in/out then the capacity field should be included in the resources' configuration. If the scale in/out is not supported by the resources SKU then this field can be safely omitted. For more information about TPM please see the [product documentation](https://learn.microsoft.com/azure/ai-services/openai/how-to/quota?tabs=rest).
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        If the service has different generations of hardware, for the same SKU, then that can be captured here. Changing this forces a new resource to be created.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. Changing this forces a new resource to be created.
+        """
+        tier: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `Free`, `Basic`, `Standard`, `Premium`, `Enterprise`. Changing this forces a new resource to be created.
+        """
+elif False:
+    DeploymentScaleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentScaleArgs:

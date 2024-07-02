@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ManagedStorageAccountSasTokenDefinitionArgs', 'ManagedStorageAccountSasTokenDefinition']
@@ -264,45 +269,45 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             account_replication_type="LRS")
         example_get_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-                service=True,
-                container=False,
-                object=False,
-            ),
-            services=azure.storage.GetAccountSASServicesArgs(
-                blob=True,
-                queue=False,
-                table=False,
-                file=False,
-            ),
+            resource_types={
+                "service": True,
+                "container": False,
+                "object": False,
+            },
+            services={
+                "blob": True,
+                "queue": False,
+                "table": False,
+                "file": False,
+            },
             start="2021-04-30T00:00:00Z",
             expiry="2023-04-30T00:00:00Z",
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
-                read=True,
-                write=True,
-                delete=False,
-                list=False,
-                add=True,
-                create=True,
-                update=False,
-                process=False,
-                tag=False,
-                filter=False,
-            ))
+            permissions={
+                "read": True,
+                "write": True,
+                "delete": False,
+                "list": False,
+                "add": True,
+                "create": True,
+                "update": False,
+                "process": False,
+                "tag": False,
+                "filter": False,
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-keyvault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             tenant_id=example.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=example.tenant_id,
-                object_id=example.object_id,
-                secret_permissions=[
+            access_policies=[{
+                "tenantId": example.tenant_id,
+                "objectId": example.object_id,
+                "secretPermissions": [
                     "Get",
                     "Delete",
                 ],
-                storage_permissions=[
+                "storagePermissions": [
                     "Get",
                     "List",
                     "Set",
@@ -312,7 +317,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            )])
+            }])
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
@@ -372,45 +377,45 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             account_replication_type="LRS")
         example_get_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-                service=True,
-                container=False,
-                object=False,
-            ),
-            services=azure.storage.GetAccountSASServicesArgs(
-                blob=True,
-                queue=False,
-                table=False,
-                file=False,
-            ),
+            resource_types={
+                "service": True,
+                "container": False,
+                "object": False,
+            },
+            services={
+                "blob": True,
+                "queue": False,
+                "table": False,
+                "file": False,
+            },
             start="2021-04-30T00:00:00Z",
             expiry="2023-04-30T00:00:00Z",
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
-                read=True,
-                write=True,
-                delete=False,
-                list=False,
-                add=True,
-                create=True,
-                update=False,
-                process=False,
-                tag=False,
-                filter=False,
-            ))
+            permissions={
+                "read": True,
+                "write": True,
+                "delete": False,
+                "list": False,
+                "add": True,
+                "create": True,
+                "update": False,
+                "process": False,
+                "tag": False,
+                "filter": False,
+            })
         example_key_vault = azure.keyvault.KeyVault("example",
             name="example-keyvault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             tenant_id=example.tenant_id,
             sku_name="standard",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=example.tenant_id,
-                object_id=example.object_id,
-                secret_permissions=[
+            access_policies=[{
+                "tenantId": example.tenant_id,
+                "objectId": example.object_id,
+                "secretPermissions": [
                     "Get",
                     "Delete",
                 ],
-                storage_permissions=[
+                "storagePermissions": [
                     "Get",
                     "List",
                     "Set",
@@ -420,7 +425,7 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                     "Update",
                     "RegenerateKey",
                 ],
-            )])
+            }])
         example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
             name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,

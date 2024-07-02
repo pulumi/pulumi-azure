@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -194,9 +199,9 @@ class FleetUpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_update_strategy_id: Optional[pulumi.Input[str]] = None,
                  kubernetes_fleet_manager_id: Optional[pulumi.Input[str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[pulumi.InputType['FleetUpdateRunManagedClusterUpdateArgs']]] = None,
+                 managed_cluster_update: Optional[pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateRunStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Kubernetes Fleet Update Run.
@@ -219,14 +224,14 @@ class FleetUpdateRun(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             dns_prefix="example",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            default_node_pool={
+                "name": "default",
+                "nodeCount": 1,
+                "vmSize": "Standard_DS2_v2",
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_fleet_member = azure.containerservice.FleetMember("example",
             name="example",
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
@@ -235,22 +240,22 @@ class FleetUpdateRun(pulumi.CustomResource):
         example_fleet_update_run = azure.containerservice.FleetUpdateRun("example",
             name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
-            managed_cluster_update=azure.containerservice.FleetUpdateRunManagedClusterUpdateArgs(
-                upgrade=azure.containerservice.FleetUpdateRunManagedClusterUpdateUpgradeArgs(
-                    type="Full",
-                    kubernetes_version="1.27",
-                ),
-                node_image_selection=azure.containerservice.FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs(
-                    type="Latest",
-                ),
-            ),
-            stages=[azure.containerservice.FleetUpdateRunStageArgs(
-                name="example",
-                groups=[azure.containerservice.FleetUpdateRunStageGroupArgs(
-                    name="example-group",
-                )],
-                after_stage_wait_in_seconds=21,
-            )])
+            managed_cluster_update={
+                "upgrade": {
+                    "type": "Full",
+                    "kubernetesVersion": "1.27",
+                },
+                "nodeImageSelection": {
+                    "type": "Latest",
+                },
+            },
+            stages=[{
+                "name": "example",
+                "groups": [{
+                    "name": "example-group",
+                }],
+                "afterStageWaitInSeconds": 21,
+            }])
         ```
 
         ## Import
@@ -265,9 +270,9 @@ class FleetUpdateRun(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fleet_update_strategy_id: The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         :param pulumi.Input[str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[pulumi.InputType['FleetUpdateRunManagedClusterUpdateArgs']] managed_cluster_update: A `managed_cluster_update` block as defined below.
+        :param pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']] managed_cluster_update: A `managed_cluster_update` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateRunStageArgs']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
         """
         ...
     @overload
@@ -296,14 +301,14 @@ class FleetUpdateRun(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             dns_prefix="example",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            default_node_pool={
+                "name": "default",
+                "nodeCount": 1,
+                "vmSize": "Standard_DS2_v2",
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         example_fleet_member = azure.containerservice.FleetMember("example",
             name="example",
             kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
@@ -312,22 +317,22 @@ class FleetUpdateRun(pulumi.CustomResource):
         example_fleet_update_run = azure.containerservice.FleetUpdateRun("example",
             name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
-            managed_cluster_update=azure.containerservice.FleetUpdateRunManagedClusterUpdateArgs(
-                upgrade=azure.containerservice.FleetUpdateRunManagedClusterUpdateUpgradeArgs(
-                    type="Full",
-                    kubernetes_version="1.27",
-                ),
-                node_image_selection=azure.containerservice.FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs(
-                    type="Latest",
-                ),
-            ),
-            stages=[azure.containerservice.FleetUpdateRunStageArgs(
-                name="example",
-                groups=[azure.containerservice.FleetUpdateRunStageGroupArgs(
-                    name="example-group",
-                )],
-                after_stage_wait_in_seconds=21,
-            )])
+            managed_cluster_update={
+                "upgrade": {
+                    "type": "Full",
+                    "kubernetesVersion": "1.27",
+                },
+                "nodeImageSelection": {
+                    "type": "Latest",
+                },
+            },
+            stages=[{
+                "name": "example",
+                "groups": [{
+                    "name": "example-group",
+                }],
+                "afterStageWaitInSeconds": 21,
+            }])
         ```
 
         ## Import
@@ -355,9 +360,9 @@ class FleetUpdateRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  fleet_update_strategy_id: Optional[pulumi.Input[str]] = None,
                  kubernetes_fleet_manager_id: Optional[pulumi.Input[str]] = None,
-                 managed_cluster_update: Optional[pulumi.Input[pulumi.InputType['FleetUpdateRunManagedClusterUpdateArgs']]] = None,
+                 managed_cluster_update: Optional[pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateRunStageArgs']]]]] = None,
+                 stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -388,9 +393,9 @@ class FleetUpdateRun(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fleet_update_strategy_id: Optional[pulumi.Input[str]] = None,
             kubernetes_fleet_manager_id: Optional[pulumi.Input[str]] = None,
-            managed_cluster_update: Optional[pulumi.Input[pulumi.InputType['FleetUpdateRunManagedClusterUpdateArgs']]] = None,
+            managed_cluster_update: Optional[pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateRunStageArgs']]]]] = None) -> 'FleetUpdateRun':
+            stages: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]]] = None) -> 'FleetUpdateRun':
         """
         Get an existing FleetUpdateRun resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -400,9 +405,9 @@ class FleetUpdateRun(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fleet_update_strategy_id: The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified.
         :param pulumi.Input[str] kubernetes_fleet_manager_id: The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[pulumi.InputType['FleetUpdateRunManagedClusterUpdateArgs']] managed_cluster_update: A `managed_cluster_update` block as defined below.
+        :param pulumi.Input[Union['FleetUpdateRunManagedClusterUpdateArgs', 'FleetUpdateRunManagedClusterUpdateArgsDict']] managed_cluster_update: A `managed_cluster_update` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Kubernetes Fleet Update Run. Changing this forces a new Kubernetes Fleet Update Run to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetUpdateRunStageArgs']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FleetUpdateRunStageArgs', 'FleetUpdateRunStageArgsDict']]]] stages: One or more `stage` blocks as defined below. Only one of `stage` or `fleet_update_strategy_id` can be specified.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

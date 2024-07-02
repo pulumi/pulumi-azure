@@ -4,15 +4,33 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CollectorPolicyIpfxEmissionArgs',
+    'CollectorPolicyIpfxEmissionArgsDict',
     'CollectorPolicyIpfxIngestionArgs',
+    'CollectorPolicyIpfxIngestionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CollectorPolicyIpfxEmissionArgsDict(TypedDict):
+        destination_types: pulumi.Input[str]
+        """
+        A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+        """
+elif False:
+    CollectorPolicyIpfxEmissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollectorPolicyIpfxEmissionArgs:
@@ -35,6 +53,15 @@ class CollectorPolicyIpfxEmissionArgs:
     def destination_types(self, value: pulumi.Input[str]):
         pulumi.set(self, "destination_types", value)
 
+
+if not MYPY:
+    class CollectorPolicyIpfxIngestionArgsDict(TypedDict):
+        source_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
+        """
+elif False:
+    CollectorPolicyIpfxIngestionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CollectorPolicyIpfxIngestionArgs:

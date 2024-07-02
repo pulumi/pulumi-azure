@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['GatewayCertificateAuthorityArgs', 'GatewayCertificateAuthority']
@@ -186,12 +191,12 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             name="example-gateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
+            location_data={
+                "name": "example name",
+                "city": "example city",
+                "district": "example district",
+                "region": "example region",
+            })
         example_certificate = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,
@@ -249,12 +254,12 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             name="example-gateway",
             api_management_id=example_service.id,
             description="Example API Management gateway",
-            location_data=azure.apimanagement.GatewayLocationDataArgs(
-                name="example name",
-                city="example city",
-                district="example district",
-                region="example region",
-            ))
+            location_data={
+                "name": "example name",
+                "city": "example city",
+                "district": "example district",
+                "region": "example region",
+            })
         example_certificate = azure.apimanagement.Certificate("example",
             name="example-cert",
             api_management_name=example_service.name,

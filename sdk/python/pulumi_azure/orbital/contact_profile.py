@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -351,7 +356,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_tracking: Optional[pulumi.Input[str]] = None,
                  event_hub_uri: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
                  minimum_variable_contact_duration: Optional[pulumi.Input[str]] = None,
@@ -382,40 +387,40 @@ class ContactProfile(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
+            delegations=[{
+                "name": "orbitalgateway",
+                "serviceDelegation": {
+                    "name": "Microsoft.Orbital/orbitalGateways",
+                    "actions": [
                         "Microsoft.Network/publicIPAddresses/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/read",
                         "Microsoft.Network/publicIPAddresses/read",
                     ],
-                ),
-            )])
+                },
+            }])
         example_contact_profile = azure.orbital.ContactProfile("example",
             name="example-contact-profile",
             resource_group_name=example.name,
             location=example.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49513",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
+            links=[{
+                "channels": [{
+                    "name": "channelname",
+                    "bandwidthMhz": 100,
+                    "centerFrequencyMhz": 101,
+                    "endPoints": [{
+                        "endPointName": "AQUA_command",
+                        "ipAddress": "10.0.1.0",
+                        "port": "49513",
+                        "protocol": "TCP",
+                    }],
+                }],
+                "direction": "Uplink",
+                "name": "RHCP_UL",
+                "polarization": "RHCP",
+            }],
             network_configuration_subnet_id=example_subnet.id)
         ```
 
@@ -431,7 +436,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
@@ -468,40 +473,40 @@ class ContactProfile(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
+            delegations=[{
+                "name": "orbitalgateway",
+                "serviceDelegation": {
+                    "name": "Microsoft.Orbital/orbitalGateways",
+                    "actions": [
                         "Microsoft.Network/publicIPAddresses/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/read",
                         "Microsoft.Network/publicIPAddresses/read",
                     ],
-                ),
-            )])
+                },
+            }])
         example_contact_profile = azure.orbital.ContactProfile("example",
             name="example-contact-profile",
             resource_group_name=example.name,
             location=example.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49513",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
+            links=[{
+                "channels": [{
+                    "name": "channelname",
+                    "bandwidthMhz": 100,
+                    "centerFrequencyMhz": 101,
+                    "endPoints": [{
+                        "endPointName": "AQUA_command",
+                        "ipAddress": "10.0.1.0",
+                        "port": "49513",
+                        "protocol": "TCP",
+                    }],
+                }],
+                "direction": "Uplink",
+                "name": "RHCP_UL",
+                "polarization": "RHCP",
+            }],
             network_configuration_subnet_id=example_subnet.id)
         ```
 
@@ -530,7 +535,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_tracking: Optional[pulumi.Input[str]] = None,
                  event_hub_uri: Optional[pulumi.Input[str]] = None,
-                 links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
                  minimum_variable_contact_duration: Optional[pulumi.Input[str]] = None,
@@ -579,7 +584,7 @@ class ContactProfile(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_tracking: Optional[pulumi.Input[str]] = None,
             event_hub_uri: Optional[pulumi.Input[str]] = None,
-            links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]]] = None,
+            links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
             minimum_variable_contact_duration: Optional[pulumi.Input[str]] = None,
@@ -596,7 +601,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_tracking: Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`.
         :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactProfileLinkArgs', 'ContactProfileLinkArgsDict']]]] links: A list of spacecraft links. A `links` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location where the contact profile exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] minimum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
         :param pulumi.Input[str] minimum_variable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['BackupInstanceBlogStorageArgs', 'BackupInstanceBlogStorage']
@@ -260,9 +265,9 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_account.id,
             role_definition_name="Storage Account Backup Contributor",
@@ -329,9 +334,9 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example_account.id,
             role_definition_name="Storage Account Backup Contributor",
