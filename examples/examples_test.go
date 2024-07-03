@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"path/filepath"
 	"testing"
 	"time"
 
@@ -20,7 +21,6 @@ func skipIfShort(t *testing.T) {
 		t.Skip("skipping long-running test in short mode")
 	}
 }
-
 
 func getLocation(t *testing.T) string {
 	azureLocation := os.Getenv("ARM_LOCATION")
@@ -43,9 +43,20 @@ func getCwd(t *testing.T) string {
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	azureLocation := getLocation(t)
+	binPath, err := filepath.Abs("../bin")
+	if err != nil {
+		t.Fatal(err)
+	}
+	fmt.Printf("Using binPath %s\n", binPath)
 	return integration.ProgramTestOptions{
 		Config: map[string]string{
 			"azure:location": azureLocation,
+		},
+		LocalProviders: []integration.LocalDependency{
+			{
+				Package: "azure",
+				Path:    binPath,
+			},
 		},
 	}
 }
