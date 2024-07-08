@@ -1094,6 +1094,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_gallery_application":         {Tok: azureResource(azureCompute, "GalleryApplication")},
 			"azurerm_gallery_application_version": {Tok: azureResource(azureCompute, "GalleryApplicationVersion")},
+			"azurerm_restore_point_collection":    {Tok: azureResource(azureCompute, "RestorePointCollection")},
 
 			// Cost (resource provider Microsoft.CostManagement, not Microsoft.Billing)
 			"azurerm_cost_anomaly_alert":               {Tok: azureResource(azureCostManagement, "AnomalyAlert")},

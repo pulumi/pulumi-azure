@@ -1494,7 +1494,7 @@ index 9a4f9eaea8..e03e765433 100644
  ## Example Usage
  
 diff --git a/website/docs/r/disk_encryption_set.html.markdown b/website/docs/r/disk_encryption_set.html.markdown
-index 66a285981b..fdc3624b3b 100644
+index 7f3adf6a0f..98feec114d 100644
 --- a/website/docs/r/disk_encryption_set.html.markdown
 +++ b/website/docs/r/disk_encryption_set.html.markdown
 @@ -10,6 +10,8 @@ description: |-
@@ -1794,7 +1794,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 521522ff20..39c9ea274b 100644
+index 5cbdf0b804..ea5269ba21 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1814,7 +1814,7 @@ index 521522ff20..39c9ea274b 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -386,7 +380,7 @@ A `default_node_pool` block supports the following:
+@@ -382,7 +376,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1823,7 +1823,7 @@ index 521522ff20..39c9ea274b 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -444,7 +438,7 @@ A `default_node_pool` block supports the following:
+@@ -442,7 +436,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1832,7 +1832,7 @@ index 521522ff20..39c9ea274b 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -470,7 +464,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -468,7 +462,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1841,7 +1841,7 @@ index 521522ff20..39c9ea274b 100644
  
  -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -709,8 +703,6 @@ A `network_profile` block supports the following:
+@@ -707,8 +701,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1850,7 +1850,7 @@ index 521522ff20..39c9ea274b 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1057,19 +1049,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1055,19 +1047,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -1871,7 +1871,7 @@ index 521522ff20..39c9ea274b 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index e821b46236..26c3f15cd0 100644
+index 9de996dfc3..2e5d73ca6c 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -1889,7 +1889,7 @@ index e821b46236..26c3f15cd0 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -144,7 +142,7 @@ The following arguments are supported:
+@@ -146,7 +144,7 @@ The following arguments are supported:
  
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
@@ -1898,7 +1898,7 @@ index e821b46236..26c3f15cd0 100644
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -176,7 +174,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -178,7 +176,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  

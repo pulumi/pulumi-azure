@@ -17999,6 +17999,10 @@
                     }
                 }
             },
+            "azurerm_restore_point_collection": {
+                "current": "azure:compute/restorePointCollection:RestorePointCollection",
+                "majorVersion": 5
+            },
             "azurerm_role_assignment": {
                 "current": "azure:authorization/assignment:Assignment",
                 "majorVersion": 5
