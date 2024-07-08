@@ -274,15 +274,15 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.DiskEncryptionSetIdentity> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+        /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         /// 
         /// &gt; **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
         /// 
-        /// &gt; **NOTE** A KeyVault using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        /// &gt; **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         /// In this case, `azure.keyvault.AccessPolicy` is not needed.
         /// </summary>
         [Output("keyVaultKeyId")]
-        public Output<string> KeyVaultKeyId { get; private set; } = null!;
+        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
@@ -295,6 +295,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        /// </summary>
+        [Output("managedHsmKeyId")]
+        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -382,21 +388,27 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.DiskEncryptionSetIdentityArgs> Identity { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+        /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         /// 
         /// &gt; **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
         /// 
-        /// &gt; **NOTE** A KeyVault using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        /// &gt; **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         /// In this case, `azure.keyvault.AccessPolicy` is not needed.
         /// </summary>
-        [Input("keyVaultKeyId", required: true)]
-        public Input<string> KeyVaultKeyId { get; set; } = null!;
+        [Input("keyVaultKeyId")]
+        public Input<string>? KeyVaultKeyId { get; set; }
 
         /// <summary>
         /// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        /// </summary>
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
@@ -452,11 +464,11 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.DiskEncryptionSetIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+        /// Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         /// 
         /// &gt; **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
         /// 
-        /// &gt; **NOTE** A KeyVault using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        /// &gt; **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         /// In this case, `azure.keyvault.AccessPolicy` is not needed.
         /// </summary>
         [Input("keyVaultKeyId")]
@@ -473,6 +485,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        /// </summary>
+        [Input("managedHsmKeyId")]
+        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// The name of the Disk Encryption Set. Changing this forces a new resource to be created.

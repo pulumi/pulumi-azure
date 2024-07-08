@@ -254,14 +254,14 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="maximumThroughputUnits", refs={Integer.class}, tree="[0]")
-    private Output<Integer> maximumThroughputUnits;
+    private Output</* @Nullable */ Integer> maximumThroughputUnits;
 
     /**
      * @return Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
      * 
      */
-    public Output<Integer> maximumThroughputUnits() {
-        return this.maximumThroughputUnits;
+    public Output<Optional<Integer>> maximumThroughputUnits() {
+        return Codegen.optional(this.maximumThroughputUnits);
     }
     /**
      * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.

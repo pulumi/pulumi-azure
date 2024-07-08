@@ -390,6 +390,7 @@
         "compute/managedDiskSasToken.ts",
         "compute/orchestratedVirtualMachineScaleSet.ts",
         "compute/packetCapture.ts",
+        "compute/restorePointCollection.ts",
         "compute/runCommand.ts",
         "compute/scaleSet.ts",
         "compute/scaleSetPacketCapture.ts",

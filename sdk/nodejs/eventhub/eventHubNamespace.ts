@@ -118,7 +118,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
     /**
      * Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
      */
-    public readonly maximumThroughputUnits!: pulumi.Output<number>;
+    public readonly maximumThroughputUnits!: pulumi.Output<number | undefined>;
     /**
      * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
      */

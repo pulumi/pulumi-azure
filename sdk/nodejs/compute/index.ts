@@ -240,6 +240,11 @@ export type PacketCapture = import("./packetCapture").PacketCapture;
 export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
 utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
 
+export { RestorePointCollectionArgs, RestorePointCollectionState } from "./restorePointCollection";
+export type RestorePointCollection = import("./restorePointCollection").RestorePointCollection;
+export const RestorePointCollection: typeof import("./restorePointCollection").RestorePointCollection = null as any;
+utilities.lazyLoad(exports, ["RestorePointCollection"], () => require("./restorePointCollection"));
+
 export { RunCommandArgs, RunCommandState } from "./runCommand";
 export type RunCommand = import("./runCommand").RunCommand;
 export const RunCommand: typeof import("./runCommand").RunCommand = null as any;
@@ -357,6 +362,8 @@ const _module = {
                 return new OrchestratedVirtualMachineScaleSet(name, <any>undefined, { urn })
             case "azure:compute/packetCapture:PacketCapture":
                 return new PacketCapture(name, <any>undefined, { urn })
+            case "azure:compute/restorePointCollection:RestorePointCollection":
+                return new RestorePointCollection(name, <any>undefined, { urn })
             case "azure:compute/runCommand:RunCommand":
                 return new RunCommand(name, <any>undefined, { urn })
             case "azure:compute/scaleSet:ScaleSet":
@@ -412,6 +419,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/managedDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/managedDiskSasToken", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/orchestratedVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/packetCapture", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/restorePointCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/runCommand", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSetPacketCapture", _module)
