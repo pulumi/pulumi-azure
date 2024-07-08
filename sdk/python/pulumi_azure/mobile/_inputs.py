@@ -4,32 +4,91 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs',
+    'NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict',
     'NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs',
+    'NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgsDict',
     'NetworkPacketCoreControlPlaneIdentityArgs',
+    'NetworkPacketCoreControlPlaneIdentityArgsDict',
     'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs',
+    'NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict',
     'NetworkPacketCoreControlPlanePlatformArgs',
+    'NetworkPacketCoreControlPlanePlatformArgsDict',
     'NetworkServicePccRuleArgs',
+    'NetworkServicePccRuleArgsDict',
     'NetworkServicePccRuleQosPolicyArgs',
+    'NetworkServicePccRuleQosPolicyArgsDict',
     'NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs',
+    'NetworkServicePccRuleQosPolicyGuaranteedBitRateArgsDict',
     'NetworkServicePccRuleQosPolicyMaximumBitRateArgs',
+    'NetworkServicePccRuleQosPolicyMaximumBitRateArgsDict',
     'NetworkServicePccRuleServiceDataFlowTemplateArgs',
+    'NetworkServicePccRuleServiceDataFlowTemplateArgsDict',
     'NetworkServiceServiceQosPolicyArgs',
+    'NetworkServiceServiceQosPolicyArgsDict',
     'NetworkServiceServiceQosPolicyMaximumBitRateArgs',
+    'NetworkServiceServiceQosPolicyMaximumBitRateArgsDict',
     'NetworkSimGroupIdentityArgs',
+    'NetworkSimGroupIdentityArgsDict',
     'NetworkSimPolicySliceArgs',
+    'NetworkSimPolicySliceArgsDict',
     'NetworkSimPolicySliceDataNetworkArgs',
+    'NetworkSimPolicySliceDataNetworkArgsDict',
     'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs',
+    'NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgsDict',
     'NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs',
+    'NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgsDict',
     'NetworkSimStaticIpConfigurationArgs',
+    'NetworkSimStaticIpConfigurationArgsDict',
     'NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs',
+    'NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict(TypedDict):
+        icmp_pinhole_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Pinhole timeout for ICMP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        """
+        pinhole_maximum_number: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of UDP and TCP pinholes that can be open simultaneously on the core interface. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface. Must be between 1 and 65536.
+        """
+        port_range: NotRequired[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgsDict']]
+        """
+        A `port_range` block as defined below.
+        """
+        tcp_pinhole_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Pinhole timeout for TCP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        """
+        tcp_port_reuse_minimum_hold_time_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to `120`.
+        """
+        udp_pinhole_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Pinhole timeout for UDP pinholes in seconds. Must between `1` to `180`, Default to `180`.
+        """
+        udp_port_reuse_minimum_hold_time_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to `60`.
+        """
+elif False:
+    NetworkAttachedDataNetworkNetworkAddressPortTranslationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs:
@@ -150,6 +209,19 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs:
         pulumi.set(self, "udp_port_reuse_minimum_hold_time_in_seconds", value)
 
 
+if not MYPY:
+    class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgsDict(TypedDict):
+        maximum: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum port number.
+        """
+        minimum: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the minimum port number.
+        """
+elif False:
+    NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs:
     def __init__(__self__, *,
@@ -189,6 +261,19 @@ class NetworkAttachedDataNetworkNetworkAddressPortTranslationPortRangeArgs:
         pulumi.set(self, "minimum", value)
 
 
+if not MYPY:
+    class NetworkPacketCoreControlPlaneIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the IDs for User Assigned Managed Identity resources to be assigned.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+elif False:
+    NetworkPacketCoreControlPlaneIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkPacketCoreControlPlaneIdentityArgs:
     def __init__(__self__, *,
@@ -225,6 +310,19 @@ class NetworkPacketCoreControlPlaneIdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict(TypedDict):
+        authentication_type: pulumi.Input[str]
+        """
+        How to authenticate users to access local diagnostics APIs. Possible values are `AAD` and `Password`.
+        """
+        https_server_certificate_url: NotRequired[pulumi.Input[str]]
+        """
+        The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+        """
+elif False:
+    NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs:
@@ -263,6 +361,33 @@ class NetworkPacketCoreControlPlaneLocalDiagnosticsAccessArgs:
     def https_server_certificate_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "https_server_certificate_url", value)
 
+
+if not MYPY:
+    class NetworkPacketCoreControlPlanePlatformArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the platform type where the packet core is deployed. Possible values are `AKS-HCI`, `3P-AZURE-STACK-HCI` and `BaseVM`.
+        """
+        arc_kubernetes_cluster_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Azure Arc connected cluster where the packet core is deployed.
+        """
+        custom_location_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Azure Arc custom location where the packet core is deployed.
+
+        > **NOTE:** At least one of `edge_device_id`, `arc_kubernetes_cluster_id`, `stack_hci_cluster_id` and `custom_location_id` should be specified. If multiple are set, they must be consistent with each other.
+        """
+        edge_device_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.
+        """
+        stack_hci_cluster_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Azure Stack HCI cluster where the packet core is deployed.
+        """
+elif False:
+    NetworkPacketCoreControlPlanePlatformArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkPacketCoreControlPlanePlatformArgs:
@@ -354,6 +479,31 @@ class NetworkPacketCoreControlPlanePlatformArgs:
         pulumi.set(self, "stack_hci_cluster_id", value)
 
 
+if not MYPY:
+    class NetworkServicePccRuleArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        """
+        precedence: pulumi.Input[int]
+        """
+        A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network. Must be between `0` and `255`.
+        """
+        service_data_flow_templates: pulumi.Input[Sequence[pulumi.Input['NetworkServicePccRuleServiceDataFlowTemplateArgsDict']]]
+        """
+        A `service_data_flow_template` block as defined below. The set of service data flow templates to use for this PCC rule.
+        """
+        qos_policy: NotRequired[pulumi.Input['NetworkServicePccRuleQosPolicyArgsDict']]
+        """
+        A `qos_policy` block as defined below. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings.
+        """
+        traffic_control_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether flows that match this data flow policy rule are permitted. Defaults to `true`.
+        """
+elif False:
+    NetworkServicePccRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkServicePccRuleArgs:
     def __init__(__self__, *,
@@ -437,6 +587,35 @@ class NetworkServicePccRuleArgs:
     def traffic_control_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "traffic_control_enabled", value)
 
+
+if not MYPY:
+    class NetworkServicePccRuleQosPolicyArgsDict(TypedDict):
+        maximum_bit_rate: pulumi.Input['NetworkServicePccRuleQosPolicyMaximumBitRateArgsDict']
+        """
+        A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        """
+        qos_indicator: pulumi.Input[int]
+        """
+        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
+        """
+        allocation_and_retention_priority_level: NotRequired[pulumi.Input[int]]
+        """
+        QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        guaranteed_bit_rate: NotRequired[pulumi.Input['NetworkServicePccRuleQosPolicyGuaranteedBitRateArgsDict']]
+        """
+        A `guaranteed_bit_rate` block as defined below. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
+        """
+        preemption_capability: NotRequired[pulumi.Input[str]]
+        """
+        The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+        """
+        preemption_vulnerability: NotRequired[pulumi.Input[str]]
+        """
+        The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `Preemptable`.
+        """
+elif False:
+    NetworkServicePccRuleQosPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkServicePccRuleQosPolicyArgs:
@@ -539,6 +718,19 @@ class NetworkServicePccRuleQosPolicyArgs:
         pulumi.set(self, "preemption_vulnerability", value)
 
 
+if not MYPY:
+    class NetworkServicePccRuleQosPolicyGuaranteedBitRateArgsDict(TypedDict):
+        downlink: pulumi.Input[str]
+        """
+        Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        uplink: pulumi.Input[str]
+        """
+        Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+elif False:
+    NetworkServicePccRuleQosPolicyGuaranteedBitRateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs:
     def __init__(__self__, *,
@@ -576,6 +768,19 @@ class NetworkServicePccRuleQosPolicyGuaranteedBitRateArgs:
         pulumi.set(self, "uplink", value)
 
 
+if not MYPY:
+    class NetworkServicePccRuleQosPolicyMaximumBitRateArgsDict(TypedDict):
+        downlink: pulumi.Input[str]
+        """
+        Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        uplink: pulumi.Input[str]
+        """
+        Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+elif False:
+    NetworkServicePccRuleQosPolicyMaximumBitRateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkServicePccRuleQosPolicyMaximumBitRateArgs:
     def __init__(__self__, *,
@@ -612,6 +817,31 @@ class NetworkServicePccRuleQosPolicyMaximumBitRateArgs:
     def uplink(self, value: pulumi.Input[str]):
         pulumi.set(self, "uplink", value)
 
+
+if not MYPY:
+    class NetworkServicePccRuleServiceDataFlowTemplateArgsDict(TypedDict):
+        direction: pulumi.Input[str]
+        """
+        Specifies the direction of this flow. Possible values are `Uplink`, `Downlink` and `Bidirectional`.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - `default`, `requested` or `service`.
+        """
+        protocols: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of the allowed protocol(s) for this flow. If you want this flow to be able to use any protocol within the internet protocol suite, use the value `ip`. If you only want to allow a selection of protocols, you must use the corresponding IANA Assigned Internet Protocol Number for each protocol, as described in https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml. For example, for UDP, you must use 17. If you use the value `ip` then you must leave the field `port` unspecified.
+        """
+        remote_ip_lists: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies the remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value `any`. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, `192.0.2.54/24`).
+        """
+        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than `ip` in the `protocol` field. If it is not specified then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: [`8080`, `8082-8085`].
+        """
+elif False:
+    NetworkServicePccRuleServiceDataFlowTemplateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkServicePccRuleServiceDataFlowTemplateArgs:
@@ -695,6 +925,31 @@ class NetworkServicePccRuleServiceDataFlowTemplateArgs:
     def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ports", value)
 
+
+if not MYPY:
+    class NetworkServiceServiceQosPolicyArgsDict(TypedDict):
+        maximum_bit_rate: pulumi.Input['NetworkServiceServiceQosPolicyMaximumBitRateArgsDict']
+        """
+        A `maximum_bit_rate` block as defined below. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+        """
+        allocation_and_retention_priority_level: NotRequired[pulumi.Input[int]]
+        """
+        QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. Defaults to `9`. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        preemption_capability: NotRequired[pulumi.Input[str]]
+        """
+        The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`,.
+        """
+        preemption_vulnerability: NotRequired[pulumi.Input[str]]
+        """
+        The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`.
+        """
+        qos_indicator: NotRequired[pulumi.Input[int]]
+        """
+        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
+        """
+elif False:
+    NetworkServiceServiceQosPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkServiceServiceQosPolicyArgs:
@@ -782,6 +1037,19 @@ class NetworkServiceServiceQosPolicyArgs:
         pulumi.set(self, "qos_indicator", value)
 
 
+if not MYPY:
+    class NetworkServiceServiceQosPolicyMaximumBitRateArgsDict(TypedDict):
+        downlink: pulumi.Input[str]
+        """
+        Downlink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        uplink: pulumi.Input[str]
+        """
+        Uplink bit rate. Must be a number followed by `bps`, `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+elif False:
+    NetworkServiceServiceQosPolicyMaximumBitRateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkServiceServiceQosPolicyMaximumBitRateArgs:
     def __init__(__self__, *,
@@ -819,6 +1087,19 @@ class NetworkServiceServiceQosPolicyMaximumBitRateArgs:
         pulumi.set(self, "uplink", value)
 
 
+if not MYPY:
+    class NetworkSimGroupIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of IDs for User Assigned Managed Identity resources to be assigned.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity. Possible value is `UserAssigned`.
+        """
+elif False:
+    NetworkSimGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkSimGroupIdentityArgs:
     def __init__(__self__, *,
@@ -855,6 +1136,23 @@ class NetworkSimGroupIdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class NetworkSimPolicySliceArgsDict(TypedDict):
+        data_networks: pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceDataNetworkArgsDict']]]
+        """
+        An array of `data_network` block as defined below.
+        """
+        default_data_network_id: pulumi.Input[str]
+        """
+        The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the `data_network` block.
+        """
+        slice_id: pulumi.Input[str]
+        """
+        The ID of the slice that these settings apply to.
+        """
+elif False:
+    NetworkSimPolicySliceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkSimPolicySliceArgs:
@@ -907,6 +1205,51 @@ class NetworkSimPolicySliceArgs:
     def slice_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "slice_id", value)
 
+
+if not MYPY:
+    class NetworkSimPolicySliceDataNetworkArgsDict(TypedDict):
+        allowed_services_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
+        """
+        data_network_id: pulumi.Input[str]
+        """
+        The ID of Mobile Network Data Network which these settings apply to.
+        """
+        qos_indicator: pulumi.Input[int]
+        """
+        The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics, it controls QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between `1` and `127`.
+        """
+        session_aggregate_maximum_bit_rate: pulumi.Input['NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgsDict']
+        """
+        A `session_aggregate_maximum_bit_rate` block as defined below.
+        """
+        additional_allowed_session_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed session types in addition to the default session type. Must not duplicate the default session type. Possible values are `IPv4` and `IPv6`.
+        """
+        allocation_and_retention_priority_level: NotRequired[pulumi.Input[int]]
+        """
+        Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemption_capability` and `preemption_vulnerability` allow it. `1` is the highest level of priority. If this field is not specified then `qos_indicator` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+        """
+        default_session_type: NotRequired[pulumi.Input[str]]
+        """
+        The default PDU session type, which is used if the user equipment does not request a specific session type. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        """
+        max_buffered_packets: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to `10`, Must be at least `0`, See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+        """
+        preemption_capability: NotRequired[pulumi.Input[str]]
+        """
+        The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreempt` and `MayPreempt`, Defaults to `NotPreempt`.
+        """
+        preemption_vulnerability: NotRequired[pulumi.Input[str]]
+        """
+        The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are `NotPreemptable` and `Preemptable`. Defaults to `NotPreemptable`.
+        """
+elif False:
+    NetworkSimPolicySliceDataNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkSimPolicySliceDataNetworkArgs:
@@ -1071,6 +1414,19 @@ class NetworkSimPolicySliceDataNetworkArgs:
         pulumi.set(self, "preemption_vulnerability", value)
 
 
+if not MYPY:
+    class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgsDict(TypedDict):
+        downlink: pulumi.Input[str]
+        """
+        Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        uplink: pulumi.Input[str]
+        """
+        Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+elif False:
+    NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs:
     def __init__(__self__, *,
@@ -1108,6 +1464,19 @@ class NetworkSimPolicySliceDataNetworkSessionAggregateMaximumBitRateArgs:
         pulumi.set(self, "uplink", value)
 
 
+if not MYPY:
+    class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgsDict(TypedDict):
+        downlink: pulumi.Input[str]
+        """
+        Downlink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+        uplink: pulumi.Input[str]
+        """
+        Uplink bit rate. Must be a number followed by `Kbps`, `Mbps`, `Gbps` or `Tbps`.
+        """
+elif False:
+    NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs:
     def __init__(__self__, *,
@@ -1144,6 +1513,23 @@ class NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs:
     def uplink(self, value: pulumi.Input[str]):
         pulumi.set(self, "uplink", value)
 
+
+if not MYPY:
+    class NetworkSimStaticIpConfigurationArgsDict(TypedDict):
+        attached_data_network_id: pulumi.Input[str]
+        """
+        The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        """
+        slice_id: pulumi.Input[str]
+        """
+        The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        """
+        static_ipv4_address: NotRequired[pulumi.Input[str]]
+        """
+        The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.
+        """
+elif False:
+    NetworkSimStaticIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkSimStaticIpConfigurationArgs:
@@ -1197,6 +1583,19 @@ class NetworkSimStaticIpConfigurationArgs:
     def static_ipv4_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "static_ipv4_address", value)
 
+
+if not MYPY:
+    class NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgsDict(TypedDict):
+        slice_service_type: pulumi.Input[int]
+        """
+        Slice/service type (SST). Must be between `0` and `255`.
+        """
+        slice_differentiator: NotRequired[pulumi.Input[str]]
+        """
+        Slice differentiator (SD). Must be a 6 digit hex string.
+        """
+elif False:
+    NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs:

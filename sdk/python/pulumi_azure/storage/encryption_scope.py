@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['EncryptionScopeArgs', 'EncryptionScope']
@@ -216,9 +221,9 @@ class EncryptionScope(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_encryption_scope = azure.storage.EncryptionScope("example",
             name="microsoftmanaged",
             storage_account_id=example_account.id,
@@ -267,9 +272,9 @@ class EncryptionScope(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
-            identity=azure.storage.AccountIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_encryption_scope = azure.storage.EncryptionScope("example",
             name="microsoftmanaged",
             storage_account_id=example_account.id,

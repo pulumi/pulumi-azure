@@ -4,26 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PolicyCustomRuleArgs',
+    'PolicyCustomRuleArgsDict',
     'PolicyCustomRuleMatchConditionArgs',
+    'PolicyCustomRuleMatchConditionArgsDict',
     'PolicyCustomRuleMatchConditionMatchVariableArgs',
+    'PolicyCustomRuleMatchConditionMatchVariableArgsDict',
     'PolicyManagedRulesArgs',
+    'PolicyManagedRulesArgsDict',
     'PolicyManagedRulesExclusionArgs',
+    'PolicyManagedRulesExclusionArgsDict',
     'PolicyManagedRulesExclusionExcludedRuleSetArgs',
+    'PolicyManagedRulesExclusionExcludedRuleSetArgsDict',
     'PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs',
+    'PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgsDict',
     'PolicyManagedRulesManagedRuleSetArgs',
+    'PolicyManagedRulesManagedRuleSetArgsDict',
     'PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs',
+    'PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgsDict',
     'PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs',
+    'PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgsDict',
     'PolicyPolicySettingsArgs',
+    'PolicyPolicySettingsArgsDict',
     'PolicyPolicySettingsLogScrubbingArgs',
+    'PolicyPolicySettingsLogScrubbingArgsDict',
     'PolicyPolicySettingsLogScrubbingRuleArgs',
+    'PolicyPolicySettingsLogScrubbingRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PolicyCustomRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        Type of action. Possible values are `Allow`, `Block` and `Log`.
+        """
+        match_conditions: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionArgsDict']]]
+        """
+        One or more `match_conditions` blocks as defined below.
+        """
+        priority: pulumi.Input[int]
+        """
+        Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        """
+        rule_type: pulumi.Input[str]
+        """
+        Describes the type of rule. Possible values are `MatchRule`, `RateLimitRule` and `Invalid`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        """
+        group_rate_limit_by: NotRequired[pulumi.Input[str]]
+        """
+        Specifies what grouping the rate limit will count requests by. Possible values are `GeoLocation`, `ClientAddr` and `None`.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        rate_limit_duration: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the duration at which the rate limit policy will be applied. Should be used with `RateLimitRule` rule type. Possible values are `FiveMins` and `OneMin`.
+        """
+        rate_limit_threshold: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
+        """
+elif False:
+    PolicyCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyCustomRuleArgs:
@@ -172,6 +233,31 @@ class PolicyCustomRuleArgs:
         pulumi.set(self, "rate_limit_threshold", value)
 
 
+if not MYPY:
+    class PolicyCustomRuleMatchConditionArgsDict(TypedDict):
+        match_variables: pulumi.Input[Sequence[pulumi.Input['PolicyCustomRuleMatchConditionMatchVariableArgsDict']]]
+        """
+        One or more `match_variables` blocks as defined below.
+        """
+        operator: pulumi.Input[str]
+        """
+        Describes operator to be matched. Possible values are `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith`, `EndsWith` and `Regex`.
+        """
+        match_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of match values. This is **Required** when the `operator` is not `Any`.
+        """
+        negation_condition: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if this is negate condition or not
+        """
+        transforms: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of transformations to do before the match is attempted. Possible values are `HtmlEntityDecode`, `Lowercase`, `RemoveNulls`, `Trim`, `UrlDecode` and `UrlEncode`.
+        """
+elif False:
+    PolicyCustomRuleMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyCustomRuleMatchConditionArgs:
     def __init__(__self__, *,
@@ -257,6 +343,19 @@ class PolicyCustomRuleMatchConditionArgs:
         pulumi.set(self, "transforms", value)
 
 
+if not MYPY:
+    class PolicyCustomRuleMatchConditionMatchVariableArgsDict(TypedDict):
+        variable_name: pulumi.Input[str]
+        """
+        The name of the Match Variable. Possible values are `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestUri`, `RequestHeaders`, `RequestBody` and `RequestCookies`.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        Describes field of the matchVariable collection
+        """
+elif False:
+    PolicyCustomRuleMatchConditionMatchVariableArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyCustomRuleMatchConditionMatchVariableArgs:
     def __init__(__self__, *,
@@ -295,6 +394,19 @@ class PolicyCustomRuleMatchConditionMatchVariableArgs:
         pulumi.set(self, "selector", value)
 
 
+if not MYPY:
+    class PolicyManagedRulesArgsDict(TypedDict):
+        managed_rule_sets: pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetArgsDict']]]
+        """
+        One or more `managed_rule_set` block defined below.
+        """
+        exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgsDict']]]]
+        """
+        One or more `exclusion` block defined below.
+        """
+elif False:
+    PolicyManagedRulesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyManagedRulesArgs:
     def __init__(__self__, *,
@@ -332,6 +444,27 @@ class PolicyManagedRulesArgs:
     def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]]):
         pulumi.set(self, "exclusions", value)
 
+
+if not MYPY:
+    class PolicyManagedRulesExclusionArgsDict(TypedDict):
+        match_variable: pulumi.Input[str]
+        """
+        The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
+        """
+        selector: pulumi.Input[str]
+        """
+        Describes field of the matchVariable collection.
+        """
+        selector_match_operator: pulumi.Input[str]
+        """
+        Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+        """
+        excluded_rule_set: NotRequired[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgsDict']]
+        """
+        One or more `excluded_rule_set` block defined below.
+        """
+elif False:
+    PolicyManagedRulesExclusionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyManagedRulesExclusionArgs:
@@ -401,6 +534,23 @@ class PolicyManagedRulesExclusionArgs:
         pulumi.set(self, "excluded_rule_set", value)
 
 
+if not MYPY:
+    class PolicyManagedRulesExclusionExcludedRuleSetArgsDict(TypedDict):
+        rule_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgsDict']]]]
+        """
+        One or more `rule_group` block defined below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+        """
+elif False:
+    PolicyManagedRulesExclusionExcludedRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyManagedRulesExclusionExcludedRuleSetArgs:
     def __init__(__self__, *,
@@ -456,6 +606,20 @@ class PolicyManagedRulesExclusionExcludedRuleSetArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgsDict(TypedDict):
+        rule_group_name: pulumi.Input[str]
+        """
+        The name of rule group for exclusion. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+        `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`.
+        """
+        excluded_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Rule IDs for exclusion.
+        """
+elif False:
+    PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs:
     def __init__(__self__, *,
@@ -495,6 +659,23 @@ class PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs:
     def excluded_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excluded_rules", value)
 
+
+if not MYPY:
+    class PolicyManagedRulesManagedRuleSetArgsDict(TypedDict):
+        version: pulumi.Input[str]
+        """
+        The rule set version. Possible values: `0.1`, `1.0`, `2.1`, `2.2.9`, `3.0`, `3.1` and `3.2`.
+        """
+        rule_group_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgsDict']]]]
+        """
+        One or more `rule_group_override` block defined below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        The rule set type. Possible values: `Microsoft_BotManagerRuleSet`, `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+        """
+elif False:
+    PolicyManagedRulesManagedRuleSetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyManagedRulesManagedRuleSetArgs:
@@ -550,6 +731,20 @@ class PolicyManagedRulesManagedRuleSetArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgsDict(TypedDict):
+        rule_group_name: pulumi.Input[str]
+        """
+        The name of the Rule Group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI` and `MS-ThreatIntel-CVEs`MS-ThreatIntel-WebShells`,.
+        """
+        disabled_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgsDict']]]]
+        """
+        One or more `rule` block defined below.
+        """
+elif False:
+    PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
     def __init__(__self__, *,
@@ -604,6 +799,23 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs:
         pulumi.set(self, "rules", value)
 
 
+if not MYPY:
+    class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Identifier for the managed rule.
+        """
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if the managed rule is in enabled state or disabled state.
+        """
+elif False:
+    PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
     def __init__(__self__, *,
@@ -657,6 +869,39 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class PolicyPolicySettingsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if the policy is in enabled state or disabled state. Defaults to `true`.
+        """
+        file_upload_limit_in_mb: NotRequired[pulumi.Input[int]]
+        """
+        The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
+        """
+        log_scrubbing: NotRequired[pulumi.Input['PolicyPolicySettingsLogScrubbingArgsDict']]
+        """
+        One `log_scrubbing` block as defined below.
+        """
+        max_request_body_size_in_kb: NotRequired[pulumi.Input[int]]
+        """
+        The Maximum Request Body Size in KB. Accepted values are in the range `8` to `2000`. Defaults to `128`.
+        """
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
+        """
+        request_body_check: NotRequired[pulumi.Input[bool]]
+        """
+        Is Request Body Inspection enabled? Defaults to `true`.
+        """
+        request_body_inspect_limit_in_kb: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to `128`.
+        """
+elif False:
+    PolicyPolicySettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyPolicySettingsArgs:
@@ -777,6 +1022,19 @@ class PolicyPolicySettingsArgs:
         pulumi.set(self, "request_body_inspect_limit_in_kb", value)
 
 
+if not MYPY:
+    class PolicyPolicySettingsLogScrubbingArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the log scrubbing is enabled or disabled. Defaults to `true`.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgsDict']]]]
+        """
+        One or more `scrubbing_rule` blocks as define below.
+        """
+elif False:
+    PolicyPolicySettingsLogScrubbingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicyPolicySettingsLogScrubbingArgs:
     def __init__(__self__, *,
@@ -815,6 +1073,21 @@ class PolicyPolicySettingsLogScrubbingArgs:
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
+
+if not MYPY:
+    class PolicyPolicySettingsLogScrubbingRuleArgsDict(TypedDict):
+        match_variable: pulumi.Input[str]
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Describes if the managed rule is in enabled state or disabled state.
+        """
+        selector: NotRequired[pulumi.Input[str]]
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to.
+        """
+        selector_match_operator: NotRequired[pulumi.Input[str]]
+elif False:
+    PolicyPolicySettingsLogScrubbingRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicyPolicySettingsLogScrubbingRuleArgs:

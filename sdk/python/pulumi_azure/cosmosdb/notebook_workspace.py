@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['NotebookWorkspaceArgs', 'NotebookWorkspace']
@@ -170,13 +175,13 @@ class NotebookWorkspace(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("example",
             name="default",
             resource_group_name=example_account.resource_group_name,
@@ -227,13 +232,13 @@ class NotebookWorkspace(pulumi.CustomResource):
             resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
-                consistency_level="BoundedStaleness",
-            ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example.location,
-                failover_priority=0,
-            )])
+            consistency_policy={
+                "consistencyLevel": "BoundedStaleness",
+            },
+            geo_locations=[{
+                "location": example.location,
+                "failoverPriority": 0,
+            }])
         example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("example",
             name="default",
             resource_group_name=example_account.resource_group_name,

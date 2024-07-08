@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -226,7 +231,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallNetworkRuleCollectionRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Network Rule Collection within an Azure Firewall.
@@ -262,30 +267,30 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="AZFW_VNet",
             sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
             name="testcollection",
             azure_firewall_name=example_firewall.name,
             resource_group_name=example.name,
             priority=100,
             action="Allow",
-            rules=[azure.network.FirewallNetworkRuleCollectionRuleArgs(
-                name="testrule",
-                source_addresses=["10.0.0.0/16"],
-                destination_ports=["53"],
-                destination_addresses=[
+            rules=[{
+                "name": "testrule",
+                "sourceAddresses": ["10.0.0.0/16"],
+                "destinationPorts": ["53"],
+                "destinationAddresses": [
                     "8.8.8.8",
                     "8.8.4.4",
                 ],
-                protocols=[
+                "protocols": [
                     "TCP",
                     "UDP",
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -303,7 +308,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallNetworkRuleCollectionRuleArgs']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]] rules: One or more `rule` blocks as defined below.
         """
         ...
     @overload
@@ -345,30 +350,30 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="AZFW_VNet",
             sku_tier="Standard",
-            ip_configurations=[azure.network.FirewallIpConfigurationArgs(
-                name="configuration",
-                subnet_id=example_subnet.id,
-                public_ip_address_id=example_public_ip.id,
-            )])
+            ip_configurations=[{
+                "name": "configuration",
+                "subnetId": example_subnet.id,
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
             name="testcollection",
             azure_firewall_name=example_firewall.name,
             resource_group_name=example.name,
             priority=100,
             action="Allow",
-            rules=[azure.network.FirewallNetworkRuleCollectionRuleArgs(
-                name="testrule",
-                source_addresses=["10.0.0.0/16"],
-                destination_ports=["53"],
-                destination_addresses=[
+            rules=[{
+                "name": "testrule",
+                "sourceAddresses": ["10.0.0.0/16"],
+                "destinationPorts": ["53"],
+                "destinationAddresses": [
                     "8.8.8.8",
                     "8.8.4.4",
                 ],
-                protocols=[
+                "protocols": [
                     "TCP",
                     "UDP",
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -399,7 +404,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallNetworkRuleCollectionRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -440,7 +445,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             priority: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallNetworkRuleCollectionRuleArgs']]]]] = None) -> 'FirewallNetworkRuleCollection':
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]]] = None) -> 'FirewallNetworkRuleCollection':
         """
         Get an existing FirewallNetworkRuleCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -453,7 +458,7 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: Specifies the priority of the rule collection. Possible values are between `100` - `65000`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallNetworkRuleCollectionRuleArgs']]]] rules: One or more `rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallNetworkRuleCollectionRuleArgs', 'FirewallNetworkRuleCollectionRuleArgsDict']]]] rules: One or more `rule` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

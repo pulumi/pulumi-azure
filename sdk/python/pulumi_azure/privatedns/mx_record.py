@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -239,7 +244,7 @@ class MxRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -266,14 +271,14 @@ class MxRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=10,
-                    exchange="mx1.contoso.com",
-                ),
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=20,
-                    exchange="backupmx.contoso.com",
-                ),
+                {
+                    "preference": 10,
+                    "exchange": "mx1.contoso.com",
+                },
+                {
+                    "preference": 20,
+                    "exchange": "backupmx.contoso.com",
+                },
             ],
             tags={
                 "Environment": "Production",
@@ -291,7 +296,7 @@ class MxRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
@@ -324,14 +329,14 @@ class MxRecord(pulumi.CustomResource):
             zone_name=example_zone.name,
             ttl=300,
             records=[
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=10,
-                    exchange="mx1.contoso.com",
-                ),
-                azure.privatedns.MxRecordRecordArgs(
-                    preference=20,
-                    exchange="backupmx.contoso.com",
-                ),
+                {
+                    "preference": 10,
+                    "exchange": "mx1.contoso.com",
+                },
+                {
+                    "preference": 20,
+                    "exchange": "backupmx.contoso.com",
+                },
             ],
             tags={
                 "Environment": "Production",
@@ -362,7 +367,7 @@ class MxRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ttl: Optional[pulumi.Input[int]] = None,
@@ -403,7 +408,7 @@ class MxRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ttl: Optional[pulumi.Input[int]] = None,
@@ -417,7 +422,7 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: One or more `record` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MxRecordRecordArgs', 'MxRecordRecordArgsDict']]]] records: One or more `record` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ContactArgs', 'Contact']
@@ -243,13 +248,13 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example.name,
             location="westeurope",
             norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=100,
-                center_frequency_mhz=101,
-                direction="Uplink",
-                polarization="LHCP",
-                name="examplename",
-            )],
+            links=[{
+                "bandwidthMhz": 100,
+                "centerFrequencyMhz": 101,
+                "direction": "Uplink",
+                "polarization": "LHCP",
+                "name": "examplename",
+            }],
             two_line_elements=[
                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
@@ -268,40 +273,40 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
+            delegations=[{
+                "name": "orbitalgateway",
+                "serviceDelegation": {
+                    "name": "Microsoft.Orbital/orbitalGateways",
+                    "actions": [
                         "Microsoft.Network/publicIPAddresses/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/read",
                         "Microsoft.Network/publicIPAddresses/read",
                     ],
-                ),
-            )])
+                },
+            }])
         example_contact_profile = azure.orbital.ContactProfile("example",
             name="example-contactprofile",
             resource_group_name=example.name,
             location=example.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49153",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
+            links=[{
+                "channels": [{
+                    "name": "channelname",
+                    "bandwidthMhz": 100,
+                    "centerFrequencyMhz": 101,
+                    "endPoints": [{
+                        "endPointName": "AQUA_command",
+                        "ipAddress": "10.0.1.0",
+                        "port": "49153",
+                        "protocol": "TCP",
+                    }],
+                }],
+                "direction": "Uplink",
+                "name": "RHCP_UL",
+                "polarization": "RHCP",
+            }],
             network_configuration_subnet_id=example_subnet.id)
         example_contact = azure.orbital.Contact("example",
             name="example-contact",
@@ -352,13 +357,13 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example.name,
             location="westeurope",
             norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=100,
-                center_frequency_mhz=101,
-                direction="Uplink",
-                polarization="LHCP",
-                name="examplename",
-            )],
+            links=[{
+                "bandwidthMhz": 100,
+                "centerFrequencyMhz": 101,
+                "direction": "Uplink",
+                "polarization": "LHCP",
+                "name": "examplename",
+            }],
             two_line_elements=[
                 "1 23455U 94089A   97320.90946019  .00000140  00000-0  10191-3 0  2621",
                 "2 23455  99.0090 272.6745 0008546 223.1686 136.8816 14.11711747148495",
@@ -377,40 +382,40 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Orbital/orbitalGateways",
-                    actions=[
+            delegations=[{
+                "name": "orbitalgateway",
+                "serviceDelegation": {
+                    "name": "Microsoft.Orbital/orbitalGateways",
+                    "actions": [
                         "Microsoft.Network/publicIPAddresses/join/action",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                         "Microsoft.Network/virtualNetworks/read",
                         "Microsoft.Network/publicIPAddresses/read",
                     ],
-                ),
-            )])
+                },
+            }])
         example_contact_profile = azure.orbital.ContactProfile("example",
             name="example-contactprofile",
             resource_group_name=example.name,
             location=example.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
-                    name="channelname",
-                    bandwidth_mhz=100,
-                    center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
-                        end_point_name="AQUA_command",
-                        ip_address="10.0.1.0",
-                        port="49153",
-                        protocol="TCP",
-                    )],
-                )],
-                direction="Uplink",
-                name="RHCP_UL",
-                polarization="RHCP",
-            )],
+            links=[{
+                "channels": [{
+                    "name": "channelname",
+                    "bandwidthMhz": 100,
+                    "centerFrequencyMhz": 101,
+                    "endPoints": [{
+                        "endPointName": "AQUA_command",
+                        "ipAddress": "10.0.1.0",
+                        "port": "49153",
+                        "protocol": "TCP",
+                    }],
+                }],
+                "direction": "Uplink",
+                "name": "RHCP_UL",
+                "polarization": "RHCP",
+            }],
             network_configuration_subnet_id=example_subnet.id)
         example_contact = azure.orbital.Contact("example",
             name="example-contact",

@@ -4,115 +4,241 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CredentialServicePrincipalServicePrincipalKeyArgs',
+    'CredentialServicePrincipalServicePrincipalKeyArgsDict',
     'CustomDatasetLinkedServiceArgs',
+    'CustomDatasetLinkedServiceArgsDict',
     'DataFlowSinkArgs',
+    'DataFlowSinkArgsDict',
     'DataFlowSinkDatasetArgs',
+    'DataFlowSinkDatasetArgsDict',
     'DataFlowSinkFlowletArgs',
+    'DataFlowSinkFlowletArgsDict',
     'DataFlowSinkLinkedServiceArgs',
+    'DataFlowSinkLinkedServiceArgsDict',
     'DataFlowSinkRejectedLinkedServiceArgs',
+    'DataFlowSinkRejectedLinkedServiceArgsDict',
     'DataFlowSinkSchemaLinkedServiceArgs',
+    'DataFlowSinkSchemaLinkedServiceArgsDict',
     'DataFlowSourceArgs',
+    'DataFlowSourceArgsDict',
     'DataFlowSourceDatasetArgs',
+    'DataFlowSourceDatasetArgsDict',
     'DataFlowSourceFlowletArgs',
+    'DataFlowSourceFlowletArgsDict',
     'DataFlowSourceLinkedServiceArgs',
+    'DataFlowSourceLinkedServiceArgsDict',
     'DataFlowSourceRejectedLinkedServiceArgs',
+    'DataFlowSourceRejectedLinkedServiceArgsDict',
     'DataFlowSourceSchemaLinkedServiceArgs',
+    'DataFlowSourceSchemaLinkedServiceArgsDict',
     'DataFlowTransformationArgs',
+    'DataFlowTransformationArgsDict',
     'DataFlowTransformationDatasetArgs',
+    'DataFlowTransformationDatasetArgsDict',
     'DataFlowTransformationFlowletArgs',
+    'DataFlowTransformationFlowletArgsDict',
     'DataFlowTransformationLinkedServiceArgs',
+    'DataFlowTransformationLinkedServiceArgsDict',
     'DatasetAzureBlobSchemaColumnArgs',
+    'DatasetAzureBlobSchemaColumnArgsDict',
     'DatasetAzureSqlTableSchemaColumnArgs',
+    'DatasetAzureSqlTableSchemaColumnArgsDict',
     'DatasetBinaryAzureBlobStorageLocationArgs',
+    'DatasetBinaryAzureBlobStorageLocationArgsDict',
     'DatasetBinaryCompressionArgs',
+    'DatasetBinaryCompressionArgsDict',
     'DatasetBinaryHttpServerLocationArgs',
+    'DatasetBinaryHttpServerLocationArgsDict',
     'DatasetBinarySftpServerLocationArgs',
+    'DatasetBinarySftpServerLocationArgsDict',
     'DatasetCosmosDBApiSchemaColumnArgs',
+    'DatasetCosmosDBApiSchemaColumnArgsDict',
     'DatasetDelimitedTextAzureBlobFsLocationArgs',
+    'DatasetDelimitedTextAzureBlobFsLocationArgsDict',
     'DatasetDelimitedTextAzureBlobStorageLocationArgs',
+    'DatasetDelimitedTextAzureBlobStorageLocationArgsDict',
     'DatasetDelimitedTextHttpServerLocationArgs',
+    'DatasetDelimitedTextHttpServerLocationArgsDict',
     'DatasetDelimitedTextSchemaColumnArgs',
+    'DatasetDelimitedTextSchemaColumnArgsDict',
     'DatasetHttpSchemaColumnArgs',
+    'DatasetHttpSchemaColumnArgsDict',
     'DatasetJsonAzureBlobStorageLocationArgs',
+    'DatasetJsonAzureBlobStorageLocationArgsDict',
     'DatasetJsonHttpServerLocationArgs',
+    'DatasetJsonHttpServerLocationArgsDict',
     'DatasetJsonSchemaColumnArgs',
+    'DatasetJsonSchemaColumnArgsDict',
     'DatasetMysqlSchemaColumnArgs',
+    'DatasetMysqlSchemaColumnArgsDict',
     'DatasetParquetAzureBlobFsLocationArgs',
+    'DatasetParquetAzureBlobFsLocationArgsDict',
     'DatasetParquetAzureBlobStorageLocationArgs',
+    'DatasetParquetAzureBlobStorageLocationArgsDict',
     'DatasetParquetHttpServerLocationArgs',
+    'DatasetParquetHttpServerLocationArgsDict',
     'DatasetParquetSchemaColumnArgs',
+    'DatasetParquetSchemaColumnArgsDict',
     'DatasetPostgresqlSchemaColumnArgs',
+    'DatasetPostgresqlSchemaColumnArgsDict',
     'DatasetSnowflakeSchemaColumnArgs',
+    'DatasetSnowflakeSchemaColumnArgsDict',
     'DatasetSqlServerTableSchemaColumnArgs',
+    'DatasetSqlServerTableSchemaColumnArgsDict',
     'FactoryGithubConfigurationArgs',
+    'FactoryGithubConfigurationArgsDict',
     'FactoryGlobalParameterArgs',
+    'FactoryGlobalParameterArgsDict',
     'FactoryIdentityArgs',
+    'FactoryIdentityArgsDict',
     'FactoryVstsConfigurationArgs',
+    'FactoryVstsConfigurationArgsDict',
     'FlowletDataFlowSinkArgs',
+    'FlowletDataFlowSinkArgsDict',
     'FlowletDataFlowSinkDatasetArgs',
+    'FlowletDataFlowSinkDatasetArgsDict',
     'FlowletDataFlowSinkFlowletArgs',
+    'FlowletDataFlowSinkFlowletArgsDict',
     'FlowletDataFlowSinkLinkedServiceArgs',
+    'FlowletDataFlowSinkLinkedServiceArgsDict',
     'FlowletDataFlowSinkRejectedLinkedServiceArgs',
+    'FlowletDataFlowSinkRejectedLinkedServiceArgsDict',
     'FlowletDataFlowSinkSchemaLinkedServiceArgs',
+    'FlowletDataFlowSinkSchemaLinkedServiceArgsDict',
     'FlowletDataFlowSourceArgs',
+    'FlowletDataFlowSourceArgsDict',
     'FlowletDataFlowSourceDatasetArgs',
+    'FlowletDataFlowSourceDatasetArgsDict',
     'FlowletDataFlowSourceFlowletArgs',
+    'FlowletDataFlowSourceFlowletArgsDict',
     'FlowletDataFlowSourceLinkedServiceArgs',
+    'FlowletDataFlowSourceLinkedServiceArgsDict',
     'FlowletDataFlowSourceRejectedLinkedServiceArgs',
+    'FlowletDataFlowSourceRejectedLinkedServiceArgsDict',
     'FlowletDataFlowSourceSchemaLinkedServiceArgs',
+    'FlowletDataFlowSourceSchemaLinkedServiceArgsDict',
     'FlowletDataFlowTransformationArgs',
+    'FlowletDataFlowTransformationArgsDict',
     'FlowletDataFlowTransformationDatasetArgs',
+    'FlowletDataFlowTransformationDatasetArgsDict',
     'FlowletDataFlowTransformationFlowletArgs',
+    'FlowletDataFlowTransformationFlowletArgsDict',
     'FlowletDataFlowTransformationLinkedServiceArgs',
+    'FlowletDataFlowTransformationLinkedServiceArgsDict',
     'IntegrationRuntimeManagedCatalogInfoArgs',
+    'IntegrationRuntimeManagedCatalogInfoArgsDict',
     'IntegrationRuntimeManagedCustomSetupScriptArgs',
+    'IntegrationRuntimeManagedCustomSetupScriptArgsDict',
     'IntegrationRuntimeManagedVnetIntegrationArgs',
+    'IntegrationRuntimeManagedVnetIntegrationArgsDict',
     'IntegrationRuntimeSelfHostedRbacAuthorizationArgs',
+    'IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict',
     'IntegrationRuntimeSsisCatalogInfoArgs',
+    'IntegrationRuntimeSsisCatalogInfoArgsDict',
     'IntegrationRuntimeSsisCopyComputeScaleArgs',
+    'IntegrationRuntimeSsisCopyComputeScaleArgsDict',
     'IntegrationRuntimeSsisCustomSetupScriptArgs',
+    'IntegrationRuntimeSsisCustomSetupScriptArgsDict',
     'IntegrationRuntimeSsisExpressCustomSetupArgs',
+    'IntegrationRuntimeSsisExpressCustomSetupArgsDict',
     'IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs',
+    'IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict',
     'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs',
+    'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgsDict',
     'IntegrationRuntimeSsisExpressCustomSetupComponentArgs',
+    'IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict',
     'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs',
+    'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgsDict',
     'IntegrationRuntimeSsisExpressVnetIntegrationArgs',
+    'IntegrationRuntimeSsisExpressVnetIntegrationArgsDict',
     'IntegrationRuntimeSsisPackageStoreArgs',
+    'IntegrationRuntimeSsisPackageStoreArgsDict',
     'IntegrationRuntimeSsisPipelineExternalComputeScaleArgs',
+    'IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict',
     'IntegrationRuntimeSsisProxyArgs',
+    'IntegrationRuntimeSsisProxyArgsDict',
     'IntegrationRuntimeSsisVnetIntegrationArgs',
+    'IntegrationRuntimeSsisVnetIntegrationArgsDict',
     'LinkedCustomServiceIntegrationRuntimeArgs',
+    'LinkedCustomServiceIntegrationRuntimeArgsDict',
     'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs',
+    'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict',
     'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs',
+    'LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict',
     'LinkedServiceAzureDatabricksInstancePoolArgs',
+    'LinkedServiceAzureDatabricksInstancePoolArgsDict',
     'LinkedServiceAzureDatabricksKeyVaultPasswordArgs',
+    'LinkedServiceAzureDatabricksKeyVaultPasswordArgsDict',
     'LinkedServiceAzureDatabricksNewClusterConfigArgs',
+    'LinkedServiceAzureDatabricksNewClusterConfigArgsDict',
     'LinkedServiceAzureFileStorageKeyVaultPasswordArgs',
+    'LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict',
     'LinkedServiceAzureFunctionKeyVaultKeyArgs',
+    'LinkedServiceAzureFunctionKeyVaultKeyArgsDict',
     'LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs',
+    'LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgsDict',
     'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs',
+    'LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgsDict',
     'LinkedServiceOdataBasicAuthenticationArgs',
+    'LinkedServiceOdataBasicAuthenticationArgsDict',
     'LinkedServiceOdbcBasicAuthenticationArgs',
+    'LinkedServiceOdbcBasicAuthenticationArgsDict',
     'LinkedServiceSnowflakeKeyVaultPasswordArgs',
+    'LinkedServiceSnowflakeKeyVaultPasswordArgsDict',
     'LinkedServiceSqlServerKeyVaultConnectionStringArgs',
+    'LinkedServiceSqlServerKeyVaultConnectionStringArgsDict',
     'LinkedServiceSqlServerKeyVaultPasswordArgs',
+    'LinkedServiceSqlServerKeyVaultPasswordArgsDict',
     'LinkedServiceSynapseKeyVaultPasswordArgs',
+    'LinkedServiceSynapseKeyVaultPasswordArgsDict',
     'TriggerBlobEventPipelineArgs',
+    'TriggerBlobEventPipelineArgsDict',
     'TriggerCustomEventPipelineArgs',
+    'TriggerCustomEventPipelineArgsDict',
     'TriggerSchedulePipelineArgs',
+    'TriggerSchedulePipelineArgsDict',
     'TriggerScheduleScheduleArgs',
+    'TriggerScheduleScheduleArgsDict',
     'TriggerScheduleScheduleMonthlyArgs',
+    'TriggerScheduleScheduleMonthlyArgsDict',
     'TriggerTumblingWindowPipelineArgs',
+    'TriggerTumblingWindowPipelineArgsDict',
     'TriggerTumblingWindowRetryArgs',
+    'TriggerTumblingWindowRetryArgsDict',
     'TriggerTumblingWindowTriggerDependencyArgs',
+    'TriggerTumblingWindowTriggerDependencyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CredentialServicePrincipalServicePrincipalKeyArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        The name of the Linked Service to use for the Service Principal Key.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        The name of the Secret in the Key Vault.
+        """
+        secret_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Secret in the Key Vault.
+        """
+elif False:
+    CredentialServicePrincipalServicePrincipalKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CredentialServicePrincipalServicePrincipalKeyArgs:
@@ -167,6 +293,19 @@ class CredentialServicePrincipalServicePrincipalKeyArgs:
         pulumi.set(self, "secret_version", value)
 
 
+if not MYPY:
+    class CustomDatasetLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    CustomDatasetLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CustomDatasetLinkedServiceArgs:
     def __init__(__self__, *,
@@ -204,6 +343,39 @@ class CustomDatasetLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowSinkArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Flow Source.
+        """
+        dataset: NotRequired[pulumi.Input['DataFlowSinkDatasetArgsDict']]
+        """
+        A `dataset` block as defined below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the Data Flow Source.
+        """
+        flowlet: NotRequired[pulumi.Input['DataFlowSinkFlowletArgsDict']]
+        """
+        A `flowlet` block as defined below.
+        """
+        linked_service: NotRequired[pulumi.Input['DataFlowSinkLinkedServiceArgsDict']]
+        """
+        A `linked_service` block as defined below.
+        """
+        rejected_linked_service: NotRequired[pulumi.Input['DataFlowSinkRejectedLinkedServiceArgsDict']]
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        schema_linked_service: NotRequired[pulumi.Input['DataFlowSinkSchemaLinkedServiceArgsDict']]
+        """
+        A `schema_linked_service` block as defined below.
+        """
+elif False:
+    DataFlowSinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowSinkArgs:
@@ -323,6 +495,19 @@ class DataFlowSinkArgs:
         pulumi.set(self, "schema_linked_service", value)
 
 
+if not MYPY:
+    class DataFlowSinkDatasetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+elif False:
+    DataFlowSinkDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowSinkDatasetArgs:
     def __init__(__self__, *,
@@ -360,6 +545,23 @@ class DataFlowSinkDatasetArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowSinkFlowletArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Flowlet.
+        """
+        dataset_parameters: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+elif False:
+    DataFlowSinkFlowletArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowSinkFlowletArgs:
@@ -415,6 +617,19 @@ class DataFlowSinkFlowletArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DataFlowSinkLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    DataFlowSinkLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowSinkLinkedServiceArgs:
     def __init__(__self__, *,
@@ -452,6 +667,19 @@ class DataFlowSinkLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowSinkRejectedLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    DataFlowSinkRejectedLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowSinkRejectedLinkedServiceArgs:
@@ -491,6 +719,19 @@ class DataFlowSinkRejectedLinkedServiceArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DataFlowSinkSchemaLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    DataFlowSinkSchemaLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowSinkSchemaLinkedServiceArgs:
     def __init__(__self__, *,
@@ -528,6 +769,39 @@ class DataFlowSinkSchemaLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowSourceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Flow Source.
+        """
+        dataset: NotRequired[pulumi.Input['DataFlowSourceDatasetArgsDict']]
+        """
+        A `dataset` block as defined below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the Data Flow Source.
+        """
+        flowlet: NotRequired[pulumi.Input['DataFlowSourceFlowletArgsDict']]
+        """
+        A `flowlet` block as defined below.
+        """
+        linked_service: NotRequired[pulumi.Input['DataFlowSourceLinkedServiceArgsDict']]
+        """
+        A `linked_service` block as defined below.
+        """
+        rejected_linked_service: NotRequired[pulumi.Input['DataFlowSourceRejectedLinkedServiceArgsDict']]
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        schema_linked_service: NotRequired[pulumi.Input['DataFlowSourceSchemaLinkedServiceArgsDict']]
+        """
+        A `schema_linked_service` block as defined below.
+        """
+elif False:
+    DataFlowSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowSourceArgs:
@@ -647,6 +921,19 @@ class DataFlowSourceArgs:
         pulumi.set(self, "schema_linked_service", value)
 
 
+if not MYPY:
+    class DataFlowSourceDatasetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+elif False:
+    DataFlowSourceDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowSourceDatasetArgs:
     def __init__(__self__, *,
@@ -684,6 +971,23 @@ class DataFlowSourceDatasetArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowSourceFlowletArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Flowlet.
+        """
+        dataset_parameters: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+elif False:
+    DataFlowSourceFlowletArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowSourceFlowletArgs:
@@ -739,6 +1043,19 @@ class DataFlowSourceFlowletArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DataFlowSourceLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    DataFlowSourceLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowSourceLinkedServiceArgs:
     def __init__(__self__, *,
@@ -776,6 +1093,19 @@ class DataFlowSourceLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowSourceRejectedLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    DataFlowSourceRejectedLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowSourceRejectedLinkedServiceArgs:
@@ -815,6 +1145,19 @@ class DataFlowSourceRejectedLinkedServiceArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DataFlowSourceSchemaLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    DataFlowSourceSchemaLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowSourceSchemaLinkedServiceArgs:
     def __init__(__self__, *,
@@ -852,6 +1195,31 @@ class DataFlowSourceSchemaLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowTransformationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Flow transformation.
+        """
+        dataset: NotRequired[pulumi.Input['DataFlowTransformationDatasetArgsDict']]
+        """
+        A `dataset` block as defined below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the Data Flow transformation.
+        """
+        flowlet: NotRequired[pulumi.Input['DataFlowTransformationFlowletArgsDict']]
+        """
+        A `flowlet` block as defined below.
+        """
+        linked_service: NotRequired[pulumi.Input['DataFlowTransformationLinkedServiceArgsDict']]
+        """
+        A `linked_service` block as defined below.
+        """
+elif False:
+    DataFlowTransformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowTransformationArgs:
@@ -939,6 +1307,19 @@ class DataFlowTransformationArgs:
         pulumi.set(self, "linked_service", value)
 
 
+if not MYPY:
+    class DataFlowTransformationDatasetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+elif False:
+    DataFlowTransformationDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowTransformationDatasetArgs:
     def __init__(__self__, *,
@@ -976,6 +1357,23 @@ class DataFlowTransformationDatasetArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DataFlowTransformationFlowletArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Flowlet.
+        """
+        dataset_parameters: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+elif False:
+    DataFlowTransformationFlowletArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DataFlowTransformationFlowletArgs:
@@ -1031,6 +1429,19 @@ class DataFlowTransformationFlowletArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class DataFlowTransformationLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    DataFlowTransformationLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataFlowTransformationLinkedServiceArgs:
     def __init__(__self__, *,
@@ -1068,6 +1479,23 @@ class DataFlowTransformationLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class DatasetAzureBlobSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetAzureBlobSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetAzureBlobSchemaColumnArgs:
@@ -1123,6 +1551,23 @@ class DatasetAzureBlobSchemaColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DatasetAzureSqlTableSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetAzureSqlTableSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetAzureSqlTableSchemaColumnArgs:
     def __init__(__self__, *,
@@ -1176,6 +1621,35 @@ class DatasetAzureSqlTableSchemaColumnArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DatasetBinaryAzureBlobStorageLocationArgsDict(TypedDict):
+        container: pulumi.Input[str]
+        """
+        The container on the Azure Blob Storage Account hosting the file.
+        """
+        dynamic_container_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        filename: NotRequired[pulumi.Input[str]]
+        """
+        The filename of the file in the blob container.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The folder path to the file in the blob container.
+        """
+elif False:
+    DatasetBinaryAzureBlobStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetBinaryAzureBlobStorageLocationArgs:
@@ -1279,6 +1753,19 @@ class DatasetBinaryAzureBlobStorageLocationArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class DatasetBinaryCompressionArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of compression used during transport. Possible values are `BZip2`, `Deflate`, `GZip`, `Tar`, `TarGZip` and `ZipDeflate`.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        The level of compression. Possible values are `Fastest` and `Optimal`.
+        """
+elif False:
+    DatasetBinaryCompressionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetBinaryCompressionArgs:
     def __init__(__self__, *,
@@ -1316,6 +1803,31 @@ class DatasetBinaryCompressionArgs:
     def level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "level", value)
 
+
+if not MYPY:
+    class DatasetBinaryHttpServerLocationArgsDict(TypedDict):
+        filename: pulumi.Input[str]
+        """
+        The filename of the file on the web server.
+        """
+        path: pulumi.Input[str]
+        """
+        The folder path to the file on the web server.
+        """
+        relative_url: pulumi.Input[str]
+        """
+        The base URL to the web server hosting the file.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+elif False:
+    DatasetBinaryHttpServerLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetBinaryHttpServerLocationArgs:
@@ -1401,6 +1913,27 @@ class DatasetBinaryHttpServerLocationArgs:
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
+if not MYPY:
+    class DatasetBinarySftpServerLocationArgsDict(TypedDict):
+        filename: pulumi.Input[str]
+        """
+        The filename of the file on the SFTP server.
+        """
+        path: pulumi.Input[str]
+        """
+        The folder path to the file on the SFTP server.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+elif False:
+    DatasetBinarySftpServerLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetBinarySftpServerLocationArgs:
     def __init__(__self__, *,
@@ -1470,6 +2003,23 @@ class DatasetBinarySftpServerLocationArgs:
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
+if not MYPY:
+    class DatasetCosmosDBApiSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetCosmosDBApiSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetCosmosDBApiSchemaColumnArgs:
     def __init__(__self__, *,
@@ -1523,6 +2073,35 @@ class DatasetCosmosDBApiSchemaColumnArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DatasetDelimitedTextAzureBlobFsLocationArgsDict(TypedDict):
+        dynamic_file_system_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        file_system: NotRequired[pulumi.Input[str]]
+        """
+        The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
+        """
+        filename: NotRequired[pulumi.Input[str]]
+        """
+        The filename of the file.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The folder path to the file.
+        """
+elif False:
+    DatasetDelimitedTextAzureBlobFsLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetDelimitedTextAzureBlobFsLocationArgs:
@@ -1627,6 +2206,35 @@ class DatasetDelimitedTextAzureBlobFsLocationArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class DatasetDelimitedTextAzureBlobStorageLocationArgsDict(TypedDict):
+        container: pulumi.Input[str]
+        """
+        The container on the Azure Blob Storage Account hosting the file.
+        """
+        dynamic_container_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        filename: NotRequired[pulumi.Input[str]]
+        """
+        The filename of the file.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The folder path to the file. This can be an empty string.
+        """
+elif False:
+    DatasetDelimitedTextAzureBlobStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetDelimitedTextAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
@@ -1729,6 +2337,31 @@ class DatasetDelimitedTextAzureBlobStorageLocationArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class DatasetDelimitedTextHttpServerLocationArgsDict(TypedDict):
+        filename: pulumi.Input[str]
+        """
+        The filename of the file on the web server.
+        """
+        path: pulumi.Input[str]
+        """
+        The folder path to the file on the web server.
+        """
+        relative_url: pulumi.Input[str]
+        """
+        The base URL to the web server hosting the file.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+elif False:
+    DatasetDelimitedTextHttpServerLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetDelimitedTextHttpServerLocationArgs:
     def __init__(__self__, *,
@@ -1813,6 +2446,23 @@ class DatasetDelimitedTextHttpServerLocationArgs:
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
+if not MYPY:
+    class DatasetDelimitedTextSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetDelimitedTextSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetDelimitedTextSchemaColumnArgs:
     def __init__(__self__, *,
@@ -1867,6 +2517,23 @@ class DatasetDelimitedTextSchemaColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DatasetHttpSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetHttpSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetHttpSchemaColumnArgs:
     def __init__(__self__, *,
@@ -1920,6 +2587,35 @@ class DatasetHttpSchemaColumnArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DatasetJsonAzureBlobStorageLocationArgsDict(TypedDict):
+        container: pulumi.Input[str]
+        """
+        The container on the Azure Blob Storage Account hosting the file.
+        """
+        filename: pulumi.Input[str]
+        """
+        The filename of the file on the web server.
+        """
+        path: pulumi.Input[str]
+        """
+        The folder path to the file on the web server.
+        """
+        dynamic_container_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+elif False:
+    DatasetJsonAzureBlobStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetJsonAzureBlobStorageLocationArgs:
@@ -2021,6 +2717,31 @@ class DatasetJsonAzureBlobStorageLocationArgs:
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
+if not MYPY:
+    class DatasetJsonHttpServerLocationArgsDict(TypedDict):
+        filename: pulumi.Input[str]
+        """
+        The filename of the file on the web server.
+        """
+        path: pulumi.Input[str]
+        """
+        The folder path to the file on the web server.
+        """
+        relative_url: pulumi.Input[str]
+        """
+        The base URL to the web server hosting the file.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+elif False:
+    DatasetJsonHttpServerLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetJsonHttpServerLocationArgs:
     def __init__(__self__, *,
@@ -2105,6 +2826,23 @@ class DatasetJsonHttpServerLocationArgs:
         pulumi.set(self, "dynamic_path_enabled", value)
 
 
+if not MYPY:
+    class DatasetJsonSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetJsonSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetJsonSchemaColumnArgs:
     def __init__(__self__, *,
@@ -2159,6 +2897,23 @@ class DatasetJsonSchemaColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DatasetMysqlSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetMysqlSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetMysqlSchemaColumnArgs:
     def __init__(__self__, *,
@@ -2212,6 +2967,35 @@ class DatasetMysqlSchemaColumnArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DatasetParquetAzureBlobFsLocationArgsDict(TypedDict):
+        dynamic_file_system_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `file_system` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        file_system: NotRequired[pulumi.Input[str]]
+        """
+        The container on the Azure Data Lake Storage Account hosting the file.
+        """
+        filename: NotRequired[pulumi.Input[str]]
+        """
+        The filename of the file on the Azure Data Lake Storage Account.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The folder path to the file on the Azure Data Lake Storage Account.
+        """
+elif False:
+    DatasetParquetAzureBlobFsLocationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetParquetAzureBlobFsLocationArgs:
@@ -2316,6 +3100,35 @@ class DatasetParquetAzureBlobFsLocationArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class DatasetParquetAzureBlobStorageLocationArgsDict(TypedDict):
+        container: pulumi.Input[str]
+        """
+        The container on the Azure Blob Storage Account hosting the file.
+        """
+        dynamic_container_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        filename: NotRequired[pulumi.Input[str]]
+        """
+        The filename of the file on the Azure Blob Storage Account.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The folder path to the file on the Azure Blob Storage Account.
+        """
+elif False:
+    DatasetParquetAzureBlobStorageLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetParquetAzureBlobStorageLocationArgs:
     def __init__(__self__, *,
@@ -2418,6 +3231,31 @@ class DatasetParquetAzureBlobStorageLocationArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class DatasetParquetHttpServerLocationArgsDict(TypedDict):
+        filename: pulumi.Input[str]
+        """
+        The filename of the file on the web server.
+        """
+        relative_url: pulumi.Input[str]
+        """
+        The base URL to the web server hosting the file.
+        """
+        dynamic_filename_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        dynamic_path_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The folder path to the file on the web server.
+        """
+elif False:
+    DatasetParquetHttpServerLocationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetParquetHttpServerLocationArgs:
     def __init__(__self__, *,
@@ -2503,6 +3341,23 @@ class DatasetParquetHttpServerLocationArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class DatasetParquetSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetParquetSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetParquetSchemaColumnArgs:
     def __init__(__self__, *,
@@ -2557,6 +3412,23 @@ class DatasetParquetSchemaColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DatasetPostgresqlSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetPostgresqlSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetPostgresqlSchemaColumnArgs:
     def __init__(__self__, *,
@@ -2610,6 +3482,27 @@ class DatasetPostgresqlSchemaColumnArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DatasetSnowflakeSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        precision: NotRequired[pulumi.Input[int]]
+        """
+        The total number of digits allowed.
+        """
+        scale: NotRequired[pulumi.Input[int]]
+        """
+        The number of digits allowed to the right of the decimal point.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetSnowflakeSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatasetSnowflakeSchemaColumnArgs:
@@ -2681,6 +3574,23 @@ class DatasetSnowflakeSchemaColumnArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class DatasetSqlServerTableSchemaColumnArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the column.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the column.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
+        """
+elif False:
+    DatasetSqlServerTableSchemaColumnArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatasetSqlServerTableSchemaColumnArgs:
     def __init__(__self__, *,
@@ -2734,6 +3644,37 @@ class DatasetSqlServerTableSchemaColumnArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class FactoryGithubConfigurationArgsDict(TypedDict):
+        account_name: pulumi.Input[str]
+        """
+        Specifies the GitHub account name.
+        """
+        branch_name: pulumi.Input[str]
+        """
+        Specifies the branch of the repository to get code from.
+        """
+        repository_name: pulumi.Input[str]
+        """
+        Specifies the name of the git repository.
+        """
+        root_folder: pulumi.Input[str]
+        """
+        Specifies the root folder within the repository. Set to `/` for the top level.
+        """
+        git_url: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+        """
+        publishing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is automated publishing enabled? Defaults to `true`.
+
+        > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
+        """
+elif False:
+    FactoryGithubConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FactoryGithubConfigurationArgs:
@@ -2838,6 +3779,25 @@ class FactoryGithubConfigurationArgs:
         pulumi.set(self, "publishing_enabled", value)
 
 
+if not MYPY:
+    class FactoryGlobalParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the global parameter name.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
+        """
+        value: pulumi.Input[str]
+        """
+        Specifies the global parameter value.
+
+        > **Note:** For type `Array` and `Object` it is recommended to use `jsonencode()` for the value
+        """
+elif False:
+    FactoryGlobalParameterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FactoryGlobalParameterArgs:
     def __init__(__self__, *,
@@ -2893,6 +3853,29 @@ class FactoryGlobalParameterArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class FactoryIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    FactoryIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FactoryIdentityArgs:
@@ -2967,6 +3950,39 @@ class FactoryIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class FactoryVstsConfigurationArgsDict(TypedDict):
+        account_name: pulumi.Input[str]
+        """
+        Specifies the VSTS account name.
+        """
+        branch_name: pulumi.Input[str]
+        """
+        Specifies the branch of the repository to get code from.
+        """
+        project_name: pulumi.Input[str]
+        """
+        Specifies the name of the VSTS project.
+        """
+        repository_name: pulumi.Input[str]
+        """
+        Specifies the name of the git repository.
+        """
+        root_folder: pulumi.Input[str]
+        """
+        Specifies the root folder within the repository. Set to `/` for the top level.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        Specifies the Tenant ID associated with the VSTS account.
+        """
+        publishing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is automated publishing enabled? Defaults to `true`.
+        """
+elif False:
+    FactoryVstsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FactoryVstsConfigurationArgs:
@@ -3080,6 +4096,39 @@ class FactoryVstsConfigurationArgs:
     def publishing_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "publishing_enabled", value)
 
+
+if not MYPY:
+    class FlowletDataFlowSinkArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Flow Source.
+        """
+        dataset: NotRequired[pulumi.Input['FlowletDataFlowSinkDatasetArgsDict']]
+        """
+        A `dataset` block as defined below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the Data Flow Source.
+        """
+        flowlet: NotRequired[pulumi.Input['FlowletDataFlowSinkFlowletArgsDict']]
+        """
+        A `flowlet` block as defined below.
+        """
+        linked_service: NotRequired[pulumi.Input['FlowletDataFlowSinkLinkedServiceArgsDict']]
+        """
+        A `linked_service` block as defined below.
+        """
+        rejected_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSinkRejectedLinkedServiceArgsDict']]
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        schema_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSinkSchemaLinkedServiceArgsDict']]
+        """
+        A `schema_linked_service` block as defined below.
+        """
+elif False:
+    FlowletDataFlowSinkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowSinkArgs:
@@ -3199,6 +4248,19 @@ class FlowletDataFlowSinkArgs:
         pulumi.set(self, "schema_linked_service", value)
 
 
+if not MYPY:
+    class FlowletDataFlowSinkDatasetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+elif False:
+    FlowletDataFlowSinkDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowSinkDatasetArgs:
     def __init__(__self__, *,
@@ -3236,6 +4298,23 @@ class FlowletDataFlowSinkDatasetArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class FlowletDataFlowSinkFlowletArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Flowlet.
+        """
+        dataset_parameters: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+elif False:
+    FlowletDataFlowSinkFlowletArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowSinkFlowletArgs:
@@ -3291,6 +4370,19 @@ class FlowletDataFlowSinkFlowletArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class FlowletDataFlowSinkLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    FlowletDataFlowSinkLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowSinkLinkedServiceArgs:
     def __init__(__self__, *,
@@ -3328,6 +4420,19 @@ class FlowletDataFlowSinkLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class FlowletDataFlowSinkRejectedLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    FlowletDataFlowSinkRejectedLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowSinkRejectedLinkedServiceArgs:
@@ -3367,6 +4472,19 @@ class FlowletDataFlowSinkRejectedLinkedServiceArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class FlowletDataFlowSinkSchemaLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    FlowletDataFlowSinkSchemaLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowSinkSchemaLinkedServiceArgs:
     def __init__(__self__, *,
@@ -3404,6 +4522,39 @@ class FlowletDataFlowSinkSchemaLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class FlowletDataFlowSourceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Flow Source.
+        """
+        dataset: NotRequired[pulumi.Input['FlowletDataFlowSourceDatasetArgsDict']]
+        """
+        A `dataset` block as defined below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the Data Flow Source.
+        """
+        flowlet: NotRequired[pulumi.Input['FlowletDataFlowSourceFlowletArgsDict']]
+        """
+        A `flowlet` block as defined below.
+        """
+        linked_service: NotRequired[pulumi.Input['FlowletDataFlowSourceLinkedServiceArgsDict']]
+        """
+        A `linked_service` block as defined below.
+        """
+        rejected_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSourceRejectedLinkedServiceArgsDict']]
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        schema_linked_service: NotRequired[pulumi.Input['FlowletDataFlowSourceSchemaLinkedServiceArgsDict']]
+        """
+        A `schema_linked_service` block as defined below.
+        """
+elif False:
+    FlowletDataFlowSourceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowSourceArgs:
@@ -3523,6 +4674,19 @@ class FlowletDataFlowSourceArgs:
         pulumi.set(self, "schema_linked_service", value)
 
 
+if not MYPY:
+    class FlowletDataFlowSourceDatasetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+elif False:
+    FlowletDataFlowSourceDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowSourceDatasetArgs:
     def __init__(__self__, *,
@@ -3560,6 +4724,23 @@ class FlowletDataFlowSourceDatasetArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class FlowletDataFlowSourceFlowletArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Flowlet.
+        """
+        dataset_parameters: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+elif False:
+    FlowletDataFlowSourceFlowletArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowSourceFlowletArgs:
@@ -3615,6 +4796,19 @@ class FlowletDataFlowSourceFlowletArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class FlowletDataFlowSourceLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    FlowletDataFlowSourceLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowSourceLinkedServiceArgs:
     def __init__(__self__, *,
@@ -3652,6 +4846,19 @@ class FlowletDataFlowSourceLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class FlowletDataFlowSourceRejectedLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    FlowletDataFlowSourceRejectedLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowSourceRejectedLinkedServiceArgs:
@@ -3691,6 +4898,19 @@ class FlowletDataFlowSourceRejectedLinkedServiceArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class FlowletDataFlowSourceSchemaLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    FlowletDataFlowSourceSchemaLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowSourceSchemaLinkedServiceArgs:
     def __init__(__self__, *,
@@ -3728,6 +4948,31 @@ class FlowletDataFlowSourceSchemaLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class FlowletDataFlowTransformationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Flow transformation.
+        """
+        dataset: NotRequired[pulumi.Input['FlowletDataFlowTransformationDatasetArgsDict']]
+        """
+        A `dataset` block as defined below.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description for the Data Flow transformation.
+        """
+        flowlet: NotRequired[pulumi.Input['FlowletDataFlowTransformationFlowletArgsDict']]
+        """
+        A `flowlet` block as defined below.
+        """
+        linked_service: NotRequired[pulumi.Input['FlowletDataFlowTransformationLinkedServiceArgsDict']]
+        """
+        A `linked_service` block as defined below.
+        """
+elif False:
+    FlowletDataFlowTransformationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowTransformationArgs:
@@ -3815,6 +5060,19 @@ class FlowletDataFlowTransformationArgs:
         pulumi.set(self, "linked_service", value)
 
 
+if not MYPY:
+    class FlowletDataFlowTransformationDatasetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+elif False:
+    FlowletDataFlowTransformationDatasetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowTransformationDatasetArgs:
     def __init__(__self__, *,
@@ -3852,6 +5110,23 @@ class FlowletDataFlowTransformationDatasetArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class FlowletDataFlowTransformationFlowletArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Flowlet.
+        """
+        dataset_parameters: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the reference data flow parameters from dataset.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+elif False:
+    FlowletDataFlowTransformationFlowletArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowletDataFlowTransformationFlowletArgs:
@@ -3907,6 +5182,19 @@ class FlowletDataFlowTransformationFlowletArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class FlowletDataFlowTransformationLinkedServiceArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name for the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+elif False:
+    FlowletDataFlowTransformationLinkedServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FlowletDataFlowTransformationLinkedServiceArgs:
     def __init__(__self__, *,
@@ -3944,6 +5232,27 @@ class FlowletDataFlowTransformationLinkedServiceArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeManagedCatalogInfoArgsDict(TypedDict):
+        server_endpoint: pulumi.Input[str]
+        """
+        The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+        """
+        administrator_login: NotRequired[pulumi.Input[str]]
+        """
+        Administrator login name for the SQL Server.
+        """
+        administrator_password: NotRequired[pulumi.Input[str]]
+        """
+        Administrator login password for the SQL Server.
+        """
+        pricing_tier: NotRequired[pulumi.Input[str]]
+        """
+        Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `Standard`, `Premium` and `PremiumRS`. Defaults to `Basic`.
+        """
+elif False:
+    IntegrationRuntimeManagedCatalogInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeManagedCatalogInfoArgs:
@@ -4015,6 +5324,19 @@ class IntegrationRuntimeManagedCatalogInfoArgs:
         pulumi.set(self, "pricing_tier", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeManagedCustomSetupScriptArgsDict(TypedDict):
+        blob_container_uri: pulumi.Input[str]
+        """
+        The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        """
+        sas_token: pulumi.Input[str]
+        """
+        A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        """
+elif False:
+    IntegrationRuntimeManagedCustomSetupScriptArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeManagedCustomSetupScriptArgs:
     def __init__(__self__, *,
@@ -4051,6 +5373,19 @@ class IntegrationRuntimeManagedCustomSetupScriptArgs:
     def sas_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "sas_token", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeManagedVnetIntegrationArgsDict(TypedDict):
+        subnet_name: pulumi.Input[str]
+        """
+        Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
+        """
+        vnet_id: pulumi.Input[str]
+        """
+        ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+        """
+elif False:
+    IntegrationRuntimeManagedVnetIntegrationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeManagedVnetIntegrationArgs:
@@ -4089,6 +5424,19 @@ class IntegrationRuntimeManagedVnetIntegrationArgs:
         pulumi.set(self, "vnet_id", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict(TypedDict):
+        resource_id: pulumi.Input[str]
+        """
+        The resource identifier of the integration runtime to be shared.
+
+        > **Please Note**: RBAC Authorization creates a [linked Self-hosted Integration Runtime targeting the Shared Self-hosted Integration Runtime in resource_id](https://docs.microsoft.com/azure/data-factory/create-shared-self-hosted-integration-runtime-powershell#share-the-self-hosted-integration-runtime-with-another-data-factory). The linked Self-hosted Integration Runtime needs Contributor access granted to the Shared Self-hosted Data Factory.
+
+        For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
+        """
+elif False:
+    IntegrationRuntimeSelfHostedRbacAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
     def __init__(__self__, *,
@@ -4118,6 +5466,35 @@ class IntegrationRuntimeSelfHostedRbacAuthorizationArgs:
     def resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_id", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeSsisCatalogInfoArgsDict(TypedDict):
+        server_endpoint: pulumi.Input[str]
+        """
+        The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+        """
+        administrator_login: NotRequired[pulumi.Input[str]]
+        """
+        Administrator login name for the SQL Server.
+        """
+        administrator_password: NotRequired[pulumi.Input[str]]
+        """
+        Administrator login password for the SQL Server.
+        """
+        dual_standby_pair_name: NotRequired[pulumi.Input[str]]
+        """
+        The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover.
+        """
+        elastic_pool_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of SQL elastic pool where the database will be created for the SSIS catalog. Mutually exclusive with `pricing_tier`.
+        """
+        pricing_tier: NotRequired[pulumi.Input[str]]
+        """
+        Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `S0`, `S1`, `S2`, `S3`, `S4`, `S6`, `S7`, `S9`, `S12`, `P1`, `P2`, `P4`, `P6`, `P11`, `P15`, `GP_S_Gen5_1`, `GP_S_Gen5_2`, `GP_S_Gen5_4`, `GP_S_Gen5_6`, `GP_S_Gen5_8`, `GP_S_Gen5_10`, `GP_S_Gen5_12`, `GP_S_Gen5_14`, `GP_S_Gen5_16`, `GP_S_Gen5_18`, `GP_S_Gen5_20`, `GP_S_Gen5_24`, `GP_S_Gen5_32`, `GP_S_Gen5_40`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_6`, `GP_Gen5_8`, `GP_Gen5_10`, `GP_Gen5_12`, `GP_Gen5_14`, `GP_Gen5_16`, `GP_Gen5_18`, `GP_Gen5_20`, `GP_Gen5_24`, `GP_Gen5_32`, `GP_Gen5_40`, `GP_Gen5_80`, `BC_Gen5_2`, `BC_Gen5_4`, `BC_Gen5_6`, `BC_Gen5_8`, `BC_Gen5_10`, `BC_Gen5_12`, `BC_Gen5_14`, `BC_Gen5_16`, `BC_Gen5_18`, `BC_Gen5_20`, `BC_Gen5_24`, `BC_Gen5_32`, `BC_Gen5_40`, `BC_Gen5_80`, `HS_Gen5_2`, `HS_Gen5_4`, `HS_Gen5_6`, `HS_Gen5_8`, `HS_Gen5_10`, `HS_Gen5_12`, `HS_Gen5_14`, `HS_Gen5_16`, `HS_Gen5_18`, `HS_Gen5_20`, `HS_Gen5_24`, `HS_Gen5_32`, `HS_Gen5_40` and `HS_Gen5_80`. Mutually exclusive with `elastic_pool_name`.
+        """
+elif False:
+    IntegrationRuntimeSsisCatalogInfoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeSsisCatalogInfoArgs:
@@ -4221,6 +5598,19 @@ class IntegrationRuntimeSsisCatalogInfoArgs:
         pulumi.set(self, "pricing_tier", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSsisCopyComputeScaleArgsDict(TypedDict):
+        data_integration_unit: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the data integration unit number setting reserved for copy activity execution. Supported values are multiples of `4` in range 4-256.
+        """
+        time_to_live: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+        """
+elif False:
+    IntegrationRuntimeSsisCopyComputeScaleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSsisCopyComputeScaleArgs:
     def __init__(__self__, *,
@@ -4260,6 +5650,19 @@ class IntegrationRuntimeSsisCopyComputeScaleArgs:
         pulumi.set(self, "time_to_live", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSsisCustomSetupScriptArgsDict(TypedDict):
+        blob_container_uri: pulumi.Input[str]
+        """
+        The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        """
+        sas_token: pulumi.Input[str]
+        """
+        A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+        """
+elif False:
+    IntegrationRuntimeSsisCustomSetupScriptArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSsisCustomSetupScriptArgs:
     def __init__(__self__, *,
@@ -4296,6 +5699,29 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
     def sas_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "sas_token", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeSsisExpressCustomSetupArgsDict(TypedDict):
+        command_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict']]]]
+        """
+        One or more `command_key` blocks as defined below.
+        """
+        components: NotRequired[pulumi.Input[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict']]]]
+        """
+        One or more `component` blocks as defined below.
+        """
+        environment: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The Environment Variables for the Azure-SSIS Integration Runtime.
+        """
+        powershell_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
+
+        > **NOTE** At least one of `env`, `powershell_version`, `component` and `command_key` should be specified.
+        """
+elif False:
+    IntegrationRuntimeSsisExpressCustomSetupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeSsisExpressCustomSetupArgs:
@@ -4372,6 +5798,27 @@ class IntegrationRuntimeSsisExpressCustomSetupArgs:
         pulumi.set(self, "powershell_version", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict(TypedDict):
+        target_name: pulumi.Input[str]
+        """
+        The target computer or domain name.
+        """
+        user_name: pulumi.Input[str]
+        """
+        The username for the target device.
+        """
+        key_vault_password: NotRequired[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgsDict']]
+        """
+        A `key_vault_secret_reference` block as defined below.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password for the target device.
+        """
+elif False:
+    IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
     def __init__(__self__, *,
@@ -4441,6 +5888,15 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs:
         pulumi.set(self, "password", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        secret_name: pulumi.Input[str]
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        secret_version: NotRequired[pulumi.Input[str]]
+elif False:
+    IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
     def __init__(__self__, *,
@@ -4491,6 +5947,23 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs:
     def secret_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_version", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The Component Name installed for the Azure-SSIS Integration Runtime.
+        """
+        key_vault_license: NotRequired[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgsDict']]
+        """
+        A `key_vault_secret_reference` block as defined below.
+        """
+        license: NotRequired[pulumi.Input[str]]
+        """
+        The license used for the Component.
+        """
+elif False:
+    IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
@@ -4546,6 +6019,15 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgs:
         pulumi.set(self, "license", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        secret_name: pulumi.Input[str]
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        secret_version: NotRequired[pulumi.Input[str]]
+elif False:
+    IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
     def __init__(__self__, *,
@@ -4597,6 +6079,15 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs:
         pulumi.set(self, "secret_version", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSsisExpressVnetIntegrationArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+elif False:
+    IntegrationRuntimeSsisExpressVnetIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSsisExpressVnetIntegrationArgs:
     def __init__(__self__, *,
@@ -4618,6 +6109,19 @@ class IntegrationRuntimeSsisExpressVnetIntegrationArgs:
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeSsisPackageStoreArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Name of the Linked Service to associate with the packages.
+        """
+        name: pulumi.Input[str]
+        """
+        Name of the package store.
+        """
+elif False:
+    IntegrationRuntimeSsisPackageStoreArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeSsisPackageStoreArgs:
@@ -4655,6 +6159,23 @@ class IntegrationRuntimeSsisPackageStoreArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict(TypedDict):
+        number_of_external_nodes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of the external nodes, which should be greater than `0` and less than `11`.
+        """
+        number_of_pipeline_nodes: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of the pipeline nodes, which should be greater than `0` and less than `11`.
+        """
+        time_to_live: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the time to live (in minutes) setting of integration runtime which will execute copy activity. Possible values are at least `5`.
+        """
+elif False:
+    IntegrationRuntimeSsisPipelineExternalComputeScaleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeSsisPipelineExternalComputeScaleArgs:
@@ -4711,6 +6232,23 @@ class IntegrationRuntimeSsisPipelineExternalComputeScaleArgs:
         pulumi.set(self, "time_to_live", value)
 
 
+if not MYPY:
+    class IntegrationRuntimeSsisProxyArgsDict(TypedDict):
+        self_hosted_integration_runtime_name: pulumi.Input[str]
+        """
+        Name of Self Hosted Integration Runtime as a proxy.
+        """
+        staging_storage_linked_service_name: pulumi.Input[str]
+        """
+        Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
+        """
+elif False:
+    IntegrationRuntimeSsisProxyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IntegrationRuntimeSsisProxyArgs:
     def __init__(__self__, *,
@@ -4763,6 +6301,29 @@ class IntegrationRuntimeSsisProxyArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class IntegrationRuntimeSsisVnetIntegrationArgsDict(TypedDict):
+        public_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
+        """
+        subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+
+        > **NOTE** Only one of `subnet_id` and `subnet_name` can be specified. If `subnet_name` is specified, `vnet_id` must be provided.
+        """
+        subnet_name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        vnet_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+elif False:
+    IntegrationRuntimeSsisVnetIntegrationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IntegrationRuntimeSsisVnetIntegrationArgs:
@@ -4839,6 +6400,19 @@ class IntegrationRuntimeSsisVnetIntegrationArgs:
         pulumi.set(self, "vnet_id", value)
 
 
+if not MYPY:
+    class LinkedCustomServiceIntegrationRuntimeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The integration runtime reference to associate with the Data Factory Linked Service.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of parameters to associate with the integration runtime.
+        """
+elif False:
+    LinkedCustomServiceIntegrationRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedCustomServiceIntegrationRuntimeArgs:
     def __init__(__self__, *,
@@ -4877,6 +6451,19 @@ class LinkedCustomServiceIntegrationRuntimeArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores the SAS token.
+        """
+elif False:
+    LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
     def __init__(__self__, *,
@@ -4914,6 +6501,19 @@ class LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs:
         pulumi.set(self, "secret_name", value)
 
 
+if not MYPY:
+    class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores the Service Principal key.
+        """
+elif False:
+    LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs:
     def __init__(__self__, *,
@@ -4950,6 +6550,27 @@ class LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs:
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
 
+
+if not MYPY:
+    class LinkedServiceAzureDatabricksInstancePoolArgsDict(TypedDict):
+        cluster_version: pulumi.Input[str]
+        """
+        Spark version of a the cluster.
+        """
+        instance_pool_id: pulumi.Input[str]
+        """
+        Identifier of the instance pool within the linked ADB instance.
+        """
+        max_number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
+        """
+        min_number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of worker nodes. Defaults to `1`.
+        """
+elif False:
+    LinkedServiceAzureDatabricksInstancePoolArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedServiceAzureDatabricksInstancePoolArgs:
@@ -5020,6 +6641,19 @@ class LinkedServiceAzureDatabricksInstancePoolArgs:
         pulumi.set(self, "min_number_of_workers", value)
 
 
+if not MYPY:
+    class LinkedServiceAzureDatabricksKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores ADB access token.
+        """
+elif False:
+    LinkedServiceAzureDatabricksKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceAzureDatabricksKeyVaultPasswordArgs:
     def __init__(__self__, *,
@@ -5056,6 +6690,51 @@ class LinkedServiceAzureDatabricksKeyVaultPasswordArgs:
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
 
+
+if not MYPY:
+    class LinkedServiceAzureDatabricksNewClusterConfigArgsDict(TypedDict):
+        cluster_version: pulumi.Input[str]
+        """
+        Spark version of a the cluster.
+        """
+        node_type: pulumi.Input[str]
+        """
+        Node type for the new cluster.
+        """
+        custom_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Tags for the cluster resource.
+        """
+        driver_node_type: NotRequired[pulumi.Input[str]]
+        """
+        Driver node type for the cluster.
+        """
+        init_scripts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        User defined initialization scripts for the cluster.
+        """
+        log_destination: NotRequired[pulumi.Input[str]]
+        """
+        Location to deliver Spark driver, worker, and event logs.
+        """
+        max_number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum number of worker nodes. It should be between 1 and 25000.
+        """
+        min_number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the minimum number of worker nodes. It should be between 1 and 25000. It defaults to `1`.
+        """
+        spark_config: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        User-specified Spark configuration variables key-value pairs.
+        """
+        spark_environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        User-specified Spark environment variables key-value pairs.
+        """
+elif False:
+    LinkedServiceAzureDatabricksNewClusterConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedServiceAzureDatabricksNewClusterConfigArgs:
@@ -5222,6 +6901,19 @@ class LinkedServiceAzureDatabricksNewClusterConfigArgs:
         pulumi.set(self, "spark_environment_variables", value)
 
 
+if not MYPY:
+    class LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+        """
+elif False:
+    LinkedServiceAzureFileStorageKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceAzureFileStorageKeyVaultPasswordArgs:
     def __init__(__self__, *,
@@ -5258,6 +6950,19 @@ class LinkedServiceAzureFileStorageKeyVaultPasswordArgs:
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
 
+
+if not MYPY:
+    class LinkedServiceAzureFunctionKeyVaultKeyArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function.
+        """
+elif False:
+    LinkedServiceAzureFunctionKeyVaultKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedServiceAzureFunctionKeyVaultKeyArgs:
@@ -5296,6 +7001,19 @@ class LinkedServiceAzureFunctionKeyVaultKeyArgs:
         pulumi.set(self, "secret_name", value)
 
 
+if not MYPY:
+    class LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+        """
+elif False:
+    LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs:
     def __init__(__self__, *,
@@ -5332,6 +7050,19 @@ class LinkedServiceAzureSqlDatabaseKeyVaultConnectionStringArgs:
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
 
+
+if not MYPY:
+    class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server password.
+        """
+elif False:
+    LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs:
@@ -5370,6 +7101,19 @@ class LinkedServiceAzureSqlDatabaseKeyVaultPasswordArgs:
         pulumi.set(self, "secret_name", value)
 
 
+if not MYPY:
+    class LinkedServiceOdataBasicAuthenticationArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password associated with the username, which can be used to authenticate to the OData endpoint.
+        """
+        username: pulumi.Input[str]
+        """
+        The username which can be used to authenticate to the OData endpoint.
+        """
+elif False:
+    LinkedServiceOdataBasicAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceOdataBasicAuthenticationArgs:
     def __init__(__self__, *,
@@ -5406,6 +7150,19 @@ class LinkedServiceOdataBasicAuthenticationArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class LinkedServiceOdbcBasicAuthenticationArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password associated with the username, which can be used to authenticate to the ODBC endpoint.
+        """
+        username: pulumi.Input[str]
+        """
+        The username which can be used to authenticate to the ODBC endpoint.
+        """
+elif False:
+    LinkedServiceOdbcBasicAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedServiceOdbcBasicAuthenticationArgs:
@@ -5444,6 +7201,19 @@ class LinkedServiceOdbcBasicAuthenticationArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class LinkedServiceSnowflakeKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores Snowflake password.
+        """
+elif False:
+    LinkedServiceSnowflakeKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceSnowflakeKeyVaultPasswordArgs:
     def __init__(__self__, *,
@@ -5480,6 +7250,19 @@ class LinkedServiceSnowflakeKeyVaultPasswordArgs:
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
 
+
+if not MYPY:
+    class LinkedServiceSqlServerKeyVaultConnectionStringArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server connection string.
+        """
+elif False:
+    LinkedServiceSqlServerKeyVaultConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkedServiceSqlServerKeyVaultConnectionStringArgs:
@@ -5518,6 +7301,19 @@ class LinkedServiceSqlServerKeyVaultConnectionStringArgs:
         pulumi.set(self, "secret_name", value)
 
 
+if not MYPY:
+    class LinkedServiceSqlServerKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores SQL Server password.
+        """
+elif False:
+    LinkedServiceSqlServerKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceSqlServerKeyVaultPasswordArgs:
     def __init__(__self__, *,
@@ -5555,6 +7351,19 @@ class LinkedServiceSqlServerKeyVaultPasswordArgs:
         pulumi.set(self, "secret_name", value)
 
 
+if not MYPY:
+    class LinkedServiceSynapseKeyVaultPasswordArgsDict(TypedDict):
+        linked_service_name: pulumi.Input[str]
+        """
+        Specifies the name of an existing Key Vault Data Factory Linked Service.
+        """
+        secret_name: pulumi.Input[str]
+        """
+        Specifies the secret name in Azure Key Vault that stores Synapse password.
+        """
+elif False:
+    LinkedServiceSynapseKeyVaultPasswordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinkedServiceSynapseKeyVaultPasswordArgs:
     def __init__(__self__, *,
@@ -5591,6 +7400,19 @@ class LinkedServiceSynapseKeyVaultPasswordArgs:
     def secret_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_name", value)
 
+
+if not MYPY:
+    class TriggerBlobEventPipelineArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
+elif False:
+    TriggerBlobEventPipelineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerBlobEventPipelineArgs:
@@ -5630,6 +7452,19 @@ class TriggerBlobEventPipelineArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class TriggerCustomEventPipelineArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
+elif False:
+    TriggerCustomEventPipelineArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TriggerCustomEventPipelineArgs:
     def __init__(__self__, *,
@@ -5668,6 +7503,19 @@ class TriggerCustomEventPipelineArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class TriggerSchedulePipelineArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Reference pipeline name.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The pipeline parameters that the trigger will act upon.
+        """
+elif False:
+    TriggerSchedulePipelineArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TriggerSchedulePipelineArgs:
     def __init__(__self__, *,
@@ -5705,6 +7553,31 @@ class TriggerSchedulePipelineArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class TriggerScheduleScheduleArgsDict(TypedDict):
+        days_of_months: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
+        """
+        days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
+        """
+        hours: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Hours of the day on which the trigger is scheduled.
+        """
+        minutes: NotRequired[pulumi.Input[Sequence[pulumi.Input[int]]]]
+        """
+        Minutes of the hour on which the trigger is scheduled.
+        """
+        monthlies: NotRequired[pulumi.Input[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgsDict']]]]
+        """
+        A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+        """
+elif False:
+    TriggerScheduleScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerScheduleScheduleArgs:
@@ -5793,6 +7666,19 @@ class TriggerScheduleScheduleArgs:
         pulumi.set(self, "monthlies", value)
 
 
+if not MYPY:
+    class TriggerScheduleScheduleMonthlyArgsDict(TypedDict):
+        weekday: pulumi.Input[str]
+        """
+        The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
+        """
+        week: NotRequired[pulumi.Input[int]]
+        """
+        The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
+        """
+elif False:
+    TriggerScheduleScheduleMonthlyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TriggerScheduleScheduleMonthlyArgs:
     def __init__(__self__, *,
@@ -5830,6 +7716,19 @@ class TriggerScheduleScheduleMonthlyArgs:
     def week(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "week", value)
 
+
+if not MYPY:
+    class TriggerTumblingWindowPipelineArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The Data Factory Pipeline name that the trigger will act on.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The Data Factory Pipeline parameters that the trigger will act on.
+        """
+elif False:
+    TriggerTumblingWindowPipelineArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerTumblingWindowPipelineArgs:
@@ -5869,6 +7768,19 @@ class TriggerTumblingWindowPipelineArgs:
         pulumi.set(self, "parameters", value)
 
 
+if not MYPY:
+    class TriggerTumblingWindowRetryArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The maximum retry attempts if the pipeline run failed.
+        """
+        interval: NotRequired[pulumi.Input[int]]
+        """
+        The Interval in seconds between each retry if the pipeline run failed. Defaults to `30`.
+        """
+elif False:
+    TriggerTumblingWindowRetryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TriggerTumblingWindowRetryArgs:
     def __init__(__self__, *,
@@ -5906,6 +7818,23 @@ class TriggerTumblingWindowRetryArgs:
     def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
+
+if not MYPY:
+    class TriggerTumblingWindowTriggerDependencyArgsDict(TypedDict):
+        offset: NotRequired[pulumi.Input[str]]
+        """
+        The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
+        """
+        size: NotRequired[pulumi.Input[str]]
+        """
+        The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
+        """
+        trigger_name: NotRequired[pulumi.Input[str]]
+        """
+        The dependency trigger name. If not specified, it will use self dependency.
+        """
+elif False:
+    TriggerTumblingWindowTriggerDependencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TriggerTumblingWindowTriggerDependencyArgs:

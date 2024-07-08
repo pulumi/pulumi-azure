@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SecretArgs', 'Secret']
@@ -354,21 +359,21 @@ class Secret(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": [
                     "Create",
                     "Get",
                 ],
-                secret_permissions=[
+                "secretPermissions": [
                     "Set",
                     "Get",
                     "Delete",
                     "Purge",
                     "Recover",
                 ],
-            )])
+            }])
         example_secret = azure.keyvault.Secret("example",
             name="secret-sauce",
             value="szechuan",
@@ -421,21 +426,21 @@ class Secret(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=current.tenant_id,
-                object_id=current.object_id,
-                key_permissions=[
+            access_policies=[{
+                "tenantId": current.tenant_id,
+                "objectId": current.object_id,
+                "keyPermissions": [
                     "Create",
                     "Get",
                 ],
-                secret_permissions=[
+                "secretPermissions": [
                     "Set",
                     "Get",
                     "Delete",
                     "Purge",
                     "Recover",
                 ],
-            )])
+            }])
         example_secret = azure.keyvault.Secret("example",
             name="secret-sauce",
             value="szechuan",

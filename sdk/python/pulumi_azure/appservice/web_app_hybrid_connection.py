@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['WebAppHybridConnectionArgs', 'WebAppHybridConnection']
@@ -306,7 +311,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("example",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
@@ -368,7 +373,7 @@ class WebAppHybridConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config={})
         example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("example",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,

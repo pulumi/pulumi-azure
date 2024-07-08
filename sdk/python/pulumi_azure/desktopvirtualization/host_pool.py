@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -606,7 +611,7 @@ class HostPool(pulumi.CustomResource):
                  preferred_app_group_type: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scheduled_agent_updates: Optional[pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']]] = None,
+                 scheduled_agent_updates: Optional[pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -637,13 +642,13 @@ class HostPool(pulumi.CustomResource):
             type="Pooled",
             maximum_sessions_allowed=50,
             load_balancer_type="DepthFirst",
-            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
-                enabled=True,
-                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
-                    day_of_week="Saturday",
-                    hour_of_day=2,
-                )],
-            ))
+            scheduled_agent_updates={
+                "enabled": True,
+                "schedules": [{
+                    "dayOfWeek": "Saturday",
+                    "hourOfDay": 2,
+                }],
+            })
         ```
 
         ## Import
@@ -674,7 +679,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        :param pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
@@ -711,13 +716,13 @@ class HostPool(pulumi.CustomResource):
             type="Pooled",
             maximum_sessions_allowed=50,
             load_balancer_type="DepthFirst",
-            scheduled_agent_updates=azure.desktopvirtualization.HostPoolScheduledAgentUpdatesArgs(
-                enabled=True,
-                schedules=[azure.desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs(
-                    day_of_week="Saturday",
-                    hour_of_day=2,
-                )],
-            ))
+            scheduled_agent_updates={
+                "enabled": True,
+                "schedules": [{
+                    "dayOfWeek": "Saturday",
+                    "hourOfDay": 2,
+                }],
+            })
         ```
 
         ## Import
@@ -756,7 +761,7 @@ class HostPool(pulumi.CustomResource):
                  preferred_app_group_type: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scheduled_agent_updates: Optional[pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']]] = None,
+                 scheduled_agent_updates: Optional[pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -815,7 +820,7 @@ class HostPool(pulumi.CustomResource):
             preferred_app_group_type: Optional[pulumi.Input[str]] = None,
             public_network_access: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            scheduled_agent_updates: Optional[pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']]] = None,
+            scheduled_agent_updates: Optional[pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']]] = None,
             start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
@@ -844,7 +849,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_app_group_type: Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`.
         :param pulumi.Input[str] public_network_access: Whether public network access is allowed for the Virtual Desktop Host Pool. Possible values are `Enabled`, `Disabled`, `EnabledForClientsOnly` and `EnabledForSessionHostsOnly`. Defaults to `Enabled`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Virtual Desktop Host Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['HostPoolScheduledAgentUpdatesArgs']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        :param pulumi.Input[Union['HostPoolScheduledAgentUpdatesArgs', 'HostPoolScheduledAgentUpdatesArgsDict']] scheduled_agent_updates: A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.

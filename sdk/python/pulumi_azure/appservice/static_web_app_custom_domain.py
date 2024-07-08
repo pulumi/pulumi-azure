@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['StaticWebAppCustomDomainArgs', 'StaticWebAppCustomDomain']
@@ -187,9 +192,9 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             zone_name="contoso.com",
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_static_web_app_custom_domain.validation_token,
-            )])
+            records=[{
+                "value": example_static_web_app_custom_domain.validation_token,
+            }])
         ```
 
         ## Import
@@ -261,9 +266,9 @@ class StaticWebAppCustomDomain(pulumi.CustomResource):
             zone_name="contoso.com",
             resource_group_name=example.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_static_web_app_custom_domain.validation_token,
-            )])
+            records=[{
+                "value": example_static_web_app_custom_domain.validation_token,
+            }])
         ```
 
         ## Import

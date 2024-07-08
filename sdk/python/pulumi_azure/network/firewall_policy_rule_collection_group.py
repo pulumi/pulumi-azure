@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -224,11 +229,11 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]] = None,
+                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]] = None,
+                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
+                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -251,67 +256,67 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             name="example-fwpolicy-rcg",
             firewall_policy_id=example_firewall_policy.id,
             priority=500,
-            application_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs(
-                name="app_rule_collection1",
-                priority=500,
-                action="Deny",
-                rules=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs(
-                    name="app_rule_collection1_rule1",
-                    protocols=[
-                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
-                            type="Http",
-                            port=80,
-                        ),
-                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
-                            type="Https",
-                            port=443,
-                        ),
+            application_rule_collections=[{
+                "name": "app_rule_collection1",
+                "priority": 500,
+                "action": "Deny",
+                "rules": [{
+                    "name": "app_rule_collection1_rule1",
+                    "protocols": [
+                        {
+                            "type": "Http",
+                            "port": 80,
+                        },
+                        {
+                            "type": "Https",
+                            "port": 443,
+                        },
                     ],
-                    source_addresses=["10.0.0.1"],
-                    destination_fqdns=["*.microsoft.com"],
-                )],
-            )],
-            network_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs(
-                name="network_rule_collection1",
-                priority=400,
-                action="Deny",
-                rules=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs(
-                    name="network_rule_collection1_rule1",
-                    protocols=[
+                    "sourceAddresses": ["10.0.0.1"],
+                    "destinationFqdns": ["*.microsoft.com"],
+                }],
+            }],
+            network_rule_collections=[{
+                "name": "network_rule_collection1",
+                "priority": 400,
+                "action": "Deny",
+                "rules": [{
+                    "name": "network_rule_collection1_rule1",
+                    "protocols": [
                         "TCP",
                         "UDP",
                     ],
-                    source_addresses=["10.0.0.1"],
-                    destination_addresses=[
+                    "sourceAddresses": ["10.0.0.1"],
+                    "destinationAddresses": [
                         "192.168.1.1",
                         "192.168.1.2",
                     ],
-                    destination_ports=[
+                    "destinationPorts": [
                         "80",
                         "1000-2000",
                     ],
-                )],
-            )],
-            nat_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs(
-                name="nat_rule_collection1",
-                priority=300,
-                action="Dnat",
-                rules=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs(
-                    name="nat_rule_collection1_rule1",
-                    protocols=[
+                }],
+            }],
+            nat_rule_collections=[{
+                "name": "nat_rule_collection1",
+                "priority": 300,
+                "action": "Dnat",
+                "rules": [{
+                    "name": "nat_rule_collection1_rule1",
+                    "protocols": [
                         "TCP",
                         "UDP",
                     ],
-                    source_addresses=[
+                    "sourceAddresses": [
                         "10.0.0.1",
                         "10.0.0.2",
                     ],
-                    destination_address="192.168.1.1",
-                    destination_ports="80",
-                    translated_address="192.168.0.1",
-                    translated_port=8080,
-                )],
-            )])
+                    "destinationAddress": "192.168.1.1",
+                    "destinationPorts": "80",
+                    "translatedAddress": "192.168.0.1",
+                    "translatedPort": 8080,
+                }],
+            }])
         ```
 
         ## Import
@@ -324,11 +329,11 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] application_rule_collections: One or more `application_rule_collection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]] application_rule_collections: One or more `application_rule_collection` blocks as defined below.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] nat_rule_collections: One or more `nat_rule_collection` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] network_rule_collections: One or more `network_rule_collection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]] nat_rule_collections: One or more `nat_rule_collection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]] network_rule_collections: One or more `network_rule_collection` blocks as defined below.
         :param pulumi.Input[int] priority: The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
         """
         ...
@@ -357,67 +362,67 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             name="example-fwpolicy-rcg",
             firewall_policy_id=example_firewall_policy.id,
             priority=500,
-            application_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs(
-                name="app_rule_collection1",
-                priority=500,
-                action="Deny",
-                rules=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs(
-                    name="app_rule_collection1_rule1",
-                    protocols=[
-                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
-                            type="Http",
-                            port=80,
-                        ),
-                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
-                            type="Https",
-                            port=443,
-                        ),
+            application_rule_collections=[{
+                "name": "app_rule_collection1",
+                "priority": 500,
+                "action": "Deny",
+                "rules": [{
+                    "name": "app_rule_collection1_rule1",
+                    "protocols": [
+                        {
+                            "type": "Http",
+                            "port": 80,
+                        },
+                        {
+                            "type": "Https",
+                            "port": 443,
+                        },
                     ],
-                    source_addresses=["10.0.0.1"],
-                    destination_fqdns=["*.microsoft.com"],
-                )],
-            )],
-            network_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs(
-                name="network_rule_collection1",
-                priority=400,
-                action="Deny",
-                rules=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs(
-                    name="network_rule_collection1_rule1",
-                    protocols=[
+                    "sourceAddresses": ["10.0.0.1"],
+                    "destinationFqdns": ["*.microsoft.com"],
+                }],
+            }],
+            network_rule_collections=[{
+                "name": "network_rule_collection1",
+                "priority": 400,
+                "action": "Deny",
+                "rules": [{
+                    "name": "network_rule_collection1_rule1",
+                    "protocols": [
                         "TCP",
                         "UDP",
                     ],
-                    source_addresses=["10.0.0.1"],
-                    destination_addresses=[
+                    "sourceAddresses": ["10.0.0.1"],
+                    "destinationAddresses": [
                         "192.168.1.1",
                         "192.168.1.2",
                     ],
-                    destination_ports=[
+                    "destinationPorts": [
                         "80",
                         "1000-2000",
                     ],
-                )],
-            )],
-            nat_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs(
-                name="nat_rule_collection1",
-                priority=300,
-                action="Dnat",
-                rules=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs(
-                    name="nat_rule_collection1_rule1",
-                    protocols=[
+                }],
+            }],
+            nat_rule_collections=[{
+                "name": "nat_rule_collection1",
+                "priority": 300,
+                "action": "Dnat",
+                "rules": [{
+                    "name": "nat_rule_collection1_rule1",
+                    "protocols": [
                         "TCP",
                         "UDP",
                     ],
-                    source_addresses=[
+                    "sourceAddresses": [
                         "10.0.0.1",
                         "10.0.0.2",
                     ],
-                    destination_address="192.168.1.1",
-                    destination_ports="80",
-                    translated_address="192.168.0.1",
-                    translated_port=8080,
-                )],
-            )])
+                    "destinationAddress": "192.168.1.1",
+                    "destinationPorts": "80",
+                    "translatedAddress": "192.168.0.1",
+                    "translatedPort": 8080,
+                }],
+            }])
         ```
 
         ## Import
@@ -443,11 +448,11 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]] = None,
+                 application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]] = None,
-                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]] = None,
+                 nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
+                 network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -478,11 +483,11 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]]] = None,
+            application_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]]] = None,
             firewall_policy_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]]] = None,
-            network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]]] = None,
+            nat_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]]] = None,
+            network_rule_collections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]]] = None,
             priority: Optional[pulumi.Input[int]] = None) -> 'FirewallPolicyRuleCollectionGroup':
         """
         Get an existing FirewallPolicyRuleCollectionGroup resource's state with the given name, id, and optional extra
@@ -491,11 +496,11 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs']]]] application_rule_collections: One or more `application_rule_collection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgsDict']]]] application_rule_collections: One or more `application_rule_collection` blocks as defined below.
         :param pulumi.Input[str] firewall_policy_id: The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs']]]] nat_rule_collections: One or more `nat_rule_collection` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs']]]] network_rule_collections: One or more `network_rule_collection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNatRuleCollectionArgsDict']]]] nat_rule_collections: One or more `nat_rule_collection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs', 'FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgsDict']]]] network_rule_collections: One or more `network_rule_collection` blocks as defined below.
         :param pulumi.Input[int] priority: The priority of the Firewall Policy Rule Collection Group. The range is 100-65000.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

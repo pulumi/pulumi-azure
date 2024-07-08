@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -209,7 +214,7 @@ class DevCenter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DevCenterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -269,7 +274,7 @@ class DevCenter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DevCenterIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
+        :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.
@@ -348,7 +353,7 @@ class DevCenter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DevCenterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -381,7 +386,7 @@ class DevCenter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             dev_center_uri: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DevCenterIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -394,7 +399,7 @@ class DevCenter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_uri: The URI of the Dev Center.
-        :param pulumi.Input[pulumi.InputType['DevCenterIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
+        :param pulumi.Input[Union['DevCenterIdentityArgs', 'DevCenterIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Dev Center.
         :param pulumi.Input[str] location: The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[str] name: Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created.

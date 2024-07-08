@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ScalingPlanHostPoolAssociationArgs', 'ScalingPlanHostPoolAssociation']
@@ -161,32 +166,32 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
             friendly_name="Scaling Plan Test",
             description="Test Scaling Plan",
             time_zone="GMT Standard Time",
-            schedules=[azure.desktopvirtualization.ScalingPlanScheduleArgs(
-                name="Weekdays",
-                days_of_weeks=[
+            schedules=[{
+                "name": "Weekdays",
+                "daysOfWeeks": [
                     "Monday",
                     "Tuesday",
                     "Wednesday",
                     "Thursday",
                     "Friday",
                 ],
-                ramp_up_start_time="06:00",
-                ramp_up_load_balancing_algorithm="BreadthFirst",
-                ramp_up_minimum_hosts_percent=20,
-                ramp_up_capacity_threshold_percent=10,
-                peak_start_time="09:00",
-                peak_load_balancing_algorithm="BreadthFirst",
-                ramp_down_start_time="18:00",
-                ramp_down_load_balancing_algorithm="BreadthFirst",
-                ramp_down_minimum_hosts_percent=10,
-                ramp_down_force_logoff_users=False,
-                ramp_down_wait_time_minutes=45,
-                ramp_down_notification_message="Please log of in the next 45 minutes...",
-                ramp_down_capacity_threshold_percent=5,
-                ramp_down_stop_hosts_when="ZeroSessions",
-                off_peak_start_time="22:00",
-                off_peak_load_balancing_algorithm="BreadthFirst",
-            )],
+                "rampUpStartTime": "06:00",
+                "rampUpLoadBalancingAlgorithm": "BreadthFirst",
+                "rampUpMinimumHostsPercent": 20,
+                "rampUpCapacityThresholdPercent": 10,
+                "peakStartTime": "09:00",
+                "peakLoadBalancingAlgorithm": "BreadthFirst",
+                "rampDownStartTime": "18:00",
+                "rampDownLoadBalancingAlgorithm": "BreadthFirst",
+                "rampDownMinimumHostsPercent": 10,
+                "rampDownForceLogoffUsers": False,
+                "rampDownWaitTimeMinutes": 45,
+                "rampDownNotificationMessage": "Please log of in the next 45 minutes...",
+                "rampDownCapacityThresholdPercent": 5,
+                "rampDownStopHostsWhen": "ZeroSessions",
+                "offPeakStartTime": "22:00",
+                "offPeakLoadBalancingAlgorithm": "BreadthFirst",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_scaling_plan_host_pool_association = azure.desktopvirtualization.ScalingPlanHostPoolAssociation("example",
             host_pool_id=example_host_pool.id,
@@ -247,32 +252,32 @@ class ScalingPlanHostPoolAssociation(pulumi.CustomResource):
             friendly_name="Scaling Plan Test",
             description="Test Scaling Plan",
             time_zone="GMT Standard Time",
-            schedules=[azure.desktopvirtualization.ScalingPlanScheduleArgs(
-                name="Weekdays",
-                days_of_weeks=[
+            schedules=[{
+                "name": "Weekdays",
+                "daysOfWeeks": [
                     "Monday",
                     "Tuesday",
                     "Wednesday",
                     "Thursday",
                     "Friday",
                 ],
-                ramp_up_start_time="06:00",
-                ramp_up_load_balancing_algorithm="BreadthFirst",
-                ramp_up_minimum_hosts_percent=20,
-                ramp_up_capacity_threshold_percent=10,
-                peak_start_time="09:00",
-                peak_load_balancing_algorithm="BreadthFirst",
-                ramp_down_start_time="18:00",
-                ramp_down_load_balancing_algorithm="BreadthFirst",
-                ramp_down_minimum_hosts_percent=10,
-                ramp_down_force_logoff_users=False,
-                ramp_down_wait_time_minutes=45,
-                ramp_down_notification_message="Please log of in the next 45 minutes...",
-                ramp_down_capacity_threshold_percent=5,
-                ramp_down_stop_hosts_when="ZeroSessions",
-                off_peak_start_time="22:00",
-                off_peak_load_balancing_algorithm="BreadthFirst",
-            )],
+                "rampUpStartTime": "06:00",
+                "rampUpLoadBalancingAlgorithm": "BreadthFirst",
+                "rampUpMinimumHostsPercent": 20,
+                "rampUpCapacityThresholdPercent": 10,
+                "peakStartTime": "09:00",
+                "peakLoadBalancingAlgorithm": "BreadthFirst",
+                "rampDownStartTime": "18:00",
+                "rampDownLoadBalancingAlgorithm": "BreadthFirst",
+                "rampDownMinimumHostsPercent": 10,
+                "rampDownForceLogoffUsers": False,
+                "rampDownWaitTimeMinutes": 45,
+                "rampDownNotificationMessage": "Please log of in the next 45 minutes...",
+                "rampDownCapacityThresholdPercent": 5,
+                "rampDownStopHostsWhen": "ZeroSessions",
+                "offPeakStartTime": "22:00",
+                "offPeakLoadBalancingAlgorithm": "BreadthFirst",
+            }],
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
         example_scaling_plan_host_pool_association = azure.desktopvirtualization.ScalingPlanHostPoolAssociation("example",
             host_pool_id=example_host_pool.id,

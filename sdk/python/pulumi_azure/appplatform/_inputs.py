@@ -4,52 +4,119 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'SpringCloudApiPortalSsoArgs',
+    'SpringCloudApiPortalSsoArgsDict',
     'SpringCloudAppCustomPersistentDiskArgs',
+    'SpringCloudAppCustomPersistentDiskArgsDict',
     'SpringCloudAppIdentityArgs',
+    'SpringCloudAppIdentityArgsDict',
     'SpringCloudAppIngressSettingsArgs',
+    'SpringCloudAppIngressSettingsArgsDict',
     'SpringCloudAppPersistentDiskArgs',
+    'SpringCloudAppPersistentDiskArgsDict',
     'SpringCloudBuildDeploymentQuotaArgs',
+    'SpringCloudBuildDeploymentQuotaArgsDict',
     'SpringCloudBuildPackBindingLaunchArgs',
+    'SpringCloudBuildPackBindingLaunchArgsDict',
     'SpringCloudBuilderBuildPackGroupArgs',
+    'SpringCloudBuilderBuildPackGroupArgsDict',
     'SpringCloudBuilderStackArgs',
+    'SpringCloudBuilderStackArgsDict',
     'SpringCloudConfigurationServiceRepositoryArgs',
+    'SpringCloudConfigurationServiceRepositoryArgsDict',
     'SpringCloudConnectionAuthenticationArgs',
+    'SpringCloudConnectionAuthenticationArgsDict',
     'SpringCloudConnectionSecretStoreArgs',
+    'SpringCloudConnectionSecretStoreArgsDict',
     'SpringCloudContainerDeploymentQuotaArgs',
+    'SpringCloudContainerDeploymentQuotaArgsDict',
     'SpringCloudCustomizedAcceleratorGitRepositoryArgs',
+    'SpringCloudCustomizedAcceleratorGitRepositoryArgsDict',
     'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs',
+    'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgsDict',
     'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs',
+    'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict',
     'SpringCloudDevToolPortalSsoArgs',
+    'SpringCloudDevToolPortalSsoArgsDict',
     'SpringCloudGatewayApiMetadataArgs',
+    'SpringCloudGatewayApiMetadataArgsDict',
     'SpringCloudGatewayClientAuthorizationArgs',
+    'SpringCloudGatewayClientAuthorizationArgsDict',
     'SpringCloudGatewayCorsArgs',
+    'SpringCloudGatewayCorsArgsDict',
     'SpringCloudGatewayLocalResponseCachePerInstanceArgs',
+    'SpringCloudGatewayLocalResponseCachePerInstanceArgsDict',
     'SpringCloudGatewayLocalResponseCachePerRouteArgs',
+    'SpringCloudGatewayLocalResponseCachePerRouteArgsDict',
     'SpringCloudGatewayQuotaArgs',
+    'SpringCloudGatewayQuotaArgsDict',
     'SpringCloudGatewayRouteConfigOpenApiArgs',
+    'SpringCloudGatewayRouteConfigOpenApiArgsDict',
     'SpringCloudGatewayRouteConfigRouteArgs',
+    'SpringCloudGatewayRouteConfigRouteArgsDict',
     'SpringCloudGatewaySsoArgs',
+    'SpringCloudGatewaySsoArgsDict',
     'SpringCloudJavaDeploymentQuotaArgs',
+    'SpringCloudJavaDeploymentQuotaArgsDict',
     'SpringCloudServiceConfigServerGitSettingArgs',
+    'SpringCloudServiceConfigServerGitSettingArgsDict',
     'SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs',
+    'SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgsDict',
     'SpringCloudServiceConfigServerGitSettingRepositoryArgs',
+    'SpringCloudServiceConfigServerGitSettingRepositoryArgsDict',
     'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs',
+    'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgsDict',
     'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs',
+    'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict',
     'SpringCloudServiceConfigServerGitSettingSshAuthArgs',
+    'SpringCloudServiceConfigServerGitSettingSshAuthArgsDict',
     'SpringCloudServiceContainerRegistryArgs',
+    'SpringCloudServiceContainerRegistryArgsDict',
     'SpringCloudServiceDefaultBuildServiceArgs',
+    'SpringCloudServiceDefaultBuildServiceArgsDict',
     'SpringCloudServiceMarketplaceArgs',
+    'SpringCloudServiceMarketplaceArgsDict',
     'SpringCloudServiceNetworkArgs',
+    'SpringCloudServiceNetworkArgsDict',
     'SpringCloudServiceRequiredNetworkTrafficRuleArgs',
+    'SpringCloudServiceRequiredNetworkTrafficRuleArgsDict',
     'SpringCloudServiceTraceArgs',
+    'SpringCloudServiceTraceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class SpringCloudApiPortalSsoArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The public identifier for the application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The secret known only to the application and the authorization server.
+        """
+        issuer_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of Issuer Identifier.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+elif False:
+    SpringCloudApiPortalSsoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudApiPortalSsoArgs:
@@ -121,6 +188,31 @@ class SpringCloudApiPortalSsoArgs:
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
 
+
+if not MYPY:
+    class SpringCloudAppCustomPersistentDiskArgsDict(TypedDict):
+        mount_path: pulumi.Input[str]
+        """
+        The mount path of the persistent disk.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The share name of the Azure File share.
+        """
+        storage_name: pulumi.Input[str]
+        """
+        The name of the Spring Cloud Storage.
+        """
+        mount_options: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        These are the mount options for a persistent disk.
+        """
+        read_only_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the persistent disk is a readOnly one.
+        """
+elif False:
+    SpringCloudAppCustomPersistentDiskArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudAppCustomPersistentDiskArgs:
@@ -206,6 +298,29 @@ class SpringCloudAppCustomPersistentDiskArgs:
         pulumi.set(self, "read_only_enabled", value)
 
 
+if not MYPY:
+    class SpringCloudAppIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
+        """
+elif False:
+    SpringCloudAppIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudAppIdentityArgs:
     def __init__(__self__, *,
@@ -279,6 +394,31 @@ class SpringCloudAppIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class SpringCloudAppIngressSettingsArgsDict(TypedDict):
+        backend_protocol: NotRequired[pulumi.Input[str]]
+        """
+        Specifies how ingress should communicate with this app backend service. Allowed values are `GRPC` and `Default`. Defaults to `Default`.
+        """
+        read_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the ingress read time out in seconds. Defaults to `300`.
+        """
+        send_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the ingress send time out in seconds. Defaults to `60`.
+        """
+        session_affinity: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
+        """
+        session_cookie_max_age: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the time in seconds until the cookie expires.
+        """
+elif False:
+    SpringCloudAppIngressSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudAppIngressSettingsArgs:
@@ -367,6 +507,19 @@ class SpringCloudAppIngressSettingsArgs:
         pulumi.set(self, "session_cookie_max_age", value)
 
 
+if not MYPY:
+    class SpringCloudAppPersistentDiskArgsDict(TypedDict):
+        size_in_gb: pulumi.Input[int]
+        """
+        Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the mount path of the persistent disk. Defaults to `/persistent`.
+        """
+elif False:
+    SpringCloudAppPersistentDiskArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudAppPersistentDiskArgs:
     def __init__(__self__, *,
@@ -404,6 +557,23 @@ class SpringCloudAppPersistentDiskArgs:
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
 
+
+if not MYPY:
+    class SpringCloudBuildDeploymentQuotaArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
+        """
+elif False:
+    SpringCloudBuildDeploymentQuotaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudBuildDeploymentQuotaArgs:
@@ -452,6 +622,19 @@ class SpringCloudBuildDeploymentQuotaArgs:
         pulumi.set(self, "memory", value)
 
 
+if not MYPY:
+    class SpringCloudBuildPackBindingLaunchArgsDict(TypedDict):
+        properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of non-sensitive properties for launchProperties.
+        """
+        secrets: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of sensitive properties for launchProperties.
+        """
+elif False:
+    SpringCloudBuildPackBindingLaunchArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudBuildPackBindingLaunchArgs:
     def __init__(__self__, *,
@@ -491,6 +674,19 @@ class SpringCloudBuildPackBindingLaunchArgs:
         pulumi.set(self, "secrets", value)
 
 
+if not MYPY:
+    class SpringCloudBuilderBuildPackGroupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this build pack group.
+        """
+        build_pack_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of the build pack's ID.
+        """
+elif False:
+    SpringCloudBuilderBuildPackGroupArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudBuilderBuildPackGroupArgs:
     def __init__(__self__, *,
@@ -529,6 +725,19 @@ class SpringCloudBuilderBuildPackGroupArgs:
         pulumi.set(self, "build_pack_ids", value)
 
 
+if not MYPY:
+    class SpringCloudBuilderStackArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Specifies the ID of the ClusterStack.
+        """
+        version: pulumi.Input[str]
+        """
+        Specifies the version of the ClusterStack
+        """
+elif False:
+    SpringCloudBuilderStackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudBuilderStackArgs:
     def __init__(__self__, *,
@@ -565,6 +774,59 @@ class SpringCloudBuilderStackArgs:
     def version(self, value: pulumi.Input[str]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class SpringCloudConfigurationServiceRepositoryArgsDict(TypedDict):
+        label: pulumi.Input[str]
+        """
+        Specifies the label of the repository.
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the name which should be used for this repository.
+        """
+        patterns: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies the collection of patterns of the repository.
+        """
+        uri: pulumi.Input[str]
+        """
+        Specifies the URI of the repository.
+        """
+        ca_certificate_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.
+        """
+        host_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the SSH public key of git repository.
+        """
+        host_key_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the SSH key algorithm of git repository.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the password of git repository basic auth.
+        """
+        private_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the SSH private key of git repository.
+        """
+        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of searching path of the repository
+        """
+        strict_host_key_checking: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether enable the strict host key checking.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the username of git repository basic auth.
+        """
+elif False:
+    SpringCloudConfigurationServiceRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudConfigurationServiceRepositoryArgs:
@@ -761,6 +1023,39 @@ class SpringCloudConfigurationServiceRepositoryArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class SpringCloudConnectionAuthenticationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+        """
+elif False:
+    SpringCloudConnectionAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudConnectionAuthenticationArgs:
     def __init__(__self__, *,
@@ -879,6 +1174,15 @@ class SpringCloudConnectionAuthenticationArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class SpringCloudConnectionSecretStoreArgsDict(TypedDict):
+        key_vault_id: pulumi.Input[str]
+        """
+        The key vault id to store secret.
+        """
+elif False:
+    SpringCloudConnectionSecretStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudConnectionSecretStoreArgs:
     def __init__(__self__, *,
@@ -900,6 +1204,23 @@ class SpringCloudConnectionSecretStoreArgs:
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
 
+
+if not MYPY:
+    class SpringCloudContainerDeploymentQuotaArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
+        """
+elif False:
+    SpringCloudContainerDeploymentQuotaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudContainerDeploymentQuotaArgs:
@@ -947,6 +1268,47 @@ class SpringCloudContainerDeploymentQuotaArgs:
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
 
+
+if not MYPY:
+    class SpringCloudCustomizedAcceleratorGitRepositoryArgsDict(TypedDict):
+        url: pulumi.Input[str]
+        """
+        Specifies Git repository URL for the accelerator.
+        """
+        basic_auth: NotRequired[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgsDict']]
+        """
+        A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        """
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Git repository branch to be used.
+        """
+        ca_certificate_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
+        """
+        commit: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Git repository commit to be used.
+        """
+        git_tag: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Git repository tag to be used.
+        """
+        interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
+        """
+        ssh_auth: NotRequired[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict']]
+        """
+        A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        """
+elif False:
+    SpringCloudCustomizedAcceleratorGitRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
@@ -1098,6 +1460,19 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
         pulumi.set(self, "ssh_auth", value)
 
 
+if not MYPY:
+    class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        Specifies the password of git repository basic auth.
+        """
+        username: pulumi.Input[str]
+        """
+        Specifies the username of git repository basic auth.
+        """
+elif False:
+    SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs:
     def __init__(__self__, *,
@@ -1134,6 +1509,23 @@ class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict(TypedDict):
+        private_key: pulumi.Input[str]
+        """
+        Specifies the Private SSH Key of git repository basic auth.
+        """
+        host_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Public SSH Key of git repository basic auth.
+        """
+        host_key_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the SSH Key algorithm of git repository basic auth.
+        """
+elif False:
+    SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs:
@@ -1188,6 +1580,27 @@ class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs:
     def host_key_algorithm(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "host_key_algorithm", value)
 
+
+if not MYPY:
+    class SpringCloudDevToolPortalSsoArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the public identifier for the application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the secret known only to the application and the authorization server.
+        """
+        metadata_url: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the URI of a JSON file with generic OIDC provider configuration.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of specific actions applications can be allowed to do on a user's behalf.
+        """
+elif False:
+    SpringCloudDevToolPortalSsoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudDevToolPortalSsoArgs:
@@ -1259,6 +1672,31 @@ class SpringCloudDevToolPortalSsoArgs:
     def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "scopes", value)
 
+
+if not MYPY:
+    class SpringCloudGatewayApiMetadataArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Detailed description of the APIs available on the Gateway instance.
+        """
+        documentation_url: NotRequired[pulumi.Input[str]]
+        """
+        Location of additional documentation for the APIs available on the Gateway instance.
+        """
+        server_url: NotRequired[pulumi.Input[str]]
+        """
+        Base URL that API consumers will use to access APIs on the Gateway instance.
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the title describing the context of the APIs available on the Gateway instance.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of APIs available on this Gateway instance.
+        """
+elif False:
+    SpringCloudGatewayApiMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudGatewayApiMetadataArgs:
@@ -1347,6 +1785,19 @@ class SpringCloudGatewayApiMetadataArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class SpringCloudGatewayClientAuthorizationArgsDict(TypedDict):
+        certificate_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
+        """
+        verification_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the client certificate verification is enabled.
+        """
+elif False:
+    SpringCloudGatewayClientAuthorizationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudGatewayClientAuthorizationArgs:
     def __init__(__self__, *,
@@ -1385,6 +1836,39 @@ class SpringCloudGatewayClientAuthorizationArgs:
     def verification_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "verification_enabled", value)
 
+
+if not MYPY:
+    class SpringCloudGatewayCorsArgsDict(TypedDict):
+        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
+        """
+        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` and `PUT`.
+        """
+        allowed_origin_patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed origin patterns to make cross-site requests.
+        """
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed origins to make cross-site requests. The special value `*` allows all domains.
+        """
+        credentials_allowed: NotRequired[pulumi.Input[bool]]
+        """
+        is user credentials are supported on cross-site requests?
+        """
+        exposed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        HTTP response headers to expose for cross-site requests.
+        """
+        max_age_seconds: NotRequired[pulumi.Input[int]]
+        """
+        How long, in seconds, the response from a pre-flight request can be cached by clients.
+        """
+elif False:
+    SpringCloudGatewayCorsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudGatewayCorsArgs:
@@ -1505,6 +1989,19 @@ class SpringCloudGatewayCorsArgs:
         pulumi.set(self, "max_age_seconds", value)
 
 
+if not MYPY:
+    class SpringCloudGatewayLocalResponseCachePerInstanceArgsDict(TypedDict):
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        """
+        time_to_live: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+elif False:
+    SpringCloudGatewayLocalResponseCachePerInstanceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudGatewayLocalResponseCachePerInstanceArgs:
     def __init__(__self__, *,
@@ -1544,6 +2041,19 @@ class SpringCloudGatewayLocalResponseCachePerInstanceArgs:
         pulumi.set(self, "time_to_live", value)
 
 
+if not MYPY:
+    class SpringCloudGatewayLocalResponseCachePerRouteArgsDict(TypedDict):
+        size: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        """
+        time_to_live: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+elif False:
+    SpringCloudGatewayLocalResponseCachePerRouteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudGatewayLocalResponseCachePerRouteArgs:
     def __init__(__self__, *,
@@ -1582,6 +2092,23 @@ class SpringCloudGatewayLocalResponseCachePerRouteArgs:
     def time_to_live(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_to_live", value)
 
+
+if not MYPY:
+    class SpringCloudGatewayQuotaArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `2Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
+        """
+elif False:
+    SpringCloudGatewayQuotaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudGatewayQuotaArgs:
@@ -1630,6 +2157,15 @@ class SpringCloudGatewayQuotaArgs:
         pulumi.set(self, "memory", value)
 
 
+if not MYPY:
+    class SpringCloudGatewayRouteConfigOpenApiArgsDict(TypedDict):
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of OpenAPI specification.
+        """
+elif False:
+    SpringCloudGatewayRouteConfigOpenApiArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudGatewayRouteConfigOpenApiArgs:
     def __init__(__self__, *,
@@ -1652,6 +2188,47 @@ class SpringCloudGatewayRouteConfigOpenApiArgs:
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
 
+
+if not MYPY:
+    class SpringCloudGatewayRouteConfigRouteArgsDict(TypedDict):
+        order: pulumi.Input[int]
+        """
+        Specifies the route processing order.
+        """
+        classification_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the description which will be applied to methods in the generated OpenAPI documentation.
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+        """
+        predicates: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        """
+        sso_validation_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the sso validation be enabled?
+        """
+        title: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the title which will be applied to methods in the generated OpenAPI documentation.
+        """
+        token_relay: NotRequired[pulumi.Input[bool]]
+        """
+        Should pass currently-authenticated user's identity token to application service?
+        """
+        uri: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the full uri which will override `appName`.
+        """
+elif False:
+    SpringCloudGatewayRouteConfigRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudGatewayRouteConfigRouteArgs:
@@ -1803,6 +2380,27 @@ class SpringCloudGatewayRouteConfigRouteArgs:
         pulumi.set(self, "uri", value)
 
 
+if not MYPY:
+    class SpringCloudGatewaySsoArgsDict(TypedDict):
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The public identifier for the application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The secret known only to the application and the authorization server.
+        """
+        issuer_uri: NotRequired[pulumi.Input[str]]
+        """
+        The URI of Issuer Identifier.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        It defines the specific actions applications can be allowed to do on a user's behalf.
+        """
+elif False:
+    SpringCloudGatewaySsoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudGatewaySsoArgs:
     def __init__(__self__, *,
@@ -1874,6 +2472,23 @@ class SpringCloudGatewaySsoArgs:
         pulumi.set(self, "scopes", value)
 
 
+if not MYPY:
+    class SpringCloudJavaDeploymentQuotaArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
+
+        > **Note:** `cpu` supports `500m` and `1` for Basic tier, `500m`, `1`, `2`, `3` and `4` for Standard tier.
+        """
+        memory: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the required memory size of the Spring Cloud Deployment. Possible Values are `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi`. Defaults to `1Gi` if not specified.
+
+        > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
+        """
+elif False:
+    SpringCloudJavaDeploymentQuotaArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudJavaDeploymentQuotaArgs:
     def __init__(__self__, *,
@@ -1920,6 +2535,35 @@ class SpringCloudJavaDeploymentQuotaArgs:
     def memory(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "memory", value)
 
+
+if not MYPY:
+    class SpringCloudServiceConfigServerGitSettingArgsDict(TypedDict):
+        uri: pulumi.Input[str]
+        """
+        The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
+        """
+        http_basic_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgsDict']]
+        """
+        A `http_basic_auth` block as defined below.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
+        """
+        repositories: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgsDict']]]]
+        """
+        One or more `repository` blocks as defined below.
+        """
+        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of strings used to search subdirectories of the Git repository.
+        """
+        ssh_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgsDict']]
+        """
+        A `ssh_auth` block as defined below.
+        """
+elif False:
+    SpringCloudServiceConfigServerGitSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudServiceConfigServerGitSettingArgs:
@@ -2023,6 +2667,19 @@ class SpringCloudServiceConfigServerGitSettingArgs:
         pulumi.set(self, "ssh_auth", value)
 
 
+if not MYPY:
+    class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        """
+        username: pulumi.Input[str]
+        """
+        The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        """
+elif False:
+    SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
     def __init__(__self__, *,
@@ -2059,6 +2716,39 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class SpringCloudServiceConfigServerGitSettingRepositoryArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        A name to identify on the Git repository, required only if repos exists.
+        """
+        uri: pulumi.Input[str]
+        """
+        The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
+        """
+        http_basic_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgsDict']]
+        """
+        A `http_basic_auth` block as defined below.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
+        """
+        patterns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
+        """
+        search_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of strings used to search subdirectories of the Git repository.
+        """
+        ssh_auth: NotRequired[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict']]
+        """
+        A `ssh_auth` block as defined below.
+        """
+elif False:
+    SpringCloudServiceConfigServerGitSettingRepositoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
@@ -2177,6 +2867,19 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
         pulumi.set(self, "ssh_auth", value)
 
 
+if not MYPY:
+    class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgsDict(TypedDict):
+        password: pulumi.Input[str]
+        """
+        The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        """
+        username: pulumi.Input[str]
+        """
+        The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+        """
+elif False:
+    SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
     def __init__(__self__, *,
@@ -2213,6 +2916,27 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict(TypedDict):
+        private_key: pulumi.Input[str]
+        """
+        The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+        """
+        host_key: NotRequired[pulumi.Input[str]]
+        """
+        The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
+        """
+        host_key_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
+        """
+        strict_host_key_checking_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
+        """
+elif False:
+    SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs:
@@ -2284,6 +3008,27 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs:
         pulumi.set(self, "strict_host_key_checking_enabled", value)
 
 
+if not MYPY:
+    class SpringCloudServiceConfigServerGitSettingSshAuthArgsDict(TypedDict):
+        private_key: pulumi.Input[str]
+        """
+        The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
+        """
+        host_key: NotRequired[pulumi.Input[str]]
+        """
+        The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
+        """
+        host_key_algorithm: NotRequired[pulumi.Input[str]]
+        """
+        The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
+        """
+        strict_host_key_checking_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
+        """
+elif False:
+    SpringCloudServiceConfigServerGitSettingSshAuthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
     def __init__(__self__, *,
@@ -2354,6 +3099,27 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
         pulumi.set(self, "strict_host_key_checking_enabled", value)
 
 
+if not MYPY:
+    class SpringCloudServiceContainerRegistryArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name of the container registry.
+        """
+        password: pulumi.Input[str]
+        """
+        Specifies the password of the container registry.
+        """
+        server: pulumi.Input[str]
+        """
+        Specifies the login server of the container registry.
+        """
+        username: pulumi.Input[str]
+        """
+        Specifies the username of the container registry.
+        """
+elif False:
+    SpringCloudServiceContainerRegistryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudServiceContainerRegistryArgs:
     def __init__(__self__, *,
@@ -2421,6 +3187,15 @@ class SpringCloudServiceContainerRegistryArgs:
         pulumi.set(self, "username", value)
 
 
+if not MYPY:
+    class SpringCloudServiceDefaultBuildServiceArgsDict(TypedDict):
+        container_registry_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the container registry used in the default build service.
+        """
+elif False:
+    SpringCloudServiceDefaultBuildServiceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudServiceDefaultBuildServiceArgs:
     def __init__(__self__, *,
@@ -2443,6 +3218,23 @@ class SpringCloudServiceDefaultBuildServiceArgs:
     def container_registry_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "container_registry_name", value)
 
+
+if not MYPY:
+    class SpringCloudServiceMarketplaceArgsDict(TypedDict):
+        plan: pulumi.Input[str]
+        """
+        Specifies the plan ID of the 3rd Party Artifact that is being procured.
+        """
+        product: pulumi.Input[str]
+        """
+        Specifies the 3rd Party artifact that is being procured.
+        """
+        publisher: pulumi.Input[str]
+        """
+        Specifies the publisher ID of the 3rd Party Artifact that is being procured.
+        """
+elif False:
+    SpringCloudServiceMarketplaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudServiceMarketplaceArgs:
@@ -2495,6 +3287,39 @@ class SpringCloudServiceMarketplaceArgs:
     def publisher(self, value: pulumi.Input[str]):
         pulumi.set(self, "publisher", value)
 
+
+if not MYPY:
+    class SpringCloudServiceNetworkArgsDict(TypedDict):
+        app_subnet_id: pulumi.Input[str]
+        """
+        Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
+        """
+        cidr_ranges: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
+        """
+        service_runtime_subnet_id: pulumi.Input[str]
+        """
+        Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
+        """
+        app_network_resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+        """
+        outbound_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the egress traffic type of the Spring Cloud Service. Possible values are `loadBalancer` and `userDefinedRouting`. Defaults to `loadBalancer`. Changing this forces a new resource to be created.
+        """
+        read_timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Ingress read time out in seconds.
+        """
+        service_runtime_network_resource_group: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
+        """
+elif False:
+    SpringCloudServiceNetworkArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudServiceNetworkArgs:
@@ -2612,6 +3437,31 @@ class SpringCloudServiceNetworkArgs:
         pulumi.set(self, "service_runtime_network_resource_group", value)
 
 
+if not MYPY:
+    class SpringCloudServiceRequiredNetworkTrafficRuleArgsDict(TypedDict):
+        direction: NotRequired[pulumi.Input[str]]
+        """
+        The direction of required traffic. Possible values are `Inbound`, `Outbound`.
+        """
+        fqdns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The FQDN list of required traffic.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The IP list of required traffic.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        The port of required traffic.
+        """
+        protocol: NotRequired[pulumi.Input[str]]
+        """
+        The protocol of required traffic.
+        """
+elif False:
+    SpringCloudServiceRequiredNetworkTrafficRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
     def __init__(__self__, *,
@@ -2698,6 +3548,19 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
     def protocol(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "protocol", value)
 
+
+if not MYPY:
+    class SpringCloudServiceTraceArgsDict(TypedDict):
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The connection string used for Application Insights.
+        """
+        sample_rate: NotRequired[pulumi.Input[float]]
+        """
+        The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
+        """
+elif False:
+    SpringCloudServiceTraceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpringCloudServiceTraceArgs:

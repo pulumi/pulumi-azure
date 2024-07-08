@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -485,10 +490,10 @@ class ElasticPool(pulumi.CustomResource):
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
                  max_size_gb: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ElasticPoolSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -518,16 +523,16 @@ class ElasticPool(pulumi.CustomResource):
             server_name=example_server.name,
             license_type="LicenseIncluded",
             max_size_gb=756,
-            sku=azure.mssql.ElasticPoolSkuArgs(
-                name="BasicPool",
-                tier="Basic",
-                family="Gen4",
-                capacity=4,
-            ),
-            per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(
-                min_capacity=0.25,
-                max_capacity=4,
-            ))
+            sku={
+                "name": "BasicPool",
+                "tier": "Basic",
+                "family": "Gen4",
+                "capacity": 4,
+            },
+            per_database_settings={
+                "minCapacity": 0.25,
+                "maxCapacity": 4,
+            })
         ```
 
         ## Import
@@ -555,10 +560,10 @@ class ElasticPool(pulumi.CustomResource):
                > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
+        :param pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']] per_database_settings: A `per_database_settings` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ElasticPoolSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         """
@@ -594,16 +599,16 @@ class ElasticPool(pulumi.CustomResource):
             server_name=example_server.name,
             license_type="LicenseIncluded",
             max_size_gb=756,
-            sku=azure.mssql.ElasticPoolSkuArgs(
-                name="BasicPool",
-                tier="Basic",
-                family="Gen4",
-                capacity=4,
-            ),
-            per_database_settings=azure.mssql.ElasticPoolPerDatabaseSettingsArgs(
-                min_capacity=0.25,
-                max_capacity=4,
-            ))
+            sku={
+                "name": "BasicPool",
+                "tier": "Basic",
+                "family": "Gen4",
+                "capacity": 4,
+            },
+            per_database_settings={
+                "minCapacity": 0.25,
+                "maxCapacity": 4,
+            })
         ```
 
         ## Import
@@ -636,10 +641,10 @@ class ElasticPool(pulumi.CustomResource):
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
                  max_size_gb: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+                 per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input[pulumi.InputType['ElasticPoolSkuArgs']]] = None,
+                 sku: Optional[pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -689,10 +694,10 @@ class ElasticPool(pulumi.CustomResource):
             max_size_bytes: Optional[pulumi.Input[int]] = None,
             max_size_gb: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            per_database_settings: Optional[pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']]] = None,
+            per_database_settings: Optional[pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             server_name: Optional[pulumi.Input[str]] = None,
-            sku: Optional[pulumi.Input[pulumi.InputType['ElasticPoolSkuArgs']]] = None,
+            sku: Optional[pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'ElasticPool':
         """
@@ -717,10 +722,10 @@ class ElasticPool(pulumi.CustomResource):
                > **NOTE:** One of either `max_size_gb` or `max_size_bytes` must be specified.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ElasticPoolPerDatabaseSettingsArgs']] per_database_settings: A `per_database_settings` block as defined below.
+        :param pulumi.Input[Union['ElasticPoolPerDatabaseSettingsArgs', 'ElasticPoolPerDatabaseSettingsArgsDict']] per_database_settings: A `per_database_settings` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server_name: The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ElasticPoolSkuArgs']] sku: A `sku` block as defined below.
+        :param pulumi.Input[Union['ElasticPoolSkuArgs', 'ElasticPoolSkuArgsDict']] sku: A `sku` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`.
         """

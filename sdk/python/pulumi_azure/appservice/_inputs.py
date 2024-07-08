@@ -4,428 +4,883 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AppConnectionAuthenticationArgs',
+    'AppConnectionAuthenticationArgsDict',
     'AppConnectionSecretStoreArgs',
+    'AppConnectionSecretStoreArgsDict',
     'AppServiceAuthSettingsArgs',
+    'AppServiceAuthSettingsArgsDict',
     'AppServiceAuthSettingsActiveDirectoryArgs',
+    'AppServiceAuthSettingsActiveDirectoryArgsDict',
     'AppServiceAuthSettingsFacebookArgs',
+    'AppServiceAuthSettingsFacebookArgsDict',
     'AppServiceAuthSettingsGoogleArgs',
+    'AppServiceAuthSettingsGoogleArgsDict',
     'AppServiceAuthSettingsMicrosoftArgs',
+    'AppServiceAuthSettingsMicrosoftArgsDict',
     'AppServiceAuthSettingsTwitterArgs',
+    'AppServiceAuthSettingsTwitterArgsDict',
     'AppServiceBackupArgs',
+    'AppServiceBackupArgsDict',
     'AppServiceBackupScheduleArgs',
+    'AppServiceBackupScheduleArgsDict',
     'AppServiceConnectionStringArgs',
+    'AppServiceConnectionStringArgsDict',
     'AppServiceIdentityArgs',
+    'AppServiceIdentityArgsDict',
     'AppServiceLogsArgs',
+    'AppServiceLogsArgsDict',
     'AppServiceLogsApplicationLogsArgs',
+    'AppServiceLogsApplicationLogsArgsDict',
     'AppServiceLogsApplicationLogsAzureBlobStorageArgs',
+    'AppServiceLogsApplicationLogsAzureBlobStorageArgsDict',
     'AppServiceLogsHttpLogsArgs',
+    'AppServiceLogsHttpLogsArgsDict',
     'AppServiceLogsHttpLogsAzureBlobStorageArgs',
+    'AppServiceLogsHttpLogsAzureBlobStorageArgsDict',
     'AppServiceLogsHttpLogsFileSystemArgs',
+    'AppServiceLogsHttpLogsFileSystemArgsDict',
     'AppServiceSiteConfigArgs',
+    'AppServiceSiteConfigArgsDict',
     'AppServiceSiteConfigCorsArgs',
+    'AppServiceSiteConfigCorsArgsDict',
     'AppServiceSiteConfigIpRestrictionArgs',
+    'AppServiceSiteConfigIpRestrictionArgsDict',
     'AppServiceSiteConfigIpRestrictionHeadersArgs',
+    'AppServiceSiteConfigIpRestrictionHeadersArgsDict',
     'AppServiceSiteConfigScmIpRestrictionArgs',
+    'AppServiceSiteConfigScmIpRestrictionArgsDict',
     'AppServiceSiteConfigScmIpRestrictionHeadersArgs',
+    'AppServiceSiteConfigScmIpRestrictionHeadersArgsDict',
     'AppServiceSiteCredentialArgs',
+    'AppServiceSiteCredentialArgsDict',
     'AppServiceSourceControlArgs',
+    'AppServiceSourceControlArgsDict',
     'AppServiceStorageAccountArgs',
+    'AppServiceStorageAccountArgsDict',
     'CertificateOrderCertificateArgs',
+    'CertificateOrderCertificateArgsDict',
     'ConnectionAuthenticationArgs',
+    'ConnectionAuthenticationArgsDict',
     'ConnectionSecretStoreArgs',
+    'ConnectionSecretStoreArgsDict',
     'EnvironmentClusterSettingArgs',
+    'EnvironmentClusterSettingArgsDict',
     'EnvironmentV3ClusterSettingArgs',
+    'EnvironmentV3ClusterSettingArgsDict',
     'EnvironmentV3InboundNetworkDependencyArgs',
+    'EnvironmentV3InboundNetworkDependencyArgsDict',
     'FunctionAppAuthSettingsArgs',
+    'FunctionAppAuthSettingsArgsDict',
     'FunctionAppAuthSettingsActiveDirectoryArgs',
+    'FunctionAppAuthSettingsActiveDirectoryArgsDict',
     'FunctionAppAuthSettingsFacebookArgs',
+    'FunctionAppAuthSettingsFacebookArgsDict',
     'FunctionAppAuthSettingsGoogleArgs',
+    'FunctionAppAuthSettingsGoogleArgsDict',
     'FunctionAppAuthSettingsMicrosoftArgs',
+    'FunctionAppAuthSettingsMicrosoftArgsDict',
     'FunctionAppAuthSettingsTwitterArgs',
+    'FunctionAppAuthSettingsTwitterArgsDict',
     'FunctionAppConnectionStringArgs',
+    'FunctionAppConnectionStringArgsDict',
     'FunctionAppFunctionFileArgs',
+    'FunctionAppFunctionFileArgsDict',
     'FunctionAppIdentityArgs',
+    'FunctionAppIdentityArgsDict',
     'FunctionAppSiteConfigArgs',
+    'FunctionAppSiteConfigArgsDict',
     'FunctionAppSiteConfigCorsArgs',
+    'FunctionAppSiteConfigCorsArgsDict',
     'FunctionAppSiteConfigIpRestrictionArgs',
+    'FunctionAppSiteConfigIpRestrictionArgsDict',
     'FunctionAppSiteConfigIpRestrictionHeadersArgs',
+    'FunctionAppSiteConfigIpRestrictionHeadersArgsDict',
     'FunctionAppSiteConfigScmIpRestrictionArgs',
+    'FunctionAppSiteConfigScmIpRestrictionArgsDict',
     'FunctionAppSiteConfigScmIpRestrictionHeadersArgs',
+    'FunctionAppSiteConfigScmIpRestrictionHeadersArgsDict',
     'FunctionAppSiteCredentialArgs',
+    'FunctionAppSiteCredentialArgsDict',
     'FunctionAppSlotAuthSettingsArgs',
+    'FunctionAppSlotAuthSettingsArgsDict',
     'FunctionAppSlotAuthSettingsActiveDirectoryArgs',
+    'FunctionAppSlotAuthSettingsActiveDirectoryArgsDict',
     'FunctionAppSlotAuthSettingsFacebookArgs',
+    'FunctionAppSlotAuthSettingsFacebookArgsDict',
     'FunctionAppSlotAuthSettingsGoogleArgs',
+    'FunctionAppSlotAuthSettingsGoogleArgsDict',
     'FunctionAppSlotAuthSettingsMicrosoftArgs',
+    'FunctionAppSlotAuthSettingsMicrosoftArgsDict',
     'FunctionAppSlotAuthSettingsTwitterArgs',
+    'FunctionAppSlotAuthSettingsTwitterArgsDict',
     'FunctionAppSlotConnectionStringArgs',
+    'FunctionAppSlotConnectionStringArgsDict',
     'FunctionAppSlotIdentityArgs',
+    'FunctionAppSlotIdentityArgsDict',
     'FunctionAppSlotSiteConfigArgs',
+    'FunctionAppSlotSiteConfigArgsDict',
     'FunctionAppSlotSiteConfigCorsArgs',
+    'FunctionAppSlotSiteConfigCorsArgsDict',
     'FunctionAppSlotSiteConfigIpRestrictionArgs',
+    'FunctionAppSlotSiteConfigIpRestrictionArgsDict',
     'FunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'FunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict',
     'FunctionAppSlotSiteConfigScmIpRestrictionArgs',
+    'FunctionAppSlotSiteConfigScmIpRestrictionArgsDict',
     'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict',
     'FunctionAppSlotSiteCredentialArgs',
+    'FunctionAppSlotSiteCredentialArgsDict',
     'FunctionAppSourceControlArgs',
+    'FunctionAppSourceControlArgsDict',
     'LinuxFunctionAppAuthSettingsArgs',
+    'LinuxFunctionAppAuthSettingsArgsDict',
     'LinuxFunctionAppAuthSettingsActiveDirectoryArgs',
+    'LinuxFunctionAppAuthSettingsActiveDirectoryArgsDict',
     'LinuxFunctionAppAuthSettingsFacebookArgs',
+    'LinuxFunctionAppAuthSettingsFacebookArgsDict',
     'LinuxFunctionAppAuthSettingsGithubArgs',
+    'LinuxFunctionAppAuthSettingsGithubArgsDict',
     'LinuxFunctionAppAuthSettingsGoogleArgs',
+    'LinuxFunctionAppAuthSettingsGoogleArgsDict',
     'LinuxFunctionAppAuthSettingsMicrosoftArgs',
+    'LinuxFunctionAppAuthSettingsMicrosoftArgsDict',
     'LinuxFunctionAppAuthSettingsTwitterArgs',
+    'LinuxFunctionAppAuthSettingsTwitterArgsDict',
     'LinuxFunctionAppAuthSettingsV2Args',
+    'LinuxFunctionAppAuthSettingsV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args',
+    'LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2AppleV2Args',
+    'LinuxFunctionAppAuthSettingsV2AppleV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args',
+    'LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2CustomOidcV2Args',
+    'LinuxFunctionAppAuthSettingsV2CustomOidcV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2FacebookV2Args',
+    'LinuxFunctionAppAuthSettingsV2FacebookV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2GithubV2Args',
+    'LinuxFunctionAppAuthSettingsV2GithubV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2GoogleV2Args',
+    'LinuxFunctionAppAuthSettingsV2GoogleV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2LoginArgs',
+    'LinuxFunctionAppAuthSettingsV2LoginArgsDict',
     'LinuxFunctionAppAuthSettingsV2MicrosoftV2Args',
+    'LinuxFunctionAppAuthSettingsV2MicrosoftV2ArgsDict',
     'LinuxFunctionAppAuthSettingsV2TwitterV2Args',
+    'LinuxFunctionAppAuthSettingsV2TwitterV2ArgsDict',
     'LinuxFunctionAppBackupArgs',
+    'LinuxFunctionAppBackupArgsDict',
     'LinuxFunctionAppBackupScheduleArgs',
+    'LinuxFunctionAppBackupScheduleArgsDict',
     'LinuxFunctionAppConnectionStringArgs',
+    'LinuxFunctionAppConnectionStringArgsDict',
     'LinuxFunctionAppIdentityArgs',
+    'LinuxFunctionAppIdentityArgsDict',
     'LinuxFunctionAppSiteConfigArgs',
+    'LinuxFunctionAppSiteConfigArgsDict',
     'LinuxFunctionAppSiteConfigAppServiceLogsArgs',
+    'LinuxFunctionAppSiteConfigAppServiceLogsArgsDict',
     'LinuxFunctionAppSiteConfigApplicationStackArgs',
+    'LinuxFunctionAppSiteConfigApplicationStackArgsDict',
     'LinuxFunctionAppSiteConfigApplicationStackDockerArgs',
+    'LinuxFunctionAppSiteConfigApplicationStackDockerArgsDict',
     'LinuxFunctionAppSiteConfigCorsArgs',
+    'LinuxFunctionAppSiteConfigCorsArgsDict',
     'LinuxFunctionAppSiteConfigIpRestrictionArgs',
+    'LinuxFunctionAppSiteConfigIpRestrictionArgsDict',
     'LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSiteConfigIpRestrictionHeadersArgsDict',
     'LinuxFunctionAppSiteConfigScmIpRestrictionArgs',
+    'LinuxFunctionAppSiteConfigScmIpRestrictionArgsDict',
     'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict',
     'LinuxFunctionAppSiteCredentialArgs',
+    'LinuxFunctionAppSiteCredentialArgsDict',
     'LinuxFunctionAppSlotAuthSettingsArgs',
+    'LinuxFunctionAppSlotAuthSettingsArgsDict',
     'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs',
+    'LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgsDict',
     'LinuxFunctionAppSlotAuthSettingsFacebookArgs',
+    'LinuxFunctionAppSlotAuthSettingsFacebookArgsDict',
     'LinuxFunctionAppSlotAuthSettingsGithubArgs',
+    'LinuxFunctionAppSlotAuthSettingsGithubArgsDict',
     'LinuxFunctionAppSlotAuthSettingsGoogleArgs',
+    'LinuxFunctionAppSlotAuthSettingsGoogleArgsDict',
     'LinuxFunctionAppSlotAuthSettingsMicrosoftArgs',
+    'LinuxFunctionAppSlotAuthSettingsMicrosoftArgsDict',
     'LinuxFunctionAppSlotAuthSettingsTwitterArgs',
+    'LinuxFunctionAppSlotAuthSettingsTwitterArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2AppleV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2AppleV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2GithubV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2GithubV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2LoginArgs',
+    'LinuxFunctionAppSlotAuthSettingsV2LoginArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict',
     'LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args',
+    'LinuxFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict',
     'LinuxFunctionAppSlotBackupArgs',
+    'LinuxFunctionAppSlotBackupArgsDict',
     'LinuxFunctionAppSlotBackupScheduleArgs',
+    'LinuxFunctionAppSlotBackupScheduleArgsDict',
     'LinuxFunctionAppSlotConnectionStringArgs',
+    'LinuxFunctionAppSlotConnectionStringArgsDict',
     'LinuxFunctionAppSlotIdentityArgs',
+    'LinuxFunctionAppSlotIdentityArgsDict',
     'LinuxFunctionAppSlotSiteConfigArgs',
+    'LinuxFunctionAppSlotSiteConfigArgsDict',
     'LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs',
+    'LinuxFunctionAppSlotSiteConfigAppServiceLogsArgsDict',
     'LinuxFunctionAppSlotSiteConfigApplicationStackArgs',
+    'LinuxFunctionAppSlotSiteConfigApplicationStackArgsDict',
     'LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs',
+    'LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgsDict',
     'LinuxFunctionAppSlotSiteConfigCorsArgs',
+    'LinuxFunctionAppSlotSiteConfigCorsArgsDict',
     'LinuxFunctionAppSlotSiteConfigIpRestrictionArgs',
+    'LinuxFunctionAppSlotSiteConfigIpRestrictionArgsDict',
     'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict',
     'LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs',
+    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgsDict',
     'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict',
     'LinuxFunctionAppSlotSiteCredentialArgs',
+    'LinuxFunctionAppSlotSiteCredentialArgsDict',
     'LinuxFunctionAppSlotStorageAccountArgs',
+    'LinuxFunctionAppSlotStorageAccountArgsDict',
     'LinuxFunctionAppStickySettingsArgs',
+    'LinuxFunctionAppStickySettingsArgsDict',
     'LinuxFunctionAppStorageAccountArgs',
+    'LinuxFunctionAppStorageAccountArgsDict',
     'LinuxWebAppAuthSettingsArgs',
+    'LinuxWebAppAuthSettingsArgsDict',
     'LinuxWebAppAuthSettingsActiveDirectoryArgs',
+    'LinuxWebAppAuthSettingsActiveDirectoryArgsDict',
     'LinuxWebAppAuthSettingsFacebookArgs',
+    'LinuxWebAppAuthSettingsFacebookArgsDict',
     'LinuxWebAppAuthSettingsGithubArgs',
+    'LinuxWebAppAuthSettingsGithubArgsDict',
     'LinuxWebAppAuthSettingsGoogleArgs',
+    'LinuxWebAppAuthSettingsGoogleArgsDict',
     'LinuxWebAppAuthSettingsMicrosoftArgs',
+    'LinuxWebAppAuthSettingsMicrosoftArgsDict',
     'LinuxWebAppAuthSettingsTwitterArgs',
+    'LinuxWebAppAuthSettingsTwitterArgsDict',
     'LinuxWebAppAuthSettingsV2Args',
+    'LinuxWebAppAuthSettingsV2ArgsDict',
     'LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args',
+    'LinuxWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'LinuxWebAppAuthSettingsV2AppleV2Args',
+    'LinuxWebAppAuthSettingsV2AppleV2ArgsDict',
     'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args',
+    'LinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'LinuxWebAppAuthSettingsV2CustomOidcV2Args',
+    'LinuxWebAppAuthSettingsV2CustomOidcV2ArgsDict',
     'LinuxWebAppAuthSettingsV2FacebookV2Args',
+    'LinuxWebAppAuthSettingsV2FacebookV2ArgsDict',
     'LinuxWebAppAuthSettingsV2GithubV2Args',
+    'LinuxWebAppAuthSettingsV2GithubV2ArgsDict',
     'LinuxWebAppAuthSettingsV2GoogleV2Args',
+    'LinuxWebAppAuthSettingsV2GoogleV2ArgsDict',
     'LinuxWebAppAuthSettingsV2LoginArgs',
+    'LinuxWebAppAuthSettingsV2LoginArgsDict',
     'LinuxWebAppAuthSettingsV2MicrosoftV2Args',
+    'LinuxWebAppAuthSettingsV2MicrosoftV2ArgsDict',
     'LinuxWebAppAuthSettingsV2TwitterV2Args',
+    'LinuxWebAppAuthSettingsV2TwitterV2ArgsDict',
     'LinuxWebAppBackupArgs',
+    'LinuxWebAppBackupArgsDict',
     'LinuxWebAppBackupScheduleArgs',
+    'LinuxWebAppBackupScheduleArgsDict',
     'LinuxWebAppConnectionStringArgs',
+    'LinuxWebAppConnectionStringArgsDict',
     'LinuxWebAppIdentityArgs',
+    'LinuxWebAppIdentityArgsDict',
     'LinuxWebAppLogsArgs',
+    'LinuxWebAppLogsArgsDict',
     'LinuxWebAppLogsApplicationLogsArgs',
+    'LinuxWebAppLogsApplicationLogsArgsDict',
     'LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs',
+    'LinuxWebAppLogsApplicationLogsAzureBlobStorageArgsDict',
     'LinuxWebAppLogsHttpLogsArgs',
+    'LinuxWebAppLogsHttpLogsArgsDict',
     'LinuxWebAppLogsHttpLogsAzureBlobStorageArgs',
+    'LinuxWebAppLogsHttpLogsAzureBlobStorageArgsDict',
     'LinuxWebAppLogsHttpLogsFileSystemArgs',
+    'LinuxWebAppLogsHttpLogsFileSystemArgsDict',
     'LinuxWebAppSiteConfigArgs',
+    'LinuxWebAppSiteConfigArgsDict',
     'LinuxWebAppSiteConfigApplicationStackArgs',
+    'LinuxWebAppSiteConfigApplicationStackArgsDict',
     'LinuxWebAppSiteConfigAutoHealSettingArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingArgsDict',
     'LinuxWebAppSiteConfigAutoHealSettingActionArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingActionArgsDict',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerArgsDict',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict',
     'LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict',
     'LinuxWebAppSiteConfigCorsArgs',
+    'LinuxWebAppSiteConfigCorsArgsDict',
     'LinuxWebAppSiteConfigIpRestrictionArgs',
+    'LinuxWebAppSiteConfigIpRestrictionArgsDict',
     'LinuxWebAppSiteConfigIpRestrictionHeadersArgs',
+    'LinuxWebAppSiteConfigIpRestrictionHeadersArgsDict',
     'LinuxWebAppSiteConfigScmIpRestrictionArgs',
+    'LinuxWebAppSiteConfigScmIpRestrictionArgsDict',
     'LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxWebAppSiteConfigScmIpRestrictionHeadersArgsDict',
     'LinuxWebAppSiteCredentialArgs',
+    'LinuxWebAppSiteCredentialArgsDict',
     'LinuxWebAppSlotAuthSettingsArgs',
+    'LinuxWebAppSlotAuthSettingsArgsDict',
     'LinuxWebAppSlotAuthSettingsActiveDirectoryArgs',
+    'LinuxWebAppSlotAuthSettingsActiveDirectoryArgsDict',
     'LinuxWebAppSlotAuthSettingsFacebookArgs',
+    'LinuxWebAppSlotAuthSettingsFacebookArgsDict',
     'LinuxWebAppSlotAuthSettingsGithubArgs',
+    'LinuxWebAppSlotAuthSettingsGithubArgsDict',
     'LinuxWebAppSlotAuthSettingsGoogleArgs',
+    'LinuxWebAppSlotAuthSettingsGoogleArgsDict',
     'LinuxWebAppSlotAuthSettingsMicrosoftArgs',
+    'LinuxWebAppSlotAuthSettingsMicrosoftArgsDict',
     'LinuxWebAppSlotAuthSettingsTwitterArgs',
+    'LinuxWebAppSlotAuthSettingsTwitterArgsDict',
     'LinuxWebAppSlotAuthSettingsV2Args',
+    'LinuxWebAppSlotAuthSettingsV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args',
+    'LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2AppleV2Args',
+    'LinuxWebAppSlotAuthSettingsV2AppleV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
+    'LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args',
+    'LinuxWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2FacebookV2Args',
+    'LinuxWebAppSlotAuthSettingsV2FacebookV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2GithubV2Args',
+    'LinuxWebAppSlotAuthSettingsV2GithubV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2GoogleV2Args',
+    'LinuxWebAppSlotAuthSettingsV2GoogleV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2LoginArgs',
+    'LinuxWebAppSlotAuthSettingsV2LoginArgsDict',
     'LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args',
+    'LinuxWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict',
     'LinuxWebAppSlotAuthSettingsV2TwitterV2Args',
+    'LinuxWebAppSlotAuthSettingsV2TwitterV2ArgsDict',
     'LinuxWebAppSlotBackupArgs',
+    'LinuxWebAppSlotBackupArgsDict',
     'LinuxWebAppSlotBackupScheduleArgs',
+    'LinuxWebAppSlotBackupScheduleArgsDict',
     'LinuxWebAppSlotConnectionStringArgs',
+    'LinuxWebAppSlotConnectionStringArgsDict',
     'LinuxWebAppSlotIdentityArgs',
+    'LinuxWebAppSlotIdentityArgsDict',
     'LinuxWebAppSlotLogsArgs',
+    'LinuxWebAppSlotLogsArgsDict',
     'LinuxWebAppSlotLogsApplicationLogsArgs',
+    'LinuxWebAppSlotLogsApplicationLogsArgsDict',
     'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs',
+    'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict',
     'LinuxWebAppSlotLogsHttpLogsArgs',
+    'LinuxWebAppSlotLogsHttpLogsArgsDict',
     'LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs',
+    'LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict',
     'LinuxWebAppSlotLogsHttpLogsFileSystemArgs',
+    'LinuxWebAppSlotLogsHttpLogsFileSystemArgsDict',
     'LinuxWebAppSlotSiteConfigArgs',
+    'LinuxWebAppSlotSiteConfigArgsDict',
     'LinuxWebAppSlotSiteConfigApplicationStackArgs',
+    'LinuxWebAppSlotSiteConfigApplicationStackArgsDict',
     'LinuxWebAppSlotSiteConfigAutoHealSettingArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingArgsDict',
     'LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingActionArgsDict',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict',
     'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict',
     'LinuxWebAppSlotSiteConfigCorsArgs',
+    'LinuxWebAppSlotSiteConfigCorsArgsDict',
     'LinuxWebAppSlotSiteConfigIpRestrictionArgs',
+    'LinuxWebAppSlotSiteConfigIpRestrictionArgsDict',
     'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgsDict',
     'LinuxWebAppSlotSiteConfigScmIpRestrictionArgs',
+    'LinuxWebAppSlotSiteConfigScmIpRestrictionArgsDict',
     'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict',
     'LinuxWebAppSlotSiteCredentialArgs',
+    'LinuxWebAppSlotSiteCredentialArgsDict',
     'LinuxWebAppSlotStorageAccountArgs',
+    'LinuxWebAppSlotStorageAccountArgsDict',
     'LinuxWebAppStickySettingsArgs',
+    'LinuxWebAppStickySettingsArgsDict',
     'LinuxWebAppStorageAccountArgs',
+    'LinuxWebAppStorageAccountArgsDict',
     'PlanSkuArgs',
+    'PlanSkuArgsDict',
     'SlotAuthSettingsArgs',
+    'SlotAuthSettingsArgsDict',
     'SlotAuthSettingsActiveDirectoryArgs',
+    'SlotAuthSettingsActiveDirectoryArgsDict',
     'SlotAuthSettingsFacebookArgs',
+    'SlotAuthSettingsFacebookArgsDict',
     'SlotAuthSettingsGoogleArgs',
+    'SlotAuthSettingsGoogleArgsDict',
     'SlotAuthSettingsMicrosoftArgs',
+    'SlotAuthSettingsMicrosoftArgsDict',
     'SlotAuthSettingsTwitterArgs',
+    'SlotAuthSettingsTwitterArgsDict',
     'SlotConnectionStringArgs',
+    'SlotConnectionStringArgsDict',
     'SlotIdentityArgs',
+    'SlotIdentityArgsDict',
     'SlotLogsArgs',
+    'SlotLogsArgsDict',
     'SlotLogsApplicationLogsArgs',
+    'SlotLogsApplicationLogsArgsDict',
     'SlotLogsApplicationLogsAzureBlobStorageArgs',
+    'SlotLogsApplicationLogsAzureBlobStorageArgsDict',
     'SlotLogsHttpLogsArgs',
+    'SlotLogsHttpLogsArgsDict',
     'SlotLogsHttpLogsAzureBlobStorageArgs',
+    'SlotLogsHttpLogsAzureBlobStorageArgsDict',
     'SlotLogsHttpLogsFileSystemArgs',
+    'SlotLogsHttpLogsFileSystemArgsDict',
     'SlotSiteConfigArgs',
+    'SlotSiteConfigArgsDict',
     'SlotSiteConfigCorsArgs',
+    'SlotSiteConfigCorsArgsDict',
     'SlotSiteConfigIpRestrictionArgs',
+    'SlotSiteConfigIpRestrictionArgsDict',
     'SlotSiteConfigIpRestrictionHeadersArgs',
+    'SlotSiteConfigIpRestrictionHeadersArgsDict',
     'SlotSiteConfigScmIpRestrictionArgs',
+    'SlotSiteConfigScmIpRestrictionArgsDict',
     'SlotSiteConfigScmIpRestrictionHeadersArgs',
+    'SlotSiteConfigScmIpRestrictionHeadersArgsDict',
     'SlotSiteCredentialArgs',
+    'SlotSiteCredentialArgsDict',
     'SlotStorageAccountArgs',
+    'SlotStorageAccountArgsDict',
     'SourceControlGithubActionConfigurationArgs',
+    'SourceControlGithubActionConfigurationArgsDict',
     'SourceControlGithubActionConfigurationCodeConfigurationArgs',
+    'SourceControlGithubActionConfigurationCodeConfigurationArgsDict',
     'SourceControlGithubActionConfigurationContainerConfigurationArgs',
+    'SourceControlGithubActionConfigurationContainerConfigurationArgsDict',
     'SourceControlSlotGithubActionConfigurationArgs',
+    'SourceControlSlotGithubActionConfigurationArgsDict',
     'SourceControlSlotGithubActionConfigurationCodeConfigurationArgs',
+    'SourceControlSlotGithubActionConfigurationCodeConfigurationArgsDict',
     'SourceControlSlotGithubActionConfigurationContainerConfigurationArgs',
+    'SourceControlSlotGithubActionConfigurationContainerConfigurationArgsDict',
     'StaticSiteIdentityArgs',
+    'StaticSiteIdentityArgsDict',
     'StaticWebAppBasicAuthArgs',
+    'StaticWebAppBasicAuthArgsDict',
     'StaticWebAppIdentityArgs',
+    'StaticWebAppIdentityArgsDict',
     'WindowsFunctionAppAuthSettingsArgs',
+    'WindowsFunctionAppAuthSettingsArgsDict',
     'WindowsFunctionAppAuthSettingsActiveDirectoryArgs',
+    'WindowsFunctionAppAuthSettingsActiveDirectoryArgsDict',
     'WindowsFunctionAppAuthSettingsFacebookArgs',
+    'WindowsFunctionAppAuthSettingsFacebookArgsDict',
     'WindowsFunctionAppAuthSettingsGithubArgs',
+    'WindowsFunctionAppAuthSettingsGithubArgsDict',
     'WindowsFunctionAppAuthSettingsGoogleArgs',
+    'WindowsFunctionAppAuthSettingsGoogleArgsDict',
     'WindowsFunctionAppAuthSettingsMicrosoftArgs',
+    'WindowsFunctionAppAuthSettingsMicrosoftArgsDict',
     'WindowsFunctionAppAuthSettingsTwitterArgs',
+    'WindowsFunctionAppAuthSettingsTwitterArgsDict',
     'WindowsFunctionAppAuthSettingsV2Args',
+    'WindowsFunctionAppAuthSettingsV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args',
+    'WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2AppleV2Args',
+    'WindowsFunctionAppAuthSettingsV2AppleV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args',
+    'WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2CustomOidcV2Args',
+    'WindowsFunctionAppAuthSettingsV2CustomOidcV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2FacebookV2Args',
+    'WindowsFunctionAppAuthSettingsV2FacebookV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2GithubV2Args',
+    'WindowsFunctionAppAuthSettingsV2GithubV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2GoogleV2Args',
+    'WindowsFunctionAppAuthSettingsV2GoogleV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2LoginArgs',
+    'WindowsFunctionAppAuthSettingsV2LoginArgsDict',
     'WindowsFunctionAppAuthSettingsV2MicrosoftV2Args',
+    'WindowsFunctionAppAuthSettingsV2MicrosoftV2ArgsDict',
     'WindowsFunctionAppAuthSettingsV2TwitterV2Args',
+    'WindowsFunctionAppAuthSettingsV2TwitterV2ArgsDict',
     'WindowsFunctionAppBackupArgs',
+    'WindowsFunctionAppBackupArgsDict',
     'WindowsFunctionAppBackupScheduleArgs',
+    'WindowsFunctionAppBackupScheduleArgsDict',
     'WindowsFunctionAppConnectionStringArgs',
+    'WindowsFunctionAppConnectionStringArgsDict',
     'WindowsFunctionAppIdentityArgs',
+    'WindowsFunctionAppIdentityArgsDict',
     'WindowsFunctionAppSiteConfigArgs',
+    'WindowsFunctionAppSiteConfigArgsDict',
     'WindowsFunctionAppSiteConfigAppServiceLogsArgs',
+    'WindowsFunctionAppSiteConfigAppServiceLogsArgsDict',
     'WindowsFunctionAppSiteConfigApplicationStackArgs',
+    'WindowsFunctionAppSiteConfigApplicationStackArgsDict',
     'WindowsFunctionAppSiteConfigCorsArgs',
+    'WindowsFunctionAppSiteConfigCorsArgsDict',
     'WindowsFunctionAppSiteConfigIpRestrictionArgs',
+    'WindowsFunctionAppSiteConfigIpRestrictionArgsDict',
     'WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSiteConfigIpRestrictionHeadersArgsDict',
     'WindowsFunctionAppSiteConfigScmIpRestrictionArgs',
+    'WindowsFunctionAppSiteConfigScmIpRestrictionArgsDict',
     'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict',
     'WindowsFunctionAppSiteCredentialArgs',
+    'WindowsFunctionAppSiteCredentialArgsDict',
     'WindowsFunctionAppSlotAuthSettingsArgs',
+    'WindowsFunctionAppSlotAuthSettingsArgsDict',
     'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs',
+    'WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgsDict',
     'WindowsFunctionAppSlotAuthSettingsFacebookArgs',
+    'WindowsFunctionAppSlotAuthSettingsFacebookArgsDict',
     'WindowsFunctionAppSlotAuthSettingsGithubArgs',
+    'WindowsFunctionAppSlotAuthSettingsGithubArgsDict',
     'WindowsFunctionAppSlotAuthSettingsGoogleArgs',
+    'WindowsFunctionAppSlotAuthSettingsGoogleArgsDict',
     'WindowsFunctionAppSlotAuthSettingsMicrosoftArgs',
+    'WindowsFunctionAppSlotAuthSettingsMicrosoftArgsDict',
     'WindowsFunctionAppSlotAuthSettingsTwitterArgs',
+    'WindowsFunctionAppSlotAuthSettingsTwitterArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2AppleV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2AppleV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2GithubV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2GithubV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2LoginArgs',
+    'WindowsFunctionAppSlotAuthSettingsV2LoginArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict',
     'WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args',
+    'WindowsFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict',
     'WindowsFunctionAppSlotBackupArgs',
+    'WindowsFunctionAppSlotBackupArgsDict',
     'WindowsFunctionAppSlotBackupScheduleArgs',
+    'WindowsFunctionAppSlotBackupScheduleArgsDict',
     'WindowsFunctionAppSlotConnectionStringArgs',
+    'WindowsFunctionAppSlotConnectionStringArgsDict',
     'WindowsFunctionAppSlotIdentityArgs',
+    'WindowsFunctionAppSlotIdentityArgsDict',
     'WindowsFunctionAppSlotSiteConfigArgs',
+    'WindowsFunctionAppSlotSiteConfigArgsDict',
     'WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs',
+    'WindowsFunctionAppSlotSiteConfigAppServiceLogsArgsDict',
     'WindowsFunctionAppSlotSiteConfigApplicationStackArgs',
+    'WindowsFunctionAppSlotSiteConfigApplicationStackArgsDict',
     'WindowsFunctionAppSlotSiteConfigCorsArgs',
+    'WindowsFunctionAppSlotSiteConfigCorsArgsDict',
     'WindowsFunctionAppSlotSiteConfigIpRestrictionArgs',
+    'WindowsFunctionAppSlotSiteConfigIpRestrictionArgsDict',
     'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict',
     'WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs',
+    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgsDict',
     'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict',
     'WindowsFunctionAppSlotSiteCredentialArgs',
+    'WindowsFunctionAppSlotSiteCredentialArgsDict',
     'WindowsFunctionAppSlotStorageAccountArgs',
+    'WindowsFunctionAppSlotStorageAccountArgsDict',
     'WindowsFunctionAppStickySettingsArgs',
+    'WindowsFunctionAppStickySettingsArgsDict',
     'WindowsFunctionAppStorageAccountArgs',
+    'WindowsFunctionAppStorageAccountArgsDict',
     'WindowsWebAppAuthSettingsArgs',
+    'WindowsWebAppAuthSettingsArgsDict',
     'WindowsWebAppAuthSettingsActiveDirectoryArgs',
+    'WindowsWebAppAuthSettingsActiveDirectoryArgsDict',
     'WindowsWebAppAuthSettingsFacebookArgs',
+    'WindowsWebAppAuthSettingsFacebookArgsDict',
     'WindowsWebAppAuthSettingsGithubArgs',
+    'WindowsWebAppAuthSettingsGithubArgsDict',
     'WindowsWebAppAuthSettingsGoogleArgs',
+    'WindowsWebAppAuthSettingsGoogleArgsDict',
     'WindowsWebAppAuthSettingsMicrosoftArgs',
+    'WindowsWebAppAuthSettingsMicrosoftArgsDict',
     'WindowsWebAppAuthSettingsTwitterArgs',
+    'WindowsWebAppAuthSettingsTwitterArgsDict',
     'WindowsWebAppAuthSettingsV2Args',
+    'WindowsWebAppAuthSettingsV2ArgsDict',
     'WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args',
+    'WindowsWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'WindowsWebAppAuthSettingsV2AppleV2Args',
+    'WindowsWebAppAuthSettingsV2AppleV2ArgsDict',
     'WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args',
+    'WindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'WindowsWebAppAuthSettingsV2CustomOidcV2Args',
+    'WindowsWebAppAuthSettingsV2CustomOidcV2ArgsDict',
     'WindowsWebAppAuthSettingsV2FacebookV2Args',
+    'WindowsWebAppAuthSettingsV2FacebookV2ArgsDict',
     'WindowsWebAppAuthSettingsV2GithubV2Args',
+    'WindowsWebAppAuthSettingsV2GithubV2ArgsDict',
     'WindowsWebAppAuthSettingsV2GoogleV2Args',
+    'WindowsWebAppAuthSettingsV2GoogleV2ArgsDict',
     'WindowsWebAppAuthSettingsV2LoginArgs',
+    'WindowsWebAppAuthSettingsV2LoginArgsDict',
     'WindowsWebAppAuthSettingsV2MicrosoftV2Args',
+    'WindowsWebAppAuthSettingsV2MicrosoftV2ArgsDict',
     'WindowsWebAppAuthSettingsV2TwitterV2Args',
+    'WindowsWebAppAuthSettingsV2TwitterV2ArgsDict',
     'WindowsWebAppBackupArgs',
+    'WindowsWebAppBackupArgsDict',
     'WindowsWebAppBackupScheduleArgs',
+    'WindowsWebAppBackupScheduleArgsDict',
     'WindowsWebAppConnectionStringArgs',
+    'WindowsWebAppConnectionStringArgsDict',
     'WindowsWebAppIdentityArgs',
+    'WindowsWebAppIdentityArgsDict',
     'WindowsWebAppLogsArgs',
+    'WindowsWebAppLogsArgsDict',
     'WindowsWebAppLogsApplicationLogsArgs',
+    'WindowsWebAppLogsApplicationLogsArgsDict',
     'WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs',
+    'WindowsWebAppLogsApplicationLogsAzureBlobStorageArgsDict',
     'WindowsWebAppLogsHttpLogsArgs',
+    'WindowsWebAppLogsHttpLogsArgsDict',
     'WindowsWebAppLogsHttpLogsAzureBlobStorageArgs',
+    'WindowsWebAppLogsHttpLogsAzureBlobStorageArgsDict',
     'WindowsWebAppLogsHttpLogsFileSystemArgs',
+    'WindowsWebAppLogsHttpLogsFileSystemArgsDict',
     'WindowsWebAppSiteConfigArgs',
+    'WindowsWebAppSiteConfigArgsDict',
     'WindowsWebAppSiteConfigApplicationStackArgs',
+    'WindowsWebAppSiteConfigApplicationStackArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingActionArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingActionArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict',
     'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict',
     'WindowsWebAppSiteConfigCorsArgs',
+    'WindowsWebAppSiteConfigCorsArgsDict',
     'WindowsWebAppSiteConfigHandlerMappingArgs',
+    'WindowsWebAppSiteConfigHandlerMappingArgsDict',
     'WindowsWebAppSiteConfigIpRestrictionArgs',
+    'WindowsWebAppSiteConfigIpRestrictionArgsDict',
     'WindowsWebAppSiteConfigIpRestrictionHeadersArgs',
+    'WindowsWebAppSiteConfigIpRestrictionHeadersArgsDict',
     'WindowsWebAppSiteConfigScmIpRestrictionArgs',
+    'WindowsWebAppSiteConfigScmIpRestrictionArgsDict',
     'WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsWebAppSiteConfigScmIpRestrictionHeadersArgsDict',
     'WindowsWebAppSiteConfigVirtualApplicationArgs',
+    'WindowsWebAppSiteConfigVirtualApplicationArgsDict',
     'WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs',
+    'WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgsDict',
     'WindowsWebAppSiteCredentialArgs',
+    'WindowsWebAppSiteCredentialArgsDict',
     'WindowsWebAppSlotAuthSettingsArgs',
+    'WindowsWebAppSlotAuthSettingsArgsDict',
     'WindowsWebAppSlotAuthSettingsActiveDirectoryArgs',
+    'WindowsWebAppSlotAuthSettingsActiveDirectoryArgsDict',
     'WindowsWebAppSlotAuthSettingsFacebookArgs',
+    'WindowsWebAppSlotAuthSettingsFacebookArgsDict',
     'WindowsWebAppSlotAuthSettingsGithubArgs',
+    'WindowsWebAppSlotAuthSettingsGithubArgsDict',
     'WindowsWebAppSlotAuthSettingsGoogleArgs',
+    'WindowsWebAppSlotAuthSettingsGoogleArgsDict',
     'WindowsWebAppSlotAuthSettingsMicrosoftArgs',
+    'WindowsWebAppSlotAuthSettingsMicrosoftArgsDict',
     'WindowsWebAppSlotAuthSettingsTwitterArgs',
+    'WindowsWebAppSlotAuthSettingsTwitterArgsDict',
     'WindowsWebAppSlotAuthSettingsV2Args',
+    'WindowsWebAppSlotAuthSettingsV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args',
+    'WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2AppleV2Args',
+    'WindowsWebAppSlotAuthSettingsV2AppleV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args',
+    'WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args',
+    'WindowsWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2FacebookV2Args',
+    'WindowsWebAppSlotAuthSettingsV2FacebookV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2GithubV2Args',
+    'WindowsWebAppSlotAuthSettingsV2GithubV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2GoogleV2Args',
+    'WindowsWebAppSlotAuthSettingsV2GoogleV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2LoginArgs',
+    'WindowsWebAppSlotAuthSettingsV2LoginArgsDict',
     'WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args',
+    'WindowsWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict',
     'WindowsWebAppSlotAuthSettingsV2TwitterV2Args',
+    'WindowsWebAppSlotAuthSettingsV2TwitterV2ArgsDict',
     'WindowsWebAppSlotBackupArgs',
+    'WindowsWebAppSlotBackupArgsDict',
     'WindowsWebAppSlotBackupScheduleArgs',
+    'WindowsWebAppSlotBackupScheduleArgsDict',
     'WindowsWebAppSlotConnectionStringArgs',
+    'WindowsWebAppSlotConnectionStringArgsDict',
     'WindowsWebAppSlotIdentityArgs',
+    'WindowsWebAppSlotIdentityArgsDict',
     'WindowsWebAppSlotLogsArgs',
+    'WindowsWebAppSlotLogsArgsDict',
     'WindowsWebAppSlotLogsApplicationLogsArgs',
+    'WindowsWebAppSlotLogsApplicationLogsArgsDict',
     'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs',
+    'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict',
     'WindowsWebAppSlotLogsHttpLogsArgs',
+    'WindowsWebAppSlotLogsHttpLogsArgsDict',
     'WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs',
+    'WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict',
     'WindowsWebAppSlotLogsHttpLogsFileSystemArgs',
+    'WindowsWebAppSlotLogsHttpLogsFileSystemArgsDict',
     'WindowsWebAppSlotSiteConfigArgs',
+    'WindowsWebAppSlotSiteConfigArgsDict',
     'WindowsWebAppSlotSiteConfigApplicationStackArgs',
+    'WindowsWebAppSlotSiteConfigApplicationStackArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingActionArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict',
     'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs',
+    'WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict',
     'WindowsWebAppSlotSiteConfigCorsArgs',
+    'WindowsWebAppSlotSiteConfigCorsArgsDict',
     'WindowsWebAppSlotSiteConfigHandlerMappingArgs',
+    'WindowsWebAppSlotSiteConfigHandlerMappingArgsDict',
     'WindowsWebAppSlotSiteConfigIpRestrictionArgs',
+    'WindowsWebAppSlotSiteConfigIpRestrictionArgsDict',
     'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs',
+    'WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgsDict',
     'WindowsWebAppSlotSiteConfigScmIpRestrictionArgs',
+    'WindowsWebAppSlotSiteConfigScmIpRestrictionArgsDict',
     'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs',
+    'WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict',
     'WindowsWebAppSlotSiteConfigVirtualApplicationArgs',
+    'WindowsWebAppSlotSiteConfigVirtualApplicationArgsDict',
     'WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs',
+    'WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgsDict',
     'WindowsWebAppSlotSiteCredentialArgs',
+    'WindowsWebAppSlotSiteCredentialArgsDict',
     'WindowsWebAppSlotStorageAccountArgs',
+    'WindowsWebAppSlotStorageAccountArgsDict',
     'WindowsWebAppStickySettingsArgs',
+    'WindowsWebAppStickySettingsArgsDict',
     'WindowsWebAppStorageAccountArgs',
+    'WindowsWebAppStorageAccountArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AppConnectionAuthenticationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+        """
+elif False:
+    AppConnectionAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppConnectionAuthenticationArgs:
@@ -545,6 +1000,15 @@ class AppConnectionAuthenticationArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class AppConnectionSecretStoreArgsDict(TypedDict):
+        key_vault_id: pulumi.Input[str]
+        """
+        The key vault id to store secret.
+        """
+elif False:
+    AppConnectionSecretStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppConnectionSecretStoreArgs:
     def __init__(__self__, *,
@@ -566,6 +1030,69 @@ class AppConnectionSecretStoreArgs:
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
 
+
+if not MYPY:
+    class AppServiceAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Is Authentication enabled?
+        """
+        active_directory: NotRequired[pulumi.Input['AppServiceAuthSettingsActiveDirectoryArgsDict']]
+        """
+        A `active_directory` block as defined below.
+        """
+        additional_login_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+
+        > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+        """
+        facebook: NotRequired[pulumi.Input['AppServiceAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['AppServiceAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['AppServiceAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The runtime version of the Authentication/Authorization module.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['AppServiceAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        """
+elif False:
+    AppServiceAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceAuthSettingsArgs:
@@ -801,6 +1328,23 @@ class AppServiceAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class AppServiceAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        """
+elif False:
+    AppServiceAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -855,6 +1399,23 @@ class AppServiceAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret", value)
 
 
+if not MYPY:
+    class AppServiceAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login
+        """
+        app_secret: pulumi.Input[str]
+        """
+        The App Secret of the Facebook app used for Facebook login.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
+        """
+elif False:
+    AppServiceAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -907,6 +1468,23 @@ class AppServiceAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class AppServiceAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret associated with the Google web application.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+        """
+elif False:
+    AppServiceAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceAuthSettingsGoogleArgs:
@@ -961,6 +1539,23 @@ class AppServiceAuthSettingsGoogleArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class AppServiceAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
+        """
+elif False:
+    AppServiceAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
@@ -1014,6 +1609,19 @@ class AppServiceAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class AppServiceAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The consumer key of the Twitter app used for login
+        """
+        consumer_secret: pulumi.Input[str]
+        """
+        The consumer secret of the Twitter app used for login.
+        """
+elif False:
+    AppServiceAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -1050,6 +1658,27 @@ class AppServiceAuthSettingsTwitterArgs:
     def consumer_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret", value)
 
+
+if not MYPY:
+    class AppServiceBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name for this Backup.
+        """
+        schedule: pulumi.Input['AppServiceBackupScheduleArgsDict']
+        """
+        A `schedule` block as defined below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to a Storage Container where Backups should be saved.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is this Backup enabled? Defaults to `true`.
+        """
+elif False:
+    AppServiceBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceBackupArgs:
@@ -1118,6 +1747,31 @@ class AppServiceBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class AppServiceBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        Sets how often the backup should be executed.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
+        """
+        retention_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days after which Backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        Sets when the schedule should start working.
+        """
+elif False:
+    AppServiceBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceBackupScheduleArgs:
@@ -1204,6 +1858,23 @@ class AppServiceBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class AppServiceConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the Connection String.
+        """
+elif False:
+    AppServiceConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceConnectionStringArgs:
     def __init__(__self__, *,
@@ -1255,6 +1926,29 @@ class AppServiceConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class AppServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the App Service has been created. More details are available below.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+elif False:
+    AppServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceIdentityArgs:
@@ -1330,6 +2024,27 @@ class AppServiceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AppServiceLogsArgsDict(TypedDict):
+        application_logs: NotRequired[pulumi.Input['AppServiceLogsApplicationLogsArgsDict']]
+        """
+        An `application_logs` block as defined below.
+        """
+        detailed_error_messages_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
+        """
+        failed_request_tracing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
+        """
+        http_logs: NotRequired[pulumi.Input['AppServiceLogsHttpLogsArgsDict']]
+        """
+        An `http_logs` block as defined below.
+        """
+elif False:
+    AppServiceLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceLogsArgs:
     def __init__(__self__, *,
@@ -1401,6 +2116,19 @@ class AppServiceLogsArgs:
         pulumi.set(self, "http_logs", value)
 
 
+if not MYPY:
+    class AppServiceLogsApplicationLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['AppServiceLogsApplicationLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        file_system_level: NotRequired[pulumi.Input[str]]
+        """
+        Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
+        """
+elif False:
+    AppServiceLogsApplicationLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceLogsApplicationLogsArgs:
     def __init__(__self__, *,
@@ -1439,6 +2167,23 @@ class AppServiceLogsApplicationLogsArgs:
     def file_system_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system_level", value)
 
+
+if not MYPY:
+    class AppServiceLogsApplicationLogsAzureBlobStorageArgsDict(TypedDict):
+        level: pulumi.Input[str]
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
+        retention_in_days: pulumi.Input[int]
+        """
+        The number of days to retain logs for.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        The URL to the storage container with a shared access signature token appended.
+        """
+elif False:
+    AppServiceLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
@@ -1492,6 +2237,19 @@ class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class AppServiceLogsHttpLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['AppServiceLogsHttpLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        file_system: NotRequired[pulumi.Input['AppServiceLogsHttpLogsFileSystemArgsDict']]
+        """
+        A `file_system` block as defined below.
+        """
+elif False:
+    AppServiceLogsHttpLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceLogsHttpLogsArgs:
     def __init__(__self__, *,
@@ -1531,6 +2289,19 @@ class AppServiceLogsHttpLogsArgs:
         pulumi.set(self, "file_system", value)
 
 
+if not MYPY:
+    class AppServiceLogsHttpLogsAzureBlobStorageArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The number of days to retain logs for.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        The URL to the storage container with a shared access signature token appended.
+        """
+elif False:
+    AppServiceLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
@@ -1568,6 +2339,19 @@ class AppServiceLogsHttpLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class AppServiceLogsHttpLogsFileSystemArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The number of days to retain logs for.
+        """
+        retention_in_mb: pulumi.Input[int]
+        """
+        The maximum size in megabytes that HTTP log files can use before being removed.
+        """
+elif False:
+    AppServiceLogsHttpLogsFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
@@ -1604,6 +2388,148 @@ class AppServiceLogsHttpLogsFileSystemArgs:
     def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
+
+if not MYPY:
+    class AppServiceSiteConfigArgsDict(TypedDict):
+        acr_use_managed_identity_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are Managed Identity Credentials used for Azure Container Registry pull
+        """
+        acr_user_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        If using User Managed Identity, the User Managed Identity Client Id
+
+        > **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+        """
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        Should the app be loaded at all times? Defaults to `false`.
+
+        > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the slot to automatically swap to during deployment
+        """
+        cors: NotRequired[pulumi.Input['AppServiceSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined below.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ordering of default documents to load, if an address isn't specified.
+        """
+        dotnet_framework_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the .NET framework's CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is HTTP2 Enabled on this App Service? Defaults to `false`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgsDict']]]]
+        """
+        A list of objects representing ip restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        java_container: NotRequired[pulumi.Input[str]]
+        """
+        The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+        """
+        java_container_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+
+        > **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
+        """
+        local_mysql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+
+        > **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+        """
+        min_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+        """
+        number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Remote Debugging Enabled? Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        IP security restrictions for scm to use main. Defaults to `false`. 
+
+        > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+        """
+        use32_bit_worker_process: NotRequired[pulumi.Input[bool]]
+        """
+        Should the App Service run in 32 bit mode, rather than 64 bit mode?
+
+        > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should WebSockets be enabled?
+        """
+        windows_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        The Windows Docker container image (`DOCKER|<user/image:tag>`)
+        """
+elif False:
+    AppServiceSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceSiteConfigArgs:
@@ -2136,6 +3062,19 @@ class AppServiceSiteConfigArgs:
         pulumi.set(self, "windows_fx_version", value)
 
 
+if not MYPY:
+    class AppServiceSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials supported?
+        """
+elif False:
+    AppServiceSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -2173,6 +3112,41 @@ class AppServiceSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class AppServiceSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['AppServiceSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    AppServiceSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceSiteConfigIpRestrictionArgs:
@@ -2297,6 +3271,27 @@ class AppServiceSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class AppServiceSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    AppServiceSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -2367,6 +3362,41 @@ class AppServiceSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class AppServiceSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Allow or Deny access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['AppServiceSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    AppServiceSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceSiteConfigScmIpRestrictionArgs:
@@ -2491,6 +3521,27 @@ class AppServiceSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class AppServiceSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    AppServiceSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -2562,6 +3613,19 @@ class AppServiceSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class AppServiceSiteCredentialArgsDict(TypedDict):
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password associated with the username, which can be used to publish to this App Service.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username which can be used to publish to this App Service
+        """
+elif False:
+    AppServiceSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AppServiceSiteCredentialArgs:
     def __init__(__self__, *,
@@ -2600,6 +3664,31 @@ class AppServiceSiteCredentialArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class AppServiceSourceControlArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The branch of the remote repository to use. Defaults to 'master'.
+        """
+        manual_integration: NotRequired[pulumi.Input[bool]]
+        """
+        Limits to manual integration. Defaults to `false` if not specified.
+        """
+        repo_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the source code repository.
+        """
+        rollback_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable roll-back for the repository. Defaults to `false` if not specified.
+        """
+        use_mercurial: NotRequired[pulumi.Input[bool]]
+        """
+        Use Mercurial if `true`, otherwise uses Git.
+        """
+elif False:
+    AppServiceSourceControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceSourceControlArgs:
@@ -2687,6 +3776,35 @@ class AppServiceSourceControlArgs:
     def use_mercurial(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_mercurial", value)
 
+
+if not MYPY:
+    class AppServiceStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The name of the storage account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the storage account identifier.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The name of the file share (container name, for Blob storage).
+        """
+        type: pulumi.Input[str]
+        """
+        The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to mount the storage within the site's runtime environment.
+        """
+elif False:
+    AppServiceStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AppServiceStorageAccountArgs:
@@ -2786,6 +3904,27 @@ class AppServiceStorageAccountArgs:
         pulumi.set(self, "mount_path", value)
 
 
+if not MYPY:
+    class CertificateOrderCertificateArgsDict(TypedDict):
+        certificate_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the App Service Certificate.
+        """
+        key_vault_id: NotRequired[pulumi.Input[str]]
+        """
+        Key Vault resource Id.
+        """
+        key_vault_secret_name: NotRequired[pulumi.Input[str]]
+        """
+        Key Vault secret name.
+        """
+        provisioning_state: NotRequired[pulumi.Input[str]]
+        """
+        Status of the Key Vault secret.
+        """
+elif False:
+    CertificateOrderCertificateArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateOrderCertificateArgs:
     def __init__(__self__, *,
@@ -2856,6 +3995,39 @@ class CertificateOrderCertificateArgs:
     def provisioning_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provisioning_state", value)
 
+
+if not MYPY:
+    class ConnectionAuthenticationArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`. Changing this forces a new resource to be created.
+        """
+        certificate: NotRequired[pulumi.Input[str]]
+        """
+        Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+        """
+        secret: NotRequired[pulumi.Input[str]]
+        """
+        Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        subscription_id: NotRequired[pulumi.Input[str]]
+        """
+        Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+        """
+elif False:
+    ConnectionAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConnectionAuthenticationArgs:
@@ -2975,6 +4147,15 @@ class ConnectionAuthenticationArgs:
         pulumi.set(self, "subscription_id", value)
 
 
+if not MYPY:
+    class ConnectionSecretStoreArgsDict(TypedDict):
+        key_vault_id: pulumi.Input[str]
+        """
+        The key vault id to store secret.
+        """
+elif False:
+    ConnectionSecretStoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConnectionSecretStoreArgs:
     def __init__(__self__, *,
@@ -2996,6 +4177,19 @@ class ConnectionSecretStoreArgs:
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
 
+
+if not MYPY:
+    class EnvironmentClusterSettingArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Cluster Setting.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the Cluster Setting.
+        """
+elif False:
+    EnvironmentClusterSettingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentClusterSettingArgs:
@@ -3034,6 +4228,19 @@ class EnvironmentClusterSettingArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class EnvironmentV3ClusterSettingArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Cluster Setting.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the Cluster Setting.
+        """
+elif False:
+    EnvironmentV3ClusterSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class EnvironmentV3ClusterSettingArgs:
     def __init__(__self__, *,
@@ -3070,6 +4277,23 @@ class EnvironmentV3ClusterSettingArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class EnvironmentV3InboundNetworkDependencyArgsDict(TypedDict):
+        description: NotRequired[pulumi.Input[str]]
+        """
+        A short description of the purpose of the network traffic.
+        """
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of IP addresses that network traffic will originate from in CIDR notation.
+        """
+        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ports that network traffic will arrive to the App Service Environment V3 on.
+        """
+elif False:
+    EnvironmentV3InboundNetworkDependencyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class EnvironmentV3InboundNetworkDependencyArgs:
@@ -3125,6 +4349,69 @@ class EnvironmentV3InboundNetworkDependencyArgs:
     def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ports", value)
 
+
+if not MYPY:
+    class FunctionAppAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Is Authentication enabled?
+        """
+        active_directory: NotRequired[pulumi.Input['FunctionAppAuthSettingsActiveDirectoryArgsDict']]
+        """
+        A `active_directory` block as defined below.
+        """
+        additional_login_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+
+        > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+        """
+        facebook: NotRequired[pulumi.Input['FunctionAppAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['FunctionAppAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['FunctionAppAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The runtime version of the Authentication/Authorization module.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['FunctionAppAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        """
+elif False:
+    FunctionAppAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppAuthSettingsArgs:
@@ -3360,6 +4647,23 @@ class FunctionAppAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class FunctionAppAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        """
+elif False:
+    FunctionAppAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -3414,6 +4718,23 @@ class FunctionAppAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret", value)
 
 
+if not MYPY:
+    class FunctionAppAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login
+        """
+        app_secret: pulumi.Input[str]
+        """
+        The App Secret of the Facebook app used for Facebook login.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
+        """
+elif False:
+    FunctionAppAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -3466,6 +4787,23 @@ class FunctionAppAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class FunctionAppAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret associated with the Google web application.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+        """
+elif False:
+    FunctionAppAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppAuthSettingsGoogleArgs:
@@ -3520,6 +4858,23 @@ class FunctionAppAuthSettingsGoogleArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class FunctionAppAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
+        """
+elif False:
+    FunctionAppAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
@@ -3573,6 +4928,19 @@ class FunctionAppAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class FunctionAppAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+elif False:
+    FunctionAppAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -3609,6 +4977,23 @@ class FunctionAppAuthSettingsTwitterArgs:
     def consumer_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret", value)
 
+
+if not MYPY:
+    class FunctionAppConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the Connection String.
+        """
+elif False:
+    FunctionAppConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppConnectionStringArgs:
@@ -3662,6 +5047,19 @@ class FunctionAppConnectionStringArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class FunctionAppFunctionFileArgsDict(TypedDict):
+        content: pulumi.Input[str]
+        """
+        The content of the file. Changing this forces a new resource to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The filename of the file to be uploaded. Changing this forces a new resource to be created.
+        """
+elif False:
+    FunctionAppFunctionFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppFunctionFileArgs:
     def __init__(__self__, *,
@@ -3698,6 +5096,29 @@ class FunctionAppFunctionFileArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class FunctionAppIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Function App has been created. More details are available below.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+elif False:
+    FunctionAppIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppIdentityArgs:
@@ -3772,6 +5193,104 @@ class FunctionAppIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class FunctionAppSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Function App be loaded at all times? Defaults to `false`.
+        """
+        app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the slot to automatically swap to during deployment
+
+        > **NOTE:** This attribute is only used for slots.
+        """
+        cors: NotRequired[pulumi.Input['FunctionAppSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined below.
+        """
+        dotnet_framework_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this function app. Only affects apps on the Premium plan.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        Path which will be checked for this function app health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgsDict']]]]
+        """
+        A list of `ip_restriction` objects representing IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+        """
+        min_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of Source Control used by the Function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+
+        > **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        IP security restrictions for scm to use main. Defaults to `false`. 
+
+        > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+        """
+        use32_bit_worker_process: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+
+        > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should WebSockets be enabled?
+        """
+elif False:
+    FunctionAppSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSiteConfigArgs:
@@ -4136,6 +5655,19 @@ class FunctionAppSiteConfigArgs:
         pulumi.set(self, "websockets_enabled", value)
 
 
+if not MYPY:
+    class FunctionAppSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials supported?
+        """
+elif False:
+    FunctionAppSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -4173,6 +5705,41 @@ class FunctionAppSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class FunctionAppSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['FunctionAppSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    FunctionAppSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSiteConfigIpRestrictionArgs:
@@ -4297,6 +5864,27 @@ class FunctionAppSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class FunctionAppSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    FunctionAppSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -4367,6 +5955,41 @@ class FunctionAppSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class FunctionAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Allow or Deny access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    FunctionAppSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSiteConfigScmIpRestrictionArgs:
@@ -4491,6 +6114,27 @@ class FunctionAppSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class FunctionAppSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    FunctionAppSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -4562,6 +6206,19 @@ class FunctionAppSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class FunctionAppSiteCredentialArgsDict(TypedDict):
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password associated with the username, which can be used to publish to this App Service.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username which can be used to publish to this App Service
+        """
+elif False:
+    FunctionAppSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSiteCredentialArgs:
     def __init__(__self__, *,
@@ -4600,6 +6257,69 @@ class FunctionAppSiteCredentialArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class FunctionAppSlotAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Is Authentication enabled?
+        """
+        active_directory: NotRequired[pulumi.Input['FunctionAppSlotAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined below.
+        """
+        additional_login_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+
+        > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+        """
+        facebook: NotRequired[pulumi.Input['FunctionAppSlotAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['FunctionAppSlotAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['FunctionAppSlotAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The runtime version of the Authentication/Authorization module.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['FunctionAppSlotAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        """
+elif False:
+    FunctionAppSlotAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSlotAuthSettingsArgs:
@@ -4835,6 +6555,23 @@ class FunctionAppSlotAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class FunctionAppSlotAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        """
+elif False:
+    FunctionAppSlotAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -4889,6 +6626,23 @@ class FunctionAppSlotAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret", value)
 
 
+if not MYPY:
+    class FunctionAppSlotAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login
+        """
+        app_secret: pulumi.Input[str]
+        """
+        The App Secret of the Facebook app used for Facebook login.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
+        """
+elif False:
+    FunctionAppSlotAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -4941,6 +6695,23 @@ class FunctionAppSlotAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class FunctionAppSlotAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret associated with the Google web application.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+        """
+elif False:
+    FunctionAppSlotAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSlotAuthSettingsGoogleArgs:
@@ -4995,6 +6766,23 @@ class FunctionAppSlotAuthSettingsGoogleArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class FunctionAppSlotAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
+        """
+elif False:
+    FunctionAppSlotAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
@@ -5048,6 +6836,19 @@ class FunctionAppSlotAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class FunctionAppSlotAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+        """
+elif False:
+    FunctionAppSlotAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -5084,6 +6885,23 @@ class FunctionAppSlotAuthSettingsTwitterArgs:
     def consumer_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret", value)
 
+
+if not MYPY:
+    class FunctionAppSlotConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure` and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the Connection String.
+        """
+elif False:
+    FunctionAppSlotConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSlotConnectionStringArgs:
@@ -5136,6 +6954,29 @@ class FunctionAppSlotConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class FunctionAppSlotIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the identity type of the Function App. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Function App has been created. More details are available below.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
+        """
+elif False:
+    FunctionAppSlotIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSlotIdentityArgs:
@@ -5210,6 +7051,100 @@ class FunctionAppSlotIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class FunctionAppSlotSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Function App be loaded at all times? Defaults to `false`.
+        """
+        app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the slot to automatically swap to during deployment
+        """
+        cors: NotRequired[pulumi.Input['FunctionAppSlotSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined below.
+        """
+        dotnet_framework_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the .NET framework's CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        Path which will be checked for this function app health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgsDict']]]]
+        """
+        A list of `ip_restriction` objects representing IP restrictions as defined below.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        Java version hosted by the function app in Azure. Possible values are `1.8`, `11` & `17` (In-Preview).
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
+        """
+        min_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of Source Control used by this function App. Valid values include: `BitBucketGit`, `BitBucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None` (default), `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`.
+
+        > **NOTE:** This setting is incompatible with the `source_control` block which updates this value based on the setting provided.
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        IP security restrictions for scm to use main. Defaults to `false`.
+
+        > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+        """
+        use32_bit_worker_process: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
+
+        > **Note:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should WebSockets be enabled?
+        """
+elif False:
+    FunctionAppSlotSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSlotSiteConfigArgs:
@@ -5566,6 +7501,19 @@ class FunctionAppSlotSiteConfigArgs:
         pulumi.set(self, "websockets_enabled", value)
 
 
+if not MYPY:
+    class FunctionAppSlotSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials supported?
+        """
+elif False:
+    FunctionAppSlotSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -5603,6 +7551,41 @@ class FunctionAppSlotSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class FunctionAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    FunctionAppSlotSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSlotSiteConfigIpRestrictionArgs:
@@ -5727,6 +7710,27 @@ class FunctionAppSlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class FunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    FunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -5797,6 +7801,41 @@ class FunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class FunctionAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Allow or Deny access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    FunctionAppSlotSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
@@ -5921,6 +7960,27 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -5992,6 +8052,19 @@ class FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class FunctionAppSlotSiteCredentialArgsDict(TypedDict):
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password associated with the username, which can be used to publish to this App Service.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username which can be used to publish to this App Service
+        """
+elif False:
+    FunctionAppSlotSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FunctionAppSlotSiteCredentialArgs:
     def __init__(__self__, *,
@@ -6030,6 +8103,31 @@ class FunctionAppSlotSiteCredentialArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class FunctionAppSourceControlArgsDict(TypedDict):
+        branch: NotRequired[pulumi.Input[str]]
+        """
+        The branch of the remote repository to use. Defaults to 'master'.
+        """
+        manual_integration: NotRequired[pulumi.Input[bool]]
+        """
+        Limits to manual integration. Defaults to `false` if not specified.
+        """
+        repo_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the source code repository.
+        """
+        rollback_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable roll-back for the repository. Defaults to `false` if not specified.
+        """
+        use_mercurial: NotRequired[pulumi.Input[bool]]
+        """
+        Use Mercurial if `true`, otherwise uses Git.
+        """
+elif False:
+    FunctionAppSourceControlArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FunctionAppSourceControlArgs:
@@ -6117,6 +8215,75 @@ class FunctionAppSourceControlArgs:
     def use_mercurial(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_mercurial", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        active_directory: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined above.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        github: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsGithubArgsDict']]
+        """
+        A `github` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsArgs:
@@ -6372,6 +8539,29 @@ class LinuxFunctionAppAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -6446,6 +8636,27 @@ class LinuxFunctionAppAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -6515,6 +8726,27 @@ class LinuxFunctionAppAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsGithubArgs:
@@ -6586,6 +8818,27 @@ class LinuxFunctionAppAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -6655,6 +8908,27 @@ class LinuxFunctionAppAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsMicrosoftArgs:
@@ -6726,6 +9000,23 @@ class LinuxFunctionAppAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -6779,6 +9070,105 @@ class LinuxFunctionAppAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['LinuxFunctionAppAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['LinuxFunctionAppAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2Args:
@@ -7150,6 +9540,65 @@ class LinuxFunctionAppAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -7359,6 +9808,27 @@ class LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -7420,6 +9890,15 @@ class LinuxFunctionAppAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -7441,6 +9920,57 @@ class LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args:
@@ -7626,6 +10156,29 @@ class LinuxFunctionAppAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -7699,6 +10252,25 @@ class LinuxFunctionAppAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -7755,6 +10327,29 @@ class LinuxFunctionAppAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2GoogleV2Args:
@@ -7828,6 +10423,57 @@ class LinuxFunctionAppAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2LoginArgs:
@@ -8016,6 +10662,29 @@ class LinuxFunctionAppAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -8089,6 +10758,21 @@ class LinuxFunctionAppAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    LinuxFunctionAppAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -8129,6 +10813,27 @@ class LinuxFunctionAppAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['LinuxFunctionAppBackupScheduleArgsDict']
+        """
+        A `schedule` block as defined below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    LinuxFunctionAppBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppBackupArgs:
@@ -8197,6 +10902,37 @@ class LinuxFunctionAppBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    LinuxFunctionAppBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppBackupScheduleArgs:
@@ -8303,6 +11039,23 @@ class LinuxFunctionAppBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Connection.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    LinuxFunctionAppConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppConnectionStringArgs:
     def __init__(__self__, *,
@@ -8354,6 +11107,29 @@ class LinuxFunctionAppConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    LinuxFunctionAppIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppIdentityArgs:
@@ -8428,6 +11204,169 @@ class LinuxFunctionAppIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Linux Web App is Always On enabled. Defaults to `false`.
+
+        > **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the API definition that describes this Linux Function App.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the API Management API for this Linux Function App.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The App command line to launch.
+        """
+        app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        app_service_logs: NotRequired[pulumi.Input['LinuxFunctionAppSiteConfigAppServiceLogsArgsDict']]
+        """
+        An `app_service_logs` block as defined above.
+        """
+        application_insights_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for linking the Linux Function App to Application Insights.
+        """
+        application_insights_key: NotRequired[pulumi.Input[str]]
+        """
+        The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        """
+        application_stack: NotRequired[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackArgsDict']]
+        """
+        An `application_stack` block as defined above.
+
+        > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
+        """
+        container_registry_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        container_registry_use_managed_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        cors: NotRequired[pulumi.Input['LinuxFunctionAppSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined above.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is detailed error logging enabled
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to be checked for this function app health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgsDict']]]]
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        The Linux FX Version
+        """
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+
+        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The SCM Type in use by the Linux Function App.
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App use a 32-bit worker process. Defaults to `false`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Linux Function App.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigArgs:
@@ -9056,6 +11995,21 @@ class LinuxFunctionAppSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSiteConfigAppServiceLogsArgsDict(TypedDict):
+        disk_quota_mb: NotRequired[pulumi.Input[int]]
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+
+        > **NOTE:** This block is not supported on Consumption plans.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigAppServiceLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigAppServiceLogsArgs:
     def __init__(__self__, *,
@@ -9098,6 +12052,43 @@ class LinuxFunctionAppSiteConfigAppServiceLogsArgs:
     def retention_period_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period_days", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
+        dockers: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgsDict']]]]
+        """
+        One or more `docker` blocks as defined below.
+        """
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use. Possible values include `3.1`, `6.0`, `7.0` and `8.0`.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The Version of Java to use. Supported versions include `8`, `11` & `17`.
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Node to run. Possible values include `12`, `14`, `16`, `18` and `20`.
+        """
+        powershell_core_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Python to run. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        """
+        use_custom_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Function App use a custom runtime?
+        """
+        use_dotnet_isolated_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigApplicationStackArgs:
@@ -9234,6 +12225,35 @@ class LinuxFunctionAppSiteConfigApplicationStackArgs:
         pulumi.set(self, "use_dotnet_isolated_runtime", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSiteConfigApplicationStackDockerArgsDict(TypedDict):
+        image_name: pulumi.Input[str]
+        """
+        The name of the Docker image to use.
+        """
+        image_tag: pulumi.Input[str]
+        """
+        The image tag of the image to use.
+        """
+        registry_url: pulumi.Input[str]
+        """
+        The URL of the docker registry.
+        """
+        registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The password for the account to use to connect to the registry.
+
+        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        """
+        registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The username to use for connections to the registry.
+
+        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigApplicationStackDockerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigApplicationStackDockerArgs:
     def __init__(__self__, *,
@@ -9326,6 +12346,19 @@ class LinuxFunctionAppSiteConfigApplicationStackDockerArgs:
         pulumi.set(self, "registry_username", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -9364,6 +12397,45 @@ class LinuxFunctionAppSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigIpRestrictionArgs:
@@ -9504,6 +12576,27 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -9574,6 +12667,45 @@ class LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
@@ -9714,6 +12846,27 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -9785,6 +12938,19 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    LinuxFunctionAppSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSiteCredentialArgs:
     def __init__(__self__, *,
@@ -9823,6 +12989,75 @@ class LinuxFunctionAppSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled?
+        """
+        active_directory: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgsDict']]
+        """
+        an `active_directory` block as detailed below.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsFacebookArgsDict']]
+        """
+        a `facebook` block as detailed below.
+        """
+        github: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGithubArgsDict']]
+        """
+        a `github` block as detailed below.
+        """
+        google: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsGoogleArgsDict']]
+        """
+        a `google` block as detailed below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsMicrosoftArgsDict']]
+        """
+        a `microsoft` block as detailed below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsTwitterArgsDict']]
+        """
+        a `twitter` block as detailed below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsArgs:
@@ -10078,6 +13313,29 @@ class LinuxFunctionAppSlotAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -10152,6 +13410,27 @@ class LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -10221,6 +13500,27 @@ class LinuxFunctionAppSlotAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsGithubArgs:
@@ -10292,6 +13592,27 @@ class LinuxFunctionAppSlotAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -10361,6 +13682,27 @@ class LinuxFunctionAppSlotAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsMicrosoftArgs:
@@ -10432,6 +13774,23 @@ class LinuxFunctionAppSlotAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -10485,6 +13844,105 @@ class LinuxFunctionAppSlotAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2Args:
@@ -10856,6 +14314,65 @@ class LinuxFunctionAppSlotAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -11065,6 +14582,27 @@ class LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -11126,6 +14664,15 @@ class LinuxFunctionAppSlotAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -11147,6 +14694,57 @@ class LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
@@ -11332,6 +14930,29 @@ class LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -11405,6 +15026,25 @@ class LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -11461,6 +15101,29 @@ class LinuxFunctionAppSlotAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args:
@@ -11534,6 +15197,57 @@ class LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2LoginArgs:
@@ -11722,6 +15436,29 @@ class LinuxFunctionAppSlotAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -11795,6 +15532,21 @@ class LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    LinuxFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -11835,6 +15587,27 @@ class LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['LinuxFunctionAppSlotBackupScheduleArgsDict']
+        """
+        a `schedule` block as detailed below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    LinuxFunctionAppSlotBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotBackupArgs:
@@ -11903,6 +15676,37 @@ class LinuxFunctionAppSlotBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all Linux Function App SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    LinuxFunctionAppSlotBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotBackupScheduleArgs:
@@ -12009,6 +15813,23 @@ class LinuxFunctionAppSlotBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Connection.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    LinuxFunctionAppSlotConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotConnectionStringArgs:
     def __init__(__self__, *,
@@ -12060,6 +15881,29 @@ class LinuxFunctionAppSlotConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    LinuxFunctionAppSlotIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotIdentityArgs:
@@ -12134,6 +15978,169 @@ class LinuxFunctionAppSlotIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Linux Web App is Always On enabled. Defaults to `false`.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the API definition that describes this Linux Function App.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the API Management API for this Linux Function App.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+        """
+        app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        app_service_logs: NotRequired[pulumi.Input['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgsDict']]
+        """
+        an `app_service_logs` block as detailed below.
+        """
+        application_insights_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for linking the Linux Function App to Application Insights.
+        """
+        application_insights_key: NotRequired[pulumi.Input[str]]
+        """
+        The Instrumentation Key for connecting the Linux Function App to Application Insights.
+        """
+        application_stack: NotRequired[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackArgsDict']]
+        """
+        an `application_stack` block as detailed below.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the slot to automatically swap with when this slot is successfully deployed.
+        """
+        container_registry_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        container_registry_use_managed_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        cors: NotRequired[pulumi.Input['LinuxFunctionAppSlotSiteConfigCorsArgsDict']]
+        """
+        a `cors` block as detailed below.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is detailed error logging enabled
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to be checked for this function app health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgsDict']]]]
+        """
+        an `ip_restriction` block as detailed below.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        The Linux FX Version
+        """
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Functions Runtime Scale Monitoring be enabled.
+
+        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        a `scm_ip_restriction` block as detailed below.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The SCM Type in use by the Linux Function App.
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App use a 32-bit worker.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Linux Function App.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigArgs:
@@ -12770,6 +16777,21 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgsDict(TypedDict):
+        disk_quota_mb: NotRequired[pulumi.Input[int]]
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+
+        > **NOTE:** This block is not supported on Consumption plans.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigAppServiceLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs:
     def __init__(__self__, *,
@@ -12812,6 +16834,43 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs:
     def retention_period_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period_days", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
+        dockers: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgsDict']]]]
+        """
+        a `docker` block as detailed below.
+        """
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .Net. Possible values are `3.1`, `6.0`, `7.0` and `8.0`.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Java to use. Possible values are `8`, `11` & `17` (In-Preview).
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Node to use. Possible values include `12`, `14`, `16`, `18` and `20`
+        """
+        powershell_core_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PowerShell Core to use. Possibles values are `7` , `7.2`, and `7.4`.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Python to use. Possible values are `3.12`, `3.11`, `3.10`, `3.9`, `3.8` and `3.7`.
+        """
+        use_custom_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Function App use a custom runtime?
+        """
+        use_dotnet_isolated_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
@@ -12948,6 +17007,35 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackArgs:
         pulumi.set(self, "use_dotnet_isolated_runtime", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgsDict(TypedDict):
+        image_name: pulumi.Input[str]
+        """
+        The name of the Docker image to use.
+        """
+        image_tag: pulumi.Input[str]
+        """
+        The image tag of the image to use.
+        """
+        registry_url: pulumi.Input[str]
+        """
+        The URL of the docker registry.
+        """
+        registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The password for the account to use to connect to the registry.
+
+        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        """
+        registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The username to use for connections to the registry.
+
+        > **NOTE:** This value is required if `container_registry_use_managed_identity` is not set to `true`.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs:
     def __init__(__self__, *,
@@ -13040,6 +17128,19 @@ class LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs:
         pulumi.set(self, "registry_username", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -13078,6 +17179,45 @@ class LinuxFunctionAppSlotSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        a `headers` block as detailed below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
@@ -13218,6 +17358,27 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -13288,6 +17449,45 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        a `headers` block as detailed below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
@@ -13428,6 +17628,27 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -13499,6 +17720,19 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppSlotSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Username used for publishing.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    LinuxFunctionAppSlotSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppSlotSiteCredentialArgs:
     def __init__(__self__, *,
@@ -13537,6 +17771,35 @@ class LinuxFunctionAppSlotSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppSlotStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Storage Account.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    LinuxFunctionAppSlotStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppSlotStorageAccountArgs:
@@ -13636,6 +17899,19 @@ class LinuxFunctionAppSlotStorageAccountArgs:
         pulumi.set(self, "mount_path", value)
 
 
+if not MYPY:
+    class LinuxFunctionAppStickySettingsArgsDict(TypedDict):
+        app_setting_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+        connection_string_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
+        """
+elif False:
+    LinuxFunctionAppStickySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxFunctionAppStickySettingsArgs:
     def __init__(__self__, *,
@@ -13674,6 +17950,35 @@ class LinuxFunctionAppStickySettingsArgs:
     def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "connection_string_names", value)
 
+
+if not MYPY:
+    class LinuxFunctionAppStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Storage Account.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    LinuxFunctionAppStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxFunctionAppStorageAccountArgs:
@@ -13772,6 +18077,75 @@ class LinuxFunctionAppStorageAccountArgs:
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
 
+
+if not MYPY:
+    class LinuxWebAppAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        active_directory: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined above.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        github: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsGithubArgsDict']]
+        """
+        A `github` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    LinuxWebAppAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppAuthSettingsArgs:
@@ -14027,6 +18401,29 @@ class LinuxWebAppAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    LinuxWebAppAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -14101,6 +18498,27 @@ class LinuxWebAppAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    LinuxWebAppAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -14170,6 +18588,27 @@ class LinuxWebAppAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    LinuxWebAppAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppAuthSettingsGithubArgs:
@@ -14241,6 +18680,27 @@ class LinuxWebAppAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    LinuxWebAppAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -14310,6 +18770,27 @@ class LinuxWebAppAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+elif False:
+    LinuxWebAppAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppAuthSettingsMicrosoftArgs:
@@ -14381,6 +18862,23 @@ class LinuxWebAppAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    LinuxWebAppAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -14434,6 +18932,105 @@ class LinuxWebAppAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['LinuxWebAppAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['LinuxWebAppAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2Args:
@@ -14805,6 +19402,65 @@ class LinuxWebAppAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -15014,6 +19670,27 @@ class LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -15075,6 +19752,15 @@ class LinuxWebAppAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -15096,6 +19782,57 @@ class LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        Specifies the endpoint used for OpenID Connect Discovery. For example `https://example.com/.well-known/openid-configuration`.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
@@ -15281,6 +20018,29 @@ class LinuxWebAppAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -15354,6 +20114,25 @@ class LinuxWebAppAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -15410,6 +20189,29 @@ class LinuxWebAppAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2GoogleV2Args:
@@ -15483,6 +20285,57 @@ class LinuxWebAppAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2LoginArgs:
@@ -15671,6 +20524,29 @@ class LinuxWebAppAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -15744,6 +20620,21 @@ class LinuxWebAppAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    LinuxWebAppAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -15784,6 +20675,27 @@ class LinuxWebAppAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxWebAppBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['LinuxWebAppBackupScheduleArgsDict']
+        """
+        A `schedule` block as defined below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    LinuxWebAppBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppBackupArgs:
@@ -15852,6 +20764,37 @@ class LinuxWebAppBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class LinuxWebAppBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    LinuxWebAppBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppBackupScheduleArgs:
@@ -15958,6 +20901,23 @@ class LinuxWebAppBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class LinuxWebAppConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `MySQL`, `SQLServer`, `SQLAzure`, `Custom`, `NotificationHub`, `ServiceBus`, `EventHub`, `APIHub`, `DocDb`, `RedisCache`, and `PostgreSQL`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    LinuxWebAppConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppConnectionStringArgs:
     def __init__(__self__, *,
@@ -16009,6 +20969,29 @@ class LinuxWebAppConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class LinuxWebAppIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    LinuxWebAppIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppIdentityArgs:
@@ -16084,6 +21067,27 @@ class LinuxWebAppIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class LinuxWebAppLogsArgsDict(TypedDict):
+        application_logs: NotRequired[pulumi.Input['LinuxWebAppLogsApplicationLogsArgsDict']]
+        """
+        A `application_logs` block as defined above.
+        """
+        detailed_error_messages: NotRequired[pulumi.Input[bool]]
+        """
+        Should detailed error messages be enabled?
+        """
+        failed_request_tracing: NotRequired[pulumi.Input[bool]]
+        """
+        Should the failed request tracing be enabled?
+        """
+        http_logs: NotRequired[pulumi.Input['LinuxWebAppLogsHttpLogsArgsDict']]
+        """
+        An `http_logs` block as defined above.
+        """
+elif False:
+    LinuxWebAppLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppLogsArgs:
     def __init__(__self__, *,
@@ -16155,6 +21159,19 @@ class LinuxWebAppLogsArgs:
         pulumi.set(self, "http_logs", value)
 
 
+if not MYPY:
+    class LinuxWebAppLogsApplicationLogsArgsDict(TypedDict):
+        file_system_level: pulumi.Input[str]
+        """
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+elif False:
+    LinuxWebAppLogsApplicationLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppLogsApplicationLogsArgs:
     def __init__(__self__, *,
@@ -16192,6 +21209,23 @@ class LinuxWebAppLogsApplicationLogsArgs:
     def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
+
+if not MYPY:
+    class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgsDict(TypedDict):
+        level: pulumi.Input[str]
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
+        retention_in_days: pulumi.Input[int]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+elif False:
+    LinuxWebAppLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
@@ -16245,6 +21279,19 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class LinuxWebAppLogsHttpLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['LinuxWebAppLogsHttpLogsAzureBlobStorageArgsDict']]
+        """
+        A `azure_blob_storage_http` block as defined above.
+        """
+        file_system: NotRequired[pulumi.Input['LinuxWebAppLogsHttpLogsFileSystemArgsDict']]
+        """
+        A `file_system` block as defined above.
+        """
+elif False:
+    LinuxWebAppLogsHttpLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppLogsHttpLogsArgs:
     def __init__(__self__, *,
@@ -16284,6 +21331,19 @@ class LinuxWebAppLogsHttpLogsArgs:
         pulumi.set(self, "file_system", value)
 
 
+if not MYPY:
+    class LinuxWebAppLogsHttpLogsAzureBlobStorageArgsDict(TypedDict):
+        sas_url: pulumi.Input[str]
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+elif False:
+    LinuxWebAppLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
@@ -16322,6 +21382,19 @@ class LinuxWebAppLogsHttpLogsAzureBlobStorageArgs:
         pulumi.set(self, "retention_in_days", value)
 
 
+if not MYPY:
+    class LinuxWebAppLogsHttpLogsFileSystemArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The retention period in days. A value of `0` means no retention.
+        """
+        retention_in_mb: pulumi.Input[int]
+        """
+        The maximum size in megabytes that log files can use.
+        """
+elif False:
+    LinuxWebAppLogsHttpLogsFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
@@ -16358,6 +21431,137 @@ class LinuxWebAppLogsHttpLogsFileSystemArgs:
     def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
+
+if not MYPY:
+    class LinuxWebAppSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Linux Web App is Always On enabled. Defaults to `true`.
+
+        > **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to the API Definition for this Linux Web App.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The API Management API ID this Linux Web App is associated with.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The App command line to launch.
+        """
+        application_stack: NotRequired[pulumi.Input['LinuxWebAppSiteConfigApplicationStackArgsDict']]
+        """
+        A `application_stack` block as defined above.
+        """
+        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
+        """
+        auto_heal_setting: NotRequired[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingArgsDict']]
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        container_registry_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        container_registry_use_managed_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        cors: NotRequired[pulumi.Input['LinuxWebAppSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined above.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        ftps_state: NotRequired[pulumi.Input[str]]
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Health Check.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the HTTP2 be enabled?
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgsDict']]]]
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        local_mysql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled? Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App use a 32-bit worker? Defaults to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled? Defaults to `false`.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Linux App Service.
+        """
+elif False:
+    LinuxWebAppSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSiteConfigArgs:
@@ -16898,6 +22102,77 @@ class LinuxWebAppSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigApplicationStackArgsDict(TypedDict):
+        docker_image: NotRequired[pulumi.Input[str]]
+        docker_image_name: NotRequired[pulumi.Input[str]]
+        """
+        The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+        """
+        docker_image_tag: NotRequired[pulumi.Input[str]]
+        docker_registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        docker_registry_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        docker_registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+        """
+        go_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Go to use. Possible values include `1.18`, and `1.19`.
+        """
+        java_server: NotRequired[pulumi.Input[str]]
+        """
+        The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+
+        > **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+        """
+        java_server_version: NotRequired[pulumi.Input[str]]
+        """
+        The Version of the `java_server` to use.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The Version of Java to use. Possible values include `8`, `11`, and `17`.
+
+        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+
+        > **NOTE:** `java_server`, `java_server_version`, and `java_version` must all be specified if building a java app
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+
+        > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+
+        > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        """
+        ruby_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Ruby to run. Possible values include `2.6` and `2.7`.
+        """
+elif False:
+    LinuxWebAppSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
@@ -17169,6 +22444,19 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         pulumi.set(self, "ruby_version", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigAutoHealSettingArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingActionArgsDict']]
+        """
+        A `action` block as defined above.
+        """
+        trigger: NotRequired[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerArgsDict']]
+        """
+        A `trigger` block as defined below.
+        """
+elif False:
+    LinuxWebAppSiteConfigAutoHealSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigAutoHealSettingArgs:
     def __init__(__self__, *,
@@ -17208,6 +22496,19 @@ class LinuxWebAppSiteConfigAutoHealSettingArgs:
         pulumi.set(self, "trigger", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigAutoHealSettingActionArgsDict(TypedDict):
+        action_type: pulumi.Input[str]
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        """
+        minimum_process_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+elif False:
+    LinuxWebAppSiteConfigAutoHealSettingActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigAutoHealSettingActionArgs:
     def __init__(__self__, *,
@@ -17245,6 +22546,27 @@ class LinuxWebAppSiteConfigAutoHealSettingActionArgs:
     def minimum_process_execution_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "minimum_process_execution_time", value)
 
+
+if not MYPY:
+    class LinuxWebAppSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
+        requests: NotRequired[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict']]
+        """
+        A `requests` block as defined above.
+        """
+        slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
+        """
+        A `slow_request` blocks as defined above.
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
+        """
+        One or more `status_code` blocks as defined above.
+        """
+elif False:
+    LinuxWebAppSiteConfigAutoHealSettingTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
@@ -17317,6 +22639,19 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "status_codes", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The interval in `hh:mm:ss`.
+        """
+elif False:
+    LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
     def __init__(__self__, *,
@@ -17353,6 +22688,29 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
     def interval(self, value: pulumi.Input[str]):
         pulumi.set(self, "interval", value)
 
+
+if not MYPY:
+    class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+
+        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+        """
+elif False:
+    LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
@@ -17430,6 +22788,27 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+        """
+elif False:
+    LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def __init__(__self__, *,
@@ -17497,6 +22876,35 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        status_code_range: pulumi.Input[str]
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to which this rule status code applies.
+        """
+        sub_status: NotRequired[pulumi.Input[int]]
+        """
+        The Request Sub Status of the Status Code.
+        """
+        win32_status_code: NotRequired[pulumi.Input[int]]
+        """
+        The Win32 Status Code of the Request.
+        """
+elif False:
+    LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
@@ -17598,6 +23006,19 @@ class LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "win32_status_code", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+elif False:
+    LinuxWebAppSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -17636,6 +23057,45 @@ class LinuxWebAppSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class LinuxWebAppSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxWebAppSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSiteConfigIpRestrictionArgs:
@@ -17776,6 +23236,27 @@ class LinuxWebAppSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxWebAppSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -17846,6 +23327,45 @@ class LinuxWebAppSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class LinuxWebAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxWebAppSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSiteConfigScmIpRestrictionArgs:
@@ -17986,6 +23506,27 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxWebAppSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -18057,6 +23598,19 @@ class LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class LinuxWebAppSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Username used for publishing.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    LinuxWebAppSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSiteCredentialArgs:
     def __init__(__self__, *,
@@ -18095,6 +23649,75 @@ class LinuxWebAppSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled for the Linux Web App?
+        """
+        active_directory: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined above.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        github: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsGithubArgsDict']]
+        """
+        A `github` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsArgs:
@@ -18350,6 +23973,29 @@ class LinuxWebAppSlotAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -18424,6 +24070,27 @@ class LinuxWebAppSlotAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -18493,6 +24160,27 @@ class LinuxWebAppSlotAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsGithubArgs:
@@ -18564,6 +24252,27 @@ class LinuxWebAppSlotAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -18633,6 +24342,27 @@ class LinuxWebAppSlotAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsMicrosoftArgs:
@@ -18704,6 +24434,23 @@ class LinuxWebAppSlotAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -18757,6 +24504,105 @@ class LinuxWebAppSlotAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['LinuxWebAppSlotAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['LinuxWebAppSlotAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2Args:
@@ -19128,6 +24974,65 @@ class LinuxWebAppSlotAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -19337,6 +25242,27 @@ class LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -19398,6 +25324,15 @@ class LinuxWebAppSlotAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -19419,6 +25354,57 @@ class LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
@@ -19604,6 +25590,29 @@ class LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -19677,6 +25686,25 @@ class LinuxWebAppSlotAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -19733,6 +25761,29 @@ class LinuxWebAppSlotAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2GoogleV2Args:
@@ -19806,6 +25857,57 @@ class LinuxWebAppSlotAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2LoginArgs:
@@ -19994,6 +26096,29 @@ class LinuxWebAppSlotAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -20067,6 +26192,21 @@ class LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    LinuxWebAppSlotAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -20107,6 +26247,27 @@ class LinuxWebAppSlotAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['LinuxWebAppSlotBackupScheduleArgsDict']
+        """
+        An `schedule` block as defined below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    LinuxWebAppSlotBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotBackupArgs:
@@ -20175,6 +26336,37 @@ class LinuxWebAppSlotBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all Linux Web App SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    LinuxWebAppSlotBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotBackupScheduleArgs:
@@ -20281,6 +26473,23 @@ class LinuxWebAppSlotBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    LinuxWebAppSlotConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotConnectionStringArgs:
     def __init__(__self__, *,
@@ -20332,6 +26541,29 @@ class LinuxWebAppSlotConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    LinuxWebAppSlotIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotIdentityArgs:
@@ -20407,6 +26639,27 @@ class LinuxWebAppSlotIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotLogsArgsDict(TypedDict):
+        application_logs: NotRequired[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsArgsDict']]
+        """
+        A `application_logs` block as defined above.
+        """
+        detailed_error_messages: NotRequired[pulumi.Input[bool]]
+        """
+        Should detailed error messages be enabled?
+        """
+        failed_request_tracing: NotRequired[pulumi.Input[bool]]
+        """
+        Should the failed request tracing be enabled?
+        """
+        http_logs: NotRequired[pulumi.Input['LinuxWebAppSlotLogsHttpLogsArgsDict']]
+        """
+        An `http_logs` block as defined above.
+        """
+elif False:
+    LinuxWebAppSlotLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotLogsArgs:
     def __init__(__self__, *,
@@ -20478,6 +26731,19 @@ class LinuxWebAppSlotLogsArgs:
         pulumi.set(self, "http_logs", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotLogsApplicationLogsArgsDict(TypedDict):
+        file_system_level: pulumi.Input[str]
+        """
+        Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+elif False:
+    LinuxWebAppSlotLogsApplicationLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotLogsApplicationLogsArgs:
     def __init__(__self__, *,
@@ -20515,6 +26781,23 @@ class LinuxWebAppSlotLogsApplicationLogsArgs:
     def azure_blob_storage(self, value: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict(TypedDict):
+        level: pulumi.Input[str]
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
+        retention_in_days: pulumi.Input[int]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        SAS URL to an Azure blob container with read/write/list/delete permissions.
+        """
+elif False:
+    LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
@@ -20568,6 +26851,19 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotLogsHttpLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict']]
+        """
+        A `azure_blob_storage_http` block as defined above.
+        """
+        file_system: NotRequired[pulumi.Input['LinuxWebAppSlotLogsHttpLogsFileSystemArgsDict']]
+        """
+        A `file_system` block as defined above.
+        """
+elif False:
+    LinuxWebAppSlotLogsHttpLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotLogsHttpLogsArgs:
     def __init__(__self__, *,
@@ -20607,6 +26903,19 @@ class LinuxWebAppSlotLogsHttpLogsArgs:
         pulumi.set(self, "file_system", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict(TypedDict):
+        sas_url: pulumi.Input[str]
+        """
+        SAS URL to an Azure blob container with read/write/list/delete permissions.
+        """
+        retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+elif False:
+    LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
@@ -20645,6 +26954,19 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
         pulumi.set(self, "retention_in_days", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotLogsHttpLogsFileSystemArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The retention period in days. A values of `0` means no retention.
+        """
+        retention_in_mb: pulumi.Input[int]
+        """
+        The maximum size in megabytes that log files can use.
+        """
+elif False:
+    LinuxWebAppSlotLogsHttpLogsFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
@@ -20681,6 +27003,141 @@ class LinuxWebAppSlotLogsHttpLogsFileSystemArgs:
     def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Linux Web App is Always On enabled. Defaults to `true`.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to the API Definition for this Linux Web App Slot.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The API Management API ID this Linux Web App Slot is associated with.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The App command line to launch.
+        """
+        application_stack: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigApplicationStackArgsDict']]
+        """
+        A `application_stack` block as defined above.
+        """
+        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
+        """
+        auto_heal_setting: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingArgsDict']]
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+
+        > **Note:** This must be a valid slot name on the target Linux Web App.
+        """
+        container_registry_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        container_registry_use_managed_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        cors: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined above.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Linux Web App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        ftps_state: NotRequired[pulumi.Input[str]]
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Health Check.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the HTTP2 be enabled?
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgsDict']]]]
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        local_mysql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled? Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Linux Web App use a 32-bit worker? Defaults to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled? Defaults to `false`.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Linux App Service Slot.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigArgs:
@@ -21237,6 +27694,75 @@ class LinuxWebAppSlotSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
+        docker_image: NotRequired[pulumi.Input[str]]
+        docker_image_name: NotRequired[pulumi.Input[str]]
+        """
+        The docker image, including tag, to be used. e.g. `appsvc/staticsite:latest`.
+        """
+        docker_image_tag: NotRequired[pulumi.Input[str]]
+        docker_registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        docker_registry_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        docker_registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use. Possible values include `3.1`, `5.0`, `6.0`, `7.0` and `8.0`.
+        """
+        go_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Go to use. Possible values include `1.18`, and `1.19`.
+        """
+        java_server: NotRequired[pulumi.Input[str]]
+        """
+        The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
+
+        > **NOTE:** `JBOSSEAP` requires a Premium Service Plan SKU to be a valid option.
+        """
+        java_server_version: NotRequired[pulumi.Input[str]]
+        """
+        The Version of the `java_server` to use.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The Version of Java to use. Possible values include `8`, `11`, and `17`.
+
+        > **NOTE:** The valid version combinations for `java_version`, `java_server` and `java_server_version` can be checked from the command line via `az webapp list-runtimes --linux`.
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
+
+        > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+
+        > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
+        """
+        ruby_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Ruby to run. Possible values include `2.6` and `2.7`.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
@@ -21504,6 +28030,19 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         pulumi.set(self, "ruby_version", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigAutoHealSettingArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgsDict']]
+        """
+        A `action` block as defined above.
+        """
+        trigger: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict']]
+        """
+        A `trigger` block as defined below.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigAutoHealSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigAutoHealSettingArgs:
     def __init__(__self__, *,
@@ -21543,6 +28082,19 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingArgs:
         pulumi.set(self, "trigger", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgsDict(TypedDict):
+        action_type: pulumi.Input[str]
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
+        """
+        minimum_process_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigAutoHealSettingActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs:
     def __init__(__self__, *,
@@ -21580,6 +28132,27 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs:
     def minimum_process_execution_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "minimum_process_execution_time", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
+        requests: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict']]
+        """
+        A `requests` block as defined above.
+        """
+        slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
+        """
+        A `slow_request` block as defined above.
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
+        """
+        One or more `status_code` blocks as defined above.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
@@ -21652,6 +28225,19 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "status_codes", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The interval in `hh:mm:ss`.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
     def __init__(__self__, *,
@@ -21688,6 +28274,29 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
     def interval(self, value: pulumi.Input[str]):
         pulumi.set(self, "interval", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+
+        > **NOTE:** `path` in `slow_request` block will be deprecated in 4.0 provider. Please use `slow_request_with_path` to set a slow request trigger with path specified.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
@@ -21765,6 +28374,27 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def __init__(__self__, *,
@@ -21832,6 +28462,35 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        status_code_range: pulumi.Input[str]
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to which this rule status code applies.
+        """
+        sub_status: NotRequired[pulumi.Input[int]]
+        """
+        The Request Sub Status of the Status Code.
+        """
+        win32_status_code: NotRequired[pulumi.Input[int]]
+        """
+        The Win32 Status Code of the Request.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
@@ -21933,6 +28592,19 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "win32_status_code", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -21971,6 +28643,45 @@ class LinuxWebAppSlotSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
@@ -22111,6 +28822,27 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -22181,6 +28913,45 @@ class LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
@@ -22321,6 +29092,27 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -22392,6 +29184,19 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class LinuxWebAppSlotSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Username used for publishing.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    LinuxWebAppSlotSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppSlotSiteCredentialArgs:
     def __init__(__self__, *,
@@ -22430,6 +29235,35 @@ class LinuxWebAppSlotSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class LinuxWebAppSlotStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Storage Account.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    LinuxWebAppSlotStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppSlotStorageAccountArgs:
@@ -22529,6 +29363,19 @@ class LinuxWebAppSlotStorageAccountArgs:
         pulumi.set(self, "mount_path", value)
 
 
+if not MYPY:
+    class LinuxWebAppStickySettingsArgsDict(TypedDict):
+        app_setting_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+        connection_string_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+        """
+elif False:
+    LinuxWebAppStickySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxWebAppStickySettingsArgs:
     def __init__(__self__, *,
@@ -22567,6 +29414,35 @@ class LinuxWebAppStickySettingsArgs:
     def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "connection_string_names", value)
 
+
+if not MYPY:
+    class LinuxWebAppStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Storage Account.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    LinuxWebAppStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinuxWebAppStorageAccountArgs:
@@ -22666,6 +29542,23 @@ class LinuxWebAppStorageAccountArgs:
         pulumi.set(self, "mount_path", value)
 
 
+if not MYPY:
+    class PlanSkuArgsDict(TypedDict):
+        size: pulumi.Input[str]
+        """
+        Specifies the plan's instance size.
+        """
+        tier: pulumi.Input[str]
+        """
+        Specifies the plan's pricing tier.
+        """
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of workers associated with this App Service Plan.
+        """
+elif False:
+    PlanSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PlanSkuArgs:
     def __init__(__self__, *,
@@ -22718,6 +29611,69 @@ class PlanSkuArgs:
     def capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "capacity", value)
 
+
+if not MYPY:
+    class SlotAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Is Authentication enabled?
+        """
+        active_directory: NotRequired[pulumi.Input['SlotAuthSettingsActiveDirectoryArgsDict']]
+        """
+        A `active_directory` block as defined below.
+        """
+        additional_login_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form "key=value".
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
+
+        > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
+        """
+        facebook: NotRequired[pulumi.Input['SlotAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['SlotAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['SlotAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The runtime version of the Authentication/Authorization module.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72`.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['SlotAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
+        """
+elif False:
+    SlotAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotAuthSettingsArgs:
@@ -22953,6 +29909,23 @@ class SlotAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class SlotAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+        """
+elif False:
+    SlotAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -23007,6 +29980,23 @@ class SlotAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret", value)
 
 
+if not MYPY:
+    class SlotAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login
+        """
+        app_secret: pulumi.Input[str]
+        """
+        The App Secret of the Facebook app used for Facebook login.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
+        """
+elif False:
+    SlotAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -23059,6 +30049,23 @@ class SlotAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class SlotAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The client secret associated with the Google web application.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+        """
+elif False:
+    SlotAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotAuthSettingsGoogleArgs:
@@ -23113,6 +30120,23 @@ class SlotAuthSettingsGoogleArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class SlotAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
+        """
+elif False:
+    SlotAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotAuthSettingsMicrosoftArgs:
     def __init__(__self__, *,
@@ -23166,6 +30190,19 @@ class SlotAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class SlotAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The consumer key of the Twitter app used for login
+        """
+        consumer_secret: pulumi.Input[str]
+        """
+        The consumer secret of the Twitter app used for login.
+        """
+elif False:
+    SlotAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -23202,6 +30239,23 @@ class SlotAuthSettingsTwitterArgs:
     def consumer_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret", value)
 
+
+if not MYPY:
+    class SlotConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the Connection String. Possible values are `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The value for the Connection String.
+        """
+elif False:
+    SlotConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotConnectionStringArgs:
@@ -23254,6 +30308,29 @@ class SlotConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class SlotIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the identity type of the App Service. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you), `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field, and `SystemAssigned, UserAssigned` which assigns both a system managed identity as well as the specified user assigned identities.
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the App Service has been created. More details are available below.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot.
+        """
+elif False:
+    SlotIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotIdentityArgs:
@@ -23329,6 +30406,27 @@ class SlotIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class SlotLogsArgsDict(TypedDict):
+        application_logs: NotRequired[pulumi.Input['SlotLogsApplicationLogsArgsDict']]
+        """
+        An `application_logs` block as defined below.
+        """
+        detailed_error_messages_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
+        """
+        failed_request_tracing_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
+        """
+        http_logs: NotRequired[pulumi.Input['SlotLogsHttpLogsArgsDict']]
+        """
+        An `http_logs` block as defined below.
+        """
+elif False:
+    SlotLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotLogsArgs:
     def __init__(__self__, *,
@@ -23400,6 +30498,19 @@ class SlotLogsArgs:
         pulumi.set(self, "http_logs", value)
 
 
+if not MYPY:
+    class SlotLogsApplicationLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['SlotLogsApplicationLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        file_system_level: NotRequired[pulumi.Input[str]]
+        """
+        The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`. Defaults to `Off`.
+        """
+elif False:
+    SlotLogsApplicationLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotLogsApplicationLogsArgs:
     def __init__(__self__, *,
@@ -23438,6 +30549,23 @@ class SlotLogsApplicationLogsArgs:
     def file_system_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system_level", value)
 
+
+if not MYPY:
+    class SlotLogsApplicationLogsAzureBlobStorageArgsDict(TypedDict):
+        level: pulumi.Input[str]
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
+        retention_in_days: pulumi.Input[int]
+        """
+        The number of days to retain logs for.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        """
+elif False:
+    SlotLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotLogsApplicationLogsAzureBlobStorageArgs:
@@ -23491,6 +30619,19 @@ class SlotLogsApplicationLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class SlotLogsHttpLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['SlotLogsHttpLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+        file_system: NotRequired[pulumi.Input['SlotLogsHttpLogsFileSystemArgsDict']]
+        """
+        A `file_system` block as defined below.
+        """
+elif False:
+    SlotLogsHttpLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotLogsHttpLogsArgs:
     def __init__(__self__, *,
@@ -23530,6 +30671,19 @@ class SlotLogsHttpLogsArgs:
         pulumi.set(self, "file_system", value)
 
 
+if not MYPY:
+    class SlotLogsHttpLogsAzureBlobStorageArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The number of days to retain logs for.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
+        """
+elif False:
+    SlotLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
@@ -23567,6 +30721,19 @@ class SlotLogsHttpLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class SlotLogsHttpLogsFileSystemArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The number of days to retain logs for.
+        """
+        retention_in_mb: pulumi.Input[int]
+        """
+        The maximum size in megabytes that HTTP log files can use before being removed.
+        """
+elif False:
+    SlotLogsHttpLogsFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
@@ -23603,6 +30770,150 @@ class SlotLogsHttpLogsFileSystemArgs:
     def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
+
+if not MYPY:
+    class SlotSiteConfigArgsDict(TypedDict):
+        acr_use_managed_identity_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are Managed Identity Credentials used for Azure Container Registry pull
+        """
+        acr_user_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        If using User Managed Identity, the User Managed Identity Client Id
+
+        > **NOTE:** When using User Managed Identity with Azure Container Registry the Identity will need to have the [ACRPull role assigned](https://docs.microsoft.com/azure/container-registry/container-registry-authentication-managed-identity#example-1-access-with-a-user-assigned-identity)
+        """
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        Should the slot be loaded at all times? Defaults to `false`.
+
+        > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `always_on` must be set to `false`.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the slot to automatically swap to during deployment
+        """
+        cors: NotRequired[pulumi.Input['SlotSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined below.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ordering of default documents to load, if an address isn't specified.
+        """
+        dotnet_framework_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the .NET framework's CLR used in this App Service Slot. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this App Service Slot. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The health check path to be pinged by App Service Slot. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is HTTP2 Enabled on this App Service? Defaults to `false`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgsDict']]]]
+        """
+        A list of objects representing ip restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        java_container: NotRequired[pulumi.Input[str]]
+        """
+        The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
+        """
+        java_container_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8`, and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
+
+        > **NOTE:** To set this property the App Service Plan to which the App belongs must be configured with `kind = "Linux"`, and `reserved = true` or the API will reject any value supplied.
+        """
+        local_mysql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
+
+        > **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
+        """
+        min_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
+        """
+        number_of_workers: NotRequired[pulumi.Input[int]]
+        """
+        The scaled number of workers (for per site scaling) of this App Service Slot. Requires that `per_site_scaling` is enabled on the `appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is Remote Debugging Enabled? Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
+
+        > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        IP security restrictions for scm to use main. Defaults to `false`. 
+
+        > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
+        """
+        use32_bit_worker_process: NotRequired[pulumi.Input[bool]]
+        """
+        Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
+
+        > **NOTE:** when using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should WebSockets be enabled?
+        """
+        windows_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        The Windows Docker container image (`DOCKER|<user/image:tag>`)
+
+        Additional examples of how to run Containers via the `appservice.Slot` resource can be found in the `./examples/app-service` directory within the GitHub Repository.
+        """
+elif False:
+    SlotSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotSiteConfigArgs:
@@ -24139,6 +31450,19 @@ class SlotSiteConfigArgs:
         pulumi.set(self, "windows_fx_version", value)
 
 
+if not MYPY:
+    class SlotSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials supported?
+        """
+elif False:
+    SlotSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -24176,6 +31500,41 @@ class SlotSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class SlotSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['SlotSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    SlotSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotSiteConfigIpRestrictionArgs:
@@ -24300,6 +31659,27 @@ class SlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class SlotSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    SlotSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -24370,6 +31750,41 @@ class SlotSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class SlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        Allow or Deny access for this IP range. Defaults to `Allow`.
+        """
+        headers: NotRequired[pulumi.Input['SlotSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        The `headers` block for this specific `scm_ip_restriction` as defined below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address used for this IP Restriction in CIDR notation.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name for this IP Restriction.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One of either `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified
+        """
+elif False:
+    SlotSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotSiteConfigScmIpRestrictionArgs:
@@ -24494,6 +31909,27 @@ class SlotSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class SlotSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        A list to allow the Azure FrontDoor health probe header. Only allowed value is "1".
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+        """
+elif False:
+    SlotSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -24565,6 +32001,19 @@ class SlotSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class SlotSiteCredentialArgsDict(TypedDict):
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password associated with the username, which can be used to publish to this App Service.
+        """
+        username: NotRequired[pulumi.Input[str]]
+        """
+        The username which can be used to publish to this App Service
+        """
+elif False:
+    SlotSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SlotSiteCredentialArgs:
     def __init__(__self__, *,
@@ -24603,6 +32052,35 @@ class SlotSiteCredentialArgs:
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
 
+
+if not MYPY:
+    class SlotStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The name of the storage account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the storage account identifier.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The name of the file share (container name, for Blob storage).
+        """
+        type: pulumi.Input[str]
+        """
+        The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to mount the storage within the site's runtime environment.
+        """
+elif False:
+    SlotStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SlotStorageAccountArgs:
@@ -24702,6 +32180,27 @@ class SlotStorageAccountArgs:
         pulumi.set(self, "mount_path", value)
 
 
+if not MYPY:
+    class SourceControlGithubActionConfigurationArgsDict(TypedDict):
+        code_configuration: NotRequired[pulumi.Input['SourceControlGithubActionConfigurationCodeConfigurationArgsDict']]
+        """
+        A `code_configuration` block as defined above. Changing this forces a new resource to be created.
+        """
+        container_configuration: NotRequired[pulumi.Input['SourceControlGithubActionConfigurationContainerConfigurationArgsDict']]
+        """
+        A `container_configuration` block as defined above.
+        """
+        generate_workflow_file: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to generate the GitHub work flow file. Defaults to `true`. Changing this forces a new resource to be created.
+        """
+        linux_action: NotRequired[pulumi.Input[bool]]
+        """
+        Denotes this action uses a Linux base image.
+        """
+elif False:
+    SourceControlGithubActionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceControlGithubActionConfigurationArgs:
     def __init__(__self__, *,
@@ -24773,6 +32272,19 @@ class SourceControlGithubActionConfigurationArgs:
         pulumi.set(self, "linux_action", value)
 
 
+if not MYPY:
+    class SourceControlGithubActionConfigurationCodeConfigurationArgsDict(TypedDict):
+        runtime_stack: pulumi.Input[str]
+        """
+        The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`. Changing this forces a new resource to be created.
+        """
+        runtime_version: pulumi.Input[str]
+        """
+        The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+elif False:
+    SourceControlGithubActionConfigurationCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceControlGithubActionConfigurationCodeConfigurationArgs:
     def __init__(__self__, *,
@@ -24809,6 +32321,27 @@ class SourceControlGithubActionConfigurationCodeConfigurationArgs:
     def runtime_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "runtime_version", value)
 
+
+if not MYPY:
+    class SourceControlGithubActionConfigurationContainerConfigurationArgsDict(TypedDict):
+        image_name: pulumi.Input[str]
+        """
+        The image name for the build. Changing this forces a new resource to be created.
+        """
+        registry_url: pulumi.Input[str]
+        """
+        The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+        """
+        registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+elif False:
+    SourceControlGithubActionConfigurationContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceControlGithubActionConfigurationContainerConfigurationArgs:
@@ -24878,6 +32411,27 @@ class SourceControlGithubActionConfigurationContainerConfigurationArgs:
     def registry_username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "registry_username", value)
 
+
+if not MYPY:
+    class SourceControlSlotGithubActionConfigurationArgsDict(TypedDict):
+        code_configuration: NotRequired[pulumi.Input['SourceControlSlotGithubActionConfigurationCodeConfigurationArgsDict']]
+        """
+        A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
+        """
+        container_configuration: NotRequired[pulumi.Input['SourceControlSlotGithubActionConfigurationContainerConfigurationArgsDict']]
+        """
+        A `container_configuration` block as detailed below.
+        """
+        generate_workflow_file: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
+        """
+        linux_action: NotRequired[pulumi.Input[bool]]
+        """
+        Denotes this action uses a Linux base image.
+        """
+elif False:
+    SourceControlSlotGithubActionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceControlSlotGithubActionConfigurationArgs:
@@ -24950,6 +32504,19 @@ class SourceControlSlotGithubActionConfigurationArgs:
         pulumi.set(self, "linux_action", value)
 
 
+if not MYPY:
+    class SourceControlSlotGithubActionConfigurationCodeConfigurationArgsDict(TypedDict):
+        runtime_stack: pulumi.Input[str]
+        """
+        The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are `dotnetcore`, `spring`, `tomcat`, `node` and `python`.
+        """
+        runtime_version: pulumi.Input[str]
+        """
+        The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
+        """
+elif False:
+    SourceControlSlotGithubActionConfigurationCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SourceControlSlotGithubActionConfigurationCodeConfigurationArgs:
     def __init__(__self__, *,
@@ -24986,6 +32553,27 @@ class SourceControlSlotGithubActionConfigurationCodeConfigurationArgs:
     def runtime_version(self, value: pulumi.Input[str]):
         pulumi.set(self, "runtime_version", value)
 
+
+if not MYPY:
+    class SourceControlSlotGithubActionConfigurationContainerConfigurationArgsDict(TypedDict):
+        image_name: pulumi.Input[str]
+        """
+        The image name for the build. Changing this forces a new resource to be created.
+        """
+        registry_url: pulumi.Input[str]
+        """
+        The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
+        """
+        registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The password used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+        registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+        """
+elif False:
+    SourceControlSlotGithubActionConfigurationContainerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs:
@@ -25056,6 +32644,24 @@ class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs:
         pulumi.set(self, "registry_username", value)
 
 
+if not MYPY:
+    class StaticSiteIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Managed Identity IDs which should be assigned to this Static Site resource.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        (Optional) The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    StaticSiteIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticSiteIdentityArgs:
     def __init__(__self__, *,
@@ -25122,6 +32728,19 @@ class StaticSiteIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class StaticWebAppBasicAuthArgsDict(TypedDict):
+        environments: pulumi.Input[str]
+        """
+        The Environment types to use the Basic Auth for access. Possible values include `AllEnvironments` and `StagingEnvironments`.
+        """
+        password: pulumi.Input[str]
+        """
+        The password for the basic authentication access.
+        """
+elif False:
+    StaticWebAppBasicAuthArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StaticWebAppBasicAuthArgs:
     def __init__(__self__, *,
@@ -25158,6 +32777,21 @@ class StaticWebAppBasicAuthArgs:
     def password(self, value: pulumi.Input[str]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class StaticWebAppIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Managed Identity IDs which should be assigned to this Static Web App resource.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    StaticWebAppIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StaticWebAppIdentityArgs:
@@ -25220,6 +32854,75 @@ class StaticWebAppIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled for the Windows Function App?
+        """
+        active_directory: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined above.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        github: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsGithubArgsDict']]
+        """
+        A `github` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsArgs:
@@ -25475,6 +33178,29 @@ class WindowsFunctionAppAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -25549,6 +33275,27 @@ class WindowsFunctionAppAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -25618,6 +33365,27 @@ class WindowsFunctionAppAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsGithubArgs:
@@ -25689,6 +33457,27 @@ class WindowsFunctionAppAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -25758,6 +33547,27 @@ class WindowsFunctionAppAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsMicrosoftArgs:
@@ -25829,6 +33639,23 @@ class WindowsFunctionAppAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -25882,6 +33709,105 @@ class WindowsFunctionAppAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['WindowsFunctionAppAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['WindowsFunctionAppAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2Args:
@@ -26253,6 +34179,65 @@ class WindowsFunctionAppAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -26462,6 +34447,27 @@ class WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -26523,6 +34529,15 @@ class WindowsFunctionAppAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -26544,6 +34559,57 @@ class WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2CustomOidcV2Args:
@@ -26729,6 +34795,29 @@ class WindowsFunctionAppAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -26802,6 +34891,25 @@ class WindowsFunctionAppAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -26858,6 +34966,29 @@ class WindowsFunctionAppAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2GoogleV2Args:
@@ -26931,6 +35062,57 @@ class WindowsFunctionAppAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2LoginArgs:
@@ -27119,6 +35301,29 @@ class WindowsFunctionAppAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -27192,6 +35397,21 @@ class WindowsFunctionAppAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    WindowsFunctionAppAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -27232,6 +35452,27 @@ class WindowsFunctionAppAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['WindowsFunctionAppBackupScheduleArgsDict']
+        """
+        A `schedule` block as defined below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    WindowsFunctionAppBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppBackupArgs:
@@ -27300,6 +35541,37 @@ class WindowsFunctionAppBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all Windows Function App SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    WindowsFunctionAppBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppBackupScheduleArgs:
@@ -27406,6 +35678,23 @@ class WindowsFunctionAppBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Connection.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    WindowsFunctionAppConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppConnectionStringArgs:
     def __init__(__self__, *,
@@ -27457,6 +35746,29 @@ class WindowsFunctionAppConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    WindowsFunctionAppIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppIdentityArgs:
@@ -27531,6 +35843,161 @@ class WindowsFunctionAppIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Windows Function App is Always On enabled. Defaults to `false`.
+
+        > **NOTE:** when running in a Consumption or Premium Plan, `always_on` feature should be turned off. Please turn it off before upgrading the service plan from standard to premium.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the API definition that describes this Windows Function App.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the API Management API for this Windows Function App.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The App command line to launch.
+        """
+        app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        app_service_logs: NotRequired[pulumi.Input['WindowsFunctionAppSiteConfigAppServiceLogsArgsDict']]
+        """
+        An `app_service_logs` block as defined above.
+        """
+        application_insights_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for linking the Windows Function App to Application Insights.
+        """
+        application_insights_key: NotRequired[pulumi.Input[str]]
+        """
+        The Instrumentation Key for connecting the Windows Function App to Application Insights.
+        """
+        application_stack: NotRequired[pulumi.Input['WindowsFunctionAppSiteConfigApplicationStackArgsDict']]
+        """
+        An `application_stack` block as defined above.
+
+        > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
+        """
+        cors: NotRequired[pulumi.Input['WindowsFunctionAppSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined above.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Windows Function App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is detailed error logging enabled
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this Windows Function App. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to be checked for this Windows Function App health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgsDict']]]]
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`.
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+
+        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The SCM Type in use by the Windows Function App.
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Function App use a 32-bit worker process. Defaults to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        windows_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        The Windows FX Version string.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Windows Function App.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigArgs:
@@ -28127,6 +36594,21 @@ class WindowsFunctionAppSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSiteConfigAppServiceLogsArgsDict(TypedDict):
+        disk_quota_mb: NotRequired[pulumi.Input[int]]
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+
+        > **NOTE:** This block is not supported on Consumption plans.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigAppServiceLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigAppServiceLogsArgs:
     def __init__(__self__, *,
@@ -28169,6 +36651,37 @@ class WindowsFunctionAppSiteConfigAppServiceLogsArgs:
     def retention_period_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period_days", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The Version of Java to use. Supported versions include `1.8`, `11` & `17` (In-Preview).
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+        """
+        powershell_core_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+
+        > **NOTE:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
+        """
+        use_custom_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Function App use a custom runtime?
+        """
+        use_dotnet_isolated_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigApplicationStackArgs:
@@ -28277,6 +36790,19 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
         pulumi.set(self, "use_dotnet_isolated_runtime", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -28315,6 +36841,45 @@ class WindowsFunctionAppSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigIpRestrictionArgs:
@@ -28455,6 +37020,27 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -28525,6 +37111,45 @@ class WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
@@ -28665,6 +37290,27 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -28736,6 +37382,19 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    WindowsFunctionAppSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSiteCredentialArgs:
     def __init__(__self__, *,
@@ -28774,6 +37433,75 @@ class WindowsFunctionAppSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled?
+        """
+        active_directory: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgsDict']]
+        """
+        an `active_directory` block as detailed below.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsFacebookArgsDict']]
+        """
+        a `facebook` block as detailed below.
+        """
+        github: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGithubArgsDict']]
+        """
+        a `github` block as detailed below.
+        """
+        google: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsGoogleArgsDict']]
+        """
+        a `google` block as detailed below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsMicrosoftArgsDict']]
+        """
+        a `microsoft` block as detailed below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsTwitterArgsDict']]
+        """
+        a `twitter` block as detailed below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsArgs:
@@ -29029,6 +37757,29 @@ class WindowsFunctionAppSlotAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -29103,6 +37854,27 @@ class WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook Login authentication.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -29172,6 +37944,27 @@ class WindowsFunctionAppSlotAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        an `oauth_scopes`.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsGithubArgs:
@@ -29243,6 +38036,27 @@ class WindowsFunctionAppSlotAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, "openid", "profile", and "email" are used as default scopes.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -29312,6 +38126,27 @@ class WindowsFunctionAppSlotAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, `wl.basic` is used as the default scope.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsMicrosoftArgs:
@@ -29383,6 +38218,23 @@ class WindowsFunctionAppSlotAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -29436,6 +38288,105 @@ class WindowsFunctionAppSlotAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2Args:
@@ -29807,6 +38758,65 @@ class WindowsFunctionAppSlotAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -30016,6 +39026,27 @@ class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -30077,6 +39108,15 @@ class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -30098,6 +39138,57 @@ class WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
@@ -30283,6 +39374,29 @@ class WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -30356,6 +39470,25 @@ class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -30412,6 +39545,29 @@ class WindowsFunctionAppSlotAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args:
@@ -30485,6 +39641,57 @@ class WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2LoginArgs:
@@ -30673,6 +39880,29 @@ class WindowsFunctionAppSlotAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -30746,6 +39976,21 @@ class WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    WindowsFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -30786,6 +40031,27 @@ class WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['WindowsFunctionAppSlotBackupScheduleArgsDict']
+        """
+        a `schedule` block as detailed below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    WindowsFunctionAppSlotBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotBackupArgs:
@@ -30854,6 +40120,37 @@ class WindowsFunctionAppSlotBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    WindowsFunctionAppSlotBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotBackupScheduleArgs:
@@ -30960,6 +40257,23 @@ class WindowsFunctionAppSlotBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Connection.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    WindowsFunctionAppSlotConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotConnectionStringArgs:
     def __init__(__self__, *,
@@ -31011,6 +40325,29 @@ class WindowsFunctionAppSlotConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Function App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    WindowsFunctionAppSlotIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotIdentityArgs:
@@ -31085,6 +40422,161 @@ class WindowsFunctionAppSlotIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Windows Web App is Always On enabled. Defaults to `false`.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the API definition that describes this Windows Function App.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the API Management API for this Windows Function App.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The program and any arguments used to launch this app via the command line. (Example `node myapp.js`).
+        """
+        app_scale_limit: NotRequired[pulumi.Input[int]]
+        """
+        The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
+        """
+        app_service_logs: NotRequired[pulumi.Input['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgsDict']]
+        """
+        an `app_service_logs` block as detailed below.
+        """
+        application_insights_connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The Connection String for linking the Windows Function App to Application Insights.
+        """
+        application_insights_key: NotRequired[pulumi.Input[str]]
+        """
+        The Instrumentation Key for connecting the Windows Function App to Application Insights.
+        """
+        application_stack: NotRequired[pulumi.Input['WindowsFunctionAppSlotSiteConfigApplicationStackArgsDict']]
+        """
+        an `application_stack` block as detailed below.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the slot to automatically swap with when this slot is successfully deployed.
+        """
+        cors: NotRequired[pulumi.Input['WindowsFunctionAppSlotSiteConfigCorsArgsDict']]
+        """
+        a `cors` block as detailed below.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Windows Web App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is detailed error logging enabled
+        """
+        elastic_instance_minimum: NotRequired[pulumi.Input[int]]
+        """
+        The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans.
+        """
+        ftps_state: NotRequired[pulumi.Input[str]]
+        """
+        State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
+        """
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node is unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Defaults to `0`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to be checked for this function app health.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgsDict']]]]
+        """
+        an `ip_restriction` block as detailed below.
+        """
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        pre_warmed_instance_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019`, and `VS2022`
+        """
+        runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Scale Monitoring of the Functions Runtime be enabled?
+
+        > **NOTE:** Functions runtime scale monitoring can only be enabled for Elastic Premium Function Apps or Workflow Standard Logic Apps and requires a minimum prewarmed instance count of 1.
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        a `scm_ip_restriction` block as detailed below.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        """
+        The SCM Type in use by the Windows Function App.
+        """
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Function App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App use a 32-bit worker. Defaults to `true`.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        windows_fx_version: NotRequired[pulumi.Input[str]]
+        """
+        The Windows FX Version string.
+        """
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Windows Function App.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigArgs:
@@ -31689,6 +41181,21 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgsDict(TypedDict):
+        disk_quota_mb: NotRequired[pulumi.Input[int]]
+        """
+        The amount of disk space to use for logs. Valid values are between `25` and `100`. Defaults to `35`.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        The retention period for logs in days. Valid values are between `0` and `99999`.(never delete).
+
+        > **NOTE:** This block is not supported on Consumption plans.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigAppServiceLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs:
     def __init__(__self__, *,
@@ -31731,6 +41238,35 @@ class WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs:
     def retention_period_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_period_days", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0` and `v8.0`. Defaults to `v4.0`.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Java to use. Possible values are `1.8`, `11` and `17` (In-Preview).
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+        """
+        powershell_core_version: NotRequired[pulumi.Input[str]]
+        """
+        The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
+        """
+        use_custom_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Does the Function App use a custom Application Stack?
+        """
+        use_dotnet_isolated_runtime: NotRequired[pulumi.Input[bool]]
+        """
+        Should the DotNet process use an isolated runtime. Defaults to `false`.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
@@ -31835,6 +41371,19 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
         pulumi.set(self, "use_dotnet_isolated_runtime", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Are credentials allowed in CORS requests? Defaults to `false`.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -31873,6 +41422,45 @@ class WindowsFunctionAppSlotSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        a `headers` block as detailed below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
@@ -32013,6 +41601,27 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -32083,6 +41692,45 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        a `headers` block as detailed below.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT
+
+        > **NOTE:** Exactly one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
@@ -32223,6 +41871,27 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -32294,6 +41963,19 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppSlotSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Username used for publishing.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    WindowsFunctionAppSlotSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppSlotSiteCredentialArgs:
     def __init__(__self__, *,
@@ -32332,6 +42014,35 @@ class WindowsFunctionAppSlotSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppSlotStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Storage Account.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles`.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    WindowsFunctionAppSlotStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppSlotStorageAccountArgs:
@@ -32431,6 +42142,19 @@ class WindowsFunctionAppSlotStorageAccountArgs:
         pulumi.set(self, "mount_path", value)
 
 
+if not MYPY:
+    class WindowsFunctionAppStickySettingsArgsDict(TypedDict):
+        app_setting_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+        connection_string_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
+        """
+elif False:
+    WindowsFunctionAppStickySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsFunctionAppStickySettingsArgs:
     def __init__(__self__, *,
@@ -32469,6 +42193,35 @@ class WindowsFunctionAppStickySettingsArgs:
     def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "connection_string_names", value)
 
+
+if not MYPY:
+    class WindowsFunctionAppStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Storage Account.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles`.
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    WindowsFunctionAppStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsFunctionAppStorageAccountArgs:
@@ -32567,6 +42320,75 @@ class WindowsFunctionAppStorageAccountArgs:
     def mount_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mount_path", value)
 
+
+if not MYPY:
+    class WindowsWebAppAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
+        """
+        active_directory: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined above.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        github: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsGithubArgsDict']]
+        """
+        A `github` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    WindowsWebAppAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppAuthSettingsArgs:
@@ -32822,6 +42644,29 @@ class WindowsWebAppAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    WindowsWebAppAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -32896,6 +42741,27 @@ class WindowsWebAppAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    WindowsWebAppAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -32965,6 +42831,27 @@ class WindowsWebAppAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    WindowsWebAppAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppAuthSettingsGithubArgs:
@@ -33036,6 +42923,27 @@ class WindowsWebAppAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    WindowsWebAppAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -33105,6 +43013,27 @@ class WindowsWebAppAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+elif False:
+    WindowsWebAppAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppAuthSettingsMicrosoftArgs:
@@ -33176,6 +43105,23 @@ class WindowsWebAppAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    WindowsWebAppAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -33229,6 +43175,105 @@ class WindowsWebAppAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['WindowsWebAppAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['WindowsWebAppAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2Args:
@@ -33600,6 +43645,65 @@ class WindowsWebAppAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -33809,6 +43913,27 @@ class WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -33870,6 +43995,15 @@ class WindowsWebAppAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -33891,6 +44025,57 @@ class WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2CustomOidcV2Args:
@@ -34076,6 +44261,29 @@ class WindowsWebAppAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -34149,6 +44357,25 @@ class WindowsWebAppAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -34205,6 +44432,29 @@ class WindowsWebAppAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2GoogleV2Args:
@@ -34278,6 +44528,57 @@ class WindowsWebAppAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2LoginArgs:
@@ -34466,6 +44767,29 @@ class WindowsWebAppAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -34539,6 +44863,21 @@ class WindowsWebAppAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    WindowsWebAppAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -34579,6 +44918,27 @@ class WindowsWebAppAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsWebAppBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['WindowsWebAppBackupScheduleArgsDict']
+        """
+        A `schedule` block as defined below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    WindowsWebAppBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppBackupArgs:
@@ -34647,6 +45007,37 @@ class WindowsWebAppBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class WindowsWebAppBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    WindowsWebAppBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppBackupScheduleArgs:
@@ -34753,6 +45144,23 @@ class WindowsWebAppBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class WindowsWebAppConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    WindowsWebAppConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppConnectionStringArgs:
     def __init__(__self__, *,
@@ -34804,6 +45212,29 @@ class WindowsWebAppConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WindowsWebAppIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    WindowsWebAppIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppIdentityArgs:
@@ -34879,6 +45310,27 @@ class WindowsWebAppIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class WindowsWebAppLogsArgsDict(TypedDict):
+        application_logs: NotRequired[pulumi.Input['WindowsWebAppLogsApplicationLogsArgsDict']]
+        """
+        A `application_logs` block as defined above.
+        """
+        detailed_error_messages: NotRequired[pulumi.Input[bool]]
+        """
+        Should detailed error messages be enabled.
+        """
+        failed_request_tracing: NotRequired[pulumi.Input[bool]]
+        """
+        Should tracing be enabled for failed requests.
+        """
+        http_logs: NotRequired[pulumi.Input['WindowsWebAppLogsHttpLogsArgsDict']]
+        """
+        A `http_logs` block as defined above.
+        """
+elif False:
+    WindowsWebAppLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppLogsArgs:
     def __init__(__self__, *,
@@ -34950,6 +45402,19 @@ class WindowsWebAppLogsArgs:
         pulumi.set(self, "http_logs", value)
 
 
+if not MYPY:
+    class WindowsWebAppLogsApplicationLogsArgsDict(TypedDict):
+        file_system_level: pulumi.Input[str]
+        """
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+elif False:
+    WindowsWebAppLogsApplicationLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppLogsApplicationLogsArgs:
     def __init__(__self__, *,
@@ -34987,6 +45452,23 @@ class WindowsWebAppLogsApplicationLogsArgs:
     def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
+
+if not MYPY:
+    class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgsDict(TypedDict):
+        level: pulumi.Input[str]
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
+        retention_in_days: pulumi.Input[int]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+elif False:
+    WindowsWebAppLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
@@ -35040,6 +45522,19 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class WindowsWebAppLogsHttpLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['WindowsWebAppLogsHttpLogsAzureBlobStorageArgsDict']]
+        """
+        A `azure_blob_storage_http` block as defined below.
+        """
+        file_system: NotRequired[pulumi.Input['WindowsWebAppLogsHttpLogsFileSystemArgsDict']]
+        """
+        A `file_system` block as defined above.
+        """
+elif False:
+    WindowsWebAppLogsHttpLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppLogsHttpLogsArgs:
     def __init__(__self__, *,
@@ -35079,6 +45574,19 @@ class WindowsWebAppLogsHttpLogsArgs:
         pulumi.set(self, "file_system", value)
 
 
+if not MYPY:
+    class WindowsWebAppLogsHttpLogsAzureBlobStorageArgsDict(TypedDict):
+        sas_url: pulumi.Input[str]
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+elif False:
+    WindowsWebAppLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
@@ -35117,6 +45625,19 @@ class WindowsWebAppLogsHttpLogsAzureBlobStorageArgs:
         pulumi.set(self, "retention_in_days", value)
 
 
+if not MYPY:
+    class WindowsWebAppLogsHttpLogsFileSystemArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The retention period in days. A values of `0` means no retention.
+        """
+        retention_in_mb: pulumi.Input[int]
+        """
+        The maximum size in megabytes that log files can use.
+        """
+elif False:
+    WindowsWebAppLogsHttpLogsFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
@@ -35153,6 +45674,146 @@ class WindowsWebAppLogsHttpLogsFileSystemArgs:
     def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Windows Web App is Always On enabled. Defaults to `true`.
+
+        > **NOTE:** `always_on` must be explicitly set to `false` when using `Free`, `F1`, `D1`, or `Shared` Service Plans.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to the API Definition for this Windows Web App.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The API Management API ID this Windows Web App Slot is associated with.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The App command line to launch.
+        """
+        application_stack: NotRequired[pulumi.Input['WindowsWebAppSiteConfigApplicationStackArgsDict']]
+        """
+        A `application_stack` block as defined above.
+        """
+        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        """
+        auto_heal_setting: NotRequired[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingArgsDict']]
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        container_registry_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        container_registry_use_managed_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        cors: NotRequired[pulumi.Input['WindowsWebAppSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined above.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Windows Web App.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        ftps_state: NotRequired[pulumi.Input[str]]
+        handler_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigHandlerMappingArgsDict']]]]
+        """
+        One or more `handler_mapping` blocks as defined below.
+        """
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Health Check.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the HTTP2 be enabled?
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgsDict']]]]
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        linux_fx_version: NotRequired[pulumi.Input[str]]
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        local_mysql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017`, `VS2019` and `VS2022`.
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App use a 32-bit worker. Defaults to `true`.
+        """
+        virtual_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgsDict']]]]
+        """
+        One or more `virtual_application` blocks as defined below.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        windows_fx_version: NotRequired[pulumi.Input[str]]
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Windows App Service.
+        """
+elif False:
+    WindowsWebAppSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigArgs:
@@ -35737,6 +46398,98 @@ class WindowsWebAppSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigApplicationStackArgsDict(TypedDict):
+        current_stack: NotRequired[pulumi.Input[str]]
+        """
+        The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+
+        > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+
+        > **NOTE:** Windows Web apps can configure multiple `app_stack` properties, it is recommended to always configure this `Optional` value and set it to the primary application stack of your app to ensure correct operation of this resource and display the correct metadata in the Azure Portal.
+        """
+        docker_container_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the container to be used. This value is required with `docker_container_tag`.
+        """
+        docker_container_registry: NotRequired[pulumi.Input[str]]
+        docker_container_tag: NotRequired[pulumi.Input[str]]
+        """
+        The tag of the container to be used. This value is required with `docker_container_name`.
+        """
+        docker_image_name: NotRequired[pulumi.Input[str]]
+        """
+        The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        """
+        docker_registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        docker_registry_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        docker_registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        dotnet_core_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        """
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+
+        > **NOTE:** The Portal displayed values and the actual underlying API values differ for this setting, as follows:
+        Portal Value | API value
+        :--|--:
+        ASP.NET V3.5 | v2.0
+        ASP.NET V4.8 | v4.0
+        .NET 6 (LTS) | v6.0
+        .NET 7 (STS) | v7.0
+        .NET 8 (LTS) | v8.0
+        """
+        java_container: NotRequired[pulumi.Input[str]]
+        java_container_version: NotRequired[pulumi.Input[str]]
+        java_embedded_server_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Java Embedded Server (Java SE) be used to run the app.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Java to use when `current_stack` is set to `java`. 
+
+        > **NOTE:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17` and `17.0.2`
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18` and `~20`.
+
+        > **NOTE:** This property conflicts with `java_version`.
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+
+        > **NOTE:** The value `Off` is used to signify latest supported by the service.
+        """
+        python: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether this is a Python app. Defaults to `false`.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        tomcat_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Tomcat the Java App should use. Conflicts with `java_embedded_server_enabled`
+
+        > **NOTE:** See the official documentation for current supported versions.  Some example valuess include: `10.0`, `10.0.20`.
+        """
+elif False:
+    WindowsWebAppSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
@@ -36094,6 +46847,19 @@ class WindowsWebAppSiteConfigApplicationStackArgs:
         pulumi.set(self, "tomcat_version", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingArgsDict(TypedDict):
+        action: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionArgsDict']
+        """
+        An `action` block as defined above.
+        """
+        trigger: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgsDict']
+        """
+        A `trigger` block as defined below.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingArgs:
     def __init__(__self__, *,
@@ -36130,6 +46896,23 @@ class WindowsWebAppSiteConfigAutoHealSettingArgs:
     def trigger(self, value: pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerArgs']):
         pulumi.set(self, "trigger", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingActionArgsDict(TypedDict):
+        action_type: pulumi.Input[str]
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
+        """
+        custom_action: NotRequired[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgsDict']]
+        """
+        A `custom_action` block as defined below.
+        """
+        minimum_process_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingActionArgs:
@@ -36185,6 +46968,19 @@ class WindowsWebAppSiteConfigAutoHealSettingActionArgs:
         pulumi.set(self, "minimum_process_execution_time", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgsDict(TypedDict):
+        executable: pulumi.Input[str]
+        """
+        The executable to run for the `custom_action`.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters to pass to the specified `executable`.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs:
     def __init__(__self__, *,
@@ -36222,6 +47018,31 @@ class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
+        private_memory_kb: NotRequired[pulumi.Input[int]]
+        """
+        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
+        """
+        requests: NotRequired[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict']]
+        """
+        A `requests` block as defined above.
+        """
+        slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
+        """
+        A `slow_request` block as defined above.
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
+        """
+        One or more `status_code` blocks as defined above.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
@@ -36310,6 +47131,19 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "status_codes", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The interval in `hh:mm:ss`.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
     def __init__(__self__, *,
@@ -36346,6 +47180,27 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs:
     def interval(self, value: pulumi.Input[str]):
         pulumi.set(self, "interval", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
@@ -36419,6 +47274,27 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def __init__(__self__, *,
@@ -36486,6 +47362,35 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        status_code_range: pulumi.Input[str]
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to which this rule status code applies.
+        """
+        sub_status: NotRequired[pulumi.Input[int]]
+        """
+        The Request Sub Status of the Status Code.
+        """
+        win32_status_code: NotRequired[pulumi.Input[int]]
+        """
+        The Win32 Status Code of the Request.
+        """
+elif False:
+    WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
@@ -36587,6 +47492,19 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "win32_status_code", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+elif False:
+    WindowsWebAppSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -36625,6 +47543,23 @@ class WindowsWebAppSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigHandlerMappingArgsDict(TypedDict):
+        extension: pulumi.Input[str]
+        """
+        Specifies which extension to be handled by the specified FastCGI application.
+        """
+        script_processor_path: pulumi.Input[str]
+        """
+        Specifies the absolute path to the FastCGI application.
+        """
+        arguments: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the command-line arguments to be passed to the script processor.
+        """
+elif False:
+    WindowsWebAppSiteConfigHandlerMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigHandlerMappingArgs:
@@ -36678,6 +47613,45 @@ class WindowsWebAppSiteConfigHandlerMappingArgs:
     def arguments(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arguments", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsWebAppSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigIpRestrictionArgs:
@@ -36818,6 +47792,27 @@ class WindowsWebAppSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsWebAppSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -36888,6 +47883,45 @@ class WindowsWebAppSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class WindowsWebAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsWebAppSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSiteConfigScmIpRestrictionArgs:
@@ -37028,6 +48062,27 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsWebAppSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -37099,6 +48154,27 @@ class WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigVirtualApplicationArgsDict(TypedDict):
+        physical_path: pulumi.Input[str]
+        """
+        The physical path for the Virtual Application.
+        """
+        preload: pulumi.Input[bool]
+        """
+        Should pre-loading be enabled.
+        """
+        virtual_path: pulumi.Input[str]
+        """
+        The Virtual Path for the Virtual Application.
+        """
+        virtual_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgsDict']]]]
+        """
+        One or more `virtual_directory` blocks as defined below.
+        """
+elif False:
+    WindowsWebAppSiteConfigVirtualApplicationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigVirtualApplicationArgs:
     def __init__(__self__, *,
@@ -37167,6 +48243,19 @@ class WindowsWebAppSiteConfigVirtualApplicationArgs:
         pulumi.set(self, "virtual_directories", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgsDict(TypedDict):
+        physical_path: NotRequired[pulumi.Input[str]]
+        """
+        The physical path for the Virtual Application.
+        """
+        virtual_path: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Path for the Virtual Application.
+        """
+elif False:
+    WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs:
     def __init__(__self__, *,
@@ -37206,6 +48295,19 @@ class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs:
         pulumi.set(self, "virtual_path", value)
 
 
+if not MYPY:
+    class WindowsWebAppSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this Windows Web App. Changing this forces a new Windows Web App to be created.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    WindowsWebAppSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSiteCredentialArgs:
     def __init__(__self__, *,
@@ -37244,6 +48346,75 @@ class WindowsWebAppSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Should the Authentication / Authorization feature be enabled for the Windows Web App?
+        """
+        active_directory: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsActiveDirectoryArgsDict']]
+        """
+        An `active_directory` block as defined above.
+        """
+        additional_login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
+        """
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Web App Slot.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The default authentication provider to use when multiple providers are configured. Possible values include: `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount`, `Twitter`, `Github`.
+
+        > **NOTE:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
+        """
+        facebook: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsFacebookArgsDict']]
+        """
+        A `facebook` block as defined below.
+        """
+        github: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsGithubArgsDict']]
+        """
+        A `github` block as defined below.
+        """
+        google: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsGoogleArgsDict']]
+        """
+        A `google` block as defined below.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App Slot.
+
+        > **NOTE:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
+        """
+        microsoft: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsMicrosoftArgsDict']]
+        """
+        A `microsoft` block as defined below.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App Slot.
+        """
+        token_refresh_extension_hours: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
+        """
+        twitter: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsTwitterArgsDict']]
+        """
+        A `twitter` block as defined below.
+        """
+        unauthenticated_client_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsArgs:
@@ -37499,6 +48670,29 @@ class WindowsWebAppSlotAuthSettingsArgs:
         pulumi.set(self, "unauthenticated_client_action", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsActiveDirectoryArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **Note:** The `client_id` value is always considered an allowed audience, so should not be included.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs:
     def __init__(__self__, *,
@@ -37573,6 +48767,27 @@ class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs:
         pulumi.set(self, "client_secret_setting_name", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsFacebookArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret: NotRequired[pulumi.Input[str]]
+        """
+        The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
+        """
+        app_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsFacebookArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsFacebookArgs:
     def __init__(__self__, *,
@@ -37642,6 +48857,27 @@ class WindowsWebAppSlotAuthSettingsFacebookArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsGithubArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsGithubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsGithubArgs:
@@ -37713,6 +48949,27 @@ class WindowsWebAppSlotAuthSettingsGithubArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsGoogleArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret associated with the Google web application. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsGoogleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsGoogleArgs:
     def __init__(__self__, *,
@@ -37782,6 +49039,27 @@ class WindowsWebAppSlotAuthSettingsGoogleArgs:
     def oauth_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "oauth_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsMicrosoftArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
+        """
+        oauth_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, "wl.basic" is used as the default scope.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsMicrosoftArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsMicrosoftArgs:
@@ -37853,6 +49131,23 @@ class WindowsWebAppSlotAuthSettingsMicrosoftArgs:
         pulumi.set(self, "oauth_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsTwitterArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret: NotRequired[pulumi.Input[str]]
+        """
+        The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret_setting_name`.
+        """
+        consumer_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with `consumer_secret`.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsTwitterArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsTwitterArgs:
     def __init__(__self__, *,
@@ -37906,6 +49201,105 @@ class WindowsWebAppSlotAuthSettingsTwitterArgs:
     def consumer_secret_setting_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
+        login: pulumi.Input['WindowsWebAppSlotAuthSettingsV2LoginArgsDict']
+        """
+        A `login` block as defined below.
+        """
+        active_directory_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]
+        """
+        An `active_directory_v2` block as defined below.
+        """
+        apple_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AppleV2ArgsDict']]
+        """
+        An `apple_v2` block as defined below.
+        """
+        auth_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the AuthV2 Settings be enabled. Defaults to `false`.
+        """
+        azure_static_web_app_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]
+        """
+        An `azure_static_web_app_v2` block as defined below.
+        """
+        config_file_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the App Auth settings.
+
+        > **Note:** Relative Paths are evaluated from the Site Root directory.
+        """
+        custom_oidc_v2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]
+        """
+        Zero or more `custom_oidc_v2` blocks as defined below.
+        """
+        default_provider: NotRequired[pulumi.Input[str]]
+        """
+        The Default Authentication Provider to use when the `unauthenticated_action` is set to `RedirectToLoginPage`. Possible values include: `apple`, `azureactivedirectory`, `facebook`, `github`, `google`, `twitter` and the `name` of your `custom_oidc_v2` provider.
+
+        > **NOTE:** Whilst any value will be accepted by the API for `default_provider`, it can leave the app in an unusable state if this value does not correspond to the name of a known provider (either built-in value, or custom_oidc name) as it is used to build the auth endpoint URI.
+        """
+        excluded_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The paths which should be excluded from the `unauthenticated_action` when it is set to `RedirectToLoginPage`.
+
+        > **NOTE:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
+        """
+        facebook_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2FacebookV2ArgsDict']]
+        """
+        A `facebook_v2` block as defined below.
+        """
+        forward_proxy_convention: NotRequired[pulumi.Input[str]]
+        """
+        The convention used to determine the url of the request made. Possible values include `NoProxy`, `Standard`, `Custom`. Defaults to `NoProxy`.
+        """
+        forward_proxy_custom_host_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the host of the request.
+        """
+        forward_proxy_custom_scheme_header_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the custom header containing the scheme of the request.
+        """
+        github_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GithubV2ArgsDict']]
+        """
+        A `github_v2` block as defined below.
+        """
+        google_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2GoogleV2ArgsDict']]
+        """
+        A `google_v2` block as defined below.
+        """
+        http_route_api_prefix: NotRequired[pulumi.Input[str]]
+        """
+        The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
+        """
+        microsoft_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]
+        """
+        A `microsoft_v2` block as defined below.
+        """
+        require_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Should the authentication flow be used for all requests.
+        """
+        require_https: NotRequired[pulumi.Input[bool]]
+        """
+        Should HTTPS be required on connections? Defaults to `true`.
+        """
+        runtime_version: NotRequired[pulumi.Input[str]]
+        """
+        The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
+        """
+        twitter_v2: NotRequired[pulumi.Input['WindowsWebAppSlotAuthSettingsV2TwitterV2ArgsDict']]
+        """
+        A `twitter_v2` block as defined below.
+        """
+        unauthenticated_action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take for requests made without authentication. Possible values include `RedirectToLoginPage`, `AllowAnonymous`, `Return401`, and `Return403`. Defaults to `RedirectToLoginPage`.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2Args:
@@ -38277,6 +49671,65 @@ class WindowsWebAppSlotAuthSettingsV2Args:
         pulumi.set(self, "unauthenticated_action", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Active Directory.
+        """
+        tenant_auth_endpoint: pulumi.Input[str]
+        """
+        The Azure Tenant Endpoint for the Authenticating Tenant. e.g. `https://login.microsoftonline.com/{tenant-guid}/v2.0/`
+
+        > **NOTE:** [Here](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud#microsoft-entra-authentication-endpoints) is a list of possible authentication endpoints based on the cloud environment. [Here](https://learn.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad?tabs=workforce-tenant) is more information to better understand how to configure authentication for Azure App Service or Azure Functions.
+        """
+        allowed_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Applications for the Default Authorisation Policy.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+        allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Group Names for the Default Authorisation Policy.
+        """
+        allowed_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of allowed Identities for the Default Authorisation Policy.
+        """
+        client_secret_certificate_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The thumbprint of the certificate used for signing purposes.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the client secret of the Client.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        jwt_allowed_client_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Client Applications in the JWT Claim.
+        """
+        jwt_allowed_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Allowed Groups in the JWT Claim.
+        """
+        login_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+        """
+        www_authentication_disabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the www-authenticate provider should be omitted from the request? Defaults to `false`.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
     def __init__(__self__, *,
@@ -38486,6 +49939,27 @@ class WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args:
         pulumi.set(self, "www_authentication_disabled", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2AppleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Apple web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Apple Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Login Scopes provided by this Authentication Provider.
+
+        > **NOTE:** This is configured on the Authentication Provider side and is Read Only here.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2AppleV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2AppleV2Args:
     def __init__(__self__, *,
@@ -38547,6 +50021,15 @@ class WindowsWebAppSlotAuthSettingsV2AppleV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def __init__(__self__, *,
@@ -38568,6 +50051,57 @@ class WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args:
     def client_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_id", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the Client to use to authenticate with the Custom OIDC.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Custom OIDC Authentication Provider.
+
+        > **NOTE:** An `app_setting` matching this value in upper case with the suffix of `_PROVIDER_AUTHENTICATION_SECRET` is required. e.g. `MYOIDC_PROVIDER_AUTHENTICATION_SECRET` for a value of `myoidc`.
+        """
+        openid_configuration_endpoint: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for the Custom OIDC Login.
+        """
+        authorisation_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to make the Authorisation Request as supplied by `openid_configuration_endpoint` response.
+        """
+        certification_uri: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that provides the keys necessary to validate the token as supplied by `openid_configuration_endpoint` response.
+        """
+        client_credential_method: NotRequired[pulumi.Input[str]]
+        """
+        The Client Credential Method used.
+        """
+        client_secret_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The App Setting name that contains the secret for this Custom OIDC Client. This is generated from `name` above and suffixed with `_PROVIDER_AUTHENTICATION_SECRET`.
+        """
+        issuer_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint that issued the Token as supplied by `openid_configuration_endpoint` response.
+        """
+        name_claim_type: NotRequired[pulumi.Input[str]]
+        """
+        The name of the claim that contains the users name.
+        """
+        scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of the scopes that should be requested while authenticating.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint used to request a Token as supplied by `openid_configuration_endpoint` response.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
@@ -38753,6 +50287,29 @@ class WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args:
         pulumi.set(self, "token_endpoint", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2FacebookV2ArgsDict(TypedDict):
+        app_id: pulumi.Input[str]
+        """
+        The App ID of the Facebook app used for login.
+        """
+        app_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `app_secret` value used for Facebook Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        graph_api_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Facebook API to be used while logging in.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of scopes that should be requested as part of Facebook Login authentication.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2FacebookV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2FacebookV2Args:
     def __init__(__self__, *,
@@ -38826,6 +50383,25 @@ class WindowsWebAppSlotAuthSettingsV2FacebookV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2GithubV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The ID of the GitHub app used for login..
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for GitHub Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2GithubV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2GithubV2Args:
     def __init__(__self__, *,
@@ -38882,6 +50458,29 @@ class WindowsWebAppSlotAuthSettingsV2GithubV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2GoogleV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OpenID Connect Client ID for the Google web application.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the `client_secret` value used for Google Login.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2GoogleV2ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2GoogleV2Args:
@@ -38955,6 +50554,57 @@ class WindowsWebAppSlotAuthSettingsV2GoogleV2Args:
     def login_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "login_scopes", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2LoginArgsDict(TypedDict):
+        allowed_external_redirect_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        External URLs that can be redirected to as part of logging in or logging out of the app. This is an advanced setting typically only needed by Windows Store application backends.
+
+        > **Note:** URLs within the current domain are always implicitly allowed.
+        """
+        cookie_expiration_convention: NotRequired[pulumi.Input[str]]
+        """
+        The method by which cookies expire. Possible values include: `FixedTime`, and `IdentityProviderDerived`. Defaults to `FixedTime`.
+        """
+        cookie_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the session cookie should expire. Defaults to `08:00:00`.
+        """
+        logout_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint to which logout requests should be made.
+        """
+        nonce_expiration_time: NotRequired[pulumi.Input[str]]
+        """
+        The time after the request is made when the nonce should expire. Defaults to `00:05:00`.
+        """
+        preserve_url_fragments_for_logins: NotRequired[pulumi.Input[bool]]
+        """
+        Should the fragments from the request be preserved after the login request is made. Defaults to `false`.
+        """
+        token_refresh_extension_time: NotRequired[pulumi.Input[float]]
+        """
+        The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
+        """
+        token_store_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Token Store configuration Enabled. Defaults to `false`
+        """
+        token_store_path: NotRequired[pulumi.Input[str]]
+        """
+        The directory path in the App Filesystem in which the tokens will be stored.
+        """
+        token_store_sas_setting_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the app setting which contains the SAS URL of the blob storage containing the tokens.
+        """
+        validate_nonce: NotRequired[pulumi.Input[bool]]
+        """
+        Should the nonce be validated while completing the login flow. Defaults to `true`.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2LoginArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2LoginArgs:
@@ -39143,6 +50793,29 @@ class WindowsWebAppSlotAuthSettingsV2LoginArgs:
         pulumi.set(self, "validate_nonce", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The OAuth 2.0 client ID that was created for the app used for authentication.
+        """
+        client_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+        allowed_audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
+        """
+        login_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The list of Login scopes that should be requested as part of Microsoft Account authentication.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args:
     def __init__(__self__, *,
@@ -39216,6 +50889,21 @@ class WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args:
         pulumi.set(self, "login_scopes", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotAuthSettingsV2TwitterV2ArgsDict(TypedDict):
+        consumer_key: pulumi.Input[str]
+        """
+        The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+        """
+        consumer_secret_setting_name: pulumi.Input[str]
+        """
+        The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+
+        !> **NOTE:** A setting with this name must exist in `app_settings` to function correctly.
+        """
+elif False:
+    WindowsWebAppSlotAuthSettingsV2TwitterV2ArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotAuthSettingsV2TwitterV2Args:
     def __init__(__self__, *,
@@ -39256,6 +50944,27 @@ class WindowsWebAppSlotAuthSettingsV2TwitterV2Args:
     def consumer_secret_setting_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "consumer_secret_setting_name", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotBackupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Backup.
+        """
+        schedule: pulumi.Input['WindowsWebAppSlotBackupScheduleArgsDict']
+        """
+        A `schedule` block as defined below.
+        """
+        storage_account_url: pulumi.Input[str]
+        """
+        The SAS URL to the container.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should this backup job be enabled? Defaults to `true`.
+        """
+elif False:
+    WindowsWebAppSlotBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotBackupArgs:
@@ -39324,6 +51033,37 @@ class WindowsWebAppSlotBackupArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotBackupScheduleArgsDict(TypedDict):
+        frequency_interval: pulumi.Input[int]
+        """
+        How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
+
+        > **NOTE:** Not all intervals are supported on all Windows Web App SKUs. Please refer to the official documentation for appropriate values.
+        """
+        frequency_unit: pulumi.Input[str]
+        """
+        The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
+        """
+        keep_at_least_one_backup: NotRequired[pulumi.Input[bool]]
+        """
+        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        """
+        last_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The time the backup was last attempted.
+        """
+        retention_period_days: NotRequired[pulumi.Input[int]]
+        """
+        After how many days backups should be deleted. Defaults to `30`.
+        """
+        start_time: NotRequired[pulumi.Input[str]]
+        """
+        When the schedule should start working in RFC-3339 format.
+        """
+elif False:
+    WindowsWebAppSlotBackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotBackupScheduleArgs:
@@ -39430,6 +51170,23 @@ class WindowsWebAppSlotBackupScheduleArgs:
         pulumi.set(self, "start_time", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotConnectionStringArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the connection String.
+        """
+        type: pulumi.Input[str]
+        """
+        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        """
+        value: pulumi.Input[str]
+        """
+        The connection string value.
+        """
+elif False:
+    WindowsWebAppSlotConnectionStringArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotConnectionStringArgs:
     def __init__(__self__, *,
@@ -39481,6 +51238,29 @@ class WindowsWebAppSlotConnectionStringArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Windows Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    WindowsWebAppSlotIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotIdentityArgs:
@@ -39556,6 +51336,27 @@ class WindowsWebAppSlotIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotLogsArgsDict(TypedDict):
+        application_logs: NotRequired[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsArgsDict']]
+        """
+        A `application_logs` block as defined above.
+        """
+        detailed_error_messages: NotRequired[pulumi.Input[bool]]
+        """
+        Should detailed error messages be enabled.
+        """
+        failed_request_tracing: NotRequired[pulumi.Input[bool]]
+        """
+        Should failed request tracing be enabled.
+        """
+        http_logs: NotRequired[pulumi.Input['WindowsWebAppSlotLogsHttpLogsArgsDict']]
+        """
+        An `http_logs` block as defined above.
+        """
+elif False:
+    WindowsWebAppSlotLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotLogsArgs:
     def __init__(__self__, *,
@@ -39627,6 +51428,19 @@ class WindowsWebAppSlotLogsArgs:
         pulumi.set(self, "http_logs", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotLogsApplicationLogsArgsDict(TypedDict):
+        file_system_level: pulumi.Input[str]
+        """
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
+        """
+        azure_blob_storage: NotRequired[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict']]
+        """
+        An `azure_blob_storage` block as defined below.
+        """
+elif False:
+    WindowsWebAppSlotLogsApplicationLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotLogsApplicationLogsArgs:
     def __init__(__self__, *,
@@ -39664,6 +51478,23 @@ class WindowsWebAppSlotLogsApplicationLogsArgs:
     def azure_blob_storage(self, value: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]):
         pulumi.set(self, "azure_blob_storage", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict(TypedDict):
+        level: pulumi.Input[str]
+        """
+        The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
+        """
+        retention_in_days: pulumi.Input[int]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+        sas_url: pulumi.Input[str]
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+elif False:
+    WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
@@ -39717,6 +51548,19 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
         pulumi.set(self, "sas_url", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotLogsHttpLogsArgsDict(TypedDict):
+        azure_blob_storage: NotRequired[pulumi.Input['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict']]
+        """
+        A `azure_blob_storage_http` block as defined above.
+        """
+        file_system: NotRequired[pulumi.Input['WindowsWebAppSlotLogsHttpLogsFileSystemArgsDict']]
+        """
+        A `file_system` block as defined above.
+        """
+elif False:
+    WindowsWebAppSlotLogsHttpLogsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotLogsHttpLogsArgs:
     def __init__(__self__, *,
@@ -39756,6 +51600,19 @@ class WindowsWebAppSlotLogsHttpLogsArgs:
         pulumi.set(self, "file_system", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict(TypedDict):
+        sas_url: pulumi.Input[str]
+        """
+        SAS url to an Azure blob container with read/write/list/delete permissions.
+        """
+        retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The time in days after which to remove blobs. A value of `0` means no retention.
+        """
+elif False:
+    WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
     def __init__(__self__, *,
@@ -39794,6 +51651,19 @@ class WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs:
         pulumi.set(self, "retention_in_days", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotLogsHttpLogsFileSystemArgsDict(TypedDict):
+        retention_in_days: pulumi.Input[int]
+        """
+        The retention period in days. A values of `0` means no retention.
+        """
+        retention_in_mb: pulumi.Input[int]
+        """
+        The maximum size in megabytes that log files can use.
+        """
+elif False:
+    WindowsWebAppSlotLogsHttpLogsFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotLogsHttpLogsFileSystemArgs:
     def __init__(__self__, *,
@@ -39830,6 +51700,149 @@ class WindowsWebAppSlotLogsHttpLogsFileSystemArgs:
     def retention_in_mb(self, value: pulumi.Input[int]):
         pulumi.set(self, "retention_in_mb", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
+        always_on: NotRequired[pulumi.Input[bool]]
+        """
+        If this Windows Web App Slot is Always On enabled. Defaults to `true`.
+        """
+        api_definition_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL to the API Definition for this Windows Web App Slot.
+        """
+        api_management_api_id: NotRequired[pulumi.Input[str]]
+        """
+        The API Management API ID this Windows Web App Slot os associated with.
+        """
+        app_command_line: NotRequired[pulumi.Input[str]]
+        """
+        The App command line to launch.
+        """
+        application_stack: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigApplicationStackArgsDict']]
+        """
+        A `application_stack` block as defined above.
+        """
+        auto_heal_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        """
+        auto_heal_setting: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingArgsDict']]
+        """
+        A `auto_heal_setting` block as defined above. Required with `auto_heal`.
+        """
+        auto_swap_slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The Windows Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
+
+        > **Note:** This must be a valid slot name on the target Windows Web App Slot.
+        """
+        container_registry_managed_identity_client_id: NotRequired[pulumi.Input[str]]
+        """
+        The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
+        """
+        container_registry_use_managed_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Should connections for Azure Container Registry use Managed Identity.
+        """
+        cors: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigCorsArgsDict']]
+        """
+        A `cors` block as defined above.
+        """
+        default_documents: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Default Documents for the Windows Web App Slot.
+        """
+        detailed_error_logging_enabled: NotRequired[pulumi.Input[bool]]
+        ftps_state: NotRequired[pulumi.Input[str]]
+        handler_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigHandlerMappingArgsDict']]]]
+        """
+        One or more `handler_mapping` blocks as defined below.
+        """
+        health_check_eviction_time_in_min: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
+        """
+        health_check_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the Health Check.
+        """
+        http2_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the HTTP2 be enabled?
+        """
+        ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgsDict']]]]
+        """
+        One or more `ip_restriction` blocks as defined above.
+        """
+        load_balancing_mode: NotRequired[pulumi.Input[str]]
+        """
+        The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
+        """
+        local_mysql_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Use Local MySQL. Defaults to `false`.
+        """
+        managed_pipeline_mode: NotRequired[pulumi.Input[str]]
+        """
+        Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        """
+        minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        remote_debugging_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Remote Debugging be enabled. Defaults to `false`.
+        """
+        remote_debugging_version: NotRequired[pulumi.Input[str]]
+        """
+        The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
+        """
+        scm_ip_restriction_default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
+        """
+        scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgsDict']]]]
+        """
+        One or more `scm_ip_restriction` blocks as defined above.
+        """
+        scm_minimum_tls_version: NotRequired[pulumi.Input[str]]
+        """
+        The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and `1.2`. Defaults to `1.2`.
+        """
+        scm_type: NotRequired[pulumi.Input[str]]
+        scm_use_main_ip_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App Slot `ip_restriction` configuration be used for the SCM also.
+        """
+        use32_bit_worker: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
+        """
+        virtual_applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgsDict']]]]
+        """
+        One or more `virtual_application` blocks as defined below.
+        """
+        vnet_route_all_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        """
+        websockets_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Web Sockets be enabled. Defaults to `false`.
+        """
+        windows_fx_version: NotRequired[pulumi.Input[str]]
+        worker_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of Workers for this Windows App Service Slot.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigArgs:
@@ -40418,6 +52431,87 @@ class WindowsWebAppSlotSiteConfigArgs:
         pulumi.set(self, "worker_count", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
+        current_stack: NotRequired[pulumi.Input[str]]
+        """
+        The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
+
+        > **NOTE:** Whilst this property is Optional omitting it can cause unexpected behaviour, in particular for display of settings in the Azure Portal.
+        """
+        docker_container_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the container to be used. This value is required with `docker_container_tag`.
+        """
+        docker_container_registry: NotRequired[pulumi.Input[str]]
+        docker_container_tag: NotRequired[pulumi.Input[str]]
+        """
+        The tag of the container to be used. This value is required with `docker_container_name`.
+        """
+        docker_image_name: NotRequired[pulumi.Input[str]]
+        """
+        The docker image, including tag, to be used. e.g. `azure-app-service/windows/parkingpage:latest`.
+        """
+        docker_registry_password: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+
+        > **NOTE:** `docker_registry_url`, `docker_registry_username`, and `docker_registry_password` replace the use of the `app_settings` values of `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` respectively, these values will be managed by the provider and should not be specified in the `app_settings` map.
+        """
+        docker_registry_url: NotRequired[pulumi.Input[str]]
+        """
+        The URL of the container registry where the `docker_image_name` is located. e.g. `https://index.docker.io` or `https://mcr.microsoft.com`. This value is required with `docker_image_name`.
+        """
+        docker_registry_username: NotRequired[pulumi.Input[str]]
+        """
+        The User Name to use for authentication against the registry to pull the image.
+        """
+        dotnet_core_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use when `current_stack` is set to `dotnetcore`. Possible values include `v4.0`.
+        """
+        dotnet_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include `v2.0`,`v3.0`, `v4.0`, `v5.0`, `v6.0`, `v7.0` and `v8.0`.
+        """
+        java_container: NotRequired[pulumi.Input[str]]
+        java_container_version: NotRequired[pulumi.Input[str]]
+        java_embedded_server_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Java Embedded Server (Java SE) be used to run the app.
+        """
+        java_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8`, `11` and `17`. Required with `java_container` and `java_container_version`.
+
+        > **NOTE:** For compatible combinations of `java_version`, `java_container` and `java_container_version` users can use `az webapp list-runtimes` from command line.
+        """
+        node_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of node to use when `current_stack` is set to `node`. Possible values include `~12`, `~14`, `~16`, `~18` and `~20`.
+
+        > **NOTE:** This property conflicts with `java_version`.
+        """
+        php_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of PHP to use when `current_stack` is set to `php`. Possible values are `7.1`, `7.4` and `Off`.
+
+        > **NOTE:** The value `Off` is used to signify latest supported by the service.
+        """
+        python: NotRequired[pulumi.Input[bool]]
+        """
+        The app is a Python app. Defaults to `false`.
+        """
+        python_version: NotRequired[pulumi.Input[str]]
+        tomcat_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of Tomcat the Java App should use.
+
+        > **NOTE:** See the official documentation for current supported versions.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigApplicationStackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigApplicationStackArgs:
     def __init__(__self__, *,
@@ -40753,6 +52847,19 @@ class WindowsWebAppSlotSiteConfigApplicationStackArgs:
         pulumi.set(self, "tomcat_version", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingArgsDict(TypedDict):
+        action: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionArgsDict']
+        """
+        A `action` block as defined above.
+        """
+        trigger: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict']
+        """
+        A `trigger` block as defined below.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingArgs:
     def __init__(__self__, *,
@@ -40789,6 +52896,23 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingArgs:
     def trigger(self, value: pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs']):
         pulumi.set(self, "trigger", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgsDict(TypedDict):
+        action_type: pulumi.Input[str]
+        """
+        Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
+        """
+        custom_action: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgsDict']]
+        """
+        A `custom_action` block as defined below.
+        """
+        minimum_process_execution_time: NotRequired[pulumi.Input[str]]
+        """
+        The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingActionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs:
@@ -40844,6 +52968,19 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgs:
         pulumi.set(self, "minimum_process_execution_time", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgsDict(TypedDict):
+        executable: pulumi.Input[str]
+        """
+        The executable to run for the `custom_action`.
+        """
+        parameters: NotRequired[pulumi.Input[str]]
+        """
+        The parameters to pass to the specified `executable`.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs:
     def __init__(__self__, *,
@@ -40881,6 +53018,31 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs:
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
+        private_memory_kb: NotRequired[pulumi.Input[int]]
+        """
+        The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
+        """
+        requests: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict']]
+        """
+        A `requests` block as defined above.
+        """
+        slow_request_with_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]
+        """
+        One or more `slow_request_with_path` blocks as defined above.
+        """
+        slow_requests: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]]
+        """
+        A `slow_request` block as defined above.
+        """
+        status_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]
+        """
+        One or more `status_code` blocks as defined above.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
@@ -40969,6 +53131,19 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgs:
         pulumi.set(self, "status_codes", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of requests in the specified `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The interval in `hh:mm:ss`.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
     def __init__(__self__, *,
@@ -41005,6 +53180,27 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs:
     def interval(self, value: pulumi.Input[str]):
         pulumi.set(self, "interval", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
@@ -41078,6 +53274,27 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs:
         pulumi.set(self, "path", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of Slow Requests in the time `interval` to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        time_taken: pulumi.Input[str]
+        """
+        The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path for which this slow request rule applies.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def __init__(__self__, *,
@@ -41145,6 +53362,35 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs:
     def path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "path", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict(TypedDict):
+        count: pulumi.Input[int]
+        """
+        The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
+        """
+        interval: pulumi.Input[str]
+        """
+        The time interval in the form `hh:mm:ss`.
+        """
+        status_code_range: pulumi.Input[str]
+        """
+        The status code for this rule, accepts single status codes and status code ranges. e.g. `500` or `400-499`. Possible values are integers between `101` and `599`
+        """
+        path: NotRequired[pulumi.Input[str]]
+        """
+        The path to which this rule status code applies.
+        """
+        sub_status: NotRequired[pulumi.Input[int]]
+        """
+        The Request Sub Status of the Status Code.
+        """
+        win32_status_code: NotRequired[pulumi.Input[int]]
+        """
+        The Win32 Status Code of the Request.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
@@ -41246,6 +53492,19 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs:
         pulumi.set(self, "win32_status_code", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigCorsArgsDict(TypedDict):
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of origins that should be allowed to make cross-origin calls.
+        """
+        support_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Whether CORS requests with credentials are allowed. Defaults to `false`
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigCorsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigCorsArgs:
     def __init__(__self__, *,
@@ -41284,6 +53543,23 @@ class WindowsWebAppSlotSiteConfigCorsArgs:
     def support_credentials(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "support_credentials", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigHandlerMappingArgsDict(TypedDict):
+        extension: pulumi.Input[str]
+        """
+        Specify which extension to be handled by the specified FastCGI application.
+        """
+        script_processor_path: pulumi.Input[str]
+        """
+        Specify the absolute path to the FastCGI application.
+        """
+        arguments: NotRequired[pulumi.Input[str]]
+        """
+        Specify the command-line arguments to be passed to the script processor.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigHandlerMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigHandlerMappingArgs:
@@ -41337,6 +53613,45 @@ class WindowsWebAppSlotSiteConfigHandlerMappingArgs:
     def arguments(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arguments", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
@@ -41477,6 +53792,27 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -41547,6 +53883,45 @@ class WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs:
     def x_forwarded_hosts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "x_forwarded_hosts", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The action to take. Possible values are `Allow` or `Deny`. Defaults to `Allow`.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The Description of this IP Restriction.
+        """
+        headers: NotRequired[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]
+        """
+        A `headers` block as defined above.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this `ip_restriction`.
+        """
+        priority: NotRequired[pulumi.Input[int]]
+        """
+        The priority value of this `ip_restriction`. Defaults to `65000`.
+        """
+        service_tag: NotRequired[pulumi.Input[str]]
+        """
+        The Service Tag used for this IP Restriction.
+        """
+        virtual_network_subnet_id: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Network Subnet ID used for this IP Restriction.
+
+        > **NOTE:** One and only one of `ip_address`, `service_tag` or `virtual_network_subnet_id` must be specified.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigScmIpRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
@@ -41687,6 +54062,27 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgs:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict(TypedDict):
+        x_azure_fdids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Azure Front Door IDs.
+        """
+        x_fd_health_probe: NotRequired[pulumi.Input[str]]
+        """
+        Specifies if a Front Door Health Probe should be expected. The only possible value is `1`.
+        """
+        x_forwarded_fors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
+        """
+        x_forwarded_hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Hosts for which matching should be applied.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
     def __init__(__self__, *,
@@ -41758,6 +54154,27 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs:
         pulumi.set(self, "x_forwarded_hosts", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigVirtualApplicationArgsDict(TypedDict):
+        physical_path: pulumi.Input[str]
+        """
+        The physical path for the Virtual Application.
+        """
+        preload: pulumi.Input[bool]
+        """
+        Should pre-loading be enabled.
+        """
+        virtual_path: pulumi.Input[str]
+        """
+        The Virtual Path for the Virtual Application.
+        """
+        virtual_directories: NotRequired[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgsDict']]]]
+        """
+        One or more `virtual_directory` blocks as defined below.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigVirtualApplicationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigVirtualApplicationArgs:
     def __init__(__self__, *,
@@ -41826,6 +54243,19 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationArgs:
         pulumi.set(self, "virtual_directories", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgsDict(TypedDict):
+        physical_path: NotRequired[pulumi.Input[str]]
+        """
+        The physical path for the Virtual Application.
+        """
+        virtual_path: NotRequired[pulumi.Input[str]]
+        """
+        The Virtual Path for the Virtual Application.
+        """
+elif False:
+    WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs:
     def __init__(__self__, *,
@@ -41865,6 +54295,19 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs:
         pulumi.set(self, "virtual_path", value)
 
 
+if not MYPY:
+    class WindowsWebAppSlotSiteCredentialArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Username used for publishing.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The Site Credentials Password used for publishing.
+        """
+elif False:
+    WindowsWebAppSlotSiteCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppSlotSiteCredentialArgs:
     def __init__(__self__, *,
@@ -41903,6 +54346,35 @@ class WindowsWebAppSlotSiteCredentialArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class WindowsWebAppSlotStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Storage Account.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    WindowsWebAppSlotStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppSlotStorageAccountArgs:
@@ -42002,6 +54474,19 @@ class WindowsWebAppSlotStorageAccountArgs:
         pulumi.set(self, "mount_path", value)
 
 
+if not MYPY:
+    class WindowsWebAppStickySettingsArgsDict(TypedDict):
+        app_setting_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `app_setting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+        """
+        connection_string_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of `connection_string` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
+        """
+elif False:
+    WindowsWebAppStickySettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class WindowsWebAppStickySettingsArgs:
     def __init__(__self__, *,
@@ -42040,6 +54525,35 @@ class WindowsWebAppStickySettingsArgs:
     def connection_string_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "connection_string_names", value)
 
+
+if not MYPY:
+    class WindowsWebAppStorageAccountArgsDict(TypedDict):
+        access_key: pulumi.Input[str]
+        """
+        The Access key for the storage account.
+        """
+        account_name: pulumi.Input[str]
+        """
+        The Name of the Storage Account.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this TODO.
+        """
+        share_name: pulumi.Input[str]
+        """
+        The Name of the File Share or Container Name for Blob storage.
+        """
+        type: pulumi.Input[str]
+        """
+        The Azure Storage Type. Possible values include `AzureFiles` and `AzureBlob`
+        """
+        mount_path: NotRequired[pulumi.Input[str]]
+        """
+        The path at which to mount the storage share.
+        """
+elif False:
+    WindowsWebAppStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsWebAppStorageAccountArgs:

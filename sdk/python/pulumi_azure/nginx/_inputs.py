@@ -4,24 +4,55 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ConfigurationConfigFileArgs',
+    'ConfigurationConfigFileArgsDict',
     'ConfigurationProtectedFileArgs',
+    'ConfigurationProtectedFileArgsDict',
     'DeploymentAutoScaleProfileArgs',
+    'DeploymentAutoScaleProfileArgsDict',
     'DeploymentConfigurationArgs',
+    'DeploymentConfigurationArgsDict',
     'DeploymentConfigurationConfigFileArgs',
+    'DeploymentConfigurationConfigFileArgsDict',
     'DeploymentConfigurationProtectedFileArgs',
+    'DeploymentConfigurationProtectedFileArgsDict',
     'DeploymentFrontendPrivateArgs',
+    'DeploymentFrontendPrivateArgsDict',
     'DeploymentFrontendPublicArgs',
+    'DeploymentFrontendPublicArgsDict',
     'DeploymentIdentityArgs',
+    'DeploymentIdentityArgsDict',
     'DeploymentLoggingStorageAccountArgs',
+    'DeploymentLoggingStorageAccountArgsDict',
     'DeploymentNetworkInterfaceArgs',
+    'DeploymentNetworkInterfaceArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ConfigurationConfigFileArgsDict(TypedDict):
+        content: pulumi.Input[str]
+        """
+        Specifies the base-64 encoded contents of this config file.
+        """
+        virtual_path: pulumi.Input[str]
+        """
+        Specifies the path of this config file.
+        """
+elif False:
+    ConfigurationConfigFileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationConfigFileArgs:
@@ -60,6 +91,19 @@ class ConfigurationConfigFileArgs:
         pulumi.set(self, "virtual_path", value)
 
 
+if not MYPY:
+    class ConfigurationProtectedFileArgsDict(TypedDict):
+        content: pulumi.Input[str]
+        """
+        Specifies the base-64 encoded contents of this config file (Sensitive).
+        """
+        virtual_path: pulumi.Input[str]
+        """
+        Specifies the path of this config file.
+        """
+elif False:
+    ConfigurationProtectedFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ConfigurationProtectedFileArgs:
     def __init__(__self__, *,
@@ -96,6 +140,20 @@ class ConfigurationProtectedFileArgs:
     def virtual_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_path", value)
 
+
+if not MYPY:
+    class DeploymentAutoScaleProfileArgsDict(TypedDict):
+        max_capacity: pulumi.Input[int]
+        min_capacity: pulumi.Input[int]
+        """
+        Specify the minimum number of NGINX capacity units for this NGINX Deployment.
+        """
+        name: pulumi.Input[str]
+        """
+        Specify the name of the autoscaling profile.
+        """
+elif False:
+    DeploymentAutoScaleProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentAutoScaleProfileArgs:
@@ -144,6 +202,15 @@ class DeploymentAutoScaleProfileArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DeploymentConfigurationArgsDict(TypedDict):
+        root_file: pulumi.Input[str]
+        config_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationConfigFileArgsDict']]]]
+        package_data: NotRequired[pulumi.Input[str]]
+        protected_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentConfigurationProtectedFileArgsDict']]]]
+elif False:
+    DeploymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentConfigurationArgs:
@@ -197,6 +264,13 @@ class DeploymentConfigurationArgs:
         pulumi.set(self, "protected_files", value)
 
 
+if not MYPY:
+    class DeploymentConfigurationConfigFileArgsDict(TypedDict):
+        content: pulumi.Input[str]
+        virtual_path: pulumi.Input[str]
+elif False:
+    DeploymentConfigurationConfigFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentConfigurationConfigFileArgs:
     def __init__(__self__, *,
@@ -224,6 +298,13 @@ class DeploymentConfigurationConfigFileArgs:
         pulumi.set(self, "virtual_path", value)
 
 
+if not MYPY:
+    class DeploymentConfigurationProtectedFileArgsDict(TypedDict):
+        content: pulumi.Input[str]
+        virtual_path: pulumi.Input[str]
+elif False:
+    DeploymentConfigurationProtectedFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentConfigurationProtectedFileArgs:
     def __init__(__self__, *,
@@ -250,6 +331,23 @@ class DeploymentConfigurationProtectedFileArgs:
     def virtual_path(self, value: pulumi.Input[str]):
         pulumi.set(self, "virtual_path", value)
 
+
+if not MYPY:
+    class DeploymentFrontendPrivateArgsDict(TypedDict):
+        allocation_method: pulumi.Input[str]
+        """
+        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+        """
+        ip_address: pulumi.Input[str]
+        """
+        Specify the private IP Address.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        Specify the Subnet Resource ID for this NGINX Deployment.
+        """
+elif False:
+    DeploymentFrontendPrivateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentFrontendPrivateArgs:
@@ -303,6 +401,15 @@ class DeploymentFrontendPrivateArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class DeploymentFrontendPublicArgsDict(TypedDict):
+        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of Public IP Resource ID to this NGINX Deployment.
+        """
+elif False:
+    DeploymentFrontendPublicArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentFrontendPublicArgs:
     def __init__(__self__, *,
@@ -325,6 +432,23 @@ class DeploymentFrontendPublicArgs:
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
 
+
+if not MYPY:
+    class DeploymentIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the identity type of the NGINX Deployment. Possible values are `SystemAssigned`, `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of user managed identity ids to be assigned.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    DeploymentIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentIdentityArgs:
@@ -392,6 +516,19 @@ class DeploymentIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class DeploymentLoggingStorageAccountArgsDict(TypedDict):
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        Specify the container name in the Storage Account for logging.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the StorageAccount for NGINX Logging.
+        """
+elif False:
+    DeploymentLoggingStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DeploymentLoggingStorageAccountArgs:
     def __init__(__self__, *,
@@ -430,6 +567,15 @@ class DeploymentLoggingStorageAccountArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class DeploymentNetworkInterfaceArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        Specify The Subnet Resource ID for this NGINX Deployment.
+        """
+elif False:
+    DeploymentNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DeploymentNetworkInterfaceArgs:

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -838,27 +843,27 @@ class VirtualMachine(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAdditionalCapabilitiesArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['VirtualMachineBootDiagnosticsArgs']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict']]] = None,
                  delete_data_disks_on_termination: Optional[pulumi.Input[bool]] = None,
                  delete_os_disk_on_termination: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileArgs']]] = None,
-                 os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileLinuxConfigArgs']]] = None,
-                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileSecretArgs']]]]] = None,
-                 os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileWindowsConfigArgs']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['VirtualMachinePlanArgs']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['VirtualMachineOsProfileArgs', 'VirtualMachineOsProfileArgsDict']]] = None,
+                 os_profile_linux_config: Optional[pulumi.Input[Union['VirtualMachineOsProfileLinuxConfigArgs', 'VirtualMachineOsProfileLinuxConfigArgsDict']]] = None,
+                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineOsProfileSecretArgs', 'VirtualMachineOsProfileSecretArgsDict']]]]] = None,
+                 os_profile_windows_config: Optional[pulumi.Input[Union['VirtualMachineOsProfileWindowsConfigArgs', 'VirtualMachineOsProfileWindowsConfigArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['VirtualMachinePlanArgs', 'VirtualMachinePlanArgsDict']]] = None,
                  primary_network_interface_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineStorageDataDiskArgs']]]]] = None,
-                 storage_image_reference: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']]] = None,
-                 storage_os_disk: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageOsDiskArgs']]] = None,
+                 storage_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict']]]]] = None,
+                 storage_image_reference: Optional[pulumi.Input[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict']]] = None,
+                 storage_os_disk: Optional[pulumi.Input[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
@@ -903,37 +908,37 @@ class VirtualMachine(pulumi.CustomResource):
             name=f"{prefix}-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=internal.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": internal.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         main_virtual_machine = azure.compute.VirtualMachine("main",
             name=f"{prefix}-vm",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_DS1_v2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostname",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ),
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "myosdisk1",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Standard_LRS",
+            },
+            os_profile={
+                "computerName": "hostname",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            },
             tags={
                 "environment": "staging",
             })
@@ -949,33 +954,33 @@ class VirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
                
                > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         :param pulumi.Input[bool] delete_os_disk_on_termination: Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
                
                > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface IDs which should be associated with the Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileArgs']] os_profile: An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileLinuxConfigArgs']] os_profile_linux_config: (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileSecretArgs']]]] os_profile_secrets: One or more `os_profile_secrets` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileWindowsConfigArgs']] os_profile_windows_config: (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachinePlanArgs']] plan: A `plan` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineOsProfileArgs', 'VirtualMachineOsProfileArgsDict']] os_profile: An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        :param pulumi.Input[Union['VirtualMachineOsProfileLinuxConfigArgs', 'VirtualMachineOsProfileLinuxConfigArgsDict']] os_profile_linux_config: (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineOsProfileSecretArgs', 'VirtualMachineOsProfileSecretArgsDict']]]] os_profile_secrets: One or more `os_profile_secrets` blocks as defined below.
+        :param pulumi.Input[Union['VirtualMachineOsProfileWindowsConfigArgs', 'VirtualMachineOsProfileWindowsConfigArgsDict']] os_profile_windows_config: (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        :param pulumi.Input[Union['VirtualMachinePlanArgs', 'VirtualMachinePlanArgsDict']] plan: A `plan` block as defined below.
         :param pulumi.Input[str] primary_network_interface_id: The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineStorageDataDiskArgs']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
                
                > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageOsDiskArgs']] storage_os_disk: A `storage_os_disk` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict']] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.
@@ -1030,37 +1035,37 @@ class VirtualMachine(pulumi.CustomResource):
             name=f"{prefix}-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                subnet_id=internal.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "subnetId": internal.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         main_virtual_machine = azure.compute.VirtualMachine("main",
             name=f"{prefix}-vm",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],
             vm_size="Standard_DS1_v2",
-            storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            storage_os_disk=azure.compute.VirtualMachineStorageOsDiskArgs(
-                name="myosdisk1",
-                caching="ReadWrite",
-                create_option="FromImage",
-                managed_disk_type="Standard_LRS",
-            ),
-            os_profile=azure.compute.VirtualMachineOsProfileArgs(
-                computer_name="hostname",
-                admin_username="testadmin",
-                admin_password="Password1234!",
-            ),
-            os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
-                disable_password_authentication=False,
-            ),
+            storage_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            storage_os_disk={
+                "name": "myosdisk1",
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "managedDiskType": "Standard_LRS",
+            },
+            os_profile={
+                "computerName": "hostname",
+                "adminUsername": "testadmin",
+                "adminPassword": "Password1234!",
+            },
+            os_profile_linux_config={
+                "disablePasswordAuthentication": False,
+            },
             tags={
                 "environment": "staging",
             })
@@ -1089,27 +1094,27 @@ class VirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAdditionalCapabilitiesArgs']]] = None,
+                 additional_capabilities: Optional[pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
                  availability_set_id: Optional[pulumi.Input[str]] = None,
-                 boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['VirtualMachineBootDiagnosticsArgs']]] = None,
+                 boot_diagnostics: Optional[pulumi.Input[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict']]] = None,
                  delete_data_disks_on_termination: Optional[pulumi.Input[bool]] = None,
                  delete_os_disk_on_termination: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 os_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileArgs']]] = None,
-                 os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileLinuxConfigArgs']]] = None,
-                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileSecretArgs']]]]] = None,
-                 os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileWindowsConfigArgs']]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['VirtualMachinePlanArgs']]] = None,
+                 os_profile: Optional[pulumi.Input[Union['VirtualMachineOsProfileArgs', 'VirtualMachineOsProfileArgsDict']]] = None,
+                 os_profile_linux_config: Optional[pulumi.Input[Union['VirtualMachineOsProfileLinuxConfigArgs', 'VirtualMachineOsProfileLinuxConfigArgsDict']]] = None,
+                 os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineOsProfileSecretArgs', 'VirtualMachineOsProfileSecretArgsDict']]]]] = None,
+                 os_profile_windows_config: Optional[pulumi.Input[Union['VirtualMachineOsProfileWindowsConfigArgs', 'VirtualMachineOsProfileWindowsConfigArgsDict']]] = None,
+                 plan: Optional[pulumi.Input[Union['VirtualMachinePlanArgs', 'VirtualMachinePlanArgsDict']]] = None,
                  primary_network_interface_id: Optional[pulumi.Input[str]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 storage_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineStorageDataDiskArgs']]]]] = None,
-                 storage_image_reference: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']]] = None,
-                 storage_os_disk: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageOsDiskArgs']]] = None,
+                 storage_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict']]]]] = None,
+                 storage_image_reference: Optional[pulumi.Input[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict']]] = None,
+                 storage_os_disk: Optional[pulumi.Input[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[str]] = None,
@@ -1164,27 +1169,27 @@ class VirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_capabilities: Optional[pulumi.Input[pulumi.InputType['VirtualMachineAdditionalCapabilitiesArgs']]] = None,
+            additional_capabilities: Optional[pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']]] = None,
             availability_set_id: Optional[pulumi.Input[str]] = None,
-            boot_diagnostics: Optional[pulumi.Input[pulumi.InputType['VirtualMachineBootDiagnosticsArgs']]] = None,
+            boot_diagnostics: Optional[pulumi.Input[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict']]] = None,
             delete_data_disks_on_termination: Optional[pulumi.Input[bool]] = None,
             delete_os_disk_on_termination: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            os_profile: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileArgs']]] = None,
-            os_profile_linux_config: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileLinuxConfigArgs']]] = None,
-            os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileSecretArgs']]]]] = None,
-            os_profile_windows_config: Optional[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileWindowsConfigArgs']]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['VirtualMachinePlanArgs']]] = None,
+            os_profile: Optional[pulumi.Input[Union['VirtualMachineOsProfileArgs', 'VirtualMachineOsProfileArgsDict']]] = None,
+            os_profile_linux_config: Optional[pulumi.Input[Union['VirtualMachineOsProfileLinuxConfigArgs', 'VirtualMachineOsProfileLinuxConfigArgsDict']]] = None,
+            os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineOsProfileSecretArgs', 'VirtualMachineOsProfileSecretArgsDict']]]]] = None,
+            os_profile_windows_config: Optional[pulumi.Input[Union['VirtualMachineOsProfileWindowsConfigArgs', 'VirtualMachineOsProfileWindowsConfigArgsDict']]] = None,
+            plan: Optional[pulumi.Input[Union['VirtualMachinePlanArgs', 'VirtualMachinePlanArgsDict']]] = None,
             primary_network_interface_id: Optional[pulumi.Input[str]] = None,
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            storage_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineStorageDataDiskArgs']]]]] = None,
-            storage_image_reference: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']]] = None,
-            storage_os_disk: Optional[pulumi.Input[pulumi.InputType['VirtualMachineStorageOsDiskArgs']]] = None,
+            storage_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict']]]]] = None,
+            storage_image_reference: Optional[pulumi.Input[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict']]] = None,
+            storage_os_disk: Optional[pulumi.Input[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vm_size: Optional[pulumi.Input[str]] = None,
             zones: Optional[pulumi.Input[str]] = None) -> 'VirtualMachine':
@@ -1195,33 +1200,33 @@ class VirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineAdditionalCapabilitiesArgs', 'VirtualMachineAdditionalCapabilitiesArgsDict']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[str] availability_set_id: The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineBootDiagnosticsArgs', 'VirtualMachineBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[bool] delete_data_disks_on_termination: Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
                
                > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
         :param pulumi.Input[bool] delete_os_disk_on_termination: Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`.
                
                > **Note:** This setting works when instance is deleted via the provider only and don't forget to delete disks manually if you deleted VM manually. It can increase spending.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineIdentityArgs', 'VirtualMachineIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: A list of Network Interface IDs which should be associated with the Virtual Machine.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileArgs']] os_profile: An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileLinuxConfigArgs']] os_profile_linux_config: (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineOsProfileSecretArgs']]]] os_profile_secrets: One or more `os_profile_secrets` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineOsProfileWindowsConfigArgs']] os_profile_windows_config: (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
-        :param pulumi.Input[pulumi.InputType['VirtualMachinePlanArgs']] plan: A `plan` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineOsProfileArgs', 'VirtualMachineOsProfileArgsDict']] os_profile: An `os_profile` block as defined below. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`.
+        :param pulumi.Input[Union['VirtualMachineOsProfileLinuxConfigArgs', 'VirtualMachineOsProfileLinuxConfigArgsDict']] os_profile_linux_config: (Required, when a Linux machine) An `os_profile_linux_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineOsProfileSecretArgs', 'VirtualMachineOsProfileSecretArgsDict']]]] os_profile_secrets: One or more `os_profile_secrets` blocks as defined below.
+        :param pulumi.Input[Union['VirtualMachineOsProfileWindowsConfigArgs', 'VirtualMachineOsProfileWindowsConfigArgsDict']] os_profile_windows_config: (Required, when a Windows machine) An `os_profile_windows_config` block as defined below.
+        :param pulumi.Input[Union['VirtualMachinePlanArgs', 'VirtualMachinePlanArgsDict']] plan: A `plan` block as defined below.
         :param pulumi.Input[str] primary_network_interface_id: The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Virtual Machine should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachineStorageDataDiskArgs']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualMachineStorageDataDiskArgs', 'VirtualMachineStorageDataDiskArgsDict']]]] storage_data_disks: One or more `storage_data_disk` blocks as defined below.
                
                > **Please Note:** Data Disks can also be attached either using this block or the `compute.DataDiskAttachment` resource - but not both.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageImageReferenceArgs']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VirtualMachineStorageOsDiskArgs']] storage_os_disk: A `storage_os_disk` block as defined below.
+        :param pulumi.Input[Union['VirtualMachineStorageImageReferenceArgs', 'VirtualMachineStorageImageReferenceArgsDict']] storage_image_reference: A `storage_image_reference` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['VirtualMachineStorageOsDiskArgs', 'VirtualMachineStorageOsDiskArgsDict']] storage_os_disk: A `storage_os_disk` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Virtual Machine.
         :param pulumi.Input[str] vm_size: Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
         :param pulumi.Input[str] zones: A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created.

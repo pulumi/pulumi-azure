@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -266,11 +271,11 @@ class VolumeGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_san_id: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['VolumeGroupEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VolumeGroupIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupNetworkRuleArgs']]]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -290,9 +295,9 @@ class VolumeGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="Premium_LRS",
-            ))
+            sku={
+                "name": "Premium_LRS",
+            })
         current = azure.core.get_client_config()
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
@@ -370,18 +375,18 @@ class VolumeGroup(pulumi.CustomResource):
             name="example-esvg",
             elastic_san_id=example_elastic_san.id,
             encryption_type="EncryptionAtRestWithCustomerManagedKey",
-            encryption=azure.elasticsan.VolumeGroupEncryptionArgs(
-                key_vault_key_id=example_key.versionless_id,
-                user_assigned_identity_id=example_user_assigned_identity.id,
-            ),
-            identity=azure.elasticsan.VolumeGroupIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            network_rules=[azure.elasticsan.VolumeGroupNetworkRuleArgs(
-                subnet_id=example_subnet.id,
-                action="Allow",
-            )])
+            encryption={
+                "keyVaultKeyId": example_key.versionless_id,
+                "userAssignedIdentityId": example_user_assigned_identity.id,
+            },
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
+            network_rules=[{
+                "subnetId": example_subnet.id,
+                "action": "Allow",
+            }])
         ```
 
         ## Import
@@ -395,13 +400,13 @@ class VolumeGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VolumeGroupEncryptionArgs']] encryption: An `encryption` block as defined below.
+        :param pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']] encryption: An `encryption` block as defined below.
                
                > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         :param pulumi.Input[str] encryption_type: Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
-        :param pulumi.Input[pulumi.InputType['VolumeGroupIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
+        :param pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         :param pulumi.Input[str] name: Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupNetworkRuleArgs']]]] network_rules: One or more `network_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]] network_rules: One or more `network_rule` blocks as defined below.
         :param pulumi.Input[str] protocol_type: Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
         """
         ...
@@ -427,9 +432,9 @@ class VolumeGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             base_size_in_tib=1,
-            sku=azure.elasticsan.ElasticSanSkuArgs(
-                name="Premium_LRS",
-            ))
+            sku={
+                "name": "Premium_LRS",
+            })
         current = azure.core.get_client_config()
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
@@ -507,18 +512,18 @@ class VolumeGroup(pulumi.CustomResource):
             name="example-esvg",
             elastic_san_id=example_elastic_san.id,
             encryption_type="EncryptionAtRestWithCustomerManagedKey",
-            encryption=azure.elasticsan.VolumeGroupEncryptionArgs(
-                key_vault_key_id=example_key.versionless_id,
-                user_assigned_identity_id=example_user_assigned_identity.id,
-            ),
-            identity=azure.elasticsan.VolumeGroupIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
-            network_rules=[azure.elasticsan.VolumeGroupNetworkRuleArgs(
-                subnet_id=example_subnet.id,
-                action="Allow",
-            )])
+            encryption={
+                "keyVaultKeyId": example_key.versionless_id,
+                "userAssignedIdentityId": example_user_assigned_identity.id,
+            },
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
+            network_rules=[{
+                "subnetId": example_subnet.id,
+                "action": "Allow",
+            }])
         ```
 
         ## Import
@@ -545,11 +550,11 @@ class VolumeGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_san_id: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input[pulumi.InputType['VolumeGroupEncryptionArgs']]] = None,
+                 encryption: Optional[pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['VolumeGroupIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupNetworkRuleArgs']]]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
                  protocol_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -580,11 +585,11 @@ class VolumeGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             elastic_san_id: Optional[pulumi.Input[str]] = None,
-            encryption: Optional[pulumi.Input[pulumi.InputType['VolumeGroupEncryptionArgs']]] = None,
+            encryption: Optional[pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']]] = None,
             encryption_type: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['VolumeGroupIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupNetworkRuleArgs']]]]] = None,
+            network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]]] = None,
             protocol_type: Optional[pulumi.Input[str]] = None) -> 'VolumeGroup':
         """
         Get an existing VolumeGroup resource's state with the given name, id, and optional extra
@@ -594,13 +599,13 @@ class VolumeGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_san_id: Specifies the Elastic SAN ID within which this Elastic SAN Volume Group should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['VolumeGroupEncryptionArgs']] encryption: An `encryption` block as defined below.
+        :param pulumi.Input[Union['VolumeGroupEncryptionArgs', 'VolumeGroupEncryptionArgsDict']] encryption: An `encryption` block as defined below.
                
                > **NOTE:** The `encryption` block can only be set when `encryption_type` is set to `EncryptionAtRestWithCustomerManagedKey`.
         :param pulumi.Input[str] encryption_type: Specifies the type of the key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerManagedKey` and `EncryptionAtRestWithPlatformKey`. Defaults to `EncryptionAtRestWithPlatformKey`.
-        :param pulumi.Input[pulumi.InputType['VolumeGroupIdentityArgs']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
+        :param pulumi.Input[Union['VolumeGroupIdentityArgs', 'VolumeGroupIdentityArgsDict']] identity: An `identity` block as defined below. Specifies the Managed Identity which should be assigned to this Elastic SAN Volume Group.
         :param pulumi.Input[str] name: Specifies the name of this Elastic SAN Volume Group. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupNetworkRuleArgs']]]] network_rules: One or more `network_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupNetworkRuleArgs', 'VolumeGroupNetworkRuleArgsDict']]]] network_rules: One or more `network_rule` blocks as defined below.
         :param pulumi.Input[str] protocol_type: Specifies the type of the storage target. The only possible value is `Iscsi`. Defaults to `Iscsi`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

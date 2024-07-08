@@ -4,17 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'PolicySetDefinitionPolicyDefinitionGroupArgs',
+    'PolicySetDefinitionPolicyDefinitionGroupArgsDict',
     'PolicySetDefinitionPolicyDefinitionReferenceArgs',
+    'PolicySetDefinitionPolicyDefinitionReferenceArgsDict',
     'VirtualMachineConfigurationAssignmentConfigurationArgs',
+    'VirtualMachineConfigurationAssignmentConfigurationArgsDict',
     'VirtualMachineConfigurationAssignmentConfigurationParameterArgs',
+    'VirtualMachineConfigurationAssignmentConfigurationParameterArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class PolicySetDefinitionPolicyDefinitionGroupArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of this policy definition group.
+        """
+        additional_metadata_resource_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of a resource that contains additional metadata about this policy definition group.
+        """
+        category: NotRequired[pulumi.Input[str]]
+        """
+        The category of this policy definition group.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of this policy definition group.
+        """
+        display_name: NotRequired[pulumi.Input[str]]
+        """
+        The display name of this policy definition group.
+        """
+elif False:
+    PolicySetDefinitionPolicyDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class PolicySetDefinitionPolicyDefinitionGroupArgs:
@@ -102,6 +138,27 @@ class PolicySetDefinitionPolicyDefinitionGroupArgs:
         pulumi.set(self, "display_name", value)
 
 
+if not MYPY:
+    class PolicySetDefinitionPolicyDefinitionReferenceArgsDict(TypedDict):
+        policy_definition_id: pulumi.Input[str]
+        """
+        The ID of the policy definition that will be included in this policy set definition.
+        """
+        parameter_values: NotRequired[pulumi.Input[str]]
+        """
+        Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
+        """
+        policy_group_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of names of the policy definition groups that this policy definition reference belongs to.
+        """
+        reference_id: NotRequired[pulumi.Input[str]]
+        """
+        A unique ID within this policy set definition for this policy definition reference.
+        """
+elif False:
+    PolicySetDefinitionPolicyDefinitionReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     def __init__(__self__, *,
@@ -171,6 +228,33 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
     def reference_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "reference_id", value)
 
+
+if not MYPY:
+    class VirtualMachineConfigurationAssignmentConfigurationArgsDict(TypedDict):
+        assignment_type: NotRequired[pulumi.Input[str]]
+        """
+        The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
+        """
+        content_hash: NotRequired[pulumi.Input[str]]
+        """
+        The content hash for the Guest Configuration package.
+        """
+        content_uri: NotRequired[pulumi.Input[str]]
+        """
+        The content URI where the Guest Configuration package is stored.
+
+        > **NOTE:** When deploying a Custom Guest Configuration package the `content_hash` and `content_uri` fields must be defined. For Built-in Guest Configuration packages, such as the `AzureWindowsBaseline` package, the `content_hash` and `content_uri` should not be defined, rather these fields will be returned after the Built-in Guest Configuration package has been provisioned. For more information on guest configuration assignments please see the [product documentation](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration-assignments).
+        """
+        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgsDict']]]]
+        """
+        One or more `parameter` blocks as defined below which define what configuration parameters and values against.
+        """
+        version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+        """
+elif False:
+    VirtualMachineConfigurationAssignmentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineConfigurationAssignmentConfigurationArgs:
@@ -262,6 +346,19 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class VirtualMachineConfigurationAssignmentConfigurationParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the configuration parameter to check.
+        """
+        value: pulumi.Input[str]
+        """
+        The value to check the configuration parameter with.
+        """
+elif False:
+    VirtualMachineConfigurationAssignmentConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineConfigurationAssignmentConfigurationParameterArgs:

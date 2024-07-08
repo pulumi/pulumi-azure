@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -593,17 +598,17 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cleanup_preference: Optional[pulumi.Input[str]] = None,
                  command_line: Optional[pulumi.Input[str]] = None,
-                 container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellContainerArgs']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs']]]]] = None,
+                 container: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellContainerArgs', 'ResourceDeploymentScriptPowerShellContainerArgsDict']]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs', 'ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict']]]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellIdentityArgs', 'ResourceDeploymentScriptPowerShellIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_script_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_interval: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellStorageAccountArgs', 'ResourceDeploymentScriptPowerShellStorageAccountArgsDict']]] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,
@@ -641,10 +646,10 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                     $DeploymentScriptOutputs = @{}
                     $DeploymentScriptOutputs['text'] = $output
         \"\"\",
-            identity=azure.core.ResourceDeploymentScriptPowerShellIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             tags={
                 "key": "value",
             })
@@ -662,17 +667,17 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellContainerArgs']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Union['ResourceDeploymentScriptPowerShellContainerArgs', 'ResourceDeploymentScriptPowerShellContainerArgsDict']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs', 'ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Union['ResourceDeploymentScriptPowerShellIdentityArgs', 'ResourceDeploymentScriptPowerShellIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] primary_script_uri: Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] script_content: Script body. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Union['ResourceDeploymentScriptPowerShellStorageAccountArgs', 'ResourceDeploymentScriptPowerShellStorageAccountArgsDict']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.
@@ -716,10 +721,10 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                     $DeploymentScriptOutputs = @{}
                     $DeploymentScriptOutputs['text'] = $output
         \"\"\",
-            identity=azure.core.ResourceDeploymentScriptPowerShellIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ),
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            },
             tags={
                 "key": "value",
             })
@@ -750,17 +755,17 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cleanup_preference: Optional[pulumi.Input[str]] = None,
                  command_line: Optional[pulumi.Input[str]] = None,
-                 container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellContainerArgs']]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs']]]]] = None,
+                 container: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellContainerArgs', 'ResourceDeploymentScriptPowerShellContainerArgsDict']]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs', 'ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict']]]]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellIdentityArgs', 'ResourceDeploymentScriptPowerShellIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_script_uri: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_interval: Optional[pulumi.Input[str]] = None,
                  script_content: Optional[pulumi.Input[str]] = None,
-                 storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellStorageAccountArgs']]] = None,
+                 storage_account: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellStorageAccountArgs', 'ResourceDeploymentScriptPowerShellStorageAccountArgsDict']]] = None,
                  supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[str]] = None,
@@ -810,10 +815,10 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cleanup_preference: Optional[pulumi.Input[str]] = None,
             command_line: Optional[pulumi.Input[str]] = None,
-            container: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellContainerArgs']]] = None,
-            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs']]]]] = None,
+            container: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellContainerArgs', 'ResourceDeploymentScriptPowerShellContainerArgsDict']]] = None,
+            environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs', 'ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict']]]]] = None,
             force_update_tag: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellIdentityArgs', 'ResourceDeploymentScriptPowerShellIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outputs: Optional[pulumi.Input[str]] = None,
@@ -821,7 +826,7 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             retention_interval: Optional[pulumi.Input[str]] = None,
             script_content: Optional[pulumi.Input[str]] = None,
-            storage_account: Optional[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellStorageAccountArgs']]] = None,
+            storage_account: Optional[pulumi.Input[Union['ResourceDeploymentScriptPowerShellStorageAccountArgs', 'ResourceDeploymentScriptPowerShellStorageAccountArgsDict']]] = None,
             supporting_script_uris: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout: Optional[pulumi.Input[str]] = None,
@@ -835,10 +840,10 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cleanup_preference: Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] command_line: Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellContainerArgs']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Union['ResourceDeploymentScriptPowerShellContainerArgs', 'ResourceDeploymentScriptPowerShellContainerArgsDict']] container: A `container` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceDeploymentScriptPowerShellEnvironmentVariableArgs', 'ResourceDeploymentScriptPowerShellEnvironmentVariableArgsDict']]]] environment_variables: An `environment_variable` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] force_update_tag: Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Union['ResourceDeploymentScriptPowerShellIdentityArgs', 'ResourceDeploymentScriptPowerShellIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Resource Deployment Script. The name length must be from 1 to 260 characters. The name can only contain alphanumeric, underscore, parentheses, hyphen and period, and it cannot end with a period. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] outputs: List of script outputs.
@@ -846,7 +851,7 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Resource Deployment Script should exist. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[str] script_content: Script body. Changing this forces a new Resource Deployment Script to be created.
-        :param pulumi.Input[pulumi.InputType['ResourceDeploymentScriptPowerShellStorageAccountArgs']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
+        :param pulumi.Input[Union['ResourceDeploymentScriptPowerShellStorageAccountArgs', 'ResourceDeploymentScriptPowerShellStorageAccountArgsDict']] storage_account: A `storage_account` block as defined below. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supporting_script_uris: Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Resource Deployment Script.
         :param pulumi.Input[str] timeout: Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created.

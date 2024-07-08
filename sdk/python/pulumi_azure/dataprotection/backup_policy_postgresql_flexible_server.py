@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -224,9 +229,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_retention_rule: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']]] = None,
+                 default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -248,60 +253,60 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_backup_policy_postgresql_flexible_server = azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example",
             name="example-backup-policy",
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             time_zone="India Standard Time",
-            default_retention_rule=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs(
-                life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs(
-                    duration="P4M",
-                    data_store_type="VaultStore",
-                )],
-            ),
+            default_retention_rule={
+                "lifeCycles": [{
+                    "duration": "P4M",
+                    "dataStoreType": "VaultStore",
+                }],
+            },
             retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
-                    name="weekly",
-                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
-                        duration="P6M",
-                        data_store_type="VaultStore",
-                    )],
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
-                    name="thursday",
-                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
-                        duration="P1W",
-                        data_store_type="VaultStore",
-                    )],
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
-                    name="monthly",
-                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
-                        duration="P1D",
-                        data_store_type="VaultStore",
-                    )],
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
+                {
+                    "name": "weekly",
+                    "lifeCycles": [{
+                        "duration": "P6M",
+                        "dataStoreType": "VaultStore",
+                    }],
+                    "priority": 20,
+                    "criteria": {
+                        "absoluteCriteria": "FirstOfWeek",
+                    },
+                },
+                {
+                    "name": "thursday",
+                    "lifeCycles": [{
+                        "duration": "P1W",
+                        "dataStoreType": "VaultStore",
+                    }],
+                    "priority": 25,
+                    "criteria": {
+                        "daysOfWeeks": ["Thursday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
+                {
+                    "name": "monthly",
+                    "lifeCycles": [{
+                        "duration": "P1D",
+                        "dataStoreType": "VaultStore",
+                    }],
+                    "priority": 15,
+                    "criteria": {
+                        "weeksOfMonths": [
                             "First",
                             "Last",
                         ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
+                        "daysOfWeeks": ["Tuesday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
             ])
         ```
 
@@ -316,9 +321,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
         """
@@ -346,60 +351,60 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_backup_policy_postgresql_flexible_server = azure.dataprotection.BackupPolicyPostgresqlFlexibleServer("example",
             name="example-backup-policy",
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             time_zone="India Standard Time",
-            default_retention_rule=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs(
-                life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs(
-                    duration="P4M",
-                    data_store_type="VaultStore",
-                )],
-            ),
+            default_retention_rule={
+                "lifeCycles": [{
+                    "duration": "P4M",
+                    "dataStoreType": "VaultStore",
+                }],
+            },
             retention_rules=[
-                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
-                    name="weekly",
-                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
-                        duration="P6M",
-                        data_store_type="VaultStore",
-                    )],
-                    priority=20,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
-                        absolute_criteria="FirstOfWeek",
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
-                    name="thursday",
-                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
-                        duration="P1W",
-                        data_store_type="VaultStore",
-                    )],
-                    priority=25,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
-                        days_of_weeks=["Thursday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
-                azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs(
-                    name="monthly",
-                    life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleLifeCycleArgs(
-                        duration="P1D",
-                        data_store_type="VaultStore",
-                    )],
-                    priority=15,
-                    criteria=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerRetentionRuleCriteriaArgs(
-                        weeks_of_months=[
+                {
+                    "name": "weekly",
+                    "lifeCycles": [{
+                        "duration": "P6M",
+                        "dataStoreType": "VaultStore",
+                    }],
+                    "priority": 20,
+                    "criteria": {
+                        "absoluteCriteria": "FirstOfWeek",
+                    },
+                },
+                {
+                    "name": "thursday",
+                    "lifeCycles": [{
+                        "duration": "P1W",
+                        "dataStoreType": "VaultStore",
+                    }],
+                    "priority": 25,
+                    "criteria": {
+                        "daysOfWeeks": ["Thursday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
+                {
+                    "name": "monthly",
+                    "lifeCycles": [{
+                        "duration": "P1D",
+                        "dataStoreType": "VaultStore",
+                    }],
+                    "priority": 15,
+                    "criteria": {
+                        "weeksOfMonths": [
                             "First",
                             "Last",
                         ],
-                        days_of_weeks=["Tuesday"],
-                        scheduled_backup_times=["2021-05-23T02:30:00Z"],
-                    ),
-                ),
+                        "daysOfWeeks": ["Tuesday"],
+                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                    },
+                },
             ])
         ```
 
@@ -427,9 +432,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 default_retention_rule: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']]] = None,
+                 default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -464,9 +469,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            default_retention_rule: Optional[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']]] = None,
+            default_retention_rule: Optional[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]]] = None,
+            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None,
             vault_id: Optional[pulumi.Input[str]] = None) -> 'BackupPolicyPostgresqlFlexibleServer':
         """
@@ -477,9 +482,9 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_repeating_time_intervals: Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval format. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgsDict']] default_retention_rule: A `default_retention_rule` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backup Policy for the PostgreSQL Flexible Server. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyPostgresqlFlexibleServerRetentionRuleArgs', 'BackupPolicyPostgresqlFlexibleServerRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault where the Backup Policy PostgreSQL Flexible Server should exist. Changing this forces a new resource to be created.
         """

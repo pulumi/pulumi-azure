@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -287,7 +292,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distro: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceBridgeApplianceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceBridgeApplianceIdentityArgs', 'ResourceBridgeApplianceIdentityArgsDict']]] = None,
                  infrastructure_provider: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -313,9 +318,9 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
             resource_group_name=example.name,
             distro="AKSEdge",
             infrastructure_provider="VMWare",
-            identity=azure.arc.ResourceBridgeApplianceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "hello": "world",
             })
@@ -332,7 +337,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] distro: Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
-        :param pulumi.Input[pulumi.InputType['ResourceBridgeApplianceIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ResourceBridgeApplianceIdentityArgs', 'ResourceBridgeApplianceIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] infrastructure_provider: The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.
@@ -364,9 +369,9 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
             resource_group_name=example.name,
             distro="AKSEdge",
             infrastructure_provider="VMWare",
-            identity=azure.arc.ResourceBridgeApplianceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "hello": "world",
             })
@@ -396,7 +401,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distro: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceBridgeApplianceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceBridgeApplianceIdentityArgs', 'ResourceBridgeApplianceIdentityArgsDict']]] = None,
                  infrastructure_provider: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -439,7 +444,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             distro: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ResourceBridgeApplianceIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['ResourceBridgeApplianceIdentityArgs', 'ResourceBridgeApplianceIdentityArgsDict']]] = None,
             infrastructure_provider: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -454,7 +459,7 @@ class ResourceBridgeAppliance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] distro: Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
-        :param pulumi.Input[pulumi.InputType['ResourceBridgeApplianceIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['ResourceBridgeApplianceIdentityArgs', 'ResourceBridgeApplianceIdentityArgsDict']] identity: An `identity` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] infrastructure_provider: The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name which should be used for this Arc Resource Bridge Appliance. Changing this forces a new resource to be created.

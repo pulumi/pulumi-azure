@@ -4,19 +4,53 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountEncryptionArgs',
+    'AccountEncryptionArgsDict',
     'AccountEncryptionManagedIdentityArgs',
+    'AccountEncryptionManagedIdentityArgsDict',
     'AccountIdentityArgs',
+    'AccountIdentityArgsDict',
     'AccountKeyDeliveryAccessControlArgs',
+    'AccountKeyDeliveryAccessControlArgsDict',
     'AccountStorageAccountArgs',
+    'AccountStorageAccountArgsDict',
     'AccountStorageAccountManagedIdentityArgs',
+    'AccountStorageAccountManagedIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountEncryptionArgsDict(TypedDict):
+        current_key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The current key used to encrypt the Media Services Account, including the key version.
+        """
+        key_vault_key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        """
+        managed_identity: NotRequired[pulumi.Input['AccountEncryptionManagedIdentityArgsDict']]
+        """
+        A `managed_identity` block as defined below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
+        """
+elif False:
+    AccountEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountEncryptionArgs:
@@ -89,6 +123,19 @@ class AccountEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class AccountEncryptionManagedIdentityArgsDict(TypedDict):
+        use_system_assigned_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+elif False:
+    AccountEncryptionManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountEncryptionManagedIdentityArgs:
     def __init__(__self__, *,
@@ -127,6 +174,27 @@ class AccountEncryptionManagedIdentityArgs:
     def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
+
+if not MYPY:
+    class AccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -198,6 +266,19 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AccountKeyDeliveryAccessControlArgsDict(TypedDict):
+        default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
+        """
+        ip_allow_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+        """
+elif False:
+    AccountKeyDeliveryAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountKeyDeliveryAccessControlArgs:
     def __init__(__self__, *,
@@ -236,6 +317,25 @@ class AccountKeyDeliveryAccessControlArgs:
     def ip_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_allow_lists", value)
 
+
+if not MYPY:
+    class AccountStorageAccountArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+        """
+        is_primary: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+
+        > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
+        """
+        managed_identity: NotRequired[pulumi.Input['AccountStorageAccountManagedIdentityArgsDict']]
+        """
+        A `managed_identity` block as defined below.
+        """
+elif False:
+    AccountStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountStorageAccountArgs:
@@ -294,6 +394,19 @@ class AccountStorageAccountArgs:
     def managed_identity(self, value: Optional[pulumi.Input['AccountStorageAccountManagedIdentityArgs']]):
         pulumi.set(self, "managed_identity", value)
 
+
+if not MYPY:
+    class AccountStorageAccountManagedIdentityArgsDict(TypedDict):
+        use_system_assigned_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+elif False:
+    AccountStorageAccountManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountStorageAccountManagedIdentityArgs:

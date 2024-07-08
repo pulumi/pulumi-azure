@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['NetworkManagerNetworkGroupArgs', 'NetworkManagerNetworkGroup']
@@ -148,9 +153,9 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -198,9 +203,9 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",

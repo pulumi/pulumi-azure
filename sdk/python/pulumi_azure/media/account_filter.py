@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -227,9 +232,9 @@ class AccountFilter(pulumi.CustomResource):
                  first_quality_bitrate: Optional[pulumi.Input[int]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AccountFilterPresentationTimeRangeArgs']]] = None,
+                 presentation_time_range: Optional[pulumi.Input[Union['AccountFilterPresentationTimeRangeArgs', 'AccountFilterPresentationTimeRangeArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountFilterTrackSelectionArgs']]]]] = None,
+                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a Media Services Account Filter.
@@ -253,57 +258,57 @@ class AccountFilter(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",
             resource_group_name=test_azurerm_resource_group["name"],
             media_services_account_name=test["name"],
             first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AccountFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_milliseconds=1000,
-                force_end=False,
-            ),
+            presentation_time_range={
+                "startInUnits": 0,
+                "endInUnits": 15,
+                "presentationWindowInUnits": 90,
+                "liveBackoffInUnits": 0,
+                "unitTimescaleInMilliseconds": 1000,
+                "forceEnd": False,
+            },
             track_selections=[
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
+                {
+                    "conditions": [
+                        {
+                            "property": "Type",
+                            "operation": "Equal",
+                            "value": "Audio",
+                        },
+                        {
+                            "property": "Language",
+                            "operation": "NotEqual",
+                            "value": "en",
+                        },
+                        {
+                            "property": "FourCC",
+                            "operation": "NotEqual",
+                            "value": "EC-3",
+                        },
                     ],
-                ),
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
+                },
+                {
+                    "conditions": [
+                        {
+                            "property": "Type",
+                            "operation": "Equal",
+                            "value": "Video",
+                        },
+                        {
+                            "property": "Bitrate",
+                            "operation": "Equal",
+                            "value": "3000000-5000000",
+                        },
                     ],
-                ),
+                },
             ])
         ```
 
@@ -320,9 +325,9 @@ class AccountFilter(pulumi.CustomResource):
         :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Account Filter to be created.
         :param pulumi.Input[str] name: The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[pulumi.InputType['AccountFilterPresentationTimeRangeArgs']] presentation_time_range: A `presentation_time_range` block as defined below.
+        :param pulumi.Input[Union['AccountFilterPresentationTimeRangeArgs', 'AccountFilterPresentationTimeRangeArgsDict']] presentation_time_range: A `presentation_time_range` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountFilterTrackSelectionArgs']]]] track_selections: One or more `track_selection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]] track_selections: One or more `track_selection` blocks as defined below.
         """
         ...
     @overload
@@ -352,57 +357,57 @@ class AccountFilter(pulumi.CustomResource):
             name="examplemediaacc",
             location=example.location,
             resource_group_name=example.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
-                id=example_account.id,
-                is_primary=True,
-            )])
+            storage_accounts=[{
+                "id": example_account.id,
+                "isPrimary": True,
+            }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",
             resource_group_name=test_azurerm_resource_group["name"],
             media_services_account_name=test["name"],
             first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AccountFilterPresentationTimeRangeArgs(
-                start_in_units=0,
-                end_in_units=15,
-                presentation_window_in_units=90,
-                live_backoff_in_units=0,
-                unit_timescale_in_milliseconds=1000,
-                force_end=False,
-            ),
+            presentation_time_range={
+                "startInUnits": 0,
+                "endInUnits": 15,
+                "presentationWindowInUnits": 90,
+                "liveBackoffInUnits": 0,
+                "unitTimescaleInMilliseconds": 1000,
+                "forceEnd": False,
+            },
             track_selections=[
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Audio",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Language",
-                            operation="NotEqual",
-                            value="en",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="FourCC",
-                            operation="NotEqual",
-                            value="EC-3",
-                        ),
+                {
+                    "conditions": [
+                        {
+                            "property": "Type",
+                            "operation": "Equal",
+                            "value": "Audio",
+                        },
+                        {
+                            "property": "Language",
+                            "operation": "NotEqual",
+                            "value": "en",
+                        },
+                        {
+                            "property": "FourCC",
+                            "operation": "NotEqual",
+                            "value": "EC-3",
+                        },
                     ],
-                ),
-                azure.media.AccountFilterTrackSelectionArgs(
-                    conditions=[
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Type",
-                            operation="Equal",
-                            value="Video",
-                        ),
-                        azure.media.AccountFilterTrackSelectionConditionArgs(
-                            property="Bitrate",
-                            operation="Equal",
-                            value="3000000-5000000",
-                        ),
+                },
+                {
+                    "conditions": [
+                        {
+                            "property": "Type",
+                            "operation": "Equal",
+                            "value": "Video",
+                        },
+                        {
+                            "property": "Bitrate",
+                            "operation": "Equal",
+                            "value": "3000000-5000000",
+                        },
                     ],
-                ),
+                },
             ])
         ```
 
@@ -432,9 +437,9 @@ class AccountFilter(pulumi.CustomResource):
                  first_quality_bitrate: Optional[pulumi.Input[int]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AccountFilterPresentationTimeRangeArgs']]] = None,
+                 presentation_time_range: Optional[pulumi.Input[Union['AccountFilterPresentationTimeRangeArgs', 'AccountFilterPresentationTimeRangeArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountFilterTrackSelectionArgs']]]]] = None,
+                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -467,9 +472,9 @@ class AccountFilter(pulumi.CustomResource):
             first_quality_bitrate: Optional[pulumi.Input[int]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AccountFilterPresentationTimeRangeArgs']]] = None,
+            presentation_time_range: Optional[pulumi.Input[Union['AccountFilterPresentationTimeRangeArgs', 'AccountFilterPresentationTimeRangeArgsDict']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountFilterTrackSelectionArgs']]]]] = None) -> 'AccountFilter':
+            track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]]] = None) -> 'AccountFilter':
         """
         Get an existing AccountFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -480,9 +485,9 @@ class AccountFilter(pulumi.CustomResource):
         :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Account Filter to be created.
         :param pulumi.Input[str] name: The name which should be used for this Account Filter. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[pulumi.InputType['AccountFilterPresentationTimeRangeArgs']] presentation_time_range: A `presentation_time_range` block as defined below.
+        :param pulumi.Input[Union['AccountFilterPresentationTimeRangeArgs', 'AccountFilterPresentationTimeRangeArgsDict']] presentation_time_range: A `presentation_time_range` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Account Filter should exist. Changing this forces a new Account Filter to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountFilterTrackSelectionArgs']]]] track_selections: One or more `track_selection` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountFilterTrackSelectionArgs', 'AccountFilterTrackSelectionArgsDict']]]] track_selections: One or more `track_selection` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

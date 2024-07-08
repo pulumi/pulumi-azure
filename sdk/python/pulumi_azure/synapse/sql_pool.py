@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -390,7 +395,7 @@ class SqlPool(pulumi.CustomResource):
                  geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_database_id: Optional[pulumi.Input[str]] = None,
-                 restore: Optional[pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']]] = None,
+                 restore: Optional[pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -425,9 +430,9 @@ class SqlPool(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_sql_pool = azure.synapse.SqlPool("example",
             name="examplesqlpool",
             synapse_workspace_id=example_workspace.id,
@@ -452,7 +457,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+        :param pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         :param pulumi.Input[str] storage_account_type: The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.
@@ -493,9 +498,9 @@ class SqlPool(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_sql_pool = azure.synapse.SqlPool("example",
             name="examplesqlpool",
             synapse_workspace_id=example_workspace.id,
@@ -533,7 +538,7 @@ class SqlPool(pulumi.CustomResource):
                  geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recovery_database_id: Optional[pulumi.Input[str]] = None,
-                 restore: Optional[pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']]] = None,
+                 restore: Optional[pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_type: Optional[pulumi.Input[str]] = None,
                  synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -578,7 +583,7 @@ class SqlPool(pulumi.CustomResource):
             geo_backup_policy_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             recovery_database_id: Optional[pulumi.Input[str]] = None,
-            restore: Optional[pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']]] = None,
+            restore: Optional[pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             storage_account_type: Optional[pulumi.Input[str]] = None,
             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -596,7 +601,7 @@ class SqlPool(pulumi.CustomResource):
         :param pulumi.Input[bool] geo_backup_policy_enabled: Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] recovery_database_id: The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created.
-        :param pulumi.Input[pulumi.InputType['SqlPoolRestoreArgs']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
+        :param pulumi.Input[Union['SqlPoolRestoreArgs', 'SqlPoolRestoreArgsDict']] restore: A `restore` block as defined below. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`.
         :param pulumi.Input[str] storage_account_type: The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`.
         :param pulumi.Input[str] synapse_workspace_id: The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created.

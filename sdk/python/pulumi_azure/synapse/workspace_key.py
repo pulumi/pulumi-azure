@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['WorkspaceKeyArgs', 'WorkspaceKey']
@@ -231,13 +236,13 @@ class WorkspaceKey(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
-                key_versionless_id=example_key.versionless_id,
-                key_name="enckey",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            customer_managed_key={
+                "keyVersionlessId": example_key.versionless_id,
+                "keyName": "enckey",
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "Env": "production",
             })
@@ -342,13 +347,13 @@ class WorkspaceKey(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            customer_managed_key=azure.synapse.WorkspaceCustomerManagedKeyArgs(
-                key_versionless_id=example_key.versionless_id,
-                key_name="enckey",
-            ),
-            identity=azure.synapse.WorkspaceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            customer_managed_key={
+                "keyVersionlessId": example_key.versionless_id,
+                "keyName": "enckey",
+            },
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "Env": "production",
             })

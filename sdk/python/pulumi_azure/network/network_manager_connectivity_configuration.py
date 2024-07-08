@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -287,12 +292,12 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]] = None,
+                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
                  connectivity_topology: Optional[pulumi.Input[str]] = None,
                  delete_existing_peering_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_mesh_enabled: Optional[pulumi.Input[bool]] = None,
-                 hub: Optional[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationHubArgs']]] = None,
+                 hub: Optional[pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_manager_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -315,9 +320,9 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -340,19 +345,19 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example_network_manager_network_group.id,
-                ),
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example2.id,
-                ),
+                {
+                    "groupConnectivity": "DirectlyConnected",
+                    "networkGroupId": example_network_manager_network_group.id,
+                },
+                {
+                    "groupConnectivity": "DirectlyConnected",
+                    "networkGroupId": example2.id,
+                },
             ],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
+            hub={
+                "resourceId": example_virtual_network.id,
+                "resourceType": "Microsoft.Network/virtualNetworks",
+            })
         ```
 
         ## Import
@@ -365,12 +370,12 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         :param pulumi.Input[str] description: A description of the Connectivity Configuration.
         :param pulumi.Input[bool] global_mesh_enabled: Indicates whether to global mesh is supported. Possible values are `true` and `false`.
-        :param pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationHubArgs']] hub: A `hub` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']] hub: A `hub` block as defined below.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         """
@@ -399,9 +404,9 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             name="example-network-manager",
             location=example.location,
             resource_group_name=example.name,
-            scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current.id],
-            ),
+            scope={
+                "subscriptionIds": [current.id],
+            },
             scope_accesses=[
                 "Connectivity",
                 "SecurityAdmin",
@@ -424,19 +429,19 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example_network_manager_network_group.id,
-                ),
-                azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
-                    group_connectivity="DirectlyConnected",
-                    network_group_id=example2.id,
-                ),
+                {
+                    "groupConnectivity": "DirectlyConnected",
+                    "networkGroupId": example_network_manager_network_group.id,
+                },
+                {
+                    "groupConnectivity": "DirectlyConnected",
+                    "networkGroupId": example2.id,
+                },
             ],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
-                resource_id=example_virtual_network.id,
-                resource_type="Microsoft.Network/virtualNetworks",
-            ))
+            hub={
+                "resourceId": example_virtual_network.id,
+                "resourceType": "Microsoft.Network/virtualNetworks",
+            })
         ```
 
         ## Import
@@ -462,12 +467,12 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]] = None,
+                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
                  connectivity_topology: Optional[pulumi.Input[str]] = None,
                  delete_existing_peering_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_mesh_enabled: Optional[pulumi.Input[bool]] = None,
-                 hub: Optional[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationHubArgs']]] = None,
+                 hub: Optional[pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_manager_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -503,12 +508,12 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]]] = None,
+            applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]]] = None,
             connectivity_topology: Optional[pulumi.Input[str]] = None,
             delete_existing_peering_enabled: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             global_mesh_enabled: Optional[pulumi.Input[bool]] = None,
-            hub: Optional[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationHubArgs']]] = None,
+            hub: Optional[pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_manager_id: Optional[pulumi.Input[str]] = None) -> 'NetworkManagerConnectivityConfiguration':
         """
@@ -518,12 +523,12 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationAppliesToGroupArgs']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerConnectivityConfigurationAppliesToGroupArgs', 'NetworkManagerConnectivityConfigurationAppliesToGroupArgsDict']]]] applies_to_groups: One or more `applies_to_group` blocks as defined below.
         :param pulumi.Input[str] connectivity_topology: Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         :param pulumi.Input[bool] delete_existing_peering_enabled: Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
         :param pulumi.Input[str] description: A description of the Connectivity Configuration.
         :param pulumi.Input[bool] global_mesh_enabled: Indicates whether to global mesh is supported. Possible values are `true` and `false`.
-        :param pulumi.Input[pulumi.InputType['NetworkManagerConnectivityConfigurationHubArgs']] hub: A `hub` block as defined below.
+        :param pulumi.Input[Union['NetworkManagerConnectivityConfigurationHubArgs', 'NetworkManagerConnectivityConfigurationHubArgsDict']] hub: A `hub` block as defined below.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created.
         :param pulumi.Input[str] network_manager_id: Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
         """

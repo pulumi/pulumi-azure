@@ -4,15 +4,42 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AnalyticsSolutionPlanArgs',
+    'AnalyticsSolutionPlanArgsDict',
     'AnalyticsWorkspaceIdentityArgs',
+    'AnalyticsWorkspaceIdentityArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AnalyticsSolutionPlanArgsDict(TypedDict):
+        product: pulumi.Input[str]
+        """
+        The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        promotion_code: NotRequired[pulumi.Input[str]]
+        """
+        A promotion code to be used with the solution. Changing this forces a new resource to be created.
+        """
+elif False:
+    AnalyticsSolutionPlanArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyticsSolutionPlanArgs:
@@ -78,6 +105,23 @@ class AnalyticsSolutionPlanArgs:
     def promotion_code(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "promotion_code", value)
 
+
+if not MYPY:
+    class AnalyticsWorkspaceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the identity type of the Log Analytics Workspace. Possible values are `SystemAssigned` (where Azure will generate a Service Principal for you) and `UserAssigned` where you can specify the Service Principal IDs in the `identity_ids` field.
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, The assigned `principal_id` and `tenant_id` can be retrieved after the Log Analytics Workspace has been created.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    AnalyticsWorkspaceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AnalyticsWorkspaceIdentityArgs:

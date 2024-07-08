@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['TimeSeriesInsightsEventSourceEventhubArgs', 'TimeSeriesInsightsEventSourceEventhub']
@@ -437,10 +442,10 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
+            storage={
+                "name": example_account.name,
+                "key": example_account.primary_access_key,
+            })
         example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("example",
             name="example",
             location=example.location,
@@ -529,10 +534,10 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=example_account.name,
-                key=example_account.primary_access_key,
-            ))
+            storage={
+                "name": example_account.name,
+                "key": example_account.primary_access_key,
+            })
         example_time_series_insights_event_source_eventhub = azure.iot.TimeSeriesInsightsEventSourceEventhub("example",
             name="example",
             location=example.location,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -94,7 +99,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             tags=self.tags)
 
 
-def get_account(identity: Optional[pulumi.InputType['GetAccountIdentityArgs']] = None,
+def get_account(identity: Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']] = None,
                 name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
@@ -133,7 +138,7 @@ def get_account(identity: Optional[pulumi.InputType['GetAccountIdentityArgs']] =
 
 
 @_utilities.lift_output_func(get_account)
-def get_account_output(identity: Optional[pulumi.Input[Optional[pulumi.InputType['GetAccountIdentityArgs']]]] = None,
+def get_account_output(identity: Optional[pulumi.Input[Optional[Union['GetAccountIdentityArgs', 'GetAccountIdentityArgsDict']]]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:

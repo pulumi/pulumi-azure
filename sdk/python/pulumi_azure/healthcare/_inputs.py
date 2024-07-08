@@ -4,25 +4,54 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DicomServiceAuthenticationArgs',
+    'DicomServiceAuthenticationArgsDict',
     'DicomServiceIdentityArgs',
+    'DicomServiceIdentityArgsDict',
     'DicomServicePrivateEndpointArgs',
+    'DicomServicePrivateEndpointArgsDict',
     'FhirServiceAuthenticationArgs',
+    'FhirServiceAuthenticationArgsDict',
     'FhirServiceCorsArgs',
+    'FhirServiceCorsArgsDict',
     'FhirServiceIdentityArgs',
+    'FhirServiceIdentityArgsDict',
     'FhirServiceOciArtifactArgs',
+    'FhirServiceOciArtifactArgsDict',
     'MedtechServiceIdentityArgs',
+    'MedtechServiceIdentityArgsDict',
     'ServiceAuthenticationConfigurationArgs',
+    'ServiceAuthenticationConfigurationArgsDict',
     'ServiceCorsConfigurationArgs',
+    'ServiceCorsConfigurationArgsDict',
     'ServiceIdentityArgs',
+    'ServiceIdentityArgsDict',
     'WorkspacePrivateEndpointConnectionArgs',
+    'WorkspacePrivateEndpointConnectionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DicomServiceAuthenticationArgsDict(TypedDict):
+        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com>
+        """
+        authority: NotRequired[pulumi.Input[str]]
+elif False:
+    DicomServiceAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DicomServiceAuthenticationArgs:
@@ -58,6 +87,21 @@ class DicomServiceAuthenticationArgs:
     def authority(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authority", value)
 
+
+if not MYPY:
+    class DicomServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of identity used for the Healthcare DICOM service. Possible values are `UserAssigned`, `SystemAssigned` and `SystemAssigned, UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    DicomServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DicomServiceIdentityArgs:
@@ -121,6 +165,19 @@ class DicomServiceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class DicomServicePrivateEndpointArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Healthcare DICOM Service.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
+        """
+elif False:
+    DicomServicePrivateEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DicomServicePrivateEndpointArgs:
     def __init__(__self__, *,
@@ -159,6 +216,20 @@ class DicomServicePrivateEndpointArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class FhirServiceAuthenticationArgsDict(TypedDict):
+        audience: pulumi.Input[str]
+        """
+        The intended audience to receive authentication tokens for the service.
+        """
+        authority: pulumi.Input[str]
+        smart_proxy_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether smart proxy is enabled.
+        """
+elif False:
+    FhirServiceAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FhirServiceAuthenticationArgs:
@@ -208,6 +279,31 @@ class FhirServiceAuthenticationArgs:
     def smart_proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
+
+if not MYPY:
+    class FhirServiceCorsArgsDict(TypedDict):
+        allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A set of headers to be allowed via CORS.
+        """
+        allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
+        """
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A set of origins to be allowed via CORS.
+        """
+        credentials_allowed: NotRequired[pulumi.Input[bool]]
+        """
+        If credentials are allowed via CORS.
+        """
+        max_age_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The max age to be allowed via CORS.
+        """
+elif False:
+    FhirServiceCorsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FhirServiceCorsArgs:
@@ -293,6 +389,21 @@ class FhirServiceCorsArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class FhirServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    FhirServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FhirServiceIdentityArgs:
     def __init__(__self__, *,
@@ -355,6 +466,23 @@ class FhirServiceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class FhirServiceOciArtifactArgsDict(TypedDict):
+        login_server: pulumi.Input[str]
+        """
+        An Azure container registry used for export operations of the service instance.
+        """
+        digest: NotRequired[pulumi.Input[str]]
+        """
+        A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+        """
+        image_name: NotRequired[pulumi.Input[str]]
+        """
+        An image within Azure container registry used for export operations of the service instance.
+        """
+elif False:
+    FhirServiceOciArtifactArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FhirServiceOciArtifactArgs:
     def __init__(__self__, *,
@@ -408,6 +536,27 @@ class FhirServiceOciArtifactArgs:
     def image_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_name", value)
 
+
+if not MYPY:
+    class MedtechServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this System Assigned Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this System Assigned Managed Service Identity.
+        """
+elif False:
+    MedtechServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MedtechServiceIdentityArgs:
@@ -479,6 +628,24 @@ class MedtechServiceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ServiceAuthenticationConfigurationArgsDict(TypedDict):
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
+        """
+        authority: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
+        Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
+        """
+        smart_proxy_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.
+        """
+elif False:
+    ServiceAuthenticationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceAuthenticationConfigurationArgs:
     def __init__(__self__, *,
@@ -535,6 +702,31 @@ class ServiceAuthenticationConfigurationArgs:
     def smart_proxy_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smart_proxy_enabled", value)
 
+
+if not MYPY:
+    class ServiceCorsConfigurationArgsDict(TypedDict):
+        allow_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        (Boolean) If credentials are allowed via CORS.
+        """
+        allowed_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of headers to be allowed via CORS.
+        """
+        allowed_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The methods to be allowed via CORS. Possible values are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PATCH` and `PUT`.
+        """
+        allowed_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of origins to be allowed via CORS.
+        """
+        max_age_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The max age to be allowed via CORS.
+        """
+elif False:
+    ServiceCorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceCorsConfigurationArgs:
@@ -623,6 +815,17 @@ class ServiceCorsConfigurationArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class ServiceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        The type of managed identity to assign. The only possible value is `SystemAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        tenant_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceIdentityArgs:
     def __init__(__self__, *,
@@ -668,6 +871,19 @@ class ServiceIdentityArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class WorkspacePrivateEndpointConnectionArgsDict(TypedDict):
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Healthcare Workspace.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
+        """
+elif False:
+    WorkspacePrivateEndpointConnectionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WorkspacePrivateEndpointConnectionArgs:

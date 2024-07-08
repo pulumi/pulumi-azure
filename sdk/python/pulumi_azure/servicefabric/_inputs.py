@@ -4,38 +4,87 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterAzureActiveDirectoryArgs',
+    'ClusterAzureActiveDirectoryArgsDict',
     'ClusterCertificateArgs',
+    'ClusterCertificateArgsDict',
     'ClusterCertificateCommonNamesArgs',
+    'ClusterCertificateCommonNamesArgsDict',
     'ClusterCertificateCommonNamesCommonNameArgs',
+    'ClusterCertificateCommonNamesCommonNameArgsDict',
     'ClusterClientCertificateCommonNameArgs',
+    'ClusterClientCertificateCommonNameArgsDict',
     'ClusterClientCertificateThumbprintArgs',
+    'ClusterClientCertificateThumbprintArgsDict',
     'ClusterDiagnosticsConfigArgs',
+    'ClusterDiagnosticsConfigArgsDict',
     'ClusterFabricSettingArgs',
+    'ClusterFabricSettingArgsDict',
     'ClusterNodeTypeArgs',
+    'ClusterNodeTypeArgsDict',
     'ClusterNodeTypeApplicationPortsArgs',
+    'ClusterNodeTypeApplicationPortsArgsDict',
     'ClusterNodeTypeEphemeralPortsArgs',
+    'ClusterNodeTypeEphemeralPortsArgsDict',
     'ClusterReverseProxyCertificateArgs',
+    'ClusterReverseProxyCertificateArgsDict',
     'ClusterReverseProxyCertificateCommonNamesArgs',
+    'ClusterReverseProxyCertificateCommonNamesArgsDict',
     'ClusterReverseProxyCertificateCommonNamesCommonNameArgs',
+    'ClusterReverseProxyCertificateCommonNamesCommonNameArgsDict',
     'ClusterUpgradePolicyArgs',
+    'ClusterUpgradePolicyArgsDict',
     'ClusterUpgradePolicyDeltaHealthPolicyArgs',
+    'ClusterUpgradePolicyDeltaHealthPolicyArgsDict',
     'ClusterUpgradePolicyHealthPolicyArgs',
+    'ClusterUpgradePolicyHealthPolicyArgsDict',
     'ManagedClusterAuthenticationArgs',
+    'ManagedClusterAuthenticationArgsDict',
     'ManagedClusterAuthenticationActiveDirectoryArgs',
+    'ManagedClusterAuthenticationActiveDirectoryArgsDict',
     'ManagedClusterAuthenticationCertificateArgs',
+    'ManagedClusterAuthenticationCertificateArgsDict',
     'ManagedClusterCustomFabricSettingArgs',
+    'ManagedClusterCustomFabricSettingArgsDict',
     'ManagedClusterLbRuleArgs',
+    'ManagedClusterLbRuleArgsDict',
     'ManagedClusterNodeTypeArgs',
+    'ManagedClusterNodeTypeArgsDict',
     'ManagedClusterNodeTypeVmSecretArgs',
+    'ManagedClusterNodeTypeVmSecretArgsDict',
     'ManagedClusterNodeTypeVmSecretCertificateArgs',
+    'ManagedClusterNodeTypeVmSecretCertificateArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterAzureActiveDirectoryArgsDict(TypedDict):
+        client_application_id: pulumi.Input[str]
+        """
+        The Azure Active Directory Client ID which should be used for the Client Application.
+        """
+        cluster_application_id: pulumi.Input[str]
+        """
+        The Azure Active Directory Cluster Application ID.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The Azure Active Directory Tenant ID.
+        """
+elif False:
+    ClusterAzureActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterAzureActiveDirectoryArgs:
@@ -88,6 +137,23 @@ class ClusterAzureActiveDirectoryArgs:
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ClusterCertificateArgsDict(TypedDict):
+        thumbprint: pulumi.Input[str]
+        """
+        The Thumbprint of the Certificate.
+        """
+        x509_store_name: pulumi.Input[str]
+        """
+        The X509 Store where the Certificate Exists, such as `My`.
+        """
+        thumbprint_secondary: NotRequired[pulumi.Input[str]]
+        """
+        The Secondary Thumbprint of the Certificate.
+        """
+elif False:
+    ClusterCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterCertificateArgs:
@@ -142,6 +208,19 @@ class ClusterCertificateArgs:
         pulumi.set(self, "thumbprint_secondary", value)
 
 
+if not MYPY:
+    class ClusterCertificateCommonNamesArgsDict(TypedDict):
+        common_names: pulumi.Input[Sequence[pulumi.Input['ClusterCertificateCommonNamesCommonNameArgsDict']]]
+        """
+        A `common_names` block as defined below.
+        """
+        x509_store_name: pulumi.Input[str]
+        """
+        The X509 Store where the Certificate Exists, such as `My`.
+        """
+elif False:
+    ClusterCertificateCommonNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterCertificateCommonNamesArgs:
     def __init__(__self__, *,
@@ -178,6 +257,21 @@ class ClusterCertificateCommonNamesArgs:
     def x509_store_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "x509_store_name", value)
 
+
+if not MYPY:
+    class ClusterCertificateCommonNamesCommonNameArgsDict(TypedDict):
+        certificate_common_name: pulumi.Input[str]
+        """
+        The common or subject name of the certificate.
+        """
+        certificate_issuer_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The Issuer Thumbprint of the Certificate.
+
+        > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+        """
+elif False:
+    ClusterCertificateCommonNamesCommonNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterCertificateCommonNamesCommonNameArgs:
@@ -220,6 +314,25 @@ class ClusterCertificateCommonNamesCommonNameArgs:
     def certificate_issuer_thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_issuer_thumbprint", value)
 
+
+if not MYPY:
+    class ClusterClientCertificateCommonNameArgsDict(TypedDict):
+        common_name: pulumi.Input[str]
+        """
+        The common or subject name of the certificate.
+        """
+        is_admin: pulumi.Input[bool]
+        """
+        Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+        """
+        issuer_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The Issuer Thumbprint of the Certificate.
+
+        > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+        """
+elif False:
+    ClusterClientCertificateCommonNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterClientCertificateCommonNameArgs:
@@ -278,6 +391,19 @@ class ClusterClientCertificateCommonNameArgs:
         pulumi.set(self, "issuer_thumbprint", value)
 
 
+if not MYPY:
+    class ClusterClientCertificateThumbprintArgsDict(TypedDict):
+        is_admin: pulumi.Input[bool]
+        """
+        Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
+        """
+        thumbprint: pulumi.Input[str]
+        """
+        The Thumbprint associated with the Client Certificate.
+        """
+elif False:
+    ClusterClientCertificateThumbprintArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterClientCertificateThumbprintArgs:
     def __init__(__self__, *,
@@ -314,6 +440,31 @@ class ClusterClientCertificateThumbprintArgs:
     def thumbprint(self, value: pulumi.Input[str]):
         pulumi.set(self, "thumbprint", value)
 
+
+if not MYPY:
+    class ClusterDiagnosticsConfigArgsDict(TypedDict):
+        blob_endpoint: pulumi.Input[str]
+        """
+        The Blob Endpoint of the Storage Account.
+        """
+        protected_account_key_name: pulumi.Input[str]
+        """
+        The protected diagnostics storage key name, such as `StorageAccountKey1`.
+        """
+        queue_endpoint: pulumi.Input[str]
+        """
+        The Queue Endpoint of the Storage Account.
+        """
+        storage_account_name: pulumi.Input[str]
+        """
+        The name of the Storage Account where the Diagnostics should be sent to.
+        """
+        table_endpoint: pulumi.Input[str]
+        """
+        The Table Endpoint of the Storage Account.
+        """
+elif False:
+    ClusterDiagnosticsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterDiagnosticsConfigArgs:
@@ -397,6 +548,19 @@ class ClusterDiagnosticsConfigArgs:
         pulumi.set(self, "table_endpoint", value)
 
 
+if not MYPY:
+    class ClusterFabricSettingArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Fabric Setting, such as `Security` or `Federation`.
+        """
+        parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A map containing settings for the specified Fabric Setting.
+        """
+elif False:
+    ClusterFabricSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterFabricSettingArgs:
     def __init__(__self__, *,
@@ -434,6 +598,63 @@ class ClusterFabricSettingArgs:
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "parameters", value)
 
+
+if not MYPY:
+    class ClusterNodeTypeArgsDict(TypedDict):
+        client_endpoint_port: pulumi.Input[int]
+        """
+        The Port used for the Client Endpoint for this Node Type.
+        """
+        http_endpoint_port: pulumi.Input[int]
+        """
+        The Port used for the HTTP Endpoint for this Node Type.
+        """
+        instance_count: pulumi.Input[int]
+        """
+        The number of nodes for this Node Type.
+        """
+        is_primary: pulumi.Input[bool]
+        """
+        Is this the Primary Node Type?
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the Node Type.
+        """
+        application_ports: NotRequired[pulumi.Input['ClusterNodeTypeApplicationPortsArgsDict']]
+        """
+        A `application_ports` block as defined below.
+        """
+        capacities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
+        """
+        durability_level: NotRequired[pulumi.Input[str]]
+        """
+        The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
+        """
+        ephemeral_ports: NotRequired[pulumi.Input['ClusterNodeTypeEphemeralPortsArgsDict']]
+        """
+        A `ephemeral_ports` block as defined below.
+        """
+        is_stateless: NotRequired[pulumi.Input[bool]]
+        """
+        Should this node type run only stateless services?
+        """
+        multiple_availability_zones: NotRequired[pulumi.Input[bool]]
+        """
+        Does this node type span availability zones?
+        """
+        placement_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
+        """
+        reverse_proxy_endpoint_port: NotRequired[pulumi.Input[int]]
+        """
+        The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
+        """
+elif False:
+    ClusterNodeTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterNodeTypeArgs:
@@ -645,6 +866,19 @@ class ClusterNodeTypeArgs:
         pulumi.set(self, "reverse_proxy_endpoint_port", value)
 
 
+if not MYPY:
+    class ClusterNodeTypeApplicationPortsArgsDict(TypedDict):
+        end_port: pulumi.Input[int]
+        """
+        The end of the Application Port Range on this Node Type.
+        """
+        start_port: pulumi.Input[int]
+        """
+        The start of the Application Port Range on this Node Type.
+        """
+elif False:
+    ClusterNodeTypeApplicationPortsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterNodeTypeApplicationPortsArgs:
     def __init__(__self__, *,
@@ -682,6 +916,19 @@ class ClusterNodeTypeApplicationPortsArgs:
         pulumi.set(self, "start_port", value)
 
 
+if not MYPY:
+    class ClusterNodeTypeEphemeralPortsArgsDict(TypedDict):
+        end_port: pulumi.Input[int]
+        """
+        The end of the Ephemeral Port Range on this Node Type.
+        """
+        start_port: pulumi.Input[int]
+        """
+        The start of the Ephemeral Port Range on this Node Type.
+        """
+elif False:
+    ClusterNodeTypeEphemeralPortsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterNodeTypeEphemeralPortsArgs:
     def __init__(__self__, *,
@@ -718,6 +965,23 @@ class ClusterNodeTypeEphemeralPortsArgs:
     def start_port(self, value: pulumi.Input[int]):
         pulumi.set(self, "start_port", value)
 
+
+if not MYPY:
+    class ClusterReverseProxyCertificateArgsDict(TypedDict):
+        thumbprint: pulumi.Input[str]
+        """
+        The Thumbprint of the Certificate.
+        """
+        x509_store_name: pulumi.Input[str]
+        """
+        The X509 Store where the Certificate Exists, such as `My`.
+        """
+        thumbprint_secondary: NotRequired[pulumi.Input[str]]
+        """
+        The Secondary Thumbprint of the Certificate.
+        """
+elif False:
+    ClusterReverseProxyCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterReverseProxyCertificateArgs:
@@ -772,6 +1036,19 @@ class ClusterReverseProxyCertificateArgs:
         pulumi.set(self, "thumbprint_secondary", value)
 
 
+if not MYPY:
+    class ClusterReverseProxyCertificateCommonNamesArgsDict(TypedDict):
+        common_names: pulumi.Input[Sequence[pulumi.Input['ClusterReverseProxyCertificateCommonNamesCommonNameArgsDict']]]
+        """
+        A `common_names` block as defined below.
+        """
+        x509_store_name: pulumi.Input[str]
+        """
+        The X509 Store where the Certificate Exists, such as `My`.
+        """
+elif False:
+    ClusterReverseProxyCertificateCommonNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterReverseProxyCertificateCommonNamesArgs:
     def __init__(__self__, *,
@@ -808,6 +1085,21 @@ class ClusterReverseProxyCertificateCommonNamesArgs:
     def x509_store_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "x509_store_name", value)
 
+
+if not MYPY:
+    class ClusterReverseProxyCertificateCommonNamesCommonNameArgsDict(TypedDict):
+        certificate_common_name: pulumi.Input[str]
+        """
+        The common or subject name of the certificate.
+        """
+        certificate_issuer_thumbprint: NotRequired[pulumi.Input[str]]
+        """
+        The Issuer Thumbprint of the Certificate.
+
+        > **NOTE:** Certificate Issuer Thumbprint may become required in the future, `https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn#download-and-update-a-sample-template`.
+        """
+elif False:
+    ClusterReverseProxyCertificateCommonNamesCommonNameArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
@@ -850,6 +1142,47 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
     def certificate_issuer_thumbprint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_issuer_thumbprint", value)
 
+
+if not MYPY:
+    class ClusterUpgradePolicyArgsDict(TypedDict):
+        delta_health_policy: NotRequired[pulumi.Input['ClusterUpgradePolicyDeltaHealthPolicyArgsDict']]
+        """
+        A `delta_health_policy` block as defined below
+        """
+        force_restart_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.
+        """
+        health_check_retry_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the duration, in "hh:mm:ss" string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to `00:45:00`.
+        """
+        health_check_stable_duration: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to `00:01:00`.
+        """
+        health_check_wait_duration: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
+        """
+        health_policy: NotRequired[pulumi.Input['ClusterUpgradePolicyHealthPolicyArgsDict']]
+        """
+        A `health_policy` block as defined below
+        """
+        upgrade_domain_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to `02:00:00`.
+        """
+        upgrade_replica_set_check_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to `10675199.02:48:05.4775807`.
+        """
+        upgrade_timeout: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the duration, in "hh:mm:ss" string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to `12:00:00`.
+        """
+elif False:
+    ClusterUpgradePolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterUpgradePolicyArgs:
@@ -1002,6 +1335,23 @@ class ClusterUpgradePolicyArgs:
         pulumi.set(self, "upgrade_timeout", value)
 
 
+if not MYPY:
+    class ClusterUpgradePolicyDeltaHealthPolicyArgsDict(TypedDict):
+        max_delta_unhealthy_applications_percent: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        """
+        max_delta_unhealthy_nodes_percent: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        """
+        max_upgrade_domain_delta_unhealthy_nodes_percent: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
+        """
+elif False:
+    ClusterUpgradePolicyDeltaHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterUpgradePolicyDeltaHealthPolicyArgs:
     def __init__(__self__, *,
@@ -1057,6 +1407,19 @@ class ClusterUpgradePolicyDeltaHealthPolicyArgs:
         pulumi.set(self, "max_upgrade_domain_delta_unhealthy_nodes_percent", value)
 
 
+if not MYPY:
+    class ClusterUpgradePolicyHealthPolicyArgsDict(TypedDict):
+        max_unhealthy_applications_percent: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        """
+        max_unhealthy_nodes_percent: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
+        """
+elif False:
+    ClusterUpgradePolicyHealthPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterUpgradePolicyHealthPolicyArgs:
     def __init__(__self__, *,
@@ -1096,6 +1459,19 @@ class ClusterUpgradePolicyHealthPolicyArgs:
         pulumi.set(self, "max_unhealthy_nodes_percent", value)
 
 
+if not MYPY:
+    class ManagedClusterAuthenticationArgsDict(TypedDict):
+        active_directory: NotRequired[pulumi.Input['ManagedClusterAuthenticationActiveDirectoryArgsDict']]
+        """
+        A `active_directory` block as defined above.
+        """
+        certificates: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgsDict']]]]
+        """
+        One or more `certificate` blocks as defined below.
+        """
+elif False:
+    ManagedClusterAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterAuthenticationArgs:
     def __init__(__self__, *,
@@ -1134,6 +1510,23 @@ class ManagedClusterAuthenticationArgs:
     def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
+
+if not MYPY:
+    class ManagedClusterAuthenticationActiveDirectoryArgsDict(TypedDict):
+        client_application_id: pulumi.Input[str]
+        """
+        The ID of the Client Application.
+        """
+        cluster_application_id: pulumi.Input[str]
+        """
+        The ID of the Cluster Application.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The ID of the Tenant.
+        """
+elif False:
+    ManagedClusterAuthenticationActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterAuthenticationActiveDirectoryArgs:
@@ -1186,6 +1579,23 @@ class ManagedClusterAuthenticationActiveDirectoryArgs:
     def tenant_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ManagedClusterAuthenticationCertificateArgsDict(TypedDict):
+        thumbprint: pulumi.Input[str]
+        """
+        The thumbprint of the certificate.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
+        """
+        common_name: NotRequired[pulumi.Input[str]]
+        """
+        The certificate's CN.
+        """
+elif False:
+    ManagedClusterAuthenticationCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterAuthenticationCertificateArgs:
@@ -1240,6 +1650,23 @@ class ManagedClusterAuthenticationCertificateArgs:
         pulumi.set(self, "common_name", value)
 
 
+if not MYPY:
+    class ManagedClusterCustomFabricSettingArgsDict(TypedDict):
+        parameter: pulumi.Input[str]
+        """
+        Parameter name.
+        """
+        section: pulumi.Input[str]
+        """
+        Section name.
+        """
+        value: pulumi.Input[str]
+        """
+        Parameter value.
+        """
+elif False:
+    ManagedClusterCustomFabricSettingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterCustomFabricSettingArgs:
     def __init__(__self__, *,
@@ -1291,6 +1718,31 @@ class ManagedClusterCustomFabricSettingArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ManagedClusterLbRuleArgsDict(TypedDict):
+        backend_port: pulumi.Input[int]
+        """
+        LB Backend port.
+        """
+        frontend_port: pulumi.Input[int]
+        """
+        LB Frontend port.
+        """
+        probe_protocol: pulumi.Input[str]
+        """
+        Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The transport protocol used in this rule. Can be one of `tcp` or `udp`.
+        """
+        probe_request_path: NotRequired[pulumi.Input[str]]
+        """
+        Path for the probe to check, when probe protocol is set to `http`.
+        """
+elif False:
+    ManagedClusterLbRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterLbRuleArgs:
@@ -1374,6 +1826,83 @@ class ManagedClusterLbRuleArgs:
     def probe_request_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "probe_request_path", value)
 
+
+if not MYPY:
+    class ManagedClusterNodeTypeArgsDict(TypedDict):
+        application_port_range: pulumi.Input[str]
+        """
+        Sets the port range available for applications. Format is `<from_port>-<to_port>`, for example `10000-20000`.
+        """
+        data_disk_size_gb: pulumi.Input[int]
+        """
+        The size of the data disk in gigabytes..
+        """
+        ephemeral_port_range: pulumi.Input[str]
+        """
+        Sets the port range available for the OS. Format is `<from_port>-<to_port>`, for example `10000-20000`. There has to be at least 255 ports available and cannot overlap with `application_port_range`..
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this node type.
+        """
+        vm_image_offer: pulumi.Input[str]
+        """
+        The offer type of the marketplace image cluster VMs will use.
+        """
+        vm_image_publisher: pulumi.Input[str]
+        """
+        The publisher of the marketplace image cluster VMs will use.
+        """
+        vm_image_sku: pulumi.Input[str]
+        """
+        The SKU of the marketplace image cluster VMs will use.
+        """
+        vm_image_version: pulumi.Input[str]
+        """
+        The version of the marketplace image cluster VMs will use.
+        """
+        vm_instance_count: pulumi.Input[int]
+        """
+        The number of instances this node type will launch.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The size of the instances in this node type.
+        """
+        capacities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a list of key/value pairs used to set capacity tags for this node type.
+        """
+        data_disk_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of the disk to use for storing data. It can be one of `Premium_LRS`, `Standard_LRS`, or `StandardSSD_LRS`. Defaults to `Standard_LRS`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Resource Group.
+        """
+        multiple_placement_groups_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        If set the node type can be composed of multiple placement groups.
+        """
+        placement_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Specifies a list of placement tags that can be used to indicate where services should run..
+        """
+        primary: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created.
+        """
+        stateless: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, only stateless workloads can run on this node type.
+        """
+        vm_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgsDict']]]]
+        """
+        One or more `vm_secrets` blocks as defined below.
+        """
+elif False:
+    ManagedClusterNodeTypeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterNodeTypeArgs:
@@ -1660,6 +2189,19 @@ class ManagedClusterNodeTypeArgs:
         pulumi.set(self, "vm_secrets", value)
 
 
+if not MYPY:
+    class ManagedClusterNodeTypeVmSecretArgsDict(TypedDict):
+        certificates: pulumi.Input[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretCertificateArgsDict']]]
+        """
+        One or more `certificates` blocks as defined above.
+        """
+        vault_id: pulumi.Input[str]
+        """
+        The ID of the Vault that contain the certificates.
+        """
+elif False:
+    ManagedClusterNodeTypeVmSecretArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedClusterNodeTypeVmSecretArgs:
     def __init__(__self__, *,
@@ -1696,6 +2238,19 @@ class ManagedClusterNodeTypeVmSecretArgs:
     def vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vault_id", value)
 
+
+if not MYPY:
+    class ManagedClusterNodeTypeVmSecretCertificateArgsDict(TypedDict):
+        store: pulumi.Input[str]
+        """
+        The certificate store on the Virtual Machine to which the certificate should be added.
+        """
+        url: pulumi.Input[str]
+        """
+        The URL of a certificate that has been uploaded to Key Vault as a secret
+        """
+elif False:
+    ManagedClusterNodeTypeVmSecretCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedClusterNodeTypeVmSecretCertificateArgs:

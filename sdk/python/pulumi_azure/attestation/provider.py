@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -404,7 +409,7 @@ class Provider(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderPolicyArgs', 'ProviderPolicyArgsDict']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -508,7 +513,7 @@ class Provider(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderPolicyArgs', 'ProviderPolicyArgsDict']]]]] = None,
                  policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,
@@ -552,7 +557,7 @@ class Provider(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             open_enclave_policy_base64: Optional[pulumi.Input[str]] = None,
-            policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderPolicyArgs']]]]] = None,
+            policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderPolicyArgs', 'ProviderPolicyArgsDict']]]]] = None,
             policy_signing_certificate_data: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sev_snp_policy_base64: Optional[pulumi.Input[str]] = None,

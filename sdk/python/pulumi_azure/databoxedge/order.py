@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -254,10 +259,10 @@ class Order(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArgs']]] = None,
+                 contact: Optional[pulumi.Input[Union['OrderContactArgs', 'OrderContactArgsDict']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']]] = None,
+                 shipment_address: Optional[pulumi.Input[Union['OrderShipmentAddressArgs', 'OrderShipmentAddressArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Databox Edge Order.
@@ -281,19 +286,19 @@ class Order(pulumi.CustomResource):
         example_order = azure.databoxedge.Order("example",
             resource_group_name=example.name,
             device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
-                name="TerraForm Test",
-                emails=["creator4983@FlynnsArcade.com"],
-                company_name="Flynn's Arcade",
-                phone_number="(800) 555-1234",
-            ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
-                addresses=["One Microsoft Way"],
-                city="Redmond",
-                postal_code="98052",
-                state="WA",
-                country="United States",
-            ))
+            contact={
+                "name": "TerraForm Test",
+                "emails": ["creator4983@FlynnsArcade.com"],
+                "companyName": "Flynn's Arcade",
+                "phoneNumber": "(800) 555-1234",
+            },
+            shipment_address={
+                "addresses": ["One Microsoft Way"],
+                "city": "Redmond",
+                "postalCode": "98052",
+                "state": "WA",
+                "country": "United States",
+            })
         ```
 
         ## Import
@@ -306,10 +311,10 @@ class Order(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrderContactArgs']] contact: A `contact` block as defined below.
+        :param pulumi.Input[Union['OrderContactArgs', 'OrderContactArgsDict']] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']] shipment_address: A `shipment_address` block as defined below.
+        :param pulumi.Input[Union['OrderShipmentAddressArgs', 'OrderShipmentAddressArgsDict']] shipment_address: A `shipment_address` block as defined below.
         """
         ...
     @overload
@@ -339,19 +344,19 @@ class Order(pulumi.CustomResource):
         example_order = azure.databoxedge.Order("example",
             resource_group_name=example.name,
             device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
-                name="TerraForm Test",
-                emails=["creator4983@FlynnsArcade.com"],
-                company_name="Flynn's Arcade",
-                phone_number="(800) 555-1234",
-            ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
-                addresses=["One Microsoft Way"],
-                city="Redmond",
-                postal_code="98052",
-                state="WA",
-                country="United States",
-            ))
+            contact={
+                "name": "TerraForm Test",
+                "emails": ["creator4983@FlynnsArcade.com"],
+                "companyName": "Flynn's Arcade",
+                "phoneNumber": "(800) 555-1234",
+            },
+            shipment_address={
+                "addresses": ["One Microsoft Way"],
+                "city": "Redmond",
+                "postalCode": "98052",
+                "state": "WA",
+                "country": "United States",
+            })
         ```
 
         ## Import
@@ -377,10 +382,10 @@ class Order(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArgs']]] = None,
+                 contact: Optional[pulumi.Input[Union['OrderContactArgs', 'OrderContactArgsDict']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']]] = None,
+                 shipment_address: Optional[pulumi.Input[Union['OrderShipmentAddressArgs', 'OrderShipmentAddressArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -418,16 +423,16 @@ class Order(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArgs']]] = None,
+            contact: Optional[pulumi.Input[Union['OrderContactArgs', 'OrderContactArgsDict']]] = None,
             device_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            return_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderReturnTrackingArgs']]]]] = None,
+            return_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrderReturnTrackingArgs', 'OrderReturnTrackingArgsDict']]]]] = None,
             serial_number: Optional[pulumi.Input[str]] = None,
-            shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']]] = None,
-            shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentHistoryArgs']]]]] = None,
-            shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentTrackingArgs']]]]] = None,
-            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderStatusArgs']]]]] = None) -> 'Order':
+            shipment_address: Optional[pulumi.Input[Union['OrderShipmentAddressArgs', 'OrderShipmentAddressArgsDict']]] = None,
+            shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrderShipmentHistoryArgs', 'OrderShipmentHistoryArgsDict']]]]] = None,
+            shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrderShipmentTrackingArgs', 'OrderShipmentTrackingArgsDict']]]]] = None,
+            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrderStatusArgs', 'OrderStatusArgsDict']]]]] = None) -> 'Order':
         """
         Get an existing Order resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -435,16 +440,16 @@ class Order(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrderContactArgs']] contact: A `contact` block as defined below.
+        :param pulumi.Input[Union['OrderContactArgs', 'OrderContactArgsDict']] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] name: The Name of this Databox Edge Order.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderReturnTrackingArgs']]]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrderReturnTrackingArgs', 'OrderReturnTrackingArgsDict']]]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
         :param pulumi.Input[str] serial_number: Serial number of the device being tracked.
-        :param pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']] shipment_address: A `shipment_address` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentHistoryArgs']]]] shipment_histories: List of status changes in the order. A `shipment_history` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentTrackingArgs']]]] shipment_trackings: Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderStatusArgs']]]] statuses: The current status of the order. A `status` block as defined below.
+        :param pulumi.Input[Union['OrderShipmentAddressArgs', 'OrderShipmentAddressArgsDict']] shipment_address: A `shipment_address` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrderShipmentHistoryArgs', 'OrderShipmentHistoryArgsDict']]]] shipment_histories: List of status changes in the order. A `shipment_history` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrderShipmentTrackingArgs', 'OrderShipmentTrackingArgsDict']]]] shipment_trackings: Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OrderStatusArgs', 'OrderStatusArgsDict']]]] statuses: The current status of the order. A `status` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

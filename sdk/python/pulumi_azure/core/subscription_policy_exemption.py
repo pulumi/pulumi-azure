@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SubscriptionPolicyExemptionArgs', 'SubscriptionPolicyExemption']
@@ -343,9 +348,9 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
             subscription_id=example.id,
             policy_definition_id=example_get_policy_set_definition.id,
             location="westus",
-            identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("example",
             name="exampleExemption",
             subscription_id=example.id,
@@ -395,9 +400,9 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
             subscription_id=example.id,
             policy_definition_id=example_get_policy_set_definition.id,
             location="westus",
-            identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("example",
             name="exampleExemption",
             subscription_id=example.id,

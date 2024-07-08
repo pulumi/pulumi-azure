@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -361,7 +366,7 @@ class Configuration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
-                 install_patches: Optional[pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']]] = None,
+                 install_patches: Optional[pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -369,7 +374,7 @@ class Configuration(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
-                 window: Optional[pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']]] = None,
+                 window: Optional[pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None,
                  __props__=None):
         """
         Manages a maintenance configuration.
@@ -404,7 +409,7 @@ class Configuration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']] install_patches: An `install_patches` block as defined below.
+        :param pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']] install_patches: An `install_patches` block as defined below.
                
                > **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -414,7 +419,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. The key could not contain upper case letter.
         :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']] window: A `window` block as defined below.
+        :param pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']] window: A `window` block as defined below.
         """
         ...
     @overload
@@ -468,7 +473,7 @@ class Configuration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
-                 install_patches: Optional[pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']]] = None,
+                 install_patches: Optional[pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -476,7 +481,7 @@ class Configuration(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
-                 window: Optional[pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']]] = None,
+                 window: Optional[pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,7 +516,7 @@ class Configuration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             in_guest_user_patch_mode: Optional[pulumi.Input[str]] = None,
-            install_patches: Optional[pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']]] = None,
+            install_patches: Optional[pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -519,7 +524,7 @@ class Configuration(pulumi.CustomResource):
             scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             visibility: Optional[pulumi.Input[str]] = None,
-            window: Optional[pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']]] = None) -> 'Configuration':
+            window: Optional[pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']]] = None) -> 'Configuration':
         """
         Get an existing Configuration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -528,7 +533,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] in_guest_user_patch_mode: The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationInstallPatchesArgs']] install_patches: An `install_patches` block as defined below.
+        :param pulumi.Input[Union['ConfigurationInstallPatchesArgs', 'ConfigurationInstallPatchesArgsDict']] install_patches: An `install_patches` block as defined below.
                
                > **NOTE:** `install_patches` must be specified when `scope` is `InGuestPatch`.
         :param pulumi.Input[str] location: Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -538,7 +543,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.Input[str] scope: The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource. The key could not contain upper case letter.
         :param pulumi.Input[str] visibility: The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`.
-        :param pulumi.Input[pulumi.InputType['ConfigurationWindowArgs']] window: A `window` block as defined below.
+        :param pulumi.Input[Union['ConfigurationWindowArgs', 'ConfigurationWindowArgsDict']] window: A `window` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

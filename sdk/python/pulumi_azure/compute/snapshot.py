@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -515,7 +520,7 @@ class Snapshot(pulumi.CustomResource):
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']]] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -569,7 +574,7 @@ class Snapshot(pulumi.CustomResource):
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.
@@ -642,7 +647,7 @@ class Snapshot(pulumi.CustomResource):
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_access_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']]] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -694,7 +699,7 @@ class Snapshot(pulumi.CustomResource):
             create_option: Optional[pulumi.Input[str]] = None,
             disk_access_id: Optional[pulumi.Input[str]] = None,
             disk_size_gb: Optional[pulumi.Input[int]] = None,
-            encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
+            encryption_settings: Optional[pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']]] = None,
             incremental_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -718,7 +723,7 @@ class Snapshot(pulumi.CustomResource):
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental. Changing this forces a new resource to be created.

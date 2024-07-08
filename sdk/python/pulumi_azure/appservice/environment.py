@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -401,7 +406,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentClusterSettingArgs', 'EnvironmentClusterSettingArgsDict']]]]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -448,10 +453,10 @@ class Environment(pulumi.CustomResource):
                 "11.22.33.44/32",
                 "55.66.77.0/24",
             ],
-            cluster_settings=[azure.appservice.EnvironmentClusterSettingArgs(
-                name="DisableTls1.0",
-                value="1",
-            )])
+            cluster_settings=[{
+                "name": "DisableTls1.0",
+                "value": "1",
+            }])
         ```
 
         ## Import
@@ -467,7 +472,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
                
                > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentClusterSettingArgs', 'EnvironmentClusterSettingArgsDict']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the App Service Environment. Changing this forces a new resource to be created.
@@ -522,10 +527,10 @@ class Environment(pulumi.CustomResource):
                 "11.22.33.44/32",
                 "55.66.77.0/24",
             ],
-            cluster_settings=[azure.appservice.EnvironmentClusterSettingArgs(
-                name="DisableTls1.0",
-                value="1",
-            )])
+            cluster_settings=[{
+                "name": "DisableTls1.0",
+                "value": "1",
+            }])
         ```
 
         ## Import
@@ -552,7 +557,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]]] = None,
+                 cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentClusterSettingArgs', 'EnvironmentClusterSettingArgsDict']]]]] = None,
                  front_end_scale_factor: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -597,7 +602,7 @@ class Environment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allowed_user_ip_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]]] = None,
+            cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentClusterSettingArgs', 'EnvironmentClusterSettingArgsDict']]]]] = None,
             front_end_scale_factor: Optional[pulumi.Input[int]] = None,
             internal_ip_address: Optional[pulumi.Input[str]] = None,
             internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
@@ -619,7 +624,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_user_ip_cidrs: Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
                
                > **NOTE:** `allowed_user_ip_cidrs` The addresses that will be used for all outbound traffic from your App Service Environment to the internet to avoid asymmetric routing challenge. If you're routing the traffic on premises, these addresses are your NATs or gateway IPs. If you want to route the App Service Environment outbound traffic through an NVA, the egress address is the public IP of the NVA. Please visit [Create your ASE with the egress addresses](https://docs.microsoft.com/azure/app-service/environment/forced-tunnel-support#add-your-own-ips-to-the-ase-azure-sql-firewall)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentClusterSettingArgs']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentClusterSettingArgs', 'EnvironmentClusterSettingArgsDict']]]] cluster_settings: Zero or more `cluster_setting` blocks as defined below.
         :param pulumi.Input[int] front_end_scale_factor: Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`.
         :param pulumi.Input[str] internal_ip_address: IP address of internal load balancer of the App Service Environment.
         :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created.

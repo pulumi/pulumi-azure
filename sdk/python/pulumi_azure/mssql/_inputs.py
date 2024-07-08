@@ -4,48 +4,103 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'DatabaseIdentityArgs',
+    'DatabaseIdentityArgsDict',
     'DatabaseImportArgs',
+    'DatabaseImportArgsDict',
     'DatabaseLongTermRetentionPolicyArgs',
+    'DatabaseLongTermRetentionPolicyArgsDict',
     'DatabaseShortTermRetentionPolicyArgs',
+    'DatabaseShortTermRetentionPolicyArgsDict',
     'DatabaseThreatDetectionPolicyArgs',
+    'DatabaseThreatDetectionPolicyArgsDict',
     'DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs',
+    'DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgsDict',
     'ElasticPoolPerDatabaseSettingsArgs',
+    'ElasticPoolPerDatabaseSettingsArgsDict',
     'ElasticPoolSkuArgs',
+    'ElasticPoolSkuArgsDict',
     'FailoverGroupPartnerServerArgs',
+    'FailoverGroupPartnerServerArgsDict',
     'FailoverGroupReadWriteEndpointFailoverPolicyArgs',
+    'FailoverGroupReadWriteEndpointFailoverPolicyArgsDict',
     'ManagedDatabaseLongTermRetentionPolicyArgs',
+    'ManagedDatabaseLongTermRetentionPolicyArgsDict',
     'ManagedDatabasePointInTimeRestoreArgs',
+    'ManagedDatabasePointInTimeRestoreArgsDict',
     'ManagedInstanceFailoverGroupPartnerRegionArgs',
+    'ManagedInstanceFailoverGroupPartnerRegionArgsDict',
     'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs',
+    'ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict',
     'ManagedInstanceIdentityArgs',
+    'ManagedInstanceIdentityArgsDict',
     'ManagedInstanceVulnerabilityAssessmentRecurringScansArgs',
+    'ManagedInstanceVulnerabilityAssessmentRecurringScansArgsDict',
     'ServerAzureadAdministratorArgs',
+    'ServerAzureadAdministratorArgsDict',
     'ServerIdentityArgs',
+    'ServerIdentityArgsDict',
     'ServerVulnerabilityAssessmentRecurringScansArgs',
+    'ServerVulnerabilityAssessmentRecurringScansArgsDict',
     'VirtualMachineAssessmentArgs',
+    'VirtualMachineAssessmentArgsDict',
     'VirtualMachineAssessmentScheduleArgs',
+    'VirtualMachineAssessmentScheduleArgsDict',
     'VirtualMachineAutoBackupArgs',
+    'VirtualMachineAutoBackupArgsDict',
     'VirtualMachineAutoBackupManualScheduleArgs',
+    'VirtualMachineAutoBackupManualScheduleArgsDict',
     'VirtualMachineAutoPatchingArgs',
+    'VirtualMachineAutoPatchingArgsDict',
     'VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs',
+    'VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgsDict',
     'VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs',
+    'VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgsDict',
     'VirtualMachineAvailabilityGroupListenerReplicaArgs',
+    'VirtualMachineAvailabilityGroupListenerReplicaArgsDict',
     'VirtualMachineGroupWsfcDomainProfileArgs',
+    'VirtualMachineGroupWsfcDomainProfileArgsDict',
     'VirtualMachineKeyVaultCredentialArgs',
+    'VirtualMachineKeyVaultCredentialArgsDict',
     'VirtualMachineSqlInstanceArgs',
+    'VirtualMachineSqlInstanceArgsDict',
     'VirtualMachineStorageConfigurationArgs',
+    'VirtualMachineStorageConfigurationArgsDict',
     'VirtualMachineStorageConfigurationDataSettingsArgs',
+    'VirtualMachineStorageConfigurationDataSettingsArgsDict',
     'VirtualMachineStorageConfigurationLogSettingsArgs',
+    'VirtualMachineStorageConfigurationLogSettingsArgsDict',
     'VirtualMachineStorageConfigurationTempDbSettingsArgs',
+    'VirtualMachineStorageConfigurationTempDbSettingsArgsDict',
     'VirtualMachineWsfcDomainCredentialArgs',
+    'VirtualMachineWsfcDomainCredentialArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class DatabaseIdentityArgsDict(TypedDict):
+        identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database.
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this SQL Database. Possible value is `UserAssigned`.
+        """
+elif False:
+    DatabaseIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseIdentityArgs:
@@ -83,6 +138,39 @@ class DatabaseIdentityArgs:
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class DatabaseImportArgsDict(TypedDict):
+        administrator_login: pulumi.Input[str]
+        """
+        Specifies the name of the SQL administrator.
+        """
+        administrator_login_password: pulumi.Input[str]
+        """
+        Specifies the password of the SQL administrator.
+        """
+        authentication_type: pulumi.Input[str]
+        """
+        Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+        """
+        storage_key: pulumi.Input[str]
+        """
+        Specifies the access key for the storage account.
+        """
+        storage_key_type: pulumi.Input[str]
+        """
+        Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+        """
+        storage_uri: pulumi.Input[str]
+        """
+        Specifies the blob URI of the .bacpac file.
+        """
+        storage_account_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+        """
+elif False:
+    DatabaseImportArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseImportArgs:
@@ -197,6 +285,31 @@ class DatabaseImportArgs:
         pulumi.set(self, "storage_account_id", value)
 
 
+if not MYPY:
+    class DatabaseLongTermRetentionPolicyArgsDict(TypedDict):
+        immutable_backups_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the backups are immutable. Defaults to `false`.
+        """
+        monthly_retention: NotRequired[pulumi.Input[str]]
+        """
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        """
+        week_of_year: NotRequired[pulumi.Input[int]]
+        """
+        The week of year to take the yearly backup. Value has to be between `1` and `52`.
+        """
+        weekly_retention: NotRequired[pulumi.Input[str]]
+        """
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        """
+        yearly_retention: NotRequired[pulumi.Input[str]]
+        """
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+elif False:
+    DatabaseLongTermRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -284,6 +397,19 @@ class DatabaseLongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_retention", value)
 
 
+if not MYPY:
+    class DatabaseShortTermRetentionPolicyArgsDict(TypedDict):
+        retention_days: pulumi.Input[int]
+        """
+        Point In Time Restore configuration. Value has to be between `1` and `35`.
+        """
+        backup_interval_in_hours: NotRequired[pulumi.Input[int]]
+        """
+        The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
+        """
+elif False:
+    DatabaseShortTermRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseShortTermRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -321,6 +447,39 @@ class DatabaseShortTermRetentionPolicyArgs:
     def backup_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_interval_in_hours", value)
 
+
+if not MYPY:
+    class DatabaseThreatDetectionPolicyArgsDict(TypedDict):
+        disabled_alerts: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
+        """
+        email_account_admins: NotRequired[pulumi.Input[str]]
+        """
+        Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+        """
+        email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of email addresses which alerts should be sent to.
+        """
+        retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days to keep in the Threat Detection audit logs.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The State of the Policy. Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+        """
+        storage_account_access_key: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
+        """
+        storage_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
+        """
+elif False:
+    DatabaseThreatDetectionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DatabaseThreatDetectionPolicyArgs:
@@ -441,6 +600,15 @@ class DatabaseThreatDetectionPolicyArgs:
         pulumi.set(self, "storage_endpoint", value)
 
 
+if not MYPY:
+    class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgsDict(TypedDict):
+        results: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list representing a result of the baseline.
+        """
+elif False:
+    DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs:
     def __init__(__self__, *,
@@ -462,6 +630,19 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResultArgs:
     def results(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "results", value)
 
+
+if not MYPY:
+    class ElasticPoolPerDatabaseSettingsArgsDict(TypedDict):
+        max_capacity: pulumi.Input[float]
+        """
+        The maximum capacity any one database can consume.
+        """
+        min_capacity: pulumi.Input[float]
+        """
+        The minimum capacity all databases are guaranteed.
+        """
+elif False:
+    ElasticPoolPerDatabaseSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ElasticPoolPerDatabaseSettingsArgs:
@@ -499,6 +680,27 @@ class ElasticPoolPerDatabaseSettingsArgs:
     def min_capacity(self, value: pulumi.Input[float]):
         pulumi.set(self, "min_capacity", value)
 
+
+if not MYPY:
+    class ElasticPoolSkuArgsDict(TypedDict):
+        capacity: pulumi.Input[int]
+        """
+        The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+        """
+        name: pulumi.Input[str]
+        """
+        Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based or `DTU` based. Possible `DTU` based values are `BasicPool`, `StandardPool`, `PremiumPool` while possible `vCore` based values are `GP_Gen4`, `GP_Gen5`, `GP_Fsv2`, `GP_DC`, `BC_Gen4`, `BC_Gen5`, `BC_DC`, `HS_PRMS`, or `HS_Gen5`.
+        """
+        tier: pulumi.Input[str]
+        """
+        The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
+        """
+        family: NotRequired[pulumi.Input[str]]
+        """
+        The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
+        """
+elif False:
+    ElasticPoolSkuArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ElasticPoolSkuArgs:
@@ -568,6 +770,23 @@ class ElasticPoolSkuArgs:
         pulumi.set(self, "family", value)
 
 
+if not MYPY:
+    class FailoverGroupPartnerServerArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID of a partner SQL server to include in the failover group.
+        """
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The location of the partner server.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The replication role of the partner server. Possible values include `Primary` or `Secondary`.
+        """
+elif False:
+    FailoverGroupPartnerServerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupPartnerServerArgs:
     def __init__(__self__, *,
@@ -622,6 +841,19 @@ class FailoverGroupPartnerServerArgs:
         pulumi.set(self, "role", value)
 
 
+if not MYPY:
+    class FailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
+        """
+        grace_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
+        """
+elif False:
+    FailoverGroupReadWriteEndpointFailoverPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
@@ -659,6 +891,31 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
 
+
+if not MYPY:
+    class ManagedDatabaseLongTermRetentionPolicyArgsDict(TypedDict):
+        immutable_backups_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the backups are immutable. Defaults to `false`.
+        """
+        monthly_retention: NotRequired[pulumi.Input[str]]
+        """
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
+        """
+        week_of_year: NotRequired[pulumi.Input[int]]
+        """
+        The week of year to take the yearly backup. Value has to be between `1` and `52`.
+        """
+        weekly_retention: NotRequired[pulumi.Input[str]]
+        """
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
+        """
+        yearly_retention: NotRequired[pulumi.Input[str]]
+        """
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
+        """
+elif False:
+    ManagedDatabaseLongTermRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedDatabaseLongTermRetentionPolicyArgs:
@@ -747,6 +1004,19 @@ class ManagedDatabaseLongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_retention", value)
 
 
+if not MYPY:
+    class ManagedDatabasePointInTimeRestoreArgsDict(TypedDict):
+        restore_point_in_time: pulumi.Input[str]
+        """
+        The point in time for the restore from `source_database_id`. Changing this forces a new resource to be created.
+        """
+        source_database_id: pulumi.Input[str]
+        """
+        The source database id that will be used to restore from. Changing this forces a new resource to be created.
+        """
+elif False:
+    ManagedDatabasePointInTimeRestoreArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedDatabasePointInTimeRestoreArgs:
     def __init__(__self__, *,
@@ -783,6 +1053,19 @@ class ManagedDatabasePointInTimeRestoreArgs:
     def source_database_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_database_id", value)
 
+
+if not MYPY:
+    class ManagedInstanceFailoverGroupPartnerRegionArgsDict(TypedDict):
+        location: NotRequired[pulumi.Input[str]]
+        """
+        The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
+        """
+        role: NotRequired[pulumi.Input[str]]
+        """
+        The partner replication role of the Managed Instance Failover Group.
+        """
+elif False:
+    ManagedInstanceFailoverGroupPartnerRegionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedInstanceFailoverGroupPartnerRegionArgs:
@@ -823,6 +1106,19 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
         pulumi.set(self, "role", value)
 
 
+if not MYPY:
+    class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict(TypedDict):
+        mode: pulumi.Input[str]
+        """
+        The failover mode. Possible values are `Automatic` or `Manual`.
+        """
+        grace_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
+        """
+elif False:
+    ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def __init__(__self__, *,
@@ -860,6 +1156,29 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
     def grace_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "grace_minutes", value)
 
+
+if not MYPY:
+    class ManagedInstanceIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are `SystemAssigned`, `UserAssigned`.
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when `type` is set to `UserAssigned`.
+
+        > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned` and SQL Managed Instance has been created.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
+        """
+elif False:
+    ManagedInstanceIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedInstanceIdentityArgs:
@@ -935,6 +1254,23 @@ class ManagedInstanceIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ManagedInstanceVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
+        email_subscription_admins: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `true`.
+        """
+        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies an array of e-mail addresses to which the scan notification is sent.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+elif False:
+    ManagedInstanceVulnerabilityAssessmentRecurringScansArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
     def __init__(__self__, *,
@@ -989,6 +1325,27 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScansArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+
+if not MYPY:
+    class ServerAzureadAdministratorArgsDict(TypedDict):
+        login_username: pulumi.Input[str]
+        """
+        The login username of the Azure AD Administrator of this SQL Server.
+        """
+        object_id: pulumi.Input[str]
+        """
+        The object id of the Azure AD Administrator of this SQL Server.
+        """
+        azuread_authentication_only: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the Azure AD Administrator of this SQL Server.
+        """
+elif False:
+    ServerAzureadAdministratorArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerAzureadAdministratorArgs:
@@ -1058,6 +1415,31 @@ class ServerAzureadAdministratorArgs:
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
 
+
+if not MYPY:
+    class ServerIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned`
+
+        > **NOTE:** When `type` is set to `SystemAssigned`, the assigned `principal_id` and `tenant_id` can be retrieved after the Microsoft SQL Server has been created. More details are available below.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this SQL Server.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
+        """
+elif False:
+    ServerIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServerIdentityArgs:
@@ -1137,6 +1519,23 @@ class ServerIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ServerVulnerabilityAssessmentRecurringScansArgsDict(TypedDict):
+        email_subscription_admins: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
+        """
+        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies an array of email addresses to which the scan notification is sent.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
+        """
+elif False:
+    ServerVulnerabilityAssessmentRecurringScansArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServerVulnerabilityAssessmentRecurringScansArgs:
     def __init__(__self__, *,
@@ -1192,6 +1591,23 @@ class ServerVulnerabilityAssessmentRecurringScansArgs:
         pulumi.set(self, "enabled", value)
 
 
+if not MYPY:
+    class VirtualMachineAssessmentArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Should Assessment be enabled? Defaults to `true`.
+        """
+        run_immediately: NotRequired[pulumi.Input[bool]]
+        """
+        Should Assessment be run immediately? Defaults to `false`.
+        """
+        schedule: NotRequired[pulumi.Input['VirtualMachineAssessmentScheduleArgsDict']]
+        """
+        An `schedule` block as defined below.
+        """
+elif False:
+    VirtualMachineAssessmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineAssessmentArgs:
     def __init__(__self__, *,
@@ -1246,6 +1662,29 @@ class VirtualMachineAssessmentArgs:
     def schedule(self, value: Optional[pulumi.Input['VirtualMachineAssessmentScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
+
+if not MYPY:
+    class VirtualMachineAssessmentScheduleArgsDict(TypedDict):
+        day_of_week: pulumi.Input[str]
+        """
+        What day of the week the assessment will be run. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
+        """
+        start_time: pulumi.Input[str]
+        """
+        What time the assessment will be run. Must be in the format `HH:mm`.
+        """
+        monthly_occurrence: NotRequired[pulumi.Input[int]]
+        """
+        How many months between assessment runs. Valid values are between `1` and `5`.
+
+        > **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
+        """
+        weekly_interval: NotRequired[pulumi.Input[int]]
+        """
+        How many weeks between assessment runs. Valid values are between `1` and `6`.
+        """
+elif False:
+    VirtualMachineAssessmentScheduleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineAssessmentScheduleArgs:
@@ -1319,6 +1758,39 @@ class VirtualMachineAssessmentScheduleArgs:
     def weekly_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weekly_interval", value)
 
+
+if not MYPY:
+    class VirtualMachineAutoBackupArgsDict(TypedDict):
+        retention_period_in_days: pulumi.Input[int]
+        """
+        Retention period of backups, in days. Valid values are from `1` to `30`.
+        """
+        storage_account_access_key: pulumi.Input[str]
+        """
+        Access key for the storage account where backups will be kept.
+        """
+        storage_blob_endpoint: pulumi.Input[str]
+        """
+        Blob endpoint for the storage account where backups will be kept.
+        """
+        encryption_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable or disable encryption for backups. Defaults to `false`.
+        """
+        encryption_password: NotRequired[pulumi.Input[str]]
+        """
+        Encryption password to use. Must be specified when encryption is enabled.
+        """
+        manual_schedule: NotRequired[pulumi.Input['VirtualMachineAutoBackupManualScheduleArgsDict']]
+        """
+        A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        """
+        system_databases_backup_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Include or exclude system databases from auto backup.
+        """
+elif False:
+    VirtualMachineAutoBackupArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineAutoBackupArgs:
@@ -1436,6 +1908,33 @@ class VirtualMachineAutoBackupArgs:
         pulumi.set(self, "system_databases_backup_enabled", value)
 
 
+if not MYPY:
+    class VirtualMachineAutoBackupManualScheduleArgsDict(TypedDict):
+        full_backup_frequency: pulumi.Input[str]
+        """
+        Frequency of full backups. Valid values include `Daily` or `Weekly`.
+        """
+        full_backup_start_hour: pulumi.Input[int]
+        """
+        Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`.
+        """
+        full_backup_window_in_hours: pulumi.Input[int]
+        """
+        Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`.
+        """
+        log_backup_frequency_in_minutes: pulumi.Input[int]
+        """
+        Frequency of log backups, in minutes. Valid values are from `5` to `60`.
+        """
+        days_of_weeks: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of days on which backup can take place. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`
+
+        > **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
+        """
+elif False:
+    VirtualMachineAutoBackupManualScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineAutoBackupManualScheduleArgs:
     def __init__(__self__, *,
@@ -1523,6 +2022,23 @@ class VirtualMachineAutoBackupManualScheduleArgs:
         pulumi.set(self, "days_of_weeks", value)
 
 
+if not MYPY:
+    class VirtualMachineAutoPatchingArgsDict(TypedDict):
+        day_of_week: pulumi.Input[str]
+        """
+        The day of week to apply the patch on. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
+        maintenance_window_duration_in_minutes: pulumi.Input[int]
+        """
+        The size of the Maintenance Window in minutes.
+        """
+        maintenance_window_starting_hour: pulumi.Input[int]
+        """
+        The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+        """
+elif False:
+    VirtualMachineAutoPatchingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineAutoPatchingArgs:
     def __init__(__self__, *,
@@ -1574,6 +2090,33 @@ class VirtualMachineAutoPatchingArgs:
     def maintenance_window_starting_hour(self, value: pulumi.Input[int]):
         pulumi.set(self, "maintenance_window_starting_hour", value)
 
+
+if not MYPY:
+    class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgsDict(TypedDict):
+        load_balancer_id: pulumi.Input[str]
+        """
+        The ID of the Load Balancer. Changing this forces a new resource to be created.
+        """
+        private_ip_address: pulumi.Input[str]
+        """
+        The private IP Address of the listener. Changing this forces a new resource to be created.
+        """
+        probe_port: pulumi.Input[int]
+        """
+        The probe port of the listener. Changing this forces a new resource to be created.
+        """
+        sql_virtual_machine_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+
+        > **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
+        """
+elif False:
+    VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
@@ -1661,6 +2204,25 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs:
         pulumi.set(self, "subnet_id", value)
 
 
+if not MYPY:
+    class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgsDict(TypedDict):
+        private_ip_address: pulumi.Input[str]
+        """
+        The private IP Address of the listener. Changing this forces a new resource to be created.
+        """
+        sql_virtual_machine_id: pulumi.Input[str]
+        """
+        The ID of the Sql Virtual Machine. Changing this forces a new resource to be created.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
+
+        > **NOTE:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
+        """
+elif False:
+    VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
     def __init__(__self__, *,
@@ -1716,6 +2278,31 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs:
     def subnet_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_id", value)
 
+
+if not MYPY:
+    class VirtualMachineAvailabilityGroupListenerReplicaArgsDict(TypedDict):
+        commit: pulumi.Input[str]
+        """
+        The replica commit mode for the availability group. Possible values are `Synchronous_Commit` and `Asynchronous_Commit`. Changing this forces a new resource to be created.
+        """
+        failover_mode: pulumi.Input[str]
+        """
+        The replica failover mode for the availability group. Possible values are `Manual` and `Automatic`. Changing this forces a new resource to be created.
+        """
+        readable_secondary: pulumi.Input[str]
+        """
+        The replica readable secondary mode for the availability group. Possible values are `No`, `Read_Only` and `All`. Changing this forces a new resource to be created.
+        """
+        role: pulumi.Input[str]
+        """
+        The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
+        """
+        sql_virtual_machine_id: pulumi.Input[str]
+        """
+        The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
+        """
+elif False:
+    VirtualMachineAvailabilityGroupListenerReplicaArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineAvailabilityGroupListenerReplicaArgs:
@@ -1798,6 +2385,43 @@ class VirtualMachineAvailabilityGroupListenerReplicaArgs:
     def sql_virtual_machine_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "sql_virtual_machine_id", value)
 
+
+if not MYPY:
+    class VirtualMachineGroupWsfcDomainProfileArgsDict(TypedDict):
+        cluster_subnet_type: pulumi.Input[str]
+        """
+        The subnet type of the SQL Virtual Machine cluster. Possible values are `MultiSubnet` and `SingleSubnet`. Changing this forces a new resource to be created.
+        """
+        fqdn: pulumi.Input[str]
+        """
+        The fully qualified name of the domain. Changing this forces a new resource to be created.
+        """
+        cluster_bootstrap_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The account name used for creating cluster. Changing this forces a new resource to be created.
+        """
+        cluster_operator_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The account name used for operating cluster. Changing this forces a new resource to be created.
+        """
+        organizational_unit_path: NotRequired[pulumi.Input[str]]
+        """
+        The organizational Unit path in which the nodes and cluster will be present. Changing this forces a new resource to be created.
+        """
+        sql_service_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created.
+        """
+        storage_account_primary_key: NotRequired[pulumi.Input[str]]
+        """
+        The primary key of the Storage Account.
+        """
+        storage_account_url: NotRequired[pulumi.Input[str]]
+        """
+        The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
+        """
+elif False:
+    VirtualMachineGroupWsfcDomainProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineGroupWsfcDomainProfileArgs:
@@ -1932,6 +2556,27 @@ class VirtualMachineGroupWsfcDomainProfileArgs:
         pulumi.set(self, "storage_account_url", value)
 
 
+if not MYPY:
+    class VirtualMachineKeyVaultCredentialArgsDict(TypedDict):
+        key_vault_url: pulumi.Input[str]
+        """
+        The Azure Key Vault url. Changing this forces a new resource to be created.
+        """
+        name: pulumi.Input[str]
+        """
+        The credential name.
+        """
+        service_principal_name: pulumi.Input[str]
+        """
+        The service principal name to access key vault. Changing this forces a new resource to be created.
+        """
+        service_principal_secret: pulumi.Input[str]
+        """
+        The service principal name secret to access key vault. Changing this forces a new resource to be created.
+        """
+elif False:
+    VirtualMachineKeyVaultCredentialArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineKeyVaultCredentialArgs:
     def __init__(__self__, *,
@@ -1998,6 +2643,41 @@ class VirtualMachineKeyVaultCredentialArgs:
     def service_principal_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_principal_secret", value)
 
+
+if not MYPY:
+    class VirtualMachineSqlInstanceArgsDict(TypedDict):
+        adhoc_workloads_optimization_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the SQL Server is optimized for adhoc workloads. Possible values are `true` and `false`. Defaults to `false`.
+        """
+        collation: NotRequired[pulumi.Input[str]]
+        """
+        Collation of the SQL Server. Defaults to `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
+        """
+        instant_file_initialization_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        lock_pages_in_memory_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are `true` and `false`. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        max_dop: NotRequired[pulumi.Input[int]]
+        """
+        Maximum Degree of Parallelism of the SQL Server. Possible values are between `0` and `32767`. Defaults to `0`.
+        """
+        max_server_memory_mb: NotRequired[pulumi.Input[int]]
+        """
+        Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `128` and `2147483647` Defaults to `2147483647`.
+        """
+        min_server_memory_mb: NotRequired[pulumi.Input[int]]
+        """
+        Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between `0` and `2147483647` Defaults to `0`.
+
+        > **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
+        """
+elif False:
+    VirtualMachineSqlInstanceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineSqlInstanceArgs:
@@ -2122,6 +2802,35 @@ class VirtualMachineSqlInstanceArgs:
         pulumi.set(self, "min_server_memory_mb", value)
 
 
+if not MYPY:
+    class VirtualMachineStorageConfigurationArgsDict(TypedDict):
+        disk_type: pulumi.Input[str]
+        """
+        The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
+        """
+        storage_workload_type: pulumi.Input[str]
+        """
+        The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
+        """
+        data_settings: NotRequired[pulumi.Input['VirtualMachineStorageConfigurationDataSettingsArgsDict']]
+        """
+        A `storage_settings` block as defined below.
+        """
+        log_settings: NotRequired[pulumi.Input['VirtualMachineStorageConfigurationLogSettingsArgsDict']]
+        """
+        A `storage_settings` block as defined below.
+        """
+        system_db_on_data_disk_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
+        """
+        temp_db_settings: NotRequired[pulumi.Input['VirtualMachineStorageConfigurationTempDbSettingsArgsDict']]
+        """
+        An `temp_db_settings` block as defined below.
+        """
+elif False:
+    VirtualMachineStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineStorageConfigurationArgs:
     def __init__(__self__, *,
@@ -2223,6 +2932,13 @@ class VirtualMachineStorageConfigurationArgs:
         pulumi.set(self, "temp_db_settings", value)
 
 
+if not MYPY:
+    class VirtualMachineStorageConfigurationDataSettingsArgsDict(TypedDict):
+        default_file_path: pulumi.Input[str]
+        luns: pulumi.Input[Sequence[pulumi.Input[int]]]
+elif False:
+    VirtualMachineStorageConfigurationDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineStorageConfigurationDataSettingsArgs:
     def __init__(__self__, *,
@@ -2250,6 +2966,13 @@ class VirtualMachineStorageConfigurationDataSettingsArgs:
         pulumi.set(self, "luns", value)
 
 
+if not MYPY:
+    class VirtualMachineStorageConfigurationLogSettingsArgsDict(TypedDict):
+        default_file_path: pulumi.Input[str]
+        luns: pulumi.Input[Sequence[pulumi.Input[int]]]
+elif False:
+    VirtualMachineStorageConfigurationLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class VirtualMachineStorageConfigurationLogSettingsArgs:
     def __init__(__self__, *,
@@ -2276,6 +2999,39 @@ class VirtualMachineStorageConfigurationLogSettingsArgs:
     def luns(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
         pulumi.set(self, "luns", value)
 
+
+if not MYPY:
+    class VirtualMachineStorageConfigurationTempDbSettingsArgsDict(TypedDict):
+        default_file_path: pulumi.Input[str]
+        """
+        The SQL Server default path
+        """
+        luns: pulumi.Input[Sequence[pulumi.Input[int]]]
+        """
+        A list of Logical Unit Numbers for the disks.
+        """
+        data_file_count: NotRequired[pulumi.Input[int]]
+        """
+        The SQL Server default file count. This value defaults to `8`
+        """
+        data_file_growth_in_mb: NotRequired[pulumi.Input[int]]
+        """
+        The SQL Server default file size - This value defaults to `512`
+        """
+        data_file_size_mb: NotRequired[pulumi.Input[int]]
+        """
+        The SQL Server default file size - This value defaults to `256`
+        """
+        log_file_growth_mb: NotRequired[pulumi.Input[int]]
+        """
+        The SQL Server default file size - This value defaults to `512`
+        """
+        log_file_size_mb: NotRequired[pulumi.Input[int]]
+        """
+        The SQL Server default file size - This value defaults to `256`
+        """
+elif False:
+    VirtualMachineStorageConfigurationTempDbSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineStorageConfigurationTempDbSettingsArgs:
@@ -2393,6 +3149,23 @@ class VirtualMachineStorageConfigurationTempDbSettingsArgs:
     def log_file_size_mb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "log_file_size_mb", value)
 
+
+if not MYPY:
+    class VirtualMachineWsfcDomainCredentialArgsDict(TypedDict):
+        cluster_bootstrap_account_password: pulumi.Input[str]
+        """
+        The account password used for creating cluster.
+        """
+        cluster_operator_account_password: pulumi.Input[str]
+        """
+        The account password used for operating cluster.
+        """
+        sql_service_account_password: pulumi.Input[str]
+        """
+        The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
+        """
+elif False:
+    VirtualMachineWsfcDomainCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualMachineWsfcDomainCredentialArgs:

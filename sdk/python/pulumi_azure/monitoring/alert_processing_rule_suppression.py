@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -288,12 +293,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -313,37 +318,37 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
             name="example",
             resource_group_name="example",
             scopes=[example.id],
-            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
+            condition={
+                "targetResourceType": {
+                    "operator": "Equals",
+                    "values": ["Microsoft.Compute/VirtualMachines"],
+                },
+                "severity": {
+                    "operator": "Equals",
+                    "values": [
                         "Sev0",
                         "Sev1",
                         "Sev2",
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
+                },
+            },
+            schedule={
+                "effectiveFrom": "2022-01-01T01:02:03",
+                "effectiveUntil": "2022-02-02T01:02:03",
+                "timeZone": "Pacific Standard Time",
+                "recurrence": {
+                    "dailies": [{
+                        "startTime": "17:00:00",
+                        "endTime": "09:00:00",
+                    }],
+                    "weeklies": [{
+                        "daysOfWeeks": [
                             "Saturday",
                             "Sunday",
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -359,12 +364,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionScheduleArgs']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs which will be the target of Alert Processing Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """
@@ -390,37 +395,37 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
             name="example",
             resource_group_name="example",
             scopes=[example.id],
-            condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
-                target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
-                    operator="Equals",
-                    values=["Microsoft.Compute/VirtualMachines"],
-                ),
-                severity=azure.monitoring.AlertProcessingRuleSuppressionConditionSeverityArgs(
-                    operator="Equals",
-                    values=[
+            condition={
+                "targetResourceType": {
+                    "operator": "Equals",
+                    "values": ["Microsoft.Compute/VirtualMachines"],
+                },
+                "severity": {
+                    "operator": "Equals",
+                    "values": [
                         "Sev0",
                         "Sev1",
                         "Sev2",
                     ],
-                ),
-            ),
-            schedule=azure.monitoring.AlertProcessingRuleSuppressionScheduleArgs(
-                effective_from="2022-01-01T01:02:03",
-                effective_until="2022-02-02T01:02:03",
-                time_zone="Pacific Standard Time",
-                recurrence=azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceArgs(
-                    dailies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs(
-                        start_time="17:00:00",
-                        end_time="09:00:00",
-                    )],
-                    weeklies=[azure.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs(
-                        days_of_weeks=[
+                },
+            },
+            schedule={
+                "effectiveFrom": "2022-01-01T01:02:03",
+                "effectiveUntil": "2022-02-02T01:02:03",
+                "timeZone": "Pacific Standard Time",
+                "recurrence": {
+                    "dailies": [{
+                        "startTime": "17:00:00",
+                        "endTime": "09:00:00",
+                    }],
+                    "weeklies": [{
+                        "daysOfWeeks": [
                             "Saturday",
                             "Sunday",
                         ],
-                    )],
-                ),
-            ),
+                    }],
+                },
+            },
             tags={
                 "foo": "bar",
             })
@@ -449,12 +454,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionConditionArgs']]] = None,
+                 condition: Optional[pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -488,12 +493,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            condition: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionConditionArgs']]] = None,
+            condition: Optional[pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionScheduleArgs']]] = None,
+            schedule: Optional[pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']]] = None,
             scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AlertProcessingRuleSuppression':
         """
@@ -503,12 +508,12 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionConditionArgs']] condition: A `condition` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionConditionArgs', 'AlertProcessingRuleSuppressionConditionArgsDict']] condition: A `condition` block as defined below.
         :param pulumi.Input[str] description: Specifies a description for the Alert Processing Rule.
         :param pulumi.Input[bool] enabled: Should the Alert Processing Rule be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created.
-        :param pulumi.Input[pulumi.InputType['AlertProcessingRuleSuppressionScheduleArgs']] schedule: A `schedule` block as defined below.
+        :param pulumi.Input[Union['AlertProcessingRuleSuppressionScheduleArgs', 'AlertProcessingRuleSuppressionScheduleArgsDict']] schedule: A `schedule` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A list of resource IDs which will be the target of Alert Processing Rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Alert Processing Rule.
         """

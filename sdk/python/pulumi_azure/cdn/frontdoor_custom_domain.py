@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -243,7 +248,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -267,10 +272,10 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         ```
 
         ## Example DNS Auth TXT Record Usage
@@ -291,9 +296,9 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
-            )])
+            records=[{
+                "value": example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
+            }])
         ```
 
         ## Example CNAME Record Usage
@@ -334,7 +339,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                ->**NOTE:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. -->
         :param pulumi.Input[str] host_name: The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']] tls: A `tls` block as defined below.
+        :param pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']] tls: A `tls` block as defined below.
         """
         ...
     @overload
@@ -364,10 +369,10 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
-            tls=azure.cdn.FrontdoorCustomDomainTlsArgs(
-                certificate_type="ManagedCertificate",
-                minimum_tls_version="TLS12",
-            ))
+            tls={
+                "certificateType": "ManagedCertificate",
+                "minimumTlsVersion": "TLS12",
+            })
         ```
 
         ## Example DNS Auth TXT Record Usage
@@ -388,9 +393,9 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             zone_name=example_azurerm_dns_zone["name"],
             resource_group_name=example_azurerm_resource_group["name"],
             ttl=3600,
-            records=[azure.dns.TxtRecordRecordArgs(
-                value=example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
-            )])
+            records=[{
+                "value": example_azurerm_cdn_frontdoor_custom_domain["validationToken"],
+            }])
         ```
 
         ## Example CNAME Record Usage
@@ -440,7 +445,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
                  dns_zone_id: Optional[pulumi.Input[str]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']]] = None,
+                 tls: Optional[pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -480,7 +485,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             expiration_date: Optional[pulumi.Input[str]] = None,
             host_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            tls: Optional[pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']]] = None,
+            tls: Optional[pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']]] = None,
             validation_token: Optional[pulumi.Input[str]] = None) -> 'FrontdoorCustomDomain':
         """
         Get an existing FrontdoorCustomDomain resource's state with the given name, id, and optional extra
@@ -498,7 +503,7 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] expiration_date: The date time that the token expires.
         :param pulumi.Input[str] host_name: The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorCustomDomainTlsArgs']] tls: A `tls` block as defined below.
+        :param pulumi.Input[Union['FrontdoorCustomDomainTlsArgs', 'FrontdoorCustomDomainTlsArgsDict']] tls: A `tls` block as defined below.
         :param pulumi.Input[str] validation_token: Challenge used for DNS TXT record or file based validation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

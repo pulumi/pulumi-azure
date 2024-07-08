@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SpringCloudCertificateArgs', 'SpringCloudCertificate']
@@ -267,56 +272,56 @@ class SpringCloudCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    secret_permissions=["Set"],
-                    certificate_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "secretPermissions": ["Set"],
+                    "certificatePermissions": [
                         "Create",
                         "Delete",
                         "Get",
                         "Update",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=example.object_id,
-                    secret_permissions=[
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": example.object_id,
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                    certificate_permissions=[
+                    "certificatePermissions": [
                         "Get",
                         "List",
                     ],
-                ),
+                },
             ])
         example_certificate = azure.keyvault.Certificate("example",
             name="cert-example",
             key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=True,
-                ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
-                        action_type="AutoRenew",
-                    ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
-                        days_before_expiry=30,
-                    ),
-                )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
-                    key_usages=[
+            certificate_policy={
+                "issuerParameters": {
+                    "name": "Self",
+                },
+                "keyProperties": {
+                    "exportable": True,
+                    "keySize": 2048,
+                    "keyType": "RSA",
+                    "reuseKey": True,
+                },
+                "lifetimeActions": [{
+                    "action": {
+                        "actionType": "AutoRenew",
+                    },
+                    "trigger": {
+                        "daysBeforeExpiry": 30,
+                    },
+                }],
+                "secretProperties": {
+                    "contentType": "application/x-pkcs12",
+                },
+                "x509CertificateProperties": {
+                    "keyUsages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -324,10 +329,10 @@ class SpringCloudCertificate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    subject="CN=contoso.com",
-                    validity_in_months=12,
-                ),
-            ))
+                    "subject": "CN=contoso.com",
+                    "validityInMonths": 12,
+                },
+            })
         example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
             name="example-springcloud",
             resource_group_name=example_resource_group.name,
@@ -385,56 +390,56 @@ class SpringCloudCertificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=current.object_id,
-                    secret_permissions=["Set"],
-                    certificate_permissions=[
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": current.object_id,
+                    "secretPermissions": ["Set"],
+                    "certificatePermissions": [
                         "Create",
                         "Delete",
                         "Get",
                         "Update",
                     ],
-                ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=current.tenant_id,
-                    object_id=example.object_id,
-                    secret_permissions=[
+                },
+                {
+                    "tenantId": current.tenant_id,
+                    "objectId": example.object_id,
+                    "secretPermissions": [
                         "Get",
                         "List",
                     ],
-                    certificate_permissions=[
+                    "certificatePermissions": [
                         "Get",
                         "List",
                     ],
-                ),
+                },
             ])
         example_certificate = azure.keyvault.Certificate("example",
             name="cert-example",
             key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
-                    name="Self",
-                ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
-                    exportable=True,
-                    key_size=2048,
-                    key_type="RSA",
-                    reuse_key=True,
-                ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
-                        action_type="AutoRenew",
-                    ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
-                        days_before_expiry=30,
-                    ),
-                )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
-                    content_type="application/x-pkcs12",
-                ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
-                    key_usages=[
+            certificate_policy={
+                "issuerParameters": {
+                    "name": "Self",
+                },
+                "keyProperties": {
+                    "exportable": True,
+                    "keySize": 2048,
+                    "keyType": "RSA",
+                    "reuseKey": True,
+                },
+                "lifetimeActions": [{
+                    "action": {
+                        "actionType": "AutoRenew",
+                    },
+                    "trigger": {
+                        "daysBeforeExpiry": 30,
+                    },
+                }],
+                "secretProperties": {
+                    "contentType": "application/x-pkcs12",
+                },
+                "x509CertificateProperties": {
+                    "keyUsages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -442,10 +447,10 @@ class SpringCloudCertificate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    subject="CN=contoso.com",
-                    validity_in_months=12,
-                ),
-            ))
+                    "subject": "CN=contoso.com",
+                    "validityInMonths": 12,
+                },
+            })
         example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
             name="example-springcloud",
             resource_group_name=example_resource_group.name,

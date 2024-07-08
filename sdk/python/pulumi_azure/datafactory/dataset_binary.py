@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -426,16 +431,16 @@ class DatasetBinary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']]] = None,
-                 compression: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']]] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetBinaryAzureBlobStorageLocationArgs', 'DatasetBinaryAzureBlobStorageLocationArgsDict']]] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBinaryCompressionArgs', 'DatasetBinaryCompressionArgsDict']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']]] = None,
+                 http_server_location: Optional[pulumi.Input[Union['DatasetBinaryHttpServerLocationArgs', 'DatasetBinaryHttpServerLocationArgsDict']]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 sftp_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']]] = None,
+                 sftp_server_location: Optional[pulumi.Input[Union['DatasetBinarySftpServerLocationArgs', 'DatasetBinarySftpServerLocationArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Data Factory Binary Dataset inside an Azure Data Factory.
@@ -465,10 +470,10 @@ class DatasetBinary(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_sftp.name,
-            sftp_server_location=azure.datafactory.DatasetBinarySftpServerLocationArgs(
-                path="/test/",
-                filename="**",
-            ))
+            sftp_server_location={
+                "path": "/test/",
+                "filename": "**",
+            })
         ```
 
         ## Import
@@ -483,18 +488,18 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Binary Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Binary Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']] compression: A `compression` block as defined below.
+        :param pulumi.Input[Union['DatasetBinaryAzureBlobStorageLocationArgs', 'DatasetBinaryAzureBlobStorageLocationArgsDict']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[Union['DatasetBinaryCompressionArgs', 'DatasetBinaryCompressionArgsDict']] compression: A `compression` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetBinaryHttpServerLocationArgs', 'DatasetBinaryHttpServerLocationArgsDict']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Binary Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
                
                The following supported locations for a Binary Dataset. One of these should be specified:
-        :param pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']] sftp_server_location: A `sftp_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetBinarySftpServerLocationArgs', 'DatasetBinarySftpServerLocationArgsDict']] sftp_server_location: A `sftp_server_location` block as defined below.
         """
         ...
     @overload
@@ -530,10 +535,10 @@ class DatasetBinary(pulumi.CustomResource):
             name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_sftp.name,
-            sftp_server_location=azure.datafactory.DatasetBinarySftpServerLocationArgs(
-                path="/test/",
-                filename="**",
-            ))
+            sftp_server_location={
+                "path": "/test/",
+                "filename": "**",
+            })
         ```
 
         ## Import
@@ -561,16 +566,16 @@ class DatasetBinary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']]] = None,
-                 compression: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']]] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetBinaryAzureBlobStorageLocationArgs', 'DatasetBinaryAzureBlobStorageLocationArgsDict']]] = None,
+                 compression: Optional[pulumi.Input[Union['DatasetBinaryCompressionArgs', 'DatasetBinaryCompressionArgsDict']]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']]] = None,
+                 http_server_location: Optional[pulumi.Input[Union['DatasetBinaryHttpServerLocationArgs', 'DatasetBinaryHttpServerLocationArgsDict']]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 sftp_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']]] = None,
+                 sftp_server_location: Optional[pulumi.Input[Union['DatasetBinarySftpServerLocationArgs', 'DatasetBinarySftpServerLocationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -608,16 +613,16 @@ class DatasetBinary(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']]] = None,
-            compression: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']]] = None,
+            azure_blob_storage_location: Optional[pulumi.Input[Union['DatasetBinaryAzureBlobStorageLocationArgs', 'DatasetBinaryAzureBlobStorageLocationArgsDict']]] = None,
+            compression: Optional[pulumi.Input[Union['DatasetBinaryCompressionArgs', 'DatasetBinaryCompressionArgsDict']]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
-            http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']]] = None,
+            http_server_location: Optional[pulumi.Input[Union['DatasetBinaryHttpServerLocationArgs', 'DatasetBinaryHttpServerLocationArgsDict']]] = None,
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            sftp_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']]] = None) -> 'DatasetBinary':
+            sftp_server_location: Optional[pulumi.Input[Union['DatasetBinarySftpServerLocationArgs', 'DatasetBinarySftpServerLocationArgsDict']]] = None) -> 'DatasetBinary':
         """
         Get an existing DatasetBinary resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -627,18 +632,18 @@ class DatasetBinary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Binary Dataset.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Binary Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetBinaryAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DatasetBinaryCompressionArgs']] compression: A `compression` block as defined below.
+        :param pulumi.Input[Union['DatasetBinaryAzureBlobStorageLocationArgs', 'DatasetBinaryAzureBlobStorageLocationArgsDict']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[Union['DatasetBinaryCompressionArgs', 'DatasetBinaryCompressionArgsDict']] compression: A `compression` block as defined below.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['DatasetBinaryHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetBinaryHttpServerLocationArgs', 'DatasetBinaryHttpServerLocationArgsDict']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Binary Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Specifies a list of parameters to associate with the Data Factory Binary Dataset.
                
                The following supported locations for a Binary Dataset. One of these should be specified:
-        :param pulumi.Input[pulumi.InputType['DatasetBinarySftpServerLocationArgs']] sftp_server_location: A `sftp_server_location` block as defined below.
+        :param pulumi.Input[Union['DatasetBinarySftpServerLocationArgs', 'DatasetBinarySftpServerLocationArgsDict']] sftp_server_location: A `sftp_server_location` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

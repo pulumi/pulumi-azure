@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['BackupInstancePostgresqlFlexibleServerArgs', 'BackupInstancePostgresqlFlexibleServer']
@@ -226,9 +231,9 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
             soft_delete="Off",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example.id,
             role_definition_name="Reader",
@@ -241,12 +246,12 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             name="example-dp",
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            default_retention_rule=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs(
-                life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs(
-                    duration="P4M",
-                    data_store_type="VaultStore",
-                )],
-            ),
+            default_retention_rule={
+                "lifeCycles": [{
+                    "duration": "P4M",
+                    "dataStoreType": "VaultStore",
+                }],
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example2,
@@ -312,9 +317,9 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
             soft_delete="Off",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_assignment = azure.authorization.Assignment("example",
             scope=example.id,
             role_definition_name="Reader",
@@ -327,12 +332,12 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             name="example-dp",
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
-            default_retention_rule=azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs(
-                life_cycles=[azure.dataprotection.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs(
-                    duration="P4M",
-                    data_store_type="VaultStore",
-                )],
-            ),
+            default_retention_rule={
+                "lifeCycles": [{
+                    "duration": "P4M",
+                    "dataStoreType": "VaultStore",
+                }],
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     example_assignment,
                     example2,

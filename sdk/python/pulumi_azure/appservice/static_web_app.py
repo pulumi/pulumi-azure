@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -418,9 +423,9 @@ class StaticWebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 basic_auth: Optional[pulumi.Input[pulumi.InputType['StaticWebAppBasicAuthArgs']]] = None,
+                 basic_auth: Optional[pulumi.Input[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict']]] = None,
                  configuration_file_changes_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['StaticWebAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['StaticWebAppIdentityArgs', 'StaticWebAppIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
@@ -458,9 +463,9 @@ class StaticWebApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
-        :param pulumi.Input[pulumi.InputType['StaticWebAppBasicAuthArgs']] basic_auth: A `basic_auth` block as defined below.
+        :param pulumi.Input[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict']] basic_auth: A `basic_auth` block as defined below.
         :param pulumi.Input[bool] configuration_file_changes_enabled: Should changes to the configuration file be permitted. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['StaticWebAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StaticWebAppIdentityArgs', 'StaticWebAppIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.
@@ -517,9 +522,9 @@ class StaticWebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 basic_auth: Optional[pulumi.Input[pulumi.InputType['StaticWebAppBasicAuthArgs']]] = None,
+                 basic_auth: Optional[pulumi.Input[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict']]] = None,
                  configuration_file_changes_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['StaticWebAppIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['StaticWebAppIdentityArgs', 'StaticWebAppIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
@@ -565,10 +570,10 @@ class StaticWebApp(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_key: Optional[pulumi.Input[str]] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            basic_auth: Optional[pulumi.Input[pulumi.InputType['StaticWebAppBasicAuthArgs']]] = None,
+            basic_auth: Optional[pulumi.Input[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict']]] = None,
             configuration_file_changes_enabled: Optional[pulumi.Input[bool]] = None,
             default_host_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['StaticWebAppIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[Union['StaticWebAppIdentityArgs', 'StaticWebAppIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             preview_environments_enabled: Optional[pulumi.Input[bool]] = None,
@@ -585,10 +590,10 @@ class StaticWebApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_key: The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A key-value pair of App Settings.
-        :param pulumi.Input[pulumi.InputType['StaticWebAppBasicAuthArgs']] basic_auth: A `basic_auth` block as defined below.
+        :param pulumi.Input[Union['StaticWebAppBasicAuthArgs', 'StaticWebAppBasicAuthArgsDict']] basic_auth: A `basic_auth` block as defined below.
         :param pulumi.Input[bool] configuration_file_changes_enabled: Should changes to the configuration file be permitted. Defaults to `true`.
         :param pulumi.Input[str] default_host_name: The default host name of the Static Web App.
-        :param pulumi.Input[pulumi.InputType['StaticWebAppIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['StaticWebAppIdentityArgs', 'StaticWebAppIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[str] name: The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
         :param pulumi.Input[bool] preview_environments_enabled: Are Preview (Staging) environments enabled. Defaults to `true`.

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AssignmentVirtualMachineScaleSetArgs', 'AssignmentVirtualMachineScaleSet']
@@ -161,10 +166,10 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             name=example.name,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="internal",
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": "internal",
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             name="example",
             loadbalancer_id=example_load_balancer.id)
@@ -187,21 +192,21 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             location=example.location,
             scope="OSImage",
             visibility="Custom",
-            window=azure.maintenance.ConfigurationWindowArgs(
-                start_date_time="2021-12-31 00:00",
-                expiration_date_time="9999-12-31 00:00",
-                duration="06:00",
-                time_zone="Pacific Standard Time",
-                recur_every="1Days",
-            ))
+            window={
+                "startDateTime": "2021-12-31 00:00",
+                "expirationDateTime": "9999-12-31 00:00",
+                "duration": "06:00",
+                "timeZone": "Pacific Standard Time",
+                "recurEvery": "1Days",
+            })
         example_network_interface = azure.network.NetworkInterface("example",
             name="sample-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example-machine",
             resource_group_name=example.name,
@@ -209,10 +214,10 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            })
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
             name="example",
             resource_group_name=example.name,
@@ -224,36 +229,36 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             upgrade_mode="Automatic",
             health_probe_id=example_probe.id,
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                    load_balancer_backend_address_pool_ids=[example_backend_address_pool.id],
-                )],
-            )],
-            automatic_os_upgrade_policy=azure.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs(
-                disable_automatic_rollback=True,
-                enable_automatic_os_upgrade=True,
-            ),
-            rolling_upgrade_policy=azure.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs(
-                max_batch_instance_percent=20,
-                max_unhealthy_instance_percent=20,
-                max_unhealthy_upgraded_instance_percent=20,
-                pause_time_between_batches="PT0S",
-            ),
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            },
+            network_interfaces=[{
+                "name": "example",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "internal",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                    "loadBalancerBackendAddressPoolIds": [example_backend_address_pool.id],
+                }],
+            }],
+            automatic_os_upgrade_policy={
+                "disableAutomaticRollback": True,
+                "enableAutomaticOsUpgrade": True,
+            },
+            rolling_upgrade_policy={
+                "maxBatchInstancePercent": 20,
+                "maxUnhealthyInstancePercent": 20,
+                "maxUnhealthyUpgradedInstancePercent": 20,
+                "pauseTimeBetweenBatches": "PT0S",
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_rule]))
         example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("example",
             location=example.location,
@@ -312,10 +317,10 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             name=example.name,
             location=example.location,
             resource_group_name=example.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
-                name="internal",
-                public_ip_address_id=example_public_ip.id,
-            )])
+            frontend_ip_configurations=[{
+                "name": "internal",
+                "publicIpAddressId": example_public_ip.id,
+            }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             name="example",
             loadbalancer_id=example_load_balancer.id)
@@ -338,21 +343,21 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             location=example.location,
             scope="OSImage",
             visibility="Custom",
-            window=azure.maintenance.ConfigurationWindowArgs(
-                start_date_time="2021-12-31 00:00",
-                expiration_date_time="9999-12-31 00:00",
-                duration="06:00",
-                time_zone="Pacific Standard Time",
-                recur_every="1Days",
-            ))
+            window={
+                "startDateTime": "2021-12-31 00:00",
+                "expirationDateTime": "9999-12-31 00:00",
+                "duration": "06:00",
+                "timeZone": "Pacific Standard Time",
+                "recurEvery": "1Days",
+            })
         example_network_interface = azure.network.NetworkInterface("example",
             name="sample-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="testconfiguration1",
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "testconfiguration1",
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example-machine",
             resource_group_name=example.name,
@@ -360,10 +365,10 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            })
         example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
             name="example",
             resource_group_name=example.name,
@@ -375,36 +380,36 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
             upgrade_mode="Automatic",
             health_probe_id=example_probe.id,
             disable_password_authentication=False,
-            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ),
-            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
-                name="example",
-                primary=True,
-                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
-                    name="internal",
-                    primary=True,
-                    subnet_id=example_subnet.id,
-                    load_balancer_backend_address_pool_ids=[example_backend_address_pool.id],
-                )],
-            )],
-            automatic_os_upgrade_policy=azure.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs(
-                disable_automatic_rollback=True,
-                enable_automatic_os_upgrade=True,
-            ),
-            rolling_upgrade_policy=azure.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs(
-                max_batch_instance_percent=20,
-                max_unhealthy_instance_percent=20,
-                max_unhealthy_upgraded_instance_percent=20,
-                pause_time_between_batches="PT0S",
-            ),
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            },
+            network_interfaces=[{
+                "name": "example",
+                "primary": True,
+                "ipConfigurations": [{
+                    "name": "internal",
+                    "primary": True,
+                    "subnetId": example_subnet.id,
+                    "loadBalancerBackendAddressPoolIds": [example_backend_address_pool.id],
+                }],
+            }],
+            automatic_os_upgrade_policy={
+                "disableAutomaticRollback": True,
+                "enableAutomaticOsUpgrade": True,
+            },
+            rolling_upgrade_policy={
+                "maxBatchInstancePercent": 20,
+                "maxUnhealthyInstancePercent": 20,
+                "maxUnhealthyUpgradedInstancePercent": 20,
+                "pauseTimeBetweenBatches": "PT0S",
+            },
             opts = pulumi.ResourceOptions(depends_on=[example_rule]))
         example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("example",
             location=example.location,

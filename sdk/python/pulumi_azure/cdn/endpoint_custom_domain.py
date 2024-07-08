@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -201,10 +206,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_endpoint_id: Optional[pulumi.Input[str]] = None,
-                 cdn_managed_https: Optional[pulumi.Input[pulumi.InputType['EndpointCustomDomainCdnManagedHttpsArgs']]] = None,
+                 cdn_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 user_managed_https: Optional[pulumi.Input[pulumi.InputType['EndpointCustomDomainUserManagedHttpsArgs']]] = None,
+                 user_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
                  __props__=None):
         """
         Manages a Custom Domain for a CDN Endpoint.
@@ -234,10 +239,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
             profile_name=example_profile.name,
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            origins=[azure.cdn.EndpointOriginArgs(
-                name="example",
-                host_name=example_account.primary_blob_host,
-            )])
+            origins=[{
+                "name": "example",
+                "hostName": example_account.primary_blob_host,
+            }])
         example = azure.dns.get_zone(name="example-domain.com",
             resource_group_name="domain-rg")
         example_c_name_record = azure.dns.CNameRecord("example",
@@ -263,10 +268,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_endpoint_id: The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['EndpointCustomDomainCdnManagedHttpsArgs']] cdn_managed_https: A `cdn_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']] cdn_managed_https: A `cdn_managed_https` block as defined below.
         :param pulumi.Input[str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['EndpointCustomDomainUserManagedHttpsArgs']] user_managed_https: A `user_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']] user_managed_https: A `user_managed_https` block as defined below.
                
                > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """
@@ -304,10 +309,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
             profile_name=example_profile.name,
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            origins=[azure.cdn.EndpointOriginArgs(
-                name="example",
-                host_name=example_account.primary_blob_host,
-            )])
+            origins=[{
+                "name": "example",
+                "hostName": example_account.primary_blob_host,
+            }])
         example = azure.dns.get_zone(name="example-domain.com",
             resource_group_name="domain-rg")
         example_c_name_record = azure.dns.CNameRecord("example",
@@ -346,10 +351,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_endpoint_id: Optional[pulumi.Input[str]] = None,
-                 cdn_managed_https: Optional[pulumi.Input[pulumi.InputType['EndpointCustomDomainCdnManagedHttpsArgs']]] = None,
+                 cdn_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 user_managed_https: Optional[pulumi.Input[pulumi.InputType['EndpointCustomDomainUserManagedHttpsArgs']]] = None,
+                 user_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -379,10 +384,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_endpoint_id: Optional[pulumi.Input[str]] = None,
-            cdn_managed_https: Optional[pulumi.Input[pulumi.InputType['EndpointCustomDomainCdnManagedHttpsArgs']]] = None,
+            cdn_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']]] = None,
             host_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            user_managed_https: Optional[pulumi.Input[pulumi.InputType['EndpointCustomDomainUserManagedHttpsArgs']]] = None) -> 'EndpointCustomDomain':
+            user_managed_https: Optional[pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']]] = None) -> 'EndpointCustomDomain':
         """
         Get an existing EndpointCustomDomain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -391,10 +396,10 @@ class EndpointCustomDomain(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_endpoint_id: The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['EndpointCustomDomainCdnManagedHttpsArgs']] cdn_managed_https: A `cdn_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainCdnManagedHttpsArgs', 'EndpointCustomDomainCdnManagedHttpsArgsDict']] cdn_managed_https: A `cdn_managed_https` block as defined below.
         :param pulumi.Input[str] host_name: The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
         :param pulumi.Input[str] name: The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created.
-        :param pulumi.Input[pulumi.InputType['EndpointCustomDomainUserManagedHttpsArgs']] user_managed_https: A `user_managed_https` block as defined below.
+        :param pulumi.Input[Union['EndpointCustomDomainUserManagedHttpsArgs', 'EndpointCustomDomainUserManagedHttpsArgsDict']] user_managed_https: A `user_managed_https` block as defined below.
                
                > **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified.
         """

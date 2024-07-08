@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -307,7 +312,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']]] = None,
+                 storage: Optional[pulumi.Input[Union['TimeSeriesInsightsGen2EnvironmentStorageArgs', 'TimeSeriesInsightsGen2EnvironmentStorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -336,10 +341,10 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             sku_name="L1",
             warm_store_data_retention_time="P30D",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
+            storage={
+                "name": storage.name,
+                "key": storage.primary_access_key,
+            })
         ```
 
         ## Import
@@ -357,7 +362,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']] storage: A `storage` block as defined below.
+        :param pulumi.Input[Union['TimeSeriesInsightsGen2EnvironmentStorageArgs', 'TimeSeriesInsightsGen2EnvironmentStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """
@@ -392,10 +397,10 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             sku_name="L1",
             warm_store_data_retention_time="P30D",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
-                name=storage.name,
-                key=storage.primary_access_key,
-            ))
+            storage={
+                "name": storage.name,
+                "key": storage.primary_access_key,
+            })
         ```
 
         ## Import
@@ -426,7 +431,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']]] = None,
+                 storage: Optional[pulumi.Input[Union['TimeSeriesInsightsGen2EnvironmentStorageArgs', 'TimeSeriesInsightsGen2EnvironmentStorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  warm_store_data_retention_time: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -471,7 +476,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
-            storage: Optional[pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']]] = None,
+            storage: Optional[pulumi.Input[Union['TimeSeriesInsightsGen2EnvironmentStorageArgs', 'TimeSeriesInsightsGen2EnvironmentStorageArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             warm_store_data_retention_time: Optional[pulumi.Input[str]] = None) -> 'TimeSeriesInsightsGen2Environment':
         """
@@ -487,7 +492,7 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['TimeSeriesInsightsGen2EnvironmentStorageArgs']] storage: A `storage` block as defined below.
+        :param pulumi.Input[Union['TimeSeriesInsightsGen2EnvironmentStorageArgs', 'TimeSeriesInsightsGen2EnvironmentStorageArgsDict']] storage: A `storage` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] warm_store_data_retention_time: Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
         """

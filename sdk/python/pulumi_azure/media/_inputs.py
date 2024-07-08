@@ -4,106 +4,237 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountFilterPresentationTimeRangeArgs',
+    'AccountFilterPresentationTimeRangeArgsDict',
     'AccountFilterTrackSelectionArgs',
+    'AccountFilterTrackSelectionArgsDict',
     'AccountFilterTrackSelectionConditionArgs',
+    'AccountFilterTrackSelectionConditionArgsDict',
     'AssetFilterPresentationTimeRangeArgs',
+    'AssetFilterPresentationTimeRangeArgsDict',
     'AssetFilterTrackSelectionArgs',
+    'AssetFilterTrackSelectionArgsDict',
     'AssetFilterTrackSelectionConditionArgs',
+    'AssetFilterTrackSelectionConditionArgsDict',
     'ContentKeyPolicyPolicyOptionArgs',
+    'ContentKeyPolicyPolicyOptionArgsDict',
     'ContentKeyPolicyPolicyOptionFairplayConfigurationArgs',
+    'ContentKeyPolicyPolicyOptionFairplayConfigurationArgsDict',
     'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs',
+    'ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgsDict',
     'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgsDict',
     'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgsDict',
     'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs',
+    'ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgsDict',
     'ContentKeyPolicyPolicyOptionTokenRestrictionArgs',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionArgsDict',
     'ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgsDict',
     'ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs',
+    'ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgsDict',
     'JobInputAssetArgs',
+    'JobInputAssetArgsDict',
     'JobOutputAssetArgs',
+    'JobOutputAssetArgsDict',
     'LiveEventCrossSiteAccessPolicyArgs',
+    'LiveEventCrossSiteAccessPolicyArgsDict',
     'LiveEventEncodingArgs',
+    'LiveEventEncodingArgsDict',
     'LiveEventInputArgs',
+    'LiveEventInputArgsDict',
     'LiveEventInputEndpointArgs',
+    'LiveEventInputEndpointArgsDict',
     'LiveEventInputIpAccessControlAllowArgs',
+    'LiveEventInputIpAccessControlAllowArgsDict',
     'LiveEventPreviewArgs',
+    'LiveEventPreviewArgsDict',
     'LiveEventPreviewEndpointArgs',
+    'LiveEventPreviewEndpointArgsDict',
     'LiveEventPreviewIpAccessControlAllowArgs',
+    'LiveEventPreviewIpAccessControlAllowArgsDict',
     'ServiceAccountEncryptionArgs',
+    'ServiceAccountEncryptionArgsDict',
     'ServiceAccountEncryptionManagedIdentityArgs',
+    'ServiceAccountEncryptionManagedIdentityArgsDict',
     'ServiceAccountIdentityArgs',
+    'ServiceAccountIdentityArgsDict',
     'ServiceAccountKeyDeliveryAccessControlArgs',
+    'ServiceAccountKeyDeliveryAccessControlArgsDict',
     'ServiceAccountStorageAccountArgs',
+    'ServiceAccountStorageAccountArgsDict',
     'ServiceAccountStorageAccountManagedIdentityArgs',
+    'ServiceAccountStorageAccountManagedIdentityArgsDict',
     'StreamingEndpointAccessControlArgs',
+    'StreamingEndpointAccessControlArgsDict',
     'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs',
+    'StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgsDict',
     'StreamingEndpointAccessControlIpAllowArgs',
+    'StreamingEndpointAccessControlIpAllowArgsDict',
     'StreamingEndpointCrossSiteAccessPolicyArgs',
+    'StreamingEndpointCrossSiteAccessPolicyArgsDict',
     'StreamingEndpointSkusArgs',
+    'StreamingEndpointSkusArgsDict',
     'StreamingLocatorContentKeyArgs',
+    'StreamingLocatorContentKeyArgsDict',
     'StreamingPolicyCommonEncryptionCbcsArgs',
+    'StreamingPolicyCommonEncryptionCbcsArgsDict',
     'StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs',
+    'StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgsDict',
     'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs',
+    'StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgsDict',
     'StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs',
+    'StreamingPolicyCommonEncryptionCbcsDrmFairplayArgsDict',
     'StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs',
+    'StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgsDict',
     'StreamingPolicyCommonEncryptionCencArgs',
+    'StreamingPolicyCommonEncryptionCencArgsDict',
     'StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs',
+    'StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgsDict',
     'StreamingPolicyCommonEncryptionCencClearTrackArgs',
+    'StreamingPolicyCommonEncryptionCencClearTrackArgsDict',
     'StreamingPolicyCommonEncryptionCencClearTrackConditionArgs',
+    'StreamingPolicyCommonEncryptionCencClearTrackConditionArgsDict',
     'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgsDict',
     'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgsDict',
     'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs',
+    'StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgsDict',
     'StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs',
+    'StreamingPolicyCommonEncryptionCencDefaultContentKeyArgsDict',
     'StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs',
+    'StreamingPolicyCommonEncryptionCencDrmPlayreadyArgsDict',
     'StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs',
+    'StreamingPolicyCommonEncryptionCencEnabledProtocolsArgsDict',
     'StreamingPolicyEnvelopeEncryptionArgs',
+    'StreamingPolicyEnvelopeEncryptionArgsDict',
     'StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs',
+    'StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgsDict',
     'StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs',
+    'StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgsDict',
     'StreamingPolicyNoEncryptionEnabledProtocolsArgs',
+    'StreamingPolicyNoEncryptionEnabledProtocolsArgsDict',
     'TransformOutputArgs',
+    'TransformOutputArgsDict',
     'TransformOutputAudioAnalyzerPresetArgs',
+    'TransformOutputAudioAnalyzerPresetArgsDict',
     'TransformOutputBuiltinPresetArgs',
+    'TransformOutputBuiltinPresetArgsDict',
     'TransformOutputBuiltinPresetPresetConfigurationArgs',
+    'TransformOutputBuiltinPresetPresetConfigurationArgsDict',
     'TransformOutputCustomPresetArgs',
+    'TransformOutputCustomPresetArgsDict',
     'TransformOutputCustomPresetCodecArgs',
+    'TransformOutputCustomPresetCodecArgsDict',
     'TransformOutputCustomPresetCodecAacAudioArgs',
+    'TransformOutputCustomPresetCodecAacAudioArgsDict',
     'TransformOutputCustomPresetCodecCopyAudioArgs',
+    'TransformOutputCustomPresetCodecCopyAudioArgsDict',
     'TransformOutputCustomPresetCodecCopyVideoArgs',
+    'TransformOutputCustomPresetCodecCopyVideoArgsDict',
     'TransformOutputCustomPresetCodecDdAudioArgs',
+    'TransformOutputCustomPresetCodecDdAudioArgsDict',
     'TransformOutputCustomPresetCodecH264VideoArgs',
+    'TransformOutputCustomPresetCodecH264VideoArgsDict',
     'TransformOutputCustomPresetCodecH264VideoLayerArgs',
+    'TransformOutputCustomPresetCodecH264VideoLayerArgsDict',
     'TransformOutputCustomPresetCodecH265VideoArgs',
+    'TransformOutputCustomPresetCodecH265VideoArgsDict',
     'TransformOutputCustomPresetCodecH265VideoLayerArgs',
+    'TransformOutputCustomPresetCodecH265VideoLayerArgsDict',
     'TransformOutputCustomPresetCodecJpgImageArgs',
+    'TransformOutputCustomPresetCodecJpgImageArgsDict',
     'TransformOutputCustomPresetCodecJpgImageLayerArgs',
+    'TransformOutputCustomPresetCodecJpgImageLayerArgsDict',
     'TransformOutputCustomPresetCodecPngImageArgs',
+    'TransformOutputCustomPresetCodecPngImageArgsDict',
     'TransformOutputCustomPresetCodecPngImageLayerArgs',
+    'TransformOutputCustomPresetCodecPngImageLayerArgsDict',
     'TransformOutputCustomPresetFilterArgs',
+    'TransformOutputCustomPresetFilterArgsDict',
     'TransformOutputCustomPresetFilterCropRectangleArgs',
+    'TransformOutputCustomPresetFilterCropRectangleArgsDict',
     'TransformOutputCustomPresetFilterDeinterlaceArgs',
+    'TransformOutputCustomPresetFilterDeinterlaceArgsDict',
     'TransformOutputCustomPresetFilterFadeInArgs',
+    'TransformOutputCustomPresetFilterFadeInArgsDict',
     'TransformOutputCustomPresetFilterFadeOutArgs',
+    'TransformOutputCustomPresetFilterFadeOutArgsDict',
     'TransformOutputCustomPresetFilterOverlayArgs',
+    'TransformOutputCustomPresetFilterOverlayArgsDict',
     'TransformOutputCustomPresetFilterOverlayAudioArgs',
+    'TransformOutputCustomPresetFilterOverlayAudioArgsDict',
     'TransformOutputCustomPresetFilterOverlayVideoArgs',
+    'TransformOutputCustomPresetFilterOverlayVideoArgsDict',
     'TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs',
+    'TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgsDict',
     'TransformOutputCustomPresetFilterOverlayVideoPositionArgs',
+    'TransformOutputCustomPresetFilterOverlayVideoPositionArgsDict',
     'TransformOutputCustomPresetFormatArgs',
+    'TransformOutputCustomPresetFormatArgsDict',
     'TransformOutputCustomPresetFormatJpgArgs',
+    'TransformOutputCustomPresetFormatJpgArgsDict',
     'TransformOutputCustomPresetFormatMp4Args',
+    'TransformOutputCustomPresetFormatMp4ArgsDict',
     'TransformOutputCustomPresetFormatMp4OutputFileArgs',
+    'TransformOutputCustomPresetFormatMp4OutputFileArgsDict',
     'TransformOutputCustomPresetFormatPngArgs',
+    'TransformOutputCustomPresetFormatPngArgsDict',
     'TransformOutputCustomPresetFormatTransportStreamArgs',
+    'TransformOutputCustomPresetFormatTransportStreamArgsDict',
     'TransformOutputCustomPresetFormatTransportStreamOutputFileArgs',
+    'TransformOutputCustomPresetFormatTransportStreamOutputFileArgsDict',
     'TransformOutputFaceDetectorPresetArgs',
+    'TransformOutputFaceDetectorPresetArgsDict',
     'TransformOutputVideoAnalyzerPresetArgs',
+    'TransformOutputVideoAnalyzerPresetArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountFilterPresentationTimeRangeArgsDict(TypedDict):
+        unit_timescale_in_milliseconds: pulumi.Input[int]
+        """
+        Specified as the number of milliseconds in one unit timescale. For example, if you want to set a `start_in_units` at 30 seconds, you would use a value of 30 when using the `unit_timescale_in_milliseconds` in 1000. Or if you want to set `start_in_units` in 30 milliseconds, you would use a value of 30 when using the `unit_timescale_in_milliseconds` in 1. Applies timescale to `start_in_units`, `start_timescale` and `presentation_window_in_timescale` and `live_backoff_in_timescale`.
+        """
+        end_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The absolute end time boundary. Applies to Video on Demand (VoD).
+        For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_milliseconds`, so an `end_in_units` of 180 would be for 3 minutes. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_milliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        force_end: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the `end_in_units` property must be present. If true, `end_in_units` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: `false`, `true`.
+        """
+        live_backoff_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The relative to end right edge. Applies to Live Streaming only.
+        This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unit_timescale_in_milliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+        """
+        presentation_window_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The relative to end sliding window. Applies to Live Streaming only. Use `presentation_window_in_units` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unit_timescale_in_milliseconds`. For example, set `presentation_window_in_units` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+        """
+        start_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_milliseconds`, so a `start_in_units` of 15 would be for 15 seconds. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_milliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+elif False:
+    AccountFilterPresentationTimeRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountFilterPresentationTimeRangeArgs:
@@ -211,6 +342,15 @@ class AccountFilterPresentationTimeRangeArgs:
         pulumi.set(self, "start_in_units", value)
 
 
+if not MYPY:
+    class AccountFilterTrackSelectionArgsDict(TypedDict):
+        conditions: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgsDict']]]
+        """
+        One or more `selection` blocks as defined above.
+        """
+elif False:
+    AccountFilterTrackSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountFilterTrackSelectionArgs:
     def __init__(__self__, *,
@@ -232,6 +372,14 @@ class AccountFilterTrackSelectionArgs:
     def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AccountFilterTrackSelectionConditionArgs']]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class AccountFilterTrackSelectionConditionArgsDict(TypedDict):
+        operation: pulumi.Input[str]
+        property: pulumi.Input[str]
+        value: pulumi.Input[str]
+elif False:
+    AccountFilterTrackSelectionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountFilterTrackSelectionConditionArgs:
@@ -270,6 +418,37 @@ class AccountFilterTrackSelectionConditionArgs:
     def property(self, value: pulumi.Input[str]):
         pulumi.set(self, "property", value)
 
+
+if not MYPY:
+    class AssetFilterPresentationTimeRangeArgsDict(TypedDict):
+        end_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The absolute end time boundary. Applies to Video on Demand (VoD).
+        For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD. This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_miliseconds`, so an `end_in_units` of 180 would be for 3 minutes. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_miliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        force_end: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether the `end_in_units` property must be present. If true, `end_in_units` must be specified or a bad request code is returned. Applies to Live Streaming only. Allowed values: false, true.
+        """
+        live_backoff_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The relative to end right edge. Applies to Live Streaming only.
+        This value defines the latest live position that a client can seek to. Using this property, you can delay live playback position and create a server-side buffer for players. The unit is defined by `unit_timescale_in_miliseconds`. The maximum live back off duration is 300 seconds. For example, a value of 20 means that the latest available content is 20 seconds delayed from the real live edge.
+        """
+        presentation_window_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The relative to end sliding window. Applies to Live Streaming only. Use `presentation_window_in_units` to apply a sliding window of fragments to include in a playlist. The unit is defined by `unit_timescale_in_miliseconds`. For example, set `presentation_window_in_units` to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.
+        """
+        start_in_units: NotRequired[pulumi.Input[int]]
+        """
+        The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by `unit_timescale_in_miliseconds`, so a `start_in_units` of 15 would be for 15 seconds. Use `start_in_units` and `end_in_units` to trim the fragments that will be in the playlist (manifest). For example, `start_in_units` set to 20 and `end_in_units` set to 60 using `unit_timescale_in_miliseconds` in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.
+        """
+        unit_timescale_in_miliseconds: NotRequired[pulumi.Input[int]]
+        """
+        Specified as the number of miliseconds in one unit timescale. For example, if you want to set a `start_in_units` at 30 seconds, you would use a value of 30 when using the `unit_timescale_in_miliseconds` in 1000. Or if you want to set `start_in_units` in 30 miliseconds, you would use a value of 30 when using the `unit_timescale_in_miliseconds` in 1. Applies timescale to `start_in_units`, `start_timescale` and `presentation_window_in_timescale` and `live_backoff_in_timescale`.
+        """
+elif False:
+    AssetFilterPresentationTimeRangeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetFilterPresentationTimeRangeArgs:
@@ -378,6 +557,15 @@ class AssetFilterPresentationTimeRangeArgs:
         pulumi.set(self, "unit_timescale_in_miliseconds", value)
 
 
+if not MYPY:
+    class AssetFilterTrackSelectionArgsDict(TypedDict):
+        conditions: pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArgsDict']]]
+        """
+        One or more `condition` blocks as defined above.
+        """
+elif False:
+    AssetFilterTrackSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AssetFilterTrackSelectionArgs:
     def __init__(__self__, *,
@@ -399,6 +587,23 @@ class AssetFilterTrackSelectionArgs:
     def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionConditionArgs']]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class AssetFilterTrackSelectionConditionArgsDict(TypedDict):
+        operation: NotRequired[pulumi.Input[str]]
+        """
+        The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        """
+        property: NotRequired[pulumi.Input[str]]
+        """
+        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The track property value to match or not match.
+        """
+elif False:
+    AssetFilterTrackSelectionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AssetFilterTrackSelectionConditionArgs:
@@ -454,6 +659,45 @@ class AssetFilterTrackSelectionConditionArgs:
     def property(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "property", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Policy Option.
+        """
+        clear_key_configuration_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable a configuration for non-DRM keys.
+        """
+        fairplay_configuration: NotRequired[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationArgsDict']]
+        """
+        A `fairplay_configuration` block as defined above. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
+        """
+        open_restriction_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Enable an open restriction. License or key will be delivered on every request.
+        """
+        playready_configuration_licenses: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgsDict']]]]
+        """
+        One or more `playready_configuration_license` blocks as defined above.
+        """
+        playready_response_custom_data: NotRequired[pulumi.Input[str]]
+        """
+        The custom response data of the PlayReady configuration. This only applies when `playready_configuration_license` is specified.
+        """
+        token_restriction: NotRequired[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionArgsDict']]
+        """
+        A `token_restriction` block as defined below.
+        """
+        widevine_configuration_template: NotRequired[pulumi.Input[str]]
+        """
+        The Widevine template.
+
+        > **NOTE:** Each policy_option can only have one type of configuration: `fairplay_configuration`, `clear_key_configuration_enabled`, `playready_configuration_license` or `widevine_configuration_template`. And is possible to assign only one type of restriction: `open_restriction_enabled` or `token_restriction`.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionArgs:
@@ -593,6 +837,35 @@ class ContentKeyPolicyPolicyOptionArgs:
         pulumi.set(self, "widevine_configuration_template", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionFairplayConfigurationArgsDict(TypedDict):
+        ask: NotRequired[pulumi.Input[str]]
+        """
+        The key that must be used as FairPlay Application Secret key.
+        """
+        offline_rental_configuration: NotRequired[pulumi.Input['ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgsDict']]
+        """
+        A `offline_rental_configuration` block as defined below.
+        """
+        pfx: NotRequired[pulumi.Input[str]]
+        """
+        The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+        """
+        pfx_password: NotRequired[pulumi.Input[str]]
+        """
+        The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+        """
+        rental_and_lease_key_type: NotRequired[pulumi.Input[str]]
+        """
+        The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
+        """
+        rental_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The rental duration. Must be greater than 0.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionFairplayConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionFairplayConfigurationArgs:
     def __init__(__self__, *,
@@ -696,6 +969,19 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationArgs:
         pulumi.set(self, "rental_duration_seconds", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgsDict(TypedDict):
+        playback_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Playback duration.
+        """
+        storage_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Storage duration.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs:
     def __init__(__self__, *,
@@ -734,6 +1020,61 @@ class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguratio
     def storage_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "storage_duration_seconds", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgsDict(TypedDict):
+        allow_test_devices: NotRequired[pulumi.Input[bool]]
+        """
+        A flag indicating whether test devices can use the license.
+        """
+        begin_date: NotRequired[pulumi.Input[str]]
+        """
+        The begin date of license.
+        """
+        content_key_location_from_header_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies that the content key ID is in the PlayReady header.
+        """
+        content_key_location_from_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
+
+        > **NOTE:** You can only specify one content key location. For example if you specify `content_key_location_from_header_enabled` in true, you shouldn't specify `content_key_location_from_key_id` and vice versa.
+        """
+        content_type: NotRequired[pulumi.Input[str]]
+        """
+        The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
+        """
+        expiration_date: NotRequired[pulumi.Input[str]]
+        """
+        The expiration date of license.
+        """
+        grace_period: NotRequired[pulumi.Input[str]]
+        """
+        The grace period of license.
+        """
+        license_type: NotRequired[pulumi.Input[str]]
+        """
+        The license type. Supported values are `NonPersistent` or `Persistent`.
+        """
+        play_right: NotRequired[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgsDict']]
+        """
+        A `play_right` block as defined above.
+        """
+        relative_begin_date: NotRequired[pulumi.Input[str]]
+        """
+        The relative begin date of license.
+        """
+        relative_expiration_date: NotRequired[pulumi.Input[str]]
+        """
+        The relative expiration date of license.
+        """
+        security_level: NotRequired[pulumi.Input[str]]
+        """
+        The security level of the PlayReady license. Possible values are `SL150`, `SL2000` and `SL3000`. Please see [this document](https://learn.microsoft.com/en-us/rest/api/media/content-key-policies/create-or-update?tabs=HTTP#securitylevel) for more information about security level. See [this document](https://learn.microsoft.com/en-us/azure/media-services/latest/drm-playready-license-template-concept#playready-sl3000-support) for more information about `SL3000` support.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
@@ -937,6 +1278,63 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs:
     def security_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "security_level", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgsDict(TypedDict):
+        agc_and_color_stripe_restriction: NotRequired[pulumi.Input[int]]
+        """
+        Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between `0` and `3` inclusive.
+        """
+        allow_passing_video_content_to_unknown_output: NotRequired[pulumi.Input[str]]
+        """
+        Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
+        """
+        analog_video_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for compressed digital audio. Supported values are `100`, `150` or `200`.
+        """
+        compressed_digital_audio_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for compressed digital audio.Supported values are `100`, `150`, `200`, `250` or `300`.
+        """
+        compressed_digital_video_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for compressed digital video. Supported values are `400` or `500`.
+        """
+        digital_video_only_content_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        explicit_analog_television_output_restriction: NotRequired[pulumi.Input['ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgsDict']]
+        """
+        An `explicit_analog_television_output_restriction` block as defined above.
+        """
+        first_play_expiration: NotRequired[pulumi.Input[str]]
+        """
+        The amount of time that the license is valid after the license is first used to play content.
+        """
+        image_constraint_for_analog_component_video_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        image_constraint_for_analog_computer_monitor_restriction: NotRequired[pulumi.Input[bool]]
+        """
+        Enables the Image Constraint For Analog Component Video Restriction in the license.
+        """
+        scms_restriction: NotRequired[pulumi.Input[int]]
+        """
+        Configures the Serial Copy Management System (SCMS) in the license. Must be between `0` and `3` inclusive.
+        """
+        uncompressed_digital_audio_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for uncompressed digital audio. Supported values are `100`, `150`, `200`, `250` or `300`.
+        """
+        uncompressed_digital_video_opl: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the output protection level for uncompressed digital video. Supported values are `100`, `250`, `270` or `300`.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
@@ -1153,6 +1551,19 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs:
         pulumi.set(self, "uncompressed_digital_video_opl", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgsDict(TypedDict):
+        control_bits: pulumi.Input[int]
+        """
+        The restriction control bits. Possible value is integer between `0` and `3` inclusive.
+        """
+        best_effort_enforced: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether this restriction is enforced on a best effort basis. Possible values are `true` or `false`. Defaults to `false`.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicitAnalogTelevisionOutputRestrictionArgs:
     def __init__(__self__, *,
@@ -1190,6 +1601,53 @@ class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightExplicit
     def best_effort_enforced(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "best_effort_enforced", value)
 
+
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionTokenRestrictionArgsDict(TypedDict):
+        alternate_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgsDict']]]]
+        """
+        One or more `alternate_key` block as defined above.
+        """
+        audience: NotRequired[pulumi.Input[str]]
+        """
+        The audience for the token.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The token issuer.
+        """
+        open_id_connect_discovery_document: NotRequired[pulumi.Input[str]]
+        """
+        The OpenID connect discovery document.
+        """
+        primary_rsa_token_key_exponent: NotRequired[pulumi.Input[str]]
+        """
+        The RSA parameter exponent.
+        """
+        primary_rsa_token_key_modulus: NotRequired[pulumi.Input[str]]
+        """
+        The RSA parameter modulus.
+        """
+        primary_symmetric_token_key: NotRequired[pulumi.Input[str]]
+        """
+        The key value of the key. Specifies a symmetric key for token validation.
+        """
+        primary_x509_token_key_raw: NotRequired[pulumi.Input[str]]
+        """
+        The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+        """
+        required_claims: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgsDict']]]]
+        """
+        One or more `required_claim` blocks as defined above.
+        """
+        token_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of token. Supported values are `Jwt` or `Swt`.
+
+        > **NOTE:** Each token_restriction can only have one type of primary verification key: if you want to use RSA you must provide `primary_rsa_token_key_exponent` and `primary_rsa_token_key_modulus`, if you want to use symmetric you need to provide `primary_symmetric_token_key` and for x509 you must provide `primary_x509_token_key_raw`. For more information about Token access please refer to <https://docs.microsoft.com/azure/media-services/latest/content-protection-overview#controlling-content-access>
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionTokenRestrictionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
@@ -1362,6 +1820,29 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionArgs:
         pulumi.set(self, "token_type", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgsDict(TypedDict):
+        rsa_token_key_exponent: NotRequired[pulumi.Input[str]]
+        """
+        The RSA parameter exponent.
+        """
+        rsa_token_key_modulus: NotRequired[pulumi.Input[str]]
+        """
+        The RSA parameter modulus.
+        """
+        symmetric_token_key: NotRequired[pulumi.Input[str]]
+        """
+        The key value of the key. Specifies a symmetric key for token validation.
+        """
+        x509_token_key_raw: NotRequired[pulumi.Input[str]]
+        """
+        The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+
+        > **NOTE:** Each `alternate_key` block can only have one type of primary verification key: if you want to use RSA you must provide `rsa_token_key_exponent` and `rsa_token_key_modulus`, if you want to use symmetric you need to provide `symmetric_token_key` and for x509 you must provide `x509_token_key_raw`.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
     def __init__(__self__, *,
@@ -1437,6 +1918,19 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionAlternateKeyArgs:
         pulumi.set(self, "x509_token_key_raw", value)
 
 
+if not MYPY:
+    class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgsDict(TypedDict):
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Token claim type.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Token claim value.
+        """
+elif False:
+    ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs:
     def __init__(__self__, *,
@@ -1476,6 +1970,19 @@ class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class JobInputAssetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the input Asset. Changing this forces a new Media Job to be created.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'. Changing this forces a new resource to be created.
+        """
+elif False:
+    JobInputAssetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class JobInputAssetArgs:
     def __init__(__self__, *,
@@ -1513,6 +2020,19 @@ class JobInputAssetArgs:
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
 
+
+if not MYPY:
+    class JobOutputAssetArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the output Asset. Changing this forces a new Media Job to be created.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform. Changing this forces a new resource to be created.
+        """
+elif False:
+    JobOutputAssetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class JobOutputAssetArgs:
@@ -1552,6 +2072,19 @@ class JobOutputAssetArgs:
         pulumi.set(self, "label", value)
 
 
+if not MYPY:
+    class LiveEventCrossSiteAccessPolicyArgsDict(TypedDict):
+        client_access_policy: NotRequired[pulumi.Input[str]]
+        """
+        The content of clientaccesspolicy.xml used by Silverlight.
+        """
+        cross_domain_policy: NotRequired[pulumi.Input[str]]
+        """
+        The content of the Cross Domain Policy (`crossdomain.xml`).
+        """
+elif False:
+    LiveEventCrossSiteAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LiveEventCrossSiteAccessPolicyArgs:
     def __init__(__self__, *,
@@ -1590,6 +2123,29 @@ class LiveEventCrossSiteAccessPolicyArgs:
     def cross_domain_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cross_domain_policy", value)
 
+
+if not MYPY:
+    class LiveEventEncodingArgsDict(TypedDict):
+        key_frame_interval: NotRequired[pulumi.Input[str]]
+        """
+        Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to `PT2S`.
+        """
+        preset_name: NotRequired[pulumi.Input[str]]
+        """
+        The optional encoding preset name, used when `type` is not `None`. If the `type` is set to `Standard`, then the default preset name is `Default720p`. Else if the `type` is set to `Premium1080p`, Changing this forces a new resource to be created.
+        """
+        stretch_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are `None`, `AutoFit` or `AutoSize`. Default is `None`.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Live event type. Possible values are `None`, `Premium1080p`, `PassthroughBasic`, `PassthroughStandard` and `Standard`. When set to `None`, the service simply passes through the incoming video and audio layer(s) to the output. When `type` is set to `Standard` or `Premium1080p`, a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to `None`. Changing this forces a new resource to be created.
+
+        > [More information can be found in the Microsoft Documentation](https://go.microsoft.com/fwlink/?linkid=2095101).
+        """
+elif False:
+    LiveEventEncodingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveEventEncodingArgs:
@@ -1665,6 +2221,28 @@ class LiveEventEncodingArgs:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+
+if not MYPY:
+    class LiveEventInputArgsDict(TypedDict):
+        access_token: NotRequired[pulumi.Input[str]]
+        """
+        A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
+        """
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveEventInputEndpointArgsDict']]]]
+        ip_access_control_allows: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveEventInputIpAccessControlAllowArgsDict']]]]
+        """
+        One or more `ip_access_control_allow` blocks as defined below.
+        """
+        key_frame_interval_duration: NotRequired[pulumi.Input[str]]
+        """
+        ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
+        """
+        streaming_protocol: NotRequired[pulumi.Input[str]]
+        """
+        The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
+        """
+elif False:
+    LiveEventInputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveEventInputArgs:
@@ -1749,6 +2327,13 @@ class LiveEventInputArgs:
         pulumi.set(self, "streaming_protocol", value)
 
 
+if not MYPY:
+    class LiveEventInputEndpointArgsDict(TypedDict):
+        protocol: NotRequired[pulumi.Input[str]]
+        url: NotRequired[pulumi.Input[str]]
+elif False:
+    LiveEventInputEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LiveEventInputEndpointArgs:
     def __init__(__self__, *,
@@ -1777,6 +2362,23 @@ class LiveEventInputEndpointArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class LiveEventInputIpAccessControlAllowArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address or CIDR range.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The friendly name for the IP address range.
+        """
+        subnet_prefix_length: NotRequired[pulumi.Input[int]]
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+elif False:
+    LiveEventInputIpAccessControlAllowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveEventInputIpAccessControlAllowArgs:
@@ -1832,6 +2434,28 @@ class LiveEventInputIpAccessControlAllowArgs:
     def subnet_prefix_length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "subnet_prefix_length", value)
 
+
+if not MYPY:
+    class LiveEventPreviewArgsDict(TypedDict):
+        alternative_media_id: NotRequired[pulumi.Input[str]]
+        """
+        An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the `CustomLicenseAcquisitionUrlTemplate` or the `CustomKeyAcquisitionUrlTemplate` of the Streaming Policy specified in the `streaming_policy_name` field.
+        """
+        endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewEndpointArgsDict']]]]
+        ip_access_control_allows: NotRequired[pulumi.Input[Sequence[pulumi.Input['LiveEventPreviewIpAccessControlAllowArgsDict']]]]
+        """
+        One or more `ip_access_control_allow` blocks as defined above.
+        """
+        preview_locator: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+        """
+        streaming_policy_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+        """
+elif False:
+    LiveEventPreviewArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveEventPreviewArgs:
@@ -1916,6 +2540,13 @@ class LiveEventPreviewArgs:
         pulumi.set(self, "streaming_policy_name", value)
 
 
+if not MYPY:
+    class LiveEventPreviewEndpointArgsDict(TypedDict):
+        protocol: NotRequired[pulumi.Input[str]]
+        url: NotRequired[pulumi.Input[str]]
+elif False:
+    LiveEventPreviewEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LiveEventPreviewEndpointArgs:
     def __init__(__self__, *,
@@ -1944,6 +2575,23 @@ class LiveEventPreviewEndpointArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class LiveEventPreviewIpAccessControlAllowArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address or CIDR range.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The friendly name for the IP address range.
+        """
+        subnet_prefix_length: NotRequired[pulumi.Input[int]]
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+elif False:
+    LiveEventPreviewIpAccessControlAllowArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LiveEventPreviewIpAccessControlAllowArgs:
@@ -1999,6 +2647,27 @@ class LiveEventPreviewIpAccessControlAllowArgs:
     def subnet_prefix_length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "subnet_prefix_length", value)
 
+
+if not MYPY:
+    class ServiceAccountEncryptionArgsDict(TypedDict):
+        current_key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        The current key used to encrypt the Media Services Account, including the key version.
+        """
+        key_vault_key_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+        """
+        managed_identity: NotRequired[pulumi.Input['ServiceAccountEncryptionManagedIdentityArgsDict']]
+        """
+        A `managed_identity` block as defined below.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`. Defaults to `SystemKey`.
+        """
+elif False:
+    ServiceAccountEncryptionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceAccountEncryptionArgs:
@@ -2071,6 +2740,19 @@ class ServiceAccountEncryptionArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class ServiceAccountEncryptionManagedIdentityArgsDict(TypedDict):
+        use_system_assigned_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+elif False:
+    ServiceAccountEncryptionManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceAccountEncryptionManagedIdentityArgs:
     def __init__(__self__, *,
@@ -2109,6 +2791,27 @@ class ServiceAccountEncryptionManagedIdentityArgs:
     def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
+
+if not MYPY:
+    class ServiceAccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    ServiceAccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceAccountIdentityArgs:
@@ -2180,6 +2883,19 @@ class ServiceAccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class ServiceAccountKeyDeliveryAccessControlArgsDict(TypedDict):
+        default_action: NotRequired[pulumi.Input[str]]
+        """
+        The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
+        """
+        ip_allow_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+        """
+elif False:
+    ServiceAccountKeyDeliveryAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceAccountKeyDeliveryAccessControlArgs:
     def __init__(__self__, *,
@@ -2218,6 +2934,25 @@ class ServiceAccountKeyDeliveryAccessControlArgs:
     def ip_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_allow_lists", value)
 
+
+if not MYPY:
+    class ServiceAccountStorageAccountArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        Specifies the ID of the Storage Account that will be associated with the Media Services instance.
+        """
+        is_primary: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies whether the storage account should be the primary account or not. Defaults to `false`.
+
+        > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
+        """
+        managed_identity: NotRequired[pulumi.Input['ServiceAccountStorageAccountManagedIdentityArgsDict']]
+        """
+        A `managed_identity` block as defined below.
+        """
+elif False:
+    ServiceAccountStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ServiceAccountStorageAccountArgs:
@@ -2277,6 +3012,19 @@ class ServiceAccountStorageAccountArgs:
         pulumi.set(self, "managed_identity", value)
 
 
+if not MYPY:
+    class ServiceAccountStorageAccountManagedIdentityArgsDict(TypedDict):
+        use_system_assigned_identity: NotRequired[pulumi.Input[bool]]
+        """
+        Whether to use System Assigned Identity. Possible Values are `true` and `false`.
+        """
+        user_assigned_identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
+        """
+elif False:
+    ServiceAccountStorageAccountManagedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ServiceAccountStorageAccountManagedIdentityArgs:
     def __init__(__self__, *,
@@ -2316,6 +3064,19 @@ class ServiceAccountStorageAccountManagedIdentityArgs:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
+if not MYPY:
+    class StreamingEndpointAccessControlArgsDict(TypedDict):
+        akamai_signature_header_authentication_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgsDict']]]]
+        """
+        One or more `akamai_signature_header_authentication_key` blocks as defined below.
+        """
+        ip_allows: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgsDict']]]]
+        """
+        A `ip_allow` block as defined below.
+        """
+elif False:
+    StreamingEndpointAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingEndpointAccessControlArgs:
     def __init__(__self__, *,
@@ -2354,6 +3115,23 @@ class StreamingEndpointAccessControlArgs:
     def ip_allows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointAccessControlIpAllowArgs']]]]):
         pulumi.set(self, "ip_allows", value)
 
+
+if not MYPY:
+    class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgsDict(TypedDict):
+        base64_key: NotRequired[pulumi.Input[str]]
+        """
+        Authentication key.
+        """
+        expiration: NotRequired[pulumi.Input[str]]
+        """
+        The expiration time of the authentication key.
+        """
+        identifier: NotRequired[pulumi.Input[str]]
+        """
+        Identifier of the key.
+        """
+elif False:
+    StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs:
@@ -2410,6 +3188,23 @@ class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs:
         pulumi.set(self, "identifier", value)
 
 
+if not MYPY:
+    class StreamingEndpointAccessControlIpAllowArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The IP address to allow.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The friendly name for the IP address range.
+        """
+        subnet_prefix_length: NotRequired[pulumi.Input[int]]
+        """
+        The subnet mask prefix length (see CIDR notation).
+        """
+elif False:
+    StreamingEndpointAccessControlIpAllowArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingEndpointAccessControlIpAllowArgs:
     def __init__(__self__, *,
@@ -2465,6 +3260,19 @@ class StreamingEndpointAccessControlIpAllowArgs:
         pulumi.set(self, "subnet_prefix_length", value)
 
 
+if not MYPY:
+    class StreamingEndpointCrossSiteAccessPolicyArgsDict(TypedDict):
+        client_access_policy: NotRequired[pulumi.Input[str]]
+        """
+        The content of `clientaccesspolicy.xml` used by Silverlight.
+        """
+        cross_domain_policy: NotRequired[pulumi.Input[str]]
+        """
+        The content of `crossdomain.xml` used by Silverlight.
+        """
+elif False:
+    StreamingEndpointCrossSiteAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingEndpointCrossSiteAccessPolicyArgs:
     def __init__(__self__, *,
@@ -2504,6 +3312,19 @@ class StreamingEndpointCrossSiteAccessPolicyArgs:
         pulumi.set(self, "cross_domain_policy", value)
 
 
+if not MYPY:
+    class StreamingEndpointSkusArgsDict(TypedDict):
+        capacity: NotRequired[pulumi.Input[int]]
+        """
+        The sku capacity of Streaming Endpoint.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
+        """
+elif False:
+    StreamingEndpointSkusArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingEndpointSkusArgs:
     def __init__(__self__, *,
@@ -2542,6 +3363,31 @@ class StreamingEndpointSkusArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class StreamingLocatorContentKeyArgsDict(TypedDict):
+        content_key_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        label_reference_in_streaming_policy: NotRequired[pulumi.Input[str]]
+        """
+        Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+        type: NotRequired[pulumi.Input[str]]
+        """
+        Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        Value of Content Key. Changing this forces a new Streaming Locator to be created.
+        """
+elif False:
+    StreamingLocatorContentKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingLocatorContentKeyArgs:
@@ -2630,6 +3476,27 @@ class StreamingLocatorContentKeyArgs:
         pulumi.set(self, "value", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCbcsArgsDict(TypedDict):
+        clear_key_encryption: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgsDict']]
+        """
+        A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        default_content_key: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgsDict']]
+        """
+        A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        drm_fairplay: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCbcsDrmFairplayArgsDict']]
+        """
+        A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        enabled_protocols: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgsDict']]
+        """
+        A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCbcsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCbcsArgs:
     def __init__(__self__, *,
@@ -2701,6 +3568,17 @@ class StreamingPolicyCommonEncryptionCbcsArgs:
         pulumi.set(self, "enabled_protocols", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgsDict(TypedDict):
+        custom_keys_acquisition_url_template: pulumi.Input[str]
+        """
+        The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+
+        > **Note** Either `clear_key_encryption` or `drm` must be specified.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs:
     def __init__(__self__, *,
@@ -2726,6 +3604,19 @@ class StreamingPolicyCommonEncryptionCbcsClearKeyEncryptionArgs:
     def custom_keys_acquisition_url_template(self, value: pulumi.Input[str]):
         pulumi.set(self, "custom_keys_acquisition_url_template", value)
 
+
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgsDict(TypedDict):
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs:
@@ -2766,6 +3657,19 @@ class StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs:
         pulumi.set(self, "policy_name", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgsDict(TypedDict):
+        allow_persistent_license: NotRequired[pulumi.Input[bool]]
+        """
+        All license to be persistent or not. Changing this forces a new Streaming Policy to be created.
+        """
+        custom_license_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCbcsDrmFairplayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs:
     def __init__(__self__, *,
@@ -2804,6 +3708,27 @@ class StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs:
     def custom_license_acquisition_url_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_license_acquisition_url_template", value)
 
+
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgsDict(TypedDict):
+        dash: NotRequired[pulumi.Input[bool]]
+        """
+        Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        download: NotRequired[pulumi.Input[bool]]
+        """
+        Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        hls: NotRequired[pulumi.Input[bool]]
+        """
+        Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        smooth_streaming: NotRequired[pulumi.Input[bool]]
+        """
+        Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs:
@@ -2875,6 +3800,39 @@ class StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs:
     def smooth_streaming(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smooth_streaming", value)
 
+
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencArgsDict(TypedDict):
+        clear_key_encryption: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgsDict']]
+        """
+        A `clear_key_encryption` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        clear_tracks: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackArgsDict']]]]
+        """
+        One or more `clear_track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        content_key_to_track_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgsDict']]]]
+        """
+        One or more `content_key_to_track_mapping` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        default_content_key: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCencDefaultContentKeyArgsDict']]
+        """
+        A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        drm_playready: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCencDrmPlayreadyArgsDict']]
+        """
+        A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        drm_widevine_custom_license_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
+        """
+        enabled_protocols: NotRequired[pulumi.Input['StreamingPolicyCommonEncryptionCencEnabledProtocolsArgsDict']]
+        """
+        A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencArgs:
@@ -2995,6 +3953,17 @@ class StreamingPolicyCommonEncryptionCencArgs:
         pulumi.set(self, "enabled_protocols", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgsDict(TypedDict):
+        custom_keys_acquisition_url_template: pulumi.Input[str]
+        """
+        The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+
+        > **Note** Either `clear_key_encryption` or `drm` must be specified.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs:
     def __init__(__self__, *,
@@ -3021,6 +3990,15 @@ class StreamingPolicyCommonEncryptionCencClearKeyEncryptionArgs:
         pulumi.set(self, "custom_keys_acquisition_url_template", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencClearTrackArgsDict(TypedDict):
+        conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArgsDict']]]
+        """
+        One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencClearTrackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencClearTrackArgs:
     def __init__(__self__, *,
@@ -3042,6 +4020,23 @@ class StreamingPolicyCommonEncryptionCencClearTrackArgs:
     def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencClearTrackConditionArgs']]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencClearTrackConditionArgsDict(TypedDict):
+        operation: pulumi.Input[str]
+        """
+        The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+        """
+        property: pulumi.Input[str]
+        """
+        The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+        """
+        value: pulumi.Input[str]
+        """
+        The track property value. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencClearTrackConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencClearTrackConditionArgs:
@@ -3094,6 +4089,23 @@ class StreamingPolicyCommonEncryptionCencClearTrackConditionArgs:
     def property(self, value: pulumi.Input[str]):
         pulumi.set(self, "property", value)
 
+
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgsDict(TypedDict):
+        tracks: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgsDict']]]
+        """
+        One or more `track` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        The policy used by the default key. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs:
@@ -3149,6 +4161,15 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingArgs:
         pulumi.set(self, "policy_name", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgsDict(TypedDict):
+        conditions: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgsDict']]]
+        """
+        One or more `condition` blocks as defined below. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs:
     def __init__(__self__, *,
@@ -3170,6 +4191,23 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackArgs:
     def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs']]]):
         pulumi.set(self, "conditions", value)
 
+
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgsDict(TypedDict):
+        operation: pulumi.Input[str]
+        """
+        The track property condition operation. Possible value is `Equal`. Changing this forces a new Streaming Policy to be created.
+        """
+        property: pulumi.Input[str]
+        """
+        The track property type. Possible value is `FourCC`. Changing this forces a new Streaming Policy to be created.
+        """
+        value: pulumi.Input[str]
+        """
+        The track property value. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionArgs:
@@ -3223,6 +4261,19 @@ class StreamingPolicyCommonEncryptionCencContentKeyToTrackMappingTrackConditionA
         pulumi.set(self, "property", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencDefaultContentKeyArgsDict(TypedDict):
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencDefaultContentKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs:
     def __init__(__self__, *,
@@ -3262,6 +4313,19 @@ class StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs:
         pulumi.set(self, "policy_name", value)
 
 
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencDrmPlayreadyArgsDict(TypedDict):
+        custom_attributes: NotRequired[pulumi.Input[str]]
+        """
+        Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+        """
+        custom_license_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencDrmPlayreadyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs:
     def __init__(__self__, *,
@@ -3300,6 +4364,27 @@ class StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs:
     def custom_license_acquisition_url_template(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_license_acquisition_url_template", value)
 
+
+if not MYPY:
+    class StreamingPolicyCommonEncryptionCencEnabledProtocolsArgsDict(TypedDict):
+        dash: NotRequired[pulumi.Input[bool]]
+        """
+        Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        download: NotRequired[pulumi.Input[bool]]
+        """
+        Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        hls: NotRequired[pulumi.Input[bool]]
+        """
+        Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        smooth_streaming: NotRequired[pulumi.Input[bool]]
+        """
+        Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyCommonEncryptionCencEnabledProtocolsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs:
@@ -3372,6 +4457,23 @@ class StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs:
         pulumi.set(self, "smooth_streaming", value)
 
 
+if not MYPY:
+    class StreamingPolicyEnvelopeEncryptionArgsDict(TypedDict):
+        custom_keys_acquisition_url_template: NotRequired[pulumi.Input[str]]
+        """
+        The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+        """
+        default_content_key: NotRequired[pulumi.Input['StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgsDict']]
+        """
+        A `default_content_key` block as defined above. Changing this forces a new Streaming Policy to be created.
+        """
+        enabled_protocols: NotRequired[pulumi.Input['StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgsDict']]
+        """
+        A `enabled_protocols` block as defined above. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyEnvelopeEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyEnvelopeEncryptionArgs:
     def __init__(__self__, *,
@@ -3427,6 +4529,19 @@ class StreamingPolicyEnvelopeEncryptionArgs:
         pulumi.set(self, "enabled_protocols", value)
 
 
+if not MYPY:
+    class StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgsDict(TypedDict):
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+        """
+        policy_name: NotRequired[pulumi.Input[str]]
+        """
+        Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs:
     def __init__(__self__, *,
@@ -3465,6 +4580,27 @@ class StreamingPolicyEnvelopeEncryptionDefaultContentKeyArgs:
     def policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_name", value)
 
+
+if not MYPY:
+    class StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgsDict(TypedDict):
+        dash: NotRequired[pulumi.Input[bool]]
+        """
+        Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        download: NotRequired[pulumi.Input[bool]]
+        """
+        Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        hls: NotRequired[pulumi.Input[bool]]
+        """
+        Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        smooth_streaming: NotRequired[pulumi.Input[bool]]
+        """
+        Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs:
@@ -3537,6 +4673,27 @@ class StreamingPolicyEnvelopeEncryptionEnabledProtocolsArgs:
         pulumi.set(self, "smooth_streaming", value)
 
 
+if not MYPY:
+    class StreamingPolicyNoEncryptionEnabledProtocolsArgsDict(TypedDict):
+        dash: NotRequired[pulumi.Input[bool]]
+        """
+        Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        download: NotRequired[pulumi.Input[bool]]
+        """
+        Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        hls: NotRequired[pulumi.Input[bool]]
+        """
+        Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+        smooth_streaming: NotRequired[pulumi.Input[bool]]
+        """
+        Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+        """
+elif False:
+    StreamingPolicyNoEncryptionEnabledProtocolsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class StreamingPolicyNoEncryptionEnabledProtocolsArgs:
     def __init__(__self__, *,
@@ -3607,6 +4764,41 @@ class StreamingPolicyNoEncryptionEnabledProtocolsArgs:
     def smooth_streaming(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "smooth_streaming", value)
 
+
+if not MYPY:
+    class TransformOutputArgsDict(TypedDict):
+        audio_analyzer_preset: NotRequired[pulumi.Input['TransformOutputAudioAnalyzerPresetArgsDict']]
+        """
+        An `audio_analyzer_preset` block as defined above.
+        """
+        builtin_preset: NotRequired[pulumi.Input['TransformOutputBuiltinPresetArgsDict']]
+        """
+        A `builtin_preset` block as defined above.
+        """
+        custom_preset: NotRequired[pulumi.Input['TransformOutputCustomPresetArgsDict']]
+        """
+        A `custom_preset` block as defined above.
+        """
+        face_detector_preset: NotRequired[pulumi.Input['TransformOutputFaceDetectorPresetArgsDict']]
+        """
+        A `face_detector_preset` block as defined above.
+        """
+        on_error_action: NotRequired[pulumi.Input[str]]
+        """
+        A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possible values are `StopProcessingJob` or `ContinueJob`. Defaults to `StopProcessingJob`.
+        """
+        relative_priority: NotRequired[pulumi.Input[str]]
+        """
+        Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are `High`, `Normal` or `Low`. Defaults to `Normal`.
+        """
+        video_analyzer_preset: NotRequired[pulumi.Input['TransformOutputVideoAnalyzerPresetArgsDict']]
+        """
+        A `video_analyzer_preset` block as defined below.
+
+        > **NOTE:** Each output can only have one type of preset: `builtin_preset`, `audio_analyzer_preset`, `custom_preset`, `face_detector_preset` or `video_analyzer_preset`. If you need to apply different presets you must create one output for each one.
+        """
+elif False:
+    TransformOutputArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputArgs:
@@ -3739,6 +4931,23 @@ class TransformOutputArgs:
         pulumi.set(self, "video_analyzer_preset", value)
 
 
+if not MYPY:
+    class TransformOutputAudioAnalyzerPresetArgsDict(TypedDict):
+        audio_analysis_mode: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
+        """
+        audio_language: NotRequired[pulumi.Input[str]]
+        """
+        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
+        """
+        experimental_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+elif False:
+    TransformOutputAudioAnalyzerPresetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputAudioAnalyzerPresetArgs:
     def __init__(__self__, *,
@@ -3794,6 +5003,19 @@ class TransformOutputAudioAnalyzerPresetArgs:
         pulumi.set(self, "experimental_options", value)
 
 
+if not MYPY:
+    class TransformOutputBuiltinPresetArgsDict(TypedDict):
+        preset_name: pulumi.Input[str]
+        """
+        The built-in preset to be used for encoding videos. The Possible values are `AACGoodQualityAudio`, `AdaptiveStreaming`, `ContentAwareEncoding`, `ContentAwareEncodingExperimental`, `CopyAllBitrateNonInterleaved`, `DDGoodQualityAudio`, `H265AdaptiveStreaming`, `H265ContentAwareEncoding`, `H265SingleBitrate4K`, `H265SingleBitrate1080p`, `H265SingleBitrate720p`, `H264MultipleBitrate1080p`, `H264MultipleBitrateSD`, `H264MultipleBitrate720p`, `H264SingleBitrate1080p`, `H264SingleBitrateSD` and `H264SingleBitrate720p`.
+        """
+        preset_configuration: NotRequired[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgsDict']]
+        """
+        A `preset_configuration` block as defined below.
+        """
+elif False:
+    TransformOutputBuiltinPresetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputBuiltinPresetArgs:
     def __init__(__self__, *,
@@ -3831,6 +5053,43 @@ class TransformOutputBuiltinPresetArgs:
     def preset_configuration(self, value: Optional[pulumi.Input['TransformOutputBuiltinPresetPresetConfigurationArgs']]):
         pulumi.set(self, "preset_configuration", value)
 
+
+if not MYPY:
+    class TransformOutputBuiltinPresetPresetConfigurationArgsDict(TypedDict):
+        complexity: NotRequired[pulumi.Input[str]]
+        """
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`.
+        """
+        interleave_output: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the interleave mode of the output to control how audio are stored in the container format. Possible values are `InterleavedOutput` and `NonInterleavedOutput`.
+        """
+        key_frame_interval_in_seconds: NotRequired[pulumi.Input[float]]
+        """
+        The key frame interval in seconds. Possible value is a positive float. For example, set as `2.0` to reduce the playback buffering for some players.
+        """
+        max_bitrate_bps: NotRequired[pulumi.Input[int]]
+        """
+        The maximum bitrate in bits per second (threshold for the top video layer). For example, set as `6000000` to avoid producing very high bitrate outputs for contents with high complexity.
+        """
+        max_height: NotRequired[pulumi.Input[int]]
+        """
+        The maximum height of output video layers. For example, set as `720` to produce output layers up to 720P even if the input is 4K.
+        """
+        max_layers: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of output video layers. For example, set as `4` to make sure at most 4 output layers are produced to control the overall cost of the encoding job.
+        """
+        min_bitrate_bps: NotRequired[pulumi.Input[int]]
+        """
+        The minimum bitrate in bits per second (threshold for the bottom video layer). For example, set as `200000` to have a bottom layer that covers users with low network bandwidth.
+        """
+        min_height: NotRequired[pulumi.Input[int]]
+        """
+        The minimum height of output video layers. For example, set as `360` to avoid output layers of smaller resolutions like 180P.
+        """
+elif False:
+    TransformOutputBuiltinPresetPresetConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputBuiltinPresetPresetConfigurationArgs:
@@ -3967,6 +5226,27 @@ class TransformOutputBuiltinPresetPresetConfigurationArgs:
         pulumi.set(self, "min_height", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetArgsDict(TypedDict):
+        codecs: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecArgsDict']]]
+        """
+        One or more `codec` blocks as defined above.
+        """
+        formats: pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatArgsDict']]]
+        """
+        One or more `format` blocks as defined below.
+        """
+        experimental_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        filter: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterArgsDict']]
+        """
+        A `filter` block as defined below.
+        """
+elif False:
+    TransformOutputCustomPresetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetArgs:
     def __init__(__self__, *,
@@ -4035,6 +5315,45 @@ class TransformOutputCustomPresetArgs:
     def filter(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterArgs']]):
         pulumi.set(self, "filter", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetCodecArgsDict(TypedDict):
+        aac_audio: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecAacAudioArgsDict']]
+        """
+        A `aac_audio` block as defined above.
+        """
+        copy_audio: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecCopyAudioArgsDict']]
+        """
+        A `copy_audio` block as defined below.
+        """
+        copy_video: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecCopyVideoArgsDict']]
+        """
+        A `copy_video` block as defined below.
+        """
+        dd_audio: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecDdAudioArgsDict']]
+        """
+        A `dd_audio` block as defined below.
+        """
+        h264_video: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecH264VideoArgsDict']]
+        """
+        A `h264_video` block as defined below.
+        """
+        h265_video: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecH265VideoArgsDict']]
+        """
+        A `h265_video` block as defined below.
+        """
+        jpg_image: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecJpgImageArgsDict']]
+        """
+        A `jpg_image` block as defined below.
+        """
+        png_image: NotRequired[pulumi.Input['TransformOutputCustomPresetCodecPngImageArgsDict']]
+        """
+        A `png_image` block as defined below.
+
+        > **NOTE:** Each codec can only have one type: `aac_audio`, `copy_audio`, `copy_video`, `dd_audio`, `h264_video`, `h265_video`, `jpg_image` or `png_image`. If you need to apply different codec you must create one codec for each one.
+        """
+elif False:
+    TransformOutputCustomPresetCodecArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetCodecArgs:
@@ -4175,6 +5494,31 @@ class TransformOutputCustomPresetCodecArgs:
         pulumi.set(self, "png_image", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetCodecAacAudioArgsDict(TypedDict):
+        bitrate: NotRequired[pulumi.Input[int]]
+        """
+        The bitrate of the audio in bits per second. Default to `128000`.
+        """
+        channels: NotRequired[pulumi.Input[int]]
+        """
+        The number of audio channels. Default to `2`.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        profile: NotRequired[pulumi.Input[str]]
+        """
+        The encoding profile to be used when encoding audio with AAC. Possible values are `AacLc`, `HeAacV1`,and `HeAacV2`. Default to `AacLc`.
+        """
+        sampling_rate: NotRequired[pulumi.Input[int]]
+        """
+        The sampling rate to use for encoding in Hertz. Default to `48000`.
+        """
+elif False:
+    TransformOutputCustomPresetCodecAacAudioArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetCodecAacAudioArgs:
     def __init__(__self__, *,
@@ -4262,6 +5606,15 @@ class TransformOutputCustomPresetCodecAacAudioArgs:
         pulumi.set(self, "sampling_rate", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetCodecCopyAudioArgsDict(TypedDict):
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+elif False:
+    TransformOutputCustomPresetCodecCopyAudioArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetCodecCopyAudioArgs:
     def __init__(__self__, *,
@@ -4285,6 +5638,15 @@ class TransformOutputCustomPresetCodecCopyAudioArgs:
         pulumi.set(self, "label", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetCodecCopyVideoArgsDict(TypedDict):
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+elif False:
+    TransformOutputCustomPresetCodecCopyVideoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetCodecCopyVideoArgs:
     def __init__(__self__, *,
@@ -4307,6 +5669,27 @@ class TransformOutputCustomPresetCodecCopyVideoArgs:
     def label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "label", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetCodecDdAudioArgsDict(TypedDict):
+        bitrate: NotRequired[pulumi.Input[int]]
+        """
+        The bitrate of the audio in bits per second. Default to `192000`.
+        """
+        channels: NotRequired[pulumi.Input[int]]
+        """
+        The number of audio channels. Default to `2`.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        sampling_rate: NotRequired[pulumi.Input[int]]
+        """
+        The sampling rate to use for encoding in Hertz. Default to `48000`.
+        """
+elif False:
+    TransformOutputCustomPresetCodecDdAudioArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetCodecDdAudioArgs:
@@ -4378,6 +5761,43 @@ class TransformOutputCustomPresetCodecDdAudioArgs:
     def sampling_rate(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "sampling_rate", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetCodecH264VideoArgsDict(TypedDict):
+        complexity: NotRequired[pulumi.Input[str]]
+        """
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        """
+        key_frame_interval: NotRequired[pulumi.Input[str]]
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH264VideoLayerArgsDict']]]]
+        """
+        One or more `layer` blocks as defined below.
+        """
+        rate_control_mode: NotRequired[pulumi.Input[str]]
+        """
+        The rate control mode. Possible values are `ABR`, `CBR` or `CRF`. Default to `ABR`.
+        """
+        scene_change_detection_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        """
+        stretch_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        sync_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+elif False:
+    TransformOutputCustomPresetCodecH264VideoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetCodecH264VideoArgs:
@@ -4513,6 +5933,71 @@ class TransformOutputCustomPresetCodecH264VideoArgs:
     def sync_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sync_mode", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetCodecH264VideoLayerArgsDict(TypedDict):
+        bitrate: pulumi.Input[int]
+        """
+        The average bitrate in bits per second at which to encode the input video when generating this layer.
+        """
+        adaptive_b_frame_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        """
+        b_frames: NotRequired[pulumi.Input[int]]
+        """
+        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        """
+        buffer_window: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
+        """
+        crf: NotRequired[pulumi.Input[float]]
+        """
+        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        """
+        entropy_mode: NotRequired[pulumi.Input[str]]
+        """
+        The entropy mode to be used for this layer. Possible values are `Cabac` or `Cavlc`. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+        """
+        frame_rate: NotRequired[pulumi.Input[str]]
+        """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        """
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        """
+        max_bitrate: NotRequired[pulumi.Input[int]]
+        """
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        """
+        profile: NotRequired[pulumi.Input[str]]
+        """
+        The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
+        """
+        reference_frames: NotRequired[pulumi.Input[int]]
+        """
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        """
+        slices: NotRequired[pulumi.Input[int]]
+        """
+        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+elif False:
+    TransformOutputCustomPresetCodecH264VideoLayerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetCodecH264VideoLayerArgs:
@@ -4760,6 +6245,39 @@ class TransformOutputCustomPresetCodecH264VideoLayerArgs:
         pulumi.set(self, "width", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetCodecH265VideoArgsDict(TypedDict):
+        complexity: NotRequired[pulumi.Input[str]]
+        """
+        The complexity of the encoding. Possible values are `Balanced`, `Speed` or `Quality`. Default to `Balanced`.
+        """
+        key_frame_interval: NotRequired[pulumi.Input[str]]
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecH265VideoLayerArgsDict']]]]
+        """
+        One or more `layer` blocks as defined below.
+        """
+        scene_change_detection_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether the encoder should insert key frames at scene changes. This flag should be set to true only when the encoder is being configured to produce a single output video. Default to `false`.
+        """
+        stretch_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the resizing mode - how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        sync_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+elif False:
+    TransformOutputCustomPresetCodecH265VideoArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetCodecH265VideoArgs:
     def __init__(__self__, *,
@@ -4878,6 +6396,67 @@ class TransformOutputCustomPresetCodecH265VideoArgs:
     def sync_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sync_mode", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetCodecH265VideoLayerArgsDict(TypedDict):
+        bitrate: pulumi.Input[int]
+        """
+        The average bitrate in bits per second at which to encode the input video when generating this layer.
+        """
+        adaptive_b_frame_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether adaptive B-frames are used when encoding this layer. If not specified, the encoder will turn it on whenever the video profile permits its use. Default to `true`.
+        """
+        b_frames: NotRequired[pulumi.Input[int]]
+        """
+        The number of B-frames to use when encoding this layer. If not specified, the encoder chooses an appropriate number based on the video profile and level.
+        """
+        buffer_window: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum amount of time that the encoder should buffer frames before encoding. The value should be in ISO 8601 format. The value should be in the range `0.1` to `100` seconds. Defaults to `PT5S`.
+        """
+        crf: NotRequired[pulumi.Input[float]]
+        """
+        The value of CRF to be used when encoding this layer. This setting takes effect when `rate_control_mode` is set `CRF`. The range of CRF value is between `0` and `51`, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default to `28`.
+        """
+        frame_rate: NotRequired[pulumi.Input[str]]
+        """
+        The frame rate (in frames per second) at which to encode this layer. The value can be in the form of `M/N` where `M` and `N` are integers (For example, `30000/1001`), or in the form of a number (For example, `30`, or `29.97`). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
+        """
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        level: NotRequired[pulumi.Input[str]]
+        """
+        The H.264 levels. Currently, the resource support Level up to `6.2`. The value can be `auto`, or a number that matches the H.264 profile. If not specified, the default is `auto`, which lets the encoder choose the Level that is appropriate for this layer.
+        """
+        max_bitrate: NotRequired[pulumi.Input[int]]
+        """
+        The maximum bitrate (in bits per second), at which the VBV buffer should be assumed to refill. If not specified, defaults to the same value as bitrate.
+        """
+        profile: NotRequired[pulumi.Input[str]]
+        """
+        The H.264 profile. Possible values are `Auto`, `Main` and `Main10`. Default to `Auto`.
+        """
+        reference_frames: NotRequired[pulumi.Input[int]]
+        """
+        The number of reference frames to be used when encoding this layer. If not specified, the encoder determines an appropriate number based on the encoder complexity setting.
+        """
+        slices: NotRequired[pulumi.Input[int]]
+        """
+        The number of slices to be used when encoding this layer. If not specified, default is `1`, which means that encoder will use a single slice for each frame.
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+elif False:
+    TransformOutputCustomPresetCodecH265VideoLayerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetCodecH265VideoLayerArgs:
@@ -5109,6 +6688,47 @@ class TransformOutputCustomPresetCodecH265VideoLayerArgs:
         pulumi.set(self, "width", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetCodecJpgImageArgsDict(TypedDict):
+        start: pulumi.Input[str]
+        """
+        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        """
+        key_frame_interval: NotRequired[pulumi.Input[str]]
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecJpgImageLayerArgsDict']]]]
+        """
+        One or more `layer` blocks as defined below.
+        """
+        range: NotRequired[pulumi.Input[str]]
+        """
+        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at 5 minutes and 30 seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+        """
+        sprite_column: NotRequired[pulumi.Input[int]]
+        """
+        Sets the number of columns used in thumbnail sprite image. The number of rows are automatically calculated and a VTT file is generated with the coordinate mappings for each thumbnail in the sprite. Note: this value should be a positive integer and a proper value is recommended so that the output image resolution will not go beyond JPEG maximum pixel resolution limit `65535x65535`.
+        """
+        step: NotRequired[pulumi.Input[str]]
+        """
+        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        """
+        stretch_mode: NotRequired[pulumi.Input[str]]
+        """
+        The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        sync_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+elif False:
+    TransformOutputCustomPresetCodecJpgImageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetCodecJpgImageArgs:
     def __init__(__self__, *,
@@ -5259,6 +6879,27 @@ class TransformOutputCustomPresetCodecJpgImageArgs:
         pulumi.set(self, "sync_mode", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetCodecJpgImageLayerArgsDict(TypedDict):
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        quality: NotRequired[pulumi.Input[int]]
+        """
+        The compression quality of the JPEG output. Range is from `0` to `100` and the default is `70`.
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+elif False:
+    TransformOutputCustomPresetCodecJpgImageLayerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetCodecJpgImageLayerArgs:
     def __init__(__self__, *,
@@ -5329,6 +6970,43 @@ class TransformOutputCustomPresetCodecJpgImageLayerArgs:
     def width(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "width", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetCodecPngImageArgsDict(TypedDict):
+        start: pulumi.Input[str]
+        """
+        The position in the input video from where to start generating thumbnails. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Also supports a macro `{Best}`, which tells the encoder to select the best thumbnail from the first few seconds of the video and will only produce one thumbnail, no matter what other settings are for `step` and `range`.
+        """
+        key_frame_interval: NotRequired[pulumi.Input[str]]
+        """
+        The distance between two key frames. The value should be non-zero in the range `0.5` to `20` seconds, specified in ISO 8601 format. Note that this setting is ignored if `sync_mode` is set to `Passthrough`, where the KeyFrameInterval value will follow the input source setting. Defaults to `PT2S`.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the label for the codec. The label can be used to control muxing behavior.
+        """
+        layers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetCodecPngImageLayerArgsDict']]]]
+        """
+        One or more `layer` blocks as defined below.
+        """
+        range: NotRequired[pulumi.Input[str]]
+        """
+        The position relative to transform preset start time in the input video at which to stop generating thumbnails. The value can be in ISO 8601 format (For example, `PT5M30S` to stop at `5` minutes and `30` seconds from start time), or a frame count (For example, `300` to stop at the 300th frame from the frame at start time. If this value is `1`, it means only producing one thumbnail at start time), or a relative value to the stream duration (For example, `50%` to stop at half of stream duration from start time). The default value is `100%`, which means to stop at the end of the stream.
+        """
+        step: NotRequired[pulumi.Input[str]]
+        """
+        The intervals at which thumbnails are generated. The value can be in ISO 8601 format (For example, `PT05S` for one image every 5 seconds), or a frame count (For example, `30` for one image every 30 frames), or a relative value to stream duration (For example, `10%` for one image every 10% of stream duration). Note: Step value will affect the first generated thumbnail, which may not be exactly the one specified at transform preset start time. This is due to the encoder, which tries to select the best thumbnail between start time and Step position from start time as the first output. As the default value is `10%`, it means if stream has long duration, the first generated thumbnail might be far away from the one specified at start time. Try to select reasonable value for Step if the first thumbnail is expected close to start time, or set Range value at `1` if only one thumbnail is needed at start time.
+        """
+        stretch_mode: NotRequired[pulumi.Input[str]]
+        """
+        The resizing mode, which indicates how the input video will be resized to fit the desired output resolution(s). Possible values are `AutoFit`, `AutoSize` or `None`. Default to `AutoSize`.
+        """
+        sync_mode: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the synchronization mode for the video. Possible values are `Auto`, `Cfr`, `Passthrough` or `Vfr`. Default to `Auto`.
+        """
+elif False:
+    TransformOutputCustomPresetCodecPngImageArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetCodecPngImageArgs:
@@ -5464,6 +7142,23 @@ class TransformOutputCustomPresetCodecPngImageArgs:
         pulumi.set(self, "sync_mode", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetCodecPngImageLayerArgsDict(TypedDict):
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The height of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in height as the input.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        The alphanumeric label for this layer, which can be used in multiplexing different video and audio layers, or in naming the output file.
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The width of the output video for this layer. The value can be absolute (in pixels) or relative (in percentage). For example `50%` means the output video has half as many pixels in width as the input.
+        """
+elif False:
+    TransformOutputCustomPresetCodecPngImageLayerArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetCodecPngImageLayerArgs:
     def __init__(__self__, *,
@@ -5518,6 +7213,35 @@ class TransformOutputCustomPresetCodecPngImageLayerArgs:
     def width(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "width", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetFilterArgsDict(TypedDict):
+        crop_rectangle: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterCropRectangleArgsDict']]
+        """
+        A `crop_rectangle` block as defined above.
+        """
+        deinterlace: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterDeinterlaceArgsDict']]
+        """
+        A `deinterlace` block as defined below.
+        """
+        fade_in: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterFadeInArgsDict']]
+        """
+        A `fade_in` block as defined above.
+        """
+        fade_out: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterFadeOutArgsDict']]
+        """
+        A `fade_out` block as defined above.
+        """
+        overlays: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFilterOverlayArgsDict']]]]
+        """
+        One or more `overlay` blocks as defined below.
+        """
+        rotation: NotRequired[pulumi.Input[str]]
+        """
+        The rotation to be applied to the input video before it is encoded. Possible values are `Auto`, `None`, `Rotate90`, `Rotate180`, `Rotate270`,or `Rotate0`. Default to `Auto`.
+        """
+elif False:
+    TransformOutputCustomPresetFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetFilterArgs:
@@ -5622,6 +7346,27 @@ class TransformOutputCustomPresetFilterArgs:
         pulumi.set(self, "rotation", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFilterCropRectangleArgsDict(TypedDict):
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        left: NotRequired[pulumi.Input[str]]
+        """
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        top: NotRequired[pulumi.Input[str]]
+        """
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+elif False:
+    TransformOutputCustomPresetFilterCropRectangleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFilterCropRectangleArgs:
     def __init__(__self__, *,
@@ -5693,6 +7438,19 @@ class TransformOutputCustomPresetFilterCropRectangleArgs:
         pulumi.set(self, "width", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFilterDeinterlaceArgsDict(TypedDict):
+        mode: NotRequired[pulumi.Input[str]]
+        """
+        The deinterlacing mode. Possible values are `AutoPixelAdaptive` or `Off`. Default to `AutoPixelAdaptive`.
+        """
+        parity: NotRequired[pulumi.Input[str]]
+        """
+        The field parity to use for deinterlacing. Possible values are `Auto`, `TopFieldFirst` or `BottomFieldFirst`. Default to `Auto`.
+        """
+elif False:
+    TransformOutputCustomPresetFilterDeinterlaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFilterDeinterlaceArgs:
     def __init__(__self__, *,
@@ -5731,6 +7489,23 @@ class TransformOutputCustomPresetFilterDeinterlaceArgs:
     def parity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parity", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetFilterFadeInArgsDict(TypedDict):
+        duration: pulumi.Input[str]
+        """
+        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+        """
+        fade_color: pulumi.Input[str]
+        """
+        The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+        """
+elif False:
+    TransformOutputCustomPresetFilterFadeInArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetFilterFadeInArgs:
@@ -5785,6 +7560,23 @@ class TransformOutputCustomPresetFilterFadeInArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFilterFadeOutArgsDict(TypedDict):
+        duration: pulumi.Input[str]
+        """
+        The duration of the fade effect in the video. The value can be in ISO 8601 format (For example, PT05S to fade In/Out a color during 5 seconds), or a frame count (For example, 10 to fade 10 frames from the start time), or a relative value to stream duration (For example, 10% to fade 10% of stream duration).
+        """
+        fade_color: pulumi.Input[str]
+        """
+        The color for the fade in/out. It can be on the [CSS Level1 colors](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color_keywords) or an RGB/hex value: e.g: `rgb(255,0,0)`, `0xFF0000` or `#FF0000`.
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The position in the input video from where to start fade. The value can be in ISO 8601 format (For example, `PT05S` to start at 5 seconds), or a frame count (For example, `10` to start at the 10th frame), or a relative value to stream duration (For example, `10%` to start at 10% of stream duration). Default to `0`.
+        """
+elif False:
+    TransformOutputCustomPresetFilterFadeOutArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFilterFadeOutArgs:
     def __init__(__self__, *,
@@ -5838,6 +7630,21 @@ class TransformOutputCustomPresetFilterFadeOutArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFilterOverlayArgsDict(TypedDict):
+        audio: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterOverlayAudioArgsDict']]
+        """
+        An `audio` block as defined above.
+        """
+        video: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgsDict']]
+        """
+        A `video` block as defined below.
+
+        > **NOTE:** Each overlay can only have one type: `audio` or `video`. If you need to apply different type you must create one overlay for each one.
+        """
+elif False:
+    TransformOutputCustomPresetFilterOverlayArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFilterOverlayArgs:
     def __init__(__self__, *,
@@ -5880,6 +7687,35 @@ class TransformOutputCustomPresetFilterOverlayArgs:
     def video(self, value: Optional[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoArgs']]):
         pulumi.set(self, "video", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetFilterOverlayAudioArgsDict(TypedDict):
+        input_label: pulumi.Input[str]
+        """
+        The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+        """
+        audio_gain_level: NotRequired[pulumi.Input[float]]
+        """
+        The gain level of audio in the overlay. The value should be in the range `0` to `1.0`. The default is `1.0`.
+        """
+        end: NotRequired[pulumi.Input[str]]
+        """
+        The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+        """
+        fade_in_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+        """
+        fade_out_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+elif False:
+    TransformOutputCustomPresetFilterOverlayAudioArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetFilterOverlayAudioArgs:
@@ -5982,6 +7818,47 @@ class TransformOutputCustomPresetFilterOverlayAudioArgs:
     def start(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetFilterOverlayVideoArgsDict(TypedDict):
+        input_label: pulumi.Input[str]
+        """
+        The label of the job input which is to be used as an overlay. The input must specify exact one file. You can specify an image file in JPG, PNG, GIF or BMP format, or an audio file (such as a WAV, MP3, WMA or M4A file), or a video file.
+        """
+        audio_gain_level: NotRequired[pulumi.Input[float]]
+        """
+        The gain level of audio in the overlay. The value should be in range between `0` to `1.0`. The default is `1.0`.
+        """
+        crop_rectangle: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgsDict']]
+        """
+        A `crop_rectangle` block as defined above.
+        """
+        end: NotRequired[pulumi.Input[str]]
+        """
+        The end position, with reference to the input video, at which the overlay ends. The value should be in ISO 8601 format. For example, `PT30S` to end the overlay at 30 seconds into the input video. If not specified or the value is greater than the input video duration, the overlay will be applied until the end of the input video if the overlay media duration is greater than the input video duration, else the overlay will last as long as the overlay media duration.
+        """
+        fade_in_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration over which the overlay fades in onto the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade in (same as `PT0S`).
+        """
+        fade_out_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration over which the overlay fades out of the input video. The value should be in ISO 8601 duration format. If not specified the default behavior is to have no fade out (same as `PT0S`).
+        """
+        opacity: NotRequired[pulumi.Input[float]]
+        """
+        The opacity of the overlay. The value should be in the range between `0` to `1.0`. Default to `1.0`, which means the overlay is opaque.
+        """
+        position: NotRequired[pulumi.Input['TransformOutputCustomPresetFilterOverlayVideoPositionArgsDict']]
+        """
+        A `position` block as defined above.
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The start position, with reference to the input video, at which the overlay starts. The value should be in ISO 8601 format. For example, `PT05S` to start the overlay at 5 seconds into the input video. If not specified the overlay starts from the beginning of the input video.
+        """
+elif False:
+    TransformOutputCustomPresetFilterOverlayVideoArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetFilterOverlayVideoArgs:
@@ -6133,6 +8010,27 @@ class TransformOutputCustomPresetFilterOverlayVideoArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgsDict(TypedDict):
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        left: NotRequired[pulumi.Input[str]]
+        """
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        top: NotRequired[pulumi.Input[str]]
+        """
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+elif False:
+    TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
     def __init__(__self__, *,
@@ -6204,6 +8102,27 @@ class TransformOutputCustomPresetFilterOverlayVideoCropRectangleArgs:
         pulumi.set(self, "width", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFilterOverlayVideoPositionArgsDict(TypedDict):
+        height: NotRequired[pulumi.Input[str]]
+        """
+        The height of the rectangular region in pixels. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        left: NotRequired[pulumi.Input[str]]
+        """
+        The number of pixels from the left-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        top: NotRequired[pulumi.Input[str]]
+        """
+        The number of pixels from the top-margin. This can be absolute pixel value (e.g `100`), or relative to the size of the video (For example, `50%`).
+        """
+        width: NotRequired[pulumi.Input[str]]
+        """
+        The width of the rectangular region in pixels. This can be absolute pixel value (e.g` 100`), or relative to the size of the video (For example, `50%`).
+        """
+elif False:
+    TransformOutputCustomPresetFilterOverlayVideoPositionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
     def __init__(__self__, *,
@@ -6274,6 +8193,29 @@ class TransformOutputCustomPresetFilterOverlayVideoPositionArgs:
     def width(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "width", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetFormatArgsDict(TypedDict):
+        jpg: NotRequired[pulumi.Input['TransformOutputCustomPresetFormatJpgArgsDict']]
+        """
+        A `jpg` block as defined below.
+        """
+        mp4: NotRequired[pulumi.Input['TransformOutputCustomPresetFormatMp4ArgsDict']]
+        """
+        A `mp4` block as defined below.
+        """
+        png: NotRequired[pulumi.Input['TransformOutputCustomPresetFormatPngArgsDict']]
+        """
+        A `png` block as defined below.
+        """
+        transport_stream: NotRequired[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamArgsDict']]
+        """
+        A `transport_stream` block as defined below.
+
+        > **NOTE:** Each format can only have one type: `jpg`, `mp4`, `png` or `transport_stream`. If you need to apply different type you must create one format for each one.
+        """
+elif False:
+    TransformOutputCustomPresetFormatArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetFormatArgs:
@@ -6350,6 +8292,15 @@ class TransformOutputCustomPresetFormatArgs:
         pulumi.set(self, "transport_stream", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFormatJpgArgsDict(TypedDict):
+        filename_pattern: pulumi.Input[str]
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+elif False:
+    TransformOutputCustomPresetFormatJpgArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFormatJpgArgs:
     def __init__(__self__, *,
@@ -6371,6 +8322,19 @@ class TransformOutputCustomPresetFormatJpgArgs:
     def filename_pattern(self, value: pulumi.Input[str]):
         pulumi.set(self, "filename_pattern", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetFormatMp4ArgsDict(TypedDict):
+        filename_pattern: pulumi.Input[str]
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        output_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatMp4OutputFileArgsDict']]]]
+        """
+        One or more `output_file` blocks as defined below.
+        """
+elif False:
+    TransformOutputCustomPresetFormatMp4ArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetFormatMp4Args:
@@ -6410,6 +8374,15 @@ class TransformOutputCustomPresetFormatMp4Args:
         pulumi.set(self, "output_files", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFormatMp4OutputFileArgsDict(TypedDict):
+        labels: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+        """
+elif False:
+    TransformOutputCustomPresetFormatMp4OutputFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFormatMp4OutputFileArgs:
     def __init__(__self__, *,
@@ -6432,6 +8405,15 @@ class TransformOutputCustomPresetFormatMp4OutputFileArgs:
         pulumi.set(self, "labels", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFormatPngArgsDict(TypedDict):
+        filename_pattern: pulumi.Input[str]
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+elif False:
+    TransformOutputCustomPresetFormatPngArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFormatPngArgs:
     def __init__(__self__, *,
@@ -6453,6 +8435,19 @@ class TransformOutputCustomPresetFormatPngArgs:
     def filename_pattern(self, value: pulumi.Input[str]):
         pulumi.set(self, "filename_pattern", value)
 
+
+if not MYPY:
+    class TransformOutputCustomPresetFormatTransportStreamArgsDict(TypedDict):
+        filename_pattern: pulumi.Input[str]
+        """
+        The file naming pattern used for the creation of output files. The following macros are supported in the file name: `{Basename}` - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. `{Extension}` - The appropriate extension for this format. `{Label}` - The label assigned to the codec/layer. `{Index}` - A unique index for thumbnails. Only applicable to thumbnails. `{AudioStream}` - string "Audio" plus audio stream number(start from 1). `{Bitrate}` - The audio/video bitrate in kbps. Not applicable to thumbnails. `{Codec}` - The type of the audio/video codec. `{Resolution}` - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
+        """
+        output_files: NotRequired[pulumi.Input[Sequence[pulumi.Input['TransformOutputCustomPresetFormatTransportStreamOutputFileArgsDict']]]]
+        """
+        One or more `output_file` blocks as defined above.
+        """
+elif False:
+    TransformOutputCustomPresetFormatTransportStreamArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputCustomPresetFormatTransportStreamArgs:
@@ -6492,6 +8487,15 @@ class TransformOutputCustomPresetFormatTransportStreamArgs:
         pulumi.set(self, "output_files", value)
 
 
+if not MYPY:
+    class TransformOutputCustomPresetFormatTransportStreamOutputFileArgsDict(TypedDict):
+        labels: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of labels that describe how the encoder should multiplex video and audio into an output file. For example, if the encoder is producing two video layers with labels `v1` and `v2`, and one audio layer with label `a1`, then an array like `["v1", "a1"]` tells the encoder to produce an output file with the video track represented by `v1` and the audio track represented by `a1`.
+        """
+elif False:
+    TransformOutputCustomPresetFormatTransportStreamOutputFileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TransformOutputCustomPresetFormatTransportStreamOutputFileArgs:
     def __init__(__self__, *,
@@ -6513,6 +8517,27 @@ class TransformOutputCustomPresetFormatTransportStreamOutputFileArgs:
     def labels(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "labels", value)
 
+
+if not MYPY:
+    class TransformOutputFaceDetectorPresetArgsDict(TypedDict):
+        analysis_resolution: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `SourceResolution` or `StandardDefinition`. Specifies the maximum resolution at which your video is analyzed. which will keep the input video at its original resolution when analyzed. Using `StandardDefinition` will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to `StandardDefinition` will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see <https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics> for details). However, faces that end up being too small in the resized video may not be detected. Default to `SourceResolution`.
+        """
+        blur_type: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the type of blur to apply to faces in the output video. Possible values are `Black`, `Box`, `High`, `Low`,and `Med`.
+        """
+        experimental_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        face_redactor_mode: NotRequired[pulumi.Input[str]]
+        """
+        This mode provides the ability to choose between the following settings: 1) `Analyze` - For detection only. This mode generates a metadata JSON file marking appearances of faces throughout the video. Where possible, appearances of the same person are assigned the same ID. 2) `Combined` - Additionally redacts(blurs) detected faces. 3) `Redact` - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces. It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction. Default to `Analyze`.
+        """
+elif False:
+    TransformOutputFaceDetectorPresetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputFaceDetectorPresetArgs:
@@ -6584,6 +8609,27 @@ class TransformOutputFaceDetectorPresetArgs:
     def face_redactor_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "face_redactor_mode", value)
 
+
+if not MYPY:
+    class TransformOutputVideoAnalyzerPresetArgsDict(TypedDict):
+        audio_analysis_mode: NotRequired[pulumi.Input[str]]
+        """
+        Possible values are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed. Default to `Standard`.
+        """
+        audio_language: NotRequired[pulumi.Input[str]]
+        """
+        The language for the audio payload in the input using the BCP-47 format of 'language tag-region' (e.g: 'en-US'). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn't specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fall back to `en-US`. The list of supported languages is available here: <https://go.microsoft.com/fwlink/?linkid=2109463>.
+        """
+        experimental_options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Dictionary containing key value pairs for parameters not exposed in the preset itself.
+        """
+        insights_type: NotRequired[pulumi.Input[str]]
+        """
+        Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly, if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out. Default to `AllInsights`.
+        """
+elif False:
+    TransformOutputVideoAnalyzerPresetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TransformOutputVideoAnalyzerPresetArgs:

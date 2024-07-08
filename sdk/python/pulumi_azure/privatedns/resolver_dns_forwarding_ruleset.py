@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ResolverDnsForwardingRulesetArgs', 'ResolverDnsForwardingRuleset']
@@ -218,13 +223,13 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Network.dnsResolvers",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Microsoft.Network/dnsResolvers",
+                },
+            }])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,
@@ -292,13 +297,13 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
-                    name="Microsoft.Network/dnsResolvers",
-                ),
-            )])
+            delegations=[{
+                "name": "Microsoft.Network.dnsResolvers",
+                "serviceDelegation": {
+                    "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+                    "name": "Microsoft.Network/dnsResolvers",
+                },
+            }])
         example_resolver = azure.privatedns.Resolver("example",
             name="example-resolver",
             resource_group_name=example.name,

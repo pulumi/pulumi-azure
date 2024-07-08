@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -254,7 +259,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_datasource_parameters: Optional[pulumi.Input[pulumi.InputType['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs']]] = None,
+                 backup_datasource_parameters: Optional[pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']]] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -284,23 +289,23 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
             name="example",
             location=example.location,
             resource_group_name=example.name,
             dns_prefix="dns",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-                enable_host_encryption=True,
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            default_node_pool={
+                "name": "default",
+                "nodeCount": 1,
+                "vmSize": "Standard_DS2_v2",
+                "enableHostEncryption": True,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         aks_cluster_trusted_access = azure.containerservice.ClusterTrustedAccessRoleBinding("aks_cluster_trusted_access",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             name="example",
@@ -362,26 +367,26 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             resource_group_name=example.name,
             vault_name=example_backup_vault.name,
             backup_repeating_time_intervals=["R/2023-05-23T02:30:00+00:00/P1W"],
-            retention_rules=[azure.dataprotection.BackupPolicyKubernetesClusterRetentionRuleArgs(
-                name="Daily",
-                priority=25,
-                life_cycles=[azure.dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs(
-                    duration="P84D",
-                    data_store_type="OperationalStore",
-                )],
-                criteria=azure.dataprotection.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs(
-                    days_of_weeks=["Thursday"],
-                    months_of_years=["November"],
-                    weeks_of_months=["First"],
-                    scheduled_backup_times=["2023-05-23T02:30:00Z"],
-                ),
-            )],
-            default_retention_rule=azure.dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs(
-                life_cycles=[azure.dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs(
-                    duration="P14D",
-                    data_store_type="OperationalStore",
-                )],
-            ))
+            retention_rules=[{
+                "name": "Daily",
+                "priority": 25,
+                "lifeCycles": [{
+                    "duration": "P84D",
+                    "dataStoreType": "OperationalStore",
+                }],
+                "criteria": {
+                    "daysOfWeeks": ["Thursday"],
+                    "monthsOfYears": ["November"],
+                    "weeksOfMonths": ["First"],
+                    "scheduledBackupTimes": ["2023-05-23T02:30:00Z"],
+                },
+            }],
+            default_retention_rule={
+                "lifeCycles": [{
+                    "duration": "P14D",
+                    "dataStoreType": "OperationalStore",
+                }],
+            })
         example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
             name="example",
             location=example.location,
@@ -389,15 +394,15 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             snapshot_resource_group_name=snap.name,
             backup_policy_id=example_backup_policy_kubernetes_cluster.id,
-            backup_datasource_parameters=azure.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs(
-                excluded_namespaces=["test-excluded-namespaces"],
-                excluded_resource_types=["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
-                cluster_scoped_resources_enabled=True,
-                included_namespaces=["test-included-namespaces"],
-                included_resource_types=["involumesnapshotcontents.snapshot.storage.k8s.io"],
-                label_selectors=["kubernetes.io/metadata.name:test"],
-                volume_snapshot_enabled=True,
-            ),
+            backup_datasource_parameters={
+                "excludedNamespaces": ["test-excluded-namespaces"],
+                "excludedResourceTypes": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
+                "clusterScopedResourcesEnabled": True,
+                "includedNamespaces": ["test-included-namespaces"],
+                "includedResourceTypes": ["involumesnapshotcontents.snapshot.storage.k8s.io"],
+                "labelSelectors": ["kubernetes.io/metadata.name:test"],
+                "volumeSnapshotEnabled": True,
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,
                     test_vault_msi_read_on_cluster,
@@ -419,7 +424,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
+        :param pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.
@@ -455,23 +460,23 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
-                type="SystemAssigned",
-            ))
+            identity={
+                "type": "SystemAssigned",
+            })
         example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
             name="example",
             location=example.location,
             resource_group_name=example.name,
             dns_prefix="dns",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
-                name="default",
-                node_count=1,
-                vm_size="Standard_DS2_v2",
-                enable_host_encryption=True,
-            ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
-                type="SystemAssigned",
-            ))
+            default_node_pool={
+                "name": "default",
+                "nodeCount": 1,
+                "vmSize": "Standard_DS2_v2",
+                "enableHostEncryption": True,
+            },
+            identity={
+                "type": "SystemAssigned",
+            })
         aks_cluster_trusted_access = azure.containerservice.ClusterTrustedAccessRoleBinding("aks_cluster_trusted_access",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             name="example",
@@ -533,26 +538,26 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             resource_group_name=example.name,
             vault_name=example_backup_vault.name,
             backup_repeating_time_intervals=["R/2023-05-23T02:30:00+00:00/P1W"],
-            retention_rules=[azure.dataprotection.BackupPolicyKubernetesClusterRetentionRuleArgs(
-                name="Daily",
-                priority=25,
-                life_cycles=[azure.dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs(
-                    duration="P84D",
-                    data_store_type="OperationalStore",
-                )],
-                criteria=azure.dataprotection.BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs(
-                    days_of_weeks=["Thursday"],
-                    months_of_years=["November"],
-                    weeks_of_months=["First"],
-                    scheduled_backup_times=["2023-05-23T02:30:00Z"],
-                ),
-            )],
-            default_retention_rule=azure.dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleArgs(
-                life_cycles=[azure.dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs(
-                    duration="P14D",
-                    data_store_type="OperationalStore",
-                )],
-            ))
+            retention_rules=[{
+                "name": "Daily",
+                "priority": 25,
+                "lifeCycles": [{
+                    "duration": "P84D",
+                    "dataStoreType": "OperationalStore",
+                }],
+                "criteria": {
+                    "daysOfWeeks": ["Thursday"],
+                    "monthsOfYears": ["November"],
+                    "weeksOfMonths": ["First"],
+                    "scheduledBackupTimes": ["2023-05-23T02:30:00Z"],
+                },
+            }],
+            default_retention_rule={
+                "lifeCycles": [{
+                    "duration": "P14D",
+                    "dataStoreType": "OperationalStore",
+                }],
+            })
         example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
             name="example",
             location=example.location,
@@ -560,15 +565,15 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             snapshot_resource_group_name=snap.name,
             backup_policy_id=example_backup_policy_kubernetes_cluster.id,
-            backup_datasource_parameters=azure.dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs(
-                excluded_namespaces=["test-excluded-namespaces"],
-                excluded_resource_types=["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
-                cluster_scoped_resources_enabled=True,
-                included_namespaces=["test-included-namespaces"],
-                included_resource_types=["involumesnapshotcontents.snapshot.storage.k8s.io"],
-                label_selectors=["kubernetes.io/metadata.name:test"],
-                volume_snapshot_enabled=True,
-            ),
+            backup_datasource_parameters={
+                "excludedNamespaces": ["test-excluded-namespaces"],
+                "excludedResourceTypes": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
+                "clusterScopedResourcesEnabled": True,
+                "includedNamespaces": ["test-included-namespaces"],
+                "includedResourceTypes": ["involumesnapshotcontents.snapshot.storage.k8s.io"],
+                "labelSelectors": ["kubernetes.io/metadata.name:test"],
+                "volumeSnapshotEnabled": True,
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,
                     test_vault_msi_read_on_cluster,
@@ -603,7 +608,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_datasource_parameters: Optional[pulumi.Input[pulumi.InputType['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs']]] = None,
+                 backup_datasource_parameters: Optional[pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']]] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -644,7 +649,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            backup_datasource_parameters: Optional[pulumi.Input[pulumi.InputType['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs']]] = None,
+            backup_datasource_parameters: Optional[pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']]] = None,
             backup_policy_id: Optional[pulumi.Input[str]] = None,
             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -658,7 +663,7 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
+        :param pulumi.Input[Union['BackupInstanceKubernetesClusterBackupDatasourceParametersArgs', 'BackupInstanceKubernetesClusterBackupDatasourceParametersArgsDict']] backup_datasource_parameters: A `backup_datasource_parameters` block as defined below.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The location of the Backup Instance Kubernetes Cluster. Changing this forces a new resource to be created.

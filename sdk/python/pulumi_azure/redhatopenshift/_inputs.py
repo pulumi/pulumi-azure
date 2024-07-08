@@ -4,20 +4,51 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'ClusterApiServerProfileArgs',
+    'ClusterApiServerProfileArgsDict',
     'ClusterClusterProfileArgs',
+    'ClusterClusterProfileArgsDict',
     'ClusterIngressProfileArgs',
+    'ClusterIngressProfileArgsDict',
     'ClusterMainProfileArgs',
+    'ClusterMainProfileArgsDict',
     'ClusterNetworkProfileArgs',
+    'ClusterNetworkProfileArgsDict',
     'ClusterServicePrincipalArgs',
+    'ClusterServicePrincipalArgsDict',
     'ClusterWorkerProfileArgs',
+    'ClusterWorkerProfileArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class ClusterApiServerProfileArgsDict(TypedDict):
+        visibility: pulumi.Input[str]
+        """
+        Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address the Ingress Profile is associated with.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        The URL the API Server Profile is associated with.
+        """
+elif False:
+    ClusterApiServerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterApiServerProfileArgs:
@@ -72,6 +103,35 @@ class ClusterApiServerProfileArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+
+if not MYPY:
+    class ClusterClusterProfileArgsDict(TypedDict):
+        domain: pulumi.Input[str]
+        """
+        The custom domain for the cluster. For more info, see [Prepare a custom domain for your cluster](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster#prepare-a-custom-domain-for-your-cluster-optional). Changing this forces a new resource to be created.
+        """
+        version: pulumi.Input[str]
+        """
+        The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
+        """
+        fips_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Federal Information Processing Standard (FIPS) validated cryptographic modules are used. Defaults to `false`. Changing this forces a new resource to be created.
+        """
+        managed_resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of a Resource Group which will be created to host VMs of Azure Red Hat OpenShift Cluster. The value cannot contain uppercase characters. Defaults to `aro-{domain}`. Changing this forces a new resource to be created.
+        """
+        pull_secret: NotRequired[pulumi.Input[str]]
+        """
+        The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
+        """
+        resource_group_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource group that the cluster profile is attached to.
+        """
+elif False:
+    ClusterClusterProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterClusterProfileArgs:
@@ -174,6 +234,23 @@ class ClusterClusterProfileArgs:
         pulumi.set(self, "resource_group_id", value)
 
 
+if not MYPY:
+    class ClusterIngressProfileArgsDict(TypedDict):
+        visibility: pulumi.Input[str]
+        """
+        Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+        """
+        ip_address: NotRequired[pulumi.Input[str]]
+        """
+        The IP Address the Ingress Profile is associated with.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
+        """
+elif False:
+    ClusterIngressProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterIngressProfileArgs:
     def __init__(__self__, *,
@@ -227,6 +304,29 @@ class ClusterIngressProfileArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class ClusterMainProfileArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        The ID of the subnet where main nodes will be hosted. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The size of the Virtual Machines for the main nodes. Changing this forces a new resource to be created.
+        """
+        disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
+        """
+        encryption_at_host_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether main virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+        """
+elif False:
+    ClusterMainProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterMainProfileArgs:
@@ -301,6 +401,27 @@ class ClusterMainProfileArgs:
         pulumi.set(self, "encryption_at_host_enabled", value)
 
 
+if not MYPY:
+    class ClusterNetworkProfileArgsDict(TypedDict):
+        pod_cidr: pulumi.Input[str]
+        """
+        The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
+        """
+        service_cidr: pulumi.Input[str]
+        """
+        The network range used by the OpenShift service. Changing this forces a new resource to be created.
+        """
+        outbound_type: NotRequired[pulumi.Input[str]]
+        """
+        The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
+        """
+        preconfigured_network_security_group_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether a preconfigured network security group is being used on the subnets.  Defaults to `false`.  Changing this forces a new resource to be created.
+        """
+elif False:
+    ClusterNetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterNetworkProfileArgs:
     def __init__(__self__, *,
@@ -370,6 +491,21 @@ class ClusterNetworkProfileArgs:
         pulumi.set(self, "preconfigured_network_security_group_enabled", value)
 
 
+if not MYPY:
+    class ClusterServicePrincipalArgsDict(TypedDict):
+        client_id: pulumi.Input[str]
+        """
+        The Client ID for the Service Principal.
+        """
+        client_secret: pulumi.Input[str]
+        """
+        The Client Secret for the Service Principal.
+
+        > **Note:** Currently a service principal cannot be associated with more than one ARO clusters on the Azure subscription.
+        """
+elif False:
+    ClusterServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ClusterServicePrincipalArgs:
     def __init__(__self__, *,
@@ -410,6 +546,37 @@ class ClusterServicePrincipalArgs:
     def client_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_secret", value)
 
+
+if not MYPY:
+    class ClusterWorkerProfileArgsDict(TypedDict):
+        disk_size_gb: pulumi.Input[int]
+        """
+        The internal OS disk size of the worker Virtual Machines in GB. Changing this forces a new resource to be created.
+        """
+        node_count: pulumi.Input[int]
+        """
+        The initial number of worker nodes which should exist in the cluster. Changing this forces a new resource to be created.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        The ID of the subnet where worker nodes will be hosted. Changing this forces a new resource to be created.
+        """
+        vm_size: pulumi.Input[str]
+        """
+        The size of the Virtual Machines for the worker nodes. Changing this forces a new resource to be created.
+        """
+        disk_encryption_set_id: NotRequired[pulumi.Input[str]]
+        """
+        The resource ID of an associated disk encryption set. Changing this forces a new resource to be created.
+        """
+        encryption_at_host_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether worker virtual machines are encrypted at host. Defaults to `false`. Changing this forces a new resource to be created.
+
+        > **NOTE:** `encryption_at_host_enabled` is only available for certain VM sizes and the `EncryptionAtHost` feature must be enabled for your subscription. Please see the [Azure documentation](https://learn.microsoft.com/azure/virtual-machines/disks-enable-host-based-encryption-portal?tabs=azure-powershell) for more information.
+        """
+elif False:
+    ClusterWorkerProfileArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ClusterWorkerProfileArgs:

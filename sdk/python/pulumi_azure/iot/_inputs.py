@@ -4,36 +4,83 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'IoTHubCloudToDeviceArgs',
+    'IoTHubCloudToDeviceArgsDict',
     'IoTHubCloudToDeviceFeedbackArgs',
+    'IoTHubCloudToDeviceFeedbackArgsDict',
     'IoTHubEndpointArgs',
+    'IoTHubEndpointArgsDict',
     'IoTHubEnrichmentArgs',
+    'IoTHubEnrichmentArgsDict',
     'IoTHubFallbackRouteArgs',
+    'IoTHubFallbackRouteArgsDict',
     'IoTHubFileUploadArgs',
+    'IoTHubFileUploadArgsDict',
     'IoTHubIdentityArgs',
+    'IoTHubIdentityArgsDict',
     'IoTHubNetworkRuleSetArgs',
+    'IoTHubNetworkRuleSetArgsDict',
     'IoTHubNetworkRuleSetIpRuleArgs',
+    'IoTHubNetworkRuleSetIpRuleArgsDict',
     'IoTHubRouteArgs',
+    'IoTHubRouteArgsDict',
     'IoTHubSharedAccessPolicyArgs',
+    'IoTHubSharedAccessPolicyArgsDict',
     'IoTHubSkuArgs',
+    'IoTHubSkuArgsDict',
     'IotHubDeviceUpdateAccountIdentityArgs',
+    'IotHubDeviceUpdateAccountIdentityArgsDict',
     'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs',
+    'IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict',
     'IotHubDpsIpFilterRuleArgs',
+    'IotHubDpsIpFilterRuleArgsDict',
     'IotHubDpsLinkedHubArgs',
+    'IotHubDpsLinkedHubArgsDict',
     'IotHubDpsSkuArgs',
+    'IotHubDpsSkuArgsDict',
     'SecurityDeviceGroupAllowRuleArgs',
+    'SecurityDeviceGroupAllowRuleArgsDict',
     'SecurityDeviceGroupRangeRuleArgs',
+    'SecurityDeviceGroupRangeRuleArgsDict',
     'SecuritySolutionAdditionalWorkspaceArgs',
+    'SecuritySolutionAdditionalWorkspaceArgsDict',
     'SecuritySolutionRecommendationsEnabledArgs',
+    'SecuritySolutionRecommendationsEnabledArgsDict',
     'TimeSeriesInsightsGen2EnvironmentStorageArgs',
+    'TimeSeriesInsightsGen2EnvironmentStorageArgsDict',
     'TimeSeriesInsightsReferenceDataSetKeyPropertyArgs',
+    'TimeSeriesInsightsReferenceDataSetKeyPropertyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class IoTHubCloudToDeviceArgsDict(TypedDict):
+        default_ttl: NotRequired[pulumi.Input[str]]
+        """
+        The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
+        """
+        feedbacks: NotRequired[pulumi.Input[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgsDict']]]]
+        """
+        A `feedback` block as defined below.
+        """
+        max_delivery_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
+        """
+elif False:
+    IoTHubCloudToDeviceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IoTHubCloudToDeviceArgs:
@@ -90,6 +137,23 @@ class IoTHubCloudToDeviceArgs:
         pulumi.set(self, "max_delivery_count", value)
 
 
+if not MYPY:
+    class IoTHubCloudToDeviceFeedbackArgsDict(TypedDict):
+        lock_duration: NotRequired[pulumi.Input[str]]
+        """
+        The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
+        """
+        max_delivery_count: NotRequired[pulumi.Input[int]]
+        """
+        The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
+        """
+        time_to_live: NotRequired[pulumi.Input[str]]
+        """
+        The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
+        """
+elif False:
+    IoTHubCloudToDeviceFeedbackArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTHubCloudToDeviceFeedbackArgs:
     def __init__(__self__, *,
@@ -144,6 +208,67 @@ class IoTHubCloudToDeviceFeedbackArgs:
     def time_to_live(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_to_live", value)
 
+
+if not MYPY:
+    class IoTHubEndpointArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        """
+        authentication_type: NotRequired[pulumi.Input[str]]
+        """
+        The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        """
+        batch_frequency_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+        """
+        connection_string: NotRequired[pulumi.Input[str]]
+        """
+        The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
+        """
+        container_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
+        """
+        encoding: NotRequired[pulumi.Input[str]]
+        """
+        Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
+        """
+        endpoint_uri: NotRequired[pulumi.Input[str]]
+        """
+        URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        """
+        entity_path: NotRequired[pulumi.Input[str]]
+        """
+        Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
+        """
+        file_name_format: NotRequired[pulumi.Input[str]]
+        """
+        File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`.
+        """
+        identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the User Managed Identity used to authenticate against the endpoint.
+
+        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+
+        > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `endpoint` since it is not possible to grant access to the endpoint until after creation. The extracted resources `azurerm_iothub_endpoint_*` can be used to configure Endpoints with the IoT Hub's System-Assigned Managed Identity without the need for an update.
+        """
+        max_chunk_size_in_bytes: NotRequired[pulumi.Input[int]]
+        """
+        Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
+        """
+        resource_group_name: NotRequired[pulumi.Input[str]]
+        """
+        The resource group in which the endpoint will be created.
+        """
+elif False:
+    IoTHubEndpointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IoTHubEndpointArgs:
@@ -366,6 +491,23 @@ class IoTHubEndpointArgs:
         pulumi.set(self, "resource_group_name", value)
 
 
+if not MYPY:
+    class IoTHubEnrichmentArgsDict(TypedDict):
+        endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of endpoints which will be enriched.
+        """
+        key: pulumi.Input[str]
+        """
+        The key of the enrichment.
+        """
+        value: pulumi.Input[str]
+        """
+        The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
+        """
+elif False:
+    IoTHubEnrichmentArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTHubEnrichmentArgs:
     def __init__(__self__, *,
@@ -417,6 +559,27 @@ class IoTHubEnrichmentArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class IoTHubFallbackRouteArgsDict(TypedDict):
+        condition: NotRequired[pulumi.Input[str]]
+        """
+        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Used to specify whether the fallback route is enabled.
+        """
+        endpoint_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`. Defaults to `DeviceMessages`.
+        """
+elif False:
+    IoTHubFallbackRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IoTHubFallbackRouteArgs:
@@ -488,6 +651,51 @@ class IoTHubFallbackRouteArgs:
     def source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source", value)
 
+
+if not MYPY:
+    class IoTHubFileUploadArgsDict(TypedDict):
+        connection_string: pulumi.Input[str]
+        """
+        The connection string for the Azure Storage account to which files are uploaded.
+        """
+        container_name: pulumi.Input[str]
+        """
+        The name of the root container where the files should be uploaded to. The container need not exist but should be creatable using the connection_string specified.
+        """
+        authentication_type: NotRequired[pulumi.Input[str]]
+        """
+        The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
+        """
+        default_ttl: NotRequired[pulumi.Input[str]]
+        """
+        The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
+        """
+        identity_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the User Managed Identity used to authenticate against the storage account.
+
+        > **NOTE:** `identity_id` can only be specified when `authentication_type` is `identityBased`. It must be one of the `identity_ids` of the IoT Hub. If `identity_id` is omitted when `authentication_type` is `identityBased`, then the System-Assigned Managed Identity of the IoT Hub will be used.
+
+        > **NOTE:** An IoT Hub can only be updated to use the System-Assigned Managed Identity for `file_upload` since it is not possible to grant access to the endpoint until after creation.
+        """
+        lock_duration: NotRequired[pulumi.Input[str]]
+        """
+        The lock duration for the file upload notifications queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT1M`.
+        """
+        max_delivery_count: NotRequired[pulumi.Input[int]]
+        """
+        The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to `10`.
+        """
+        notifications: NotRequired[pulumi.Input[bool]]
+        """
+        Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to `false`.
+        """
+        sas_ttl: NotRequired[pulumi.Input[str]]
+        """
+        The period of time for which the SAS URI generated by IoT Hub for file upload is valid, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 24 hours. Defaults to `PT1H`.
+        """
+elif False:
+    IoTHubFileUploadArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IoTHubFileUploadArgs:
@@ -646,6 +854,29 @@ class IoTHubFileUploadArgs:
         pulumi.set(self, "sas_ttl", value)
 
 
+if not MYPY:
+    class IoTHubIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+elif False:
+    IoTHubIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTHubIdentityArgs:
     def __init__(__self__, *,
@@ -720,6 +951,23 @@ class IoTHubIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class IoTHubNetworkRuleSetArgsDict(TypedDict):
+        apply_to_builtin_eventhub_endpoint: NotRequired[pulumi.Input[bool]]
+        """
+        Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
+        """
+        default_action: NotRequired[pulumi.Input[str]]
+        """
+        Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgsDict']]]]
+        """
+        One or more `ip_rule` blocks as defined below.
+        """
+elif False:
+    IoTHubNetworkRuleSetArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTHubNetworkRuleSetArgs:
     def __init__(__self__, *,
@@ -775,6 +1023,23 @@ class IoTHubNetworkRuleSetArgs:
         pulumi.set(self, "ip_rules", value)
 
 
+if not MYPY:
+    class IoTHubNetworkRuleSetIpRuleArgsDict(TypedDict):
+        ip_mask: pulumi.Input[str]
+        """
+        The IP address range in CIDR notation for the ip rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the ip rule.
+        """
+        action: NotRequired[pulumi.Input[str]]
+        """
+        The desired action for requests captured by this rule. Possible values are `Allow`. Defaults to `Allow`.
+        """
+elif False:
+    IoTHubNetworkRuleSetIpRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTHubNetworkRuleSetIpRuleArgs:
     def __init__(__self__, *,
@@ -827,6 +1092,31 @@ class IoTHubNetworkRuleSetIpRuleArgs:
     def action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "action", value)
 
+
+if not MYPY:
+    class IoTHubRouteArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Used to specify whether a route is enabled.
+        """
+        endpoint_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of endpoints to which messages that satisfy the condition are routed.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the route.
+        """
+        source: pulumi.Input[str]
+        """
+        The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents` and `DigitalTwinChangeEvents`.
+        """
+        condition: NotRequired[pulumi.Input[str]]
+        """
+        The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
+        """
+elif False:
+    IoTHubRouteArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IoTHubRouteArgs:
@@ -911,6 +1201,27 @@ class IoTHubRouteArgs:
         pulumi.set(self, "condition", value)
 
 
+if not MYPY:
+    class IoTHubSharedAccessPolicyArgsDict(TypedDict):
+        key_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the shared access policy.
+        """
+        permissions: NotRequired[pulumi.Input[str]]
+        """
+        The permissions assigned to the shared access policy.
+        """
+        primary_key: NotRequired[pulumi.Input[str]]
+        """
+        The primary key.
+        """
+        secondary_key: NotRequired[pulumi.Input[str]]
+        """
+        The secondary key.
+        """
+elif False:
+    IoTHubSharedAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTHubSharedAccessPolicyArgs:
     def __init__(__self__, *,
@@ -982,6 +1293,23 @@ class IoTHubSharedAccessPolicyArgs:
         pulumi.set(self, "secondary_key", value)
 
 
+if not MYPY:
+    class IoTHubSkuArgsDict(TypedDict):
+        capacity: pulumi.Input[int]
+        """
+        The number of provisioned IoT Hub units.
+
+        > **NOTE:** Only one IotHub can be on the `Free` tier per subscription.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
+
+        > **NOTE:** The `F1` sku is on `Free` tier.
+        """
+elif False:
+    IoTHubSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IoTHubSkuArgs:
     def __init__(__self__, *,
@@ -1026,6 +1354,29 @@ class IoTHubSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class IotHubDeviceUpdateAccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this IoT Hub Device Update Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Assigned Managed Identity IDs to be assigned to this IoT Hub Device Update Account.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account.
+        """
+elif False:
+    IotHubDeviceUpdateAccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotHubDeviceUpdateAccountIdentityArgs:
@@ -1101,6 +1452,19 @@ class IotHubDeviceUpdateAccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict(TypedDict):
+        connection_string: pulumi.Input[str]
+        """
+        Connection String of the Diagnostic Storage Account.
+        """
+        id: pulumi.Input[str]
+        """
+        Resource ID of the Diagnostic Storage Account.
+        """
+elif False:
+    IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs:
     def __init__(__self__, *,
@@ -1137,6 +1501,27 @@ class IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs:
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class IotHubDpsIpFilterRuleArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        """
+        The desired action for requests captured by this rule. Possible values are `Accept`, `Reject`
+        """
+        ip_mask: pulumi.Input[str]
+        """
+        The IP address range in CIDR notation for the rule.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the filter.
+        """
+        target: NotRequired[pulumi.Input[str]]
+        """
+        Target for requests captured by this rule. Possible values are `all`, `deviceApi` and `serviceApi`.
+        """
+elif False:
+    IotHubDpsIpFilterRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotHubDpsIpFilterRuleArgs:
@@ -1205,6 +1590,31 @@ class IotHubDpsIpFilterRuleArgs:
     def target(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target", value)
 
+
+if not MYPY:
+    class IotHubDpsLinkedHubArgsDict(TypedDict):
+        connection_string: pulumi.Input[str]
+        """
+        The connection string to connect to the IoT Hub.
+        """
+        location: pulumi.Input[str]
+        """
+        The location of the IoT hub.
+        """
+        allocation_weight: NotRequired[pulumi.Input[int]]
+        """
+        The weight applied to the IoT Hub. Defaults to `1`.
+        """
+        apply_allocation_policy: NotRequired[pulumi.Input[bool]]
+        """
+        Determines whether to apply allocation policies to the IoT Hub. Defaults to `true`.
+        """
+        hostname: NotRequired[pulumi.Input[str]]
+        """
+        The IoT Hub hostname.
+        """
+elif False:
+    IotHubDpsLinkedHubArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class IotHubDpsLinkedHubArgs:
@@ -1291,6 +1701,19 @@ class IotHubDpsLinkedHubArgs:
         pulumi.set(self, "hostname", value)
 
 
+if not MYPY:
+    class IotHubDpsSkuArgsDict(TypedDict):
+        capacity: pulumi.Input[int]
+        """
+        The number of provisioned IoT Device Provisioning Service units.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the sku. Currently can only be set to `S1`.
+        """
+elif False:
+    IotHubDpsSkuArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class IotHubDpsSkuArgs:
     def __init__(__self__, *,
@@ -1327,6 +1750,27 @@ class IotHubDpsSkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class SecurityDeviceGroupAllowRuleArgsDict(TypedDict):
+        connection_from_ips_not_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies which IP is not allowed to be connected to in current device group for inbound connection.
+        """
+        connection_to_ips_not_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies which IP is not allowed to be connected to in current device group for outbound connection.
+        """
+        local_users_not_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies which local user is not allowed to login in current device group.
+        """
+        processes_not_alloweds: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies which process is not allowed to be executed in current device group.
+        """
+elif False:
+    SecurityDeviceGroupAllowRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecurityDeviceGroupAllowRuleArgs:
@@ -1399,6 +1843,27 @@ class SecurityDeviceGroupAllowRuleArgs:
         pulumi.set(self, "processes_not_alloweds", value)
 
 
+if not MYPY:
+    class SecurityDeviceGroupRangeRuleArgsDict(TypedDict):
+        duration: pulumi.Input[str]
+        """
+        Specifies the time range. represented in ISO 8601 duration format.
+        """
+        max: pulumi.Input[int]
+        """
+        The maximum threshold in the given time window.
+        """
+        min: pulumi.Input[int]
+        """
+        The minimum threshold in the given time window.
+        """
+        type: pulumi.Input[str]
+        """
+        The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
+        """
+elif False:
+    SecurityDeviceGroupRangeRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecurityDeviceGroupRangeRuleArgs:
     def __init__(__self__, *,
@@ -1466,6 +1931,19 @@ class SecurityDeviceGroupRangeRuleArgs:
         pulumi.set(self, "type", value)
 
 
+if not MYPY:
+    class SecuritySolutionAdditionalWorkspaceArgsDict(TypedDict):
+        data_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
+        """
+        workspace_id: pulumi.Input[str]
+        """
+        The resource ID of the Log Analytics Workspace.
+        """
+elif False:
+    SecuritySolutionAdditionalWorkspaceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class SecuritySolutionAdditionalWorkspaceArgs:
     def __init__(__self__, *,
@@ -1502,6 +1980,75 @@ class SecuritySolutionAdditionalWorkspaceArgs:
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
 
+
+if not MYPY:
+    class SecuritySolutionRecommendationsEnabledArgsDict(TypedDict):
+        acr_authentication: NotRequired[pulumi.Input[bool]]
+        """
+        Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
+        """
+        agent_send_unutilized_msg: NotRequired[pulumi.Input[bool]]
+        """
+        Is Agent send underutilized messages enabled? Defaults to `true`.
+        """
+        baseline: NotRequired[pulumi.Input[bool]]
+        """
+        Is Security related system configuration issues identified? Defaults to `true`.
+        """
+        edge_hub_mem_optimize: NotRequired[pulumi.Input[bool]]
+        """
+        Is IoT Edge Hub memory optimized? Defaults to `true`.
+        """
+        edge_logging_option: NotRequired[pulumi.Input[bool]]
+        """
+        Is logging configured for IoT Edge module? Defaults to `true`.
+        """
+        inconsistent_module_settings: NotRequired[pulumi.Input[bool]]
+        """
+        Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
+        """
+        install_agent: NotRequired[pulumi.Input[bool]]
+        """
+        is Azure IoT Security agent installed? Defaults to `true`.
+        """
+        ip_filter_deny_all: NotRequired[pulumi.Input[bool]]
+        """
+        Is Default IP filter policy denied? Defaults to `true`.
+        """
+        ip_filter_permissive_rule: NotRequired[pulumi.Input[bool]]
+        """
+        Is IP filter rule source allowable IP range too large? Defaults to `true`.
+        """
+        open_ports: NotRequired[pulumi.Input[bool]]
+        """
+        Is any ports open on the device? Defaults to `true`.
+        """
+        permissive_firewall_policy: NotRequired[pulumi.Input[bool]]
+        """
+        Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
+        """
+        permissive_input_firewall_rules: NotRequired[pulumi.Input[bool]]
+        """
+        Is only necessary addresses or ports are permitted in? Defaults to `true`.
+        """
+        permissive_output_firewall_rules: NotRequired[pulumi.Input[bool]]
+        """
+        Is only necessary addresses or ports are permitted out? Defaults to `true`.
+        """
+        privileged_docker_options: NotRequired[pulumi.Input[bool]]
+        """
+        Is high level permissions are needed for the module? Defaults to `true`.
+        """
+        shared_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Is any credentials shared among devices? Defaults to `true`.
+        """
+        vulnerable_tls_cipher_suite: NotRequired[pulumi.Input[bool]]
+        """
+        Does TLS cipher suite need to be updated? Defaults to `true`.
+        """
+elif False:
+    SecuritySolutionRecommendationsEnabledArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SecuritySolutionRecommendationsEnabledArgs:
@@ -1766,6 +2313,19 @@ class SecuritySolutionRecommendationsEnabledArgs:
         pulumi.set(self, "vulnerable_tls_cipher_suite", value)
 
 
+if not MYPY:
+    class TimeSeriesInsightsGen2EnvironmentStorageArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
+        """
+        name: pulumi.Input[str]
+        """
+        Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.
+        """
+elif False:
+    TimeSeriesInsightsGen2EnvironmentStorageArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TimeSeriesInsightsGen2EnvironmentStorageArgs:
     def __init__(__self__, *,
@@ -1802,6 +2362,19 @@ class TimeSeriesInsightsGen2EnvironmentStorageArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class TimeSeriesInsightsReferenceDataSetKeyPropertyArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the key property. Changing this forces a new resource to be created.
+        """
+        type: pulumi.Input[str]
+        """
+        The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
+        """
+elif False:
+    TimeSeriesInsightsReferenceDataSetKeyPropertyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TimeSeriesInsightsReferenceDataSetKeyPropertyArgs:

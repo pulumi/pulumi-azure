@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -521,11 +526,11 @@ class SqlContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
-                 conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
-                 indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
+                 indexing_policy: Optional[pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key_kind: Optional[pulumi.Input[str]] = None,
                  partition_key_path: Optional[pulumi.Input[str]] = None,
@@ -533,7 +538,7 @@ class SqlContainer(pulumi.CustomResource):
                  partition_key_version: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
-                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]]] = None,
+                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a SQL Container within a Cosmos DB Account.
@@ -558,26 +563,26 @@ class SqlContainer(pulumi.CustomResource):
             partition_key_path="/definition/id",
             partition_key_version=1,
             throughput=400,
-            indexing_policy=azure.cosmosdb.SqlContainerIndexingPolicyArgs(
-                indexing_mode="consistent",
-                included_paths=[
-                    azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
-                        path="/*",
-                    ),
-                    azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
-                        path="/included/?",
-                    ),
+            indexing_policy={
+                "indexingMode": "consistent",
+                "includedPaths": [
+                    {
+                        "path": "/*",
+                    },
+                    {
+                        "path": "/included/?",
+                    },
                 ],
-                excluded_paths=[azure.cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs(
-                    path="/excluded/?",
-                )],
-            ),
-            unique_keys=[azure.cosmosdb.SqlContainerUniqueKeyArgs(
-                paths=[
+                "excludedPaths": [{
+                    "path": "/excluded/?",
+                }],
+            },
+            unique_keys=[{
+                "paths": [
                     "/definition/idlong",
                     "/definition/idshort",
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -592,20 +597,20 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        :param pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        :param pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
+        :param pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -636,26 +641,26 @@ class SqlContainer(pulumi.CustomResource):
             partition_key_path="/definition/id",
             partition_key_version=1,
             throughput=400,
-            indexing_policy=azure.cosmosdb.SqlContainerIndexingPolicyArgs(
-                indexing_mode="consistent",
-                included_paths=[
-                    azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
-                        path="/*",
-                    ),
-                    azure.cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs(
-                        path="/included/?",
-                    ),
+            indexing_policy={
+                "indexingMode": "consistent",
+                "includedPaths": [
+                    {
+                        "path": "/*",
+                    },
+                    {
+                        "path": "/included/?",
+                    },
                 ],
-                excluded_paths=[azure.cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs(
-                    path="/excluded/?",
-                )],
-            ),
-            unique_keys=[azure.cosmosdb.SqlContainerUniqueKeyArgs(
-                paths=[
+                "excludedPaths": [{
+                    "path": "/excluded/?",
+                }],
+            },
+            unique_keys=[{
+                "paths": [
                     "/definition/idlong",
                     "/definition/idshort",
                 ],
-            )])
+            }])
         ```
 
         ## Import
@@ -683,11 +688,11 @@ class SqlContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
                  analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
-                 conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
-                 indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
+                 indexing_policy: Optional[pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition_key_kind: Optional[pulumi.Input[str]] = None,
                  partition_key_path: Optional[pulumi.Input[str]] = None,
@@ -695,7 +700,7 @@ class SqlContainer(pulumi.CustomResource):
                  partition_key_version: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
-                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]]] = None,
+                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -738,11 +743,11 @@ class SqlContainer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
             analytical_storage_ttl: Optional[pulumi.Input[int]] = None,
-            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']]] = None,
-            conflict_resolution_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']]] = None,
+            autoscale_settings: Optional[pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']]] = None,
+            conflict_resolution_policy: Optional[pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             default_ttl: Optional[pulumi.Input[int]] = None,
-            indexing_policy: Optional[pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']]] = None,
+            indexing_policy: Optional[pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition_key_kind: Optional[pulumi.Input[str]] = None,
             partition_key_path: Optional[pulumi.Input[str]] = None,
@@ -750,7 +755,7 @@ class SqlContainer(pulumi.CustomResource):
             partition_key_version: Optional[pulumi.Input[int]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             throughput: Optional[pulumi.Input[int]] = None,
-            unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]]] = None) -> 'SqlContainer':
+            unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]]] = None) -> 'SqlContainer':
         """
         Get an existing SqlContainer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -760,20 +765,20 @@ class SqlContainer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] analytical_storage_ttl: The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[pulumi.InputType['SqlContainerAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
+        :param pulumi.Input[Union['SqlContainerAutoscaleSettingsArgs', 'SqlContainerAutoscaleSettingsArgsDict']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply. Requires `partition_key_path` to be set.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
-        :param pulumi.Input[pulumi.InputType['SqlContainerConflictResolutionPolicyArgs']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['SqlContainerConflictResolutionPolicyArgs', 'SqlContainerConflictResolutionPolicyArgsDict']] conflict_resolution_policy: A `conflict_resolution_policy` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] database_name: The name of the Cosmos DB SQL Database to create the container within. Changing this forces a new resource to be created.
         :param pulumi.Input[int] default_ttl: The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time.
-        :param pulumi.Input[pulumi.InputType['SqlContainerIndexingPolicyArgs']] indexing_policy: An `indexing_policy` block as defined below.
+        :param pulumi.Input[Union['SqlContainerIndexingPolicyArgs', 'SqlContainerIndexingPolicyArgsDict']] indexing_policy: An `indexing_policy` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB SQL Container. Changing this forces a new resource to be created.
         :param pulumi.Input[str] partition_key_kind: Define a partition key kind. Possible values are `Hash` and `MultiHash`. Defaults to `Hash`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_key_paths: A list of partition key paths. Changing this forces a new resource to be created.
         :param pulumi.Input[int] partition_key_version: Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB SQL Container is created. Changing this forces a new resource to be created.
         :param pulumi.Input[int] throughput: The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual resource destroy-apply.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SqlContainerUniqueKeyArgs']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SqlContainerUniqueKeyArgs', 'SqlContainerUniqueKeyArgsDict']]]] unique_keys: One or more `unique_key` blocks as defined below. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

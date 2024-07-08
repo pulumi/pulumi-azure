@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -128,7 +133,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_https_configuration: Optional[pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]] = None,
+                 custom_https_configuration: Optional[pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
                  custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -157,45 +162,45 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         example_frontdoor = azure.frontdoor.Frontdoor("example",
             name="example-FrontDoor",
             resource_group_name=example.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
+            routing_rules=[{
+                "name": "exampleRoutingRule1",
+                "acceptedProtocols": [
                     "Http",
                     "Https",
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
+                "patternsToMatches": ["/*"],
+                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "forwardingConfiguration": {
+                    "forwardingProtocol": "MatchRequest",
+                    "backendPoolName": "exampleBackendBing",
+                },
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pools=[{
+                "name": "exampleBackendBing",
+                "backends": [{
+                    "hostHeader": "www.bing.com",
+                    "address": "www.bing.com",
+                    "httpPort": 80,
+                    "httpsPort": 443,
+                }],
+                "loadBalancingName": "exampleLoadBalancingSettings1",
+                "healthProbeName": "exampleHealthProbeSetting1",
+            }],
             frontend_endpoints=[
-                azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                    name="exampleFrontendEndpoint1",
-                    host_name="example-FrontDoor.azurefd.net",
-                ),
-                azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                    name="exampleFrontendEndpoint2",
-                    host_name="examplefd1.examplefd.net",
-                ),
+                {
+                    "name": "exampleFrontendEndpoint1",
+                    "hostName": "example-FrontDoor.azurefd.net",
+                },
+                {
+                    "name": "exampleFrontendEndpoint2",
+                    "hostName": "examplefd1.examplefd.net",
+                },
             ])
         example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
@@ -203,11 +208,11 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_1",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
             custom_https_provisioning_enabled=True,
-            custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
-                certificate_source="AzureKeyVault",
-                azure_key_vault_certificate_secret_name="examplefd1",
-                azure_key_vault_certificate_vault_id=vault.id,
-            ))
+            custom_https_configuration={
+                "certificateSource": "AzureKeyVault",
+                "azureKeyVaultCertificateSecretName": "examplefd1",
+                "azureKeyVaultCertificateVaultId": vault.id,
+            })
         ```
 
         ## Import
@@ -220,7 +225,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: A `custom_https_configuration` block as defined above.
+        :param pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']] custom_https_configuration: A `custom_https_configuration` block as defined above.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """
@@ -255,45 +260,45 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         example_frontdoor = azure.frontdoor.Frontdoor("example",
             name="example-FrontDoor",
             resource_group_name=example.name,
-            routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
-                name="exampleRoutingRule1",
-                accepted_protocols=[
+            routing_rules=[{
+                "name": "exampleRoutingRule1",
+                "acceptedProtocols": [
                     "Http",
                     "Https",
                 ],
-                patterns_to_matches=["/*"],
-                frontend_endpoints=["exampleFrontendEndpoint1"],
-                forwarding_configuration=azure.frontdoor.FrontdoorRoutingRuleForwardingConfigurationArgs(
-                    forwarding_protocol="MatchRequest",
-                    backend_pool_name="exampleBackendBing",
-                ),
-            )],
-            backend_pool_load_balancings=[azure.frontdoor.FrontdoorBackendPoolLoadBalancingArgs(
-                name="exampleLoadBalancingSettings1",
-            )],
-            backend_pool_health_probes=[azure.frontdoor.FrontdoorBackendPoolHealthProbeArgs(
-                name="exampleHealthProbeSetting1",
-            )],
-            backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
-                name="exampleBackendBing",
-                backends=[azure.frontdoor.FrontdoorBackendPoolBackendArgs(
-                    host_header="www.bing.com",
-                    address="www.bing.com",
-                    http_port=80,
-                    https_port=443,
-                )],
-                load_balancing_name="exampleLoadBalancingSettings1",
-                health_probe_name="exampleHealthProbeSetting1",
-            )],
+                "patternsToMatches": ["/*"],
+                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "forwardingConfiguration": {
+                    "forwardingProtocol": "MatchRequest",
+                    "backendPoolName": "exampleBackendBing",
+                },
+            }],
+            backend_pool_load_balancings=[{
+                "name": "exampleLoadBalancingSettings1",
+            }],
+            backend_pool_health_probes=[{
+                "name": "exampleHealthProbeSetting1",
+            }],
+            backend_pools=[{
+                "name": "exampleBackendBing",
+                "backends": [{
+                    "hostHeader": "www.bing.com",
+                    "address": "www.bing.com",
+                    "httpPort": 80,
+                    "httpsPort": 443,
+                }],
+                "loadBalancingName": "exampleLoadBalancingSettings1",
+                "healthProbeName": "exampleHealthProbeSetting1",
+            }],
             frontend_endpoints=[
-                azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                    name="exampleFrontendEndpoint1",
-                    host_name="example-FrontDoor.azurefd.net",
-                ),
-                azure.frontdoor.FrontdoorFrontendEndpointArgs(
-                    name="exampleFrontendEndpoint2",
-                    host_name="examplefd1.examplefd.net",
-                ),
+                {
+                    "name": "exampleFrontendEndpoint1",
+                    "hostName": "example-FrontDoor.azurefd.net",
+                },
+                {
+                    "name": "exampleFrontendEndpoint2",
+                    "hostName": "examplefd1.examplefd.net",
+                },
             ])
         example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
@@ -301,11 +306,11 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_1",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
             custom_https_provisioning_enabled=True,
-            custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
-                certificate_source="AzureKeyVault",
-                azure_key_vault_certificate_secret_name="examplefd1",
-                azure_key_vault_certificate_vault_id=vault.id,
-            ))
+            custom_https_configuration={
+                "certificateSource": "AzureKeyVault",
+                "azureKeyVaultCertificateSecretName": "examplefd1",
+                "azureKeyVaultCertificateVaultId": vault.id,
+            })
         ```
 
         ## Import
@@ -331,7 +336,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_https_configuration: Optional[pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]] = None,
+                 custom_https_configuration: Optional[pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
                  custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -360,7 +365,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            custom_https_configuration: Optional[pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']]] = None,
+            custom_https_configuration: Optional[pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']]] = None,
             custom_https_provisioning_enabled: Optional[pulumi.Input[bool]] = None,
             frontend_endpoint_id: Optional[pulumi.Input[str]] = None) -> 'CustomHttpsConfiguration':
         """
@@ -370,7 +375,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomHttpsConfigurationCustomHttpsConfigurationArgs']] custom_https_configuration: A `custom_https_configuration` block as defined above.
+        :param pulumi.Input[Union['CustomHttpsConfigurationCustomHttpsConfigurationArgs', 'CustomHttpsConfigurationCustomHttpsConfigurationArgsDict']] custom_https_configuration: A `custom_https_configuration` block as defined above.
         :param pulumi.Input[bool] custom_https_provisioning_enabled: Should the HTTPS protocol be enabled for this custom domain associated with the Front Door?
         :param pulumi.Input[str] frontend_endpoint_id: The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created.
         """

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -258,10 +263,10 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]]] = None,
+                 routing: Optional[pulumi.Input[Union['VpnGatewayConnectionRoutingArgs', 'VpnGatewayConnectionRoutingArgsDict']]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionTrafficSelectorPolicyArgs', 'VpnGatewayConnectionTrafficSelectorPolicyArgsDict']]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                 vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None,
+                 vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionVpnLinkArgs', 'VpnGatewayConnectionVpnLinkArgsDict']]]]] = None,
                  __props__=None):
         """
         Manages a VPN Gateway Connection.
@@ -296,28 +301,28 @@ class VpnGatewayConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_wan_id=example_virtual_wan.id,
             links=[
-                azure.network.VpnSiteLinkArgs(
-                    name="link1",
-                    ip_address="10.1.0.0",
-                ),
-                azure.network.VpnSiteLinkArgs(
-                    name="link2",
-                    ip_address="10.2.0.0",
-                ),
+                {
+                    "name": "link1",
+                    "ipAddress": "10.1.0.0",
+                },
+                {
+                    "name": "link2",
+                    "ipAddress": "10.2.0.0",
+                },
             ])
         example_vpn_gateway_connection = azure.network.VpnGatewayConnection("example",
             name="example",
             vpn_gateway_id=example_vpn_gateway.id,
             remote_vpn_site_id=example_vpn_site.id,
             vpn_links=[
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link1",
-                    vpn_site_link_id=example_vpn_site.links[0].id,
-                ),
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link2",
-                    vpn_site_link_id=example_vpn_site.links[1].id,
-                ),
+                {
+                    "name": "link1",
+                    "vpnSiteLinkId": example_vpn_site.links[0].id,
+                },
+                {
+                    "name": "link2",
+                    "vpnSiteLinkId": example_vpn_site.links[1].id,
+                },
             ])
         ```
 
@@ -334,10 +339,10 @@ class VpnGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
+        :param pulumi.Input[Union['VpnGatewayConnectionRoutingArgs', 'VpnGatewayConnectionRoutingArgsDict']] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionTrafficSelectorPolicyArgs', 'VpnGatewayConnectionTrafficSelectorPolicyArgsDict']]]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]] vpn_links: One or more `vpn_link` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionVpnLinkArgs', 'VpnGatewayConnectionVpnLinkArgsDict']]]] vpn_links: One or more `vpn_link` blocks as defined below.
         """
         ...
     @overload
@@ -378,28 +383,28 @@ class VpnGatewayConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_wan_id=example_virtual_wan.id,
             links=[
-                azure.network.VpnSiteLinkArgs(
-                    name="link1",
-                    ip_address="10.1.0.0",
-                ),
-                azure.network.VpnSiteLinkArgs(
-                    name="link2",
-                    ip_address="10.2.0.0",
-                ),
+                {
+                    "name": "link1",
+                    "ipAddress": "10.1.0.0",
+                },
+                {
+                    "name": "link2",
+                    "ipAddress": "10.2.0.0",
+                },
             ])
         example_vpn_gateway_connection = azure.network.VpnGatewayConnection("example",
             name="example",
             vpn_gateway_id=example_vpn_gateway.id,
             remote_vpn_site_id=example_vpn_site.id,
             vpn_links=[
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link1",
-                    vpn_site_link_id=example_vpn_site.links[0].id,
-                ),
-                azure.network.VpnGatewayConnectionVpnLinkArgs(
-                    name="link2",
-                    vpn_site_link_id=example_vpn_site.links[1].id,
-                ),
+                {
+                    "name": "link1",
+                    "vpnSiteLinkId": example_vpn_site.links[0].id,
+                },
+                {
+                    "name": "link2",
+                    "vpnSiteLinkId": example_vpn_site.links[1].id,
+                },
             ])
         ```
 
@@ -429,10 +434,10 @@ class VpnGatewayConnection(pulumi.CustomResource):
                  internet_security_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-                 routing: Optional[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]] = None,
-                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]]] = None,
+                 routing: Optional[pulumi.Input[Union['VpnGatewayConnectionRoutingArgs', 'VpnGatewayConnectionRoutingArgsDict']]] = None,
+                 traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionTrafficSelectorPolicyArgs', 'VpnGatewayConnectionTrafficSelectorPolicyArgsDict']]]]] = None,
                  vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                 vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None,
+                 vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionVpnLinkArgs', 'VpnGatewayConnectionVpnLinkArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -468,10 +473,10 @@ class VpnGatewayConnection(pulumi.CustomResource):
             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             remote_vpn_site_id: Optional[pulumi.Input[str]] = None,
-            routing: Optional[pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']]] = None,
-            traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]]] = None,
+            routing: Optional[pulumi.Input[Union['VpnGatewayConnectionRoutingArgs', 'VpnGatewayConnectionRoutingArgsDict']]] = None,
+            traffic_selector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionTrafficSelectorPolicyArgs', 'VpnGatewayConnectionTrafficSelectorPolicyArgsDict']]]]] = None,
             vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-            vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]]] = None) -> 'VpnGatewayConnection':
+            vpn_links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionVpnLinkArgs', 'VpnGatewayConnectionVpnLinkArgsDict']]]]] = None) -> 'VpnGatewayConnection':
         """
         Get an existing VpnGatewayConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -482,10 +487,10 @@ class VpnGatewayConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] internet_security_enabled: Whether Internet Security is enabled for this VPN Connection. Defaults to `false`.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created.
         :param pulumi.Input[str] remote_vpn_site_id: The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[pulumi.InputType['VpnGatewayConnectionRoutingArgs']] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionTrafficSelectorPolicyArgs']]]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
+        :param pulumi.Input[Union['VpnGatewayConnectionRoutingArgs', 'VpnGatewayConnectionRoutingArgsDict']] routing: A `routing` block as defined below. If this is not specified, there will be a default route table created implicitly.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionTrafficSelectorPolicyArgs', 'VpnGatewayConnectionTrafficSelectorPolicyArgsDict']]]] traffic_selector_policies: One or more `traffic_selector_policy` blocks as defined below.
         :param pulumi.Input[str] vpn_gateway_id: The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnGatewayConnectionVpnLinkArgs']]]] vpn_links: One or more `vpn_link` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnGatewayConnectionVpnLinkArgs', 'VpnGatewayConnectionVpnLinkArgsDict']]]] vpn_links: One or more `vpn_link` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

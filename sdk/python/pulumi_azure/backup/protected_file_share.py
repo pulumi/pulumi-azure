@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ProtectedFileShareArgs', 'ProtectedFileShare']
@@ -236,13 +241,13 @@ class ProtectedFileShare(pulumi.CustomResource):
             name="tfex-recovery-vault-policy",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ))
+            backup={
+                "frequency": "Daily",
+                "time": "23:00",
+            },
+            retention_daily={
+                "count": 10,
+            })
         share1 = azure.backup.ProtectedFileShare("share1",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
@@ -312,13 +317,13 @@ class ProtectedFileShare(pulumi.CustomResource):
             name="tfex-recovery-vault-policy",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
-            backup=azure.backup.PolicyFileShareBackupArgs(
-                frequency="Daily",
-                time="23:00",
-            ),
-            retention_daily=azure.backup.PolicyFileShareRetentionDailyArgs(
-                count=10,
-            ))
+            backup={
+                "frequency": "Daily",
+                "time": "23:00",
+            },
+            retention_daily={
+                "count": 10,
+            })
         share1 = azure.backup.ProtectedFileShare("share1",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,

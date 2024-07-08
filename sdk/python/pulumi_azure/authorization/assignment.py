@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AssignmentArgs', 'Assignment']
@@ -457,10 +462,10 @@ class Assignment(pulumi.CustomResource):
             role_definition_id="00000000-0000-0000-0000-000000000000",
             name="my-custom-role-definition",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                not_actions=[],
-            )],
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -481,10 +486,10 @@ class Assignment(pulumi.CustomResource):
             role_definition_id="00000000-0000-0000-0000-000000000000",
             name="my-custom-role-definition",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                not_actions=[],
-            )],
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -506,10 +511,10 @@ class Assignment(pulumi.CustomResource):
             role_definition_id="00000000-0000-0000-0000-000000000000",
             name="my-custom-role-definition",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                not_actions=[],
-            )],
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -634,10 +639,10 @@ class Assignment(pulumi.CustomResource):
             role_definition_id="00000000-0000-0000-0000-000000000000",
             name="my-custom-role-definition",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                not_actions=[],
-            )],
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -658,10 +663,10 @@ class Assignment(pulumi.CustomResource):
             role_definition_id="00000000-0000-0000-0000-000000000000",
             name="my-custom-role-definition",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                not_actions=[],
-            )],
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",
@@ -683,10 +688,10 @@ class Assignment(pulumi.CustomResource):
             role_definition_id="00000000-0000-0000-0000-000000000000",
             name="my-custom-role-definition",
             scope=primary.id,
-            permissions=[azure.authorization.RoleDefinitionPermissionArgs(
-                actions=["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                not_actions=[],
-            )],
+            permissions=[{
+                "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+                "notActions": [],
+            }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
             name="00000000-0000-0000-0000-000000000000",

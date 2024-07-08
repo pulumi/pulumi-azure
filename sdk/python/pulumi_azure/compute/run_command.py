@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -460,17 +465,17 @@ class RunCommand(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandErrorBlobManagedIdentityArgs']]] = None,
+                 error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
                  error_blob_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandOutputBlobManagedIdentityArgs']]] = None,
+                 output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
                  output_blob_uri: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandParameterArgs']]]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandProtectedParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
+                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
                  run_as_password: Optional[pulumi.Input[str]] = None,
                  run_as_user: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RunCommandSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -500,11 +505,11 @@ class RunCommand(pulumi.CustomResource):
             name="example-nic",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
             resource_group_name=example_resource_group.name,
@@ -518,20 +523,20 @@ class RunCommand(pulumi.CustomResource):
             admin_password="P@$$w0rd1234!",
             disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Premium_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            identity=azure.compute.LinuxVirtualMachineIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Premium_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         example_account = azure.storage.Account("example",
             name="exampleaccount",
             resource_group_name=example_resource_group.name,
@@ -567,37 +572,37 @@ class RunCommand(pulumi.CustomResource):
             signed_version="2019-10-10",
             start="2023-04-01T00:00:00Z",
             expiry="2024-04-01T00:00:00Z",
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-                service=False,
-                container=False,
-                object=True,
-            ),
-            services=azure.storage.GetAccountSASServicesArgs(
-                blob=True,
-                queue=False,
-                table=False,
-                file=False,
-            ),
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
-                read=True,
-                write=True,
-                delete=False,
-                list=False,
-                add=True,
-                create=True,
-                update=False,
-                process=False,
-                tag=False,
-                filter=False,
-            ))
+            resource_types={
+                "service": False,
+                "container": False,
+                "object": True,
+            },
+            services={
+                "blob": True,
+                "queue": False,
+                "table": False,
+                "file": False,
+            },
+            permissions={
+                "read": True,
+                "write": True,
+                "delete": False,
+                "list": False,
+                "add": True,
+                "create": True,
+                "update": False,
+                "process": False,
+                "tag": False,
+                "filter": False,
+            })
         # basic example
         example_run_command = azure.compute.RunCommand("example",
             name="example-vmrc",
             location=example_resource_group.location,
             virtual_machine_id=example_linux_virtual_machine.id,
-            source=azure.compute.RunCommandSourceArgs(
-                script="echo 'hello world'",
-            ))
+            source={
+                "script": "echo 'hello world'",
+            })
         # authorize to storage blob using user assigned identity
         example2_run_command = azure.compute.RunCommand("example2",
             location=example_resource_group.location,
@@ -607,26 +612,26 @@ class RunCommand(pulumi.CustomResource):
             error_blob_uri=example3.id,
             run_as_password="P@$$w0rd1234!",
             run_as_user="adminuser",
-            source=azure.compute.RunCommandSourceArgs(
-                script_uri=example1.id,
-                script_uri_managed_identity=azure.compute.RunCommandSourceScriptUriManagedIdentityArgs(
-                    client_id=example_user_assigned_identity.client_id,
-                ),
-            ),
-            error_blob_managed_identity=azure.compute.RunCommandErrorBlobManagedIdentityArgs(
-                client_id=example_user_assigned_identity.client_id,
-            ),
-            output_blob_managed_identity=azure.compute.RunCommandOutputBlobManagedIdentityArgs(
-                client_id=example_user_assigned_identity.client_id,
-            ),
-            parameters=[azure.compute.RunCommandParameterArgs(
-                name="examplev1",
-                value="val1",
-            )],
-            protected_parameters=[azure.compute.RunCommandProtectedParameterArgs(
-                name="examplev2",
-                value="val2",
-            )],
+            source={
+                "scriptUri": example1.id,
+                "scriptUriManagedIdentity": {
+                    "clientId": example_user_assigned_identity.client_id,
+                },
+            },
+            error_blob_managed_identity={
+                "clientId": example_user_assigned_identity.client_id,
+            },
+            output_blob_managed_identity={
+                "clientId": example_user_assigned_identity.client_id,
+            },
+            parameters=[{
+                "name": "examplev1",
+                "value": "val1",
+            }],
+            protected_parameters=[{
+                "name": "examplev2",
+                "value": "val2",
+            }],
             tags={
                 "environment": "terraform-examples",
                 "some_key": "some-value",
@@ -641,13 +646,13 @@ class RunCommand(pulumi.CustomResource):
             run_as_user="adminuser",
             error_blob_uri=pulumi.Output.all(example3.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             output_blob_uri=pulumi.Output.all(example2.id, example).apply(lambda id, example: f"{id}{example.sas}"),
-            source=azure.compute.RunCommandSourceArgs(
-                script_uri=pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
-            ),
-            parameters=[azure.compute.RunCommandParameterArgs(
-                name="example-vm1",
-                value="val1",
-            )],
+            source={
+                "scriptUri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
+            },
+            parameters=[{
+                "name": "example-vm1",
+                "value": "val1",
+            }],
             tags={
                 "environment": "terraform-example-s",
                 "some_key": "some-value",
@@ -664,17 +669,17 @@ class RunCommand(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RunCommandErrorBlobManagedIdentityArgs']] error_blob_managed_identity: An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+        :param pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']] error_blob_managed_identity: An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         :param pulumi.Input[str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         :param pulumi.Input[str] name: Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
-        :param pulumi.Input[pulumi.InputType['RunCommandOutputBlobManagedIdentityArgs']] output_blob_managed_identity: An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+        :param pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']] output_blob_managed_identity: An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         :param pulumi.Input[str] output_blob_uri: Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandParameterArgs']]]] parameters: A list of `parameter` blocks as defined below. The parameters used by the script.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandProtectedParameterArgs']]]] protected_parameters: A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]] parameters: A list of `parameter` blocks as defined below. The parameters used by the script.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]] protected_parameters: A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
         :param pulumi.Input[str] run_as_password: Specifies the user account password on the VM when executing the Virtual Machine Run Command.
         :param pulumi.Input[str] run_as_user: Specifies the user account on the VM when executing the Virtual Machine Run Command.
-        :param pulumi.Input[pulumi.InputType['RunCommandSourceArgs']] source: A `source` block as defined below. The source of the run command script.
+        :param pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']] source: A `source` block as defined below. The source of the run command script.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Virtual Machine Run Command.
         :param pulumi.Input[str] virtual_machine_id: Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         """
@@ -710,11 +715,11 @@ class RunCommand(pulumi.CustomResource):
             name="example-nic",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
             resource_group_name=example_resource_group.name,
@@ -728,20 +733,20 @@ class RunCommand(pulumi.CustomResource):
             admin_password="P@$$w0rd1234!",
             disable_password_authentication=False,
             network_interface_ids=[example_network_interface.id],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Premium_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            identity=azure.compute.LinuxVirtualMachineIdentityArgs(
-                type="SystemAssigned, UserAssigned",
-                identity_ids=[example_user_assigned_identity.id],
-            ))
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Premium_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            identity={
+                "type": "SystemAssigned, UserAssigned",
+                "identityIds": [example_user_assigned_identity.id],
+            })
         example_account = azure.storage.Account("example",
             name="exampleaccount",
             resource_group_name=example_resource_group.name,
@@ -777,37 +782,37 @@ class RunCommand(pulumi.CustomResource):
             signed_version="2019-10-10",
             start="2023-04-01T00:00:00Z",
             expiry="2024-04-01T00:00:00Z",
-            resource_types=azure.storage.GetAccountSASResourceTypesArgs(
-                service=False,
-                container=False,
-                object=True,
-            ),
-            services=azure.storage.GetAccountSASServicesArgs(
-                blob=True,
-                queue=False,
-                table=False,
-                file=False,
-            ),
-            permissions=azure.storage.GetAccountSASPermissionsArgs(
-                read=True,
-                write=True,
-                delete=False,
-                list=False,
-                add=True,
-                create=True,
-                update=False,
-                process=False,
-                tag=False,
-                filter=False,
-            ))
+            resource_types={
+                "service": False,
+                "container": False,
+                "object": True,
+            },
+            services={
+                "blob": True,
+                "queue": False,
+                "table": False,
+                "file": False,
+            },
+            permissions={
+                "read": True,
+                "write": True,
+                "delete": False,
+                "list": False,
+                "add": True,
+                "create": True,
+                "update": False,
+                "process": False,
+                "tag": False,
+                "filter": False,
+            })
         # basic example
         example_run_command = azure.compute.RunCommand("example",
             name="example-vmrc",
             location=example_resource_group.location,
             virtual_machine_id=example_linux_virtual_machine.id,
-            source=azure.compute.RunCommandSourceArgs(
-                script="echo 'hello world'",
-            ))
+            source={
+                "script": "echo 'hello world'",
+            })
         # authorize to storage blob using user assigned identity
         example2_run_command = azure.compute.RunCommand("example2",
             location=example_resource_group.location,
@@ -817,26 +822,26 @@ class RunCommand(pulumi.CustomResource):
             error_blob_uri=example3.id,
             run_as_password="P@$$w0rd1234!",
             run_as_user="adminuser",
-            source=azure.compute.RunCommandSourceArgs(
-                script_uri=example1.id,
-                script_uri_managed_identity=azure.compute.RunCommandSourceScriptUriManagedIdentityArgs(
-                    client_id=example_user_assigned_identity.client_id,
-                ),
-            ),
-            error_blob_managed_identity=azure.compute.RunCommandErrorBlobManagedIdentityArgs(
-                client_id=example_user_assigned_identity.client_id,
-            ),
-            output_blob_managed_identity=azure.compute.RunCommandOutputBlobManagedIdentityArgs(
-                client_id=example_user_assigned_identity.client_id,
-            ),
-            parameters=[azure.compute.RunCommandParameterArgs(
-                name="examplev1",
-                value="val1",
-            )],
-            protected_parameters=[azure.compute.RunCommandProtectedParameterArgs(
-                name="examplev2",
-                value="val2",
-            )],
+            source={
+                "scriptUri": example1.id,
+                "scriptUriManagedIdentity": {
+                    "clientId": example_user_assigned_identity.client_id,
+                },
+            },
+            error_blob_managed_identity={
+                "clientId": example_user_assigned_identity.client_id,
+            },
+            output_blob_managed_identity={
+                "clientId": example_user_assigned_identity.client_id,
+            },
+            parameters=[{
+                "name": "examplev1",
+                "value": "val1",
+            }],
+            protected_parameters=[{
+                "name": "examplev2",
+                "value": "val2",
+            }],
             tags={
                 "environment": "terraform-examples",
                 "some_key": "some-value",
@@ -851,13 +856,13 @@ class RunCommand(pulumi.CustomResource):
             run_as_user="adminuser",
             error_blob_uri=pulumi.Output.all(example3.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             output_blob_uri=pulumi.Output.all(example2.id, example).apply(lambda id, example: f"{id}{example.sas}"),
-            source=azure.compute.RunCommandSourceArgs(
-                script_uri=pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
-            ),
-            parameters=[azure.compute.RunCommandParameterArgs(
-                name="example-vm1",
-                value="val1",
-            )],
+            source={
+                "scriptUri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
+            },
+            parameters=[{
+                "name": "example-vm1",
+                "value": "val1",
+            }],
             tags={
                 "environment": "terraform-example-s",
                 "some_key": "some-value",
@@ -887,17 +892,17 @@ class RunCommand(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 error_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandErrorBlobManagedIdentityArgs']]] = None,
+                 error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
                  error_blob_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandOutputBlobManagedIdentityArgs']]] = None,
+                 output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
                  output_blob_uri: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandParameterArgs']]]]] = None,
-                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandProtectedParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
+                 protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
                  run_as_password: Optional[pulumi.Input[str]] = None,
                  run_as_user: Optional[pulumi.Input[str]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RunCommandSourceArgs']]] = None,
+                 source: Optional[pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -939,18 +944,18 @@ class RunCommand(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            error_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandErrorBlobManagedIdentityArgs']]] = None,
+            error_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']]] = None,
             error_blob_uri: Optional[pulumi.Input[str]] = None,
-            instance_views: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInstanceViewArgs']]]]] = None,
+            instance_views: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandInstanceViewArgs', 'RunCommandInstanceViewArgsDict']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            output_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandOutputBlobManagedIdentityArgs']]] = None,
+            output_blob_managed_identity: Optional[pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']]] = None,
             output_blob_uri: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandParameterArgs']]]]] = None,
-            protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandProtectedParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]]] = None,
+            protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]]] = None,
             run_as_password: Optional[pulumi.Input[str]] = None,
             run_as_user: Optional[pulumi.Input[str]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['RunCommandSourceArgs']]] = None,
+            source: Optional[pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             virtual_machine_id: Optional[pulumi.Input[str]] = None) -> 'RunCommand':
         """
@@ -960,17 +965,17 @@ class RunCommand(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RunCommandErrorBlobManagedIdentityArgs']] error_blob_managed_identity: An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
+        :param pulumi.Input[Union['RunCommandErrorBlobManagedIdentityArgs', 'RunCommandErrorBlobManagedIdentityArgsDict']] error_blob_managed_identity: An `error_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to errorBlobUri storage blob.
         :param pulumi.Input[str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded.
         :param pulumi.Input[str] location: The Azure Region where the Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         :param pulumi.Input[str] name: Specifies the name of this Virtual Machine Run Command. Changing this forces a new Virtual Machine Run Command to be created.
-        :param pulumi.Input[pulumi.InputType['RunCommandOutputBlobManagedIdentityArgs']] output_blob_managed_identity: An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
+        :param pulumi.Input[Union['RunCommandOutputBlobManagedIdentityArgs', 'RunCommandOutputBlobManagedIdentityArgsDict']] output_blob_managed_identity: An `output_blob_managed_identity` block as defined below. User-assigned managed Identity that has access to outputBlobUri storage blob.
         :param pulumi.Input[str] output_blob_uri: Specifies the Azure storage blob where script output stream will be uploaded. It can be basic blob URI with SAS token.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandParameterArgs']]]] parameters: A list of `parameter` blocks as defined below. The parameters used by the script.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandProtectedParameterArgs']]]] protected_parameters: A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RunCommandParameterArgs', 'RunCommandParameterArgsDict']]]] parameters: A list of `parameter` blocks as defined below. The parameters used by the script.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RunCommandProtectedParameterArgs', 'RunCommandProtectedParameterArgsDict']]]] protected_parameters: A list of `protected_parameter` blocks as defined below. The protected parameters used by the script.
         :param pulumi.Input[str] run_as_password: Specifies the user account password on the VM when executing the Virtual Machine Run Command.
         :param pulumi.Input[str] run_as_user: Specifies the user account on the VM when executing the Virtual Machine Run Command.
-        :param pulumi.Input[pulumi.InputType['RunCommandSourceArgs']] source: A `source` block as defined below. The source of the run command script.
+        :param pulumi.Input[Union['RunCommandSourceArgs', 'RunCommandSourceArgsDict']] source: A `source` block as defined below. The source of the run command script.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Virtual Machine Run Command.
         :param pulumi.Input[str] virtual_machine_id: Specifies the Virtual Machine ID within which this Virtual Machine Run Command should exist. Changing this forces a new Virtual Machine Run Command to be created.
         """

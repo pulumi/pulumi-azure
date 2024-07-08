@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -269,7 +274,7 @@ class DicomService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -293,9 +298,9 @@ class DicomService(pulumi.CustomResource):
             name="tfexDicom",
             workspace_id=test.id,
             location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "environment": "None",
             })
@@ -311,7 +316,7 @@ class DicomService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.
@@ -341,9 +346,9 @@ class DicomService(pulumi.CustomResource):
             name="tfexDicom",
             workspace_id=test.id,
             location="east us",
-            identity=azure.healthcare.DicomServiceIdentityArgs(
-                type="SystemAssigned",
-            ),
+            identity={
+                "type": "SystemAssigned",
+            },
             tags={
                 "environment": "None",
             })
@@ -372,7 +377,7 @@ class DicomService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
@@ -408,11 +413,11 @@ class DicomService(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServiceAuthenticationArgs']]]]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']]] = None,
+            authentications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict']]]]] = None,
+            identity: Optional[pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServicePrivateEndpointArgs']]]]] = None,
+            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DicomServicePrivateEndpointArgs', 'DicomServicePrivateEndpointArgsDict']]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -424,8 +429,8 @@ class DicomService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DicomServiceAuthenticationArgs']]]] authentications: The `authentication` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DicomServiceIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DicomServiceAuthenticationArgs', 'DicomServiceAuthenticationArgsDict']]]] authentications: The `authentication` block as defined below.
+        :param pulumi.Input[Union['DicomServiceIdentityArgs', 'DicomServiceIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`.

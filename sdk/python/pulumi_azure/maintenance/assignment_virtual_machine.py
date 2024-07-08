@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['AssignmentVirtualMachineArgs', 'AssignmentVirtualMachine']
@@ -157,11 +162,11 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             name="example-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example-machine",
             resource_group_name=example.name,
@@ -169,20 +174,20 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_configuration = azure.maintenance.Configuration("example",
             name="example-mc",
             resource_group_name=example.name,
@@ -241,11 +246,11 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             name="example-nic",
             location=example.location,
             resource_group_name=example.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example_subnet.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example_subnet.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example-machine",
             resource_group_name=example.name,
@@ -253,20 +258,20 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
-                username="adminuser",
-                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
-            )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                caching="ReadWrite",
-                storage_account_type="Standard_LRS",
-            ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ))
+            admin_ssh_keys=[{
+                "username": "adminuser",
+                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+            }],
+            os_disk={
+                "caching": "ReadWrite",
+                "storageAccountType": "Standard_LRS",
+            },
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            })
         example_configuration = azure.maintenance.Configuration("example",
             name="example-mc",
             resource_group_name=example.name,

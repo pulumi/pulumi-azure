@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -259,7 +264,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -287,16 +292,16 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.6.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="testdelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
+            delegations=[{
+                "name": "testdelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example1 = azure.network.Subnet("example1",
             name=f"{prefix}-hosts-subnet",
             resource_group_name=example_resource_group.name,
@@ -315,11 +320,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-nic",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example1.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example1.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name=f"{prefix}-vm",
             resource_group_name=example_resource_group.name,
@@ -331,16 +336,16 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             proximity_placement_group_id=example_placement_group.id,
             availability_set_id=example_availability_set.id,
             network_interface_ids=[example_network_interface.id],
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ))
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            })
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
@@ -365,81 +370,81 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             group_description="Test volume group",
             application_identifier="TST",
             volumes=[
-                azure.netapp.VolumeGroupSapHanaVolumeArgs(
-                    name=f"{prefix}-netapp-volume-1",
-                    volume_path="my-unique-file-path-1",
-                    service_level="Standard",
-                    capacity_pool_id=example_pool.id,
-                    subnet_id=example_subnet.id,
-                    proximity_placement_group_id=example_placement_group.id,
-                    volume_spec_name="data",
-                    storage_quota_in_gb=1024,
-                    throughput_in_mibps=24,
-                    protocols="NFSv4.1",
-                    security_style="unix",
-                    snapshot_directory_visible=False,
-                    export_policy_rules=[azure.netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs(
-                        rule_index=1,
-                        allowed_clients="0.0.0.0/0",
-                        nfsv3_enabled=False,
-                        nfsv41_enabled=True,
-                        unix_read_only=False,
-                        unix_read_write=True,
-                        root_access_enabled=False,
-                    )],
-                    tags={
+                {
+                    "name": f"{prefix}-netapp-volume-1",
+                    "volumePath": "my-unique-file-path-1",
+                    "serviceLevel": "Standard",
+                    "capacityPoolId": example_pool.id,
+                    "subnetId": example_subnet.id,
+                    "proximityPlacementGroupId": example_placement_group.id,
+                    "volumeSpecName": "data",
+                    "storageQuotaInGb": 1024,
+                    "throughputInMibps": 24,
+                    "protocols": "NFSv4.1",
+                    "securityStyle": "unix",
+                    "snapshotDirectoryVisible": False,
+                    "exportPolicyRules": [{
+                        "ruleIndex": 1,
+                        "allowedClients": "0.0.0.0/0",
+                        "nfsv3Enabled": False,
+                        "nfsv41Enabled": True,
+                        "unixReadOnly": False,
+                        "unixReadWrite": True,
+                        "rootAccessEnabled": False,
+                    }],
+                    "tags": {
                         "foo": "bar",
                     },
-                ),
-                azure.netapp.VolumeGroupSapHanaVolumeArgs(
-                    name=f"{prefix}-netapp-volume-2",
-                    volume_path="my-unique-file-path-2",
-                    service_level="Standard",
-                    capacity_pool_id=example_pool.id,
-                    subnet_id=example_subnet.id,
-                    proximity_placement_group_id=example_placement_group.id,
-                    volume_spec_name="log",
-                    storage_quota_in_gb=1024,
-                    throughput_in_mibps=24,
-                    protocols="NFSv4.1",
-                    security_style="unix",
-                    snapshot_directory_visible=False,
-                    export_policy_rules=[azure.netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs(
-                        rule_index=1,
-                        allowed_clients="0.0.0.0/0",
-                        nfsv3_enabled=False,
-                        nfsv41_enabled=True,
-                        unix_read_only=False,
-                        unix_read_write=True,
-                        root_access_enabled=False,
-                    )],
-                    tags={
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-2",
+                    "volumePath": "my-unique-file-path-2",
+                    "serviceLevel": "Standard",
+                    "capacityPoolId": example_pool.id,
+                    "subnetId": example_subnet.id,
+                    "proximityPlacementGroupId": example_placement_group.id,
+                    "volumeSpecName": "log",
+                    "storageQuotaInGb": 1024,
+                    "throughputInMibps": 24,
+                    "protocols": "NFSv4.1",
+                    "securityStyle": "unix",
+                    "snapshotDirectoryVisible": False,
+                    "exportPolicyRules": [{
+                        "ruleIndex": 1,
+                        "allowedClients": "0.0.0.0/0",
+                        "nfsv3Enabled": False,
+                        "nfsv41Enabled": True,
+                        "unixReadOnly": False,
+                        "unixReadWrite": True,
+                        "rootAccessEnabled": False,
+                    }],
+                    "tags": {
                         "foo": "bar",
                     },
-                ),
-                azure.netapp.VolumeGroupSapHanaVolumeArgs(
-                    name=f"{prefix}-netapp-volume-3",
-                    volume_path="my-unique-file-path-3",
-                    service_level="Standard",
-                    capacity_pool_id=example_pool.id,
-                    subnet_id=example_subnet.id,
-                    proximity_placement_group_id=example_placement_group.id,
-                    volume_spec_name="shared",
-                    storage_quota_in_gb=1024,
-                    throughput_in_mibps=24,
-                    protocols="NFSv4.1",
-                    security_style="unix",
-                    snapshot_directory_visible=False,
-                    export_policy_rules=[azure.netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs(
-                        rule_index=1,
-                        allowed_clients="0.0.0.0/0",
-                        nfsv3_enabled=False,
-                        nfsv41_enabled=True,
-                        unix_read_only=False,
-                        unix_read_write=True,
-                        root_access_enabled=False,
-                    )],
-                ),
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-3",
+                    "volumePath": "my-unique-file-path-3",
+                    "serviceLevel": "Standard",
+                    "capacityPoolId": example_pool.id,
+                    "subnetId": example_subnet.id,
+                    "proximityPlacementGroupId": example_placement_group.id,
+                    "volumeSpecName": "shared",
+                    "storageQuotaInGb": 1024,
+                    "throughputInMibps": 24,
+                    "protocols": "NFSv4.1",
+                    "securityStyle": "unix",
+                    "snapshotDirectoryVisible": False,
+                    "exportPolicyRules": [{
+                        "ruleIndex": 1,
+                        "allowedClients": "0.0.0.0/0",
+                        "nfsv3Enabled": False,
+                        "nfsv41Enabled": True,
+                        "unixReadOnly": False,
+                        "unixReadWrite": True,
+                        "rootAccessEnabled": False,
+                    }],
+                },
             ],
             opts = pulumi.ResourceOptions(depends_on=[
                     example_linux_virtual_machine,
@@ -463,7 +468,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]] volumes: One or more `volume` blocks as defined below.
         """
         ...
     @overload
@@ -497,16 +502,16 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.6.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
-                name="testdelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                    name="Microsoft.Netapp/volumes",
-                    actions=[
+            delegations=[{
+                "name": "testdelegation",
+                "serviceDelegation": {
+                    "name": "Microsoft.Netapp/volumes",
+                    "actions": [
                         "Microsoft.Network/networkinterfaces/*",
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
                     ],
-                ),
-            )])
+                },
+            }])
         example1 = azure.network.Subnet("example1",
             name=f"{prefix}-hosts-subnet",
             resource_group_name=example_resource_group.name,
@@ -525,11 +530,11 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             name=f"{prefix}-nic",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
-                name="internal",
-                subnet_id=example1.id,
-                private_ip_address_allocation="Dynamic",
-            )])
+            ip_configurations=[{
+                "name": "internal",
+                "subnetId": example1.id,
+                "privateIpAddressAllocation": "Dynamic",
+            }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name=f"{prefix}-vm",
             resource_group_name=example_resource_group.name,
@@ -541,16 +546,16 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             proximity_placement_group_id=example_placement_group.id,
             availability_set_id=example_availability_set.id,
             network_interface_ids=[example_network_interface.id],
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest",
-            ),
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
-                storage_account_type="Standard_LRS",
-                caching="ReadWrite",
-            ))
+            source_image_reference={
+                "publisher": "Canonical",
+                "offer": "0001-com-ubuntu-server-jammy",
+                "sku": "22_04-lts",
+                "version": "latest",
+            },
+            os_disk={
+                "storageAccountType": "Standard_LRS",
+                "caching": "ReadWrite",
+            })
         example_account = azure.netapp.Account("example",
             name=f"{prefix}-netapp-account",
             location=example_resource_group.location,
@@ -575,81 +580,81 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             group_description="Test volume group",
             application_identifier="TST",
             volumes=[
-                azure.netapp.VolumeGroupSapHanaVolumeArgs(
-                    name=f"{prefix}-netapp-volume-1",
-                    volume_path="my-unique-file-path-1",
-                    service_level="Standard",
-                    capacity_pool_id=example_pool.id,
-                    subnet_id=example_subnet.id,
-                    proximity_placement_group_id=example_placement_group.id,
-                    volume_spec_name="data",
-                    storage_quota_in_gb=1024,
-                    throughput_in_mibps=24,
-                    protocols="NFSv4.1",
-                    security_style="unix",
-                    snapshot_directory_visible=False,
-                    export_policy_rules=[azure.netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs(
-                        rule_index=1,
-                        allowed_clients="0.0.0.0/0",
-                        nfsv3_enabled=False,
-                        nfsv41_enabled=True,
-                        unix_read_only=False,
-                        unix_read_write=True,
-                        root_access_enabled=False,
-                    )],
-                    tags={
+                {
+                    "name": f"{prefix}-netapp-volume-1",
+                    "volumePath": "my-unique-file-path-1",
+                    "serviceLevel": "Standard",
+                    "capacityPoolId": example_pool.id,
+                    "subnetId": example_subnet.id,
+                    "proximityPlacementGroupId": example_placement_group.id,
+                    "volumeSpecName": "data",
+                    "storageQuotaInGb": 1024,
+                    "throughputInMibps": 24,
+                    "protocols": "NFSv4.1",
+                    "securityStyle": "unix",
+                    "snapshotDirectoryVisible": False,
+                    "exportPolicyRules": [{
+                        "ruleIndex": 1,
+                        "allowedClients": "0.0.0.0/0",
+                        "nfsv3Enabled": False,
+                        "nfsv41Enabled": True,
+                        "unixReadOnly": False,
+                        "unixReadWrite": True,
+                        "rootAccessEnabled": False,
+                    }],
+                    "tags": {
                         "foo": "bar",
                     },
-                ),
-                azure.netapp.VolumeGroupSapHanaVolumeArgs(
-                    name=f"{prefix}-netapp-volume-2",
-                    volume_path="my-unique-file-path-2",
-                    service_level="Standard",
-                    capacity_pool_id=example_pool.id,
-                    subnet_id=example_subnet.id,
-                    proximity_placement_group_id=example_placement_group.id,
-                    volume_spec_name="log",
-                    storage_quota_in_gb=1024,
-                    throughput_in_mibps=24,
-                    protocols="NFSv4.1",
-                    security_style="unix",
-                    snapshot_directory_visible=False,
-                    export_policy_rules=[azure.netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs(
-                        rule_index=1,
-                        allowed_clients="0.0.0.0/0",
-                        nfsv3_enabled=False,
-                        nfsv41_enabled=True,
-                        unix_read_only=False,
-                        unix_read_write=True,
-                        root_access_enabled=False,
-                    )],
-                    tags={
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-2",
+                    "volumePath": "my-unique-file-path-2",
+                    "serviceLevel": "Standard",
+                    "capacityPoolId": example_pool.id,
+                    "subnetId": example_subnet.id,
+                    "proximityPlacementGroupId": example_placement_group.id,
+                    "volumeSpecName": "log",
+                    "storageQuotaInGb": 1024,
+                    "throughputInMibps": 24,
+                    "protocols": "NFSv4.1",
+                    "securityStyle": "unix",
+                    "snapshotDirectoryVisible": False,
+                    "exportPolicyRules": [{
+                        "ruleIndex": 1,
+                        "allowedClients": "0.0.0.0/0",
+                        "nfsv3Enabled": False,
+                        "nfsv41Enabled": True,
+                        "unixReadOnly": False,
+                        "unixReadWrite": True,
+                        "rootAccessEnabled": False,
+                    }],
+                    "tags": {
                         "foo": "bar",
                     },
-                ),
-                azure.netapp.VolumeGroupSapHanaVolumeArgs(
-                    name=f"{prefix}-netapp-volume-3",
-                    volume_path="my-unique-file-path-3",
-                    service_level="Standard",
-                    capacity_pool_id=example_pool.id,
-                    subnet_id=example_subnet.id,
-                    proximity_placement_group_id=example_placement_group.id,
-                    volume_spec_name="shared",
-                    storage_quota_in_gb=1024,
-                    throughput_in_mibps=24,
-                    protocols="NFSv4.1",
-                    security_style="unix",
-                    snapshot_directory_visible=False,
-                    export_policy_rules=[azure.netapp.VolumeGroupSapHanaVolumeExportPolicyRuleArgs(
-                        rule_index=1,
-                        allowed_clients="0.0.0.0/0",
-                        nfsv3_enabled=False,
-                        nfsv41_enabled=True,
-                        unix_read_only=False,
-                        unix_read_write=True,
-                        root_access_enabled=False,
-                    )],
-                ),
+                },
+                {
+                    "name": f"{prefix}-netapp-volume-3",
+                    "volumePath": "my-unique-file-path-3",
+                    "serviceLevel": "Standard",
+                    "capacityPoolId": example_pool.id,
+                    "subnetId": example_subnet.id,
+                    "proximityPlacementGroupId": example_placement_group.id,
+                    "volumeSpecName": "shared",
+                    "storageQuotaInGb": 1024,
+                    "throughputInMibps": 24,
+                    "protocols": "NFSv4.1",
+                    "securityStyle": "unix",
+                    "snapshotDirectoryVisible": False,
+                    "exportPolicyRules": [{
+                        "ruleIndex": 1,
+                        "allowedClients": "0.0.0.0/0",
+                        "nfsv3Enabled": False,
+                        "nfsv41Enabled": True,
+                        "unixReadOnly": False,
+                        "unixReadWrite": True,
+                        "rootAccessEnabled": False,
+                    }],
+                },
             ],
             opts = pulumi.ResourceOptions(depends_on=[
                     example_linux_virtual_machine,
@@ -686,7 +691,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -729,7 +734,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]]] = None) -> 'VolumeGroupSapHana':
+            volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]]] = None) -> 'VolumeGroupSapHana':
         """
         Get an existing VolumeGroupSapHana resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -743,7 +748,7 @@ class VolumeGroupSapHana(pulumi.CustomResource):
         :param pulumi.Input[str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupSapHanaVolumeArgs']]]] volumes: One or more `volume` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VolumeGroupSapHanaVolumeArgs', 'VolumeGroupSapHanaVolumeArgsDict']]]] volumes: One or more `volume` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

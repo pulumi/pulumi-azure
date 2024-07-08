@@ -4,44 +4,116 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'CertifiateCertificateArgs',
+    'CertifiateCertificateArgsDict',
     'CertifiateCertificateAttributeArgs',
+    'CertifiateCertificateAttributeArgsDict',
     'CertifiateCertificatePolicyArgs',
+    'CertifiateCertificatePolicyArgsDict',
     'CertifiateCertificatePolicyIssuerParametersArgs',
+    'CertifiateCertificatePolicyIssuerParametersArgsDict',
     'CertifiateCertificatePolicyKeyPropertiesArgs',
+    'CertifiateCertificatePolicyKeyPropertiesArgsDict',
     'CertifiateCertificatePolicyLifetimeActionArgs',
+    'CertifiateCertificatePolicyLifetimeActionArgsDict',
     'CertifiateCertificatePolicyLifetimeActionActionArgs',
+    'CertifiateCertificatePolicyLifetimeActionActionArgsDict',
     'CertifiateCertificatePolicyLifetimeActionTriggerArgs',
+    'CertifiateCertificatePolicyLifetimeActionTriggerArgsDict',
     'CertifiateCertificatePolicySecretPropertiesArgs',
+    'CertifiateCertificatePolicySecretPropertiesArgsDict',
     'CertifiateCertificatePolicyX509CertificatePropertiesArgs',
+    'CertifiateCertificatePolicyX509CertificatePropertiesArgsDict',
     'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs',
+    'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict',
     'CertificateCertificateArgs',
+    'CertificateCertificateArgsDict',
     'CertificateCertificateAttributeArgs',
+    'CertificateCertificateAttributeArgsDict',
     'CertificateCertificatePolicyArgs',
+    'CertificateCertificatePolicyArgsDict',
     'CertificateCertificatePolicyIssuerParametersArgs',
+    'CertificateCertificatePolicyIssuerParametersArgsDict',
     'CertificateCertificatePolicyKeyPropertiesArgs',
+    'CertificateCertificatePolicyKeyPropertiesArgsDict',
     'CertificateCertificatePolicyLifetimeActionArgs',
+    'CertificateCertificatePolicyLifetimeActionArgsDict',
     'CertificateCertificatePolicyLifetimeActionActionArgs',
+    'CertificateCertificatePolicyLifetimeActionActionArgsDict',
     'CertificateCertificatePolicyLifetimeActionTriggerArgs',
+    'CertificateCertificatePolicyLifetimeActionTriggerArgsDict',
     'CertificateCertificatePolicySecretPropertiesArgs',
+    'CertificateCertificatePolicySecretPropertiesArgsDict',
     'CertificateCertificatePolicyX509CertificatePropertiesArgs',
+    'CertificateCertificatePolicyX509CertificatePropertiesArgsDict',
     'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs',
+    'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict',
     'CertificateContactsContactArgs',
+    'CertificateContactsContactArgsDict',
     'CertificateIssuerAdminArgs',
+    'CertificateIssuerAdminArgsDict',
     'KeyRotationPolicyArgs',
+    'KeyRotationPolicyArgsDict',
     'KeyRotationPolicyAutomaticArgs',
+    'KeyRotationPolicyAutomaticArgsDict',
     'KeyVaultAccessPolicyArgs',
+    'KeyVaultAccessPolicyArgsDict',
     'KeyVaultContactArgs',
+    'KeyVaultContactArgsDict',
     'KeyVaultNetworkAclsArgs',
+    'KeyVaultNetworkAclsArgsDict',
     'ManagedHardwareSecurityModuleNetworkAclsArgs',
+    'ManagedHardwareSecurityModuleNetworkAclsArgsDict',
     'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs',
+    'ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class CertifiateCertificateArgsDict(TypedDict):
+        contents: pulumi.Input[str]
+        """
+        The base64-encoded certificate contents.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password associated with the certificate.
+
+        > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+
+        To convert a private key to pkcs8 format with openssl use:
+        ```shell
+        openssl pkcs8 -topk8 -nocrypt -in private_key.pem > private_key_pk8.pem
+        ```
+
+        The PEM content should look something like:
+        ```text
+        -----BEGIN CERTIFICATE-----
+        aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K
+        :
+        aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K
+        -----END CERTIFICATE-----
+        -----BEGIN PRIVATE KEY-----
+        d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK
+        :
+        d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK
+        -----END PRIVATE KEY-----
+        ```
+        """
+elif False:
+    CertifiateCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertifiateCertificateArgs:
@@ -122,6 +194,35 @@ class CertifiateCertificateArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class CertifiateCertificateAttributeArgsDict(TypedDict):
+        created: NotRequired[pulumi.Input[str]]
+        """
+        The create time of the Key Vault Certificate.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        whether the Key Vault Certificate is enabled.
+        """
+        expires: NotRequired[pulumi.Input[str]]
+        """
+        The expires time of the Key Vault Certificate.
+        """
+        not_before: NotRequired[pulumi.Input[str]]
+        """
+        The not before valid time of the Key Vault Certificate.
+        """
+        recovery_level: NotRequired[pulumi.Input[str]]
+        """
+        The deletion recovery level of the Key Vault Certificate.
+        """
+        updated: NotRequired[pulumi.Input[str]]
+        """
+        The recent update time of the Key Vault Certificate.
+        """
+elif False:
+    CertifiateCertificateAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertifiateCertificateAttributeArgs:
@@ -226,6 +327,31 @@ class CertifiateCertificateAttributeArgs:
         pulumi.set(self, "updated", value)
 
 
+if not MYPY:
+    class CertifiateCertificatePolicyArgsDict(TypedDict):
+        issuer_parameters: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgsDict']
+        """
+        A `issuer_parameters` block as defined below.
+        """
+        key_properties: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgsDict']
+        """
+        A `key_properties` block as defined below.
+        """
+        secret_properties: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgsDict']
+        """
+        A `secret_properties` block as defined below.
+        """
+        lifetime_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgsDict']]]]
+        """
+        A `lifetime_action` block as defined below.
+        """
+        x509_certificate_properties: NotRequired[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgsDict']]
+        """
+        A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        """
+elif False:
+    CertifiateCertificatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertifiateCertificatePolicyArgs:
     def __init__(__self__, *,
@@ -310,6 +436,15 @@ class CertifiateCertificatePolicyArgs:
         pulumi.set(self, "x509_certificate_properties", value)
 
 
+if not MYPY:
+    class CertifiateCertificatePolicyIssuerParametersArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
+        """
+elif False:
+    CertifiateCertificatePolicyIssuerParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertifiateCertificatePolicyIssuerParametersArgs:
     def __init__(__self__, *,
@@ -331,6 +466,31 @@ class CertifiateCertificatePolicyIssuerParametersArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class CertifiateCertificatePolicyKeyPropertiesArgsDict(TypedDict):
+        exportable: pulumi.Input[bool]
+        """
+        Is this certificate exportable?
+        """
+        key_type: pulumi.Input[str]
+        """
+        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
+        """
+        reuse_key: pulumi.Input[bool]
+        """
+        Is the key reusable?
+        """
+        curve: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+        """
+        key_size: NotRequired[pulumi.Input[int]]
+        """
+        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
+        """
+elif False:
+    CertifiateCertificatePolicyKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertifiateCertificatePolicyKeyPropertiesArgs:
@@ -416,6 +576,19 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
         pulumi.set(self, "key_size", value)
 
 
+if not MYPY:
+    class CertifiateCertificatePolicyLifetimeActionArgsDict(TypedDict):
+        action: pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgsDict']
+        """
+        A `action` block as defined below.
+        """
+        trigger: pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgsDict']
+        """
+        A `trigger` block as defined below.
+        """
+elif False:
+    CertifiateCertificatePolicyLifetimeActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertifiateCertificatePolicyLifetimeActionArgs:
     def __init__(__self__, *,
@@ -453,6 +626,15 @@ class CertifiateCertificatePolicyLifetimeActionArgs:
         pulumi.set(self, "trigger", value)
 
 
+if not MYPY:
+    class CertifiateCertificatePolicyLifetimeActionActionArgsDict(TypedDict):
+        action_type: pulumi.Input[str]
+        """
+        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+        """
+elif False:
+    CertifiateCertificatePolicyLifetimeActionActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertifiateCertificatePolicyLifetimeActionActionArgs:
     def __init__(__self__, *,
@@ -474,6 +656,19 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
     def action_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_type", value)
 
+
+if not MYPY:
+    class CertifiateCertificatePolicyLifetimeActionTriggerArgsDict(TypedDict):
+        days_before_expiry: NotRequired[pulumi.Input[int]]
+        """
+        The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+        """
+        lifetime_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+        """
+elif False:
+    CertifiateCertificatePolicyLifetimeActionTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
@@ -514,6 +709,15 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
         pulumi.set(self, "lifetime_percentage", value)
 
 
+if not MYPY:
+    class CertifiateCertificatePolicySecretPropertiesArgsDict(TypedDict):
+        content_type: pulumi.Input[str]
+        """
+        The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
+        """
+elif False:
+    CertifiateCertificatePolicySecretPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertifiateCertificatePolicySecretPropertiesArgs:
     def __init__(__self__, *,
@@ -535,6 +739,31 @@ class CertifiateCertificatePolicySecretPropertiesArgs:
     def content_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "content_type", value)
 
+
+if not MYPY:
+    class CertifiateCertificatePolicyX509CertificatePropertiesArgsDict(TypedDict):
+        key_usages: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
+        """
+        subject: pulumi.Input[str]
+        """
+        The Certificate's Subject.
+        """
+        validity_in_months: pulumi.Input[int]
+        """
+        The Certificates Validity Period in Months.
+        """
+        extended_key_usages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Extended/Enhanced Key Usages.
+        """
+        subject_alternative_names: NotRequired[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict']]
+        """
+        A `subject_alternative_names` block as defined below.
+        """
+elif False:
+    CertifiateCertificatePolicyX509CertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
@@ -620,6 +849,23 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
+if not MYPY:
+    class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict(TypedDict):
+        dns_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of alternative DNS names (FQDNs) identified by the Certificate.
+        """
+        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of email addresses identified by this Certificate.
+        """
+        upns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Principal Names identified by the Certificate.
+        """
+elif False:
+    CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
     def __init__(__self__, *,
@@ -674,6 +920,40 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
     def upns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "upns", value)
 
+
+if not MYPY:
+    class CertificateCertificateArgsDict(TypedDict):
+        contents: pulumi.Input[str]
+        """
+        The base64-encoded certificate contents.
+        """
+        password: NotRequired[pulumi.Input[str]]
+        """
+        The password associated with the certificate.
+
+        > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style `\\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
+
+        To convert a private key to pkcs8 format with openssl use:
+        ```shell
+        openssl pkcs8 -topk8 -nocrypt -in private_key.pem > private_key_pk8.pem
+        ```
+
+        The PEM content should look something like:
+        ```text
+        -----BEGIN CERTIFICATE-----
+        aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K
+        :
+        aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K
+        -----END CERTIFICATE-----
+        -----BEGIN PRIVATE KEY-----
+        d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK
+        :
+        d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK
+        -----END PRIVATE KEY-----
+        ```
+        """
+elif False:
+    CertificateCertificateArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateCertificateArgs:
@@ -754,6 +1034,35 @@ class CertificateCertificateArgs:
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
 
+
+if not MYPY:
+    class CertificateCertificateAttributeArgsDict(TypedDict):
+        created: NotRequired[pulumi.Input[str]]
+        """
+        The create time of the Key Vault Certificate.
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        whether the Key Vault Certificate is enabled.
+        """
+        expires: NotRequired[pulumi.Input[str]]
+        """
+        The expires time of the Key Vault Certificate.
+        """
+        not_before: NotRequired[pulumi.Input[str]]
+        """
+        The not before valid time of the Key Vault Certificate.
+        """
+        recovery_level: NotRequired[pulumi.Input[str]]
+        """
+        The deletion recovery level of the Key Vault Certificate.
+        """
+        updated: NotRequired[pulumi.Input[str]]
+        """
+        The recent update time of the Key Vault Certificate.
+        """
+elif False:
+    CertificateCertificateAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateCertificateAttributeArgs:
@@ -858,6 +1167,31 @@ class CertificateCertificateAttributeArgs:
         pulumi.set(self, "updated", value)
 
 
+if not MYPY:
+    class CertificateCertificatePolicyArgsDict(TypedDict):
+        issuer_parameters: pulumi.Input['CertificateCertificatePolicyIssuerParametersArgsDict']
+        """
+        A `issuer_parameters` block as defined below.
+        """
+        key_properties: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgsDict']
+        """
+        A `key_properties` block as defined below.
+        """
+        secret_properties: pulumi.Input['CertificateCertificatePolicySecretPropertiesArgsDict']
+        """
+        A `secret_properties` block as defined below.
+        """
+        lifetime_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgsDict']]]]
+        """
+        A `lifetime_action` block as defined below.
+        """
+        x509_certificate_properties: NotRequired[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgsDict']]
+        """
+        A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        """
+elif False:
+    CertificateCertificatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateCertificatePolicyArgs:
     def __init__(__self__, *,
@@ -942,6 +1276,15 @@ class CertificateCertificatePolicyArgs:
         pulumi.set(self, "x509_certificate_properties", value)
 
 
+if not MYPY:
+    class CertificateCertificatePolicyIssuerParametersArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones).
+        """
+elif False:
+    CertificateCertificatePolicyIssuerParametersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateCertificatePolicyIssuerParametersArgs:
     def __init__(__self__, *,
@@ -963,6 +1306,31 @@ class CertificateCertificatePolicyIssuerParametersArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+
+if not MYPY:
+    class CertificateCertificatePolicyKeyPropertiesArgsDict(TypedDict):
+        exportable: pulumi.Input[bool]
+        """
+        Is this certificate exportable?
+        """
+        key_type: pulumi.Input[str]
+        """
+        Specifies the type of key. Possible values are `EC`, `EC-HSM`, `RSA`, `RSA-HSM` and `oct`.
+        """
+        reuse_key: pulumi.Input[bool]
+        """
+        Is the key reusable?
+        """
+        curve: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`.
+        """
+        key_size: NotRequired[pulumi.Input[int]]
+        """
+        The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys.
+        """
+elif False:
+    CertificateCertificatePolicyKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateCertificatePolicyKeyPropertiesArgs:
@@ -1048,6 +1416,19 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
         pulumi.set(self, "key_size", value)
 
 
+if not MYPY:
+    class CertificateCertificatePolicyLifetimeActionArgsDict(TypedDict):
+        action: pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgsDict']
+        """
+        A `action` block as defined below.
+        """
+        trigger: pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgsDict']
+        """
+        A `trigger` block as defined below.
+        """
+elif False:
+    CertificateCertificatePolicyLifetimeActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateCertificatePolicyLifetimeActionArgs:
     def __init__(__self__, *,
@@ -1085,6 +1466,15 @@ class CertificateCertificatePolicyLifetimeActionArgs:
         pulumi.set(self, "trigger", value)
 
 
+if not MYPY:
+    class CertificateCertificatePolicyLifetimeActionActionArgsDict(TypedDict):
+        action_type: pulumi.Input[str]
+        """
+        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+        """
+elif False:
+    CertificateCertificatePolicyLifetimeActionActionArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateCertificatePolicyLifetimeActionActionArgs:
     def __init__(__self__, *,
@@ -1106,6 +1496,19 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
     def action_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "action_type", value)
 
+
+if not MYPY:
+    class CertificateCertificatePolicyLifetimeActionTriggerArgsDict(TypedDict):
+        days_before_expiry: NotRequired[pulumi.Input[int]]
+        """
+        The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with `lifetime_percentage`.
+        """
+        lifetime_percentage: NotRequired[pulumi.Input[int]]
+        """
+        The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with `days_before_expiry`.
+        """
+elif False:
+    CertificateCertificatePolicyLifetimeActionTriggerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateCertificatePolicyLifetimeActionTriggerArgs:
@@ -1146,6 +1549,15 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
         pulumi.set(self, "lifetime_percentage", value)
 
 
+if not MYPY:
+    class CertificateCertificatePolicySecretPropertiesArgsDict(TypedDict):
+        content_type: pulumi.Input[str]
+        """
+        The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM.
+        """
+elif False:
+    CertificateCertificatePolicySecretPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateCertificatePolicySecretPropertiesArgs:
     def __init__(__self__, *,
@@ -1167,6 +1579,31 @@ class CertificateCertificatePolicySecretPropertiesArgs:
     def content_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "content_type", value)
 
+
+if not MYPY:
+    class CertificateCertificatePolicyX509CertificatePropertiesArgsDict(TypedDict):
+        key_usages: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive.
+        """
+        subject: pulumi.Input[str]
+        """
+        The Certificate's Subject.
+        """
+        validity_in_months: pulumi.Input[int]
+        """
+        The Certificates Validity Period in Months.
+        """
+        extended_key_usages: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of Extended/Enhanced Key Usages.
+        """
+        subject_alternative_names: NotRequired[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict']]
+        """
+        A `subject_alternative_names` block as defined below.
+        """
+elif False:
+    CertificateCertificatePolicyX509CertificatePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateCertificatePolicyX509CertificatePropertiesArgs:
@@ -1252,6 +1689,23 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
+if not MYPY:
+    class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict(TypedDict):
+        dns_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of alternative DNS names (FQDNs) identified by the Certificate.
+        """
+        emails: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of email addresses identified by this Certificate.
+        """
+        upns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of User Principal Names identified by the Certificate.
+        """
+elif False:
+    CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
     def __init__(__self__, *,
@@ -1307,6 +1761,23 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
         pulumi.set(self, "upns", value)
 
 
+if not MYPY:
+    class CertificateContactsContactArgsDict(TypedDict):
+        email: pulumi.Input[str]
+        """
+        E-mail address of the contact.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the contact.
+        """
+        phone: NotRequired[pulumi.Input[str]]
+        """
+        Phone number of the contact.
+        """
+elif False:
+    CertificateContactsContactArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class CertificateContactsContactArgs:
     def __init__(__self__, *,
@@ -1360,6 +1831,27 @@ class CertificateContactsContactArgs:
     def phone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "phone", value)
 
+
+if not MYPY:
+    class CertificateIssuerAdminArgsDict(TypedDict):
+        email_address: pulumi.Input[str]
+        """
+        E-mail address of the admin.
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        First name of the admin.
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        Last name of the admin.
+        """
+        phone: NotRequired[pulumi.Input[str]]
+        """
+        Phone number of the admin.
+        """
+elif False:
+    CertificateIssuerAdminArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class CertificateIssuerAdminArgs:
@@ -1431,6 +1923,23 @@ class CertificateIssuerAdminArgs:
         pulumi.set(self, "phone", value)
 
 
+if not MYPY:
+    class KeyRotationPolicyArgsDict(TypedDict):
+        automatic: NotRequired[pulumi.Input['KeyRotationPolicyAutomaticArgsDict']]
+        """
+        An `automatic` block as defined below.
+        """
+        expire_after: NotRequired[pulumi.Input[str]]
+        """
+        Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+        notify_before_expiry: NotRequired[pulumi.Input[str]]
+        """
+        Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+elif False:
+    KeyRotationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyRotationPolicyArgs:
     def __init__(__self__, *,
@@ -1486,6 +1995,19 @@ class KeyRotationPolicyArgs:
         pulumi.set(self, "notify_before_expiry", value)
 
 
+if not MYPY:
+    class KeyRotationPolicyAutomaticArgsDict(TypedDict):
+        time_after_creation: NotRequired[pulumi.Input[str]]
+        """
+        Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+        time_before_expiry: NotRequired[pulumi.Input[str]]
+        """
+        Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+        """
+elif False:
+    KeyRotationPolicyAutomaticArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyRotationPolicyAutomaticArgs:
     def __init__(__self__, *,
@@ -1524,6 +2046,39 @@ class KeyRotationPolicyAutomaticArgs:
     def time_before_expiry(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_before_expiry", value)
 
+
+if not MYPY:
+    class KeyVaultAccessPolicyArgsDict(TypedDict):
+        object_id: pulumi.Input[str]
+        """
+        The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
+        """
+        tenant_id: pulumi.Input[str]
+        """
+        The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
+        """
+        application_id: NotRequired[pulumi.Input[str]]
+        """
+        The object ID of an Application in Azure Active Directory.
+        """
+        certificate_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
+        """
+        key_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of key permissions. Possible values are `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy` and `SetRotationPolicy`.
+        """
+        secret_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
+        """
+        storage_permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
+        """
+elif False:
+    KeyVaultAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultAccessPolicyArgs:
@@ -1642,6 +2197,23 @@ class KeyVaultAccessPolicyArgs:
         pulumi.set(self, "storage_permissions", value)
 
 
+if not MYPY:
+    class KeyVaultContactArgsDict(TypedDict):
+        email: pulumi.Input[str]
+        """
+        E-mail address of the contact.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Name of the contact.
+        """
+        phone: NotRequired[pulumi.Input[str]]
+        """
+        Phone number of the contact.
+        """
+elif False:
+    KeyVaultContactArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class KeyVaultContactArgs:
     def __init__(__self__, *,
@@ -1695,6 +2267,27 @@ class KeyVaultContactArgs:
     def phone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "phone", value)
 
+
+if not MYPY:
+    class KeyVaultNetworkAclsArgsDict(TypedDict):
+        bypass: pulumi.Input[str]
+        """
+        Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+        """
+        default_action: pulumi.Input[str]
+        """
+        The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+        """
+        virtual_network_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Subnet IDs which should be able to access this Key Vault.
+        """
+elif False:
+    KeyVaultNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class KeyVaultNetworkAclsArgs:
@@ -1765,6 +2358,19 @@ class KeyVaultNetworkAclsArgs:
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
+if not MYPY:
+    class ManagedHardwareSecurityModuleNetworkAclsArgsDict(TypedDict):
+        bypass: pulumi.Input[str]
+        """
+        Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
+        """
+        default_action: pulumi.Input[str]
+        """
+        The Default Action to use. Possible values are `Allow` and `Deny`.
+        """
+elif False:
+    ManagedHardwareSecurityModuleNetworkAclsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagedHardwareSecurityModuleNetworkAclsArgs:
     def __init__(__self__, *,
@@ -1801,6 +2407,27 @@ class ManagedHardwareSecurityModuleNetworkAclsArgs:
     def default_action(self, value: pulumi.Input[str]):
         pulumi.set(self, "default_action", value)
 
+
+if not MYPY:
+    class ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict(TypedDict):
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+        """
+        data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of data action permission to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+        """
+        not_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
+        """
+        not_data_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of data action permission not to grant. Possible values are `Microsoft.KeyVault/managedHsm/keys/read/action`, `Microsoft.KeyVault/managedHsm/keys/write/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/read/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/recover/action`, `Microsoft.KeyVault/managedHsm/keys/backup/action`, `Microsoft.KeyVault/managedHsm/keys/restore/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/delete/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/read/action`, `Microsoft.KeyVault/managedHsm/roleAssignments/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/read/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/write/action`, `Microsoft.KeyVault/managedHsm/roleDefinitions/delete/action`, `Microsoft.KeyVault/managedHsm/keys/encrypt/action`, `Microsoft.KeyVault/managedHsm/keys/decrypt/action`, `Microsoft.KeyVault/managedHsm/keys/wrap/action`, `Microsoft.KeyVault/managedHsm/keys/unwrap/action`, `Microsoft.KeyVault/managedHsm/keys/sign/action`, `Microsoft.KeyVault/managedHsm/keys/verify/action`, `Microsoft.KeyVault/managedHsm/keys/create`, `Microsoft.KeyVault/managedHsm/keys/delete`, `Microsoft.KeyVault/managedHsm/keys/export/action`, `Microsoft.KeyVault/managedHsm/keys/release/action`, `Microsoft.KeyVault/managedHsm/keys/import/action`, `Microsoft.KeyVault/managedHsm/keys/deletedKeys/delete`, `Microsoft.KeyVault/managedHsm/securitydomain/download/action`, `Microsoft.KeyVault/managedHsm/securitydomain/download/read`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/action`, `Microsoft.KeyVault/managedHsm/securitydomain/upload/read`, `Microsoft.KeyVault/managedHsm/securitydomain/transferkey/read`, `Microsoft.KeyVault/managedHsm/backup/start/action`, `Microsoft.KeyVault/managedHsm/restore/start/action`, `Microsoft.KeyVault/managedHsm/backup/status/action`, `Microsoft.KeyVault/managedHsm/restore/status/action` and `Microsoft.KeyVault/managedHsm/rng/action`.
+        """
+elif False:
+    ManagedHardwareSecurityModuleRoleDefinitionPermissionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs:

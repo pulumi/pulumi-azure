@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['GalleryArgs', 'Gallery']
@@ -150,10 +155,10 @@ class Gallery(pulumi.CustomResource):
             name="example-devcenter",
             resource_group_name=test_azurerm_resource_group["name"],
             location=test_azurerm_resource_group["location"],
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[test_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [test_user_assigned_identity.id],
+            })
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",
             location=example.location,
@@ -212,10 +217,10 @@ class Gallery(pulumi.CustomResource):
             name="example-devcenter",
             resource_group_name=test_azurerm_resource_group["name"],
             location=test_azurerm_resource_group["location"],
-            identity=azure.devcenter.DevCenterIdentityArgs(
-                type="UserAssigned",
-                identity_ids=[test_user_assigned_identity.id],
-            ))
+            identity={
+                "type": "UserAssigned",
+                "identityIds": [test_user_assigned_identity.id],
+            })
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",
             location=example.location,

@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['ConsumerGroupArgs', 'ConsumerGroup']
@@ -178,10 +183,10 @@ class ConsumerGroup(pulumi.CustomResource):
             name="test",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "testing",
             })
@@ -229,10 +234,10 @@ class ConsumerGroup(pulumi.CustomResource):
             name="test",
             resource_group_name=example.name,
             location=example.location,
-            sku=azure.iot.IoTHubSkuArgs(
-                name="S1",
-                capacity=1,
-            ),
+            sku={
+                "name": "S1",
+                "capacity": 1,
+            },
             tags={
                 "purpose": "testing",
             })

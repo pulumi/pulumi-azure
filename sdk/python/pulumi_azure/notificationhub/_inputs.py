@@ -4,15 +4,49 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'HubApnsCredentialArgs',
+    'HubApnsCredentialArgsDict',
     'HubGcmCredentialArgs',
+    'HubGcmCredentialArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class HubApnsCredentialArgsDict(TypedDict):
+        application_mode: pulumi.Input[str]
+        """
+        The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
+        """
+        bundle_id: pulumi.Input[str]
+        """
+        The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
+        """
+        key_id: pulumi.Input[str]
+        """
+        The Apple Push Notifications Service (APNS) Key.
+        """
+        team_id: pulumi.Input[str]
+        """
+        The ID of the team the Token.
+        """
+        token: pulumi.Input[str]
+        """
+        The Push Token associated with the Apple Developer Account. This is the contents of the `key` downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` blocks.
+        """
+elif False:
+    HubApnsCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HubApnsCredentialArgs:
@@ -95,6 +129,15 @@ class HubApnsCredentialArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
+
+if not MYPY:
+    class HubGcmCredentialArgsDict(TypedDict):
+        api_key: pulumi.Input[str]
+        """
+        The API Key associated with the Google Cloud Messaging service.
+        """
+elif False:
+    HubGcmCredentialArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class HubGcmCredentialArgs:

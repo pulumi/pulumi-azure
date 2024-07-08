@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -325,7 +330,7 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operational_default_retention_duration: Optional[pulumi.Input[str]] = None,
                  retention_duration: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyBlobStorageRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_default_retention_duration: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
@@ -370,7 +375,7 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] retention_duration: Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
                
                > **Note:** > `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyBlobStorageRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
                
                > **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.
@@ -436,7 +441,7 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operational_default_retention_duration: Optional[pulumi.Input[str]] = None,
                  retention_duration: Optional[pulumi.Input[str]] = None,
-                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyBlobStorageRetentionRuleArgs']]]]] = None,
+                 retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
                  vault_default_retention_duration: Optional[pulumi.Input[str]] = None,
                  vault_id: Optional[pulumi.Input[str]] = None,
@@ -473,7 +478,7 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             operational_default_retention_duration: Optional[pulumi.Input[str]] = None,
             retention_duration: Optional[pulumi.Input[str]] = None,
-            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyBlobStorageRetentionRuleArgs']]]]] = None,
+            retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]]] = None,
             time_zone: Optional[pulumi.Input[str]] = None,
             vault_default_retention_duration: Optional[pulumi.Input[str]] = None,
             vault_id: Optional[pulumi.Input[str]] = None) -> 'BackupPolicyBlobStorage':
@@ -490,7 +495,7 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         :param pulumi.Input[str] retention_duration: Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
                
                > **Note:** > `retention_duration` is deprecated in version 3.0 and will be removed in version 4.0 of the AzureRM Provider. Please use the `operational_default_retention_duration` instead.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackupPolicyBlobStorageRetentionRuleArgs']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BackupPolicyBlobStorageRetentionRuleArgs', 'BackupPolicyBlobStorageRetentionRuleArgsDict']]]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy Blob Storage to be created.
                
                > **Note:** Setting `retention_rule` also requires setting `vault_default_retention_duration`.
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Blob Storage to be created.

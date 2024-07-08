@@ -4,23 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'GlobalVMShutdownScheduleNotificationSettingsArgs',
+    'GlobalVMShutdownScheduleNotificationSettingsArgsDict',
     'LinuxVirtualMachineGalleryImageReferenceArgs',
+    'LinuxVirtualMachineGalleryImageReferenceArgsDict',
     'LinuxVirtualMachineInboundNatRuleArgs',
+    'LinuxVirtualMachineInboundNatRuleArgsDict',
     'ScheduleDailyRecurrenceArgs',
+    'ScheduleDailyRecurrenceArgsDict',
     'ScheduleHourlyRecurrenceArgs',
+    'ScheduleHourlyRecurrenceArgsDict',
     'ScheduleNotificationSettingsArgs',
+    'ScheduleNotificationSettingsArgsDict',
     'ScheduleWeeklyRecurrenceArgs',
+    'ScheduleWeeklyRecurrenceArgsDict',
     'VirtualNetworkSubnetArgs',
+    'VirtualNetworkSubnetArgsDict',
     'WindowsVirtualMachineGalleryImageReferenceArgs',
+    'WindowsVirtualMachineGalleryImageReferenceArgsDict',
     'WindowsVirtualMachineInboundNatRuleArgs',
+    'WindowsVirtualMachineInboundNatRuleArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class GlobalVMShutdownScheduleNotificationSettingsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Whether to enable pre-shutdown notifications. Possible values are `true` and `false`.
+        """
+        email: NotRequired[pulumi.Input[str]]
+        """
+        E-mail address to which the notification will be sent.
+        """
+        time_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
+        """
+        webhook_url: NotRequired[pulumi.Input[str]]
+        """
+        The webhook URL to which the notification will be sent.
+        """
+elif False:
+    GlobalVMShutdownScheduleNotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlobalVMShutdownScheduleNotificationSettingsArgs:
@@ -92,6 +130,27 @@ class GlobalVMShutdownScheduleNotificationSettingsArgs:
         pulumi.set(self, "webhook_url", value)
 
 
+if not MYPY:
+    class LinuxVirtualMachineGalleryImageReferenceArgsDict(TypedDict):
+        offer: pulumi.Input[str]
+        """
+        The Offer of the Gallery Image. Changing this forces a new resource to be created.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+        """
+        sku: pulumi.Input[str]
+        """
+        The SKU of the Gallery Image. Changing this forces a new resource to be created.
+        """
+        version: pulumi.Input[str]
+        """
+        The Version of the Gallery Image. Changing this forces a new resource to be created.
+        """
+elif False:
+    LinuxVirtualMachineGalleryImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxVirtualMachineGalleryImageReferenceArgs:
     def __init__(__self__, *,
@@ -159,6 +218,23 @@ class LinuxVirtualMachineGalleryImageReferenceArgs:
         pulumi.set(self, "version", value)
 
 
+if not MYPY:
+    class LinuxVirtualMachineInboundNatRuleArgsDict(TypedDict):
+        backend_port: pulumi.Input[int]
+        """
+        The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
+        """
+        frontend_port: NotRequired[pulumi.Input[int]]
+        """
+        The frontend port associated with this Inbound NAT Rule.
+        """
+elif False:
+    LinuxVirtualMachineInboundNatRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LinuxVirtualMachineInboundNatRuleArgs:
     def __init__(__self__, *,
@@ -212,6 +288,15 @@ class LinuxVirtualMachineInboundNatRuleArgs:
         pulumi.set(self, "frontend_port", value)
 
 
+if not MYPY:
+    class ScheduleDailyRecurrenceArgsDict(TypedDict):
+        time: pulumi.Input[str]
+        """
+        The time each day when the schedule takes effect.
+        """
+elif False:
+    ScheduleDailyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleDailyRecurrenceArgs:
     def __init__(__self__, *,
@@ -234,6 +319,15 @@ class ScheduleDailyRecurrenceArgs:
         pulumi.set(self, "time", value)
 
 
+if not MYPY:
+    class ScheduleHourlyRecurrenceArgsDict(TypedDict):
+        minute: pulumi.Input[int]
+        """
+        Minutes of the hour the schedule will run.
+        """
+elif False:
+    ScheduleHourlyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleHourlyRecurrenceArgs:
     def __init__(__self__, *,
@@ -255,6 +349,23 @@ class ScheduleHourlyRecurrenceArgs:
     def minute(self, value: pulumi.Input[int]):
         pulumi.set(self, "minute", value)
 
+
+if not MYPY:
+    class ScheduleNotificationSettingsArgsDict(TypedDict):
+        status: NotRequired[pulumi.Input[str]]
+        """
+        The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
+        """
+        time_in_minutes: NotRequired[pulumi.Input[int]]
+        """
+        Time in minutes before event at which notification will be sent.
+        """
+        webhook_url: NotRequired[pulumi.Input[str]]
+        """
+        The webhook URL to which the notification will be sent.
+        """
+elif False:
+    ScheduleNotificationSettingsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ScheduleNotificationSettingsArgs:
@@ -311,6 +422,19 @@ class ScheduleNotificationSettingsArgs:
         pulumi.set(self, "webhook_url", value)
 
 
+if not MYPY:
+    class ScheduleWeeklyRecurrenceArgsDict(TypedDict):
+        time: pulumi.Input[str]
+        """
+        The time when the schedule takes effect.
+        """
+        week_days: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
+        """
+elif False:
+    ScheduleWeeklyRecurrenceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ScheduleWeeklyRecurrenceArgs:
     def __init__(__self__, *,
@@ -348,6 +472,23 @@ class ScheduleWeeklyRecurrenceArgs:
     def week_days(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "week_days", value)
 
+
+if not MYPY:
+    class VirtualNetworkSubnetArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
+        """
+        use_in_virtual_machine_creation: NotRequired[pulumi.Input[str]]
+        """
+        Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
+        """
+        use_public_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
+        """
+elif False:
+    VirtualNetworkSubnetArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class VirtualNetworkSubnetArgs:
@@ -403,6 +544,27 @@ class VirtualNetworkSubnetArgs:
     def use_public_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "use_public_ip_address", value)
 
+
+if not MYPY:
+    class WindowsVirtualMachineGalleryImageReferenceArgsDict(TypedDict):
+        offer: pulumi.Input[str]
+        """
+        The Offer of the Gallery Image. Changing this forces a new resource to be created.
+        """
+        publisher: pulumi.Input[str]
+        """
+        The Publisher of the Gallery Image. Changing this forces a new resource to be created.
+        """
+        sku: pulumi.Input[str]
+        """
+        The SKU of the Gallery Image. Changing this forces a new resource to be created.
+        """
+        version: pulumi.Input[str]
+        """
+        The Version of the Gallery Image. Changing this forces a new resource to be created.
+        """
+elif False:
+    WindowsVirtualMachineGalleryImageReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsVirtualMachineGalleryImageReferenceArgs:
@@ -470,6 +632,23 @@ class WindowsVirtualMachineGalleryImageReferenceArgs:
     def version(self, value: pulumi.Input[str]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class WindowsVirtualMachineInboundNatRuleArgsDict(TypedDict):
+        backend_port: pulumi.Input[int]
+        """
+        The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+        """
+        protocol: pulumi.Input[str]
+        """
+        The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`.
+        """
+        frontend_port: NotRequired[pulumi.Input[int]]
+        """
+        The frontend port associated with this Inbound NAT Rule.
+        """
+elif False:
+    WindowsVirtualMachineInboundNatRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class WindowsVirtualMachineInboundNatRuleArgs:

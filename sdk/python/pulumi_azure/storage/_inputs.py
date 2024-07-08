@@ -4,64 +4,135 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'AccountAzureFilesAuthenticationArgs',
+    'AccountAzureFilesAuthenticationArgsDict',
     'AccountAzureFilesAuthenticationActiveDirectoryArgs',
+    'AccountAzureFilesAuthenticationActiveDirectoryArgsDict',
     'AccountBlobPropertiesArgs',
+    'AccountBlobPropertiesArgsDict',
     'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs',
+    'AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict',
     'AccountBlobPropertiesCorsRuleArgs',
+    'AccountBlobPropertiesCorsRuleArgsDict',
     'AccountBlobPropertiesDeleteRetentionPolicyArgs',
+    'AccountBlobPropertiesDeleteRetentionPolicyArgsDict',
     'AccountBlobPropertiesRestorePolicyArgs',
+    'AccountBlobPropertiesRestorePolicyArgsDict',
     'AccountCustomDomainArgs',
+    'AccountCustomDomainArgsDict',
     'AccountCustomerManagedKeyArgs',
+    'AccountCustomerManagedKeyArgsDict',
     'AccountIdentityArgs',
+    'AccountIdentityArgsDict',
     'AccountImmutabilityPolicyArgs',
+    'AccountImmutabilityPolicyArgsDict',
     'AccountNetworkRulesArgs',
+    'AccountNetworkRulesArgsDict',
     'AccountNetworkRulesPrivateLinkAccessArgs',
+    'AccountNetworkRulesPrivateLinkAccessArgsDict',
     'AccountNetworkRulesPrivateLinkAccessRuleArgs',
+    'AccountNetworkRulesPrivateLinkAccessRuleArgsDict',
     'AccountQueuePropertiesArgs',
+    'AccountQueuePropertiesArgsDict',
     'AccountQueuePropertiesCorsRuleArgs',
+    'AccountQueuePropertiesCorsRuleArgsDict',
     'AccountQueuePropertiesHourMetricsArgs',
+    'AccountQueuePropertiesHourMetricsArgsDict',
     'AccountQueuePropertiesLoggingArgs',
+    'AccountQueuePropertiesLoggingArgsDict',
     'AccountQueuePropertiesMinuteMetricsArgs',
+    'AccountQueuePropertiesMinuteMetricsArgsDict',
     'AccountRoutingArgs',
+    'AccountRoutingArgsDict',
     'AccountSasPolicyArgs',
+    'AccountSasPolicyArgsDict',
     'AccountSharePropertiesArgs',
+    'AccountSharePropertiesArgsDict',
     'AccountSharePropertiesCorsRuleArgs',
+    'AccountSharePropertiesCorsRuleArgsDict',
     'AccountSharePropertiesRetentionPolicyArgs',
+    'AccountSharePropertiesRetentionPolicyArgsDict',
     'AccountSharePropertiesSmbArgs',
+    'AccountSharePropertiesSmbArgsDict',
     'AccountStaticWebsiteArgs',
+    'AccountStaticWebsiteArgsDict',
     'BlobInventoryPolicyRuleArgs',
+    'BlobInventoryPolicyRuleArgsDict',
     'BlobInventoryPolicyRuleFilterArgs',
+    'BlobInventoryPolicyRuleFilterArgsDict',
     'DataLakeGen2FilesystemAceArgs',
+    'DataLakeGen2FilesystemAceArgsDict',
     'DataLakeGen2PathAceArgs',
+    'DataLakeGen2PathAceArgsDict',
     'LocalUserPermissionScopeArgs',
+    'LocalUserPermissionScopeArgsDict',
     'LocalUserPermissionScopePermissionsArgs',
+    'LocalUserPermissionScopePermissionsArgsDict',
     'LocalUserSshAuthorizedKeyArgs',
+    'LocalUserSshAuthorizedKeyArgsDict',
     'ManagementPolicyRuleArgs',
+    'ManagementPolicyRuleArgsDict',
     'ManagementPolicyRuleActionsArgs',
+    'ManagementPolicyRuleActionsArgsDict',
     'ManagementPolicyRuleActionsBaseBlobArgs',
+    'ManagementPolicyRuleActionsBaseBlobArgsDict',
     'ManagementPolicyRuleActionsSnapshotArgs',
+    'ManagementPolicyRuleActionsSnapshotArgsDict',
     'ManagementPolicyRuleActionsVersionArgs',
+    'ManagementPolicyRuleActionsVersionArgsDict',
     'ManagementPolicyRuleFiltersArgs',
+    'ManagementPolicyRuleFiltersArgsDict',
     'ManagementPolicyRuleFiltersMatchBlobIndexTagArgs',
+    'ManagementPolicyRuleFiltersMatchBlobIndexTagArgsDict',
     'ObjectReplicationRuleArgs',
+    'ObjectReplicationRuleArgsDict',
     'ShareAclArgs',
+    'ShareAclArgsDict',
     'ShareAclAccessPolicyArgs',
+    'ShareAclAccessPolicyArgsDict',
     'TableAclArgs',
+    'TableAclArgsDict',
     'TableAclAccessPolicyArgs',
+    'TableAclAccessPolicyArgsDict',
     'GetAccountBlobContainerSASPermissionsArgs',
+    'GetAccountBlobContainerSASPermissionsArgsDict',
     'GetAccountSASPermissionsArgs',
+    'GetAccountSASPermissionsArgsDict',
     'GetAccountSASResourceTypesArgs',
+    'GetAccountSASResourceTypesArgsDict',
     'GetAccountSASServicesArgs',
+    'GetAccountSASServicesArgsDict',
     'GetShareAclArgs',
+    'GetShareAclArgsDict',
     'GetShareAclAccessPolicyArgs',
+    'GetShareAclAccessPolicyArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class AccountAzureFilesAuthenticationArgsDict(TypedDict):
+        directory_type: pulumi.Input[str]
+        """
+        Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
+        """
+        active_directory: NotRequired[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgsDict']]
+        """
+        A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        """
+elif False:
+    AccountAzureFilesAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountAzureFilesAuthenticationArgs:
@@ -100,6 +171,35 @@ class AccountAzureFilesAuthenticationArgs:
     def active_directory(self, value: Optional[pulumi.Input['AccountAzureFilesAuthenticationActiveDirectoryArgs']]):
         pulumi.set(self, "active_directory", value)
 
+
+if not MYPY:
+    class AccountAzureFilesAuthenticationActiveDirectoryArgsDict(TypedDict):
+        domain_guid: pulumi.Input[str]
+        """
+        Specifies the domain GUID.
+        """
+        domain_name: pulumi.Input[str]
+        """
+        Specifies the primary domain that the AD DNS server is authoritative for.
+        """
+        domain_sid: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the security identifier (SID). This is required when `directory_type` is set to `AD`.
+        """
+        forest_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Active Directory forest. This is required when `directory_type` is set to `AD`.
+        """
+        netbios_domain_name: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the NetBIOS domain name. This is required when `directory_type` is set to `AD`.
+        """
+        storage_sid: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the security identifier (SID) for Azure Storage. This is required when `directory_type` is set to `AD`.
+        """
+elif False:
+    AccountAzureFilesAuthenticationActiveDirectoryArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountAzureFilesAuthenticationActiveDirectoryArgs:
@@ -201,6 +301,59 @@ class AccountAzureFilesAuthenticationActiveDirectoryArgs:
     def storage_sid(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_sid", value)
 
+
+if not MYPY:
+    class AccountBlobPropertiesArgsDict(TypedDict):
+        change_feed_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the blob service properties for change feed events enabled? Default to `false`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        """
+        change_feed_retention_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        """
+        container_delete_retention_policy: NotRequired[pulumi.Input['AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict']]
+        """
+        A `container_delete_retention_policy` block as defined below.
+        """
+        cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgsDict']]]]
+        """
+        A `cors_rule` block as defined below.
+        """
+        default_service_version: NotRequired[pulumi.Input[str]]
+        """
+        The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
+        """
+        delete_retention_policy: NotRequired[pulumi.Input['AccountBlobPropertiesDeleteRetentionPolicyArgsDict']]
+        """
+        A `delete_retention_policy` block as defined below.
+        """
+        last_access_time_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is the last access time based tracking enabled? Default to `false`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        """
+        restore_policy: NotRequired[pulumi.Input['AccountBlobPropertiesRestorePolicyArgsDict']]
+        """
+        A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+
+        > **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+        """
+        versioning_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Is versioning enabled? Default to `false`.
+
+        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        """
+elif False:
+    AccountBlobPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountBlobPropertiesArgs:
@@ -377,6 +530,15 @@ class AccountBlobPropertiesArgs:
         pulumi.set(self, "versioning_enabled", value)
 
 
+if not MYPY:
+    class AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict(TypedDict):
+        days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+elif False:
+    AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountBlobPropertiesContainerDeleteRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -399,6 +561,32 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicyArgs:
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
+
+if not MYPY:
+    class AccountBlobPropertiesCorsRuleArgsDict(TypedDict):
+        allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of HTTP methods that are allowed to be executed by the origin. Valid options are
+        `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        """
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        max_age_in_seconds: pulumi.Input[int]
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+elif False:
+    AccountBlobPropertiesCorsRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountBlobPropertiesCorsRuleArgs:
@@ -484,6 +672,21 @@ class AccountBlobPropertiesCorsRuleArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class AccountBlobPropertiesDeleteRetentionPolicyArgsDict(TypedDict):
+        days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+        permanent_delete_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
+
+        > **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+        """
+elif False:
+    AccountBlobPropertiesDeleteRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountBlobPropertiesDeleteRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -527,6 +730,15 @@ class AccountBlobPropertiesDeleteRetentionPolicyArgs:
         pulumi.set(self, "permanent_delete_enabled", value)
 
 
+if not MYPY:
+    class AccountBlobPropertiesRestorePolicyArgsDict(TypedDict):
+        days: pulumi.Input[int]
+        """
+        Specifies the number of days that the blob can be restored, between `1` and `365` days. This must be less than the `days` specified for `delete_retention_policy`.
+        """
+elif False:
+    AccountBlobPropertiesRestorePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountBlobPropertiesRestorePolicyArgs:
     def __init__(__self__, *,
@@ -548,6 +760,19 @@ class AccountBlobPropertiesRestorePolicyArgs:
     def days(self, value: pulumi.Input[int]):
         pulumi.set(self, "days", value)
 
+
+if not MYPY:
+    class AccountCustomDomainArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
+        """
+        use_subdomain: NotRequired[pulumi.Input[bool]]
+        """
+        Should the Custom Domain Name be validated by using indirect CNAME validation?
+        """
+elif False:
+    AccountCustomDomainArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountCustomDomainArgs:
@@ -586,6 +811,25 @@ class AccountCustomDomainArgs:
     def use_subdomain(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "use_subdomain", value)
 
+
+if not MYPY:
+    class AccountCustomerManagedKeyArgsDict(TypedDict):
+        user_assigned_identity_id: pulumi.Input[str]
+        """
+        The ID of a user assigned identity.
+
+        > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+        """
+        key_vault_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        """
+        managed_hsm_key_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
+        """
+elif False:
+    AccountCustomerManagedKeyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountCustomerManagedKeyArgs:
@@ -644,6 +888,31 @@ class AccountCustomerManagedKeyArgs:
     def managed_hsm_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "managed_hsm_key_id", value)
 
+
+if not MYPY:
+    class AccountIdentityArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        """
+        identity_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+
+        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+
+        > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
+        """
+        principal_id: NotRequired[pulumi.Input[str]]
+        """
+        The Principal ID for the Service Principal associated with the Identity of this Storage Account.
+        """
+        tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The Tenant ID for the Service Principal associated with the Identity of this Storage Account.
+        """
+elif False:
+    AccountIdentityArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -723,6 +992,23 @@ class AccountIdentityArgs:
         pulumi.set(self, "tenant_id", value)
 
 
+if not MYPY:
+    class AccountImmutabilityPolicyArgsDict(TypedDict):
+        allow_protected_append_writes: pulumi.Input[bool]
+        """
+        When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+        """
+        period_since_creation_in_days: pulumi.Input[int]
+        """
+        The immutability period for the blobs in the container since the policy creation, in days.
+        """
+        state: pulumi.Input[str]
+        """
+        Defines the mode of the policy. `Disabled` state disables the policy, `Unlocked` state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, `Locked` state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+        """
+elif False:
+    AccountImmutabilityPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountImmutabilityPolicyArgs:
     def __init__(__self__, *,
@@ -774,6 +1060,39 @@ class AccountImmutabilityPolicyArgs:
     def state(self, value: pulumi.Input[str]):
         pulumi.set(self, "state", value)
 
+
+if not MYPY:
+    class AccountNetworkRulesArgsDict(TypedDict):
+        default_action: pulumi.Input[str]
+        """
+        Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
+        """
+        bypasses: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        """
+        ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
+        """
+        private_link_accesses: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgsDict']]]]
+        """
+        One or more `private_link_access` block as defined below.
+
+        > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
+
+        > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+
+        > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
+
+        > **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+        """
+        virtual_network_subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of resource ids for subnets.
+        """
+elif False:
+    AccountNetworkRulesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountNetworkRulesArgs:
@@ -877,6 +1196,19 @@ class AccountNetworkRulesArgs:
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
+if not MYPY:
+    class AccountNetworkRulesPrivateLinkAccessArgsDict(TypedDict):
+        endpoint_resource_id: pulumi.Input[str]
+        """
+        The ID of the Azure resource that should be allowed access to the target storage account.
+        """
+        endpoint_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
+        """
+elif False:
+    AccountNetworkRulesPrivateLinkAccessArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountNetworkRulesPrivateLinkAccessArgs:
     def __init__(__self__, *,
@@ -915,6 +1247,19 @@ class AccountNetworkRulesPrivateLinkAccessArgs:
         pulumi.set(self, "endpoint_tenant_id", value)
 
 
+if not MYPY:
+    class AccountNetworkRulesPrivateLinkAccessRuleArgsDict(TypedDict):
+        endpoint_resource_id: pulumi.Input[str]
+        """
+        The resource id of the resource access rule to be granted access.
+        """
+        endpoint_tenant_id: NotRequired[pulumi.Input[str]]
+        """
+        The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
+        """
+elif False:
+    AccountNetworkRulesPrivateLinkAccessRuleArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountNetworkRulesPrivateLinkAccessRuleArgs:
     def __init__(__self__, *,
@@ -952,6 +1297,27 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgs:
     def endpoint_tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "endpoint_tenant_id", value)
 
+
+if not MYPY:
+    class AccountQueuePropertiesArgsDict(TypedDict):
+        cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgsDict']]]]
+        """
+        A `cors_rule` block as defined above.
+        """
+        hour_metrics: NotRequired[pulumi.Input['AccountQueuePropertiesHourMetricsArgsDict']]
+        """
+        A `hour_metrics` block as defined below.
+        """
+        logging: NotRequired[pulumi.Input['AccountQueuePropertiesLoggingArgsDict']]
+        """
+        A `logging` block as defined below.
+        """
+        minute_metrics: NotRequired[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgsDict']]
+        """
+        A `minute_metrics` block as defined below.
+        """
+elif False:
+    AccountQueuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountQueuePropertiesArgs:
@@ -1023,6 +1389,32 @@ class AccountQueuePropertiesArgs:
     def minute_metrics(self, value: Optional[pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs']]):
         pulumi.set(self, "minute_metrics", value)
 
+
+if not MYPY:
+    class AccountQueuePropertiesCorsRuleArgsDict(TypedDict):
+        allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of HTTP methods that are allowed to be executed by the origin. Valid options are
+        `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        """
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        max_age_in_seconds: pulumi.Input[int]
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+elif False:
+    AccountQueuePropertiesCorsRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountQueuePropertiesCorsRuleArgs:
@@ -1108,6 +1500,27 @@ class AccountQueuePropertiesCorsRuleArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class AccountQueuePropertiesHourMetricsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Indicates whether hour metrics are enabled for the Queue service.
+        """
+        version: pulumi.Input[str]
+        """
+        The version of storage analytics to configure.
+        """
+        include_apis: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether metrics should generate summary statistics for called API operations.
+        """
+        retention_policy_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days that logs will be retained.
+        """
+elif False:
+    AccountQueuePropertiesHourMetricsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountQueuePropertiesHourMetricsArgs:
     def __init__(__self__, *,
@@ -1176,6 +1589,31 @@ class AccountQueuePropertiesHourMetricsArgs:
     def retention_policy_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_policy_days", value)
 
+
+if not MYPY:
+    class AccountQueuePropertiesLoggingArgsDict(TypedDict):
+        delete: pulumi.Input[bool]
+        """
+        Indicates whether all delete requests should be logged.
+        """
+        read: pulumi.Input[bool]
+        """
+        Indicates whether all read requests should be logged.
+        """
+        version: pulumi.Input[str]
+        """
+        The version of storage analytics to configure.
+        """
+        write: pulumi.Input[bool]
+        """
+        Indicates whether all write requests should be logged.
+        """
+        retention_policy_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days that logs will be retained.
+        """
+elif False:
+    AccountQueuePropertiesLoggingArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountQueuePropertiesLoggingArgs:
@@ -1260,6 +1698,27 @@ class AccountQueuePropertiesLoggingArgs:
         pulumi.set(self, "retention_policy_days", value)
 
 
+if not MYPY:
+    class AccountQueuePropertiesMinuteMetricsArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Indicates whether minute metrics are enabled for the Queue service.
+        """
+        version: pulumi.Input[str]
+        """
+        The version of storage analytics to configure.
+        """
+        include_apis: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether metrics should generate summary statistics for called API operations.
+        """
+        retention_policy_days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days that logs will be retained.
+        """
+elif False:
+    AccountQueuePropertiesMinuteMetricsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountQueuePropertiesMinuteMetricsArgs:
     def __init__(__self__, *,
@@ -1329,6 +1788,23 @@ class AccountQueuePropertiesMinuteMetricsArgs:
         pulumi.set(self, "retention_policy_days", value)
 
 
+if not MYPY:
+    class AccountRoutingArgsDict(TypedDict):
+        choice: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
+        """
+        publish_internet_endpoints: NotRequired[pulumi.Input[bool]]
+        """
+        Should internet routing storage endpoints be published? Defaults to `false`.
+        """
+        publish_microsoft_endpoints: NotRequired[pulumi.Input[bool]]
+        """
+        Should Microsoft routing storage endpoints be published? Defaults to `false`.
+        """
+elif False:
+    AccountRoutingArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountRoutingArgs:
     def __init__(__self__, *,
@@ -1384,6 +1860,19 @@ class AccountRoutingArgs:
         pulumi.set(self, "publish_microsoft_endpoints", value)
 
 
+if not MYPY:
+    class AccountSasPolicyArgsDict(TypedDict):
+        expiration_period: pulumi.Input[str]
+        """
+        The SAS expiration period in format of `DD.HH:MM:SS`.
+        """
+        expiration_action: NotRequired[pulumi.Input[str]]
+        """
+        The SAS expiration action. The only possible value is `Log` at this moment. Defaults to `Log`.
+        """
+elif False:
+    AccountSasPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountSasPolicyArgs:
     def __init__(__self__, *,
@@ -1421,6 +1910,23 @@ class AccountSasPolicyArgs:
     def expiration_action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "expiration_action", value)
 
+
+if not MYPY:
+    class AccountSharePropertiesArgsDict(TypedDict):
+        cors_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgsDict']]]]
+        """
+        A `cors_rule` block as defined below.
+        """
+        retention_policy: NotRequired[pulumi.Input['AccountSharePropertiesRetentionPolicyArgsDict']]
+        """
+        A `retention_policy` block as defined below.
+        """
+        smb: NotRequired[pulumi.Input['AccountSharePropertiesSmbArgsDict']]
+        """
+        A `smb` block as defined below.
+        """
+elif False:
+    AccountSharePropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountSharePropertiesArgs:
@@ -1476,6 +1982,32 @@ class AccountSharePropertiesArgs:
     def smb(self, value: Optional[pulumi.Input['AccountSharePropertiesSmbArgs']]):
         pulumi.set(self, "smb", value)
 
+
+if not MYPY:
+    class AccountSharePropertiesCorsRuleArgsDict(TypedDict):
+        allowed_headers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        allowed_methods: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of HTTP methods that are allowed to be executed by the origin. Valid options are
+        `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
+        """
+        allowed_origins: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        exposed_headers: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        max_age_in_seconds: pulumi.Input[int]
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+elif False:
+    AccountSharePropertiesCorsRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountSharePropertiesCorsRuleArgs:
@@ -1561,6 +2093,15 @@ class AccountSharePropertiesCorsRuleArgs:
         pulumi.set(self, "max_age_in_seconds", value)
 
 
+if not MYPY:
+    class AccountSharePropertiesRetentionPolicyArgsDict(TypedDict):
+        days: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the number of days that the `storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
+        """
+elif False:
+    AccountSharePropertiesRetentionPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountSharePropertiesRetentionPolicyArgs:
     def __init__(__self__, *,
@@ -1583,6 +2124,31 @@ class AccountSharePropertiesRetentionPolicyArgs:
     def days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "days", value)
 
+
+if not MYPY:
+    class AccountSharePropertiesSmbArgsDict(TypedDict):
+        authentication_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
+        """
+        channel_encryption_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
+        """
+        kerberos_ticket_encryption_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        """
+        multichannel_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+        """
+        versions: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
+        """
+elif False:
+    AccountSharePropertiesSmbArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AccountSharePropertiesSmbArgs:
@@ -1671,6 +2237,19 @@ class AccountSharePropertiesSmbArgs:
         pulumi.set(self, "versions", value)
 
 
+if not MYPY:
+    class AccountStaticWebsiteArgsDict(TypedDict):
+        error404_document: NotRequired[pulumi.Input[str]]
+        """
+        The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+        """
+        index_document: NotRequired[pulumi.Input[str]]
+        """
+        The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
+        """
+elif False:
+    AccountStaticWebsiteArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class AccountStaticWebsiteArgs:
     def __init__(__self__, *,
@@ -1709,6 +2288,39 @@ class AccountStaticWebsiteArgs:
     def index_document(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "index_document", value)
 
+
+if not MYPY:
+    class BlobInventoryPolicyRuleArgsDict(TypedDict):
+        format: pulumi.Input[str]
+        """
+        The format of the inventory files. Possible values are `Csv` and `Parquet`.
+        """
+        name: pulumi.Input[str]
+        """
+        The name which should be used for this Blob Inventory Policy Rule.
+        """
+        schedule: pulumi.Input[str]
+        """
+        The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
+        """
+        schema_fields: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
+        """
+        scope: pulumi.Input[str]
+        """
+        The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
+        """
+        storage_container_name: pulumi.Input[str]
+        """
+        The storage container name to store the blob inventory files for this rule.
+        """
+        filter: NotRequired[pulumi.Input['BlobInventoryPolicyRuleFilterArgsDict']]
+        """
+        A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        """
+elif False:
+    BlobInventoryPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BlobInventoryPolicyRuleArgs:
@@ -1822,6 +2434,43 @@ class BlobInventoryPolicyRuleArgs:
     def filter(self, value: Optional[pulumi.Input['BlobInventoryPolicyRuleFilterArgs']]):
         pulumi.set(self, "filter", value)
 
+
+if not MYPY:
+    class BlobInventoryPolicyRuleFilterArgsDict(TypedDict):
+        blob_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn't support `pageBlob`.
+
+        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `BlobType` so that you can specify the `blob_types`.
+        """
+        exclude_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of strings for blob prefixes to be excluded. Maximum of 10 blob prefixes.
+        """
+        include_blob_versions: NotRequired[pulumi.Input[bool]]
+        """
+        Includes blob versions in blob inventory or not? Defaults to `false`.
+
+        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `IsCurrentVersion` and `VersionId` so that you can specify the `include_blob_versions`.
+        """
+        include_deleted: NotRequired[pulumi.Input[bool]]
+        """
+        Includes deleted blobs in blob inventory or not? Defaults to `false`.
+
+        > **NOTE:** If `rules.*.scope` is `Container`, the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob`, the `rules.*.schema_fields` must include `Deleted` and `RemainingRetentionDays` so that you can specify the `include_deleted`. If `rules.*.scope` is `Blob` and the storage account specified by `storage_account_id` has hierarchical namespaces enabled (`is_hns_enabled` is `true` on the storage account), the `rules.*.schema_fields` for this rule must include `Deleted`, `Version`, `DeletedTime`, and `RemainingRetentionDays` so that you can specify the `include_deleted`.
+        """
+        include_snapshots: NotRequired[pulumi.Input[bool]]
+        """
+        Includes blob snapshots in blob inventory or not? Defaults to `false`.
+
+        > **NOTE:** The `rules.*.schema_fields` for this rule has to include `Snapshot` so that you can specify the `include_snapshots`.
+        """
+        prefix_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A set of strings for blob prefixes to be matched. Maximum of 10 blob prefixes.
+        """
+elif False:
+    BlobInventoryPolicyRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class BlobInventoryPolicyRuleFilterArgs:
@@ -1941,6 +2590,29 @@ class BlobInventoryPolicyRuleFilterArgs:
         pulumi.set(self, "prefix_matches", value)
 
 
+if not MYPY:
+    class DataLakeGen2FilesystemAceArgsDict(TypedDict):
+        permissions: pulumi.Input[str]
+        """
+        Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
+
+        More details on ACLs can be found here: <https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories>
+        """
+        type: pulumi.Input[str]
+        """
+        Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        """
+elif False:
+    DataLakeGen2FilesystemAceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataLakeGen2FilesystemAceArgs:
     def __init__(__self__, *,
@@ -2014,6 +2686,24 @@ class DataLakeGen2FilesystemAceArgs:
         pulumi.set(self, "scope", value)
 
 
+if not MYPY:
+    class DataLakeGen2PathAceArgsDict(TypedDict):
+        permissions: pulumi.Input[str]
+        type: pulumi.Input[str]
+        """
+        Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
+        """
+elif False:
+    DataLakeGen2PathAceArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class DataLakeGen2PathAceArgs:
     def __init__(__self__, *,
@@ -2079,6 +2769,23 @@ class DataLakeGen2PathAceArgs:
         pulumi.set(self, "scope", value)
 
 
+if not MYPY:
+    class LocalUserPermissionScopeArgsDict(TypedDict):
+        permissions: pulumi.Input['LocalUserPermissionScopePermissionsArgsDict']
+        """
+        A `permissions` block as defined below.
+        """
+        resource_name: pulumi.Input[str]
+        """
+        The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
+        """
+        service: pulumi.Input[str]
+        """
+        The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
+        """
+elif False:
+    LocalUserPermissionScopeArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocalUserPermissionScopeArgs:
     def __init__(__self__, *,
@@ -2130,6 +2837,31 @@ class LocalUserPermissionScopeArgs:
     def service(self, value: pulumi.Input[str]):
         pulumi.set(self, "service", value)
 
+
+if not MYPY:
+    class LocalUserPermissionScopePermissionsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the Local User has the create permission for this scope. Defaults to `false`.
+        """
+        delete: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the Local User has the delete permission for this scope. Defaults to `false`.
+        """
+        list: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the Local User has the list permission for this scope. Defaults to `false`.
+        """
+        read: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the Local User has the read permission for this scope. Defaults to `false`.
+        """
+        write: NotRequired[pulumi.Input[bool]]
+        """
+        Specifies if the Local User has the write permission for this scope. Defaults to `false`.
+        """
+elif False:
+    LocalUserPermissionScopePermissionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LocalUserPermissionScopePermissionsArgs:
@@ -2218,6 +2950,19 @@ class LocalUserPermissionScopePermissionsArgs:
         pulumi.set(self, "write", value)
 
 
+if not MYPY:
+    class LocalUserSshAuthorizedKeyArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        """
+        The public key value of this SSH authorized key.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The description of this SSH authorized key.
+        """
+elif False:
+    LocalUserSshAuthorizedKeyArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class LocalUserSshAuthorizedKeyArgs:
     def __init__(__self__, *,
@@ -2255,6 +3000,27 @@ class LocalUserSshAuthorizedKeyArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+
+if not MYPY:
+    class ManagementPolicyRuleArgsDict(TypedDict):
+        actions: pulumi.Input['ManagementPolicyRuleActionsArgsDict']
+        """
+        An `actions` block as documented below.
+        """
+        enabled: pulumi.Input[bool]
+        """
+        Boolean to specify whether the rule is enabled.
+        """
+        filters: pulumi.Input['ManagementPolicyRuleFiltersArgsDict']
+        """
+        A `filters` block as documented below.
+        """
+        name: pulumi.Input[str]
+        """
+        The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
+        """
+elif False:
+    ManagementPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementPolicyRuleArgs:
@@ -2323,6 +3089,23 @@ class ManagementPolicyRuleArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ManagementPolicyRuleActionsArgsDict(TypedDict):
+        base_blob: NotRequired[pulumi.Input['ManagementPolicyRuleActionsBaseBlobArgsDict']]
+        """
+        A `base_blob` block as documented below.
+        """
+        snapshot: NotRequired[pulumi.Input['ManagementPolicyRuleActionsSnapshotArgsDict']]
+        """
+        A `snapshot` block as documented below.
+        """
+        version: NotRequired[pulumi.Input['ManagementPolicyRuleActionsVersionArgsDict']]
+        """
+        A `version` block as documented below.
+        """
+elif False:
+    ManagementPolicyRuleActionsArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementPolicyRuleActionsArgs:
     def __init__(__self__, *,
@@ -2377,6 +3160,79 @@ class ManagementPolicyRuleActionsArgs:
     def version(self, value: Optional[pulumi.Input['ManagementPolicyRuleActionsVersionArgs']]):
         pulumi.set(self, "version", value)
 
+
+if not MYPY:
+    class ManagementPolicyRuleActionsBaseBlobArgsDict(TypedDict):
+        auto_tier_to_hot_from_cool_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether a blob should automatically be tiered from cool back to hot if it's accessed again after being tiered to cool. Defaults to `false`.
+
+        > **Note:** The `auto_tier_to_hot_from_cool_enabled` must be used together with `tier_to_cool_after_days_since_last_access_time_greater_than`.
+        """
+        delete_after_days_since_creation_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+
+        > **Note:** The `delete_after_days_since_modification_greater_than`, `delete_after_days_since_last_access_time_greater_than` and `delete_after_days_since_creation_greater_than` can not be set at the same time.
+
+        > **Note:** The `last_access_time_enabled` must be set to `true` in the `storage.Account` in order to use `tier_to_cool_after_days_since_last_access_time_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `delete_after_days_since_last_access_time_greater_than`.
+        """
+        delete_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last access time to delete the blob. Must be between `0` and `99999`. Defaults to `-1`.
+        """
+        delete_after_days_since_modification_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last modification to delete the blob. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_archive_after_days_since_creation_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+
+        > **Note:** The `tier_to_archive_after_days_since_modification_greater_than`, `tier_to_archive_after_days_since_last_access_time_greater_than` and `tier_to_archive_after_days_since_creation_greater_than` can not be set at the same time.
+        """
+        tier_to_archive_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between `0` and`99999`. Defaults to `-1`.
+        """
+        tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_archive_after_days_since_modification_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+
+        > **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+        """
+        tier_to_cold_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        """
+        tier_to_cold_after_days_since_modification_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_cool_after_days_since_creation_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+
+        > **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+        """
+        tier_to_cool_after_days_since_last_access_time_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        """
+        tier_to_cool_after_days_since_modification_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+        """
+elif False:
+    ManagementPolicyRuleActionsBaseBlobArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementPolicyRuleActionsBaseBlobArgs:
@@ -2633,6 +3489,31 @@ class ManagementPolicyRuleActionsBaseBlobArgs:
         pulumi.set(self, "tier_to_cool_after_days_since_modification_greater_than", value)
 
 
+if not MYPY:
+    class ManagementPolicyRuleActionsSnapshotArgsDict(TypedDict):
+        change_tier_to_archive_after_days_since_creation: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        change_tier_to_cool_after_days_since_creation: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        delete_after_days_since_creation_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        """
+elif False:
+    ManagementPolicyRuleActionsSnapshotArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementPolicyRuleActionsSnapshotArgs:
     def __init__(__self__, *,
@@ -2719,6 +3600,31 @@ class ManagementPolicyRuleActionsSnapshotArgs:
     def tier_to_cold_after_days_since_creation_greater_than(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "tier_to_cold_after_days_since_creation_greater_than", value)
 
+
+if not MYPY:
+    class ManagementPolicyRuleActionsVersionArgsDict(TypedDict):
+        change_tier_to_archive_after_days_since_creation: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        change_tier_to_cool_after_days_since_creation: NotRequired[pulumi.Input[int]]
+        """
+        The age in days creation create to tier blob version to cool storage. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        delete_after_days_since_creation: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to delete the blob version. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_archive_after_days_since_last_tier_change_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
+        """
+        tier_to_cold_after_days_since_creation_greater_than: NotRequired[pulumi.Input[int]]
+        """
+        The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        """
+elif False:
+    ManagementPolicyRuleActionsVersionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ManagementPolicyRuleActionsVersionArgs:
@@ -2807,6 +3713,25 @@ class ManagementPolicyRuleActionsVersionArgs:
         pulumi.set(self, "tier_to_cold_after_days_since_creation_greater_than", value)
 
 
+if not MYPY:
+    class ManagementPolicyRuleFiltersArgsDict(TypedDict):
+        blob_types: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
+        """
+        match_blob_index_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgsDict']]]]
+        """
+        A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+
+        > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
+        """
+        prefix_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        An array of strings for prefixes to be matched.
+        """
+elif False:
+    ManagementPolicyRuleFiltersArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementPolicyRuleFiltersArgs:
     def __init__(__self__, *,
@@ -2865,6 +3790,23 @@ class ManagementPolicyRuleFiltersArgs:
         pulumi.set(self, "prefix_matches", value)
 
 
+if not MYPY:
+    class ManagementPolicyRuleFiltersMatchBlobIndexTagArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        The filter tag name used for tag based filtering for blob objects.
+        """
+        value: pulumi.Input[str]
+        """
+        The filter tag value used for tag based filtering for blob objects.
+        """
+        operation: NotRequired[pulumi.Input[str]]
+        """
+        The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
+        """
+elif False:
+    ManagementPolicyRuleFiltersMatchBlobIndexTagArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
     def __init__(__self__, *,
@@ -2917,6 +3859,28 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs:
     def operation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "operation", value)
 
+
+if not MYPY:
+    class ObjectReplicationRuleArgsDict(TypedDict):
+        destination_container_name: pulumi.Input[str]
+        """
+        The destination storage container name. Changing this forces a new Storage Object Replication to be created.
+        """
+        source_container_name: pulumi.Input[str]
+        """
+        The source storage container name. Changing this forces a new Storage Object Replication to be created.
+        """
+        copy_blobs_created_after: NotRequired[pulumi.Input[str]]
+        """
+        The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`. Defaults to `OnlyNewObjects`.
+        """
+        filter_out_blobs_with_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
+        """
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    ObjectReplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ObjectReplicationRuleArgs:
@@ -2999,6 +3963,19 @@ class ObjectReplicationRuleArgs:
         pulumi.set(self, "name", value)
 
 
+if not MYPY:
+    class ShareAclArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID which should be used for this Shared Identifier.
+        """
+        access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgsDict']]]]
+        """
+        An `access_policy` block as defined below.
+        """
+elif False:
+    ShareAclArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class ShareAclArgs:
     def __init__(__self__, *,
@@ -3036,6 +4013,25 @@ class ShareAclArgs:
     def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
+
+if not MYPY:
+    class ShareAclAccessPolicyArgsDict(TypedDict):
+        permissions: pulumi.Input[str]
+        """
+        The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+
+        > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
+        """
+        expiry: NotRequired[pulumi.Input[str]]
+        """
+        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        start: NotRequired[pulumi.Input[str]]
+        """
+        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+elif False:
+    ShareAclAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ShareAclAccessPolicyArgs:
@@ -3095,6 +4091,19 @@ class ShareAclAccessPolicyArgs:
         pulumi.set(self, "start", value)
 
 
+if not MYPY:
+    class TableAclArgsDict(TypedDict):
+        id: pulumi.Input[str]
+        """
+        The ID which should be used for this Shared Identifier.
+        """
+        access_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgsDict']]]]
+        """
+        An `access_policy` block as defined below.
+        """
+elif False:
+    TableAclArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TableAclArgs:
     def __init__(__self__, *,
@@ -3132,6 +4141,23 @@ class TableAclArgs:
     def access_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]):
         pulumi.set(self, "access_policies", value)
 
+
+if not MYPY:
+    class TableAclAccessPolicyArgsDict(TypedDict):
+        expiry: pulumi.Input[str]
+        """
+        The ISO8061 UTC time at which this Access Policy should be valid until.
+        """
+        permissions: pulumi.Input[str]
+        """
+        The permissions which should associated with this Shared Identifier.
+        """
+        start: pulumi.Input[str]
+        """
+        The ISO8061 UTC time at which this Access Policy should be valid from.
+        """
+elif False:
+    TableAclAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TableAclAccessPolicyArgs:
@@ -3184,6 +4210,38 @@ class TableAclAccessPolicyArgs:
     def start(self, value: pulumi.Input[str]):
         pulumi.set(self, "start", value)
 
+
+if not MYPY:
+    class GetAccountBlobContainerSASPermissionsArgsDict(TypedDict):
+        add: bool
+        """
+        Should Add permissions be enabled for this SAS?
+        """
+        create: bool
+        """
+        Should Create permissions be enabled for this SAS?
+        """
+        delete: bool
+        """
+        Should Delete permissions be enabled for this SAS?
+        """
+        list: bool
+        """
+        Should List permissions be enabled for this SAS?
+
+        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/create-service-sas)
+        for additional details on the fields above.
+        """
+        read: bool
+        """
+        Should Read permissions be enabled for this SAS?
+        """
+        write: bool
+        """
+        Should Write permissions be enabled for this SAS?
+        """
+elif False:
+    GetAccountBlobContainerSASPermissionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetAccountBlobContainerSASPermissionsArgs:
@@ -3287,6 +4345,54 @@ class GetAccountBlobContainerSASPermissionsArgs:
     def write(self, value: bool):
         pulumi.set(self, "write", value)
 
+
+if not MYPY:
+    class GetAccountSASPermissionsArgsDict(TypedDict):
+        add: bool
+        """
+        Should Add permissions be enabled for this SAS?
+        """
+        create: bool
+        """
+        Should Create permissions be enabled for this SAS?
+        """
+        delete: bool
+        """
+        Should Delete permissions be enabled for this SAS?
+        """
+        filter: bool
+        """
+        Should Filter by Index Tags permissions be enabled for this SAS?
+
+        Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/storageservices/constructing-an-account-sas)
+        for additional details on the fields above.
+        """
+        list: bool
+        """
+        Should List permissions be enabled for this SAS?
+        """
+        process: bool
+        """
+        Should Process permissions be enabled for this SAS?
+        """
+        read: bool
+        """
+        Should Read permissions be enabled for this SAS?
+        """
+        tag: bool
+        """
+        Should Get / Set Index Tags permissions be enabled for this SAS?
+        """
+        update: bool
+        """
+        Should Update permissions be enabled for this SAS?
+        """
+        write: bool
+        """
+        Should Write permissions be enabled for this SAS?
+        """
+elif False:
+    GetAccountSASPermissionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetAccountSASPermissionsArgs:
@@ -3451,6 +4557,23 @@ class GetAccountSASPermissionsArgs:
         pulumi.set(self, "write", value)
 
 
+if not MYPY:
+    class GetAccountSASResourceTypesArgsDict(TypedDict):
+        container: bool
+        """
+        Should permission be granted to the container?
+        """
+        object: bool
+        """
+        Should permission be granted only to a specific object?
+        """
+        service: bool
+        """
+        Should permission be granted to the entire service?
+        """
+elif False:
+    GetAccountSASResourceTypesArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetAccountSASResourceTypesArgs:
     def __init__(__self__, *,
@@ -3502,6 +4625,27 @@ class GetAccountSASResourceTypesArgs:
     def service(self, value: bool):
         pulumi.set(self, "service", value)
 
+
+if not MYPY:
+    class GetAccountSASServicesArgsDict(TypedDict):
+        blob: bool
+        """
+        Should permission be granted to `blob` services within this storage account?
+        """
+        file: bool
+        """
+        Should permission be granted to `file` services within this storage account?
+        """
+        queue: bool
+        """
+        Should permission be granted to `queue` services within this storage account?
+        """
+        table: bool
+        """
+        Should permission be granted to `table` services within this storage account?
+        """
+elif False:
+    GetAccountSASServicesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetAccountSASServicesArgs:
@@ -3570,6 +4714,19 @@ class GetAccountSASServicesArgs:
         pulumi.set(self, "table", value)
 
 
+if not MYPY:
+    class GetShareAclArgsDict(TypedDict):
+        access_policies: Sequence['GetShareAclAccessPolicyArgsDict']
+        """
+        An `access_policy` block as defined below.
+        """
+        id: str
+        """
+        The ID which should be used for this Shared Identifier.
+        """
+elif False:
+    GetShareAclArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class GetShareAclArgs:
     def __init__(__self__, *,
@@ -3606,6 +4763,23 @@ class GetShareAclArgs:
     def id(self, value: str):
         pulumi.set(self, "id", value)
 
+
+if not MYPY:
+    class GetShareAclAccessPolicyArgsDict(TypedDict):
+        expiry: str
+        """
+        The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+        permissions: str
+        """
+        The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
+        """
+        start: str
+        """
+        The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        """
+elif False:
+    GetShareAclAccessPolicyArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GetShareAclAccessPolicyArgs:

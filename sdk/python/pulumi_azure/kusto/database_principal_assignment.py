@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['DatabasePrincipalAssignmentArgs', 'DatabasePrincipalAssignment']
@@ -339,10 +344,10 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="KustoDatabase",
             resource_group_name=example.name,
@@ -403,10 +408,10 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
             name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
-            sku=azure.kusto.ClusterSkuArgs(
-                name="Standard_D13_v2",
-                capacity=2,
-            ))
+            sku={
+                "name": "Standard_D13_v2",
+                "capacity": 2,
+            })
         example_database = azure.kusto.Database("example",
             name="KustoDatabase",
             resource_group_name=example.name,

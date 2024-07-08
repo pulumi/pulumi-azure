@@ -4,9 +4,14 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = ['SubnetNetworkSecurityGroupAssociationArgs', 'SubnetNetworkSecurityGroupAssociation']
@@ -123,17 +128,17 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             name="example-nsg",
             location=example.location,
             resource_group_name=example.name,
-            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                name="test123",
-                priority=100,
-                direction="Inbound",
-                access="Allow",
-                protocol="Tcp",
-                source_port_range="*",
-                destination_port_range="*",
-                source_address_prefix="*",
-                destination_address_prefix="*",
-            )])
+            security_rules=[{
+                "name": "test123",
+                "priority": 100,
+                "direction": "Inbound",
+                "access": "Allow",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+            }])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
@@ -184,17 +189,17 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
             name="example-nsg",
             location=example.location,
             resource_group_name=example.name,
-            security_rules=[azure.network.NetworkSecurityGroupSecurityRuleArgs(
-                name="test123",
-                priority=100,
-                direction="Inbound",
-                access="Allow",
-                protocol="Tcp",
-                source_port_range="*",
-                destination_port_range="*",
-                source_address_prefix="*",
-                destination_address_prefix="*",
-            )])
+            security_rules=[{
+                "name": "test123",
+                "priority": 100,
+                "direction": "Inbound",
+                "access": "Allow",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "*",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+            }])
         example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)

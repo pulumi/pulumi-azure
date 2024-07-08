@@ -4,20 +4,61 @@
 
 import copy
 import warnings
+import sys
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
+if sys.version_info >= (3, 11):
+    from typing import NotRequired, TypedDict, TypeAlias
+else:
+    from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 
 __all__ = [
     'LinkServiceNatIpConfigurationArgs',
+    'LinkServiceNatIpConfigurationArgsDict',
     'MxRecordRecordArgs',
+    'MxRecordRecordArgsDict',
     'ResolverForwardingRuleTargetDnsServerArgs',
+    'ResolverForwardingRuleTargetDnsServerArgsDict',
     'ResolverInboundEndpointIpConfigurationArgs',
+    'ResolverInboundEndpointIpConfigurationArgsDict',
     'SRVRecordRecordArgs',
+    'SRVRecordRecordArgsDict',
     'TxtRecordRecordArgs',
+    'TxtRecordRecordArgsDict',
     'ZoneSoaRecordArgs',
+    'ZoneSoaRecordArgsDict',
 ]
+
+MYPY = False
+
+if not MYPY:
+    class LinkServiceNatIpConfigurationArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        """
+        Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
+        """
+        primary: pulumi.Input[bool]
+        """
+        Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
+        """
+        subnet_id: pulumi.Input[str]
+        """
+        Specifies the ID of the Subnet which should be used for the Private Link Service.
+
+        > **NOTE:** Verify that the Subnet's `enforce_private_link_service_network_policies` attribute is set to `true`.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Specifies a Private Static IP Address for this IP Configuration.
+        """
+        private_ip_address_version: NotRequired[pulumi.Input[str]]
+        """
+        The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
+        """
+elif False:
+    LinkServiceNatIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class LinkServiceNatIpConfigurationArgs:
@@ -107,6 +148,19 @@ class LinkServiceNatIpConfigurationArgs:
         pulumi.set(self, "private_ip_address_version", value)
 
 
+if not MYPY:
+    class MxRecordRecordArgsDict(TypedDict):
+        exchange: pulumi.Input[str]
+        """
+        The FQDN of the exchange to MX record points to.
+        """
+        preference: pulumi.Input[int]
+        """
+        The preference of the MX record.
+        """
+elif False:
+    MxRecordRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class MxRecordRecordArgs:
     def __init__(__self__, *,
@@ -143,6 +197,19 @@ class MxRecordRecordArgs:
     def preference(self, value: pulumi.Input[int]):
         pulumi.set(self, "preference", value)
 
+
+if not MYPY:
+    class ResolverForwardingRuleTargetDnsServerArgsDict(TypedDict):
+        ip_address: pulumi.Input[str]
+        """
+        DNS server IP address.
+        """
+        port: NotRequired[pulumi.Input[int]]
+        """
+        DNS server port.
+        """
+elif False:
+    ResolverForwardingRuleTargetDnsServerArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverForwardingRuleTargetDnsServerArgs:
@@ -181,6 +248,23 @@ class ResolverForwardingRuleTargetDnsServerArgs:
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
+
+if not MYPY:
+    class ResolverInboundEndpointIpConfigurationArgsDict(TypedDict):
+        subnet_id: pulumi.Input[str]
+        """
+        The subnet ID of the IP configuration.
+        """
+        private_ip_address: NotRequired[pulumi.Input[str]]
+        """
+        Private IP address of the IP configuration.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[str]]
+        """
+        Private IP address allocation method. Allowed value is `Dynamic` and `Static`. Defaults to `Dynamic`.
+        """
+elif False:
+    ResolverInboundEndpointIpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ResolverInboundEndpointIpConfigurationArgs:
@@ -235,6 +319,27 @@ class ResolverInboundEndpointIpConfigurationArgs:
     def private_ip_allocation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_allocation_method", value)
 
+
+if not MYPY:
+    class SRVRecordRecordArgsDict(TypedDict):
+        port: pulumi.Input[int]
+        """
+        The Port the service is listening on.
+        """
+        priority: pulumi.Input[int]
+        """
+        The priority of the SRV record.
+        """
+        target: pulumi.Input[str]
+        """
+        The FQDN of the service.
+        """
+        weight: pulumi.Input[int]
+        """
+        The Weight of the SRV record.
+        """
+elif False:
+    SRVRecordRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SRVRecordRecordArgs:
@@ -303,6 +408,15 @@ class SRVRecordRecordArgs:
         pulumi.set(self, "weight", value)
 
 
+if not MYPY:
+    class TxtRecordRecordArgsDict(TypedDict):
+        value: pulumi.Input[str]
+        """
+        The value of the TXT record. Max length: 1024 characters
+        """
+elif False:
+    TxtRecordRecordArgsDict: TypeAlias = Mapping[str, Any]
+
 @pulumi.input_type
 class TxtRecordRecordArgs:
     def __init__(__self__, *,
@@ -324,6 +438,51 @@ class TxtRecordRecordArgs:
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
 
+
+if not MYPY:
+    class ZoneSoaRecordArgsDict(TypedDict):
+        email: pulumi.Input[str]
+        """
+        The email contact for the SOA record.
+        """
+        expire_time: NotRequired[pulumi.Input[int]]
+        """
+        The expire time for the SOA record. Defaults to `2419200`.
+        """
+        fqdn: NotRequired[pulumi.Input[str]]
+        """
+        The fully qualified domain name of the Record Set.
+        """
+        host_name: NotRequired[pulumi.Input[str]]
+        """
+        The domain name of the authoritative name server for the SOA record.
+        """
+        minimum_ttl: NotRequired[pulumi.Input[int]]
+        """
+        The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `10`.
+        """
+        refresh_time: NotRequired[pulumi.Input[int]]
+        """
+        The refresh time for the SOA record. Defaults to `3600`.
+        """
+        retry_time: NotRequired[pulumi.Input[int]]
+        """
+        The retry time for the SOA record. Defaults to `300`.
+        """
+        serial_number: NotRequired[pulumi.Input[int]]
+        """
+        The serial number for the SOA record.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A mapping of tags to assign to the Record Set.
+        """
+        ttl: NotRequired[pulumi.Input[int]]
+        """
+        The Time To Live of the SOA Record in seconds. Defaults to `3600`.
+        """
+elif False:
+    ZoneSoaRecordArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ZoneSoaRecordArgs:
