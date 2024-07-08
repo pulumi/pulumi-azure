@@ -323,7 +323,7 @@ index 5d1d4cfe1c..72cb85465c 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index e40ce7505b..337dfef428 100644
+index 6917db6163..bcbc450370 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
 @@ -1087,7 +1087,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
@@ -441,7 +441,7 @@ index 24f5734126..f20b2cd035 100644
  
  						"value": {
 diff --git a/internal/services/eventhub/eventhub_namespace_resource.go b/internal/services/eventhub/eventhub_namespace_resource.go
-index 4c348213e9..578b65b5ac 100644
+index c4c5093737..74ddb07a33 100644
 --- a/internal/services/eventhub/eventhub_namespace_resource.go
 +++ b/internal/services/eventhub/eventhub_namespace_resource.go
 @@ -80,7 +80,7 @@ func resourceEventHubNamespace() *pluginsdk.Resource {
@@ -476,19 +476,10 @@ index b3cb1e5f84..2ec36c63da 100644
  						"interval_in_seconds": {
  							Type:         pluginsdk.TypeInt,
 diff --git a/internal/services/firewall/firewall_policy_resource.go b/internal/services/firewall/firewall_policy_resource.go
-index 7a8c85cc01..a2b7988106 100644
+index ff4ace2126..e29b2410e4 100644
 --- a/internal/services/firewall/firewall_policy_resource.go
 +++ b/internal/services/firewall/firewall_policy_resource.go
-@@ -8,6 +8,8 @@ import (
- 	"log"
- 	"time"
- 
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+
- 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
- 	"github.com/hashicorp/go-azure-helpers/lang/response"
- 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
-@@ -790,14 +792,13 @@ func resourceFirewallPolicySchema() map[string]*pluginsdk.Schema {
+@@ -791,14 +791,13 @@ func resourceFirewallPolicySchema() map[string]*pluginsdk.Schema {
  								"protocol": {
  									Type:     pluginsdk.TypeString,
  									Required: true,
@@ -1215,7 +1206,7 @@ index a7553589e1..99c6655b1f 100644
  		},
  
 diff --git a/internal/services/network/application_gateway_resource.go b/internal/services/network/application_gateway_resource.go
-index bbdc096311..3b36382f4b 100644
+index 293e89acd0..30e9cf75d1 100644
 --- a/internal/services/network/application_gateway_resource.go
 +++ b/internal/services/network/application_gateway_resource.go
 @@ -11,6 +11,9 @@ import (
@@ -1344,7 +1335,7 @@ index 4ce5ae2dc4..8c8748d811 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_group_resource.go b/internal/services/network/network_security_group_resource.go
-index 8361036ce0..b53192afcf 100644
+index 325fe2b6b0..1ebb7149f0 100644
 --- a/internal/services/network/network_security_group_resource.go
 +++ b/internal/services/network/network_security_group_resource.go
 @@ -8,6 +8,9 @@ import (
@@ -1388,7 +1379,7 @@ index 8361036ce0..b53192afcf 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_rule_resource.go b/internal/services/network/network_security_rule_resource.go
-index 5a91be7685..321276401b 100644
+index 9cb44ca6a8..4febc1f9b7 100644
 --- a/internal/services/network/network_security_rule_resource.go
 +++ b/internal/services/network/network_security_rule_resource.go
 @@ -8,6 +8,9 @@ import (
@@ -1401,7 +1392,7 @@ index 5a91be7685..321276401b 100644
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
-@@ -70,7 +73,8 @@ func resourceNetworkSecurityRule() *pluginsdk.Resource {
+@@ -69,7 +72,8 @@ func resourceNetworkSecurityRule() *pluginsdk.Resource {
  					string(securityrules.SecurityRuleProtocolIcmp),
  					string(securityrules.SecurityRuleProtocolAh),
  					string(securityrules.SecurityRuleProtocolEsp),
@@ -1411,7 +1402,7 @@ index 5a91be7685..321276401b 100644
  			},
  
  			"source_port_range": {
-@@ -153,7 +157,8 @@ func resourceNetworkSecurityRule() *pluginsdk.Resource {
+@@ -152,7 +156,8 @@ func resourceNetworkSecurityRule() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(securityrules.SecurityRuleAccessAllow),
  					string(securityrules.SecurityRuleAccessDeny),
@@ -1421,7 +1412,7 @@ index 5a91be7685..321276401b 100644
  			},
  
  			"priority": {
-@@ -168,7 +173,8 @@ func resourceNetworkSecurityRule() *pluginsdk.Resource {
+@@ -167,7 +172,8 @@ func resourceNetworkSecurityRule() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(securityrules.SecurityRuleDirectionInbound),
  					string(securityrules.SecurityRuleDirectionOutbound),
@@ -1534,7 +1525,7 @@ index a91d6a8c32..c535895040 100644
  
  						"next_hop_in_ip_address": {
 diff --git a/internal/services/network/virtual_network_gateway_connection_resource.go b/internal/services/network/virtual_network_gateway_connection_resource.go
-index 967c988497..867432256a 100644
+index 8638551554..2407f6a968 100644
 --- a/internal/services/network/virtual_network_gateway_connection_resource.go
 +++ b/internal/services/network/virtual_network_gateway_connection_resource.go
 @@ -9,6 +9,8 @@ import (
@@ -1611,7 +1602,7 @@ index 967c988497..867432256a 100644
  
  						"sa_datasize": {
 diff --git a/internal/services/network/virtual_network_gateway_resource.go b/internal/services/network/virtual_network_gateway_resource.go
-index 1ed4d5d6d4..e5d5d8645c 100644
+index 6e6d6f40ee..4b63964fc1 100644
 --- a/internal/services/network/virtual_network_gateway_resource.go
 +++ b/internal/services/network/virtual_network_gateway_resource.go
 @@ -9,6 +9,8 @@ import (

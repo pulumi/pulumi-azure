@@ -90,7 +90,7 @@ type EventHubNamespace struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-	MaximumThroughputUnits pulumi.IntOutput `pulumi:"maximumThroughputUnits"`
+	MaximumThroughputUnits pulumi.IntPtrOutput `pulumi:"maximumThroughputUnits"`
 	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
 	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
@@ -472,8 +472,8 @@ func (o EventHubNamespaceOutput) Location() pulumi.StringOutput {
 }
 
 // Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
-func (o EventHubNamespaceOutput) MaximumThroughputUnits() pulumi.IntOutput {
-	return o.ApplyT(func(v *EventHubNamespace) pulumi.IntOutput { return v.MaximumThroughputUnits }).(pulumi.IntOutput)
+func (o EventHubNamespaceOutput) MaximumThroughputUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespace) pulumi.IntPtrOutput { return v.MaximumThroughputUnits }).(pulumi.IntPtrOutput)
 }
 
 // The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.

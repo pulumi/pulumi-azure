@@ -7356,7 +7356,9 @@ type KubernetesClusterDefaultNodePool struct {
 	OsDiskSizeGb *int `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	//
+	// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 	OsSku *string `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId *string `pulumi:"podSubnetId"`
@@ -7465,7 +7467,9 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	OsDiskSizeGb pulumi.IntPtrInput `pulumi:"osDiskSizeGb"`
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
-	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+	//
+	// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId pulumi.StringPtrInput `pulumi:"podSubnetId"`
@@ -7720,7 +7724,9 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsDiskType }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+//
+// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsSku }).(pulumi.StringPtrOutput)
 }
@@ -8083,7 +8089,9 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. `temporaryNameForRotation` must be specified when attempting a change.
+// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
+//
+// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {

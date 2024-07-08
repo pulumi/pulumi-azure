@@ -1093,24 +1093,14 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return this.privateFqdn;
     }
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-     * 
-     * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-     * 
      * @deprecated
-     * `public_network_access_enabled` is currently not functional and is not be passed to the API
+     * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API */
+    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
     @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
 
-    /**
-     * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-     * 
-     * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-     * 
-     */
     public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
         return Codegen.optional(this.publicNetworkAccessEnabled);
     }

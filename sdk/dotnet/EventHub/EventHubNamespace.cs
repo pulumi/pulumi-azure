@@ -131,7 +131,7 @@ namespace Pulumi.Azure.EventHub
         /// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         /// </summary>
         [Output("maximumThroughputUnits")]
-        public Output<int> MaximumThroughputUnits { get; private set; } = null!;
+        public Output<int?> MaximumThroughputUnits { get; private set; } = null!;
 
         /// <summary>
         /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.

@@ -480,11 +480,6 @@ namespace Pulumi.Azure.ContainerService
         [Output("privateFqdn")]
         public Output<string> PrivateFqdn { get; private set; } = null!;
 
-        /// <summary>
-        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-        /// 
-        /// !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-        /// </summary>
         [Output("publicNetworkAccessEnabled")]
         public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
@@ -982,11 +977,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("privateDnsZoneId")]
         public Input<string>? PrivateDnsZoneId { get; set; }
 
-        /// <summary>
-        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-        /// 
-        /// !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
@@ -1551,11 +1541,6 @@ namespace Pulumi.Azure.ContainerService
         [Input("privateFqdn")]
         public Input<string>? PrivateFqdn { get; set; }
 
-        /// <summary>
-        /// Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-        /// 
-        /// !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-        /// </summary>
         [Input("publicNetworkAccessEnabled")]
         public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 

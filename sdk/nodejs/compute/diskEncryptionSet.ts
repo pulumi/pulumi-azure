@@ -232,14 +232,14 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.DiskEncryptionSetIdentity>;
     /**
-     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      *
      * > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
      *
-     * > **NOTE** A KeyVault using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+     * > **NOTE** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      */
-    public readonly keyVaultKeyId!: pulumi.Output<string>;
+    public readonly keyVaultKeyId!: pulumi.Output<string | undefined>;
     /**
      * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
      */
@@ -248,6 +248,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     */
+    public readonly managedHsmKeyId!: pulumi.Output<string | undefined>;
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      */
@@ -281,6 +285,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["keyVaultKeyId"] = state ? state.keyVaultKeyId : undefined;
             resourceInputs["keyVaultKeyUrl"] = state ? state.keyVaultKeyUrl : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["managedHsmKeyId"] = state ? state.managedHsmKeyId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -288,9 +293,6 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             const args = argsOrState as DiskEncryptionSetArgs | undefined;
             if ((!args || args.identity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
-            }
-            if ((!args || args.keyVaultKeyId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'keyVaultKeyId'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -301,6 +303,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedHsmKeyId"] = args ? args.managedHsmKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -329,11 +332,11 @@ export interface DiskEncryptionSetState {
      */
     identity?: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
     /**
-     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      *
      * > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
      *
-     * > **NOTE** A KeyVault using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+     * > **NOTE** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      */
     keyVaultKeyId?: pulumi.Input<string>;
@@ -345,6 +348,10 @@ export interface DiskEncryptionSetState {
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     */
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      */
@@ -377,18 +384,22 @@ export interface DiskEncryptionSetArgs {
      */
     identity: pulumi.Input<inputs.compute.DiskEncryptionSetIdentity>;
     /**
-     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      *
      * > **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
      *
-     * > **NOTE** A KeyVault using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+     * > **NOTE** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      */
-    keyVaultKeyId: pulumi.Input<string>;
+    keyVaultKeyId?: pulumi.Input<string>;
     /**
      * Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     */
+    managedHsmKeyId?: pulumi.Input<string>;
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      */

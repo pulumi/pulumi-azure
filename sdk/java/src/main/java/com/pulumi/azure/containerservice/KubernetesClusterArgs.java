@@ -921,28 +921,20 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-     * 
-     * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-     * 
      * @deprecated
-     * `public_network_access_enabled` is currently not functional and is not be passed to the API
+     * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API */
+    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
-     * @return Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-     * 
-     * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-     * 
      * @deprecated
-     * `public_network_access_enabled` is currently not functional and is not be passed to the API
+     * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
      * 
      */
-    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API */
+    @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -2402,34 +2394,26 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-         * 
-         * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-         * 
          * @return builder
          * 
          * @deprecated
-         * `public_network_access_enabled` is currently not functional and is not be passed to the API
+         * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API */
+        @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
 
         /**
-         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`.
-         * 
-         * !&gt; **Note:** `public_network_access_enabled` is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties `private_cluster_enabled` and `api_server_access_profile`.
-         * 
          * @return builder
          * 
          * @deprecated
-         * `public_network_access_enabled` is currently not functional and is not be passed to the API
+         * `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider.
          * 
          */
-        @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API */
+        @Deprecated /* `public_network_access_enabled` is currently not functional and is not be passed to the API, this property will be removed in v4.0 of the AzureRM provider. */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }

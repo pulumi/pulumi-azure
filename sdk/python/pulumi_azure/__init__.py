@@ -2483,6 +2483,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/restorePointCollection",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/restorePointCollection:RestorePointCollection": "RestorePointCollection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/runCommand",
   "fqn": "pulumi_azure.compute",
   "classes": {

@@ -978,7 +978,7 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maximumThroughputUnits")
-    def maximum_throughput_units(self) -> pulumi.Output[int]:
+    def maximum_throughput_units(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`.
         """

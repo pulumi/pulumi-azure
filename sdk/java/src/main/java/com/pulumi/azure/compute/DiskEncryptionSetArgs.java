@@ -72,28 +72,28 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+     * Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
      * 
      * &gt; **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
      * 
-     * &gt; **NOTE** A KeyVault using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+     * &gt; **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      * 
      */
-    @Import(name="keyVaultKeyId", required=true)
-    private Output<String> keyVaultKeyId;
+    @Import(name="keyVaultKeyId")
+    private @Nullable Output<String> keyVaultKeyId;
 
     /**
-     * @return Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+     * @return Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
      * 
      * &gt; **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
      * 
-     * &gt; **NOTE** A KeyVault using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+     * &gt; **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      * 
      */
-    public Output<String> keyVaultKeyId() {
-        return this.keyVaultKeyId;
+    public Optional<Output<String>> keyVaultKeyId() {
+        return Optional.ofNullable(this.keyVaultKeyId);
     }
 
     /**
@@ -109,6 +109,21 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+     * 
+     */
+    @Import(name="managedHsmKeyId")
+    private @Nullable Output<String> managedHsmKeyId;
+
+    /**
+     * @return Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+     * 
+     */
+    public Optional<Output<String>> managedHsmKeyId() {
+        return Optional.ofNullable(this.managedHsmKeyId);
     }
 
     /**
@@ -165,6 +180,7 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
         this.identity = $.identity;
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.location = $.location;
+        this.managedHsmKeyId = $.managedHsmKeyId;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
@@ -261,27 +277,27 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param keyVaultKeyId Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+         * @param keyVaultKeyId Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
          * 
          * &gt; **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
          * 
-         * &gt; **NOTE** A KeyVault using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+         * &gt; **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
          * In this case, `azure.keyvault.AccessPolicy` is not needed.
          * 
          * @return builder
          * 
          */
-        public Builder keyVaultKeyId(Output<String> keyVaultKeyId) {
+        public Builder keyVaultKeyId(@Nullable Output<String> keyVaultKeyId) {
             $.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
 
         /**
-         * @param keyVaultKeyId Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+         * @param keyVaultKeyId Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
          * 
          * &gt; **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
          * 
-         * &gt; **NOTE** A KeyVault using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assigne the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+         * &gt; **NOTE** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
          * In this case, `azure.keyvault.AccessPolicy` is not needed.
          * 
          * @return builder
@@ -310,6 +326,27 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
+            $.managedHsmKeyId = managedHsmKeyId;
+            return this;
+        }
+
+        /**
+         * @param managedHsmKeyId Key ID of a key in a managed HSM.  Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managedHsmKeyId(String managedHsmKeyId) {
+            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**
@@ -378,9 +415,6 @@ public final class DiskEncryptionSetArgs extends com.pulumi.resources.ResourceAr
         public DiskEncryptionSetArgs build() {
             if ($.identity == null) {
                 throw new MissingRequiredPropertyException("DiskEncryptionSetArgs", "identity");
-            }
-            if ($.keyVaultKeyId == null) {
-                throw new MissingRequiredPropertyException("DiskEncryptionSetArgs", "keyVaultKeyId");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("DiskEncryptionSetArgs", "resourceGroupName");
