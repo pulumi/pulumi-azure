@@ -12,7 +12,7 @@ NAME
   upstream.sh - Manages applying patches to the upstream submodule.
 
 SYNOPSIS
-  ${original_exec} <init|checkout|rebase|format_patches|help> [options]
+  ${original_exec} <init|checkout|rebase|format_patches|check_in|help> [options]
 
 COMMANDS
   init [-f]             Initialize the upstream submodule and applies the
