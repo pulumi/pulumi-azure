@@ -137,7 +137,7 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             resourceInputs["subject"] = args ? args.subject : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FederatedIdentityCredential.__pulumiType, name, resourceInputs, opts);
+        super(FederatedIdentityCredential.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

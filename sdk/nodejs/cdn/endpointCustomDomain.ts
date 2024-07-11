@@ -152,7 +152,7 @@ export class EndpointCustomDomain extends pulumi.CustomResource {
             resourceInputs["userManagedHttps"] = args ? args.userManagedHttps : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EndpointCustomDomain.__pulumiType, name, resourceInputs, opts);
+        super(EndpointCustomDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

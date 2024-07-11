@@ -124,7 +124,7 @@ export class NetworkManagerSecurityAdminConfiguration extends pulumi.CustomResou
             resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkManagerSecurityAdminConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(NetworkManagerSecurityAdminConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

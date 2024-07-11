@@ -153,7 +153,7 @@ export class StaticWebAppCustomDomain extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["validationToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(StaticWebAppCustomDomain.__pulumiType, name, resourceInputs, opts);
+        super(StaticWebAppCustomDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

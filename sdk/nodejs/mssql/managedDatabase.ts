@@ -134,7 +134,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["shortTermRetentionDays"] = args ? args.shortTermRetentionDays : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedDatabase.__pulumiType, name, resourceInputs, opts);
+        super(ManagedDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

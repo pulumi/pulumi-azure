@@ -134,7 +134,7 @@ export class HypervNetworkMapping extends pulumi.CustomResource {
             resourceInputs["targetNetworkId"] = args ? args.targetNetworkId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HypervNetworkMapping.__pulumiType, name, resourceInputs, opts);
+        super(HypervNetworkMapping.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

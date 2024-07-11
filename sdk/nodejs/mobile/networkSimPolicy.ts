@@ -210,7 +210,7 @@ export class NetworkSimPolicy extends pulumi.CustomResource {
             resourceInputs["userEquipmentAggregateMaximumBitRate"] = args ? args.userEquipmentAggregateMaximumBitRate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkSimPolicy.__pulumiType, name, resourceInputs, opts);
+        super(NetworkSimPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

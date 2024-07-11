@@ -173,7 +173,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["weekDays"] = args ? args.weekDays : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Schedule.__pulumiType, name, resourceInputs, opts);
+        super(Schedule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -412,7 +412,7 @@ export class ReplicatedVM extends pulumi.CustomResource {
             resourceInputs["unmanagedDisks"] = args ? args.unmanagedDisks : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicatedVM.__pulumiType, name, resourceInputs, opts);
+        super(ReplicatedVM.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

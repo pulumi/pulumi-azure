@@ -189,7 +189,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
             resourceInputs["syncWindow"] = args ? args.syncWindow : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConnectedRegistry.__pulumiType, name, resourceInputs, opts);
+        super(ConnectedRegistry.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

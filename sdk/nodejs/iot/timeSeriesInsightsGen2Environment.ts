@@ -160,7 +160,7 @@ export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TimeSeriesInsightsGen2Environment.__pulumiType, name, resourceInputs, opts);
+        super(TimeSeriesInsightsGen2Environment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

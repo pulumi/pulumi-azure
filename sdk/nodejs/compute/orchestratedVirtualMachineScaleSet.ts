@@ -322,7 +322,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["userDataBase64"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OrchestratedVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts);
+        super(OrchestratedVirtualMachineScaleSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -154,7 +154,7 @@ export class ProtectedVM extends pulumi.CustomResource {
             resourceInputs["sourceVmId"] = args ? args.sourceVmId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProtectedVM.__pulumiType, name, resourceInputs, opts);
+        super(ProtectedVM.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

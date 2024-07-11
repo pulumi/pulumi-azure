@@ -162,7 +162,7 @@ export class LinkedServiceCosmosDb extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accountKey", "connectionString"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinkedServiceCosmosDb.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceCosmosDb.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

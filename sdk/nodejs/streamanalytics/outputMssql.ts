@@ -188,7 +188,7 @@ export class OutputMssql extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OutputMssql.__pulumiType, name, resourceInputs, opts);
+        super(OutputMssql.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -264,7 +264,7 @@ export class Account extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["customQuestionAnsweringSearchServiceKey", "primaryAccessKey", "secondaryAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Account.__pulumiType, name, resourceInputs, opts);
+        super(Account.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

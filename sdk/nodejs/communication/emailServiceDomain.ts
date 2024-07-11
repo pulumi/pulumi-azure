@@ -117,7 +117,7 @@ export class EmailServiceDomain extends pulumi.CustomResource {
             resourceInputs["verificationRecords"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EmailServiceDomain.__pulumiType, name, resourceInputs, opts);
+        super(EmailServiceDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

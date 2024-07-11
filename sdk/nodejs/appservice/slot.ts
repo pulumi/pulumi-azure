@@ -306,7 +306,7 @@ export class Slot extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Slot.__pulumiType, name, resourceInputs, opts);
+        super(Slot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

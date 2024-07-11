@@ -204,7 +204,7 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
             resourceInputs["workflowOutboundIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(InterationServiceEnvironment.__pulumiType, name, resourceInputs, opts);
+        super(InterationServiceEnvironment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

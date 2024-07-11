@@ -150,7 +150,7 @@ export class DataLakeGen2Path extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataLakeGen2Path.__pulumiType, name, resourceInputs, opts);
+        super(DataLakeGen2Path.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

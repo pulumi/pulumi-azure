@@ -131,7 +131,7 @@ export class RoutingIntent extends pulumi.CustomResource {
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RoutingIntent.__pulumiType, name, resourceInputs, opts);
+        super(RoutingIntent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

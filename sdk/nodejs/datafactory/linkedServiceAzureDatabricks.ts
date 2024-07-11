@@ -249,7 +249,7 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accessToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinkedServiceAzureDatabricks.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceAzureDatabricks.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

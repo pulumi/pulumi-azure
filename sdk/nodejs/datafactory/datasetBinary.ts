@@ -178,7 +178,7 @@ export class DatasetBinary extends pulumi.CustomResource {
             resourceInputs["sftpServerLocation"] = args ? args.sftpServerLocation : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetBinary.__pulumiType, name, resourceInputs, opts);
+        super(DatasetBinary.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

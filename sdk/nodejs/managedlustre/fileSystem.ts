@@ -161,7 +161,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["mgsAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FileSystem.__pulumiType, name, resourceInputs, opts);
+        super(FileSystem.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -132,7 +132,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["queryEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Workspace.__pulumiType, name, resourceInputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

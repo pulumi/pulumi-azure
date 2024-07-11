@@ -135,7 +135,7 @@ export class SubscriptionPricing extends pulumi.CustomResource {
             resourceInputs["tier"] = args ? args.tier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubscriptionPricing.__pulumiType, name, resourceInputs, opts);
+        super(SubscriptionPricing.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

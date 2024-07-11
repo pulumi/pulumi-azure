@@ -140,7 +140,7 @@ export class VirtualMachineGroup extends pulumi.CustomResource {
             resourceInputs["wsfcDomainProfile"] = args ? args.wsfcDomainProfile : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualMachineGroup.__pulumiType, name, resourceInputs, opts);
+        super(VirtualMachineGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

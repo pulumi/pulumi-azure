@@ -119,7 +119,7 @@ export class ApiRelease extends pulumi.CustomResource {
             resourceInputs["notes"] = args ? args.notes : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiRelease.__pulumiType, name, resourceInputs, opts);
+        super(ApiRelease.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -144,7 +144,7 @@ export class LogzTagRule extends pulumi.CustomResource {
             resourceInputs["tagFilters"] = args ? args.tagFilters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogzTagRule.__pulumiType, name, resourceInputs, opts);
+        super(LogzTagRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

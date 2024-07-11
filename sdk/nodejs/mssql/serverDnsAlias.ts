@@ -106,7 +106,7 @@ export class ServerDnsAlias extends pulumi.CustomResource {
             resourceInputs["dnsRecord"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServerDnsAlias.__pulumiType, name, resourceInputs, opts);
+        super(ServerDnsAlias.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

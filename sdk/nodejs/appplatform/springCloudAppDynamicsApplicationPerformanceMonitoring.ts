@@ -181,7 +181,7 @@ export class SpringCloudAppDynamicsApplicationPerformanceMonitoring extends pulu
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["agentAccountAccessKey", "agentAccountName"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SpringCloudAppDynamicsApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudAppDynamicsApplicationPerformanceMonitoring.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

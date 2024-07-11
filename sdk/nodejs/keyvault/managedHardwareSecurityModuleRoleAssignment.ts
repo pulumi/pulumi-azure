@@ -113,7 +113,7 @@ export class ManagedHardwareSecurityModuleRoleAssignment extends pulumi.CustomRe
             resourceInputs["resourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedHardwareSecurityModuleRoleAssignment.__pulumiType, name, resourceInputs, opts);
+        super(ManagedHardwareSecurityModuleRoleAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

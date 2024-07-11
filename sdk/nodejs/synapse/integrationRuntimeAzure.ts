@@ -157,7 +157,7 @@ export class IntegrationRuntimeAzure extends pulumi.CustomResource {
             resourceInputs["timeToLiveMin"] = args ? args.timeToLiveMin : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IntegrationRuntimeAzure.__pulumiType, name, resourceInputs, opts);
+        super(IntegrationRuntimeAzure.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

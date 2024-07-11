@@ -176,7 +176,7 @@ export class FirewallNatRuleCollection extends pulumi.CustomResource {
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FirewallNatRuleCollection.__pulumiType, name, resourceInputs, opts);
+        super(FirewallNatRuleCollection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

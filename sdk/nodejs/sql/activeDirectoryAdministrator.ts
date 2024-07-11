@@ -142,7 +142,7 @@ export class ActiveDirectoryAdministrator extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts);
+        super(ActiveDirectoryAdministrator.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

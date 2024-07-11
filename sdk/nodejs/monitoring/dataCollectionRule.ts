@@ -152,7 +152,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["immutableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataCollectionRule.__pulumiType, name, resourceInputs, opts);
+        super(DataCollectionRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

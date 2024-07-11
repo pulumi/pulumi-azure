@@ -240,7 +240,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNetworkPeering.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetworkPeering.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

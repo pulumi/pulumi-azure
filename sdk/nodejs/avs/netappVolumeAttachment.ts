@@ -218,7 +218,7 @@ export class NetappVolumeAttachment extends pulumi.CustomResource {
             resourceInputs["vmwareClusterId"] = args ? args.vmwareClusterId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetappVolumeAttachment.__pulumiType, name, resourceInputs, opts);
+        super(NetappVolumeAttachment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

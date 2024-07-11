@@ -378,7 +378,7 @@ export class ManagedDisk extends pulumi.CustomResource {
             resourceInputs["zone"] = args ? args.zone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedDisk.__pulumiType, name, resourceInputs, opts);
+        super(ManagedDisk.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

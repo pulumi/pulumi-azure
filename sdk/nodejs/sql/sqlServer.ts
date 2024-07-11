@@ -173,7 +173,7 @@ export class SqlServer extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SqlServer.__pulumiType, name, resourceInputs, opts);
+        super(SqlServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -164,7 +164,7 @@ export class GalleryApplicationAssignment extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GalleryApplicationAssignment.__pulumiType, name, resourceInputs, opts);
+        super(GalleryApplicationAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

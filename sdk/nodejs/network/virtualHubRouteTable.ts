@@ -152,7 +152,7 @@ export class VirtualHubRouteTable extends pulumi.CustomResource {
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualHubRouteTable.__pulumiType, name, resourceInputs, opts);
+        super(VirtualHubRouteTable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

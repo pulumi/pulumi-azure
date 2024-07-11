@@ -157,7 +157,7 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["cognitiveServiceAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ChannelDirectLineSpeech.__pulumiType, name, resourceInputs, opts);
+        super(ChannelDirectLineSpeech.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

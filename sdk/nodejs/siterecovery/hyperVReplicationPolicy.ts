@@ -128,7 +128,7 @@ export class HyperVReplicationPolicy extends pulumi.CustomResource {
             resourceInputs["replicationIntervalInSeconds"] = args ? args.replicationIntervalInSeconds : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HyperVReplicationPolicy.__pulumiType, name, resourceInputs, opts);
+        super(HyperVReplicationPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

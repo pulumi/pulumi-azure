@@ -139,7 +139,7 @@ export class RegistryAgentPool extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RegistryAgentPool.__pulumiType, name, resourceInputs, opts);
+        super(RegistryAgentPool.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

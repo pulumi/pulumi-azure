@@ -226,7 +226,7 @@ export class SpringCloudGateway extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sensitiveEnvironmentVariables"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(SpringCloudGateway.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -100,7 +100,7 @@ export class FrontdoorRouteDisableLinkToDefaultDomain extends pulumi.CustomResou
             resourceInputs["cdnFrontdoorRouteId"] = args ? args.cdnFrontdoorRouteId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorRouteDisableLinkToDefaultDomain.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorRouteDisableLinkToDefaultDomain.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

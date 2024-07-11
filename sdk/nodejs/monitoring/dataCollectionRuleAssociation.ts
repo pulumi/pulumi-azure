@@ -184,7 +184,7 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataCollectionRuleAssociation.__pulumiType, name, resourceInputs, opts);
+        super(DataCollectionRuleAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

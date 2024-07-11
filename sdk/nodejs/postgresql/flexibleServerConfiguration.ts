@@ -143,7 +143,7 @@ export class FlexibleServerConfiguration extends pulumi.CustomResource {
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FlexibleServerConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(FlexibleServerConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

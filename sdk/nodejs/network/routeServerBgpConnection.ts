@@ -143,7 +143,7 @@ export class RouteServerBgpConnection extends pulumi.CustomResource {
             resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(RouteServerBgpConnection.__pulumiType, name, resourceInputs, opts);
+        super(RouteServerBgpConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

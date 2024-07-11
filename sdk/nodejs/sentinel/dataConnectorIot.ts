@@ -105,7 +105,7 @@ export class DataConnectorIot extends pulumi.CustomResource {
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorIot.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorIot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

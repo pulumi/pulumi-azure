@@ -188,7 +188,7 @@ export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, resourceInputs, opts);
+        super(FirewallPolicyRuleCollectionGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

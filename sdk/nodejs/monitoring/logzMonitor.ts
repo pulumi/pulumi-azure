@@ -170,7 +170,7 @@ export class LogzMonitor extends pulumi.CustomResource {
             resourceInputs["singleSignOnUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LogzMonitor.__pulumiType, name, resourceInputs, opts);
+        super(LogzMonitor.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

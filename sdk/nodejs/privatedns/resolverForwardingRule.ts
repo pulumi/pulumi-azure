@@ -173,7 +173,7 @@ export class ResolverForwardingRule extends pulumi.CustomResource {
             resourceInputs["targetDnsServers"] = args ? args.targetDnsServers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResolverForwardingRule.__pulumiType, name, resourceInputs, opts);
+        super(ResolverForwardingRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

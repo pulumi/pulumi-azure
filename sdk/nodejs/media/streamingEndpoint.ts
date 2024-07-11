@@ -268,7 +268,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["skus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(StreamingEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(StreamingEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

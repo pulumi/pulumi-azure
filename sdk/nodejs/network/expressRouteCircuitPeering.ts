@@ -268,7 +268,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ExpressRouteCircuitPeering.__pulumiType, name, resourceInputs, opts);
+        super(ExpressRouteCircuitPeering.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

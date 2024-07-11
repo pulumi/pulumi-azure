@@ -193,7 +193,7 @@ export class LinkedServiceSqlServer extends pulumi.CustomResource {
             resourceInputs["userName"] = args ? args.userName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceSqlServer.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceSqlServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

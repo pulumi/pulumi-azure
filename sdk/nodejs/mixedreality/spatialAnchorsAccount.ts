@@ -117,7 +117,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             resourceInputs["accountId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpatialAnchorsAccount.__pulumiType, name, resourceInputs, opts);
+        super(SpatialAnchorsAccount.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -592,7 +592,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["kubeAdminConfigRaw", "kubeAdminConfigs", "kubeConfigRaw", "kubeConfigs"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(KubernetesCluster.__pulumiType, name, resourceInputs, opts);
+        super(KubernetesCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -159,7 +159,7 @@ export class SpringCloudApiPortal extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudApiPortal.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudApiPortal.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

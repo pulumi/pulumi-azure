@@ -152,7 +152,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
             resourceInputs["versioningScheme"] = args ? args.versioningScheme : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ApiVersionSet.__pulumiType, name, resourceInputs, opts);
+        super(ApiVersionSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

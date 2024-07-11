@@ -158,7 +158,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["partitionIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EventHub.__pulumiType, name, resourceInputs, opts);
+        super(EventHub.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

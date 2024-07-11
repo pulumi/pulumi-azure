@@ -196,7 +196,7 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Subnet.__pulumiType, name, resourceInputs, opts);
+        super(Subnet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

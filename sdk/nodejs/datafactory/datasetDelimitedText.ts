@@ -239,7 +239,7 @@ export class DatasetDelimitedText extends pulumi.CustomResource {
             resourceInputs["schemaColumns"] = args ? args.schemaColumns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetDelimitedText.__pulumiType, name, resourceInputs, opts);
+        super(DatasetDelimitedText.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -162,7 +162,7 @@ export class OutboundRule extends pulumi.CustomResource {
             resourceInputs["protocol"] = args ? args.protocol : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(OutboundRule.__pulumiType, name, resourceInputs, opts);
+        super(OutboundRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

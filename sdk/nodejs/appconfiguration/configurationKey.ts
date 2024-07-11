@@ -234,7 +234,7 @@ export class ConfigurationKey extends pulumi.CustomResource {
             resourceInputs["vaultKeyReference"] = args ? args.vaultKeyReference : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConfigurationKey.__pulumiType, name, resourceInputs, opts);
+        super(ConfigurationKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
