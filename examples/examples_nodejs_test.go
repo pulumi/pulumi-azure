@@ -265,14 +265,29 @@ func TestAccDurableFunctions(t *testing.T) {
 }
 
 func TestAccEventgrid(t *testing.T) {
-	// TODO: Fix this test.
-	t.Skip("This test fails to compile. Having difficulty resolving locally. See: https://github.com/pulumi/pulumi-azure/issues/1036")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:                      filepath.Join(getCwd(t), "eventgrid"),
 			RunUpdateTest:            false,
 			AllowEmptyPreviewChanges: true,
 			AllowEmptyUpdateChanges:  true,
+
+			// Getting the following diff:
+			//     "diffs": [
+			//         "webhookEndpoint"
+			//     ],
+			//     "detailedDiff": {
+			//         "webhookEndpoint.maxEventsPerBatch": {
+			//             "kind": "DELETE"
+			//         },
+			//         "webhookEndpoint.preferredBatchSizeInKilobytes": {
+			//             "kind": "DELETE"
+			//         }
+			//     }
+			// even though the webhook is simply created as
+			//     webhookEndpoint: { url: liveUrl }
+			// in eventgrid/zMixins.ts.
+			ExpectRefreshChanges: true,
 		})
 
 	integration.ProgramTest(t, &test)

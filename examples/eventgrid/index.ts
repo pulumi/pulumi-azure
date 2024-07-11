@@ -8,8 +8,8 @@ const resourceGroup = new azure.core.ResourceGroup("eveentgrid-rg");
 azure.eventgrid.events.onResourceGroupEvent("OnResourceChange", {
     resourceGroup,
     callback: async (context, event) => {
-        context.log(`Subject: ${event.data.subject}`);
-        context.log(`Event Type: ${event.data.eventType}`);
+        context.log(`Subject: ${event.subject}`);
+        context.log(`Event Type: ${event.eventType}`);
         context.log(`Data: ${JSON.stringify(event.data)}`);
     },
 });
@@ -30,7 +30,7 @@ azure.eventgrid.events.onGridBlobCreated("OnNewBlob", {
         subjectEndsWith: ".jpg",
     },
     callback: async (context, event) => {
-        context.log(`Subject: ${event.data.subject}`);
+        context.log(`Subject: ${event.subject}`);
         context.log(`File size: ${event.data.contentLength}`);
     },
 });
@@ -46,7 +46,7 @@ azure.eventgrid.events.onGridBlobDeleted("OnDeletedBlob", {
     storageAccount,
     outputs: [logQueue.output("log")],
     callback: async (context, event) => {
-        context.log(`Subject: ${event.data.subject}`);
+        context.log(`Subject: ${event.subject}`);
         context.log(`File type: ${event.data.blobType}`);
         return { log: event.data };
     },
