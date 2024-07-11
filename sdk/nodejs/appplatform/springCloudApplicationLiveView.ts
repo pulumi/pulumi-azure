@@ -102,7 +102,7 @@ export class SpringCloudApplicationLiveView extends pulumi.CustomResource {
             resourceInputs["springCloudServiceId"] = args ? args.springCloudServiceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudApplicationLiveView.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudApplicationLiveView.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

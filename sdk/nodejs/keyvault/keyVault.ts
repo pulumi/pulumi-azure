@@ -224,7 +224,7 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["vaultUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KeyVault.__pulumiType, name, resourceInputs, opts);
+        super(KeyVault.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

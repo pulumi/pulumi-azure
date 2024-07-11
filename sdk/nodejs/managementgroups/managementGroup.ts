@@ -119,7 +119,7 @@ export class ManagementGroup extends pulumi.CustomResource {
             resourceInputs["tenantScopedId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagementGroup.__pulumiType, name, resourceInputs, opts);
+        super(ManagementGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

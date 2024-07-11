@@ -242,7 +242,7 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
             resourceInputs["managedInstanceId"] = args ? args.managedInstanceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagedInstanceTransparentDataEncryption.__pulumiType, name, resourceInputs, opts);
+        super(ManagedInstanceTransparentDataEncryption.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

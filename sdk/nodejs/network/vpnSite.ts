@@ -159,7 +159,7 @@ export class VpnSite extends pulumi.CustomResource {
             resourceInputs["virtualWanId"] = args ? args.virtualWanId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpnSite.__pulumiType, name, resourceInputs, opts);
+        super(VpnSite.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -88,7 +88,7 @@ export class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -185,7 +185,7 @@ export class LinkedServiceAzureBlobStorage extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["connectionString", "sasUri", "serviceEndpoint"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinkedServiceAzureBlobStorage.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceAzureBlobStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

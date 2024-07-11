@@ -161,7 +161,7 @@ export class FrontdoorSecurityPolicy extends pulumi.CustomResource {
             resourceInputs["securityPolicies"] = args ? args.securityPolicies : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorSecurityPolicy.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorSecurityPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

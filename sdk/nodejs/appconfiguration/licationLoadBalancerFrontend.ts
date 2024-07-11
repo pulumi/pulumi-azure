@@ -105,7 +105,7 @@ export class LicationLoadBalancerFrontend extends pulumi.CustomResource {
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LicationLoadBalancerFrontend.__pulumiType, name, resourceInputs, opts);
+        super(LicationLoadBalancerFrontend.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

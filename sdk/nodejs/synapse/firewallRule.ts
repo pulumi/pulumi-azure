@@ -140,7 +140,7 @@ export class FirewallRule extends pulumi.CustomResource {
             resourceInputs["synapseWorkspaceId"] = args ? args.synapseWorkspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FirewallRule.__pulumiType, name, resourceInputs, opts);
+        super(FirewallRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

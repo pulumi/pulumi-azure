@@ -205,7 +205,7 @@ export class NetworkWatcherFlowLog extends pulumi.CustomResource {
             resourceInputs["version"] = args ? args.version : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkWatcherFlowLog.__pulumiType, name, resourceInputs, opts);
+        super(NetworkWatcherFlowLog.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

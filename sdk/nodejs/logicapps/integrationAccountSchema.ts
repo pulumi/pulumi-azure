@@ -133,7 +133,7 @@ export class IntegrationAccountSchema extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IntegrationAccountSchema.__pulumiType, name, resourceInputs, opts);
+        super(IntegrationAccountSchema.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

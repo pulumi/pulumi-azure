@@ -198,7 +198,7 @@ export class ReferenceInputBlob extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(ReferenceInputBlob.__pulumiType, name, resourceInputs, opts);
+        super(ReferenceInputBlob.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

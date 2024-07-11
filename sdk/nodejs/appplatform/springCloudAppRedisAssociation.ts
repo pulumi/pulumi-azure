@@ -138,7 +138,7 @@ export class SpringCloudAppRedisAssociation extends pulumi.CustomResource {
             resourceInputs["sslEnabled"] = args ? args.sslEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudAppRedisAssociation.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudAppRedisAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

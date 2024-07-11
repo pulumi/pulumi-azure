@@ -178,7 +178,7 @@ export class TriggerSchedule extends pulumi.CustomResource {
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TriggerSchedule.__pulumiType, name, resourceInputs, opts);
+        super(TriggerSchedule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

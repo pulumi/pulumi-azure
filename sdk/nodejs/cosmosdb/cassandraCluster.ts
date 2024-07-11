@@ -204,7 +204,7 @@ export class CassandraCluster extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["defaultAdminPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(CassandraCluster.__pulumiType, name, resourceInputs, opts);
+        super(CassandraCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

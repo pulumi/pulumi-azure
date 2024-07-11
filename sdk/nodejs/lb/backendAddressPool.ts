@@ -155,7 +155,7 @@ export class BackendAddressPool extends pulumi.CustomResource {
             resourceInputs["outboundRules"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackendAddressPool.__pulumiType, name, resourceInputs, opts);
+        super(BackendAddressPool.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

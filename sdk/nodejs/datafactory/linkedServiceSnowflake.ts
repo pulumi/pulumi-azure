@@ -184,7 +184,7 @@ export class LinkedServiceSnowflake extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceSnowflake.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceSnowflake.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

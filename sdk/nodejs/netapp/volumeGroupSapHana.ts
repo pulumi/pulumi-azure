@@ -317,7 +317,7 @@ export class VolumeGroupSapHana extends pulumi.CustomResource {
             resourceInputs["volumes"] = args ? args.volumes : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VolumeGroupSapHana.__pulumiType, name, resourceInputs, opts);
+        super(VolumeGroupSapHana.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

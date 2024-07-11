@@ -211,7 +211,7 @@ export class Namespace extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["defaultPrimaryConnectionString", "defaultPrimaryKey", "defaultSecondaryConnectionString", "defaultSecondaryKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Namespace.__pulumiType, name, resourceInputs, opts);
+        super(Namespace.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

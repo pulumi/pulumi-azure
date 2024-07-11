@@ -129,7 +129,7 @@ export class VirtualWan extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualWan.__pulumiType, name, resourceInputs, opts);
+        super(VirtualWan.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

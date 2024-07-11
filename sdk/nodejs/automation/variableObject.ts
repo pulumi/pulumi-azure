@@ -130,7 +130,7 @@ export class VariableObject extends pulumi.CustomResource {
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VariableObject.__pulumiType, name, resourceInputs, opts);
+        super(VariableObject.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

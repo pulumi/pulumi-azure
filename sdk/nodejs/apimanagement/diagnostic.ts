@@ -236,7 +236,7 @@ export class Diagnostic extends pulumi.CustomResource {
             resourceInputs["verbosity"] = args ? args.verbosity : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Diagnostic.__pulumiType, name, resourceInputs, opts);
+        super(Diagnostic.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

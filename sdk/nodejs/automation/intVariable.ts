@@ -127,7 +127,7 @@ export class IntVariable extends pulumi.CustomResource {
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IntVariable.__pulumiType, name, resourceInputs, opts);
+        super(IntVariable.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

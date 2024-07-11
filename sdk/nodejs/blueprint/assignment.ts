@@ -231,7 +231,7 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Assignment.__pulumiType, name, resourceInputs, opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

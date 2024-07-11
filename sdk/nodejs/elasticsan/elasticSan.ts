@@ -178,7 +178,7 @@ export class ElasticSan extends pulumi.CustomResource {
             resourceInputs["volumeGroupCount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ElasticSan.__pulumiType, name, resourceInputs, opts);
+        super(ElasticSan.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

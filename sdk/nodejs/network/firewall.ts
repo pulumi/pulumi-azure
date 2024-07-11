@@ -207,7 +207,7 @@ export class Firewall extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Firewall.__pulumiType, name, resourceInputs, opts);
+        super(Firewall.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

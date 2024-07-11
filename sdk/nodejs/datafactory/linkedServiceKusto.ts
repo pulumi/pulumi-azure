@@ -208,7 +208,7 @@ export class LinkedServiceKusto extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["servicePrincipalKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LinkedServiceKusto.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceKusto.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

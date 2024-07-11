@@ -182,7 +182,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["tenantName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatabasePrincipalAssignment.__pulumiType, name, resourceInputs, opts);
+        super(DatabasePrincipalAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

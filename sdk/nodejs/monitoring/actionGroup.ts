@@ -265,7 +265,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ActionGroup.__pulumiType, name, resourceInputs, opts);
+        super(ActionGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

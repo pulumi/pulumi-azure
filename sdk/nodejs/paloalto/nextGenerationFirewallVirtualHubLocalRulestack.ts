@@ -82,7 +82,7 @@ export class NextGenerationFirewallVirtualHubLocalRulestack extends pulumi.Custo
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NextGenerationFirewallVirtualHubLocalRulestack.__pulumiType, name, resourceInputs, opts);
+        super(NextGenerationFirewallVirtualHubLocalRulestack.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

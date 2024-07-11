@@ -161,7 +161,7 @@ export class EnvironmentDaprComponent extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["secrets"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(EnvironmentDaprComponent.__pulumiType, name, resourceInputs, opts);
+        super(EnvironmentDaprComponent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

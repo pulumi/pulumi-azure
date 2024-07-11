@@ -187,7 +187,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(AttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

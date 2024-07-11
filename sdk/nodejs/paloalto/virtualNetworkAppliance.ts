@@ -59,7 +59,7 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNetworkAppliance.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetworkAppliance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

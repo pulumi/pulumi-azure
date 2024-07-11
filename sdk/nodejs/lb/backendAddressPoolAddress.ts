@@ -146,7 +146,7 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
             resourceInputs["inboundNatRulePortMappings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackendAddressPoolAddress.__pulumiType, name, resourceInputs, opts);
+        super(BackendAddressPoolAddress.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

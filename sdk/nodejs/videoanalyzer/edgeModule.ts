@@ -148,7 +148,7 @@ export class EdgeModule extends pulumi.CustomResource {
             resourceInputs["videoAnalyzerName"] = args ? args.videoAnalyzerName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(EdgeModule.__pulumiType, name, resourceInputs, opts);
+        super(EdgeModule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

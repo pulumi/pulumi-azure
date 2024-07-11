@@ -145,7 +145,7 @@ export class ConnectionClassicCertificate extends pulumi.CustomResource {
             resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConnectionClassicCertificate.__pulumiType, name, resourceInputs, opts);
+        super(ConnectionClassicCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

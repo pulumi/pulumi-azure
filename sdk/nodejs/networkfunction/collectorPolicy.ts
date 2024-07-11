@@ -172,7 +172,7 @@ export class CollectorPolicy extends pulumi.CustomResource {
             resourceInputs["trafficCollectorId"] = args ? args.trafficCollectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CollectorPolicy.__pulumiType, name, resourceInputs, opts);
+        super(CollectorPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

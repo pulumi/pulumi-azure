@@ -144,7 +144,7 @@ export class FunctionJavaScriptUDF extends pulumi.CustomResource {
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FunctionJavaScriptUDF.__pulumiType, name, resourceInputs, opts);
+        super(FunctionJavaScriptUDF.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

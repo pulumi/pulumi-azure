@@ -118,7 +118,7 @@ export class SubnetRouteTableAssociation extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubnetRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
+        super(SubnetRouteTableAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

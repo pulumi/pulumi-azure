@@ -115,7 +115,7 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
             resourceInputs["virtualNetworkIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DdosProtectionPlan.__pulumiType, name, resourceInputs, opts);
+        super(DdosProtectionPlan.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

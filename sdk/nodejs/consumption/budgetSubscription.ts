@@ -189,7 +189,7 @@ export class BudgetSubscription extends pulumi.CustomResource {
             resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BudgetSubscription.__pulumiType, name, resourceInputs, opts);
+        super(BudgetSubscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

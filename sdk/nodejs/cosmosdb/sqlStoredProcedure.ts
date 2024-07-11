@@ -145,7 +145,7 @@ export class SqlStoredProcedure extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SqlStoredProcedure.__pulumiType, name, resourceInputs, opts);
+        super(SqlStoredProcedure.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

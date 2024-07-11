@@ -205,7 +205,7 @@ export class TriggerBlobEvent extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(TriggerBlobEvent.__pulumiType, name, resourceInputs, opts);
+        super(TriggerBlobEvent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

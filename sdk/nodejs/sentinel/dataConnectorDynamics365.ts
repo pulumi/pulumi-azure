@@ -107,7 +107,7 @@ export class DataConnectorDynamics365 extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorDynamics365.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorDynamics365.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

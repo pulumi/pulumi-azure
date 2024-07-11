@@ -151,7 +151,7 @@ export class NamedValue extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["value"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(NamedValue.__pulumiType, name, resourceInputs, opts);
+        super(NamedValue.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

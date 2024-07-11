@@ -108,7 +108,7 @@ export class NatGatewayPublicIpAssociation extends pulumi.CustomResource {
             resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NatGatewayPublicIpAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NatGatewayPublicIpAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

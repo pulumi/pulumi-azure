@@ -172,7 +172,7 @@ export class Order extends pulumi.CustomResource {
             resourceInputs["statuses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Order.__pulumiType, name, resourceInputs, opts);
+        super(Order.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

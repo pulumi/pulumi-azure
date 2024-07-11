@@ -179,7 +179,7 @@ export class Elasticsearch extends pulumi.CustomResource {
             resourceInputs["kibanaSsoUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Elasticsearch.__pulumiType, name, resourceInputs, opts);
+        super(Elasticsearch.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

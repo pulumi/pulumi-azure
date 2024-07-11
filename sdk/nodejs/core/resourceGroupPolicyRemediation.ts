@@ -183,7 +183,7 @@ export class ResourceGroupPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["resourceGroupId"] = args ? args.resourceGroupId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceGroupPolicyRemediation.__pulumiType, name, resourceInputs, opts);
+        super(ResourceGroupPolicyRemediation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

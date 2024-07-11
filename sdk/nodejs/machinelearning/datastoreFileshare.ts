@@ -125,7 +125,7 @@ export class DatastoreFileshare extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["accountKey", "sharedAccessSignature"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(DatastoreFileshare.__pulumiType, name, resourceInputs, opts);
+        super(DatastoreFileshare.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

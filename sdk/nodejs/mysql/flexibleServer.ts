@@ -282,7 +282,7 @@ export class FlexibleServer extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["administratorPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(FlexibleServer.__pulumiType, name, resourceInputs, opts);
+        super(FlexibleServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -130,7 +130,7 @@ export class NetworkManagerAdminRuleCollection extends pulumi.CustomResource {
             resourceInputs["securityAdminConfigurationId"] = args ? args.securityAdminConfigurationId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkManagerAdminRuleCollection.__pulumiType, name, resourceInputs, opts);
+        super(NetworkManagerAdminRuleCollection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -107,7 +107,7 @@ export class DataConnectorAzureActiveDirectory extends pulumi.CustomResource {
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorAzureActiveDirectory.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorAzureActiveDirectory.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

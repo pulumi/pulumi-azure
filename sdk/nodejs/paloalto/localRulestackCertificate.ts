@@ -124,7 +124,7 @@ export class LocalRulestackCertificate extends pulumi.CustomResource {
             resourceInputs["selfSigned"] = args ? args.selfSigned : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocalRulestackCertificate.__pulumiType, name, resourceInputs, opts);
+        super(LocalRulestackCertificate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

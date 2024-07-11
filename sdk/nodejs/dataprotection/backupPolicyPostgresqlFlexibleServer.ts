@@ -183,7 +183,7 @@ export class BackupPolicyPostgresqlFlexibleServer extends pulumi.CustomResource 
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupPolicyPostgresqlFlexibleServer.__pulumiType, name, resourceInputs, opts);
+        super(BackupPolicyPostgresqlFlexibleServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

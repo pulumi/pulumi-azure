@@ -120,7 +120,7 @@ export class Sync extends pulumi.CustomResource {
             resourceInputs["registeredServers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Sync.__pulumiType, name, resourceInputs, opts);
+        super(Sync.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
