@@ -129,7 +129,7 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
                 aliases: [{ type: "azure:eventhub:EventGridCallbackSubscription" }],
             }));
 
-        const key = retrieveEventGridKey(this.functionApp, 30 /* 5 minutes */);
+        const key = retrieveEventGridKey(this.functionApp, 36 /* 6 minutes */);
         const url = pulumi.interpolate`https://${this.functionApp.defaultHostname}/runtime/webhooks/eventgrid?functionName=${name}&code=${key}`;
         const liveUrl = url.apply(u => waitUntilEndpointIsUp(this, u));
 
@@ -169,8 +169,8 @@ async function waitUntilEndpointIsUp(resource: pulumi.Resource, url: string): Pr
     const headers = { "aeg-event-type": "SubscriptionValidation" };
     const body = "[{ \"data\": { \"validationCode\": \"pulumi-create\" }, \"eventType\": \"Microsoft.EventGrid.SubscriptionValidationEvent\" }]";
 
-    // Wait for up to 5 minutes
-    for (let i = 0; i < 30; i++) {
+    // Wait for up to 6 minutes
+    for (let i = 0; i < 36; i++) {
         let status;
         try {
             const response = await fetch(url, { method: "POST", headers, body });
