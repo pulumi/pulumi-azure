@@ -17,7 +17,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as azurefunctions from "@azure/functions";
 import { AzureServiceClient } from "@azure/ms-rest-azure-js";
 
-import { FunctionApp } from "./functionApp";
+import { LinuxFunctionApp } from "./linuxFunctionApp";
 
 import * as appservice from "../appservice";
 import * as core from "../core";
@@ -209,7 +209,7 @@ interface FunctionAppArgsBase {
     /**
      * A `site_config` object as defined below.
      */
-    readonly siteConfig?: pulumi.Input<inputs.appservice.FunctionAppSiteConfig>;
+    readonly siteConfig?: pulumi.Input<inputs.appservice.LinuxFunctionAppSiteConfig>;
 
     /**
      * A mapping of tags to assign to the resource.
@@ -598,20 +598,21 @@ function createFunctionAppParts(name: string,
 
     const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
 
-    const functionArgs: appservice.FunctionAppArgs = {
+    const functionArgs: appservice.LinuxFunctionAppArgs = {
         ...args,
         ...resourceGroupArgs,
 
-        appServicePlanId: plan.id,
+        siteConfig: args.siteConfig ?? {},
+
+        servicePlanId: plan.id,
         storageAccountName: account.name,
         storageAccountAccessKey: account.primaryAccessKey,
-        version: args.version || "~4",
 
         appSettings: pulumi.output(args.appSettings).apply(settings => {
             return {
                 ...settings,
                 WEBSITE_RUN_FROM_PACKAGE: codeBlobUrl,
-                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "~14"),
+                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "~18"),
             };
         }),
     };
@@ -632,7 +633,7 @@ function createFunctionAppParts(name: string,
   * https://github.com/pulumi/docs/blob/master/reference/serializing-functions.md for additional
   * details on this process.
  */
-export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> extends FunctionApp {
+export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> extends LinuxFunctionApp {
     /**
      * Storage account where the FunctionApp's zipBlob is uploaded to.
      */
@@ -675,7 +676,7 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result> exte
     }
 }
 
-function getEndpoint(app: FunctionApp, rootPath: string) {
+function getEndpoint(app: LinuxFunctionApp, rootPath: string) {
     return pulumi.interpolate`https://${app.defaultHostname}/${rootPath}`;
 }
 
@@ -704,7 +705,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
     /**
      * The Function App which contains the functions from the archive.
      */
-    public readonly functionApp: appservice.FunctionApp;
+    public readonly functionApp: appservice.LinuxFunctionApp;
     /**
      * Root HTTP endpoint of the Function App.
      */
@@ -723,7 +724,7 @@ export abstract class PackagedFunctionApp extends pulumi.ComponentResource {
         this.container = parts.container;
         this.zipBlob = parts.zipBlob;
         this.plan = parts.plan;
-        this.functionApp = new FunctionApp(name, parts.functionArgs, parentOpts);
+        this.functionApp = new LinuxFunctionApp(name, parts.functionArgs, parentOpts);
         this.endpoint = getEndpoint(this.functionApp, parts.rootPath);
     }
 }
@@ -861,8 +862,8 @@ export interface FunctionKeys {
     [key: string]: string;
 }
 
-declare module "./functionApp" {
-    interface FunctionApp {
+declare module "./linuxFunctionApp" {
+    interface LinuxFunctionApp {
         /**
          * Retrieve the keys associated with the Function App.
          */
@@ -896,11 +897,11 @@ async function getHostKeysWithRetries(functionAppId: string, retryAttempts: numb
         return getHostKeysWithRetries(functionAppId, retryAttempts - 1);
 }
 
-FunctionApp.prototype.getHostKeys = function(this: FunctionApp) {
+LinuxFunctionApp.prototype.getHostKeys = function(this: LinuxFunctionApp) {
     return this.id.apply(async id => await getHostKeysWithRetries(id, 5));
 };
 
-FunctionApp.prototype.getFunctionKeys = function(this: FunctionApp, functionName) {
+LinuxFunctionApp.prototype.getFunctionKeys = function(this: LinuxFunctionApp, functionName) {
     return pulumi.all([this.id, functionName]).apply(async ([id, functionName]) => {
         const credentials = await core.getServiceClientCredentials();
         const client = new AzureServiceClient(credentials);
