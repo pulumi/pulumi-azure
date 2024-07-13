@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import { ServiceClientCredentials } from "@azure/ms-rest-js";
-import * as msnodeauth from "@azure/ms-rest-nodeauth";
+import { ServiceClientCredentials, AzureIdentityCredentialAdapter } from "@azure/ms-rest-js";
+import * as identity from "@azure/identity";
 import * as config from "../config";
 import * as utilities from "../utilities";
 
@@ -22,23 +22,26 @@ import * as utilities from "../utilities";
  * are either based on MSI, a service principal, or Azure CLI user credentials.
  */
 export async function getServiceClientCredentials(): Promise<ServiceClientCredentials> {
-    let credentials: ServiceClientCredentials;
-
     const useMsi = config.useMsi || utilities.getEnvBoolean("ARM_USE_MSI");
-    const msiEndpoint = config.msiEndpoint || utilities.getEnv("ARM_MSI_ENDPOINT");
     const clientId = config.clientId || utilities.getEnv("AZURE_CLIENT_ID", "ARM_CLIENT_ID");
     const clientSecret = config.clientSecret || utilities.getEnv("AZURE_CLIENT_SECRET", "ARM_CLIENT_SECRET");
+    const clientCertPath = config.clientCertificatePath || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PATH");
+    const clientCertPassword = config.clientCertificatePassword || utilities.getEnv("ARM_CLIENT_CERTIFICATE_PASSWORD");
     const tenantId = config.tenantId || utilities.getEnv("AZURE_TENANT_ID", "ARM_TENANT_ID");
+    config.oidcToken
 
+    let tokenCredential: identity.TokenCredential = new identity.AzureCliCredential();
     if (useMsi) {
-        credentials = await msnodeauth.loginWithAppServiceMSI({ msiEndpoint: msiEndpoint });
-    } else if (clientId && clientSecret && tenantId) {
-        credentials = await msnodeauth.loginWithServicePrincipalSecret(
-            clientId, clientSecret, tenantId);
-    } else {
-        // `create()` will throw an error if the Az CLI is not installed or `az login` has never been run.
-        credentials = await msnodeauth.AzureCliCredentials.create();
+        tokenCredential = new identity.ManagedIdentityCredential();
+    } else if (clientId && tenantId) {
+        if (clientSecret) {
+            tokenCredential = new identity.ClientSecretCredential(tenantId, clientId, clientSecret);
+        } else if (clientCertPath) {
+            tokenCredential = new identity.ClientCertificateCredential(tenantId, clientId, { certificatePath: clientCertPath, certificatePassword: clientCertPassword });
+        }
     }
 
-    return credentials;
+    console.log("Using Azure credentials:", tokenCredential.constructor.name);
+
+    return new AzureIdentityCredentialAdapter(tokenCredential)
 }
