@@ -21,14 +21,17 @@ class TopicArgs:
     def __init__(__self__, *,
                  namespace_id: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 express_enabled: Optional[pulumi.Input[bool]] = None,
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partitioning_enabled: Optional[pulumi.Input[bool]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None):
@@ -53,22 +56,37 @@ class TopicArgs:
         pulumi.set(__self__, "namespace_id", namespace_id)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if batched_operations_enabled is not None:
+            pulumi.set(__self__, "batched_operations_enabled", batched_operations_enabled)
         if default_message_ttl is not None:
             pulumi.set(__self__, "default_message_ttl", default_message_ttl)
         if duplicate_detection_history_time_window is not None:
             pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
         if enable_batched_operations is not None:
+            warnings.warn("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_batched_operations is deprecated: The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_batched_operations is not None:
             pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+        if enable_express is not None:
+            warnings.warn("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_express is deprecated: The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
         if enable_express is not None:
             pulumi.set(__self__, "enable_express", enable_express)
         if enable_partitioning is not None:
+            warnings.warn("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_partitioning is deprecated: The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_partitioning is not None:
             pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+        if express_enabled is not None:
+            pulumi.set(__self__, "express_enabled", express_enabled)
         if max_message_size_in_kilobytes is not None:
             pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
             pulumi.set(__self__, "max_size_in_megabytes", max_size_in_megabytes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partitioning_enabled is not None:
+            pulumi.set(__self__, "partitioning_enabled", partitioning_enabled)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
         if status is not None:
@@ -101,6 +119,15 @@ class TopicArgs:
         pulumi.set(self, "auto_delete_on_idle", value)
 
     @property
+    @pulumi.getter(name="batchedOperationsEnabled")
+    def batched_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "batched_operations_enabled")
+
+    @batched_operations_enabled.setter
+    def batched_operations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batched_operations_enabled", value)
+
+    @property
     @pulumi.getter(name="defaultMessageTtl")
     def default_message_ttl(self) -> Optional[pulumi.Input[str]]:
         """
@@ -126,6 +153,7 @@ class TopicArgs:
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
+    @_utilities.deprecated("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls if server-side batched operations are enabled.
@@ -138,6 +166,7 @@ class TopicArgs:
 
     @property
     @pulumi.getter(name="enableExpress")
+    @_utilities.deprecated("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_express(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
@@ -150,6 +179,7 @@ class TopicArgs:
 
     @property
     @pulumi.getter(name="enablePartitioning")
+    @_utilities.deprecated("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
@@ -161,6 +191,15 @@ class TopicArgs:
     @enable_partitioning.setter
     def enable_partitioning(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_partitioning", value)
+
+    @property
+    @pulumi.getter(name="expressEnabled")
+    def express_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "express_enabled")
+
+    @express_enabled.setter
+    def express_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "express_enabled", value)
 
     @property
     @pulumi.getter(name="maxMessageSizeInKilobytes")
@@ -197,6 +236,15 @@ class TopicArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="partitioningEnabled")
+    def partitioning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "partitioning_enabled")
+
+    @partitioning_enabled.setter
+    def partitioning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "partitioning_enabled", value)
 
     @property
     @pulumi.getter(name="requiresDuplicateDetection")
@@ -239,16 +287,19 @@ class TopicArgs:
 class _TopicState:
     def __init__(__self__, *,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 express_enabled: Optional[pulumi.Input[bool]] = None,
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
+                 partitioning_enabled: Optional[pulumi.Input[bool]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -273,16 +324,29 @@ class _TopicState:
         """
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if batched_operations_enabled is not None:
+            pulumi.set(__self__, "batched_operations_enabled", batched_operations_enabled)
         if default_message_ttl is not None:
             pulumi.set(__self__, "default_message_ttl", default_message_ttl)
         if duplicate_detection_history_time_window is not None:
             pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
         if enable_batched_operations is not None:
+            warnings.warn("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_batched_operations is deprecated: The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_batched_operations is not None:
             pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
+        if enable_express is not None:
+            warnings.warn("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_express is deprecated: The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
         if enable_express is not None:
             pulumi.set(__self__, "enable_express", enable_express)
         if enable_partitioning is not None:
+            warnings.warn("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_partitioning is deprecated: The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
+        if enable_partitioning is not None:
             pulumi.set(__self__, "enable_partitioning", enable_partitioning)
+        if express_enabled is not None:
+            pulumi.set(__self__, "express_enabled", express_enabled)
         if max_message_size_in_kilobytes is not None:
             pulumi.set(__self__, "max_message_size_in_kilobytes", max_message_size_in_kilobytes)
         if max_size_in_megabytes is not None:
@@ -293,6 +357,8 @@ class _TopicState:
             pulumi.set(__self__, "namespace_id", namespace_id)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
+        if partitioning_enabled is not None:
+            pulumi.set(__self__, "partitioning_enabled", partitioning_enabled)
         if requires_duplicate_detection is not None:
             pulumi.set(__self__, "requires_duplicate_detection", requires_duplicate_detection)
         if resource_group_name is not None:
@@ -313,6 +379,15 @@ class _TopicState:
     @auto_delete_on_idle.setter
     def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="batchedOperationsEnabled")
+    def batched_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "batched_operations_enabled")
+
+    @batched_operations_enabled.setter
+    def batched_operations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batched_operations_enabled", value)
 
     @property
     @pulumi.getter(name="defaultMessageTtl")
@@ -340,6 +415,7 @@ class _TopicState:
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
+    @_utilities.deprecated("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls if server-side batched operations are enabled.
@@ -352,6 +428,7 @@ class _TopicState:
 
     @property
     @pulumi.getter(name="enableExpress")
+    @_utilities.deprecated("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_express(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
@@ -364,6 +441,7 @@ class _TopicState:
 
     @property
     @pulumi.getter(name="enablePartitioning")
+    @_utilities.deprecated("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_partitioning(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
@@ -375,6 +453,15 @@ class _TopicState:
     @enable_partitioning.setter
     def enable_partitioning(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_partitioning", value)
+
+    @property
+    @pulumi.getter(name="expressEnabled")
+    def express_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "express_enabled")
+
+    @express_enabled.setter
+    def express_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "express_enabled", value)
 
     @property
     @pulumi.getter(name="maxMessageSizeInKilobytes")
@@ -434,6 +521,15 @@ class _TopicState:
         pulumi.set(self, "namespace_name", value)
 
     @property
+    @pulumi.getter(name="partitioningEnabled")
+    def partitioning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "partitioning_enabled")
+
+    @partitioning_enabled.setter
+    def partitioning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "partitioning_enabled", value)
+
+    @property
     @pulumi.getter(name="requiresDuplicateDetection")
     def requires_duplicate_detection(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -490,15 +586,18 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 express_enabled: Optional[pulumi.Input[bool]] = None,
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
+                 partitioning_enabled: Optional[pulumi.Input[bool]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
@@ -615,15 +714,18 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  default_message_ttl: Optional[pulumi.Input[str]] = None,
                  duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
                  enable_batched_operations: Optional[pulumi.Input[bool]] = None,
                  enable_express: Optional[pulumi.Input[bool]] = None,
                  enable_partitioning: Optional[pulumi.Input[bool]] = None,
+                 express_enabled: Optional[pulumi.Input[bool]] = None,
                  max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
                  max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
+                 partitioning_enabled: Optional[pulumi.Input[bool]] = None,
                  requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_ordering: Optional[pulumi.Input[bool]] = None,
@@ -638,17 +740,20 @@ class Topic(pulumi.CustomResource):
             __props__ = TopicArgs.__new__(TopicArgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            __props__.__dict__["batched_operations_enabled"] = batched_operations_enabled
             __props__.__dict__["default_message_ttl"] = default_message_ttl
             __props__.__dict__["duplicate_detection_history_time_window"] = duplicate_detection_history_time_window
             __props__.__dict__["enable_batched_operations"] = enable_batched_operations
             __props__.__dict__["enable_express"] = enable_express
             __props__.__dict__["enable_partitioning"] = enable_partitioning
+            __props__.__dict__["express_enabled"] = express_enabled
             __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
             __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
             __props__.__dict__["name"] = name
             if namespace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_id'")
             __props__.__dict__["namespace_id"] = namespace_id
+            __props__.__dict__["partitioning_enabled"] = partitioning_enabled
             __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
             __props__.__dict__["status"] = status
             __props__.__dict__["support_ordering"] = support_ordering
@@ -665,16 +770,19 @@ class Topic(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+            batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
             default_message_ttl: Optional[pulumi.Input[str]] = None,
             duplicate_detection_history_time_window: Optional[pulumi.Input[str]] = None,
             enable_batched_operations: Optional[pulumi.Input[bool]] = None,
             enable_express: Optional[pulumi.Input[bool]] = None,
             enable_partitioning: Optional[pulumi.Input[bool]] = None,
+            express_enabled: Optional[pulumi.Input[bool]] = None,
             max_message_size_in_kilobytes: Optional[pulumi.Input[int]] = None,
             max_size_in_megabytes: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace_id: Optional[pulumi.Input[str]] = None,
             namespace_name: Optional[pulumi.Input[str]] = None,
+            partitioning_enabled: Optional[pulumi.Input[bool]] = None,
             requires_duplicate_detection: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -707,16 +815,19 @@ class Topic(pulumi.CustomResource):
         __props__ = _TopicState.__new__(_TopicState)
 
         __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+        __props__.__dict__["batched_operations_enabled"] = batched_operations_enabled
         __props__.__dict__["default_message_ttl"] = default_message_ttl
         __props__.__dict__["duplicate_detection_history_time_window"] = duplicate_detection_history_time_window
         __props__.__dict__["enable_batched_operations"] = enable_batched_operations
         __props__.__dict__["enable_express"] = enable_express
         __props__.__dict__["enable_partitioning"] = enable_partitioning
+        __props__.__dict__["express_enabled"] = express_enabled
         __props__.__dict__["max_message_size_in_kilobytes"] = max_message_size_in_kilobytes
         __props__.__dict__["max_size_in_megabytes"] = max_size_in_megabytes
         __props__.__dict__["name"] = name
         __props__.__dict__["namespace_id"] = namespace_id
         __props__.__dict__["namespace_name"] = namespace_name
+        __props__.__dict__["partitioning_enabled"] = partitioning_enabled
         __props__.__dict__["requires_duplicate_detection"] = requires_duplicate_detection
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["status"] = status
@@ -730,6 +841,11 @@ class Topic(pulumi.CustomResource):
         The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="batchedOperationsEnabled")
+    def batched_operations_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "batched_operations_enabled")
 
     @property
     @pulumi.getter(name="defaultMessageTtl")
@@ -749,6 +865,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
+    @_utilities.deprecated("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls if server-side batched operations are enabled.
@@ -757,6 +874,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableExpress")
+    @_utilities.deprecated("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_express(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
@@ -765,6 +883,7 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enablePartitioning")
+    @_utilities.deprecated("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
         """
         Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
@@ -772,6 +891,11 @@ class Topic(pulumi.CustomResource):
         > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
         """
         return pulumi.get(self, "enable_partitioning")
+
+    @property
+    @pulumi.getter(name="expressEnabled")
+    def express_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "express_enabled")
 
     @property
     @pulumi.getter(name="maxMessageSizeInKilobytes")
@@ -809,6 +933,11 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> pulumi.Output[str]:
         return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="partitioningEnabled")
+    def partitioning_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "partitioning_enabled")
 
     @property
     @pulumi.getter(name="requiresDuplicateDetection")

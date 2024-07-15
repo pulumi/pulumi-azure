@@ -74,6 +74,9 @@ namespace Pulumi.Azure.ServiceBus
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
 
+        [Output("batchedOperationsEnabled")]
+        public Output<bool> BatchedOperationsEnabled { get; private set; } = null!;
+
         /// <summary>
         /// A `client_scoped_subscription` block as defined below.
         /// </summary>
@@ -110,7 +113,7 @@ namespace Pulumi.Azure.ServiceBus
         /// Boolean flag which controls whether the Subscription supports batched operations.
         /// </summary>
         [Output("enableBatchedOperations")]
-        public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
+        public Output<bool> EnableBatchedOperations { get; private set; } = null!;
 
         /// <summary>
         /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
@@ -216,6 +219,9 @@ namespace Pulumi.Azure.ServiceBus
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
+        [Input("batchedOperationsEnabled")]
+        public Input<bool>? BatchedOperationsEnabled { get; set; }
+
         /// <summary>
         /// A `client_scoped_subscription` block as defined below.
         /// </summary>
@@ -315,6 +321,9 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        [Input("batchedOperationsEnabled")]
+        public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
         /// A `client_scoped_subscription` block as defined below.

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.DevTest.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// A `shared_public_ip_address` block as defined below.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkSubnetSharedPublicIpAddress? SharedPublicIpAddress;
+        /// <summary>
         /// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         /// </summary>
         public readonly string? UseInVirtualMachineCreation;
@@ -30,11 +34,14 @@ namespace Pulumi.Azure.DevTest.Outputs
         private VirtualNetworkSubnet(
             string? name,
 
+            Outputs.VirtualNetworkSubnetSharedPublicIpAddress? sharedPublicIpAddress,
+
             string? useInVirtualMachineCreation,
 
             string? usePublicIpAddress)
         {
             Name = name;
+            SharedPublicIpAddress = sharedPublicIpAddress;
             UseInVirtualMachineCreation = useInVirtualMachineCreation;
             UsePublicIpAddress = usePublicIpAddress;
         }

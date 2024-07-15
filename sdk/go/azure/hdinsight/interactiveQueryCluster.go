@@ -122,7 +122,7 @@ type InteractiveQueryCluster struct {
 	// A `diskEncryption` block as defined below.
 	DiskEncryptions InteractiveQueryClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
-	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
+	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
 	Extension InteractiveQueryClusterExtensionPtrOutput `pulumi:"extension"`
 	// A `gateway` block as defined below.
@@ -525,8 +525,8 @@ func (o InteractiveQueryClusterOutput) DiskEncryptions() InteractiveQueryCluster
 }
 
 // Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterOutput) EncryptionInTransitEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *InteractiveQueryCluster) pulumi.BoolOutput { return v.EncryptionInTransitEnabled }).(pulumi.BoolOutput)
+func (o InteractiveQueryClusterOutput) EncryptionInTransitEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryCluster) pulumi.BoolPtrOutput { return v.EncryptionInTransitEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `extension` block as defined below.

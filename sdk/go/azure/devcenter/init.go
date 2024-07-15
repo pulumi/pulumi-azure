@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:devcenter/catalog:Catalog":
 		r = &Catalog{}
+	case "azure:devcenter/devBoxDefinition:DevBoxDefinition":
+		r = &DevBoxDefinition{}
 	case "azure:devcenter/devCenter:DevCenter":
 		r = &DevCenter{}
+	case "azure:devcenter/environmentType:EnvironmentType":
+		r = &EnvironmentType{}
 	case "azure:devcenter/gallery:Gallery":
 		r = &Gallery{}
 	case "azure:devcenter/project:Project":
@@ -49,7 +53,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"devcenter/devBoxDefinition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"devcenter/devCenter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"devcenter/environmentType",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

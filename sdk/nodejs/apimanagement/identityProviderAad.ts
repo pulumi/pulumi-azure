@@ -83,6 +83,10 @@ export class IdentityProviderAad extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
+     * The client library to be used in the AAD Identity Provider.
+     */
+    public readonly clientLibrary!: pulumi.Output<string | undefined>;
+    /**
      * Client secret of the Application in the AAD Identity Provider.
      */
     public readonly clientSecret!: pulumi.Output<string>;
@@ -91,7 +95,7 @@ export class IdentityProviderAad extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The AAD Tenant to use instead of Common when logging into Active Directory
+     * The AAD Tenant to use instead of Common when logging into Active Directory.
      */
     public readonly signinTenant!: pulumi.Output<string | undefined>;
 
@@ -111,6 +115,7 @@ export class IdentityProviderAad extends pulumi.CustomResource {
             resourceInputs["allowedTenants"] = state ? state.allowedTenants : undefined;
             resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientLibrary"] = state ? state.clientLibrary : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["signinTenant"] = state ? state.signinTenant : undefined;
@@ -134,6 +139,7 @@ export class IdentityProviderAad extends pulumi.CustomResource {
             resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientLibrary"] = args ? args.clientLibrary : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
@@ -162,6 +168,10 @@ export interface IdentityProviderAadState {
      */
     clientId?: pulumi.Input<string>;
     /**
+     * The client library to be used in the AAD Identity Provider.
+     */
+    clientLibrary?: pulumi.Input<string>;
+    /**
      * Client secret of the Application in the AAD Identity Provider.
      */
     clientSecret?: pulumi.Input<string>;
@@ -170,7 +180,7 @@ export interface IdentityProviderAadState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The AAD Tenant to use instead of Common when logging into Active Directory
+     * The AAD Tenant to use instead of Common when logging into Active Directory.
      */
     signinTenant?: pulumi.Input<string>;
 }
@@ -192,6 +202,10 @@ export interface IdentityProviderAadArgs {
      */
     clientId: pulumi.Input<string>;
     /**
+     * The client library to be used in the AAD Identity Provider.
+     */
+    clientLibrary?: pulumi.Input<string>;
+    /**
      * Client secret of the Application in the AAD Identity Provider.
      */
     clientSecret: pulumi.Input<string>;
@@ -200,7 +214,7 @@ export interface IdentityProviderAadArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The AAD Tenant to use instead of Common when logging into Active Directory
+     * The AAD Tenant to use instead of Common when logging into Active Directory.
      */
     signinTenant?: pulumi.Input<string>;
 }

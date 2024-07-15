@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.devtest.inputs;
 
+import com.pulumi.azure.devtest.inputs.VirtualNetworkSubnetSharedPublicIpAddressArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -28,6 +29,21 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * A `shared_public_ip_address` block as defined below.
+     * 
+     */
+    @Import(name="sharedPublicIpAddress")
+    private @Nullable Output<VirtualNetworkSubnetSharedPublicIpAddressArgs> sharedPublicIpAddress;
+
+    /**
+     * @return A `shared_public_ip_address` block as defined below.
+     * 
+     */
+    public Optional<Output<VirtualNetworkSubnetSharedPublicIpAddressArgs>> sharedPublicIpAddress() {
+        return Optional.ofNullable(this.sharedPublicIpAddress);
     }
 
     /**
@@ -64,6 +80,7 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
 
     private VirtualNetworkSubnetArgs(VirtualNetworkSubnetArgs $) {
         this.name = $.name;
+        this.sharedPublicIpAddress = $.sharedPublicIpAddress;
         this.useInVirtualMachineCreation = $.useInVirtualMachineCreation;
         this.usePublicIpAddress = $.usePublicIpAddress;
     }
@@ -105,6 +122,27 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param sharedPublicIpAddress A `shared_public_ip_address` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedPublicIpAddress(@Nullable Output<VirtualNetworkSubnetSharedPublicIpAddressArgs> sharedPublicIpAddress) {
+            $.sharedPublicIpAddress = sharedPublicIpAddress;
+            return this;
+        }
+
+        /**
+         * @param sharedPublicIpAddress A `shared_public_ip_address` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedPublicIpAddress(VirtualNetworkSubnetSharedPublicIpAddressArgs sharedPublicIpAddress) {
+            return sharedPublicIpAddress(Output.of(sharedPublicIpAddress));
         }
 
         /**

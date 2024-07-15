@@ -104,6 +104,12 @@ public class Topic extends com.pulumi.resources.CustomResource {
     public Output<String> autoDeleteOnIdle() {
         return this.autoDeleteOnIdle;
     }
+    @Export(name="batchedOperationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> batchedOperationsEnabled;
+
+    public Output<Boolean> batchedOperationsEnabled() {
+        return this.batchedOperationsEnabled;
+    }
     /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
@@ -135,7 +141,11 @@ public class Topic extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
      * 
+     * @deprecated
+     * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBatchedOperations;
 
@@ -149,7 +159,11 @@ public class Topic extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
+     * @deprecated
+     * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enableExpress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableExpress;
 
@@ -165,7 +179,11 @@ public class Topic extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
      * 
+     * @deprecated
+     * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enablePartitioning", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePartitioning;
 
@@ -177,6 +195,12 @@ public class Topic extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enablePartitioning() {
         return Codegen.optional(this.enablePartitioning);
+    }
+    @Export(name="expressEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> expressEnabled;
+
+    public Output<Boolean> expressEnabled() {
+        return this.expressEnabled;
     }
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the &#34;Large messages support&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
@@ -239,6 +263,12 @@ public class Topic extends com.pulumi.resources.CustomResource {
 
     public Output<String> namespaceName() {
         return this.namespaceName;
+    }
+    @Export(name="partitioningEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> partitioningEnabled;
+
+    public Output<Boolean> partitioningEnabled() {
+        return this.partitioningEnabled;
     }
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.

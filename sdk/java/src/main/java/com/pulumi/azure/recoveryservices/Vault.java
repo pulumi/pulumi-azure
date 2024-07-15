@@ -84,14 +84,14 @@ public class Vault extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="classicVmwareReplicationEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> classicVmwareReplicationEnabled;
+    private Output</* @Nullable */ Boolean> classicVmwareReplicationEnabled;
 
     /**
      * @return Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Boolean> classicVmwareReplicationEnabled() {
-        return this.classicVmwareReplicationEnabled;
+    public Output<Optional<Boolean>> classicVmwareReplicationEnabled() {
+        return Codegen.optional(this.classicVmwareReplicationEnabled);
     }
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute
 {
     /// <summary>
-    /// Manages a Restore Point Collection.
+    /// Manages a Virtual Machine Restore Point Collection.
     /// 
     /// ## Example Usage
     /// 
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleRestorePointCollection = new Azure.Compute.RestorePointCollection("example", new()
+    ///     var exampleVirtualMachineRestorePointCollection = new Azure.Compute.VirtualMachineRestorePointCollection("example", new()
     ///     {
     ///         Name = "example-collection",
     ///         ResourceGroupName = example.Name,
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ## Import
     /// 
-    /// Restore Point Collections can be imported using the `resource id`, e.g.
+    /// Virtual Machine Restore Point Collections can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
@@ -126,31 +126,31 @@ namespace Pulumi.Azure.Compute
     public partial class RestorePointCollection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        /// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+        /// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+        /// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Output("sourceVirtualMachineId")]
         public Output<string> SourceVirtualMachineId { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to this Restore Point Collection.
+        /// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -202,25 +202,25 @@ namespace Pulumi.Azure.Compute
     public sealed class RestorePointCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        /// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+        /// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+        /// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceVirtualMachineId", required: true)]
         public Input<string> SourceVirtualMachineId { get; set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Compute
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to this Restore Point Collection.
+        /// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -246,25 +246,25 @@ namespace Pulumi.Azure.Compute
     public sealed class RestorePointCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        /// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+        /// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        /// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+        /// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         /// </summary>
         [Input("sourceVirtualMachineId")]
         public Input<string>? SourceVirtualMachineId { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Azure.Compute
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags which should be assigned to this Restore Point Collection.
+        /// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         /// </summary>
         public InputMap<string> Tags
         {

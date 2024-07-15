@@ -117,14 +117,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customQuestionAnsweringSearchServiceKey);
     }
     /**
-     * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`.  Changing this forces a new resource to be created.
      * 
      */
     @Export(name="customSubdomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customSubdomainName;
 
     /**
-     * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+     * @return The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`.  Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> customSubdomainName() {

@@ -26,11 +26,11 @@ class RestorePointCollectionArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RestorePointCollection resource.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] location: The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Restore Point Collection.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] location: The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_virtual_machine_id", source_virtual_machine_id)
@@ -45,7 +45,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -57,7 +57,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter(name="sourceVirtualMachineId")
     def source_virtual_machine_id(self) -> pulumi.Input[str]:
         """
-        The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+        The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_virtual_machine_id")
 
@@ -69,7 +69,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -81,7 +81,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+        Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -93,7 +93,7 @@ class RestorePointCollectionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to this Restore Point Collection.
+        A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         return pulumi.get(self, "tags")
 
@@ -112,11 +112,11 @@ class _RestorePointCollectionState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RestorePointCollection resources.
-        :param pulumi.Input[str] location: The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Restore Point Collection.
+        :param pulumi.Input[str] location: The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         if location is not None:
             pulumi.set(__self__, "location", location)
@@ -133,7 +133,7 @@ class _RestorePointCollectionState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -145,7 +145,7 @@ class _RestorePointCollectionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+        Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -157,7 +157,7 @@ class _RestorePointCollectionState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -169,7 +169,7 @@ class _RestorePointCollectionState:
     @pulumi.getter(name="sourceVirtualMachineId")
     def source_virtual_machine_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+        The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_virtual_machine_id")
 
@@ -181,7 +181,7 @@ class _RestorePointCollectionState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to this Restore Point Collection.
+        A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         return pulumi.get(self, "tags")
 
@@ -202,7 +202,7 @@ class RestorePointCollection(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a Restore Point Collection.
+        Manages a Virtual Machine Restore Point Collection.
 
         ## Example Usage
 
@@ -254,7 +254,7 @@ class RestorePointCollection(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             })
-        example_restore_point_collection = azure.compute.RestorePointCollection("example",
+        example_virtual_machine_restore_point_collection = azure.compute.VirtualMachineRestorePointCollection("example",
             name="example-collection",
             resource_group_name=example.name,
             location=example_linux_virtual_machine.location,
@@ -263,7 +263,7 @@ class RestorePointCollection(pulumi.CustomResource):
 
         ## Import
 
-        Restore Point Collections can be imported using the `resource id`, e.g.
+        Virtual Machine Restore Point Collections can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
@@ -271,11 +271,11 @@ class RestorePointCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Restore Point Collection.
+        :param pulumi.Input[str] location: The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         ...
     @overload
@@ -284,7 +284,7 @@ class RestorePointCollection(pulumi.CustomResource):
                  args: RestorePointCollectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Restore Point Collection.
+        Manages a Virtual Machine Restore Point Collection.
 
         ## Example Usage
 
@@ -336,7 +336,7 @@ class RestorePointCollection(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             })
-        example_restore_point_collection = azure.compute.RestorePointCollection("example",
+        example_virtual_machine_restore_point_collection = azure.compute.VirtualMachineRestorePointCollection("example",
             name="example-collection",
             resource_group_name=example.name,
             location=example_linux_virtual_machine.location,
@@ -345,7 +345,7 @@ class RestorePointCollection(pulumi.CustomResource):
 
         ## Import
 
-        Restore Point Collections can be imported using the `resource id`, e.g.
+        Virtual Machine Restore Point Collections can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
@@ -411,11 +411,11 @@ class RestorePointCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Restore Point Collection.
+        :param pulumi.Input[str] location: The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] source_virtual_machine_id: The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -432,7 +432,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
 
@@ -440,7 +440,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+        Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -448,7 +448,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+        The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -456,7 +456,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter(name="sourceVirtualMachineId")
     def source_virtual_machine_id(self) -> pulumi.Output[str]:
         """
-        The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+        The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_virtual_machine_id")
 
@@ -464,7 +464,7 @@ class RestorePointCollection(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to this Restore Point Collection.
+        A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
         """
         return pulumi.get(self, "tags")
 

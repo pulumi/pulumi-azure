@@ -67,7 +67,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
      */
-    public readonly classicVmwareReplicationEnabled!: pulumi.Output<boolean>;
+    public readonly classicVmwareReplicationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
      *

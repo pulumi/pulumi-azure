@@ -240,7 +240,7 @@ namespace Pulumi.Azure
 
         private static readonly __Value<bool?> _storageUseAzuread = new __Value<bool?>(() => __config.GetBoolean("storageUseAzuread") ?? Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false);
         /// <summary>
-        /// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        /// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         /// </summary>
         public static bool? StorageUseAzuread
         {

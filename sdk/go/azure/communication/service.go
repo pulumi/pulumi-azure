@@ -88,6 +88,13 @@ func NewService(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"primaryConnectionString",
+		"primaryKey",
+		"secondaryConnectionString",
+		"secondaryKey",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Service
 	err := ctx.RegisterResource("azure:communication/service:Service", name, args, &resource, opts...)

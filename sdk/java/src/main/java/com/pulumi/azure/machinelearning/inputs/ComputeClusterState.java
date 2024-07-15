@@ -36,14 +36,14 @@ public final class ComputeClusterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * An `identity` block as defined below.
      * 
      */
     @Import(name="identity")
     private @Nullable Output<ComputeClusterIdentityArgs> identity;
 
     /**
-     * @return An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return An `identity` block as defined below.
      * 
      */
     public Optional<Output<ComputeClusterIdentityArgs>> identity() {
@@ -289,7 +289,7 @@ public final class ComputeClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identity An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param identity An `identity` block as defined below.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ComputeClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identity An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+         * @param identity An `identity` block as defined below.
          * 
          * @return builder
          * 

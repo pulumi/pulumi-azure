@@ -12786,7 +12786,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
          *
          * > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -13959,7 +13959,7 @@ export namespace appservice {
          */
         nodeVersion?: string;
         /**
-         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+         * The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
          *
          * > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
          */
@@ -20607,9 +20607,14 @@ export namespace automation {
     }
 
     export interface SoftwareUpdateConfigurationLinux {
+        /**
+         * @deprecated this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
+         */
         classificationIncluded: string;
         /**
          * Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+         *
+         * > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
          */
         classificationsIncludeds: string[];
         /**
@@ -20762,11 +20767,13 @@ export namespace automation {
 
     export interface SoftwareUpdateConfigurationWindows {
         /**
-         * @deprecated windows classification can be set as a list, use `classificationsIncluded` instead.
+         * @deprecated this property is deprecated and will be removed in version 4.0 of the provider, please use `classificationsIncluded` instead.
          */
         classificationIncluded: string;
         /**
          * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         *
+         * > **NOTE:** The `classificationsIncluded` property will become `Required` in version 4.0 of the Provider.
          */
         classificationsIncludeds: string[];
         /**
@@ -31721,6 +31728,10 @@ export namespace containerservice {
 
     export interface GetKubernetesClusterServiceMeshProfile {
         /**
+         * A `certificateAuthority` block as documented below.
+         */
+        certificateAuthorities: outputs.containerservice.GetKubernetesClusterServiceMeshProfileCertificateAuthority[];
+        /**
          * Is Istio External Ingress Gateway enabled?
          */
         externalIngressGatewayEnabled: boolean;
@@ -31732,6 +31743,29 @@ export namespace containerservice {
          * The mode of the service mesh.
          */
         mode: string;
+    }
+
+    export interface GetKubernetesClusterServiceMeshProfileCertificateAuthority {
+        /**
+         * The certificate chain object name in Azure Key Vault.
+         */
+        certChainObjectName: string;
+        /**
+         * The intermediate certificate object name in Azure Key Vault.
+         */
+        certObjectName: string;
+        /**
+         * The intermediate certificate private key object name in Azure Key Vault.
+         */
+        keyObjectName: string;
+        /**
+         * The resource ID of the Key Vault.
+         */
+        keyVaultId: string;
+        /**
+         * The root certificate object name in Azure Key Vault.
+         */
+        rootCertObjectName: string;
     }
 
     export interface GetKubernetesClusterServicePrincipal {
@@ -33640,6 +33674,10 @@ export namespace containerservice {
 
     export interface KubernetesClusterServiceMeshProfile {
         /**
+         * A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+         */
+        certificateAuthority?: outputs.containerservice.KubernetesClusterServiceMeshProfileCertificateAuthority;
+        /**
          * Is Istio External Ingress Gateway enabled?
          *
          * > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
@@ -33653,6 +33691,31 @@ export namespace containerservice {
          * The mode of the service mesh. Possible value is `Istio`.
          */
         mode: string;
+    }
+
+    export interface KubernetesClusterServiceMeshProfileCertificateAuthority {
+        /**
+         * The certificate chain object name in Azure Key Vault.
+         */
+        certChainObjectName: string;
+        /**
+         * The intermediate certificate object name in Azure Key Vault.
+         */
+        certObjectName: string;
+        /**
+         * The intermediate certificate private key object name in Azure Key Vault.
+         *
+         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         */
+        keyObjectName: string;
+        /**
+         * The resource ID of the Key Vault.
+         */
+        keyVaultId: string;
+        /**
+         * The root certificate object name in Azure Key Vault.
+         */
+        rootCertObjectName: string;
     }
 
     export interface KubernetesClusterServicePrincipal {
@@ -35802,7 +35865,9 @@ export namespace databricks {
         /**
          * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          *
-         * > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+         * > **Note:** Updating `noPublicIp` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+         *
+         * > **Note:** In `v3.104.0` and higher of the provider the `noPublicIp` parameter will now default to `true` instead of `false`.
          */
         noPublicIp: boolean;
         /**
@@ -35830,7 +35895,7 @@ export namespace databricks {
          */
         storageAccountName: string;
         /**
-         * Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+         * Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
          */
         storageAccountSkuName: string;
         /**
@@ -38465,6 +38530,10 @@ export namespace devtest {
          */
         name: string;
         /**
+         * A `sharedPublicIpAddress` block as defined below.
+         */
+        sharedPublicIpAddress?: outputs.devtest.VirtualNetworkSubnetSharedPublicIpAddress;
+        /**
          * Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
          */
         useInVirtualMachineCreation?: string;
@@ -38472,6 +38541,24 @@ export namespace devtest {
          * Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
          */
         usePublicIpAddress?: string;
+    }
+
+    export interface VirtualNetworkSubnetSharedPublicIpAddress {
+        /**
+         * A list of `allowedPorts` blocks as defined below.
+         */
+        allowedPorts?: outputs.devtest.VirtualNetworkSubnetSharedPublicIpAddressAllowedPort[];
+    }
+
+    export interface VirtualNetworkSubnetSharedPublicIpAddressAllowedPort {
+        /**
+         * The port on the Virtual Machine that the traffic will be sent to.
+         */
+        backendPort?: number;
+        /**
+         * The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
+         */
+        transportProtocol?: string;
     }
 
     export interface WindowsVirtualMachineGalleryImageReference {
@@ -60339,22 +60426,22 @@ export namespace nginx {
 
     export interface DeploymentFrontendPrivate {
         /**
-         * Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+         * Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
          */
         allocationMethod: string;
         /**
-         * Specify the private IP Address.
+         * Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
          */
         ipAddress: string;
         /**
-         * Specify the Subnet Resource ID for this NGINX Deployment.
+         * Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          */
         subnetId: string;
     }
 
     export interface DeploymentFrontendPublic {
         /**
-         * Specifies a list of Public IP Resource ID to this NGINX Deployment.
+         * Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          */
         ipAddresses?: string[];
     }
@@ -60387,7 +60474,7 @@ export namespace nginx {
 
     export interface DeploymentNetworkInterface {
         /**
-         * Specify The Subnet Resource ID for this NGINX Deployment.
+         * Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
          */
         subnetId: string;
     }
@@ -67485,7 +67572,7 @@ export namespace waf {
 
     export interface PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
         /**
-         * Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+         * Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
          */
         action?: string;
         /**

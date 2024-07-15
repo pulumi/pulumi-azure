@@ -73,7 +73,7 @@ type Account struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrOutput `pulumi:"customerManagedKey"`
@@ -185,7 +185,7 @@ type accountState struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
@@ -250,7 +250,7 @@ type AccountState struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
@@ -319,7 +319,7 @@ type accountArgs struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
@@ -379,7 +379,7 @@ type AccountArgs struct {
 	//
 	// > **NOTE:** `customQuestionAnsweringSearchServiceId` and `customQuestionAnsweringSearchServiceKey` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qnaRuntimeEndpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
-	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+	// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
@@ -530,7 +530,7 @@ func (o AccountOutput) CustomQuestionAnsweringSearchServiceKey() pulumi.StringPt
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomQuestionAnsweringSearchServiceKey }).(pulumi.StringPtrOutput)
 }
 
-// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+// The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
 func (o AccountOutput) CustomSubdomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomSubdomainName }).(pulumi.StringPtrOutput)
 }

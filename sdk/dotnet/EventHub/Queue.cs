@@ -68,6 +68,9 @@ namespace Pulumi.Azure.EventHub
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
 
+        [Output("batchedOperationsEnabled")]
+        public Output<bool> BatchedOperationsEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
         /// </summary>
@@ -107,6 +110,9 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("enablePartitioning")]
         public Output<bool?> EnablePartitioning { get; private set; } = null!;
+
+        [Output("expressEnabled")]
+        public Output<bool> ExpressEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of a Queue or Topic to automatically forward dead lettered messages to.
@@ -158,6 +164,9 @@ namespace Pulumi.Azure.EventHub
 
         [Output("namespaceName")]
         public Output<string> NamespaceName { get; private set; } = null!;
+
+        [Output("partitioningEnabled")]
+        public Output<bool> PartitioningEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
@@ -232,6 +241,9 @@ namespace Pulumi.Azure.EventHub
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
+        [Input("batchedOperationsEnabled")]
+        public Input<bool>? BatchedOperationsEnabled { get; set; }
+
         /// <summary>
         /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
         /// </summary>
@@ -271,6 +283,9 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
+
+        [Input("expressEnabled")]
+        public Input<bool>? ExpressEnabled { get; set; }
 
         /// <summary>
         /// The name of a Queue or Topic to automatically forward dead lettered messages to.
@@ -320,6 +335,9 @@ namespace Pulumi.Azure.EventHub
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
+        [Input("partitioningEnabled")]
+        public Input<bool>? PartitioningEnabled { get; set; }
+
         /// <summary>
         /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
         /// </summary>
@@ -351,6 +369,9 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        [Input("batchedOperationsEnabled")]
+        public Input<bool>? BatchedOperationsEnabled { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
@@ -391,6 +412,9 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("enablePartitioning")]
         public Input<bool>? EnablePartitioning { get; set; }
+
+        [Input("expressEnabled")]
+        public Input<bool>? ExpressEnabled { get; set; }
 
         /// <summary>
         /// The name of a Queue or Topic to automatically forward dead lettered messages to.
@@ -442,6 +466,9 @@ namespace Pulumi.Azure.EventHub
 
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
+
+        [Input("partitioningEnabled")]
+        public Input<bool>? PartitioningEnabled { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.

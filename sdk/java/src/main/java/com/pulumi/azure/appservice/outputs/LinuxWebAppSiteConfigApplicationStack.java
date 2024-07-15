@@ -86,7 +86,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      */
     private @Nullable String nodeVersion;
     /**
-     * @return The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+     * @return The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
      * 
      * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 
@@ -203,7 +203,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
-     * @return The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+     * @return The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
      * 
      * &gt; **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
      * 

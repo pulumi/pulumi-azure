@@ -59,7 +59,7 @@ class AccountArgs:
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
                
                > **NOTE:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
-        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
@@ -196,7 +196,7 @@ class AccountArgs:
     @pulumi.getter(name="customSubdomainName")
     def custom_subdomain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_subdomain_name")
 
@@ -446,7 +446,7 @@ class _AccountState:
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
                
                > **NOTE:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
-        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         :param pulumi.Input['AccountCustomerManagedKeyArgs'] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
@@ -562,7 +562,7 @@ class _AccountState:
     @pulumi.getter(name="customSubdomainName")
     def custom_subdomain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_subdomain_name")
 
@@ -923,7 +923,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
                
                > **NOTE:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
-        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
@@ -1120,7 +1120,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
                
                > **NOTE:** `custom_question_answering_search_service_id` and `custom_question_answering_search_service_key` are used for [Custom Question Answering, the renamed version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/custom-question-answering), while `qna_runtime_endpoint` is used for [the old version of QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview)
-        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         :param pulumi.Input[Union['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKeyArgsDict']] customer_managed_key: A `customer_managed_key` block as documented below.
         :param pulumi.Input[bool] dynamic_throttling_enabled: Whether to enable the dynamic throttling for this Cognitive Service Account.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
@@ -1207,7 +1207,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="customSubdomainName")
     def custom_subdomain_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_subdomain_name")
 

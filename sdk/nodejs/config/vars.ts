@@ -237,7 +237,7 @@ Object.defineProperty(exports, "skipProviderRegistration", {
 });
 
 /**
- * Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+ * Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
  */
 export declare const storageUseAzuread: boolean;
 Object.defineProperty(exports, "storageUseAzuread", {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Manages a Restore Point Collection.
+ * Manages a Virtual Machine Restore Point Collection.
  *
  * ## Example Usage
  *
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleRestorePointCollection = new azure.compute.RestorePointCollection("example", {
+ * const exampleVirtualMachineRestorePointCollection = new azure.compute.VirtualMachineRestorePointCollection("example", {
  *     name: "example-collection",
  *     resourceGroupName: example.name,
  *     location: exampleLinuxVirtualMachine.location,
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Restore Point Collections can be imported using the `resource id`, e.g.
+ * Virtual Machine Restore Point Collections can be imported using the `resource id`, e.g.
  *
  * ```sh
  * $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
@@ -109,23 +109,23 @@ export class RestorePointCollection extends pulumi.CustomResource {
     }
 
     /**
-     * The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+     * Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+     * The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
     public readonly sourceVirtualMachineId!: pulumi.Output<string>;
     /**
-     * A mapping of tags which should be assigned to this Restore Point Collection.
+     * A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
@@ -171,23 +171,23 @@ export class RestorePointCollection extends pulumi.CustomResource {
  */
 export interface RestorePointCollectionState {
     /**
-     * The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+     * Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+     * The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
     sourceVirtualMachineId?: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to this Restore Point Collection.
+     * A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -197,23 +197,23 @@ export interface RestorePointCollectionState {
  */
 export interface RestorePointCollectionArgs {
     /**
-     * The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+     * Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
-     * The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+     * The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      */
     sourceVirtualMachineId: pulumi.Input<string>;
     /**
-     * A mapping of tags which should be assigned to this Restore Point Collection.
+     * A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

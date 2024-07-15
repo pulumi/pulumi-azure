@@ -101,6 +101,8 @@ type IdentityProviderAadb2c struct {
 	Authority pulumi.StringOutput `pulumi:"authority"`
 	// Client ID of the Application in your B2C tenant.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// The client library to be used in the Azure AD B2C Identity Provider.
+	ClientLibrary pulumi.StringPtrOutput `pulumi:"clientLibrary"`
 	// Client secret of the Application in your B2C tenant.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// Password reset Policy Name.
@@ -189,6 +191,8 @@ type identityProviderAadb2cState struct {
 	Authority *string `pulumi:"authority"`
 	// Client ID of the Application in your B2C tenant.
 	ClientId *string `pulumi:"clientId"`
+	// The client library to be used in the Azure AD B2C Identity Provider.
+	ClientLibrary *string `pulumi:"clientLibrary"`
 	// Client secret of the Application in your B2C tenant.
 	ClientSecret *string `pulumi:"clientSecret"`
 	// Password reset Policy Name.
@@ -214,6 +218,8 @@ type IdentityProviderAadb2cState struct {
 	Authority pulumi.StringPtrInput
 	// Client ID of the Application in your B2C tenant.
 	ClientId pulumi.StringPtrInput
+	// The client library to be used in the Azure AD B2C Identity Provider.
+	ClientLibrary pulumi.StringPtrInput
 	// Client secret of the Application in your B2C tenant.
 	ClientSecret pulumi.StringPtrInput
 	// Password reset Policy Name.
@@ -243,6 +249,8 @@ type identityProviderAadb2cArgs struct {
 	Authority string `pulumi:"authority"`
 	// Client ID of the Application in your B2C tenant.
 	ClientId string `pulumi:"clientId"`
+	// The client library to be used in the Azure AD B2C Identity Provider.
+	ClientLibrary *string `pulumi:"clientLibrary"`
 	// Client secret of the Application in your B2C tenant.
 	ClientSecret string `pulumi:"clientSecret"`
 	// Password reset Policy Name.
@@ -269,6 +277,8 @@ type IdentityProviderAadb2cArgs struct {
 	Authority pulumi.StringInput
 	// Client ID of the Application in your B2C tenant.
 	ClientId pulumi.StringInput
+	// The client library to be used in the Azure AD B2C Identity Provider.
+	ClientLibrary pulumi.StringPtrInput
 	// Client secret of the Application in your B2C tenant.
 	ClientSecret pulumi.StringInput
 	// Password reset Policy Name.
@@ -390,6 +400,11 @@ func (o IdentityProviderAadb2cOutput) Authority() pulumi.StringOutput {
 // Client ID of the Application in your B2C tenant.
 func (o IdentityProviderAadb2cOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderAadb2c) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The client library to be used in the Azure AD B2C Identity Provider.
+func (o IdentityProviderAadb2cOutput) ClientLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderAadb2c) pulumi.StringPtrOutput { return v.ClientLibrary }).(pulumi.StringPtrOutput)
 }
 
 // Client secret of the Application in your B2C tenant.

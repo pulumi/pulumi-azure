@@ -75,19 +75,27 @@ type Topic struct {
 	pulumi.CustomResourceState
 
 	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+	AutoDeleteOnIdle         pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+	BatchedOperationsEnabled pulumi.BoolOutput   `pulumi:"batchedOperationsEnabled"`
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl pulumi.StringOutput `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls if server-side batched operations are enabled.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
+	ExpressEnabled     pulumi.BoolOutput    `pulumi:"expressEnabled"`
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntOutput `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
@@ -95,8 +103,9 @@ type Topic struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+	NamespaceId         pulumi.StringOutput `pulumi:"namespaceId"`
+	NamespaceName       pulumi.StringOutput `pulumi:"namespaceName"`
+	PartitioningEnabled pulumi.BoolOutput   `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
 	ResourceGroupName          pulumi.StringOutput  `pulumi:"resourceGroupName"`
@@ -146,19 +155,27 @@ func GetTopic(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Topic resources.
 type topicState struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	AutoDeleteOnIdle         *string `pulumi:"autoDeleteOnIdle"`
+	BatchedOperationsEnabled *bool   `pulumi:"batchedOperationsEnabled"`
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls if server-side batched operations are enabled.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	ExpressEnabled     *bool `pulumi:"expressEnabled"`
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
@@ -166,8 +183,9 @@ type topicState struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId   *string `pulumi:"namespaceId"`
-	NamespaceName *string `pulumi:"namespaceName"`
+	NamespaceId         *string `pulumi:"namespaceId"`
+	NamespaceName       *string `pulumi:"namespaceName"`
+	PartitioningEnabled *bool   `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection *bool   `pulumi:"requiresDuplicateDetection"`
 	ResourceGroupName          *string `pulumi:"resourceGroupName"`
@@ -179,19 +197,27 @@ type topicState struct {
 
 type TopicState struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrInput
+	AutoDeleteOnIdle         pulumi.StringPtrInput
+	BatchedOperationsEnabled pulumi.BoolPtrInput
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
 	// Boolean flag which controls if server-side batched operations are enabled.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning pulumi.BoolPtrInput
+	ExpressEnabled     pulumi.BoolPtrInput
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
@@ -199,8 +225,9 @@ type TopicState struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId   pulumi.StringPtrInput
-	NamespaceName pulumi.StringPtrInput
+	NamespaceId         pulumi.StringPtrInput
+	NamespaceName       pulumi.StringPtrInput
+	PartitioningEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	ResourceGroupName          pulumi.StringPtrInput
@@ -216,19 +243,27 @@ func (TopicState) ElementType() reflect.Type {
 
 type topicArgs struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	AutoDeleteOnIdle         *string `pulumi:"autoDeleteOnIdle"`
+	BatchedOperationsEnabled *bool   `pulumi:"batchedOperationsEnabled"`
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl *string `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls if server-side batched operations are enabled.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	ExpressEnabled     *bool `pulumi:"expressEnabled"`
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes *int `pulumi:"maxMessageSizeInKilobytes"`
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
@@ -236,7 +271,8 @@ type topicArgs struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId string `pulumi:"namespaceId"`
+	NamespaceId         string `pulumi:"namespaceId"`
+	PartitioningEnabled *bool  `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -248,19 +284,27 @@ type topicArgs struct {
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrInput
+	AutoDeleteOnIdle         pulumi.StringPtrInput
+	BatchedOperationsEnabled pulumi.BoolPtrInput
 	// The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 	DefaultMessageTtl pulumi.StringPtrInput
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes. (`PT10M`)
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
 	// Boolean flag which controls if server-side batched operations are enabled.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning pulumi.BoolPtrInput
+	ExpressEnabled     pulumi.BoolPtrInput
 	// Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
 	MaxMessageSizeInKilobytes pulumi.IntPtrInput
 	// Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
@@ -268,7 +312,8 @@ type TopicArgs struct {
 	// Specifies the name of the ServiceBus Topic resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringInput
+	NamespaceId         pulumi.StringInput
+	PartitioningEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// The Status of the Service Bus Topic. Acceptable values are `Active` or `Disabled`. Defaults to `Active`.
@@ -369,6 +414,10 @@ func (o TopicOutput) AutoDeleteOnIdle() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
 }
 
+func (o TopicOutput) BatchedOperationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolOutput { return v.BatchedOperationsEnabled }).(pulumi.BoolOutput)
+}
+
 // The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
 func (o TopicOutput) DefaultMessageTtl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.DefaultMessageTtl }).(pulumi.StringOutput)
@@ -380,11 +429,15 @@ func (o TopicOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
 }
 
 // Boolean flag which controls if server-side batched operations are enabled.
+//
+// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o TopicOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
 }
 
 // Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+//
+// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
 }
@@ -392,8 +445,14 @@ func (o TopicOutput) EnableExpress() pulumi.BoolPtrOutput {
 // Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 //
 // > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+//
+// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o TopicOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicOutput) ExpressEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolOutput { return v.ExpressEnabled }).(pulumi.BoolOutput)
 }
 
 // Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
@@ -418,6 +477,10 @@ func (o TopicOutput) NamespaceId() pulumi.StringOutput {
 
 func (o TopicOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+func (o TopicOutput) PartitioningEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Topic) pulumi.BoolOutput { return v.PartitioningEnabled }).(pulumi.BoolOutput)
 }
 
 // Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.

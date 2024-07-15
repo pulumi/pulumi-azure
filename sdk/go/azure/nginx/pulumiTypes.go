@@ -716,11 +716,11 @@ func (o DeploymentConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput
 }
 
 type DeploymentFrontendPrivate struct {
-	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
 	AllocationMethod string `pulumi:"allocationMethod"`
-	// Specify the private IP Address.
+	// Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
 	IpAddress string `pulumi:"ipAddress"`
-	// Specify the Subnet Resource ID for this NGINX Deployment.
+	// Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -736,11 +736,11 @@ type DeploymentFrontendPrivateInput interface {
 }
 
 type DeploymentFrontendPrivateArgs struct {
-	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+	// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
 	AllocationMethod pulumi.StringInput `pulumi:"allocationMethod"`
-	// Specify the private IP Address.
+	// Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
 	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
-	// Specify the Subnet Resource ID for this NGINX Deployment.
+	// Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -795,17 +795,17 @@ func (o DeploymentFrontendPrivateOutput) ToDeploymentFrontendPrivateOutputWithCo
 	return o
 }
 
-// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+// Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentFrontendPrivateOutput) AllocationMethod() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.AllocationMethod }).(pulumi.StringOutput)
 }
 
-// Specify the private IP Address.
+// Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentFrontendPrivateOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.IpAddress }).(pulumi.StringOutput)
 }
 
-// Specify the Subnet Resource ID for this NGINX Deployment.
+// Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentFrontendPrivateOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentFrontendPrivate) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -831,7 +831,7 @@ func (o DeploymentFrontendPrivateArrayOutput) Index(i pulumi.IntInput) Deploymen
 }
 
 type DeploymentFrontendPublic struct {
-	// Specifies a list of Public IP Resource ID to this NGINX Deployment.
+	// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	IpAddresses []string `pulumi:"ipAddresses"`
 }
 
@@ -847,7 +847,7 @@ type DeploymentFrontendPublicInput interface {
 }
 
 type DeploymentFrontendPublicArgs struct {
-	// Specifies a list of Public IP Resource ID to this NGINX Deployment.
+	// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
 }
 
@@ -928,7 +928,7 @@ func (o DeploymentFrontendPublicOutput) ToDeploymentFrontendPublicPtrOutputWithC
 	}).(DeploymentFrontendPublicPtrOutput)
 }
 
-// Specifies a list of Public IP Resource ID to this NGINX Deployment.
+// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentFrontendPublicOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentFrontendPublic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
 }
@@ -957,7 +957,7 @@ func (o DeploymentFrontendPublicPtrOutput) Elem() DeploymentFrontendPublicOutput
 	}).(DeploymentFrontendPublicOutput)
 }
 
-// Specifies a list of Public IP Resource ID to this NGINX Deployment.
+// Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentFrontendPublicPtrOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeploymentFrontendPublic) []string {
 		if v == nil {
@@ -1268,7 +1268,7 @@ func (o DeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) Dep
 }
 
 type DeploymentNetworkInterface struct {
-	// Specify The Subnet Resource ID for this NGINX Deployment.
+	// Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -1284,7 +1284,7 @@ type DeploymentNetworkInterfaceInput interface {
 }
 
 type DeploymentNetworkInterfaceArgs struct {
-	// Specify The Subnet Resource ID for this NGINX Deployment.
+	// Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -1339,7 +1339,7 @@ func (o DeploymentNetworkInterfaceOutput) ToDeploymentNetworkInterfaceOutputWith
 	return o
 }
 
-// Specify The Subnet Resource ID for this NGINX Deployment.
+// Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
 func (o DeploymentNetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v DeploymentNetworkInterface) string { return v.SubnetId }).(pulumi.StringOutput)
 }

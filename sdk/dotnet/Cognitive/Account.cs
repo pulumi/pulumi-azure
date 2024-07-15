@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Cognitive
         public Output<string?> CustomQuestionAnsweringSearchServiceKey { get; private set; } = null!;
 
         /// <summary>
-        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`.  Changing this forces a new resource to be created.
         /// </summary>
         [Output("customSubdomainName")]
         public Output<string?> CustomSubdomainName { get; private set; } = null!;
@@ -300,7 +300,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
@@ -484,7 +484,7 @@ namespace Pulumi.Azure.Cognitive
         }
 
         /// <summary>
-        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created.
+        /// The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://&lt;custom_subdomain_name&gt;.openai.azure.com/`.  Changing this forces a new resource to be created.
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }

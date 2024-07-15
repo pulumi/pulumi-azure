@@ -75,7 +75,8 @@ type Queue struct {
 	pulumi.CustomResourceState
 
 	// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+	AutoDeleteOnIdle         pulumi.StringOutput `pulumi:"autoDeleteOnIdle"`
+	BatchedOperationsEnabled pulumi.BoolOutput   `pulumi:"batchedOperationsEnabled"`
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrOutput `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
@@ -83,15 +84,22 @@ type Queue struct {
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow pulumi.StringOutput `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations pulumi.BoolPtrOutput `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	//
 	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress pulumi.BoolPtrOutput `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning pulumi.BoolPtrOutput `pulumi:"enablePartitioning"`
+	ExpressEnabled     pulumi.BoolOutput    `pulumi:"expressEnabled"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrOutput `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
@@ -107,8 +115,9 @@ type Queue struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId   pulumi.StringOutput `pulumi:"namespaceId"`
-	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
+	NamespaceId         pulumi.StringOutput `pulumi:"namespaceId"`
+	NamespaceName       pulumi.StringOutput `pulumi:"namespaceName"`
+	PartitioningEnabled pulumi.BoolOutput   `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection pulumi.BoolPtrOutput `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
@@ -152,7 +161,8 @@ func GetQueue(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	AutoDeleteOnIdle         *string `pulumi:"autoDeleteOnIdle"`
+	BatchedOperationsEnabled *bool   `pulumi:"batchedOperationsEnabled"`
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
@@ -160,15 +170,22 @@ type queueState struct {
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	//
 	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	ExpressEnabled     *bool `pulumi:"expressEnabled"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
@@ -184,8 +201,9 @@ type queueState struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId   *string `pulumi:"namespaceId"`
-	NamespaceName *string `pulumi:"namespaceName"`
+	NamespaceId         *string `pulumi:"namespaceId"`
+	NamespaceName       *string `pulumi:"namespaceName"`
+	PartitioningEnabled *bool   `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
@@ -197,7 +215,8 @@ type queueState struct {
 
 type QueueState struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrInput
+	AutoDeleteOnIdle         pulumi.StringPtrInput
+	BatchedOperationsEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
@@ -205,15 +224,22 @@ type QueueState struct {
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	//
 	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning pulumi.BoolPtrInput
+	ExpressEnabled     pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
@@ -229,8 +255,9 @@ type QueueState struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId   pulumi.StringPtrInput
-	NamespaceName pulumi.StringPtrInput
+	NamespaceId         pulumi.StringPtrInput
+	NamespaceName       pulumi.StringPtrInput
+	PartitioningEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
@@ -246,7 +273,8 @@ func (QueueState) ElementType() reflect.Type {
 
 type queueArgs struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	AutoDeleteOnIdle         *string `pulumi:"autoDeleteOnIdle"`
+	BatchedOperationsEnabled *bool   `pulumi:"batchedOperationsEnabled"`
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
@@ -254,15 +282,22 @@ type queueArgs struct {
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	//
 	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress *bool `pulumi:"enableExpress"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	ExpressEnabled     *bool `pulumi:"expressEnabled"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
 	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
@@ -278,7 +313,8 @@ type queueArgs struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId string `pulumi:"namespaceId"`
+	NamespaceId         string `pulumi:"namespaceId"`
+	PartitioningEnabled *bool  `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
@@ -290,7 +326,8 @@ type queueArgs struct {
 // The set of arguments for constructing a Queue resource.
 type QueueArgs struct {
 	// The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.
-	AutoDeleteOnIdle pulumi.StringPtrInput
+	AutoDeleteOnIdle         pulumi.StringPtrInput
+	BatchedOperationsEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
 	// The ISO 8601 timespan duration of the TTL of messages sent to this queue. This is the default value used when TTL is not set on message itself.
@@ -298,15 +335,22 @@ type QueueArgs struct {
 	// The ISO 8601 timespan duration during which duplicates can be detected. Defaults to 10 minutes (`PT10M`).
 	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
 	// Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+	//
+	// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableBatchedOperations pulumi.BoolPtrInput
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 	//
 	// > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
+	//
+	// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableExpress pulumi.BoolPtrInput
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 	//
 	// > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+	//
+	// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnablePartitioning pulumi.BoolPtrInput
+	ExpressEnabled     pulumi.BoolPtrInput
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
 	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
 	// The name of a Queue or Topic to automatically forward messages to. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-auto-forwarding) for more information.
@@ -322,7 +366,8 @@ type QueueArgs struct {
 	// Specifies the name of the ServiceBus Queue resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the ServiceBus Namespace to create this queue in. Changing this forces a new resource to be created.
-	NamespaceId pulumi.StringInput
+	NamespaceId         pulumi.StringInput
+	PartitioningEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
 	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages. Changing this forces a new resource to be created. Defaults to `false`.
@@ -423,6 +468,10 @@ func (o QueueOutput) AutoDeleteOnIdle() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.AutoDeleteOnIdle }).(pulumi.StringOutput)
 }
 
+func (o QueueOutput) BatchedOperationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolOutput { return v.BatchedOperationsEnabled }).(pulumi.BoolOutput)
+}
+
 // Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
 func (o QueueOutput) DeadLetteringOnMessageExpiration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.DeadLetteringOnMessageExpiration }).(pulumi.BoolPtrOutput)
@@ -439,6 +488,8 @@ func (o QueueOutput) DuplicateDetectionHistoryTimeWindow() pulumi.StringOutput {
 }
 
 // Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
+//
+// Deprecated: The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o QueueOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnableBatchedOperations }).(pulumi.BoolPtrOutput)
 }
@@ -446,6 +497,8 @@ func (o QueueOutput) EnableBatchedOperations() pulumi.BoolPtrOutput {
 // Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage. Defaults to `false` for Basic and Standard. For Premium, it MUST be set to `false`.
 //
 // > **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enableExpress` MUST be set to `false`.
+//
+// Deprecated: The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o QueueOutput) EnableExpress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnableExpress }).(pulumi.BoolPtrOutput)
 }
@@ -453,8 +506,14 @@ func (o QueueOutput) EnableExpress() pulumi.BoolPtrOutput {
 // Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers. Changing this forces a new resource to be created. Defaults to `false` for Basic and Standard.
 //
 // > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premiumMessagingPartitions` sets to `1`, the namespace is not partitioned.
+//
+// Deprecated: The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o QueueOutput) EnablePartitioning() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.BoolPtrOutput { return v.EnablePartitioning }).(pulumi.BoolPtrOutput)
+}
+
+func (o QueueOutput) ExpressEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolOutput { return v.ExpressEnabled }).(pulumi.BoolOutput)
 }
 
 // The name of a Queue or Topic to automatically forward dead lettered messages to.
@@ -499,6 +558,10 @@ func (o QueueOutput) NamespaceId() pulumi.StringOutput {
 
 func (o QueueOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+func (o QueueOutput) PartitioningEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Queue) pulumi.BoolOutput { return v.PartitioningEnabled }).(pulumi.BoolOutput)
 }
 
 // Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.

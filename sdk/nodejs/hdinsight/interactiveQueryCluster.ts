@@ -125,7 +125,7 @@ export class InteractiveQueryCluster extends pulumi.CustomResource {
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
      */
-    public readonly encryptionInTransitEnabled!: pulumi.Output<boolean>;
+    public readonly encryptionInTransitEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * An `extension` block as defined below.
      */

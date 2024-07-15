@@ -6,7 +6,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .catalog import *
+from .dev_box_definition import *
 from .dev_center import *
+from .environment_type import *
 from .gallery import *
 from .project import *
 from ._inputs import *

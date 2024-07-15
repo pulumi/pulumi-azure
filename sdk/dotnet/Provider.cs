@@ -399,7 +399,7 @@ namespace Pulumi.Azure
         public Input<bool>? SkipProviderRegistration { get; set; }
 
         /// <summary>
-        /// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        /// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         /// </summary>
         [Input("storageUseAzuread", json: true)]
         public Input<bool>? StorageUseAzuread { get; set; }

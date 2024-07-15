@@ -163,14 +163,16 @@ class WorkspaceCustomParameters(dict):
         :param str nat_gateway_name: Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
         :param bool no_public_ip: Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
                
-               > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+               > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+               
+               > **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
         :param str private_subnet_name: The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         :param str private_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
         :param str public_ip_name: Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
         :param str public_subnet_name: The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
         :param str public_subnet_network_security_group_association_id: The resource ID of the `network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
         :param str storage_account_name: Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
-        :param str storage_account_sku_name: Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+        :param str storage_account_sku_name: Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
         :param str virtual_network_id: The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
         :param str vnet_address_prefix: Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
                
@@ -223,7 +225,9 @@ class WorkspaceCustomParameters(dict):
         """
         Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
 
-        > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+        > **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+
+        > **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
         """
         return pulumi.get(self, "no_public_ip")
 
@@ -279,7 +283,7 @@ class WorkspaceCustomParameters(dict):
     @pulumi.getter(name="storageAccountSkuName")
     def storage_account_sku_name(self) -> Optional[str]:
         """
-        Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+        Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
         """
         return pulumi.get(self, "storage_account_sku_name")
 

@@ -163,6 +163,20 @@ public class IdentityProviderAadb2c extends com.pulumi.resources.CustomResource 
         return this.clientId;
     }
     /**
+     * The client library to be used in the Azure AD B2C Identity Provider.
+     * 
+     */
+    @Export(name="clientLibrary", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientLibrary;
+
+    /**
+     * @return The client library to be used in the Azure AD B2C Identity Provider.
+     * 
+     */
+    public Output<Optional<String>> clientLibrary() {
+        return Codegen.optional(this.clientLibrary);
+    }
+    /**
      * Client secret of the Application in your B2C tenant.
      * 
      */

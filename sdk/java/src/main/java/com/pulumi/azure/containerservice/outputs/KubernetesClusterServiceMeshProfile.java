@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterServiceMeshProfileCertificateAuthority;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesClusterServiceMeshProfile {
+    /**
+     * @return A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * 
+     */
+    private @Nullable KubernetesClusterServiceMeshProfileCertificateAuthority certificateAuthority;
     /**
      * @return Is Istio External Ingress Gateway enabled?
      * 
@@ -32,6 +38,13 @@ public final class KubernetesClusterServiceMeshProfile {
     private String mode;
 
     private KubernetesClusterServiceMeshProfile() {}
+    /**
+     * @return A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * 
+     */
+    public Optional<KubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthority() {
+        return Optional.ofNullable(this.certificateAuthority);
+    }
     /**
      * @return Is Istio External Ingress Gateway enabled?
      * 
@@ -65,17 +78,25 @@ public final class KubernetesClusterServiceMeshProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable KubernetesClusterServiceMeshProfileCertificateAuthority certificateAuthority;
         private @Nullable Boolean externalIngressGatewayEnabled;
         private @Nullable Boolean internalIngressGatewayEnabled;
         private String mode;
         public Builder() {}
         public Builder(KubernetesClusterServiceMeshProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.certificateAuthority = defaults.certificateAuthority;
     	      this.externalIngressGatewayEnabled = defaults.externalIngressGatewayEnabled;
     	      this.internalIngressGatewayEnabled = defaults.internalIngressGatewayEnabled;
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
+        public Builder certificateAuthority(@Nullable KubernetesClusterServiceMeshProfileCertificateAuthority certificateAuthority) {
+
+            this.certificateAuthority = certificateAuthority;
+            return this;
+        }
         @CustomType.Setter
         public Builder externalIngressGatewayEnabled(@Nullable Boolean externalIngressGatewayEnabled) {
 
@@ -98,6 +119,7 @@ public final class KubernetesClusterServiceMeshProfile {
         }
         public KubernetesClusterServiceMeshProfile build() {
             final var _resultValue = new KubernetesClusterServiceMeshProfile();
+            _resultValue.certificateAuthority = certificateAuthority;
             _resultValue.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
             _resultValue.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
             _resultValue.mode = mode;

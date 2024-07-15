@@ -80,6 +80,7 @@ export class Subscription extends pulumi.CustomResource {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
+    public readonly batchedOperationsEnabled!: pulumi.Output<boolean>;
     /**
      * A `clientScopedSubscription` block as defined below.
      */
@@ -104,8 +105,10 @@ export class Subscription extends pulumi.CustomResource {
     public readonly defaultMessageTtl!: pulumi.Output<string>;
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
+     *
+     * @deprecated `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
      */
-    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
+    public readonly enableBatchedOperations!: pulumi.Output<boolean>;
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
      */
@@ -153,6 +156,7 @@ export class Subscription extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SubscriptionState | undefined;
             resourceInputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
+            resourceInputs["batchedOperationsEnabled"] = state ? state.batchedOperationsEnabled : undefined;
             resourceInputs["clientScopedSubscription"] = state ? state.clientScopedSubscription : undefined;
             resourceInputs["clientScopedSubscriptionEnabled"] = state ? state.clientScopedSubscriptionEnabled : undefined;
             resourceInputs["deadLetteringOnFilterEvaluationError"] = state ? state.deadLetteringOnFilterEvaluationError : undefined;
@@ -176,6 +180,7 @@ export class Subscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'topicId'");
             }
             resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            resourceInputs["batchedOperationsEnabled"] = args ? args.batchedOperationsEnabled : undefined;
             resourceInputs["clientScopedSubscription"] = args ? args.clientScopedSubscription : undefined;
             resourceInputs["clientScopedSubscriptionEnabled"] = args ? args.clientScopedSubscriptionEnabled : undefined;
             resourceInputs["deadLetteringOnFilterEvaluationError"] = args ? args.deadLetteringOnFilterEvaluationError : undefined;
@@ -206,6 +211,7 @@ export interface SubscriptionState {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
+    batchedOperationsEnabled?: pulumi.Input<boolean>;
     /**
      * A `clientScopedSubscription` block as defined below.
      */
@@ -230,6 +236,8 @@ export interface SubscriptionState {
     defaultMessageTtl?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
+     *
+     * @deprecated `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**
@@ -274,6 +282,7 @@ export interface SubscriptionArgs {
      * The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
+    batchedOperationsEnabled?: pulumi.Input<boolean>;
     /**
      * A `clientScopedSubscription` block as defined below.
      */
@@ -298,6 +307,8 @@ export interface SubscriptionArgs {
     defaultMessageTtl?: pulumi.Input<string>;
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
+     *
+     * @deprecated `enableBatchedOperations` will be removed in favour of the property `batchedOperationsEnabled` in version 4.0 of the AzureRM Provider.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**

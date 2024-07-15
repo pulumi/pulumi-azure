@@ -1226,7 +1226,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideArrayOutput) Index(i pu
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule struct {
-	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
 	Action *string `pulumi:"action"`
 	// Describes if the managed rule is in enabled state or disabled state.
 	Enabled *bool `pulumi:"enabled"`
@@ -1246,7 +1246,7 @@ type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleInput interface {
 }
 
 type PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs struct {
-	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+	// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
 	Action pulumi.StringPtrInput `pulumi:"action"`
 	// Describes if the managed rule is in enabled state or disabled state.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
@@ -1305,7 +1305,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) ToPolicyMan
 	return o
 }
 
-// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
 func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleOutput) Action() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule) *string { return v.Action }).(pulumi.StringPtrOutput)
 }

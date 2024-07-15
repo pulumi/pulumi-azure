@@ -83,6 +83,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// The client library to be used in the AAD Identity Provider.
+        /// </summary>
+        [Output("clientLibrary")]
+        public Output<string?> ClientLibrary { get; private set; } = null!;
+
+        /// <summary>
         /// Client secret of the Application in the AAD Identity Provider.
         /// </summary>
         [Output("clientSecret")]
@@ -95,7 +101,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The AAD Tenant to use instead of Common when logging into Active Directory
+        /// The AAD Tenant to use instead of Common when logging into Active Directory.
         /// </summary>
         [Output("signinTenant")]
         public Output<string?> SigninTenant { get; private set; } = null!;
@@ -174,6 +180,12 @@ namespace Pulumi.Azure.ApiManagement
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The client library to be used in the AAD Identity Provider.
+        /// </summary>
+        [Input("clientLibrary")]
+        public Input<string>? ClientLibrary { get; set; }
+
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
 
@@ -197,7 +209,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The AAD Tenant to use instead of Common when logging into Active Directory
+        /// The AAD Tenant to use instead of Common when logging into Active Directory.
         /// </summary>
         [Input("signinTenant")]
         public Input<string>? SigninTenant { get; set; }
@@ -234,6 +246,12 @@ namespace Pulumi.Azure.ApiManagement
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        /// <summary>
+        /// The client library to be used in the AAD Identity Provider.
+        /// </summary>
+        [Input("clientLibrary")]
+        public Input<string>? ClientLibrary { get; set; }
+
         [Input("clientSecret")]
         private Input<string>? _clientSecret;
 
@@ -257,7 +275,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The AAD Tenant to use instead of Common when logging into Active Directory
+        /// The AAD Tenant to use instead of Common when logging into Active Directory.
         /// </summary>
         [Input("signinTenant")]
         public Input<string>? SigninTenant { get; set; }

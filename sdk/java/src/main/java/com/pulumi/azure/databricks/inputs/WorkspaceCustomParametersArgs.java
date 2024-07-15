@@ -49,7 +49,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     /**
      * Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * 
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
      * 
      */
     @Import(name="noPublicIp")
@@ -58,7 +60,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * 
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
      * 
      */
     public Optional<Output<Boolean>> noPublicIp() {
@@ -156,14 +160,14 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+     * Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
      * 
      */
     @Import(name="storageAccountSkuName")
     private @Nullable Output<String> storageAccountSkuName;
 
     /**
-     * @return Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+     * @return Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
      * 
      */
     public Optional<Output<String>> storageAccountSkuName() {
@@ -284,7 +288,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         /**
          * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          * 
-         * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+         * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+         * 
+         * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
          * 
          * @return builder
          * 
@@ -297,7 +303,9 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         /**
          * @param noPublicIp Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
          * 
-         * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+         * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+         * 
+         * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
          * 
          * @return builder
          * 
@@ -433,7 +441,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageAccountSkuName Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+         * @param storageAccountSkuName Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
          * 
          * @return builder
          * 
@@ -444,7 +452,7 @@ public final class WorkspaceCustomParametersArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param storageAccountSkuName Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+         * @param storageAccountSkuName Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
          * 
          * @return builder
          * 

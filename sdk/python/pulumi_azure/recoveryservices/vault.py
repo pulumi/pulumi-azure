@@ -739,7 +739,7 @@ class Vault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="classicVmwareReplicationEnabled")
-    def classic_vmware_replication_enabled(self) -> pulumi.Output[bool]:
+    def classic_vmware_replication_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
         """

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GlobalVMShutdownScheduleNotificationSettings',
@@ -23,6 +24,8 @@ __all__ = [
     'ScheduleNotificationSettings',
     'ScheduleWeeklyRecurrence',
     'VirtualNetworkSubnet',
+    'VirtualNetworkSubnetSharedPublicIpAddress',
+    'VirtualNetworkSubnetSharedPublicIpAddressAllowedPort',
     'WindowsVirtualMachineGalleryImageReference',
     'WindowsVirtualMachineInboundNatRule',
     'GetVirtualNetworkAllowedSubnetResult',
@@ -363,7 +366,9 @@ class VirtualNetworkSubnet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "useInVirtualMachineCreation":
+        if key == "sharedPublicIpAddress":
+            suggest = "shared_public_ip_address"
+        elif key == "useInVirtualMachineCreation":
             suggest = "use_in_virtual_machine_creation"
         elif key == "usePublicIpAddress":
             suggest = "use_public_ip_address"
@@ -381,15 +386,19 @@ class VirtualNetworkSubnet(dict):
 
     def __init__(__self__, *,
                  name: Optional[str] = None,
+                 shared_public_ip_address: Optional['outputs.VirtualNetworkSubnetSharedPublicIpAddress'] = None,
                  use_in_virtual_machine_creation: Optional[str] = None,
                  use_public_ip_address: Optional[str] = None):
         """
         :param str name: Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
+        :param 'VirtualNetworkSubnetSharedPublicIpAddressArgs' shared_public_ip_address: A `shared_public_ip_address` block as defined below.
         :param str use_in_virtual_machine_creation: Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         :param str use_public_ip_address: Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if shared_public_ip_address is not None:
+            pulumi.set(__self__, "shared_public_ip_address", shared_public_ip_address)
         if use_in_virtual_machine_creation is not None:
             pulumi.set(__self__, "use_in_virtual_machine_creation", use_in_virtual_machine_creation)
         if use_public_ip_address is not None:
@@ -402,6 +411,14 @@ class VirtualNetworkSubnet(dict):
         Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sharedPublicIpAddress")
+    def shared_public_ip_address(self) -> Optional['outputs.VirtualNetworkSubnetSharedPublicIpAddress']:
+        """
+        A `shared_public_ip_address` block as defined below.
+        """
+        return pulumi.get(self, "shared_public_ip_address")
 
     @property
     @pulumi.getter(name="useInVirtualMachineCreation")
@@ -418,6 +435,92 @@ class VirtualNetworkSubnet(dict):
         Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         """
         return pulumi.get(self, "use_public_ip_address")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetSharedPublicIpAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPorts":
+            suggest = "allowed_ports"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnetSharedPublicIpAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnetSharedPublicIpAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnetSharedPublicIpAddress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_ports: Optional[Sequence['outputs.VirtualNetworkSubnetSharedPublicIpAddressAllowedPort']] = None):
+        """
+        :param Sequence['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs'] allowed_ports: A list of `allowed_ports` blocks as defined below.
+        """
+        if allowed_ports is not None:
+            pulumi.set(__self__, "allowed_ports", allowed_ports)
+
+    @property
+    @pulumi.getter(name="allowedPorts")
+    def allowed_ports(self) -> Optional[Sequence['outputs.VirtualNetworkSubnetSharedPublicIpAddressAllowedPort']]:
+        """
+        A list of `allowed_ports` blocks as defined below.
+        """
+        return pulumi.get(self, "allowed_ports")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetSharedPublicIpAddressAllowedPort(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "transportProtocol":
+            suggest = "transport_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnetSharedPublicIpAddressAllowedPort. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnetSharedPublicIpAddressAllowedPort.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnetSharedPublicIpAddressAllowedPort.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_port: Optional[int] = None,
+                 transport_protocol: Optional[str] = None):
+        """
+        :param int backend_port: The port on the Virtual Machine that the traffic will be sent to.
+        :param str transport_protocol: The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
+        """
+        if backend_port is not None:
+            pulumi.set(__self__, "backend_port", backend_port)
+        if transport_protocol is not None:
+            pulumi.set(__self__, "transport_protocol", transport_protocol)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> Optional[int]:
+        """
+        The port on the Virtual Machine that the traffic will be sent to.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @property
+    @pulumi.getter(name="transportProtocol")
+    def transport_protocol(self) -> Optional[str]:
+        """
+        The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "transport_protocol")
 
 
 @pulumi.output_type

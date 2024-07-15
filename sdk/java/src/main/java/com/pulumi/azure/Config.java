@@ -84,8 +84,8 @@ public final class Config {
  * used and should not be specified when `metadata_host` is specified.
  * 
  */
-    public String environment() {
-        return Codegen.stringProp("environment").config(config).env("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").def("public").require();
+    public Optional<String> environment() {
+        return Codegen.stringProp("environment").config(config).env("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").def("public").get();
     }
     public Optional<Features> features() {
         return Codegen.objectProp("features", Features.class).config(config).get();
@@ -97,8 +97,8 @@ public final class Config {
  * The Hostname which should be used for the Azure Metadata Service.
  * 
  */
-    public String metadataHost() {
-        return Codegen.stringProp("metadataHost").config(config).env("ARM_METADATA_HOSTNAME").require();
+    public Optional<String> metadataHost() {
+        return Codegen.stringProp("metadataHost").config(config).env("ARM_METADATA_HOSTNAME").get();
     }
 /**
  * The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected
@@ -154,7 +154,7 @@ public final class Config {
         return Codegen.booleanProp("skipProviderRegistration").config(config).env("ARM_SKIP_PROVIDER_REGISTRATION").def(false).get();
     }
 /**
- * Should the AzureRM Provider use AzureAD to access the Storage Data Plane API&#39;s?
+ * Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
  * 
  */
     public Optional<Boolean> storageUseAzuread() {

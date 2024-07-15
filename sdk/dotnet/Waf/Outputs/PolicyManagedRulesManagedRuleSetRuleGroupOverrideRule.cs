@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule
     {
         /// <summary>
-        /// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        /// Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
         /// </summary>
         public readonly string? Action;
         /// <summary>

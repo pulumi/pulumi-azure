@@ -18,14 +18,14 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs ext
     public static final PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs Empty = new PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs();
 
     /**
-     * Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+     * Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
      * 
      */
     @Import(name="action")
     private @Nullable Output<String> action;
 
     /**
-     * @return Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+     * @return Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
      * 
      */
     public Optional<Output<String>> action() {
@@ -89,7 +89,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs ext
         }
 
         /**
-         * @param action Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+         * @param action Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs ext
         }
 
         /**
-         * @param action Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+         * @param action Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
          * 
          * @return builder
          * 

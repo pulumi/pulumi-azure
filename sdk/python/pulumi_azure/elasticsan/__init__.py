@@ -8,6 +8,7 @@ import typing
 from .elastic_san import *
 from .get import *
 from .get_volume_group import *
+from .get_volume_snapshot import *
 from .volume import *
 from .volume_group import *
 from ._inputs import *

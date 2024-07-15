@@ -129,6 +129,20 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
         return this.clientId;
     }
     /**
+     * The client library to be used in the AAD Identity Provider.
+     * 
+     */
+    @Export(name="clientLibrary", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> clientLibrary;
+
+    /**
+     * @return The client library to be used in the AAD Identity Provider.
+     * 
+     */
+    public Output<Optional<String>> clientLibrary() {
+        return Codegen.optional(this.clientLibrary);
+    }
+    /**
      * Client secret of the Application in the AAD Identity Provider.
      * 
      */
@@ -157,14 +171,14 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The AAD Tenant to use instead of Common when logging into Active Directory
+     * The AAD Tenant to use instead of Common when logging into Active Directory.
      * 
      */
     @Export(name="signinTenant", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> signinTenant;
 
     /**
-     * @return The AAD Tenant to use instead of Common when logging into Active Directory
+     * @return The AAD Tenant to use instead of Common when logging into Active Directory.
      * 
      */
     public Output<Optional<String>> signinTenant() {

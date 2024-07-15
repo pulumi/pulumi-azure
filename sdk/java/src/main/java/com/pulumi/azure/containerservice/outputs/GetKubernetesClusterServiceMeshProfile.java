@@ -3,14 +3,21 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.GetKubernetesClusterServiceMeshProfileCertificateAuthority;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetKubernetesClusterServiceMeshProfile {
+    /**
+     * @return A `certificate_authority` block as documented below.
+     * 
+     */
+    private List<GetKubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthorities;
     /**
      * @return Is Istio External Ingress Gateway enabled?
      * 
@@ -28,6 +35,13 @@ public final class GetKubernetesClusterServiceMeshProfile {
     private String mode;
 
     private GetKubernetesClusterServiceMeshProfile() {}
+    /**
+     * @return A `certificate_authority` block as documented below.
+     * 
+     */
+    public List<GetKubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthorities() {
+        return this.certificateAuthorities;
+    }
     /**
      * @return Is Istio External Ingress Gateway enabled?
      * 
@@ -59,17 +73,30 @@ public final class GetKubernetesClusterServiceMeshProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetKubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthorities;
         private Boolean externalIngressGatewayEnabled;
         private Boolean internalIngressGatewayEnabled;
         private String mode;
         public Builder() {}
         public Builder(GetKubernetesClusterServiceMeshProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.certificateAuthorities = defaults.certificateAuthorities;
     	      this.externalIngressGatewayEnabled = defaults.externalIngressGatewayEnabled;
     	      this.internalIngressGatewayEnabled = defaults.internalIngressGatewayEnabled;
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
+        public Builder certificateAuthorities(List<GetKubernetesClusterServiceMeshProfileCertificateAuthority> certificateAuthorities) {
+            if (certificateAuthorities == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterServiceMeshProfile", "certificateAuthorities");
+            }
+            this.certificateAuthorities = certificateAuthorities;
+            return this;
+        }
+        public Builder certificateAuthorities(GetKubernetesClusterServiceMeshProfileCertificateAuthority... certificateAuthorities) {
+            return certificateAuthorities(List.of(certificateAuthorities));
+        }
         @CustomType.Setter
         public Builder externalIngressGatewayEnabled(Boolean externalIngressGatewayEnabled) {
             if (externalIngressGatewayEnabled == null) {
@@ -96,6 +123,7 @@ public final class GetKubernetesClusterServiceMeshProfile {
         }
         public GetKubernetesClusterServiceMeshProfile build() {
             final var _resultValue = new GetKubernetesClusterServiceMeshProfile();
+            _resultValue.certificateAuthorities = certificateAuthorities;
             _resultValue.externalIngressGatewayEnabled = externalIngressGatewayEnabled;
             _resultValue.internalIngressGatewayEnabled = internalIngressGatewayEnabled;
             _resultValue.mode = mode;

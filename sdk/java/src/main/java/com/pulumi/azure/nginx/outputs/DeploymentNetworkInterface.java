@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class DeploymentNetworkInterface {
     /**
-     * @return Specify The Subnet Resource ID for this NGINX Deployment.
+     * @return Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     private String subnetId;
 
     private DeploymentNetworkInterface() {}
     /**
-     * @return Specify The Subnet Resource ID for this NGINX Deployment.
+     * @return Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
      * 
      */
     public String subnetId() {

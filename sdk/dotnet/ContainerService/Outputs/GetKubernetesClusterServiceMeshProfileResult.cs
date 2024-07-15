@@ -14,6 +14,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class GetKubernetesClusterServiceMeshProfileResult
     {
         /// <summary>
+        /// A `certificate_authority` block as documented below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult> CertificateAuthorities;
+        /// <summary>
         /// Is Istio External Ingress Gateway enabled?
         /// </summary>
         public readonly bool ExternalIngressGatewayEnabled;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private GetKubernetesClusterServiceMeshProfileResult(
+            ImmutableArray<Outputs.GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult> certificateAuthorities,
+
             bool externalIngressGatewayEnabled,
 
             bool internalIngressGatewayEnabled,
 
             string mode)
         {
+            CertificateAuthorities = certificateAuthorities;
             ExternalIngressGatewayEnabled = externalIngressGatewayEnabled;
             InternalIngressGatewayEnabled = internalIngressGatewayEnabled;
             Mode = mode;

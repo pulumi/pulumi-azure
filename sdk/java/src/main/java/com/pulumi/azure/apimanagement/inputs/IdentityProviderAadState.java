@@ -62,6 +62,21 @@ public final class IdentityProviderAadState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * The client library to be used in the AAD Identity Provider.
+     * 
+     */
+    @Import(name="clientLibrary")
+    private @Nullable Output<String> clientLibrary;
+
+    /**
+     * @return The client library to be used in the AAD Identity Provider.
+     * 
+     */
+    public Optional<Output<String>> clientLibrary() {
+        return Optional.ofNullable(this.clientLibrary);
+    }
+
+    /**
      * Client secret of the Application in the AAD Identity Provider.
      * 
      */
@@ -92,14 +107,14 @@ public final class IdentityProviderAadState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The AAD Tenant to use instead of Common when logging into Active Directory
+     * The AAD Tenant to use instead of Common when logging into Active Directory.
      * 
      */
     @Import(name="signinTenant")
     private @Nullable Output<String> signinTenant;
 
     /**
-     * @return The AAD Tenant to use instead of Common when logging into Active Directory
+     * @return The AAD Tenant to use instead of Common when logging into Active Directory.
      * 
      */
     public Optional<Output<String>> signinTenant() {
@@ -112,6 +127,7 @@ public final class IdentityProviderAadState extends com.pulumi.resources.Resourc
         this.allowedTenants = $.allowedTenants;
         this.apiManagementName = $.apiManagementName;
         this.clientId = $.clientId;
+        this.clientLibrary = $.clientLibrary;
         this.clientSecret = $.clientSecret;
         this.resourceGroupName = $.resourceGroupName;
         this.signinTenant = $.signinTenant;
@@ -209,6 +225,27 @@ public final class IdentityProviderAadState extends com.pulumi.resources.Resourc
         }
 
         /**
+         * @param clientLibrary The client library to be used in the AAD Identity Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientLibrary(@Nullable Output<String> clientLibrary) {
+            $.clientLibrary = clientLibrary;
+            return this;
+        }
+
+        /**
+         * @param clientLibrary The client library to be used in the AAD Identity Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientLibrary(String clientLibrary) {
+            return clientLibrary(Output.of(clientLibrary));
+        }
+
+        /**
          * @param clientSecret Client secret of the Application in the AAD Identity Provider.
          * 
          * @return builder
@@ -251,7 +288,7 @@ public final class IdentityProviderAadState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signinTenant The AAD Tenant to use instead of Common when logging into Active Directory
+         * @param signinTenant The AAD Tenant to use instead of Common when logging into Active Directory.
          * 
          * @return builder
          * 
@@ -262,7 +299,7 @@ public final class IdentityProviderAadState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param signinTenant The AAD Tenant to use instead of Common when logging into Active Directory
+         * @param signinTenant The AAD Tenant to use instead of Common when logging into Active Directory.
          * 
          * @return builder
          * 

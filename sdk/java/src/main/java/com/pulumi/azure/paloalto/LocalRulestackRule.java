@@ -71,6 +71,7 @@ import javax.annotation.Nullable;
  *             .rulestackId(exampleLocalRulestack.id())
  *             .priority(1000)
  *             .action("Allow")
+ *             .protocol("application-default")
  *             .applications("any")
  *             .source(LocalRulestackRuleSourceArgs.builder()
  *                 .cidrs("10.0.0.0/8")
@@ -300,12 +301,16 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
     /**
      * The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
      * 
+     * &gt; **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
+     * 
      */
     @Export(name="protocol", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> protocol;
 
     /**
      * @return The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+     * 
+     * &gt; **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol=&#34;application-default&#34;` to keep the the current default of the `protocol`.
      * 
      */
     public Output<Optional<String>> protocol() {

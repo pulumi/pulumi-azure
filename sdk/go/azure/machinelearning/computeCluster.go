@@ -151,7 +151,7 @@ type ComputeCluster struct {
 
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// An `identity` block as defined below.
 	Identity ComputeClusterIdentityPtrOutput `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
@@ -223,7 +223,7 @@ func GetComputeCluster(ctx *pulumi.Context,
 type computeClusterState struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description *string `pulumi:"description"`
-	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// An `identity` block as defined below.
 	Identity *ComputeClusterIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -254,7 +254,7 @@ type computeClusterState struct {
 type ComputeClusterState struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description pulumi.StringPtrInput
-	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// An `identity` block as defined below.
 	Identity ComputeClusterIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -289,7 +289,7 @@ func (ComputeClusterState) ElementType() reflect.Type {
 type computeClusterArgs struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description *string `pulumi:"description"`
-	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// An `identity` block as defined below.
 	Identity *ComputeClusterIdentity `pulumi:"identity"`
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
@@ -321,7 +321,7 @@ type computeClusterArgs struct {
 type ComputeClusterArgs struct {
 	// The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created.
 	Description pulumi.StringPtrInput
-	// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+	// An `identity` block as defined below.
 	Identity ComputeClusterIdentityPtrInput
 	// Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created.
 	LocalAuthEnabled pulumi.BoolPtrInput
@@ -441,7 +441,7 @@ func (o ComputeClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeCluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+// An `identity` block as defined below.
 func (o ComputeClusterOutput) Identity() ComputeClusterIdentityPtrOutput {
 	return o.ApplyT(func(v *ComputeCluster) ComputeClusterIdentityPtrOutput { return v.Identity }).(ComputeClusterIdentityPtrOutput)
 }

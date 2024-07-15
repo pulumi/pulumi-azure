@@ -173,14 +173,14 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * An `identity` block as defined below.
      * 
      */
     @Export(name="identity", refs={ComputeClusterIdentity.class}, tree="[0]")
     private Output</* @Nullable */ ComputeClusterIdentity> identity;
 
     /**
-     * @return An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+     * @return An `identity` block as defined below.
      * 
      */
     public Output<Optional<ComputeClusterIdentity>> identity() {

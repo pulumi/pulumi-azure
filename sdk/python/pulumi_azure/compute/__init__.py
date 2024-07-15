@@ -52,6 +52,7 @@ from .managed_disk import *
 from .managed_disk_sas_token import *
 from .orchestrated_virtual_machine_scale_set import *
 from .packet_capture import *
+from .restore_point import *
 from .restore_point_collection import *
 from .run_command import *
 from .scale_set import *
@@ -62,6 +63,7 @@ from .shared_image_version import *
 from .snapshot import *
 from .ssh_public_key import *
 from .virtual_machine import *
+from .virtual_machine_restore_point_collection import *
 from .virtual_machine_scale_set_extension import *
 from .windows_virtual_machine import *
 from .windows_virtual_machine_scale_set import *

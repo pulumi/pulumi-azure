@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Restore Point Collection.
+// Manages a Virtual Machine Restore Point Collection.
 //
 // ## Example Usage
 //
@@ -110,7 +110,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewRestorePointCollection(ctx, "example", &compute.RestorePointCollectionArgs{
+//			_, err = compute.NewVirtualMachineRestorePointCollection(ctx, "example", &compute.VirtualMachineRestorePointCollectionArgs{
 //				Name:                   pulumi.String("example-collection"),
 //				ResourceGroupName:      example.Name,
 //				Location:               exampleLinuxVirtualMachine.Location,
@@ -127,7 +127,7 @@ import (
 //
 // ## Import
 //
-// Restore Point Collections can be imported using the `resource id`, e.g.
+// Virtual Machine Restore Point Collections can be imported using the `resource id`, e.g.
 //
 // ```sh
 // $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
@@ -135,15 +135,15 @@ import (
 type RestorePointCollection struct {
 	pulumi.CustomResourceState
 
-	// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+	// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+	// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	SourceVirtualMachineId pulumi.StringOutput `pulumi:"sourceVirtualMachineId"`
-	// A mapping of tags which should be assigned to this Restore Point Collection.
+	// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
@@ -183,28 +183,28 @@ func GetRestorePointCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RestorePointCollection resources.
 type restorePointCollectionState struct {
-	// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+	// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+	// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	SourceVirtualMachineId *string `pulumi:"sourceVirtualMachineId"`
-	// A mapping of tags which should be assigned to this Restore Point Collection.
+	// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 type RestorePointCollectionState struct {
-	// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+	// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+	// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	SourceVirtualMachineId pulumi.StringPtrInput
-	// A mapping of tags which should be assigned to this Restore Point Collection.
+	// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
 	Tags pulumi.StringMapInput
 }
 
@@ -213,29 +213,29 @@ func (RestorePointCollectionState) ElementType() reflect.Type {
 }
 
 type restorePointCollectionArgs struct {
-	// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+	// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+	// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	SourceVirtualMachineId string `pulumi:"sourceVirtualMachineId"`
-	// A mapping of tags which should be assigned to this Restore Point Collection.
+	// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RestorePointCollection resource.
 type RestorePointCollectionArgs struct {
-	// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+	// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+	// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+	// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 	SourceVirtualMachineId pulumi.StringInput
-	// A mapping of tags which should be assigned to this Restore Point Collection.
+	// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
 	Tags pulumi.StringMapInput
 }
 
@@ -326,27 +326,27 @@ func (o RestorePointCollectionOutput) ToRestorePointCollectionOutputWithContext(
 	return o
 }
 
-// The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+// The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 func (o RestorePointCollectionOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+// Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 func (o RestorePointCollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+// The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
 func (o RestorePointCollectionOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+// The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
 func (o RestorePointCollectionOutput) SourceVirtualMachineId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringOutput { return v.SourceVirtualMachineId }).(pulumi.StringOutput)
 }
 
-// A mapping of tags which should be assigned to this Restore Point Collection.
+// A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
 func (o RestorePointCollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestorePointCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

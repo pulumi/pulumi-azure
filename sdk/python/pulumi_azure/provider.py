@@ -74,7 +74,7 @@ class ProviderArgs:
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
                registered?
-        :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
         :param pulumi.Input[bool] use_aks_workload_identity: Allow Azure AKS Workload Identity to be used for Authentication.
@@ -390,7 +390,7 @@ class ProviderArgs:
     @pulumi.getter(name="storageUseAzuread")
     def storage_use_azuread(self) -> Optional[pulumi.Input[bool]]:
         """
-        Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         """
         return pulumi.get(self, "storage_use_azuread")
 
@@ -537,7 +537,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
                registered?
-        :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        :param pulumi.Input[bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         :param pulumi.Input[str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[str] tenant_id: The Tenant ID which should be used.
         :param pulumi.Input[bool] use_aks_workload_identity: Allow Azure AKS Workload Identity to be used for Authentication.

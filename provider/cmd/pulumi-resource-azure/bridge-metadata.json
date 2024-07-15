@@ -18028,10 +18028,6 @@
                     }
                 }
             },
-            "azurerm_restore_point_collection": {
-                "current": "azure:compute/restorePointCollection:RestorePointCollection",
-                "majorVersion": 5
-            },
             "azurerm_role_assignment": {
                 "current": "azure:authorization/assignment:Assignment",
                 "majorVersion": 5
@@ -21711,7 +21707,14 @@
                 }
             },
             "azurerm_virtual_machine_restore_point_collection": {
-                "current": "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection",
+                "current": "azure:compute/restorePointCollection:RestorePointCollection",
+                "past": [
+                    {
+                        "name": "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection",
+                        "inCodegen": true,
+                        "majorVersion": 5
+                    }
+                ],
                 "majorVersion": 5
             },
             "azurerm_virtual_machine_run_command": {
@@ -31787,6 +31790,11 @@
                 "maxItemsOneOverrides": {
                     "definition": true
                 }
+            },
+            "azurerm_virtual_machine_restore_point_collection": {
+                "aliases": [
+                    "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection"
+                ]
             },
             "azurerm_windows_web_app": {
                 "maxItemsOneOverrides": {

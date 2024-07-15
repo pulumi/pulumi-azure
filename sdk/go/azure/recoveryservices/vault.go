@@ -63,7 +63,7 @@ type Vault struct {
 	pulumi.CustomResourceState
 
 	// Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
-	ClassicVmwareReplicationEnabled pulumi.BoolOutput `pulumi:"classicVmwareReplicationEnabled"`
+	ClassicVmwareReplicationEnabled pulumi.BoolPtrOutput `pulumi:"classicVmwareReplicationEnabled"`
 	// Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.
 	//
 	// > **Note:** Once `crossRegionRestoreEnabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
@@ -374,8 +374,8 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 }
 
 // Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created.
-func (o VaultOutput) ClassicVmwareReplicationEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Vault) pulumi.BoolOutput { return v.ClassicVmwareReplicationEnabled }).(pulumi.BoolOutput)
+func (o VaultOutput) ClassicVmwareReplicationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Vault) pulumi.BoolPtrOutput { return v.ClassicVmwareReplicationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Is cross region restore enabled for this Vault? Only can be `true`, when `storageModeType` is `GeoRedundant`. Defaults to `false`.

@@ -77,6 +77,21 @@ public final class IdentityProviderAadb2cArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * The client library to be used in the Azure AD B2C Identity Provider.
+     * 
+     */
+    @Import(name="clientLibrary")
+    private @Nullable Output<String> clientLibrary;
+
+    /**
+     * @return The client library to be used in the Azure AD B2C Identity Provider.
+     * 
+     */
+    public Optional<Output<String>> clientLibrary() {
+        return Optional.ofNullable(this.clientLibrary);
+    }
+
+    /**
      * Client secret of the Application in your B2C tenant.
      * 
      */
@@ -188,6 +203,7 @@ public final class IdentityProviderAadb2cArgs extends com.pulumi.resources.Resou
         this.apiManagementName = $.apiManagementName;
         this.authority = $.authority;
         this.clientId = $.clientId;
+        this.clientLibrary = $.clientLibrary;
         this.clientSecret = $.clientSecret;
         this.passwordResetPolicy = $.passwordResetPolicy;
         this.profileEditingPolicy = $.profileEditingPolicy;
@@ -297,6 +313,27 @@ public final class IdentityProviderAadb2cArgs extends com.pulumi.resources.Resou
          */
         public Builder clientId(String clientId) {
             return clientId(Output.of(clientId));
+        }
+
+        /**
+         * @param clientLibrary The client library to be used in the Azure AD B2C Identity Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientLibrary(@Nullable Output<String> clientLibrary) {
+            $.clientLibrary = clientLibrary;
+            return this;
+        }
+
+        /**
+         * @param clientLibrary The client library to be used in the Azure AD B2C Identity Provider.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientLibrary(String clientLibrary) {
+            return clientLibrary(Output.of(clientLibrary));
         }
 
         /**

@@ -99,6 +99,10 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
+     * The client library to be used in the Azure AD B2C Identity Provider.
+     */
+    public readonly clientLibrary!: pulumi.Output<string | undefined>;
+    /**
      * Client secret of the Application in your B2C tenant.
      */
     public readonly clientSecret!: pulumi.Output<string>;
@@ -144,6 +148,7 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
             resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             resourceInputs["authority"] = state ? state.authority : undefined;
             resourceInputs["clientId"] = state ? state.clientId : undefined;
+            resourceInputs["clientLibrary"] = state ? state.clientLibrary : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["passwordResetPolicy"] = state ? state.passwordResetPolicy : undefined;
             resourceInputs["profileEditingPolicy"] = state ? state.profileEditingPolicy : undefined;
@@ -184,6 +189,7 @@ export class IdentityProviderAadb2c extends pulumi.CustomResource {
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["authority"] = args ? args.authority : undefined;
             resourceInputs["clientId"] = args ? args.clientId : undefined;
+            resourceInputs["clientLibrary"] = args ? args.clientLibrary : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
             resourceInputs["passwordResetPolicy"] = args ? args.passwordResetPolicy : undefined;
             resourceInputs["profileEditingPolicy"] = args ? args.profileEditingPolicy : undefined;
@@ -219,6 +225,10 @@ export interface IdentityProviderAadb2cState {
      * Client ID of the Application in your B2C tenant.
      */
     clientId?: pulumi.Input<string>;
+    /**
+     * The client library to be used in the Azure AD B2C Identity Provider.
+     */
+    clientLibrary?: pulumi.Input<string>;
     /**
      * Client secret of the Application in your B2C tenant.
      */
@@ -269,6 +279,10 @@ export interface IdentityProviderAadb2cArgs {
      * Client ID of the Application in your B2C tenant.
      */
     clientId: pulumi.Input<string>;
+    /**
+     * The client library to be used in the Azure AD B2C Identity Provider.
+     */
+    clientLibrary?: pulumi.Input<string>;
     /**
      * Client secret of the Application in your B2C tenant.
      */

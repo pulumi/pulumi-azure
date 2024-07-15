@@ -753,8 +753,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      * 
      * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
-     * 
      */
     @Import(name="nodeOsChannelUpgrade")
     private @Nullable Output<String> nodeOsChannelUpgrade;
@@ -763,8 +761,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
      * @return The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
      * 
      * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
      * 
      */
     public Optional<Output<String>> nodeOsChannelUpgrade() {
@@ -2416,8 +2412,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          * 
          * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
-         * 
          * @return builder
          * 
          */
@@ -2430,8 +2424,6 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
          * @param nodeOsChannelUpgrade The upgrade channel for this Kubernetes Cluster Nodes&#39; OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
          * 
          * &gt; **Note:** `node_os_channel_upgrade` must be set to `NodeImage` if `automatic_channel_upgrade` has been set to `node-image`
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
          * 
          * @return builder
          * 

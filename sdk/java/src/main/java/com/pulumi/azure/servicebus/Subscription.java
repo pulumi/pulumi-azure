@@ -109,6 +109,12 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     public Output<String> autoDeleteOnIdle() {
         return this.autoDeleteOnIdle;
     }
+    @Export(name="batchedOperationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> batchedOperationsEnabled;
+
+    public Output<Boolean> batchedOperationsEnabled() {
+        return this.batchedOperationsEnabled;
+    }
     /**
      * A `client_scoped_subscription` block as defined below.
      * 
@@ -186,16 +192,20 @@ public class Subscription extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
      * 
+     * @deprecated
+     * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
     @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableBatchedOperations;
+    private Output<Boolean> enableBatchedOperations;
 
     /**
      * @return Boolean flag which controls whether the Subscription supports batched operations.
      * 
      */
-    public Output<Optional<Boolean>> enableBatchedOperations() {
-        return Codegen.optional(this.enableBatchedOperations);
+    public Output<Boolean> enableBatchedOperations() {
+        return this.enableBatchedOperations;
     }
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.

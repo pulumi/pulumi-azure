@@ -1124,6 +1124,8 @@ func (o ScheduleWeeklyRecurrencePtrOutput) WeekDays() pulumi.StringArrayOutput {
 type VirtualNetworkSubnet struct {
 	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// A `sharedPublicIpAddress` block as defined below.
+	SharedPublicIpAddress *VirtualNetworkSubnetSharedPublicIpAddress `pulumi:"sharedPublicIpAddress"`
 	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 	UseInVirtualMachineCreation *string `pulumi:"useInVirtualMachineCreation"`
 	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
@@ -1144,6 +1146,8 @@ type VirtualNetworkSubnetInput interface {
 type VirtualNetworkSubnetArgs struct {
 	// Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// A `sharedPublicIpAddress` block as defined below.
+	SharedPublicIpAddress VirtualNetworkSubnetSharedPublicIpAddressPtrInput `pulumi:"sharedPublicIpAddress"`
 	// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 	UseInVirtualMachineCreation pulumi.StringPtrInput `pulumi:"useInVirtualMachineCreation"`
 	// Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
@@ -1232,6 +1236,13 @@ func (o VirtualNetworkSubnetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A `sharedPublicIpAddress` block as defined below.
+func (o VirtualNetworkSubnetOutput) SharedPublicIpAddress() VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) *VirtualNetworkSubnetSharedPublicIpAddress {
+		return v.SharedPublicIpAddress
+	}).(VirtualNetworkSubnetSharedPublicIpAddressPtrOutput)
+}
+
 // Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 func (o VirtualNetworkSubnetOutput) UseInVirtualMachineCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualNetworkSubnet) *string { return v.UseInVirtualMachineCreation }).(pulumi.StringPtrOutput)
@@ -1276,6 +1287,16 @@ func (o VirtualNetworkSubnetPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `sharedPublicIpAddress` block as defined below.
+func (o VirtualNetworkSubnetPtrOutput) SharedPublicIpAddress() VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnet) *VirtualNetworkSubnetSharedPublicIpAddress {
+		if v == nil {
+			return nil
+		}
+		return v.SharedPublicIpAddress
+	}).(VirtualNetworkSubnetSharedPublicIpAddressPtrOutput)
+}
+
 // Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
 func (o VirtualNetworkSubnetPtrOutput) UseInVirtualMachineCreation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkSubnet) *string {
@@ -1294,6 +1315,251 @@ func (o VirtualNetworkSubnetPtrOutput) UsePublicIpAddress() pulumi.StringPtrOutp
 		}
 		return v.UsePublicIpAddress
 	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddress struct {
+	// A list of `allowedPorts` blocks as defined below.
+	AllowedPorts []VirtualNetworkSubnetSharedPublicIpAddressAllowedPort `pulumi:"allowedPorts"`
+}
+
+// VirtualNetworkSubnetSharedPublicIpAddressInput is an input type that accepts VirtualNetworkSubnetSharedPublicIpAddressArgs and VirtualNetworkSubnetSharedPublicIpAddressOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetSharedPublicIpAddressInput` via:
+//
+//	VirtualNetworkSubnetSharedPublicIpAddressArgs{...}
+type VirtualNetworkSubnetSharedPublicIpAddressInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetSharedPublicIpAddressOutput() VirtualNetworkSubnetSharedPublicIpAddressOutput
+	ToVirtualNetworkSubnetSharedPublicIpAddressOutputWithContext(context.Context) VirtualNetworkSubnetSharedPublicIpAddressOutput
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressArgs struct {
+	// A list of `allowedPorts` blocks as defined below.
+	AllowedPorts VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayInput `pulumi:"allowedPorts"`
+}
+
+func (VirtualNetworkSubnetSharedPublicIpAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddress)(nil)).Elem()
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressArgs) ToVirtualNetworkSubnetSharedPublicIpAddressOutput() VirtualNetworkSubnetSharedPublicIpAddressOutput {
+	return i.ToVirtualNetworkSubnetSharedPublicIpAddressOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressArgs) ToVirtualNetworkSubnetSharedPublicIpAddressOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetSharedPublicIpAddressOutput)
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressArgs) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutput() VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return i.ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressArgs) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetSharedPublicIpAddressOutput).ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(ctx)
+}
+
+// VirtualNetworkSubnetSharedPublicIpAddressPtrInput is an input type that accepts VirtualNetworkSubnetSharedPublicIpAddressArgs, VirtualNetworkSubnetSharedPublicIpAddressPtr and VirtualNetworkSubnetSharedPublicIpAddressPtrOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetSharedPublicIpAddressPtrInput` via:
+//
+//	        VirtualNetworkSubnetSharedPublicIpAddressArgs{...}
+//
+//	or:
+//
+//	        nil
+type VirtualNetworkSubnetSharedPublicIpAddressPtrInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutput() VirtualNetworkSubnetSharedPublicIpAddressPtrOutput
+	ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(context.Context) VirtualNetworkSubnetSharedPublicIpAddressPtrOutput
+}
+
+type virtualNetworkSubnetSharedPublicIpAddressPtrType VirtualNetworkSubnetSharedPublicIpAddressArgs
+
+func VirtualNetworkSubnetSharedPublicIpAddressPtr(v *VirtualNetworkSubnetSharedPublicIpAddressArgs) VirtualNetworkSubnetSharedPublicIpAddressPtrInput {
+	return (*virtualNetworkSubnetSharedPublicIpAddressPtrType)(v)
+}
+
+func (*virtualNetworkSubnetSharedPublicIpAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkSubnetSharedPublicIpAddress)(nil)).Elem()
+}
+
+func (i *virtualNetworkSubnetSharedPublicIpAddressPtrType) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutput() VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return i.ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualNetworkSubnetSharedPublicIpAddressPtrType) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetSharedPublicIpAddressPtrOutput)
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetSharedPublicIpAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddress)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressOutput) ToVirtualNetworkSubnetSharedPublicIpAddressOutput() VirtualNetworkSubnetSharedPublicIpAddressOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressOutput) ToVirtualNetworkSubnetSharedPublicIpAddressOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressOutput) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutput() VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return o.ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressOutput) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualNetworkSubnetSharedPublicIpAddress) *VirtualNetworkSubnetSharedPublicIpAddress {
+		return &v
+	}).(VirtualNetworkSubnetSharedPublicIpAddressPtrOutput)
+}
+
+// A list of `allowedPorts` blocks as defined below.
+func (o VirtualNetworkSubnetSharedPublicIpAddressOutput) AllowedPorts() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetSharedPublicIpAddress) []VirtualNetworkSubnetSharedPublicIpAddressAllowedPort {
+		return v.AllowedPorts
+	}).(VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput)
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressPtrOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetSharedPublicIpAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualNetworkSubnetSharedPublicIpAddress)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressPtrOutput) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutput() VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressPtrOutput) ToVirtualNetworkSubnetSharedPublicIpAddressPtrOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressPtrOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressPtrOutput) Elem() VirtualNetworkSubnetSharedPublicIpAddressOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetSharedPublicIpAddress) VirtualNetworkSubnetSharedPublicIpAddress {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualNetworkSubnetSharedPublicIpAddress
+		return ret
+	}).(VirtualNetworkSubnetSharedPublicIpAddressOutput)
+}
+
+// A list of `allowedPorts` blocks as defined below.
+func (o VirtualNetworkSubnetSharedPublicIpAddressPtrOutput) AllowedPorts() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput {
+	return o.ApplyT(func(v *VirtualNetworkSubnetSharedPublicIpAddress) []VirtualNetworkSubnetSharedPublicIpAddressAllowedPort {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedPorts
+	}).(VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput)
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressAllowedPort struct {
+	// The port on the Virtual Machine that the traffic will be sent to.
+	BackendPort *int `pulumi:"backendPort"`
+	// The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
+	TransportProtocol *string `pulumi:"transportProtocol"`
+}
+
+// VirtualNetworkSubnetSharedPublicIpAddressAllowedPortInput is an input type that accepts VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs and VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetSharedPublicIpAddressAllowedPortInput` via:
+//
+//	VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs{...}
+type VirtualNetworkSubnetSharedPublicIpAddressAllowedPortInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput
+	ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutputWithContext(context.Context) VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs struct {
+	// The port on the Virtual Machine that the traffic will be sent to.
+	BackendPort pulumi.IntPtrInput `pulumi:"backendPort"`
+	// The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
+	TransportProtocol pulumi.StringPtrInput `pulumi:"transportProtocol"`
+}
+
+func (VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddressAllowedPort)(nil)).Elem()
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput {
+	return i.ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput)
+}
+
+// VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayInput is an input type that accepts VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArray and VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayInput` via:
+//
+//	VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArray{ VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs{...} }
+type VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput
+	ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutputWithContext(context.Context) VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArray []VirtualNetworkSubnetSharedPublicIpAddressAllowedPortInput
+
+func (VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkSubnetSharedPublicIpAddressAllowedPort)(nil)).Elem()
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArray) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput {
+	return i.ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArray) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput)
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddressAllowedPort)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput {
+	return o
+}
+
+// The port on the Virtual Machine that the traffic will be sent to.
+func (o VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput) BackendPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetSharedPublicIpAddressAllowedPort) *int { return v.BackendPort }).(pulumi.IntPtrOutput)
+}
+
+// The transport protocol that the traffic will use. Possible values are `TCP` and `UDP`.
+func (o VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput) TransportProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetSharedPublicIpAddressAllowedPort) *string { return v.TransportProtocol }).(pulumi.StringPtrOutput)
+}
+
+type VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkSubnetSharedPublicIpAddressAllowedPort)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput() VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput) ToVirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutputWithContext(ctx context.Context) VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput) Index(i pulumi.IntInput) VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkSubnetSharedPublicIpAddressAllowedPort {
+		return vs[0].([]VirtualNetworkSubnetSharedPublicIpAddressAllowedPort)[vs[1].(int)]
+	}).(VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput)
 }
 
 type WindowsVirtualMachineGalleryImageReference struct {
@@ -1867,6 +2133,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleWeeklyRecurrencePtrInput)(nil)).Elem(), ScheduleWeeklyRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetPtrInput)(nil)).Elem(), VirtualNetworkSubnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddressInput)(nil)).Elem(), VirtualNetworkSubnetSharedPublicIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddressPtrInput)(nil)).Elem(), VirtualNetworkSubnetSharedPublicIpAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddressAllowedPortInput)(nil)).Elem(), VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayInput)(nil)).Elem(), VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineGalleryImageReferenceInput)(nil)).Elem(), WindowsVirtualMachineGalleryImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineGalleryImageReferencePtrInput)(nil)).Elem(), WindowsVirtualMachineGalleryImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineInboundNatRuleInput)(nil)).Elem(), WindowsVirtualMachineInboundNatRuleArgs{})
@@ -1891,6 +2161,10 @@ func init() {
 	pulumi.RegisterOutputType(ScheduleWeeklyRecurrencePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetSharedPublicIpAddressOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetSharedPublicIpAddressPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetSharedPublicIpAddressAllowedPortOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineGalleryImageReferenceOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineGalleryImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineInboundNatRuleOutput{})

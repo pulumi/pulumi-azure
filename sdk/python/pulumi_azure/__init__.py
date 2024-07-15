@@ -2483,6 +2483,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "compute/restorePoint",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/restorePoint:RestorePoint": "RestorePoint"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "compute/restorePointCollection",
   "fqn": "pulumi_azure.compute",
   "classes": {
@@ -2559,6 +2567,14 @@ _utilities.register(
   "fqn": "pulumi_azure.compute",
   "classes": {
    "azure:compute/virtualMachine:VirtualMachine": "VirtualMachine"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "compute/virtualMachineRestorePointCollection",
+  "fqn": "pulumi_azure.compute",
+  "classes": {
+   "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection": "VirtualMachineRestorePointCollection"
   }
  },
  {
@@ -4011,10 +4027,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "devcenter/devBoxDefinition",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/devBoxDefinition:DevBoxDefinition": "DevBoxDefinition"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "devcenter/devCenter",
   "fqn": "pulumi_azure.devcenter",
   "classes": {
    "azure:devcenter/devCenter:DevCenter": "DevCenter"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "devcenter/environmentType",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/environmentType:EnvironmentType": "EnvironmentType"
   }
  },
  {

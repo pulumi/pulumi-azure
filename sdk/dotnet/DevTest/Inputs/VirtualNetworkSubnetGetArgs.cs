@@ -19,6 +19,12 @@ namespace Pulumi.Azure.DevTest.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// A `shared_public_ip_address` block as defined below.
+        /// </summary>
+        [Input("sharedPublicIpAddress")]
+        public Input<Inputs.VirtualNetworkSubnetSharedPublicIpAddressGetArgs>? SharedPublicIpAddress { get; set; }
+
+        /// <summary>
         /// Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
         /// </summary>
         [Input("useInVirtualMachineCreation")]

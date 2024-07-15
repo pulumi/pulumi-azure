@@ -102,6 +102,12 @@ public class Queue extends com.pulumi.resources.CustomResource {
     public Output<String> autoDeleteOnIdle() {
         return this.autoDeleteOnIdle;
     }
+    @Export(name="batchedOperationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> batchedOperationsEnabled;
+
+    public Output<Boolean> batchedOperationsEnabled() {
+        return this.batchedOperationsEnabled;
+    }
     /**
      * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
      * 
@@ -147,7 +153,11 @@ public class Queue extends com.pulumi.resources.CustomResource {
     /**
      * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
      * 
+     * @deprecated
+     * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enableBatchedOperations", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableBatchedOperations;
 
@@ -163,7 +173,11 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
      * 
+     * @deprecated
+     * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enableExpress", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableExpress;
 
@@ -181,7 +195,11 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * 
      * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
      * 
+     * @deprecated
+     * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="enablePartitioning", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePartitioning;
 
@@ -193,6 +211,12 @@ public class Queue extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> enablePartitioning() {
         return Codegen.optional(this.enablePartitioning);
+    }
+    @Export(name="expressEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> expressEnabled;
+
+    public Output<Boolean> expressEnabled() {
+        return this.expressEnabled;
     }
     /**
      * The name of a Queue or Topic to automatically forward dead lettered messages to.
@@ -311,6 +335,12 @@ public class Queue extends com.pulumi.resources.CustomResource {
 
     public Output<String> namespaceName() {
         return this.namespaceName;
+    }
+    @Export(name="partitioningEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> partitioningEnabled;
+
+    public Output<Boolean> partitioningEnabled() {
+        return this.partitioningEnabled;
     }
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
