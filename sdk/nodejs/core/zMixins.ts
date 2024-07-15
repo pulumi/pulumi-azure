@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import * as pulumi from "@pulumi/pulumi";
 import { ServiceClientCredentials, AzureIdentityCredentialAdapter } from "@azure/ms-rest-js";
 import * as identity from "@azure/identity";
 import * as config from "../config";
@@ -40,8 +41,7 @@ export async function getServiceClientCredentials(): Promise<ServiceClientCreden
             tokenCredential = new identity.ClientCertificateCredential(tenantId, clientId, { certificatePath: clientCertPath, certificatePassword: clientCertPassword });
         }
     }
-
-    console.log("Using Azure credentials:", tokenCredential.constructor.name);
+    pulumi.log.debug(`Using Azure credentials: ${tokenCredential.constructor.name}`);
 
     return new AzureIdentityCredentialAdapter(tokenCredential)
 }
