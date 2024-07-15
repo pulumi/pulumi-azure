@@ -74,7 +74,7 @@ index 5dbdb7d11e..2f4f4c2ff9 100644
  
  ```hcl
 diff --git a/website/docs/d/kubernetes_cluster.html.markdown b/website/docs/d/kubernetes_cluster.html.markdown
-index 1fce80138e..d40f110308 100644
+index 156579b446..6fc17c21da 100644
 --- a/website/docs/d/kubernetes_cluster.html.markdown
 +++ b/website/docs/d/kubernetes_cluster.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -380,7 +380,7 @@ index 5ff71b2f10..d42851f157 100644
  }
  resource "azurerm_api_management_logger" "example" {
 diff --git a/website/docs/r/api_management_identity_provider_aad.html.markdown b/website/docs/r/api_management_identity_provider_aad.html.markdown
-index 194ca67265..dbae2beaeb 100644
+index 2b5d5ed623..b617c186f2 100644
 --- a/website/docs/r/api_management_identity_provider_aad.html.markdown
 +++ b/website/docs/r/api_management_identity_provider_aad.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -1794,7 +1794,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index 5cbdf0b804..ea5269ba21 100644
+index d16432661f..d175e90df6 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1814,7 +1814,7 @@ index 5cbdf0b804..ea5269ba21 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -382,7 +376,7 @@ A `default_node_pool` block supports the following:
+@@ -380,7 +374,7 @@ A `default_node_pool` block supports the following:
  
  -> **Note:** This requires that the `type` is set to `VirtualMachineScaleSets`.
  
@@ -1823,7 +1823,7 @@ index 5cbdf0b804..ea5269ba21 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -442,7 +436,7 @@ A `default_node_pool` block supports the following:
+@@ -440,7 +434,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1832,7 +1832,7 @@ index 5cbdf0b804..ea5269ba21 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -468,7 +462,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -466,7 +460,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1841,7 +1841,7 @@ index 5cbdf0b804..ea5269ba21 100644
  
  -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -707,8 +701,6 @@ A `network_profile` block supports the following:
+@@ -705,8 +699,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1850,7 +1850,7 @@ index 5cbdf0b804..ea5269ba21 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1055,19 +1047,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1071,19 +1063,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  

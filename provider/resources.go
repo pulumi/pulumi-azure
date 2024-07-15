@@ -1094,7 +1094,15 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_gallery_application":         {Tok: azureResource(azureCompute, "GalleryApplication")},
 			"azurerm_gallery_application_version": {Tok: azureResource(azureCompute, "GalleryApplicationVersion")},
-			"azurerm_restore_point_collection":    {Tok: azureResource(azureCompute, "RestorePointCollection")},
+			"azurerm_restore_point_collection": {
+				Tok: azureResource(azureCompute, "RestorePointCollection"),
+				Docs: &tfbridge.DocInfo{
+					Source: "virtual_machine_restore_point_collection.html.markdown",
+				},
+			},
+			"azurerm_virtual_machine_restore_point_collection": {
+				Tok: azureResource(azureCompute, "VirtualMachineRestorePointCollection"),
+			},
 
 			// Cost (resource provider Microsoft.CostManagement, not Microsoft.Billing)
 			"azurerm_cost_anomaly_alert":               {Tok: azureResource(azureCostManagement, "AnomalyAlert")},
