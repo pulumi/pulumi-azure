@@ -110,7 +110,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewVirtualMachineRestorePointCollection(ctx, "example", &compute.VirtualMachineRestorePointCollectionArgs{
+//			_, err = compute.NewRestorePointCollection(ctx, "example", &compute.RestorePointCollectionArgs{
 //				Name:                   pulumi.String("example-collection"),
 //				ResourceGroupName:      example.Name,
 //				Location:               exampleLinuxVirtualMachine.Location,
@@ -160,6 +160,12 @@ func NewRestorePointCollection(ctx *pulumi.Context,
 	if args.SourceVirtualMachineId == nil {
 		return nil, errors.New("invalid value for required argument 'SourceVirtualMachineId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RestorePointCollection
 	err := ctx.RegisterResource("azure:compute/restorePointCollection:RestorePointCollection", name, args, &resource, opts...)

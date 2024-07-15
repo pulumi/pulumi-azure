@@ -6,11 +6,13 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.RestorePointCollectionArgs;
 import com.pulumi.azure.compute.inputs.RestorePointCollectionState;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -42,8 +44,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.VirtualMachineRestorePointCollection;
- * import com.pulumi.azure.compute.VirtualMachineRestorePointCollectionArgs;
+ * import com.pulumi.azure.compute.RestorePointCollection;
+ * import com.pulumi.azure.compute.RestorePointCollectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,7 +114,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualMachineRestorePointCollection = new VirtualMachineRestorePointCollection("exampleVirtualMachineRestorePointCollection", VirtualMachineRestorePointCollectionArgs.builder()
+ *         var exampleRestorePointCollection = new RestorePointCollection("exampleRestorePointCollection", RestorePointCollectionArgs.builder()
  *             .name("example-collection")
  *             .resourceGroupName(example.name())
  *             .location(exampleLinuxVirtualMachine.location())
@@ -239,6 +241,9 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

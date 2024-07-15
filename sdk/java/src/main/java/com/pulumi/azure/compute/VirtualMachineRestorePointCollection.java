@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
- * import com.pulumi.azure.compute.VirtualMachineRestorePointCollection;
- * import com.pulumi.azure.compute.VirtualMachineRestorePointCollectionArgs;
+ * import com.pulumi.azure.compute.RestorePointCollection;
+ * import com.pulumi.azure.compute.RestorePointCollectionArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleVirtualMachineRestorePointCollection = new VirtualMachineRestorePointCollection("exampleVirtualMachineRestorePointCollection", VirtualMachineRestorePointCollectionArgs.builder()
+ *         var exampleRestorePointCollection = new RestorePointCollection("exampleRestorePointCollection", RestorePointCollectionArgs.builder()
  *             .name("example-collection")
  *             .resourceGroupName(example.name())
  *             .location(exampleLinuxVirtualMachine.location())
@@ -133,7 +133,11 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
  * ```
  * 
+ * @deprecated
+ * azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection
+ * 
  */
+@Deprecated /* azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection */
 @ResourceType(type="azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection")
 public class VirtualMachineRestorePointCollection extends com.pulumi.resources.CustomResource {
     /**

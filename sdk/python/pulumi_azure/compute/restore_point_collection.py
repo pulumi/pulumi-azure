@@ -254,7 +254,7 @@ class RestorePointCollection(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             })
-        example_virtual_machine_restore_point_collection = azure.compute.VirtualMachineRestorePointCollection("example",
+        example_restore_point_collection = azure.compute.RestorePointCollection("example",
             name="example-collection",
             resource_group_name=example.name,
             location=example_linux_virtual_machine.location,
@@ -336,7 +336,7 @@ class RestorePointCollection(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             })
-        example_virtual_machine_restore_point_collection = azure.compute.VirtualMachineRestorePointCollection("example",
+        example_restore_point_collection = azure.compute.RestorePointCollection("example",
             name="example-collection",
             resource_group_name=example.name,
             location=example_linux_virtual_machine.location,
@@ -389,6 +389,8 @@ class RestorePointCollection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_virtual_machine_id'")
             __props__.__dict__["source_virtual_machine_id"] = source_virtual_machine_id
             __props__.__dict__["tags"] = tags
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RestorePointCollection, __self__).__init__(
             'azure:compute/restorePointCollection:RestorePointCollection',
             resource_name,

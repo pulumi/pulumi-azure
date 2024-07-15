@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleVirtualMachineRestorePointCollection = new azure.compute.VirtualMachineRestorePointCollection("example", {
+ * const exampleRestorePointCollection = new azure.compute.RestorePointCollection("example", {
  *     name: "example-collection",
  *     resourceGroupName: example.name,
  *     location: exampleLinuxVirtualMachine.location,
@@ -162,6 +162,8 @@ export class RestorePointCollection extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RestorePointCollection.__pulumiType, name, resourceInputs, opts);
     }
 }

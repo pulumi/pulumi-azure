@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleVirtualMachineRestorePointCollection = new azure.compute.VirtualMachineRestorePointCollection("example", {
+ * const exampleRestorePointCollection = new azure.compute.RestorePointCollection("example", {
  *     name: "example-collection",
  *     resourceGroupName: example.name,
  *     location: exampleLinuxVirtualMachine.location,
@@ -79,6 +79,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
  * ```
+ *
+ * @deprecated azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection
  */
 export class VirtualMachineRestorePointCollection extends pulumi.CustomResource {
     /**
@@ -91,6 +93,7 @@ export class VirtualMachineRestorePointCollection extends pulumi.CustomResource 
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VirtualMachineRestorePointCollectionState, opts?: pulumi.CustomResourceOptions): VirtualMachineRestorePointCollection {
+        pulumi.log.warn("VirtualMachineRestorePointCollection is deprecated: azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection")
         return new VirtualMachineRestorePointCollection(name, <any>state, { ...opts, id: id });
     }
 
@@ -136,8 +139,11 @@ export class VirtualMachineRestorePointCollection extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection */
     constructor(name: string, args: VirtualMachineRestorePointCollectionArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection */
     constructor(name: string, argsOrState?: VirtualMachineRestorePointCollectionArgs | VirtualMachineRestorePointCollectionState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VirtualMachineRestorePointCollection is deprecated: azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

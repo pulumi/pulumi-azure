@@ -110,7 +110,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewVirtualMachineRestorePointCollection(ctx, "example", &compute.VirtualMachineRestorePointCollectionArgs{
+//			_, err = compute.NewRestorePointCollection(ctx, "example", &compute.RestorePointCollectionArgs{
 //				Name:                   pulumi.String("example-collection"),
 //				ResourceGroupName:      example.Name,
 //				Location:               exampleLinuxVirtualMachine.Location,
@@ -132,6 +132,8 @@ import (
 // ```sh
 // $ pulumi import azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
 // ```
+//
+// Deprecated: azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection
 type VirtualMachineRestorePointCollection struct {
 	pulumi.CustomResourceState
 

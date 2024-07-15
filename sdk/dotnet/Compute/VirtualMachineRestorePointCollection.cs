@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachineRestorePointCollection = new Azure.Compute.VirtualMachineRestorePointCollection("example", new()
+    ///     var exampleRestorePointCollection = new Azure.Compute.RestorePointCollection("example", new()
     ///     {
     ///         Name = "example-collection",
     ///         ResourceGroupName = example.Name,
@@ -122,6 +122,7 @@ namespace Pulumi.Azure.Compute
     /// $ pulumi import azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
     /// ```
     /// </summary>
+    [Obsolete(@"azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection")]
     [AzureResourceType("azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection")]
     public partial class VirtualMachineRestorePointCollection : global::Pulumi.CustomResource
     {

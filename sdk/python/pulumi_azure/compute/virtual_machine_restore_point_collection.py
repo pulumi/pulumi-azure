@@ -190,7 +190,12 @@ class _VirtualMachineRestorePointCollectionState:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection""", DeprecationWarning)
+
+
 class VirtualMachineRestorePointCollection(pulumi.CustomResource):
+    warnings.warn("""azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -254,7 +259,7 @@ class VirtualMachineRestorePointCollection(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             })
-        example_virtual_machine_restore_point_collection = azure.compute.VirtualMachineRestorePointCollection("example",
+        example_restore_point_collection = azure.compute.RestorePointCollection("example",
             name="example-collection",
             resource_group_name=example.name,
             location=example_linux_virtual_machine.location,
@@ -336,7 +341,7 @@ class VirtualMachineRestorePointCollection(pulumi.CustomResource):
                 "sku": "22_04-lts",
                 "version": "latest",
             })
-        example_virtual_machine_restore_point_collection = azure.compute.VirtualMachineRestorePointCollection("example",
+        example_restore_point_collection = azure.compute.RestorePointCollection("example",
             name="example-collection",
             resource_group_name=example.name,
             location=example_linux_virtual_machine.location,
@@ -372,6 +377,7 @@ class VirtualMachineRestorePointCollection(pulumi.CustomResource):
                  source_virtual_machine_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""VirtualMachineRestorePointCollection is deprecated: azure.compute/virtualmachinerestorepointcollection.VirtualMachineRestorePointCollection has been deprecated in favor of azure.compute/restorepointcollection.RestorePointCollection""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
