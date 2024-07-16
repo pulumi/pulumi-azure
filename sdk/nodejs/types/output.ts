@@ -20509,8 +20509,17 @@ export namespace automation {
     }
 
     export interface RunBookDraftContentLink {
+        /**
+         * A `hash` block as defined below.
+         */
         hash?: outputs.automation.RunBookDraftContentLinkHash;
+        /**
+         * The URI of the runbook content.
+         */
         uri: string;
+        /**
+         * Specifies the version of the content
+         */
         version?: string;
     }
 
@@ -22291,6 +22300,9 @@ export namespace batch {
 
     export interface PoolStartTaskContainerRegistry {
         password?: string;
+        /**
+         * The container registry URL. Changing this forces a new resource to be created.
+         */
         registryServer: string;
         /**
          * The User Assigned Identity to use for Container Registry access.
@@ -25668,6 +25680,9 @@ export namespace compute {
          * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: string;
+        /**
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+         */
         order?: number;
         /**
          * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
@@ -27437,6 +27452,9 @@ export namespace compute {
          * Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
          */
         computerName: string;
+        /**
+         * Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
+         */
         customData: string;
     }
 
@@ -28031,6 +28049,9 @@ export namespace compute {
          * @deprecated `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
          */
         configurationReferenceBlobUri?: string;
+        /**
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+         */
         order?: number;
         /**
          * @deprecated `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
@@ -33327,7 +33348,17 @@ export namespace containerservice {
          * > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
          */
         networkPolicy: string;
+        /**
+         * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+         *
+         * > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
+         */
         outboundIpAddressIds: string[];
+        /**
+         * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+         *
+         * > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
+         */
         outboundIpPrefixIds: string[];
         /**
          * The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -33931,6 +33962,9 @@ export namespace containerservice {
     }
 
     export interface RegistryNetworkRuleSetVirtualNetwork {
+        /**
+         * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+         */
         action: string;
         subnetId: string;
     }
@@ -34219,6 +34253,9 @@ export namespace containerservice {
     }
 
     export interface TokenPasswordPassword1 {
+        /**
+         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+         */
         expiry?: string;
         /**
          * The value of the password (Sensitive).
@@ -34227,6 +34264,9 @@ export namespace containerservice {
     }
 
     export interface TokenPasswordPassword2 {
+        /**
+         * The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+         */
         expiry?: string;
         /**
          * The value of the password (Sensitive).
@@ -34574,6 +34614,9 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentOverrideSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -34591,6 +34634,9 @@ export namespace core {
 
     export interface ResourceGroupPolicyAssignmentResourceSelectorSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -34640,6 +34686,9 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentOverrideSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -34657,6 +34706,9 @@ export namespace core {
 
     export interface ResourcePolicyAssignmentResourceSelectorSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -34808,6 +34860,9 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentOverrideSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -34825,6 +34880,9 @@ export namespace core {
 
     export interface SubscriptionPolicyAssignmentResourceSelectorSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -37376,8 +37434,17 @@ export namespace datafactory {
 
     export interface IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword {
         linkedServiceName: string;
+        /**
+         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
+         */
         parameters?: {[key: string]: string};
+        /**
+         * Specifies the secret name in Azure Key Vault.
+         */
         secretName: string;
+        /**
+         * Specifies the secret version in Azure Key Vault.
+         */
         secretVersion?: string;
     }
 
@@ -37398,8 +37465,17 @@ export namespace datafactory {
 
     export interface IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense {
         linkedServiceName: string;
+        /**
+         * A map of parameters to associate with the Key Vault Data Factory Linked Service.
+         */
         parameters?: {[key: string]: string};
+        /**
+         * Specifies the secret name in Azure Key Vault.
+         */
         secretName: string;
+        /**
+         * Specifies the secret version in Azure Key Vault.
+         */
         secretVersion?: string;
     }
 
@@ -39336,95 +39412,212 @@ export namespace eventgrid {
     }
 
     export interface EventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: boolean;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNotNull {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNullOrUndefined {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
@@ -39740,95 +39933,212 @@ export namespace eventgrid {
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: boolean;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterIsNotNull {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[][];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterNumberNotInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[][];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
@@ -40425,95 +40735,212 @@ export namespace eventhub {
     }
 
     export interface EventSubscriptionAdvancedFilterBoolEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: boolean;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNotNull {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterIsNullOrUndefined {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThan {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
         value: number;
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[];
     }
 
     export interface EventSubscriptionAdvancedFilterNumberNotInRange {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: number[][];
     }
 
     export interface EventSubscriptionAdvancedFilterStringBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotBeginsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotContain {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotEndsWith {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
     export interface EventSubscriptionAdvancedFilterStringNotIn {
+        /**
+         * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         */
         key: string;
+        /**
+         * Specifies an array of values to compare to when using a multiple values operator.
+         *
+         * > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         */
         values: string[];
     }
 
@@ -41532,8 +41959,17 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
         primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
         privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
         privateIpAllocationMethod?: string;
         subnetId?: string;
     }
@@ -41997,8 +42433,14 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
         primary?: boolean;
         privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
         privateIpAllocationMethod?: string;
         subnetId?: string;
     }
@@ -42557,8 +42999,17 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
         primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
         privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
         privateIpAllocationMethod?: string;
         subnetId?: string;
     }
@@ -43033,8 +43484,17 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
         primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
         privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
         privateIpAllocationMethod?: string;
         subnetId?: string;
     }
@@ -43532,8 +43992,17 @@ export namespace hdinsight {
          * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Indicates whether this IP configuration is primary.
+         */
         primary?: boolean;
+        /**
+         * The private IP address of the IP configuration.
+         */
         privateIpAddress?: string;
+        /**
+         * The private IP allocation method. The only possible value now is `Dynamic`.
+         */
         privateIpAllocationMethod?: string;
         subnetId?: string;
     }
@@ -47925,6 +48394,9 @@ export namespace management {
 
     export interface GroupPolicyAssignmentOverrideSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -47942,6 +48414,9 @@ export namespace management {
 
     export interface GroupPolicyAssignmentResourceSelectorSelector {
         ins?: string[];
+        /**
+         * Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+         */
         kind: string;
         notIns?: string[];
     }
@@ -48050,8 +48525,17 @@ export namespace media {
     }
 
     export interface AccountFilterTrackSelectionCondition {
+        /**
+         * The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+         */
         operation: string;
+        /**
+         * The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+         */
         property: string;
+        /**
+         * The track property value to match or not match.
+         */
         value: string;
     }
 
@@ -55190,9 +55674,21 @@ export namespace netapp {
     }
 
     export interface VolumeGroupSapHanaVolumeDataProtectionReplication {
+        /**
+         * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         */
         endpointType?: string;
+        /**
+         * Location of the primary volume.
+         */
         remoteVolumeLocation: string;
+        /**
+         * Resource ID of the primary volume.
+         */
         remoteVolumeResourceId: string;
+        /**
+         * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         */
         replicationFrequency: string;
     }
 
@@ -56312,6 +56808,9 @@ export namespace network {
     }
 
     export interface ExpressRoutePortLink1 {
+        /**
+         * Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+         */
         adminEnabled?: boolean;
         /**
          * The connector type of the Express Route Port Link.
@@ -56325,9 +56824,23 @@ export namespace network {
          * The interface name of the Azure router associated with the Express Route Port Link.
          */
         interfaceName: string;
+        /**
+         * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+         */
         macsecCakKeyvaultSecretId?: string;
+        /**
+         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         */
         macsecCipher?: string;
+        /**
+         * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+         */
         macsecCknKeyvaultSecretId?: string;
+        /**
+         * Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+         *
+         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+         */
         macsecSciEnabled?: boolean;
         /**
          * The ID that maps from the Express Route Port Link to the patch panel port.
@@ -56344,6 +56857,9 @@ export namespace network {
     }
 
     export interface ExpressRoutePortLink2 {
+        /**
+         * Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+         */
         adminEnabled?: boolean;
         /**
          * The connector type of the Express Route Port Link.
@@ -56357,9 +56873,23 @@ export namespace network {
          * The interface name of the Azure router associated with the Express Route Port Link.
          */
         interfaceName: string;
+        /**
+         * The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+         */
         macsecCakKeyvaultSecretId?: string;
+        /**
+         * The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+         */
         macsecCipher?: string;
+        /**
+         * The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+         */
         macsecCknKeyvaultSecretId?: string;
+        /**
+         * Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+         *
+         * > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+         */
         macsecSciEnabled?: boolean;
         /**
          * The ID that maps from the Express Route Port Link to the patch panel port.
@@ -56725,9 +57255,18 @@ export namespace network {
     export interface FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
         description?: string;
         destinationAddresses?: string[];
+        /**
+         * Specifies a list of destination FQDN tags.
+         */
         destinationFqdnTags?: string[];
         destinationFqdns?: string[];
+        /**
+         * Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
+         */
         destinationUrls?: string[];
+        /**
+         * Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
+         */
         httpHeaders?: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader[];
         /**
          * The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
@@ -56736,7 +57275,13 @@ export namespace network {
         protocols?: outputs.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol[];
         sourceAddresses?: string[];
         sourceIpGroups?: string[];
+        /**
+         * Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
+         */
         terminateTls?: boolean;
+        /**
+         * Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+         */
         webCategories?: string[];
     }
 
@@ -56783,6 +57328,9 @@ export namespace network {
 
     export interface FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
         description?: string;
+        /**
+         * The destination IP address (including CIDR).
+         */
         destinationAddress?: string;
         destinationPorts?: string;
         /**
@@ -56792,8 +57340,19 @@ export namespace network {
         protocols: string[];
         sourceAddresses?: string[];
         sourceIpGroups?: string[];
+        /**
+         * Specifies the translated address.
+         */
         translatedAddress?: string;
+        /**
+         * Specifies the translated FQDN.
+         *
+         * > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
+         */
         translatedFqdn?: string;
+        /**
+         * Specifies the translated port.
+         */
         translatedPort: number;
     }
 
@@ -56820,6 +57379,9 @@ export namespace network {
         description?: string;
         destinationAddresses?: string[];
         destinationFqdns?: string[];
+        /**
+         * Specifies a list of destination IP groups.
+         */
         destinationIpGroups?: string[];
         destinationPorts: string[];
         /**
@@ -59879,6 +60441,9 @@ export namespace network {
     }
 
     export interface VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assign to this instance.
+         */
         customIps: string[];
         /**
          * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -59895,6 +60460,9 @@ export namespace network {
     }
 
     export interface VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+        /**
+         * A list of custom BGP peering addresses to assign to this instance.
+         */
         customIps: string[];
         /**
          * The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -63531,6 +64099,9 @@ export namespace sentinel {
          * @deprecated The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
          */
         createIncident: boolean;
+        /**
+         * A `grouping` block as defined below.
+         */
         grouping: outputs.sentinel.AlertRuleScheduledIncidentConfigurationGrouping;
     }
 
@@ -65022,29 +65593,81 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanBootRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }
 
     export interface ReplicationRecoveryPlanBootRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }
@@ -65061,29 +65684,81 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanFailoverRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }
 
     export interface ReplicationRecoveryPlanFailoverRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }
@@ -65108,29 +65783,81 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }
 
     export interface ReplicationRecoveryPlanRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }
@@ -65147,29 +65874,81 @@ export namespace siterecovery {
     }
 
     export interface ReplicationRecoveryPlanShutdownRecoveryGroupPostAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }
 
     export interface ReplicationRecoveryPlanShutdownRecoveryGroupPreAction {
+        /**
+         * The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+         *
+         * > **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+         */
         fabricLocation?: string;
+        /**
+         * Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+         */
         failOverDirections: string[];
+        /**
+         * Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+         */
         failOverTypes: string[];
+        /**
+         * Instructions of manual action.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+         */
         manualActionInstruction?: string;
         /**
          * The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
          */
         name: string;
+        /**
+         * Id of runbook.
+         *
+         * > **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+         */
         runbookId?: string;
+        /**
+         * Path of action script.
+         *
+         * > **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+         */
         scriptPath?: string;
         type: string;
     }

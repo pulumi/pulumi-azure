@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Network.Inputs
     {
         [Input("customIps", required: true)]
         private InputList<string>? _customIps;
+
+        /// <summary>
+        /// A list of custom BGP peering addresses to assign to this instance.
+        /// </summary>
         public InputList<string> CustomIps
         {
             get => _customIps ?? (_customIps = new InputList<string>());

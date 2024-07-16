@@ -14,6 +14,9 @@ namespace Pulumi.Azure.Network.Outputs
     public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule
     {
         public readonly string? Description;
+        /// <summary>
+        /// The destination IP address (including CIDR).
+        /// </summary>
         public readonly string? DestinationAddress;
         public readonly string? DestinationPorts;
         /// <summary>
@@ -23,8 +26,19 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly ImmutableArray<string> Protocols;
         public readonly ImmutableArray<string> SourceAddresses;
         public readonly ImmutableArray<string> SourceIpGroups;
+        /// <summary>
+        /// Specifies the translated address.
+        /// </summary>
         public readonly string? TranslatedAddress;
+        /// <summary>
+        /// Specifies the translated FQDN.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+        /// </summary>
         public readonly string? TranslatedFqdn;
+        /// <summary>
+        /// Specifies the translated port.
+        /// </summary>
         public readonly int TranslatedPort;
 
         [OutputConstructor]
