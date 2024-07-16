@@ -149,7 +149,7 @@ func GetSkipProviderRegistration(ctx *pulumi.Context) bool {
 	return value
 }
 
-// Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
 func GetStorageUseAzuread(ctx *pulumi.Context) bool {
 	v, err := config.TryBool(ctx, "azure:storageUseAzuread")
 	if err == nil {

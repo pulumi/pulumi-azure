@@ -24,8 +24,7 @@ import * as utilities from "../utilities";
  *     sku: "PerGB2018",
  * });
  * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {
- *     resourceGroupName: example.name,
- *     workspaceName: exampleAnalyticsWorkspace.name,
+ *     workspaceId: exampleAnalyticsWorkspace.id,
  *     customerManagedKeyEnabled: false,
  * });
  * ```
@@ -75,15 +74,14 @@ export class LogAnalyticsWorkspaceOnboarding extends pulumi.CustomResource {
      */
     public readonly customerManagedKeyEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-     *
      * @deprecated this property has been deprecated in favour of `workspaceId`
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+     */
     public readonly workspaceId!: pulumi.Output<string>;
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-     *
      * @deprecated this property will be removed in favour of `workspaceId` in version 4.0 of the AzureRM Provider
      */
     public readonly workspaceName!: pulumi.Output<string>;
@@ -130,15 +128,14 @@ export interface LogAnalyticsWorkspaceOnboardingState {
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-     *
      * @deprecated this property has been deprecated in favour of `workspaceId`
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+     */
     workspaceId?: pulumi.Input<string>;
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-     *
      * @deprecated this property will be removed in favour of `workspaceId` in version 4.0 of the AzureRM Provider
      */
     workspaceName?: pulumi.Input<string>;
@@ -157,15 +154,14 @@ export interface LogAnalyticsWorkspaceOnboardingArgs {
      */
     customerManagedKeyEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-     *
      * @deprecated this property has been deprecated in favour of `workspaceId`
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+     */
     workspaceId?: pulumi.Input<string>;
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-     *
      * @deprecated this property will be removed in favour of `workspaceId` in version 4.0 of the AzureRM Provider
      */
     workspaceName?: pulumi.Input<string>;

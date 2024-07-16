@@ -34,6 +34,13 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.autoDeleteOnIdle);
     }
 
+    @Import(name="batchedOperationsEnabled")
+    private @Nullable Output<Boolean> batchedOperationsEnabled;
+
+    public Optional<Output<Boolean>> batchedOperationsEnabled() {
+        return Optional.ofNullable(this.batchedOperationsEnabled);
+    }
+
     /**
      * A `client_scoped_subscription` block as defined below.
      * 
@@ -116,14 +123,22 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Boolean flag which controls whether the Subscription supports batched operations.
      * 
+     * @deprecated
+     * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
     @Import(name="enableBatchedOperations")
     private @Nullable Output<Boolean> enableBatchedOperations;
 
     /**
      * @return Boolean flag which controls whether the Subscription supports batched operations.
      * 
+     * @deprecated
+     * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableBatchedOperations() {
         return Optional.ofNullable(this.enableBatchedOperations);
     }
@@ -252,6 +267,7 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
 
     private SubscriptionArgs(SubscriptionArgs $) {
         this.autoDeleteOnIdle = $.autoDeleteOnIdle;
+        this.batchedOperationsEnabled = $.batchedOperationsEnabled;
         this.clientScopedSubscription = $.clientScopedSubscription;
         this.clientScopedSubscriptionEnabled = $.clientScopedSubscriptionEnabled;
         this.deadLetteringOnFilterEvaluationError = $.deadLetteringOnFilterEvaluationError;
@@ -305,6 +321,15 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
             return autoDeleteOnIdle(Output.of(autoDeleteOnIdle));
+        }
+
+        public Builder batchedOperationsEnabled(@Nullable Output<Boolean> batchedOperationsEnabled) {
+            $.batchedOperationsEnabled = batchedOperationsEnabled;
+            return this;
+        }
+
+        public Builder batchedOperationsEnabled(Boolean batchedOperationsEnabled) {
+            return batchedOperationsEnabled(Output.of(batchedOperationsEnabled));
         }
 
         /**
@@ -421,7 +446,11 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder enableBatchedOperations(@Nullable Output<Boolean> enableBatchedOperations) {
             $.enableBatchedOperations = enableBatchedOperations;
             return this;
@@ -432,7 +461,11 @@ public final class SubscriptionArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
             return enableBatchedOperations(Output.of(enableBatchedOperations));
         }

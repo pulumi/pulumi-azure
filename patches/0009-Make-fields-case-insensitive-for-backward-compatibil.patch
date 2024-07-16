@@ -130,19 +130,19 @@ index 111ae21ae1..ed886bf6b7 100644
  						"occurrence": {
  							Type:     pluginsdk.TypeInt,
 diff --git a/internal/services/cdn/cdn_endpoint_resource.go b/internal/services/cdn/cdn_endpoint_resource.go
-index 81c443076a..862c644a49 100644
+index 7c7d00e044..fb16cbb214 100644
 --- a/internal/services/cdn/cdn_endpoint_resource.go
 +++ b/internal/services/cdn/cdn_endpoint_resource.go
-@@ -5,6 +5,8 @@ package cdn
- 
- import (
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
+@@ -8,6 +8,8 @@ import (
  	"log"
  	"time"
  
-@@ -170,7 +172,8 @@ func resourceCdnEndpoint() *pluginsdk.Resource {
++	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
++
+ 	"github.com/Azure/azure-sdk-for-go/services/cdn/mgmt/2020-09-01/cdn" // nolint: staticcheck
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/location"
+@@ -171,7 +173,8 @@ func resourceCdnEndpoint() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(cdn.ActionTypeAllow),
  								string(cdn.ActionTypeBlock),
@@ -152,7 +152,7 @@ index 81c443076a..862c644a49 100644
  						},
  						"country_codes": {
  							Type:     pluginsdk.TypeList,
-@@ -192,7 +195,8 @@ func resourceCdnEndpoint() *pluginsdk.Resource {
+@@ -193,7 +196,8 @@ func resourceCdnEndpoint() *pluginsdk.Resource {
  					string(cdn.OptimizationTypeGeneralWebDelivery),
  					string(cdn.OptimizationTypeLargeFileDownload),
  					string(cdn.OptimizationTypeVideoOnDemandMediaStreaming),
@@ -323,7 +323,7 @@ index 5d1d4cfe1c..72cb85465c 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 6917db6163..bcbc450370 100644
+index a6ecd0eab3..fd859b3158 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
 @@ -1087,7 +1087,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
@@ -1335,20 +1335,19 @@ index 4ce5ae2dc4..8c8748d811 100644
  					},
  				},
 diff --git a/internal/services/network/network_security_group_resource.go b/internal/services/network/network_security_group_resource.go
-index 325fe2b6b0..1ebb7149f0 100644
+index 9a0f735389..b197d4f545 100644
 --- a/internal/services/network/network_security_group_resource.go
 +++ b/internal/services/network/network_security_group_resource.go
-@@ -8,6 +8,9 @@ import (
+@@ -8,6 +8,8 @@ import (
  	"strings"
  	"time"
  
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
 +
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
-@@ -85,7 +88,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
+@@ -83,7 +85,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
  								string(networksecuritygroups.SecurityRuleProtocolIcmp),
  								string(networksecuritygroups.SecurityRuleProtocolAh),
  								string(networksecuritygroups.SecurityRuleProtocolEsp),
@@ -1358,7 +1357,7 @@ index 325fe2b6b0..1ebb7149f0 100644
  						},
  
  						"source_port_range": {
-@@ -156,7 +160,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
+@@ -154,7 +157,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(networksecuritygroups.SecurityRuleAccessAllow),
  								string(networksecuritygroups.SecurityRuleAccessDeny),
@@ -1368,7 +1367,7 @@ index 325fe2b6b0..1ebb7149f0 100644
  						},
  
  						"priority": {
-@@ -171,7 +176,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
+@@ -169,7 +173,8 @@ func resourceNetworkSecurityGroup() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(networksecuritygroups.SecurityRuleDirectionInbound),
  								string(networksecuritygroups.SecurityRuleDirectionOutbound),
@@ -1501,20 +1500,19 @@ index 6672126ad0..00d659abc8 100644
  
  			"next_hop_in_ip_address": {
 diff --git a/internal/services/network/route_table_resource.go b/internal/services/network/route_table_resource.go
-index a91d6a8c32..c535895040 100644
+index 02bc2181dd..0f2e4506dd 100644
 --- a/internal/services/network/route_table_resource.go
 +++ b/internal/services/network/route_table_resource.go
-@@ -7,6 +7,9 @@ import (
+@@ -7,6 +7,8 @@ import (
  	"fmt"
  	"time"
  
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
 +
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
-@@ -84,7 +87,8 @@ func resourceRouteTable() *pluginsdk.Resource {
+@@ -82,7 +84,8 @@ func resourceRouteTable() *pluginsdk.Resource {
  								string(routetables.RouteNextHopTypeInternet),
  								string(routetables.RouteNextHopTypeVirtualAppliance),
  								string(routetables.RouteNextHopTypeNone),
@@ -1716,7 +1714,7 @@ index d68d5963fa..90dd2bfc33 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index b25ef6d5c9..a585a495ad 100644
+index 0da23c1f93..bc5cf95371 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -1870,7 +1868,7 @@ index 80b56994a3..b8954de4ac 100644
  											},
  										},
 diff --git a/internal/services/servicebus/servicebus_namespace_resource.go b/internal/services/servicebus/servicebus_namespace_resource.go
-index 56fa2647cb..b03bdc1fa8 100644
+index 3447f732a9..7a01563b25 100644
 --- a/internal/services/servicebus/servicebus_namespace_resource.go
 +++ b/internal/services/servicebus/servicebus_namespace_resource.go
 @@ -87,7 +87,8 @@ func resourceServiceBusNamespace() *pluginsdk.Resource {
@@ -1906,19 +1904,19 @@ index a4db7728d8..d0bbf2ec2f 100644
  
  		"action": {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index 7c2cdadb04..b661a5e54a 100644
+index a933b17947..7d8fa22219 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
-@@ -5,6 +5,8 @@ package servicebus
- 
- import (
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
+@@ -8,6 +8,8 @@ import (
  	"log"
  	"time"
  
-@@ -68,7 +70,8 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
++	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
++
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-sdk/resource-manager/servicebus/2021-06-01-preview/topics"
+ 	"github.com/hashicorp/go-azure-sdk/resource-manager/servicebus/2022-10-01-preview/namespaces"
+@@ -69,7 +71,8 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
  			ValidateFunc: validation.StringInSlice([]string{
  				string(topics.EntityStatusActive),
  				string(topics.EntityStatusDisabled),

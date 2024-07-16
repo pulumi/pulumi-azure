@@ -16872,6 +16872,8 @@ func (o KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.Int
 }
 
 type KubernetesClusterServiceMeshProfile struct {
+	// A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+	CertificateAuthority *KubernetesClusterServiceMeshProfileCertificateAuthority `pulumi:"certificateAuthority"`
 	// Is Istio External Ingress Gateway enabled?
 	//
 	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
@@ -16894,6 +16896,8 @@ type KubernetesClusterServiceMeshProfileInput interface {
 }
 
 type KubernetesClusterServiceMeshProfileArgs struct {
+	// A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+	CertificateAuthority KubernetesClusterServiceMeshProfileCertificateAuthorityPtrInput `pulumi:"certificateAuthority"`
 	// Is Istio External Ingress Gateway enabled?
 	//
 	// > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
@@ -16981,6 +16985,13 @@ func (o KubernetesClusterServiceMeshProfileOutput) ToKubernetesClusterServiceMes
 	}).(KubernetesClusterServiceMeshProfilePtrOutput)
 }
 
+// A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+func (o KubernetesClusterServiceMeshProfileOutput) CertificateAuthority() KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) *KubernetesClusterServiceMeshProfileCertificateAuthority {
+		return v.CertificateAuthority
+	}).(KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput)
+}
+
 // Is Istio External Ingress Gateway enabled?
 //
 // > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
@@ -17022,6 +17033,16 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Elem() KubernetesClusterSe
 	}).(KubernetesClusterServiceMeshProfileOutput)
 }
 
+// A `certificateAuthority` block as defined below. When this property is specified, `keyVaultSecretsProvider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+func (o KubernetesClusterServiceMeshProfilePtrOutput) CertificateAuthority() KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfile) *KubernetesClusterServiceMeshProfileCertificateAuthority {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateAuthority
+	}).(KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput)
+}
+
 // Is Istio External Ingress Gateway enabled?
 //
 // > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
@@ -17051,6 +17072,227 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Mode() pulumi.StringPtrOut
 			return nil
 		}
 		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterServiceMeshProfileCertificateAuthority struct {
+	// The certificate chain object name in Azure Key Vault.
+	CertChainObjectName string `pulumi:"certChainObjectName"`
+	// The intermediate certificate object name in Azure Key Vault.
+	CertObjectName string `pulumi:"certObjectName"`
+	// The intermediate certificate private key object name in Azure Key Vault.
+	//
+	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+	KeyObjectName string `pulumi:"keyObjectName"`
+	// The resource ID of the Key Vault.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// The root certificate object name in Azure Key Vault.
+	RootCertObjectName string `pulumi:"rootCertObjectName"`
+}
+
+// KubernetesClusterServiceMeshProfileCertificateAuthorityInput is an input type that accepts KubernetesClusterServiceMeshProfileCertificateAuthorityArgs and KubernetesClusterServiceMeshProfileCertificateAuthorityOutput values.
+// You can construct a concrete instance of `KubernetesClusterServiceMeshProfileCertificateAuthorityInput` via:
+//
+//	KubernetesClusterServiceMeshProfileCertificateAuthorityArgs{...}
+type KubernetesClusterServiceMeshProfileCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterServiceMeshProfileCertificateAuthorityOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityOutput
+	ToKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityOutput
+}
+
+type KubernetesClusterServiceMeshProfileCertificateAuthorityArgs struct {
+	// The certificate chain object name in Azure Key Vault.
+	CertChainObjectName pulumi.StringInput `pulumi:"certChainObjectName"`
+	// The intermediate certificate object name in Azure Key Vault.
+	CertObjectName pulumi.StringInput `pulumi:"certObjectName"`
+	// The intermediate certificate private key object name in Azure Key Vault.
+	//
+	// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+	KeyObjectName pulumi.StringInput `pulumi:"keyObjectName"`
+	// The resource ID of the Key Vault.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// The root certificate object name in Azure Key Vault.
+	RootCertObjectName pulumi.StringInput `pulumi:"rootCertObjectName"`
+}
+
+func (KubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (i KubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ToKubernetesClusterServiceMeshProfileCertificateAuthorityOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return i.ToKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ToKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfileCertificateAuthorityOutput)
+}
+
+func (i KubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return i.ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfileCertificateAuthorityOutput).ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterServiceMeshProfileCertificateAuthorityPtrInput is an input type that accepts KubernetesClusterServiceMeshProfileCertificateAuthorityArgs, KubernetesClusterServiceMeshProfileCertificateAuthorityPtr and KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterServiceMeshProfileCertificateAuthorityPtrInput` via:
+//
+//	        KubernetesClusterServiceMeshProfileCertificateAuthorityArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterServiceMeshProfileCertificateAuthorityPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput
+	ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput
+}
+
+type kubernetesClusterServiceMeshProfileCertificateAuthorityPtrType KubernetesClusterServiceMeshProfileCertificateAuthorityArgs
+
+func KubernetesClusterServiceMeshProfileCertificateAuthorityPtr(v *KubernetesClusterServiceMeshProfileCertificateAuthorityArgs) KubernetesClusterServiceMeshProfileCertificateAuthorityPtrInput {
+	return (*kubernetesClusterServiceMeshProfileCertificateAuthorityPtrType)(v)
+}
+
+func (*kubernetesClusterServiceMeshProfileCertificateAuthorityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (i *kubernetesClusterServiceMeshProfileCertificateAuthorityPtrType) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return i.ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterServiceMeshProfileCertificateAuthorityPtrType) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput)
+}
+
+type KubernetesClusterServiceMeshProfileCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ToKubernetesClusterServiceMeshProfileCertificateAuthorityOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ToKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return o.ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterServiceMeshProfileCertificateAuthority) *KubernetesClusterServiceMeshProfileCertificateAuthority {
+		return &v
+	}).(KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput)
+}
+
+// The certificate chain object name in Azure Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) CertChainObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.CertChainObjectName }).(pulumi.StringOutput)
+}
+
+// The intermediate certificate object name in Azure Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) CertObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.CertObjectName }).(pulumi.StringOutput)
+}
+
+// The intermediate certificate private key object name in Azure Key Vault.
+//
+// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) KeyObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.KeyObjectName }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// The root certificate object name in Azure Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityOutput) RootCertObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.RootCertObjectName }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput() KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) ToKubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutputWithContext(ctx context.Context) KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) Elem() KubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfileCertificateAuthority) KubernetesClusterServiceMeshProfileCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterServiceMeshProfileCertificateAuthority
+		return ret
+	}).(KubernetesClusterServiceMeshProfileCertificateAuthorityOutput)
+}
+
+// The certificate chain object name in Azure Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) CertChainObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfileCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertChainObjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The intermediate certificate object name in Azure Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) CertObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfileCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertObjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The intermediate certificate private key object name in Azure Key Vault.
+//
+// > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) KeyObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfileCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyObjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) KeyVaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfileCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The root certificate object name in Azure Key Vault.
+func (o KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput) RootCertObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterServiceMeshProfileCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootCertObjectName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -24981,6 +25223,8 @@ func (o GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput) Index(i pulumi.
 }
 
 type GetKubernetesClusterServiceMeshProfile struct {
+	// A `certificateAuthority` block as documented below.
+	CertificateAuthorities []GetKubernetesClusterServiceMeshProfileCertificateAuthority `pulumi:"certificateAuthorities"`
 	// Is Istio External Ingress Gateway enabled?
 	ExternalIngressGatewayEnabled bool `pulumi:"externalIngressGatewayEnabled"`
 	// Is Istio Internal Ingress Gateway enabled?
@@ -25001,6 +25245,8 @@ type GetKubernetesClusterServiceMeshProfileInput interface {
 }
 
 type GetKubernetesClusterServiceMeshProfileArgs struct {
+	// A `certificateAuthority` block as documented below.
+	CertificateAuthorities GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayInput `pulumi:"certificateAuthorities"`
 	// Is Istio External Ingress Gateway enabled?
 	ExternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"externalIngressGatewayEnabled"`
 	// Is Istio Internal Ingress Gateway enabled?
@@ -25060,6 +25306,13 @@ func (o GetKubernetesClusterServiceMeshProfileOutput) ToGetKubernetesClusterServ
 	return o
 }
 
+// A `certificateAuthority` block as documented below.
+func (o GetKubernetesClusterServiceMeshProfileOutput) CertificateAuthorities() GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) []GetKubernetesClusterServiceMeshProfileCertificateAuthority {
+		return v.CertificateAuthorities
+	}).(GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput)
+}
+
 // Is Istio External Ingress Gateway enabled?
 func (o GetKubernetesClusterServiceMeshProfileOutput) ExternalIngressGatewayEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfile) bool { return v.ExternalIngressGatewayEnabled }).(pulumi.BoolOutput)
@@ -25093,6 +25346,141 @@ func (o GetKubernetesClusterServiceMeshProfileArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterServiceMeshProfile {
 		return vs[0].([]GetKubernetesClusterServiceMeshProfile)[vs[1].(int)]
 	}).(GetKubernetesClusterServiceMeshProfileOutput)
+}
+
+type GetKubernetesClusterServiceMeshProfileCertificateAuthority struct {
+	// The certificate chain object name in Azure Key Vault.
+	CertChainObjectName string `pulumi:"certChainObjectName"`
+	// The intermediate certificate object name in Azure Key Vault.
+	CertObjectName string `pulumi:"certObjectName"`
+	// The intermediate certificate private key object name in Azure Key Vault.
+	KeyObjectName string `pulumi:"keyObjectName"`
+	// The resource ID of the Key Vault.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// The root certificate object name in Azure Key Vault.
+	RootCertObjectName string `pulumi:"rootCertObjectName"`
+}
+
+// GetKubernetesClusterServiceMeshProfileCertificateAuthorityInput is an input type that accepts GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs and GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterServiceMeshProfileCertificateAuthorityInput` via:
+//
+//	GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs{...}
+type GetKubernetesClusterServiceMeshProfileCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput() GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput
+	ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(context.Context) GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput
+}
+
+type GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs struct {
+	// The certificate chain object name in Azure Key Vault.
+	CertChainObjectName pulumi.StringInput `pulumi:"certChainObjectName"`
+	// The intermediate certificate object name in Azure Key Vault.
+	CertObjectName pulumi.StringInput `pulumi:"certObjectName"`
+	// The intermediate certificate private key object name in Azure Key Vault.
+	KeyObjectName pulumi.StringInput `pulumi:"keyObjectName"`
+	// The resource ID of the Key Vault.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// The root certificate object name in Azure Key Vault.
+	RootCertObjectName pulumi.StringInput `pulumi:"rootCertObjectName"`
+}
+
+func (GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput() GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return i.ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput)
+}
+
+// GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayInput is an input type that accepts GetKubernetesClusterServiceMeshProfileCertificateAuthorityArray and GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput values.
+// You can construct a concrete instance of `GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayInput` via:
+//
+//	GetKubernetesClusterServiceMeshProfileCertificateAuthorityArray{ GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs{...} }
+type GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayInput interface {
+	pulumi.Input
+
+	ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput() GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput
+	ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutputWithContext(context.Context) GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput
+}
+
+type GetKubernetesClusterServiceMeshProfileCertificateAuthorityArray []GetKubernetesClusterServiceMeshProfileCertificateAuthorityInput
+
+func (GetKubernetesClusterServiceMeshProfileCertificateAuthorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (i GetKubernetesClusterServiceMeshProfileCertificateAuthorityArray) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput() GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput {
+	return i.ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutputWithContext(context.Background())
+}
+
+func (i GetKubernetesClusterServiceMeshProfileCertificateAuthorityArray) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput)
+}
+
+type GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput() GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return o
+}
+
+// The certificate chain object name in Azure Key Vault.
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) CertChainObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfileCertificateAuthority) string {
+		return v.CertChainObjectName
+	}).(pulumi.StringOutput)
+}
+
+// The intermediate certificate object name in Azure Key Vault.
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) CertObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.CertObjectName }).(pulumi.StringOutput)
+}
+
+// The intermediate certificate private key object name in Azure Key Vault.
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) KeyObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.KeyObjectName }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Key Vault.
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// The root certificate object name in Azure Key Vault.
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput) RootCertObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKubernetesClusterServiceMeshProfileCertificateAuthority) string { return v.RootCertObjectName }).(pulumi.StringOutput)
+}
+
+type GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKubernetesClusterServiceMeshProfileCertificateAuthority)(nil)).Elem()
+}
+
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput() GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput) ToGetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutputWithContext(ctx context.Context) GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKubernetesClusterServiceMeshProfileCertificateAuthority {
+		return vs[0].([]GetKubernetesClusterServiceMeshProfileCertificateAuthority)[vs[1].(int)]
+	}).(GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput)
 }
 
 type GetKubernetesClusterServicePrincipal struct {
@@ -25591,6 +25979,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), KubernetesClusterOmsAgentOmsAgentIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServiceMeshProfileInput)(nil)).Elem(), KubernetesClusterServiceMeshProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServiceMeshProfilePtrInput)(nil)).Elem(), KubernetesClusterServiceMeshProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServiceMeshProfileCertificateAuthorityInput)(nil)).Elem(), KubernetesClusterServiceMeshProfileCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServiceMeshProfileCertificateAuthorityPtrInput)(nil)).Elem(), KubernetesClusterServiceMeshProfileCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalPtrInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterStorageProfileInput)(nil)).Elem(), KubernetesClusterStorageProfileArgs{})
@@ -25697,6 +26087,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput)(nil)).Elem(), GetKubernetesClusterOmsAgentOmsAgentIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileInput)(nil)).Elem(), GetKubernetesClusterServiceMeshProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileArrayInput)(nil)).Elem(), GetKubernetesClusterServiceMeshProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileCertificateAuthorityInput)(nil)).Elem(), GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayInput)(nil)).Elem(), GetKubernetesClusterServiceMeshProfileCertificateAuthorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterServicePrincipalArrayInput)(nil)).Elem(), GetKubernetesClusterServicePrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterStorageProfileInput)(nil)).Elem(), GetKubernetesClusterStorageProfileArgs{})
@@ -25871,6 +26263,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServiceMeshProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServiceMeshProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterServiceMeshProfileCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterServiceMeshProfileCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterStorageProfileOutput{})
@@ -25977,6 +26371,8 @@ func init() {
 	pulumi.RegisterOutputType(GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServiceMeshProfileOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServiceMeshProfileArrayOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterServiceMeshProfileCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(GetKubernetesClusterServiceMeshProfileCertificateAuthorityArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterServicePrincipalArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterStorageProfileOutput{})

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterServiceMeshProfileCertificateAuthorityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KubernetesClusterServiceMeshProfileArgs Empty = new KubernetesClusterServiceMeshProfileArgs();
+
+    /**
+     * A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * 
+     */
+    @Import(name="certificateAuthority")
+    private @Nullable Output<KubernetesClusterServiceMeshProfileCertificateAuthorityArgs> certificateAuthority;
+
+    /**
+     * @return A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+     * 
+     */
+    public Optional<Output<KubernetesClusterServiceMeshProfileCertificateAuthorityArgs>> certificateAuthority() {
+        return Optional.ofNullable(this.certificateAuthority);
+    }
 
     /**
      * Is Istio External Ingress Gateway enabled?
@@ -69,6 +85,7 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
     private KubernetesClusterServiceMeshProfileArgs() {}
 
     private KubernetesClusterServiceMeshProfileArgs(KubernetesClusterServiceMeshProfileArgs $) {
+        this.certificateAuthority = $.certificateAuthority;
         this.externalIngressGatewayEnabled = $.externalIngressGatewayEnabled;
         this.internalIngressGatewayEnabled = $.internalIngressGatewayEnabled;
         this.mode = $.mode;
@@ -90,6 +107,27 @@ public final class KubernetesClusterServiceMeshProfileArgs extends com.pulumi.re
 
         public Builder(KubernetesClusterServiceMeshProfileArgs defaults) {
             $ = new KubernetesClusterServiceMeshProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param certificateAuthority A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateAuthority(@Nullable Output<KubernetesClusterServiceMeshProfileCertificateAuthorityArgs> certificateAuthority) {
+            $.certificateAuthority = certificateAuthority;
+            return this;
+        }
+
+        /**
+         * @param certificateAuthority A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateAuthority(KubernetesClusterServiceMeshProfileCertificateAuthorityArgs certificateAuthority) {
+            return certificateAuthority(Output.of(certificateAuthority));
         }
 
         /**

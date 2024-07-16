@@ -40,8 +40,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
     }
 
     /**
-     * Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-     * 
      * @deprecated
      * this property has been deprecated in favour of `workspace_id`
      * 
@@ -51,8 +49,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-     * 
      * @deprecated
      * this property has been deprecated in favour of `workspace_id`
      * 
@@ -62,16 +58,22 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         return Optional.ofNullable(this.resourceGroupName);
     }
 
+    /**
+     * Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="workspaceId")
     private @Nullable Output<String> workspaceId;
 
+    /**
+     * @return Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> workspaceId() {
         return Optional.ofNullable(this.workspaceId);
     }
 
     /**
-     * Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-     * 
      * @deprecated
      * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
      * 
@@ -81,8 +83,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
     private @Nullable Output<String> workspaceName;
 
     /**
-     * @return Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-     * 
      * @deprecated
      * this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider
      * 
@@ -149,8 +149,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -164,8 +162,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @param resourceGroupName Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -177,18 +173,28 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param workspaceId Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspaceId(@Nullable Output<String> workspaceId) {
             $.workspaceId = workspaceId;
             return this;
         }
 
+        /**
+         * @param workspaceId Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
         }
 
         /**
-         * @param workspaceName Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
          * @deprecated
@@ -202,8 +208,6 @@ public final class LogAnalyticsWorkspaceOnboardingState extends com.pulumi.resou
         }
 
         /**
-         * @param workspaceName Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
          * @deprecated

@@ -108,6 +108,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
+        /// The client library to be used in the Azure AD B2C Identity Provider.
+        /// </summary>
+        [Output("clientLibrary")]
+        public Output<string?> ClientLibrary { get; private set; } = null!;
+
+        /// <summary>
         /// Client secret of the Application in your B2C tenant.
         /// </summary>
         [Output("clientSecret")]
@@ -223,6 +229,12 @@ namespace Pulumi.Azure.ApiManagement
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;
 
+        /// <summary>
+        /// The client library to be used in the Azure AD B2C Identity Provider.
+        /// </summary>
+        [Input("clientLibrary")]
+        public Input<string>? ClientLibrary { get; set; }
+
         [Input("clientSecret", required: true)]
         private Input<string>? _clientSecret;
 
@@ -306,6 +318,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// The client library to be used in the Azure AD B2C Identity Provider.
+        /// </summary>
+        [Input("clientLibrary")]
+        public Input<string>? ClientLibrary { get; set; }
 
         [Input("clientSecret")]
         private Input<string>? _clientSecret;

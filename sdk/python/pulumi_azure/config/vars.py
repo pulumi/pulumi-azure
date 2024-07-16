@@ -167,7 +167,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def storage_use_azuread(self) -> bool:
         """
-        Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
+        Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         """
         return __config__.get_bool('storageUseAzuread') or (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
 

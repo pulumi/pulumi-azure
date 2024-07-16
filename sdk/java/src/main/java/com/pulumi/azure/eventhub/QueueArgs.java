@@ -33,6 +33,13 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.autoDeleteOnIdle);
     }
 
+    @Import(name="batchedOperationsEnabled")
+    private @Nullable Output<Boolean> batchedOperationsEnabled;
+
+    public Optional<Output<Boolean>> batchedOperationsEnabled() {
+        return Optional.ofNullable(this.batchedOperationsEnabled);
+    }
+
     /**
      * Boolean flag which controls whether the Queue has dead letter support when a message expires. Defaults to `false`.
      * 
@@ -81,14 +88,22 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
      * 
+     * @deprecated
+     * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="enableBatchedOperations")
     private @Nullable Output<Boolean> enableBatchedOperations;
 
     /**
      * @return Boolean flag which controls whether server-side batched operations are enabled. Defaults to `true`.
      * 
+     * @deprecated
+     * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableBatchedOperations() {
         return Optional.ofNullable(this.enableBatchedOperations);
     }
@@ -98,7 +113,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
      * 
+     * @deprecated
+     * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="enableExpress")
     private @Nullable Output<Boolean> enableExpress;
 
@@ -107,7 +126,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** Service Bus Premium namespaces do not support Express Entities, so `enable_express` MUST be set to `false`.
      * 
+     * @deprecated
+     * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableExpress() {
         return Optional.ofNullable(this.enableExpress);
     }
@@ -117,7 +140,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
      * 
+     * @deprecated
+     * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="enablePartitioning")
     private @Nullable Output<Boolean> enablePartitioning;
 
@@ -126,9 +153,20 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. For premium namespace, partitioning is available at namespace creation, and all queues and topics in the partitioned namespace will be partitioned, for the premium namespace that has `premium_messaging_partitions` sets to `1`, the namespace is not partitioned.
      * 
+     * @deprecated
+     * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enablePartitioning() {
         return Optional.ofNullable(this.enablePartitioning);
+    }
+
+    @Import(name="expressEnabled")
+    private @Nullable Output<Boolean> expressEnabled;
+
+    public Optional<Output<Boolean>> expressEnabled() {
+        return Optional.ofNullable(this.expressEnabled);
     }
 
     /**
@@ -251,6 +289,13 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         return this.namespaceId;
     }
 
+    @Import(name="partitioningEnabled")
+    private @Nullable Output<Boolean> partitioningEnabled;
+
+    public Optional<Output<Boolean>> partitioningEnabled() {
+        return Optional.ofNullable(this.partitioningEnabled);
+    }
+
     /**
      * Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to `false`.
      * 
@@ -300,12 +345,14 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
 
     private QueueArgs(QueueArgs $) {
         this.autoDeleteOnIdle = $.autoDeleteOnIdle;
+        this.batchedOperationsEnabled = $.batchedOperationsEnabled;
         this.deadLetteringOnMessageExpiration = $.deadLetteringOnMessageExpiration;
         this.defaultMessageTtl = $.defaultMessageTtl;
         this.duplicateDetectionHistoryTimeWindow = $.duplicateDetectionHistoryTimeWindow;
         this.enableBatchedOperations = $.enableBatchedOperations;
         this.enableExpress = $.enableExpress;
         this.enablePartitioning = $.enablePartitioning;
+        this.expressEnabled = $.expressEnabled;
         this.forwardDeadLetteredMessagesTo = $.forwardDeadLetteredMessagesTo;
         this.forwardTo = $.forwardTo;
         this.lockDuration = $.lockDuration;
@@ -314,6 +361,7 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         this.maxSizeInMegabytes = $.maxSizeInMegabytes;
         this.name = $.name;
         this.namespaceId = $.namespaceId;
+        this.partitioningEnabled = $.partitioningEnabled;
         this.requiresDuplicateDetection = $.requiresDuplicateDetection;
         this.requiresSession = $.requiresSession;
         this.status = $.status;
@@ -356,6 +404,15 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
             return autoDeleteOnIdle(Output.of(autoDeleteOnIdle));
+        }
+
+        public Builder batchedOperationsEnabled(@Nullable Output<Boolean> batchedOperationsEnabled) {
+            $.batchedOperationsEnabled = batchedOperationsEnabled;
+            return this;
+        }
+
+        public Builder batchedOperationsEnabled(Boolean batchedOperationsEnabled) {
+            return batchedOperationsEnabled(Output.of(batchedOperationsEnabled));
         }
 
         /**
@@ -426,7 +483,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableBatchedOperations(@Nullable Output<Boolean> enableBatchedOperations) {
             $.enableBatchedOperations = enableBatchedOperations;
             return this;
@@ -437,7 +498,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
             return enableBatchedOperations(Output.of(enableBatchedOperations));
         }
@@ -449,7 +514,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableExpress(@Nullable Output<Boolean> enableExpress) {
             $.enableExpress = enableExpress;
             return this;
@@ -462,7 +531,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableExpress(Boolean enableExpress) {
             return enableExpress(Output.of(enableExpress));
         }
@@ -474,7 +547,11 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enablePartitioning(@Nullable Output<Boolean> enablePartitioning) {
             $.enablePartitioning = enablePartitioning;
             return this;
@@ -487,9 +564,22 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enablePartitioning(Boolean enablePartitioning) {
             return enablePartitioning(Output.of(enablePartitioning));
+        }
+
+        public Builder expressEnabled(@Nullable Output<Boolean> expressEnabled) {
+            $.expressEnabled = expressEnabled;
+            return this;
+        }
+
+        public Builder expressEnabled(Boolean expressEnabled) {
+            return expressEnabled(Output.of(expressEnabled));
         }
 
         /**
@@ -658,6 +748,15 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namespaceId(String namespaceId) {
             return namespaceId(Output.of(namespaceId));
+        }
+
+        public Builder partitioningEnabled(@Nullable Output<Boolean> partitioningEnabled) {
+            $.partitioningEnabled = partitioningEnabled;
+            return this;
+        }
+
+        public Builder partitioningEnabled(Boolean partitioningEnabled) {
+            return partitioningEnabled(Output.of(partitioningEnabled));
         }
 
         /**

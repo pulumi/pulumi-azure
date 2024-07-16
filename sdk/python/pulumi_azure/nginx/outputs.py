@@ -343,9 +343,9 @@ class DeploymentFrontendPrivate(dict):
                  ip_address: str,
                  subnet_id: str):
         """
-        :param str allocation_method: Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
-        :param str ip_address: Specify the private IP Address.
-        :param str subnet_id: Specify the Subnet Resource ID for this NGINX Deployment.
+        :param str allocation_method: Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
+        :param str ip_address: Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
+        :param str subnet_id: Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         pulumi.set(__self__, "allocation_method", allocation_method)
         pulumi.set(__self__, "ip_address", ip_address)
@@ -355,7 +355,7 @@ class DeploymentFrontendPrivate(dict):
     @pulumi.getter(name="allocationMethod")
     def allocation_method(self) -> str:
         """
-        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`.
+        Specify the method for allocating the private IP. Possible values are `Static` and `Dynamic`. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "allocation_method")
 
@@ -363,7 +363,7 @@ class DeploymentFrontendPrivate(dict):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> str:
         """
-        Specify the private IP Address.
+        Specify the private IP Address. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "ip_address")
 
@@ -371,7 +371,7 @@ class DeploymentFrontendPrivate(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        Specify the Subnet Resource ID for this NGINX Deployment.
+        Specify the Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -398,7 +398,7 @@ class DeploymentFrontendPublic(dict):
     def __init__(__self__, *,
                  ip_addresses: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] ip_addresses: Specifies a list of Public IP Resource ID to this NGINX Deployment.
+        :param Sequence[str] ip_addresses: Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
@@ -407,7 +407,7 @@ class DeploymentFrontendPublic(dict):
     @pulumi.getter(name="ipAddresses")
     def ip_addresses(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of Public IP Resource ID to this NGINX Deployment.
+        Specifies a list of Public IP Resource ID to this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "ip_addresses")
 
@@ -553,7 +553,7 @@ class DeploymentNetworkInterface(dict):
     def __init__(__self__, *,
                  subnet_id: str):
         """
-        :param str subnet_id: Specify The Subnet Resource ID for this NGINX Deployment.
+        :param str subnet_id: Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -561,7 +561,7 @@ class DeploymentNetworkInterface(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        Specify The Subnet Resource ID for this NGINX Deployment.
+        Specify The Subnet Resource ID for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "subnet_id")
 

@@ -80,7 +80,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customQuestionAnsweringSearchServiceKey!: pulumi.Output<string | undefined>;
     /**
-     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
      */
     public readonly customSubdomainName!: pulumi.Output<string | undefined>;
     /**
@@ -283,7 +283,7 @@ export interface AccountState {
      */
     customQuestionAnsweringSearchServiceKey?: pulumi.Input<string>;
     /**
-     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
      */
     customSubdomainName?: pulumi.Input<string>;
     /**
@@ -403,7 +403,7 @@ export interface AccountArgs {
      */
     customQuestionAnsweringSearchServiceKey?: pulumi.Input<string>;
     /**
-     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. Changing this forces a new resource to be created.
+     * The subdomain name used for token-based authentication. This property is required when `networkAcls` is specified. This property is also required when using the OpenAI service with libraries which assume the Azure OpenAI endpoint is a subdomain on `https://openai.azure.com/`, eg. `https://<custom_subdomain_name>.openai.azure.com/`.  Changing this forces a new resource to be created.
      */
     customSubdomainName?: pulumi.Input<string>;
     /**

@@ -312,14 +312,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the AzureRM Provider use AzureAD to access the Storage Data Plane API&#39;s?
+     * Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
      * 
      */
     @Import(name="storageUseAzuread", json=true)
     private @Nullable Output<Boolean> storageUseAzuread;
 
     /**
-     * @return Should the AzureRM Provider use AzureAD to access the Storage Data Plane API&#39;s?
+     * @return Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
      * 
      */
     public Optional<Output<Boolean>> storageUseAzuread() {
@@ -871,7 +871,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageUseAzuread Should the AzureRM Provider use AzureAD to access the Storage Data Plane API&#39;s?
+         * @param storageUseAzuread Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
          * 
          * @return builder
          * 
@@ -882,7 +882,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageUseAzuread Should the AzureRM Provider use AzureAD to access the Storage Data Plane API&#39;s?
+         * @param storageUseAzuread Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
          * 
          * @return builder
          * 

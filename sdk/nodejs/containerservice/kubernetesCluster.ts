@@ -278,8 +278,6 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
      *
      * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
      */
     public readonly nodeOsChannelUpgrade!: pulumi.Output<string | undefined>;
     /**
@@ -800,8 +798,6 @@ export interface KubernetesClusterState {
      * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
      *
      * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
      */
     nodeOsChannelUpgrade?: pulumi.Input<string>;
     /**
@@ -1128,8 +1124,6 @@ export interface KubernetesClusterArgs {
      * The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
      *
      * > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-     *
-     * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
      */
     nodeOsChannelUpgrade?: pulumi.Input<string>;
     /**

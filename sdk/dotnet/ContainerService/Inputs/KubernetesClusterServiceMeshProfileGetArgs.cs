@@ -13,6 +13,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
     public sealed class KubernetesClusterServiceMeshProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+        /// </summary>
+        [Input("certificateAuthority")]
+        public Input<Inputs.KubernetesClusterServiceMeshProfileCertificateAuthorityGetArgs>? CertificateAuthority { get; set; }
+
+        /// <summary>
         /// Is Istio External Ingress Gateway enabled?
         /// 
         /// &gt; **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster

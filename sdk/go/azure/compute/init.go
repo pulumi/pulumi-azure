@@ -73,6 +73,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OrchestratedVirtualMachineScaleSet{}
 	case "azure:compute/packetCapture:PacketCapture":
 		r = &PacketCapture{}
+	case "azure:compute/restorePoint:RestorePoint":
+		r = &RestorePoint{}
 	case "azure:compute/restorePointCollection:RestorePointCollection":
 		r = &RestorePointCollection{}
 	case "azure:compute/runCommand:RunCommand":
@@ -93,6 +95,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SshPublicKey{}
 	case "azure:compute/virtualMachine:VirtualMachine":
 		r = &VirtualMachine{}
+	case "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection":
+		r = &VirtualMachineRestorePointCollection{}
 	case "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
 		r = &VirtualMachineScaleSetExtension{}
 	case "azure:compute/windowsVirtualMachine:WindowsVirtualMachine":
@@ -244,6 +248,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"compute/restorePoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"compute/restorePointCollection",
 		&module{version},
 	)
@@ -290,6 +299,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"compute/virtualMachine",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"compute/virtualMachineRestorePointCollection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

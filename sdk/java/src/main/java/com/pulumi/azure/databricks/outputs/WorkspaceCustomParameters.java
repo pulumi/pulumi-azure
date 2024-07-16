@@ -25,7 +25,9 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * 
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
      * 
      */
     private @Nullable Boolean noPublicIp;
@@ -60,7 +62,7 @@ public final class WorkspaceCustomParameters {
      */
     private @Nullable String storageAccountName;
     /**
-     * @return Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+     * @return Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
      * 
      */
     private @Nullable String storageAccountSkuName;
@@ -95,7 +97,9 @@ public final class WorkspaceCustomParameters {
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`.
      * 
-     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and and only for VNet-injected workspaces.
+     * &gt; **Note:** Updating `no_public_ip` parameter is only allowed if the value is changing from `false` to `true` and only for VNet-injected workspaces.
+     * 
+     * &gt; **Note:** In `v3.104.0` and higher of the provider the `no_public_ip` parameter will now default to `true` instead of `false`.
      * 
      */
     public Optional<Boolean> noPublicIp() {
@@ -144,7 +148,7 @@ public final class WorkspaceCustomParameters {
         return Optional.ofNullable(this.storageAccountName);
     }
     /**
-     * @return Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
+     * @return Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`.
      * 
      */
     public Optional<String> storageAccountSkuName() {

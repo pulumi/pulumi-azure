@@ -6,7 +6,7 @@ Subject: [PATCH] Set user agent in client options
 Use Pulumi-specific user agent which includes the current provider version number.
 
 diff --git a/internal/common/client_options.go b/internal/common/client_options.go
-index 4b2d3a5a5b..451c27f7f2 100644
+index a6c84174b9..d27416056d 100644
 --- a/internal/common/client_options.go
 +++ b/internal/common/client_options.go
 @@ -13,7 +13,6 @@ import (
@@ -17,7 +17,7 @@ index 4b2d3a5a5b..451c27f7f2 100644
  	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
  	"github.com/hashicorp/terraform-provider-azurerm/version"
  )
-@@ -94,12 +93,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A
+@@ -96,12 +95,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A
  }
  
  func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID bool) string {
@@ -32,7 +32,7 @@ index 4b2d3a5a5b..451c27f7f2 100644
  	userAgent = strings.TrimSpace(fmt.Sprintf("%s %s", userAgent, providerUserAgent))
  
  	// append the CloudShell version to the user agent if it exists
-@@ -108,11 +103,11 @@ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID
+@@ -110,11 +105,11 @@ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID
  	}
  
  	// only one pid can be interpreted currently

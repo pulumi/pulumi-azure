@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.devtest.outputs;
 
+import com.pulumi.azure.devtest.outputs.VirtualNetworkSubnetSharedPublicIpAddress;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -16,6 +17,11 @@ public final class VirtualNetworkSubnet {
      * 
      */
     private @Nullable String name;
+    /**
+     * @return A `shared_public_ip_address` block as defined below.
+     * 
+     */
+    private @Nullable VirtualNetworkSubnetSharedPublicIpAddress sharedPublicIpAddress;
     /**
      * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
      * 
@@ -34,6 +40,13 @@ public final class VirtualNetworkSubnet {
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+    /**
+     * @return A `shared_public_ip_address` block as defined below.
+     * 
+     */
+    public Optional<VirtualNetworkSubnetSharedPublicIpAddress> sharedPublicIpAddress() {
+        return Optional.ofNullable(this.sharedPublicIpAddress);
     }
     /**
      * @return Can this subnet be used for creating Virtual Machines? Possible values are `Allow`, `Default` and `Deny`. Defaults to `Allow`.
@@ -60,12 +73,14 @@ public final class VirtualNetworkSubnet {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
+        private @Nullable VirtualNetworkSubnetSharedPublicIpAddress sharedPublicIpAddress;
         private @Nullable String useInVirtualMachineCreation;
         private @Nullable String usePublicIpAddress;
         public Builder() {}
         public Builder(VirtualNetworkSubnet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
+    	      this.sharedPublicIpAddress = defaults.sharedPublicIpAddress;
     	      this.useInVirtualMachineCreation = defaults.useInVirtualMachineCreation;
     	      this.usePublicIpAddress = defaults.usePublicIpAddress;
         }
@@ -74,6 +89,12 @@ public final class VirtualNetworkSubnet {
         public Builder name(@Nullable String name) {
 
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sharedPublicIpAddress(@Nullable VirtualNetworkSubnetSharedPublicIpAddress sharedPublicIpAddress) {
+
+            this.sharedPublicIpAddress = sharedPublicIpAddress;
             return this;
         }
         @CustomType.Setter
@@ -91,6 +112,7 @@ public final class VirtualNetworkSubnet {
         public VirtualNetworkSubnet build() {
             final var _resultValue = new VirtualNetworkSubnet();
             _resultValue.name = name;
+            _resultValue.sharedPublicIpAddress = sharedPublicIpAddress;
             _resultValue.useInVirtualMachineCreation = useInVirtualMachineCreation;
             _resultValue.usePublicIpAddress = usePublicIpAddress;
             return _resultValue;

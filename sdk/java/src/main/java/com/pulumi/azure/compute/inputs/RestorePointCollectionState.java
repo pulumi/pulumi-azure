@@ -17,14 +17,14 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
     public static final RestorePointCollectionState Empty = new RestorePointCollectionState();
 
     /**
-     * The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * @return The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -32,14 +32,14 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+     * Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +47,14 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * @return The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -62,14 +62,14 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+     * The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="sourceVirtualMachineId")
     private @Nullable Output<String> sourceVirtualMachineId;
 
     /**
-     * @return The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+     * @return The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> sourceVirtualMachineId() {
@@ -77,14 +77,14 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A mapping of tags which should be assigned to this Restore Point Collection.
+     * A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to this Restore Point Collection.
+     * @return A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -120,7 +120,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+         * @param location The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param location The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+         * @param location The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+         * @param name Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+         * @param resourceGroupName The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sourceVirtualMachineId The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+         * @param sourceVirtualMachineId The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param sourceVirtualMachineId The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+         * @param sourceVirtualMachineId The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to this Restore Point Collection.
+         * @param tags A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class RestorePointCollectionState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to this Restore Point Collection.
+         * @param tags A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
          * 
          * @return builder
          * 

@@ -206,14 +206,14 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encryptionInTransitEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> encryptionInTransitEnabled;
+    private Output</* @Nullable */ Boolean> encryptionInTransitEnabled;
 
     /**
      * @return Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Boolean> encryptionInTransitEnabled() {
-        return this.encryptionInTransitEnabled;
+    public Output<Optional<Boolean>> encryptionInTransitEnabled() {
+        return Codegen.optional(this.encryptionInTransitEnabled);
     }
     /**
      * An `extension` block as defined below.

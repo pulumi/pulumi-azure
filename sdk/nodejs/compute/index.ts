@@ -240,6 +240,11 @@ export type PacketCapture = import("./packetCapture").PacketCapture;
 export const PacketCapture: typeof import("./packetCapture").PacketCapture = null as any;
 utilities.lazyLoad(exports, ["PacketCapture"], () => require("./packetCapture"));
 
+export { RestorePointArgs, RestorePointState } from "./restorePoint";
+export type RestorePoint = import("./restorePoint").RestorePoint;
+export const RestorePoint: typeof import("./restorePoint").RestorePoint = null as any;
+utilities.lazyLoad(exports, ["RestorePoint"], () => require("./restorePoint"));
+
 export { RestorePointCollectionArgs, RestorePointCollectionState } from "./restorePointCollection";
 export type RestorePointCollection = import("./restorePointCollection").RestorePointCollection;
 export const RestorePointCollection: typeof import("./restorePointCollection").RestorePointCollection = null as any;
@@ -289,6 +294,11 @@ export { VirtualMachineArgs, VirtualMachineState } from "./virtualMachine";
 export type VirtualMachine = import("./virtualMachine").VirtualMachine;
 export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
 utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
+
+export { VirtualMachineRestorePointCollectionArgs, VirtualMachineRestorePointCollectionState } from "./virtualMachineRestorePointCollection";
+export type VirtualMachineRestorePointCollection = import("./virtualMachineRestorePointCollection").VirtualMachineRestorePointCollection;
+export const VirtualMachineRestorePointCollection: typeof import("./virtualMachineRestorePointCollection").VirtualMachineRestorePointCollection = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineRestorePointCollection"], () => require("./virtualMachineRestorePointCollection"));
 
 export { VirtualMachineScaleSetExtensionArgs, VirtualMachineScaleSetExtensionState } from "./virtualMachineScaleSetExtension";
 export type VirtualMachineScaleSetExtension = import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension;
@@ -362,6 +372,8 @@ const _module = {
                 return new OrchestratedVirtualMachineScaleSet(name, <any>undefined, { urn })
             case "azure:compute/packetCapture:PacketCapture":
                 return new PacketCapture(name, <any>undefined, { urn })
+            case "azure:compute/restorePoint:RestorePoint":
+                return new RestorePoint(name, <any>undefined, { urn })
             case "azure:compute/restorePointCollection:RestorePointCollection":
                 return new RestorePointCollection(name, <any>undefined, { urn })
             case "azure:compute/runCommand:RunCommand":
@@ -382,6 +394,8 @@ const _module = {
                 return new SshPublicKey(name, <any>undefined, { urn })
             case "azure:compute/virtualMachine:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
+            case "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection":
+                return new VirtualMachineRestorePointCollection(name, <any>undefined, { urn })
             case "azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension":
                 return new VirtualMachineScaleSetExtension(name, <any>undefined, { urn })
             case "azure:compute/windowsVirtualMachine:WindowsVirtualMachine":
@@ -419,6 +433,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/managedDisk", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/managedDiskSasToken", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/orchestratedVirtualMachineScaleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/packetCapture", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/restorePoint", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/restorePointCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/runCommand", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/scaleSet", _module)
@@ -429,6 +444,7 @@ pulumi.runtime.registerResourceModule("azure", "compute/sharedImageVersion", _mo
 pulumi.runtime.registerResourceModule("azure", "compute/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/sshPublicKey", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/virtualMachine", _module)
+pulumi.runtime.registerResourceModule("azure", "compute/virtualMachineRestorePointCollection", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/virtualMachineScaleSetExtension", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/windowsVirtualMachine", _module)
 pulumi.runtime.registerResourceModule("azure", "compute/windowsVirtualMachineScaleSet", _module)

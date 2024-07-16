@@ -28,6 +28,7 @@ class IdentityProviderAadb2cArgs:
                  signin_policy: pulumi.Input[str],
                  signin_tenant: pulumi.Input[str],
                  signup_policy: pulumi.Input[str],
+                 client_library: Optional[pulumi.Input[str]] = None,
                  password_reset_policy: Optional[pulumi.Input[str]] = None,
                  profile_editing_policy: Optional[pulumi.Input[str]] = None):
         """
@@ -41,6 +42,7 @@ class IdentityProviderAadb2cArgs:
         :param pulumi.Input[str] signin_policy: Signin Policy Name.
         :param pulumi.Input[str] signin_tenant: The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
         :param pulumi.Input[str] signup_policy: Signup Policy Name.
+        :param pulumi.Input[str] client_library: The client library to be used in the Azure AD B2C Identity Provider.
         :param pulumi.Input[str] password_reset_policy: Password reset Policy Name.
         :param pulumi.Input[str] profile_editing_policy: Profile editing Policy Name.
         """
@@ -53,6 +55,8 @@ class IdentityProviderAadb2cArgs:
         pulumi.set(__self__, "signin_policy", signin_policy)
         pulumi.set(__self__, "signin_tenant", signin_tenant)
         pulumi.set(__self__, "signup_policy", signup_policy)
+        if client_library is not None:
+            pulumi.set(__self__, "client_library", client_library)
         if password_reset_policy is not None:
             pulumi.set(__self__, "password_reset_policy", password_reset_policy)
         if profile_editing_policy is not None:
@@ -167,6 +171,18 @@ class IdentityProviderAadb2cArgs:
         pulumi.set(self, "signup_policy", value)
 
     @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client library to be used in the Azure AD B2C Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @client_library.setter
+    def client_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_library", value)
+
+    @property
     @pulumi.getter(name="passwordResetPolicy")
     def password_reset_policy(self) -> Optional[pulumi.Input[str]]:
         """
@@ -198,6 +214,7 @@ class _IdentityProviderAadb2cState:
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  password_reset_policy: Optional[pulumi.Input[str]] = None,
                  profile_editing_policy: Optional[pulumi.Input[str]] = None,
@@ -211,6 +228,7 @@ class _IdentityProviderAadb2cState:
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authority: OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
         :param pulumi.Input[str] client_id: Client ID of the Application in your B2C tenant.
+        :param pulumi.Input[str] client_library: The client library to be used in the Azure AD B2C Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in your B2C tenant.
         :param pulumi.Input[str] password_reset_policy: Password reset Policy Name.
         :param pulumi.Input[str] profile_editing_policy: Profile editing Policy Name.
@@ -227,6 +245,8 @@ class _IdentityProviderAadb2cState:
             pulumi.set(__self__, "authority", authority)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if client_library is not None:
+            pulumi.set(__self__, "client_library", client_library)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
         if password_reset_policy is not None:
@@ -289,6 +309,18 @@ class _IdentityProviderAadb2cState:
     @client_id.setter
     def client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client library to be used in the Azure AD B2C Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @client_library.setter
+    def client_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_library", value)
 
     @property
     @pulumi.getter(name="clientSecret")
@@ -384,6 +416,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  password_reset_policy: Optional[pulumi.Input[str]] = None,
                  profile_editing_policy: Optional[pulumi.Input[str]] = None,
@@ -443,6 +476,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authority: OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
         :param pulumi.Input[str] client_id: Client ID of the Application in your B2C tenant.
+        :param pulumi.Input[str] client_library: The client library to be used in the Azure AD B2C Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in your B2C tenant.
         :param pulumi.Input[str] password_reset_policy: Password reset Policy Name.
         :param pulumi.Input[str] profile_editing_policy: Profile editing Policy Name.
@@ -521,6 +555,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  authority: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  password_reset_policy: Optional[pulumi.Input[str]] = None,
                  profile_editing_policy: Optional[pulumi.Input[str]] = None,
@@ -549,6 +584,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_library"] = client_library
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
@@ -582,6 +618,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             api_management_name: Optional[pulumi.Input[str]] = None,
             authority: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
+            client_library: Optional[pulumi.Input[str]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
             password_reset_policy: Optional[pulumi.Input[str]] = None,
             profile_editing_policy: Optional[pulumi.Input[str]] = None,
@@ -600,6 +637,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] authority: OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain.
         :param pulumi.Input[str] client_id: Client ID of the Application in your B2C tenant.
+        :param pulumi.Input[str] client_library: The client library to be used in the Azure AD B2C Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in your B2C tenant.
         :param pulumi.Input[str] password_reset_policy: Password reset Policy Name.
         :param pulumi.Input[str] profile_editing_policy: Profile editing Policy Name.
@@ -616,6 +654,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         __props__.__dict__["api_management_name"] = api_management_name
         __props__.__dict__["authority"] = authority
         __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["client_library"] = client_library
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["password_reset_policy"] = password_reset_policy
         __props__.__dict__["profile_editing_policy"] = profile_editing_policy
@@ -656,6 +695,14 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         Client ID of the Application in your B2C tenant.
         """
         return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> pulumi.Output[Optional[str]]:
+        """
+        The client library to be used in the Azure AD B2C Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
 
     @property
     @pulumi.getter(name="clientSecret")

@@ -24,6 +24,7 @@ class IdentityProviderAadArgs:
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 client_library: Optional[pulumi.Input[str]] = None,
                  signin_tenant: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdentityProviderAad resource.
@@ -32,13 +33,16 @@ class IdentityProviderAadArgs:
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory
+        :param pulumi.Input[str] client_library: The client library to be used in the AAD Identity Provider.
+        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         pulumi.set(__self__, "allowed_tenants", allowed_tenants)
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_secret", client_secret)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if client_library is not None:
+            pulumi.set(__self__, "client_library", client_library)
         if signin_tenant is not None:
             pulumi.set(__self__, "signin_tenant", signin_tenant)
 
@@ -103,10 +107,22 @@ class IdentityProviderAadArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client library to be used in the AAD Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @client_library.setter
+    def client_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_library", value)
+
+    @property
     @pulumi.getter(name="signinTenant")
     def signin_tenant(self) -> Optional[pulumi.Input[str]]:
         """
-        The AAD Tenant to use instead of Common when logging into Active Directory
+        The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         return pulumi.get(self, "signin_tenant")
 
@@ -121,6 +137,7 @@ class _IdentityProviderAadState:
                  allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  signin_tenant: Optional[pulumi.Input[str]] = None):
@@ -129,9 +146,10 @@ class _IdentityProviderAadState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
+        :param pulumi.Input[str] client_library: The client library to be used in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory
+        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         if allowed_tenants is not None:
             pulumi.set(__self__, "allowed_tenants", allowed_tenants)
@@ -139,6 +157,8 @@ class _IdentityProviderAadState:
             pulumi.set(__self__, "api_management_name", api_management_name)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
+        if client_library is not None:
+            pulumi.set(__self__, "client_library", client_library)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
         if resource_group_name is not None:
@@ -183,6 +203,18 @@ class _IdentityProviderAadState:
         pulumi.set(self, "client_id", value)
 
     @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client library to be used in the AAD Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @client_library.setter
+    def client_library(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_library", value)
+
+    @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[pulumi.Input[str]]:
         """
@@ -210,7 +242,7 @@ class _IdentityProviderAadState:
     @pulumi.getter(name="signinTenant")
     def signin_tenant(self) -> Optional[pulumi.Input[str]]:
         """
-        The AAD Tenant to use instead of Common when logging into Active Directory
+        The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         return pulumi.get(self, "signin_tenant")
 
@@ -227,6 +259,7 @@ class IdentityProviderAad(pulumi.CustomResource):
                  allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  signin_tenant: Optional[pulumi.Input[str]] = None,
@@ -271,9 +304,10 @@ class IdentityProviderAad(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
+        :param pulumi.Input[str] client_library: The client library to be used in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory
+        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         ...
     @overload
@@ -334,6 +368,7 @@ class IdentityProviderAad(pulumi.CustomResource):
                  allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
+                 client_library: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  signin_tenant: Optional[pulumi.Input[str]] = None,
@@ -355,6 +390,7 @@ class IdentityProviderAad(pulumi.CustomResource):
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")
             __props__.__dict__["client_id"] = client_id
+            __props__.__dict__["client_library"] = client_library
             if client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'client_secret'")
             __props__.__dict__["client_secret"] = None if client_secret is None else pulumi.Output.secret(client_secret)
@@ -377,6 +413,7 @@ class IdentityProviderAad(pulumi.CustomResource):
             allowed_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
             client_id: Optional[pulumi.Input[str]] = None,
+            client_library: Optional[pulumi.Input[str]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             signin_tenant: Optional[pulumi.Input[str]] = None) -> 'IdentityProviderAad':
@@ -390,9 +427,10 @@ class IdentityProviderAad(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of allowed AAD Tenants.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] client_id: Client Id of the Application in the AAD Identity Provider.
+        :param pulumi.Input[str] client_library: The client library to be used in the AAD Identity Provider.
         :param pulumi.Input[str] client_secret: Client secret of the Application in the AAD Identity Provider.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory
+        :param pulumi.Input[str] signin_tenant: The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -401,6 +439,7 @@ class IdentityProviderAad(pulumi.CustomResource):
         __props__.__dict__["allowed_tenants"] = allowed_tenants
         __props__.__dict__["api_management_name"] = api_management_name
         __props__.__dict__["client_id"] = client_id
+        __props__.__dict__["client_library"] = client_library
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["signin_tenant"] = signin_tenant
@@ -431,6 +470,14 @@ class IdentityProviderAad(pulumi.CustomResource):
         return pulumi.get(self, "client_id")
 
     @property
+    @pulumi.getter(name="clientLibrary")
+    def client_library(self) -> pulumi.Output[Optional[str]]:
+        """
+        The client library to be used in the AAD Identity Provider.
+        """
+        return pulumi.get(self, "client_library")
+
+    @property
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> pulumi.Output[str]:
         """
@@ -450,7 +497,7 @@ class IdentityProviderAad(pulumi.CustomResource):
     @pulumi.getter(name="signinTenant")
     def signin_tenant(self) -> pulumi.Output[Optional[str]]:
         """
-        The AAD Tenant to use instead of Common when logging into Active Directory
+        The AAD Tenant to use instead of Common when logging into Active Directory.
         """
         return pulumi.get(self, "signin_tenant")
 

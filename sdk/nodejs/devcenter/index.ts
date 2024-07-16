@@ -10,10 +10,20 @@ export type Catalog = import("./catalog").Catalog;
 export const Catalog: typeof import("./catalog").Catalog = null as any;
 utilities.lazyLoad(exports, ["Catalog"], () => require("./catalog"));
 
+export { DevBoxDefinitionArgs, DevBoxDefinitionState } from "./devBoxDefinition";
+export type DevBoxDefinition = import("./devBoxDefinition").DevBoxDefinition;
+export const DevBoxDefinition: typeof import("./devBoxDefinition").DevBoxDefinition = null as any;
+utilities.lazyLoad(exports, ["DevBoxDefinition"], () => require("./devBoxDefinition"));
+
 export { DevCenterArgs, DevCenterState } from "./devCenter";
 export type DevCenter = import("./devCenter").DevCenter;
 export const DevCenter: typeof import("./devCenter").DevCenter = null as any;
 utilities.lazyLoad(exports, ["DevCenter"], () => require("./devCenter"));
+
+export { EnvironmentTypeArgs, EnvironmentTypeState } from "./environmentType";
+export type EnvironmentType = import("./environmentType").EnvironmentType;
+export const EnvironmentType: typeof import("./environmentType").EnvironmentType = null as any;
+utilities.lazyLoad(exports, ["EnvironmentType"], () => require("./environmentType"));
 
 export { GalleryArgs, GalleryState } from "./gallery";
 export type Gallery = import("./gallery").Gallery;
@@ -32,8 +42,12 @@ const _module = {
         switch (type) {
             case "azure:devcenter/catalog:Catalog":
                 return new Catalog(name, <any>undefined, { urn })
+            case "azure:devcenter/devBoxDefinition:DevBoxDefinition":
+                return new DevBoxDefinition(name, <any>undefined, { urn })
             case "azure:devcenter/devCenter:DevCenter":
                 return new DevCenter(name, <any>undefined, { urn })
+            case "azure:devcenter/environmentType:EnvironmentType":
+                return new EnvironmentType(name, <any>undefined, { urn })
             case "azure:devcenter/gallery:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
             case "azure:devcenter/project:Project":
@@ -44,6 +58,8 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "devcenter/catalog", _module)
+pulumi.runtime.registerResourceModule("azure", "devcenter/devBoxDefinition", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/devCenter", _module)
+pulumi.runtime.registerResourceModule("azure", "devcenter/environmentType", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/gallery", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/project", _module)

@@ -122,7 +122,7 @@ type SparkCluster struct {
 	// One or more `diskEncryption` block as defined below.
 	DiskEncryptions SparkClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
-	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
+	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
 	// An `extension` block as defined below.
 	Extension SparkClusterExtensionPtrOutput `pulumi:"extension"`
 	// A `gateway` block as defined below.
@@ -519,8 +519,8 @@ func (o SparkClusterOutput) DiskEncryptions() SparkClusterDiskEncryptionArrayOut
 }
 
 // Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
-func (o SparkClusterOutput) EncryptionInTransitEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *SparkCluster) pulumi.BoolOutput { return v.EncryptionInTransitEnabled }).(pulumi.BoolOutput)
+func (o SparkClusterOutput) EncryptionInTransitEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SparkCluster) pulumi.BoolPtrOutput { return v.EncryptionInTransitEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // An `extension` block as defined below.

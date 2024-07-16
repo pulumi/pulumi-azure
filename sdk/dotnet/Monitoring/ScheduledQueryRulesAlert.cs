@@ -12,6 +12,8 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
     /// 
+    /// &gt; **Warning** This resource is using an older AzureRM API version which is known to cause problems e.g. with custom webhook properties not included in triggered alerts. This resource is superseded by the azure.monitoring.ScheduledQueryRulesAlertV2 resource using newer API versions.
+    /// 
     /// ## Import
     /// 
     /// Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.

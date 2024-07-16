@@ -74,8 +74,11 @@ import (
 type RouteTable struct {
 	pulumi.CustomResourceState
 
+	BgpRoutePropagationEnabled pulumi.BoolOutput `pulumi:"bgpRoutePropagationEnabled"`
 	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-	DisableBgpRoutePropagation pulumi.BoolPtrOutput `pulumi:"disableBgpRoutePropagation"`
+	//
+	// Deprecated: The property `disableBgpRoutePropagation` has been superseded by the property `bgpRoutePropagationEnabled` and will be removed in v4.0 of the AzureRM Provider.
+	DisableBgpRoutePropagation pulumi.BoolOutput `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the route.
@@ -125,7 +128,10 @@ func GetRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTable resources.
 type routeTableState struct {
+	BgpRoutePropagationEnabled *bool `pulumi:"bgpRoutePropagationEnabled"`
 	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+	//
+	// Deprecated: The property `disableBgpRoutePropagation` has been superseded by the property `bgpRoutePropagationEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -144,7 +150,10 @@ type routeTableState struct {
 }
 
 type RouteTableState struct {
+	BgpRoutePropagationEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+	//
+	// Deprecated: The property `disableBgpRoutePropagation` has been superseded by the property `bgpRoutePropagationEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -167,7 +176,10 @@ func (RouteTableState) ElementType() reflect.Type {
 }
 
 type routeTableArgs struct {
+	BgpRoutePropagationEnabled *bool `pulumi:"bgpRoutePropagationEnabled"`
 	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+	//
+	// Deprecated: The property `disableBgpRoutePropagation` has been superseded by the property `bgpRoutePropagationEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -185,7 +197,10 @@ type routeTableArgs struct {
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
+	BgpRoutePropagationEnabled pulumi.BoolPtrInput
 	// Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
+	//
+	// Deprecated: The property `disableBgpRoutePropagation` has been superseded by the property `bgpRoutePropagationEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -288,9 +303,15 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
+func (o RouteTableOutput) BgpRoutePropagationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.BoolOutput { return v.BgpRoutePropagationEnabled }).(pulumi.BoolOutput)
+}
+
 // Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
-func (o RouteTableOutput) DisableBgpRoutePropagation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *RouteTable) pulumi.BoolPtrOutput { return v.DisableBgpRoutePropagation }).(pulumi.BoolPtrOutput)
+//
+// Deprecated: The property `disableBgpRoutePropagation` has been superseded by the property `bgpRoutePropagationEnabled` and will be removed in v4.0 of the AzureRM Provider.
+func (o RouteTableOutput) DisableBgpRoutePropagation() pulumi.BoolOutput {
+	return o.ApplyT(func(v *RouteTable) pulumi.BoolOutput { return v.DisableBgpRoutePropagation }).(pulumi.BoolOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

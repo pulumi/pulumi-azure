@@ -87,19 +87,29 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/routeTable:RouteTable")
 public class RouteTable extends com.pulumi.resources.CustomResource {
+    @Export(name="bgpRoutePropagationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> bgpRoutePropagationEnabled;
+
+    public Output<Boolean> bgpRoutePropagationEnabled() {
+        return this.bgpRoutePropagationEnabled;
+    }
     /**
      * Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
      * 
+     * @deprecated
+     * The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* The property `disable_bgp_route_propagation` has been superseded by the property `bgp_route_propagation_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="disableBgpRoutePropagation", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> disableBgpRoutePropagation;
+    private Output<Boolean> disableBgpRoutePropagation;
 
     /**
      * @return Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable.
      * 
      */
-    public Output<Optional<Boolean>> disableBgpRoutePropagation() {
-        return Codegen.optional(this.disableBgpRoutePropagation);
+    public Output<Boolean> disableBgpRoutePropagation() {
+        return this.disableBgpRoutePropagation;
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

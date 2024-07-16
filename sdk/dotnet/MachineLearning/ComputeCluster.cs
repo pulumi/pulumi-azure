@@ -139,7 +139,7 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ComputeClusterIdentity?> Identity { get; private set; } = null!;
@@ -269,7 +269,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeClusterIdentityArgs>? Identity { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An `identity` block as defined below. Changing this forces a new Machine Learning Compute Cluster to be created.
+        /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ComputeClusterIdentityGetArgs>? Identity { get; set; }

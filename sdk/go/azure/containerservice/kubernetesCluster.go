@@ -191,8 +191,6 @@ type KubernetesCluster struct {
 	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
 	//
 	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
 	NodeOsChannelUpgrade pulumi.StringPtrOutput `pulumi:"nodeOsChannelUpgrade"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
@@ -475,8 +473,6 @@ type kubernetesClusterState struct {
 	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
 	//
 	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
 	NodeOsChannelUpgrade *string `pulumi:"nodeOsChannelUpgrade"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
@@ -717,8 +713,6 @@ type KubernetesClusterState struct {
 	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
 	//
 	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
 	NodeOsChannelUpgrade pulumi.StringPtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
@@ -949,8 +943,6 @@ type kubernetesClusterArgs struct {
 	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
 	//
 	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
 	NodeOsChannelUpgrade *string `pulumi:"nodeOsChannelUpgrade"`
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
@@ -1170,8 +1162,6 @@ type KubernetesClusterArgs struct {
 	// The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
 	//
 	// > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-	//
-	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
 	NodeOsChannelUpgrade pulumi.StringPtrInput
 	// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
 	//
@@ -1635,8 +1625,6 @@ func (o KubernetesClusterOutput) NetworkProfile() KubernetesClusterNetworkProfil
 // The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`.
 //
 // > **Note:** `nodeOsChannelUpgrade` must be set to `NodeImage` if `automaticChannelUpgrade` has been set to `node-image`
-//
-// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodeOsUpgradeChannelPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information.
 func (o KubernetesClusterOutput) NodeOsChannelUpgrade() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.NodeOsChannelUpgrade }).(pulumi.StringPtrOutput)
 }

@@ -12,9 +12,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SoftwareUpdateConfigurationLinux {
+    /**
+     * @deprecated
+     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
+     * 
+     */
+    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
     private @Nullable String classificationIncluded;
     /**
      * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+     * 
+     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     private @Nullable List<String> classificationsIncludeds;
@@ -35,11 +43,19 @@ public final class SoftwareUpdateConfigurationLinux {
     private @Nullable String reboot;
 
     private SoftwareUpdateConfigurationLinux() {}
+    /**
+     * @deprecated
+     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
+     * 
+     */
+    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
     public Optional<String> classificationIncluded() {
         return Optional.ofNullable(this.classificationIncluded);
     }
     /**
      * @return Specifies the list of update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+     * 
+     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     public List<String> classificationsIncludeds() {

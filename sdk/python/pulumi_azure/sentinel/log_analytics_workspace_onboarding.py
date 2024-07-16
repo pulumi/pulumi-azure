@@ -30,8 +30,7 @@ class LogAnalyticsWorkspaceOnboardingArgs:
                > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
                
                > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
@@ -68,9 +67,6 @@ class LogAnalyticsWorkspaceOnboardingArgs:
     @pulumi.getter(name="resourceGroupName")
     @_utilities.deprecated("""this property has been deprecated in favour of `workspace_id`""")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -80,6 +76,9 @@ class LogAnalyticsWorkspaceOnboardingArgs:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -90,9 +89,6 @@ class LogAnalyticsWorkspaceOnboardingArgs:
     @pulumi.getter(name="workspaceName")
     @_utilities.deprecated("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
     def workspace_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
@@ -114,8 +110,7 @@ class _LogAnalyticsWorkspaceOnboardingState:
                > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
                
                > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         if customer_managed_key_enabled is not None:
             pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
@@ -152,9 +147,6 @@ class _LogAnalyticsWorkspaceOnboardingState:
     @pulumi.getter(name="resourceGroupName")
     @_utilities.deprecated("""this property has been deprecated in favour of `workspace_id`""")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
@@ -164,6 +156,9 @@ class _LogAnalyticsWorkspaceOnboardingState:
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
@@ -174,9 +169,6 @@ class _LogAnalyticsWorkspaceOnboardingState:
     @pulumi.getter(name="workspaceName")
     @_utilities.deprecated("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
     def workspace_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "workspace_name")
 
     @workspace_name.setter
@@ -212,8 +204,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
-            resource_group_name=example.name,
-            workspace_name=example_analytics_workspace.name,
+            workspace_id=example_analytics_workspace.id,
             customer_managed_key_enabled=False)
         ```
 
@@ -232,8 +223,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
                > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
                
                > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -259,8 +249,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
             resource_group_name=example.name,
             sku="PerGB2018")
         example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
-            resource_group_name=example.name,
-            workspace_name=example_analytics_workspace.name,
+            workspace_id=example_analytics_workspace.id,
             customer_managed_key_enabled=False)
         ```
 
@@ -330,8 +319,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
                > **Note:** To set up Microsoft Sentinel customer-managed key it needs to enable CMK on the workspace and add access policy to your Azure Key Vault. Details could be found on [this document](https://learn.microsoft.com/en-us/azure/sentinel/customer-managed-keys)
                
                > **Note:** Once a workspace is onboarded to Microsoft Sentinel with `customer_managed_key_enabled` set to true, it will not be able to be onboarded again with `customer_managed_key_enabled` set to false.
-        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        :param pulumi.Input[str] workspace_name: Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] workspace_id: Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -359,22 +347,19 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     @_utilities.deprecated("""this property has been deprecated in favour of `workspace_id`""")
     def resource_group_name(self) -> pulumi.Output[str]:
-        """
-        Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        """
         return pulumi.get(self, "resource_group_name")
 
     @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> pulumi.Output[str]:
+        """
+        Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "workspace_id")
 
     @property
     @pulumi.getter(name="workspaceName")
     @_utilities.deprecated("""this property will be removed in favour of `workspace_id` in version 4.0 of the AzureRM Provider""")
     def workspace_name(self) -> pulumi.Output[str]:
-        """
-        Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "workspace_name")
 

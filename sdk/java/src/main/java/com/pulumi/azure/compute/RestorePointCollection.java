@@ -6,17 +6,19 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.RestorePointCollectionArgs;
 import com.pulumi.azure.compute.inputs.RestorePointCollectionState;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Restore Point Collection.
+ * Manages a Virtual Machine Restore Point Collection.
  * 
  * ## Example Usage
  * 
@@ -127,7 +129,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Restore Point Collections can be imported using the `resource id`, e.g.
+ * Virtual Machine Restore Point Collections can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:compute/restorePointCollection:RestorePointCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/restorePointCollections/collection1
@@ -137,70 +139,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/restorePointCollection:RestorePointCollection")
 public class RestorePointCollection extends com.pulumi.resources.CustomResource {
     /**
-     * The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return The Azure location where the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * @return The Azure location where the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+     * Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Restore Point Collection. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group in which the Restore Point Collection should exist. Changing this forces a new resource to be created.
+     * @return The name of the Resource Group in which the Virtual Machine Restore Point Collection should exist. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
     /**
-     * The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+     * The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceVirtualMachineId", refs={String.class}, tree="[0]")
     private Output<String> sourceVirtualMachineId;
 
     /**
-     * @return The ID of the virtual machine that will be associated with this Restore Point Collection. Changing this forces a new resource to be created.
+     * @return The ID of the virtual machine that will be associated with this Virtual Machine Restore Point Collection. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> sourceVirtualMachineId() {
         return this.sourceVirtualMachineId;
     }
     /**
-     * A mapping of tags which should be assigned to this Restore Point Collection.
+     * A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to this Restore Point Collection.
+     * @return A mapping of tags which should be assigned to this Virtual Machine Restore Point Collection.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -239,6 +241,9 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

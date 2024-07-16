@@ -14,13 +14,15 @@ import javax.annotation.Nullable;
 public final class SoftwareUpdateConfigurationWindows {
     /**
      * @deprecated
-     * windows classification can be set as a list, use `classifications_included` instead.
+     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
      * 
      */
-    @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
+    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
     private @Nullable String classificationIncluded;
     /**
      * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * 
+     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     private @Nullable List<String> classificationsIncludeds;
@@ -43,15 +45,17 @@ public final class SoftwareUpdateConfigurationWindows {
     private SoftwareUpdateConfigurationWindows() {}
     /**
      * @deprecated
-     * windows classification can be set as a list, use `classifications_included` instead.
+     * this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead.
      * 
      */
-    @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
+    @Deprecated /* this property is deprecated and will be removed in version 4.0 of the provider, please use `classifications_included` instead. */
     public Optional<String> classificationIncluded() {
         return Optional.ofNullable(this.classificationIncluded);
     }
     /**
      * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * 
+     * &gt; **NOTE:** The `classifications_included` property will become `Required` in version 4.0 of the Provider.
      * 
      */
     public List<String> classificationsIncludeds() {

@@ -38,8 +38,7 @@ namespace Pulumi.Azure.Sentinel
     /// 
     ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
-    ///         ResourceGroupName = example.Name,
-    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         CustomerManagedKeyEnabled = false,
     ///     });
     /// 
@@ -67,18 +66,15 @@ namespace Pulumi.Azure.Sentinel
         [Output("customerManagedKeyEnabled")]
         public Output<bool?> CustomerManagedKeyEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("workspaceId")]
         public Output<string> WorkspaceId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("workspaceName")]
         public Output<string> WorkspaceName { get; private set; } = null!;
 
@@ -138,18 +134,15 @@ namespace Pulumi.Azure.Sentinel
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 
-        /// <summary>
-        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("workspaceName")]
         public Input<string>? WorkspaceName { get; set; }
 
@@ -171,18 +164,15 @@ namespace Pulumi.Azure.Sentinel
         [Input("customerManagedKeyEnabled")]
         public Input<bool>? CustomerManagedKeyEnabled { get; set; }
 
-        /// <summary>
-        /// Specifies the name of the Resource Group where the Security Insights Sentinel Onboarding States should exist. Changing this forces the Log Analytics Workspace off the board and onboard again.
-        /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Specifies the Workspace Id. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("workspaceId")]
         public Input<string>? WorkspaceId { get; set; }
 
-        /// <summary>
-        /// Specifies the Workspace Name. Changing this forces the Log Analytics Workspace off the board and onboard again. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("workspaceName")]
         public Input<string>? WorkspaceName { get; set; }
 

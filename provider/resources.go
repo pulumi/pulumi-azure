@@ -580,6 +580,11 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
+		IgnoreMappings: []string{
+			// was replaced by azurerm_virtual_machine_restore_point_collection which is identical
+			// except for the name, see https://github.com/hashicorp/terraform-provider-azurerm/pull/26526
+			"azurerm_restore_point_collection",
+		},
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// ActiveDirectoryDomainService
@@ -1094,7 +1099,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"azurerm_gallery_application":         {Tok: azureResource(azureCompute, "GalleryApplication")},
 			"azurerm_gallery_application_version": {Tok: azureResource(azureCompute, "GalleryApplicationVersion")},
-			"azurerm_restore_point_collection":    {Tok: azureResource(azureCompute, "RestorePointCollection")},
 
 			// Cost (resource provider Microsoft.CostManagement, not Microsoft.Billing)
 			"azurerm_cost_anomaly_alert":               {Tok: azureResource(azureCostManagement, "AnomalyAlert")},

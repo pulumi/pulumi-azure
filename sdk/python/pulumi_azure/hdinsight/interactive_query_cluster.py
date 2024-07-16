@@ -1144,7 +1144,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptionInTransitEnabled")
-    def encryption_in_transit_enabled(self) -> pulumi.Output[bool]:
+    def encryption_in_transit_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         """

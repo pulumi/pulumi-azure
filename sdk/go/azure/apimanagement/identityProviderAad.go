@@ -81,11 +81,13 @@ type IdentityProviderAad struct {
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// Client Id of the Application in the AAD Identity Provider.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
+	// The client library to be used in the AAD Identity Provider.
+	ClientLibrary pulumi.StringPtrOutput `pulumi:"clientLibrary"`
 	// Client secret of the Application in the AAD Identity Provider.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The AAD Tenant to use instead of Common when logging into Active Directory
+	// The AAD Tenant to use instead of Common when logging into Active Directory.
 	SigninTenant pulumi.StringPtrOutput `pulumi:"signinTenant"`
 }
 
@@ -147,11 +149,13 @@ type identityProviderAadState struct {
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// Client Id of the Application in the AAD Identity Provider.
 	ClientId *string `pulumi:"clientId"`
+	// The client library to be used in the AAD Identity Provider.
+	ClientLibrary *string `pulumi:"clientLibrary"`
 	// Client secret of the Application in the AAD Identity Provider.
 	ClientSecret *string `pulumi:"clientSecret"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The AAD Tenant to use instead of Common when logging into Active Directory
+	// The AAD Tenant to use instead of Common when logging into Active Directory.
 	SigninTenant *string `pulumi:"signinTenant"`
 }
 
@@ -162,11 +166,13 @@ type IdentityProviderAadState struct {
 	ApiManagementName pulumi.StringPtrInput
 	// Client Id of the Application in the AAD Identity Provider.
 	ClientId pulumi.StringPtrInput
+	// The client library to be used in the AAD Identity Provider.
+	ClientLibrary pulumi.StringPtrInput
 	// Client secret of the Application in the AAD Identity Provider.
 	ClientSecret pulumi.StringPtrInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The AAD Tenant to use instead of Common when logging into Active Directory
+	// The AAD Tenant to use instead of Common when logging into Active Directory.
 	SigninTenant pulumi.StringPtrInput
 }
 
@@ -181,11 +187,13 @@ type identityProviderAadArgs struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// Client Id of the Application in the AAD Identity Provider.
 	ClientId string `pulumi:"clientId"`
+	// The client library to be used in the AAD Identity Provider.
+	ClientLibrary *string `pulumi:"clientLibrary"`
 	// Client secret of the Application in the AAD Identity Provider.
 	ClientSecret string `pulumi:"clientSecret"`
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The AAD Tenant to use instead of Common when logging into Active Directory
+	// The AAD Tenant to use instead of Common when logging into Active Directory.
 	SigninTenant *string `pulumi:"signinTenant"`
 }
 
@@ -197,11 +205,13 @@ type IdentityProviderAadArgs struct {
 	ApiManagementName pulumi.StringInput
 	// Client Id of the Application in the AAD Identity Provider.
 	ClientId pulumi.StringInput
+	// The client library to be used in the AAD Identity Provider.
+	ClientLibrary pulumi.StringPtrInput
 	// Client secret of the Application in the AAD Identity Provider.
 	ClientSecret pulumi.StringInput
 	// The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The AAD Tenant to use instead of Common when logging into Active Directory
+	// The AAD Tenant to use instead of Common when logging into Active Directory.
 	SigninTenant pulumi.StringPtrInput
 }
 
@@ -307,6 +317,11 @@ func (o IdentityProviderAadOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderAad) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
+// The client library to be used in the AAD Identity Provider.
+func (o IdentityProviderAadOutput) ClientLibrary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityProviderAad) pulumi.StringPtrOutput { return v.ClientLibrary }).(pulumi.StringPtrOutput)
+}
+
 // Client secret of the Application in the AAD Identity Provider.
 func (o IdentityProviderAadOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderAad) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
@@ -317,7 +332,7 @@ func (o IdentityProviderAadOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityProviderAad) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The AAD Tenant to use instead of Common when logging into Active Directory
+// The AAD Tenant to use instead of Common when logging into Active Directory.
 func (o IdentityProviderAadOutput) SigninTenant() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderAad) pulumi.StringPtrOutput { return v.SigninTenant }).(pulumi.StringPtrOutput)
 }

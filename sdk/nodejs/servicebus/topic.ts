@@ -75,6 +75,7 @@ export class Topic extends pulumi.CustomResource {
      * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      */
     public readonly autoDeleteOnIdle!: pulumi.Output<string>;
+    public readonly batchedOperationsEnabled!: pulumi.Output<boolean>;
     /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      */
@@ -85,18 +86,25 @@ export class Topic extends pulumi.CustomResource {
     public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string>;
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
+     *
+     * @deprecated The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+     *
+     * @deprecated The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     public readonly enableExpress!: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     *
+     * @deprecated The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
+    public readonly expressEnabled!: pulumi.Output<boolean>;
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
@@ -114,6 +122,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly namespaceId!: pulumi.Output<string>;
     public /*out*/ readonly namespaceName!: pulumi.Output<string>;
+    public readonly partitioningEnabled!: pulumi.Output<boolean>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -142,16 +151,19 @@ export class Topic extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TopicState | undefined;
             resourceInputs["autoDeleteOnIdle"] = state ? state.autoDeleteOnIdle : undefined;
+            resourceInputs["batchedOperationsEnabled"] = state ? state.batchedOperationsEnabled : undefined;
             resourceInputs["defaultMessageTtl"] = state ? state.defaultMessageTtl : undefined;
             resourceInputs["duplicateDetectionHistoryTimeWindow"] = state ? state.duplicateDetectionHistoryTimeWindow : undefined;
             resourceInputs["enableBatchedOperations"] = state ? state.enableBatchedOperations : undefined;
             resourceInputs["enableExpress"] = state ? state.enableExpress : undefined;
             resourceInputs["enablePartitioning"] = state ? state.enablePartitioning : undefined;
+            resourceInputs["expressEnabled"] = state ? state.expressEnabled : undefined;
             resourceInputs["maxMessageSizeInKilobytes"] = state ? state.maxMessageSizeInKilobytes : undefined;
             resourceInputs["maxSizeInMegabytes"] = state ? state.maxSizeInMegabytes : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespaceId"] = state ? state.namespaceId : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
+            resourceInputs["partitioningEnabled"] = state ? state.partitioningEnabled : undefined;
             resourceInputs["requiresDuplicateDetection"] = state ? state.requiresDuplicateDetection : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -162,15 +174,18 @@ export class Topic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'namespaceId'");
             }
             resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            resourceInputs["batchedOperationsEnabled"] = args ? args.batchedOperationsEnabled : undefined;
             resourceInputs["defaultMessageTtl"] = args ? args.defaultMessageTtl : undefined;
             resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
             resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
             resourceInputs["enableExpress"] = args ? args.enableExpress : undefined;
             resourceInputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
+            resourceInputs["expressEnabled"] = args ? args.expressEnabled : undefined;
             resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
             resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceId"] = args ? args.namespaceId : undefined;
+            resourceInputs["partitioningEnabled"] = args ? args.partitioningEnabled : undefined;
             resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["supportOrdering"] = args ? args.supportOrdering : undefined;
@@ -192,6 +207,7 @@ export interface TopicState {
      * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
+    batchedOperationsEnabled?: pulumi.Input<boolean>;
     /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      */
@@ -202,18 +218,25 @@ export interface TopicState {
     duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
+     *
+     * @deprecated The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+     *
+     * @deprecated The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     *
+     * @deprecated The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enablePartitioning?: pulumi.Input<boolean>;
+    expressEnabled?: pulumi.Input<boolean>;
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
@@ -231,6 +254,7 @@ export interface TopicState {
      */
     namespaceId?: pulumi.Input<string>;
     namespaceName?: pulumi.Input<string>;
+    partitioningEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -254,6 +278,7 @@ export interface TopicArgs {
      * The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      */
     autoDeleteOnIdle?: pulumi.Input<string>;
+    batchedOperationsEnabled?: pulumi.Input<boolean>;
     /**
      * The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      */
@@ -264,18 +289,25 @@ export interface TopicArgs {
     duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
      * Boolean flag which controls if server-side batched operations are enabled.
+     *
+     * @deprecated The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+     *
+     * @deprecated The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enableExpress?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
      * > **NOTE:** Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces continue to work as expected. Please [see the documentation](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-partitioning) for more information.
+     *
+     * @deprecated The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
     enablePartitioning?: pulumi.Input<boolean>;
+    expressEnabled?: pulumi.Input<boolean>;
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).
      */
@@ -292,6 +324,7 @@ export interface TopicArgs {
      * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
     namespaceId: pulumi.Input<string>;
+    partitioningEnabled?: pulumi.Input<boolean>;
     /**
      * Boolean flag which controls whether the Topic requires duplicate detection. Defaults to `false`. Changing this forces a new resource to be created.
      */

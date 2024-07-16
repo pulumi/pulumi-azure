@@ -24,6 +24,7 @@ class SubscriptionArgs:
                  max_delivery_count: pulumi.Input[int],
                  topic_id: pulumi.Input[str],
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
@@ -60,6 +61,8 @@ class SubscriptionArgs:
         pulumi.set(__self__, "topic_id", topic_id)
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if batched_operations_enabled is not None:
+            pulumi.set(__self__, "batched_operations_enabled", batched_operations_enabled)
         if client_scoped_subscription is not None:
             pulumi.set(__self__, "client_scoped_subscription", client_scoped_subscription)
         if client_scoped_subscription_enabled is not None:
@@ -70,6 +73,9 @@ class SubscriptionArgs:
             pulumi.set(__self__, "dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
         if default_message_ttl is not None:
             pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+        if enable_batched_operations is not None:
+            warnings.warn("""`enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_batched_operations is deprecated: `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.""")
         if enable_batched_operations is not None:
             pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
         if forward_dead_lettered_messages_to is not None:
@@ -120,6 +126,15 @@ class SubscriptionArgs:
     @auto_delete_on_idle.setter
     def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="batchedOperationsEnabled")
+    def batched_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "batched_operations_enabled")
+
+    @batched_operations_enabled.setter
+    def batched_operations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batched_operations_enabled", value)
 
     @property
     @pulumi.getter(name="clientScopedSubscription")
@@ -185,6 +200,7 @@ class SubscriptionArgs:
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
+    @_utilities.deprecated("""`enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.""")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether the Subscription supports batched operations.
@@ -272,6 +288,7 @@ class SubscriptionArgs:
 class _SubscriptionState:
     def __init__(__self__, *,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  client_scoped_subscription: Optional[pulumi.Input['SubscriptionClientScopedSubscriptionArgs']] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
@@ -308,6 +325,8 @@ class _SubscriptionState:
         """
         if auto_delete_on_idle is not None:
             pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
+        if batched_operations_enabled is not None:
+            pulumi.set(__self__, "batched_operations_enabled", batched_operations_enabled)
         if client_scoped_subscription is not None:
             pulumi.set(__self__, "client_scoped_subscription", client_scoped_subscription)
         if client_scoped_subscription_enabled is not None:
@@ -318,6 +337,9 @@ class _SubscriptionState:
             pulumi.set(__self__, "dead_lettering_on_message_expiration", dead_lettering_on_message_expiration)
         if default_message_ttl is not None:
             pulumi.set(__self__, "default_message_ttl", default_message_ttl)
+        if enable_batched_operations is not None:
+            warnings.warn("""`enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""enable_batched_operations is deprecated: `enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.""")
         if enable_batched_operations is not None:
             pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
         if forward_dead_lettered_messages_to is not None:
@@ -348,6 +370,15 @@ class _SubscriptionState:
     @auto_delete_on_idle.setter
     def auto_delete_on_idle(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
+
+    @property
+    @pulumi.getter(name="batchedOperationsEnabled")
+    def batched_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "batched_operations_enabled")
+
+    @batched_operations_enabled.setter
+    def batched_operations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "batched_operations_enabled", value)
 
     @property
     @pulumi.getter(name="clientScopedSubscription")
@@ -413,6 +444,7 @@ class _SubscriptionState:
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
+    @_utilities.deprecated("""`enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.""")
     def enable_batched_operations(self) -> Optional[pulumi.Input[bool]]:
         """
         Boolean flag which controls whether the Subscription supports batched operations.
@@ -531,6 +563,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
@@ -664,6 +697,7 @@ class Subscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+                 batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
                  client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
                  dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
@@ -689,6 +723,7 @@ class Subscription(pulumi.CustomResource):
             __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
 
             __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+            __props__.__dict__["batched_operations_enabled"] = batched_operations_enabled
             __props__.__dict__["client_scoped_subscription"] = client_scoped_subscription
             __props__.__dict__["client_scoped_subscription_enabled"] = client_scoped_subscription_enabled
             __props__.__dict__["dead_lettering_on_filter_evaluation_error"] = dead_lettering_on_filter_evaluation_error
@@ -718,6 +753,7 @@ class Subscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_delete_on_idle: Optional[pulumi.Input[str]] = None,
+            batched_operations_enabled: Optional[pulumi.Input[bool]] = None,
             client_scoped_subscription: Optional[pulumi.Input[Union['SubscriptionClientScopedSubscriptionArgs', 'SubscriptionClientScopedSubscriptionArgsDict']]] = None,
             client_scoped_subscription_enabled: Optional[pulumi.Input[bool]] = None,
             dead_lettering_on_filter_evaluation_error: Optional[pulumi.Input[bool]] = None,
@@ -762,6 +798,7 @@ class Subscription(pulumi.CustomResource):
         __props__ = _SubscriptionState.__new__(_SubscriptionState)
 
         __props__.__dict__["auto_delete_on_idle"] = auto_delete_on_idle
+        __props__.__dict__["batched_operations_enabled"] = batched_operations_enabled
         __props__.__dict__["client_scoped_subscription"] = client_scoped_subscription
         __props__.__dict__["client_scoped_subscription_enabled"] = client_scoped_subscription_enabled
         __props__.__dict__["dead_lettering_on_filter_evaluation_error"] = dead_lettering_on_filter_evaluation_error
@@ -785,6 +822,11 @@ class Subscription(pulumi.CustomResource):
         The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         """
         return pulumi.get(self, "auto_delete_on_idle")
+
+    @property
+    @pulumi.getter(name="batchedOperationsEnabled")
+    def batched_operations_enabled(self) -> pulumi.Output[bool]:
+        return pulumi.get(self, "batched_operations_enabled")
 
     @property
     @pulumi.getter(name="clientScopedSubscription")
@@ -830,7 +872,8 @@ class Subscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
+    @_utilities.deprecated("""`enable_batched_operations` will be removed in favour of the property `batched_operations_enabled` in version 4.0 of the AzureRM Provider.""")
+    def enable_batched_operations(self) -> pulumi.Output[bool]:
         """
         Boolean flag which controls whether the Subscription supports batched operations.
         """

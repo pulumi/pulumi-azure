@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
     /**
-     * @return Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+     * @return Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
      * 
      */
     private @Nullable String action;
@@ -31,7 +31,7 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule {
 
     private PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule() {}
     /**
-     * @return Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+     * @return Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
      * 
      */
     public Optional<String> action() {

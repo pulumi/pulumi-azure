@@ -61,6 +61,8 @@ class LocalRulestackRuleArgs:
         :param pulumi.Input[bool] negate_destination: Should the inverse of the Destination configuration be used. Defaults to `false`.
         :param pulumi.Input[bool] negate_source: Should the inverse of the Source configuration be used. Defaults to `false`.
         :param pulumi.Input[str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+               
+               > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule.
         """
@@ -296,6 +298,8 @@ class LocalRulestackRuleArgs:
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
         The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+
+        > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         """
         return pulumi.get(self, "protocol")
 
@@ -369,6 +373,8 @@ class _LocalRulestackRuleState:
                
                > **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         :param pulumi.Input[str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+               
+               > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         :param pulumi.Input['LocalRulestackRuleSourceArgs'] source: One or more `source` blocks as defined below.
@@ -588,6 +594,8 @@ class _LocalRulestackRuleState:
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
         The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+
+        > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         """
         return pulumi.get(self, "protocol")
 
@@ -690,6 +698,7 @@ class LocalRulestackRule(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             priority=1000,
             action="Allow",
+            protocol="application-default",
             applications=["any"],
             source={
                 "cidrs": ["10.0.0.0/8"],
@@ -726,6 +735,8 @@ class LocalRulestackRule(pulumi.CustomResource):
                
                > **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         :param pulumi.Input[str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+               
+               > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         :param pulumi.Input[Union['LocalRulestackRuleSourceArgs', 'LocalRulestackRuleSourceArgsDict']] source: One or more `source` blocks as defined below.
@@ -758,6 +769,7 @@ class LocalRulestackRule(pulumi.CustomResource):
             rulestack_id=example_local_rulestack.id,
             priority=1000,
             action="Allow",
+            protocol="application-default",
             applications=["any"],
             source={
                 "cidrs": ["10.0.0.0/8"],
@@ -902,6 +914,8 @@ class LocalRulestackRule(pulumi.CustomResource):
                
                > **NOTE:** This is the primary identifier of a rule, as such it is not possible to change the Priority of a rule once created.
         :param pulumi.Input[str] protocol: The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+               
+               > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_ports: Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`.
         :param pulumi.Input[str] rulestack_id: The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created.
         :param pulumi.Input[Union['LocalRulestackRuleSourceArgs', 'LocalRulestackRuleSourceArgsDict']] source: One or more `source` blocks as defined below.
@@ -1051,6 +1065,8 @@ class LocalRulestackRule(pulumi.CustomResource):
     def protocol(self) -> pulumi.Output[Optional[str]]:
         """
         The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`.
+
+        > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocol_ports` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
         """
         return pulumi.get(self, "protocol")
 

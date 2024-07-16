@@ -6418,6 +6418,14 @@
                     }
                 }
             },
+            "azurerm_dev_center_dev_box_definition": {
+                "current": "azure:devcenter/devBoxDefinition:DevBoxDefinition",
+                "majorVersion": 5
+            },
+            "azurerm_dev_center_environment_type": {
+                "current": "azure:devcenter/environmentType:EnvironmentType",
+                "majorVersion": 5
+            },
             "azurerm_dev_center_gallery": {
                 "current": "azure:devcenter/gallery:Gallery",
                 "majorVersion": 5
@@ -6485,7 +6493,21 @@
                 "majorVersion": 5,
                 "fields": {
                     "subnet": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "shared_public_ip_address": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_ports": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -10435,7 +10457,14 @@
                         }
                     },
                     "service_mesh_profile": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "certificate_authority": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "service_principal": {
                         "maxItemsOne": true
@@ -17999,10 +18028,6 @@
                     }
                 }
             },
-            "azurerm_restore_point_collection": {
-                "current": "azure:compute/restorePointCollection:RestorePointCollection",
-                "majorVersion": 5
-            },
             "azurerm_role_assignment": {
                 "current": "azure:authorization/assignment:Assignment",
                 "majorVersion": 5
@@ -21671,6 +21696,26 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azurerm_virtual_machine_restore_point": {
+                "current": "azure:compute/restorePoint:RestorePoint",
+                "majorVersion": 5,
+                "fields": {
+                    "excluded_disks": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_virtual_machine_restore_point_collection": {
+                "current": "azure:compute/restorePointCollection:RestorePointCollection",
+                "past": [
+                    {
+                        "name": "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection",
+                        "inCodegen": true,
+                        "majorVersion": 5
+                    }
+                ],
+                "majorVersion": 5
             },
             "azurerm_virtual_machine_run_command": {
                 "current": "azure:compute/runCommand:RunCommand",
@@ -26330,6 +26375,10 @@
                     }
                 }
             },
+            "azurerm_elastic_san_volume_snapshot": {
+                "current": "azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot",
+                "majorVersion": 5
+            },
             "azurerm_eventgrid_domain": {
                 "current": "azure:eventgrid/getDomain:getDomain",
                 "majorVersion": 5,
@@ -27222,7 +27271,14 @@
                         }
                     },
                     "service_mesh_profile": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "certificate_authority": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "service_principal": {
                         "maxItemsOne": false
@@ -31734,6 +31790,11 @@
                 "maxItemsOneOverrides": {
                     "definition": true
                 }
+            },
+            "azurerm_virtual_machine_restore_point_collection": {
+                "aliases": [
+                    "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection"
+                ]
             },
             "azurerm_windows_web_app": {
                 "maxItemsOneOverrides": {

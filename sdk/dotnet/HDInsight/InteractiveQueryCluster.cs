@@ -135,7 +135,7 @@ namespace Pulumi.Azure.HDInsight
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         /// </summary>
         [Output("encryptionInTransitEnabled")]
-        public Output<bool> EncryptionInTransitEnabled { get; private set; } = null!;
+        public Output<bool?> EncryptionInTransitEnabled { get; private set; } = null!;
 
         /// <summary>
         /// An `extension` block as defined below.

@@ -7,19 +7,19 @@ Subject: [PATCH] Ensure servicebus queue & topic have namespaces and RG names
 These are computed attributes for use in the servicebus mixins in Pulumi.
 
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index fd6bafbc15..892ca423b4 100644
+index 974879bf40..59d734e57d 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
-@@ -46,6 +46,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
+@@ -47,6 +47,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
  	}
  }
  
 +// FORK: @stack72: Ensured the ResourceGroupName and NamespaceName was available as a computed attribute for use
 +// in the servicebus mixins in Pulumi
  func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
- 	return map[string]*pluginsdk.Schema{
+ 	schema := map[string]*pluginsdk.Schema{
  		"name": {
-@@ -166,6 +168,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
+@@ -163,6 +165,16 @@ func resourceServicebusQueueSchema() map[string]*pluginsdk.Schema {
  			ForceNew: true,
  		},
  
@@ -36,7 +36,7 @@ index fd6bafbc15..892ca423b4 100644
  		"status": {
  			Type:     pluginsdk.TypeString,
  			Optional: true,
-@@ -375,6 +387,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta interface{}) er
+@@ -483,6 +495,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta interface{}) er
  
  	d.Set("name", id.QueueName)
  	d.Set("namespace_id", namespaceId.ID())
@@ -46,19 +46,19 @@ index fd6bafbc15..892ca423b4 100644
  	if model := resp.Model; model != nil {
  		if props := model.Properties; props != nil {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index b661a5e54a..0b18171b8f 100644
+index 7d8fa22219..a75f9b47eb 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
-@@ -46,6 +46,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {
+@@ -47,6 +47,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {
  	}
  }
  
 +// FORK: @stack72: Ensured the ResourceGroupName and NamespaceName was available as a computed attribute for use
 +// in the servicebus mixins in Pulumi
  func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
- 	return map[string]*pluginsdk.Schema{
+ 	schema := map[string]*pluginsdk.Schema{
  		"name": {
-@@ -138,6 +140,16 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
+@@ -139,6 +141,16 @@ func resourceServiceBusTopicSchema() map[string]*pluginsdk.Schema {
  			Type:     pluginsdk.TypeBool,
  			Optional: true,
  		},
@@ -73,9 +73,9 @@ index b661a5e54a..0b18171b8f 100644
 +			Computed: true,
 +		},
  	}
- }
  
-@@ -243,6 +255,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta interface{}) er
+ 	if !features.FourPointOhBeta() {
+@@ -326,6 +338,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta interface{}) er
  	d.Set("name", id.TopicName)
  	d.Set("namespace_id", topics.NewNamespaceID(id.SubscriptionId, id.ResourceGroupName, id.NamespaceName).ID())
  

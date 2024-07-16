@@ -100,6 +100,7 @@ __all__ = [
     'KubernetesClusterOmsAgent',
     'KubernetesClusterOmsAgentOmsAgentIdentity',
     'KubernetesClusterServiceMeshProfile',
+    'KubernetesClusterServiceMeshProfileCertificateAuthority',
     'KubernetesClusterServicePrincipal',
     'KubernetesClusterStorageProfile',
     'KubernetesClusterWebAppRouting',
@@ -153,6 +154,7 @@ __all__ = [
     'GetKubernetesClusterOmsAgentResult',
     'GetKubernetesClusterOmsAgentOmsAgentIdentityResult',
     'GetKubernetesClusterServiceMeshProfileResult',
+    'GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult',
     'GetKubernetesClusterServicePrincipalResult',
     'GetKubernetesClusterStorageProfileResult',
     'GetKubernetesClusterWindowsProfileResult',
@@ -7998,7 +8000,9 @@ class KubernetesClusterServiceMeshProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "externalIngressGatewayEnabled":
+        if key == "certificateAuthority":
+            suggest = "certificate_authority"
+        elif key == "externalIngressGatewayEnabled":
             suggest = "external_ingress_gateway_enabled"
         elif key == "internalIngressGatewayEnabled":
             suggest = "internal_ingress_gateway_enabled"
@@ -8016,16 +8020,20 @@ class KubernetesClusterServiceMeshProfile(dict):
 
     def __init__(__self__, *,
                  mode: str,
+                 certificate_authority: Optional['outputs.KubernetesClusterServiceMeshProfileCertificateAuthority'] = None,
                  external_ingress_gateway_enabled: Optional[bool] = None,
                  internal_ingress_gateway_enabled: Optional[bool] = None):
         """
         :param str mode: The mode of the service mesh. Possible value is `Istio`.
+        :param 'KubernetesClusterServiceMeshProfileCertificateAuthorityArgs' certificate_authority: A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
         :param bool external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
                
                > **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
         :param bool internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         """
         pulumi.set(__self__, "mode", mode)
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
         if external_ingress_gateway_enabled is not None:
             pulumi.set(__self__, "external_ingress_gateway_enabled", external_ingress_gateway_enabled)
         if internal_ingress_gateway_enabled is not None:
@@ -8038,6 +8046,14 @@ class KubernetesClusterServiceMeshProfile(dict):
         The mode of the service mesh. Possible value is `Istio`.
         """
         return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> Optional['outputs.KubernetesClusterServiceMeshProfileCertificateAuthority']:
+        """
+        A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+        """
+        return pulumi.get(self, "certificate_authority")
 
     @property
     @pulumi.getter(name="externalIngressGatewayEnabled")
@@ -8056,6 +8072,97 @@ class KubernetesClusterServiceMeshProfile(dict):
         Is Istio Internal Ingress Gateway enabled?
         """
         return pulumi.get(self, "internal_ingress_gateway_enabled")
+
+
+@pulumi.output_type
+class KubernetesClusterServiceMeshProfileCertificateAuthority(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certChainObjectName":
+            suggest = "cert_chain_object_name"
+        elif key == "certObjectName":
+            suggest = "cert_object_name"
+        elif key == "keyObjectName":
+            suggest = "key_object_name"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "rootCertObjectName":
+            suggest = "root_cert_object_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterServiceMeshProfileCertificateAuthority. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterServiceMeshProfileCertificateAuthority.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterServiceMeshProfileCertificateAuthority.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cert_chain_object_name: str,
+                 cert_object_name: str,
+                 key_object_name: str,
+                 key_vault_id: str,
+                 root_cert_object_name: str):
+        """
+        :param str cert_chain_object_name: The certificate chain object name in Azure Key Vault.
+        :param str cert_object_name: The intermediate certificate object name in Azure Key Vault.
+        :param str key_object_name: The intermediate certificate private key object name in Azure Key Vault.
+               
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        :param str key_vault_id: The resource ID of the Key Vault.
+        :param str root_cert_object_name: The root certificate object name in Azure Key Vault.
+        """
+        pulumi.set(__self__, "cert_chain_object_name", cert_chain_object_name)
+        pulumi.set(__self__, "cert_object_name", cert_object_name)
+        pulumi.set(__self__, "key_object_name", key_object_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "root_cert_object_name", root_cert_object_name)
+
+    @property
+    @pulumi.getter(name="certChainObjectName")
+    def cert_chain_object_name(self) -> str:
+        """
+        The certificate chain object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_chain_object_name")
+
+    @property
+    @pulumi.getter(name="certObjectName")
+    def cert_object_name(self) -> str:
+        """
+        The intermediate certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_object_name")
+
+    @property
+    @pulumi.getter(name="keyObjectName")
+    def key_object_name(self) -> str:
+        """
+        The intermediate certificate private key object name in Azure Key Vault.
+
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        """
+        return pulumi.get(self, "key_object_name")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="rootCertObjectName")
+    def root_cert_object_name(self) -> str:
+        """
+        The root certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "root_cert_object_name")
 
 
 @pulumi.output_type
@@ -11096,17 +11203,28 @@ class GetKubernetesClusterOmsAgentOmsAgentIdentityResult(dict):
 @pulumi.output_type
 class GetKubernetesClusterServiceMeshProfileResult(dict):
     def __init__(__self__, *,
+                 certificate_authorities: Sequence['outputs.GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult'],
                  external_ingress_gateway_enabled: bool,
                  internal_ingress_gateway_enabled: bool,
                  mode: str):
         """
+        :param Sequence['GetKubernetesClusterServiceMeshProfileCertificateAuthorityArgs'] certificate_authorities: A `certificate_authority` block as documented below.
         :param bool external_ingress_gateway_enabled: Is Istio External Ingress Gateway enabled?
         :param bool internal_ingress_gateway_enabled: Is Istio Internal Ingress Gateway enabled?
         :param str mode: The mode of the service mesh.
         """
+        pulumi.set(__self__, "certificate_authorities", certificate_authorities)
         pulumi.set(__self__, "external_ingress_gateway_enabled", external_ingress_gateway_enabled)
         pulumi.set(__self__, "internal_ingress_gateway_enabled", internal_ingress_gateway_enabled)
         pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="certificateAuthorities")
+    def certificate_authorities(self) -> Sequence['outputs.GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult']:
+        """
+        A `certificate_authority` block as documented below.
+        """
+        return pulumi.get(self, "certificate_authorities")
 
     @property
     @pulumi.getter(name="externalIngressGatewayEnabled")
@@ -11131,6 +11249,68 @@ class GetKubernetesClusterServiceMeshProfileResult(dict):
         The mode of the service mesh.
         """
         return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class GetKubernetesClusterServiceMeshProfileCertificateAuthorityResult(dict):
+    def __init__(__self__, *,
+                 cert_chain_object_name: str,
+                 cert_object_name: str,
+                 key_object_name: str,
+                 key_vault_id: str,
+                 root_cert_object_name: str):
+        """
+        :param str cert_chain_object_name: The certificate chain object name in Azure Key Vault.
+        :param str cert_object_name: The intermediate certificate object name in Azure Key Vault.
+        :param str key_object_name: The intermediate certificate private key object name in Azure Key Vault.
+        :param str key_vault_id: The resource ID of the Key Vault.
+        :param str root_cert_object_name: The root certificate object name in Azure Key Vault.
+        """
+        pulumi.set(__self__, "cert_chain_object_name", cert_chain_object_name)
+        pulumi.set(__self__, "cert_object_name", cert_object_name)
+        pulumi.set(__self__, "key_object_name", key_object_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "root_cert_object_name", root_cert_object_name)
+
+    @property
+    @pulumi.getter(name="certChainObjectName")
+    def cert_chain_object_name(self) -> str:
+        """
+        The certificate chain object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_chain_object_name")
+
+    @property
+    @pulumi.getter(name="certObjectName")
+    def cert_object_name(self) -> str:
+        """
+        The intermediate certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "cert_object_name")
+
+    @property
+    @pulumi.getter(name="keyObjectName")
+    def key_object_name(self) -> str:
+        """
+        The intermediate certificate private key object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "key_object_name")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> str:
+        """
+        The resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="rootCertObjectName")
+    def root_cert_object_name(self) -> str:
+        """
+        The root certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "root_cert_object_name")
 
 
 @pulumi.output_type

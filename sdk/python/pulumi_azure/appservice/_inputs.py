@@ -22158,7 +22158,7 @@ if not MYPY:
         """
         php_version: NotRequired[pulumi.Input[str]]
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
 
         > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -22212,7 +22212,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values include `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
@@ -22409,7 +22409,7 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
 
         > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -27748,7 +27748,7 @@ if not MYPY:
         """
         php_version: NotRequired[pulumi.Input[str]]
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
 
         > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """
@@ -27800,7 +27800,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[str] node_version: The version of Node to run. Possible values are `12-lts`, `14-lts`, `16-lts`, `18-lts` and `20-lts`. This property conflicts with `java_version`.
                
                > **NOTE:** 10.x versions have been/are being deprecated so may cease to work for new resources in the future and may be removed from the provider.
-        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+        :param pulumi.Input[str] php_version: The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
                
                > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         :param pulumi.Input[str] python_version: The version of Python to run. Possible values include `3.7`, `3.8`, `3.9`, `3.10`, `3.11` and `3.12`.
@@ -27995,7 +27995,7 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="phpVersion")
     def php_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1` and `8.2`.
+        The version of PHP to run. Possible values are `7.4`, `8.0`, `8.1`, `8.2` and `8.3`.
 
         > **NOTE:** version `7.4` is deprecated and will be removed from the provider in a future version.
         """

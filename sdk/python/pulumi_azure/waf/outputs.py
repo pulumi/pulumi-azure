@@ -656,7 +656,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
                  enabled: Optional[bool] = None):
         """
         :param str id: Identifier for the managed rule.
-        :param str action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        :param str action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
         :param bool enabled: Describes if the managed rule is in enabled state or disabled state.
         """
         pulumi.set(__self__, "id", id)
@@ -677,7 +677,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRule(dict):
     @pulumi.getter
     def action(self) -> Optional[str]:
         """
-        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
         """
         return pulumi.get(self, "action")
 

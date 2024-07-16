@@ -807,7 +807,7 @@ if not MYPY:
         """
         action: NotRequired[pulumi.Input[str]]
         """
-        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
         """
         enabled: NotRequired[pulumi.Input[bool]]
         """
@@ -824,7 +824,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] id: Identifier for the managed rule.
-        :param pulumi.Input[str] action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        :param pulumi.Input[str] action: Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
         :param pulumi.Input[bool] enabled: Describes if the managed rule is in enabled state or disabled state.
         """
         pulumi.set(__self__, "id", id)
@@ -849,7 +849,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs:
     @pulumi.getter
     def action(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block` and `Log`.
+        Describes the override action to be applied when rule matches. Possible values are `Allow`, `AnomalyScoring`, `Block`, `JSChallenge` and `Log`. `JSChallenge` is only valid for rulesets of type `Microsoft_BotManagerRuleSet`.
         """
         return pulumi.get(self, "action")
 
