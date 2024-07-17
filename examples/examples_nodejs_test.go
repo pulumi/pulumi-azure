@@ -288,6 +288,8 @@ func TestAccEventgrid(t *testing.T) {
 			//     webhookEndpoint: { url: liveUrl }
 			// in eventgrid/zMixins.ts.
 			ExpectRefreshChanges: true,
+
+			Verbose: true,
 		})
 
 	integration.ProgramTest(t, &test)

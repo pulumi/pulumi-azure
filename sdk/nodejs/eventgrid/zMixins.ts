@@ -146,7 +146,9 @@ export class EventGridCallbackSubscription<T> extends appservice.EventSubscripti
 function retrieveEventGridKey(functionApp: appservice.FunctionApp, attempts: number): pulumi.Output<string> {
     return functionApp.getHostKeys().apply(async ks => {
         const k = ks.systemKeys["eventgrid_extension"];
-        if (k) return pulumi.output(k);
+        if (k) {
+            return pulumi.output(k);
+        }
 
         if (attempts === 0) {
             throw new Error("timed out waiting for Webhook to become up");
@@ -154,6 +156,7 @@ function retrieveEventGridKey(functionApp: appservice.FunctionApp, attempts: num
 
         // Wait for 10s between polls
         pulumi.log.info(`Waiting for 'eventgrid_extension' key to become available (${attempts})`, functionApp);
+        pulumi.log.info(`Got system host keys (${ks.systemKeys})`, functionApp);
         await new Promise(r => setTimeout(r, 10000));
 
         return retrieveEventGridKey(functionApp, attempts - 1);
