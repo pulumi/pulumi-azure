@@ -156,7 +156,7 @@ function retrieveEventGridKey(functionApp: appservice.FunctionApp, attempts: num
 
         // Wait for 10s between polls
         pulumi.log.info(`Waiting for 'eventgrid_extension' key to become available (${attempts})`, functionApp);
-        pulumi.log.info(`Got system host keys (${ks.systemKeys})`, functionApp);
+        pulumi.log.info(`Host keys (${JSON.stringify(ks)})`, functionApp);
         await new Promise(r => setTimeout(r, 10000));
 
         return retrieveEventGridKey(functionApp, attempts - 1);
