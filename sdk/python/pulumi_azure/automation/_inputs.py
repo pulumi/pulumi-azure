@@ -703,8 +703,17 @@ class RunBookDraftArgs:
 if not MYPY:
     class RunBookDraftContentLinkArgsDict(TypedDict):
         uri: pulumi.Input[str]
+        """
+        The URI of the runbook content.
+        """
         hash: NotRequired[pulumi.Input['RunBookDraftContentLinkHashArgsDict']]
+        """
+        A `hash` block as defined below.
+        """
         version: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the version of the content
+        """
 elif False:
     RunBookDraftContentLinkArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -714,6 +723,11 @@ class RunBookDraftContentLinkArgs:
                  uri: pulumi.Input[str],
                  hash: Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] uri: The URI of the runbook content.
+        :param pulumi.Input['RunBookDraftContentLinkHashArgs'] hash: A `hash` block as defined below.
+        :param pulumi.Input[str] version: Specifies the version of the content
+        """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
             pulumi.set(__self__, "hash", hash)
@@ -723,6 +737,9 @@ class RunBookDraftContentLinkArgs:
     @property
     @pulumi.getter
     def uri(self) -> pulumi.Input[str]:
+        """
+        The URI of the runbook content.
+        """
         return pulumi.get(self, "uri")
 
     @uri.setter
@@ -732,6 +749,9 @@ class RunBookDraftContentLinkArgs:
     @property
     @pulumi.getter
     def hash(self) -> Optional[pulumi.Input['RunBookDraftContentLinkHashArgs']]:
+        """
+        A `hash` block as defined below.
+        """
         return pulumi.get(self, "hash")
 
     @hash.setter
@@ -741,6 +761,9 @@ class RunBookDraftContentLinkArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of the content
+        """
         return pulumi.get(self, "version")
 
     @version.setter

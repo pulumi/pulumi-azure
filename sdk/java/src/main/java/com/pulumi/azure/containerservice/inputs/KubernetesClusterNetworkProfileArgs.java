@@ -259,16 +259,40 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
         return Optional.ofNullable(this.networkPolicy);
     }
 
+    /**
+     * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     @Import(name="outboundIpAddressIds")
     private @Nullable Output<List<String>> outboundIpAddressIds;
 
+    /**
+     * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     public Optional<Output<List<String>>> outboundIpAddressIds() {
         return Optional.ofNullable(this.outboundIpAddressIds);
     }
 
+    /**
+     * The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     @Import(name="outboundIpPrefixIds")
     private @Nullable Output<List<String>> outboundIpPrefixIds;
 
+    /**
+     * @return The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     public Optional<Output<List<String>>> outboundIpPrefixIds() {
         return Optional.ofNullable(this.outboundIpPrefixIds);
     }
@@ -720,28 +744,76 @@ public final class KubernetesClusterNetworkProfileArgs extends com.pulumi.resour
             return networkPolicy(Output.of(networkPolicy));
         }
 
+        /**
+         * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outboundIpAddressIds(@Nullable Output<List<String>> outboundIpAddressIds) {
             $.outboundIpAddressIds = outboundIpAddressIds;
             return this;
         }
 
+        /**
+         * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outboundIpAddressIds(List<String> outboundIpAddressIds) {
             return outboundIpAddressIds(Output.of(outboundIpAddressIds));
         }
 
+        /**
+         * @param outboundIpAddressIds The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outboundIpAddressIds(String... outboundIpAddressIds) {
             return outboundIpAddressIds(List.of(outboundIpAddressIds));
         }
 
+        /**
+         * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outboundIpPrefixIds(@Nullable Output<List<String>> outboundIpPrefixIds) {
             $.outboundIpPrefixIds = outboundIpPrefixIds;
             return this;
         }
 
+        /**
+         * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outboundIpPrefixIds(List<String> outboundIpPrefixIds) {
             return outboundIpPrefixIds(Output.of(outboundIpPrefixIds));
         }
 
+        /**
+         * @param outboundIpPrefixIds The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+         * 
+         * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+         * 
+         * @return builder
+         * 
+         */
         public Builder outboundIpPrefixIds(String... outboundIpPrefixIds) {
             return outboundIpPrefixIds(List.of(outboundIpPrefixIds));
         }

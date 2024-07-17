@@ -4388,7 +4388,8 @@ func (o LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutp
 type LinuxVirtualMachineScaleSetGalleryApplication struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
-	Order                         *int    `pulumi:"order"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+	Order *int `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId string  `pulumi:"packageReferenceId"`
 	Tag                *string `pulumi:"tag"`
@@ -4408,7 +4409,8 @@ type LinuxVirtualMachineScaleSetGalleryApplicationInput interface {
 type LinuxVirtualMachineScaleSetGalleryApplicationArgs struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
-	Order                         pulumi.IntPtrInput    `pulumi:"order"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId pulumi.StringInput    `pulumi:"packageReferenceId"`
 	Tag                pulumi.StringPtrInput `pulumi:"tag"`
@@ -4470,6 +4472,7 @@ func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationRefere
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationReferenceBlobUri }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }
@@ -20146,8 +20149,9 @@ type VirtualMachineOsProfile struct {
 	// Specifies the name of the local administrator account.
 	AdminUsername string `pulumi:"adminUsername"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	ComputerName string  `pulumi:"computerName"`
-	CustomData   *string `pulumi:"customData"`
+	ComputerName string `pulumi:"computerName"`
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
+	CustomData *string `pulumi:"customData"`
 }
 
 // VirtualMachineOsProfileInput is an input type that accepts VirtualMachineOsProfileArgs and VirtualMachineOsProfileOutput values.
@@ -20169,8 +20173,9 @@ type VirtualMachineOsProfileArgs struct {
 	// Specifies the name of the local administrator account.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
 	// Specifies the name of the Virtual Machine. Changing this forces a new resource to be created.
-	ComputerName pulumi.StringInput    `pulumi:"computerName"`
-	CustomData   pulumi.StringPtrInput `pulumi:"customData"`
+	ComputerName pulumi.StringInput `pulumi:"computerName"`
+	// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
+	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 }
 
 func (VirtualMachineOsProfileArgs) ElementType() reflect.Type {
@@ -20267,6 +20272,7 @@ func (o VirtualMachineOsProfileOutput) ComputerName() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfile) string { return v.ComputerName }).(pulumi.StringOutput)
 }
 
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfileOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
@@ -20327,6 +20333,7 @@ func (o VirtualMachineOsProfilePtrOutput) ComputerName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
 func (o VirtualMachineOsProfilePtrOutput) CustomData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineOsProfile) *string {
 		if v == nil {
@@ -25197,7 +25204,8 @@ func (o WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOu
 type WindowsVirtualMachineScaleSetGalleryApplication struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
-	Order                         *int    `pulumi:"order"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+	Order *int `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId string  `pulumi:"packageReferenceId"`
 	Tag                *string `pulumi:"tag"`
@@ -25217,7 +25225,8 @@ type WindowsVirtualMachineScaleSetGalleryApplicationInput interface {
 type WindowsVirtualMachineScaleSetGalleryApplicationArgs struct {
 	// Deprecated: `configurationReferenceBlobUri` has been renamed to `configurationBlobUri` and will be deprecated in 4.0
 	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
-	Order                         pulumi.IntPtrInput    `pulumi:"order"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+	Order pulumi.IntPtrInput `pulumi:"order"`
 	// Deprecated: `packageReferenceId` has been renamed to `versionId` and will be deprecated in 4.0
 	PackageReferenceId pulumi.StringInput    `pulumi:"packageReferenceId"`
 	Tag                pulumi.StringPtrInput `pulumi:"tag"`
@@ -25281,6 +25290,7 @@ func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationRefe
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
 }

@@ -203,6 +203,9 @@ class GroupPolicyAssignmentOverrideSelector(dict):
                  ins: Optional[Sequence[str]] = None,
                  kind: Optional[str] = None,
                  not_ins: Optional[Sequence[str]] = None):
+        """
+        :param str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -218,6 +221,9 @@ class GroupPolicyAssignmentOverrideSelector(dict):
     @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @property
@@ -279,6 +285,9 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
                  kind: str,
                  ins: Optional[Sequence[str]] = None,
                  not_ins: Optional[Sequence[str]] = None):
+        """
+        :param str kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -288,6 +297,9 @@ class GroupPolicyAssignmentResourceSelectorSelector(dict):
     @property
     @pulumi.getter
     def kind(self) -> str:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @property

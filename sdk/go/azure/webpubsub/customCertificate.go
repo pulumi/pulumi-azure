@@ -24,7 +24,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
-//	"github.com/pulumi/pulumi-azurerm/sdk/v1/go/azurerm"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -43,7 +43,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleWebPubsubService, err := index.NewWebPubsubService(ctx, "example", &index.WebPubsubServiceArgs{
+//			exampleWebPubsubService, err := azurerm.NewWebPubsubService(ctx, "example", &azurerm.WebPubsubServiceArgs{
 //				Name:              "example-webpubsub",
 //				Location:          testAzurermResourceGroup.Location,
 //				ResourceGroupName: testAzurermResourceGroup.Name,
