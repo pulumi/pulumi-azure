@@ -243,7 +243,7 @@ class Profile(pulumi.CustomResource):
             address_prefixes=["10.1.0.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.ContainerInstance/containerGroups",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
@@ -254,9 +254,9 @@ class Profile(pulumi.CustomResource):
             resource_group_name=example.name,
             container_network_interface={
                 "name": "examplecnic",
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "exampleipconfig",
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             })
         ```
@@ -307,7 +307,7 @@ class Profile(pulumi.CustomResource):
             address_prefixes=["10.1.0.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.ContainerInstance/containerGroups",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
@@ -318,9 +318,9 @@ class Profile(pulumi.CustomResource):
             resource_group_name=example.name,
             container_network_interface={
                 "name": "examplecnic",
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "exampleipconfig",
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             })
         ```

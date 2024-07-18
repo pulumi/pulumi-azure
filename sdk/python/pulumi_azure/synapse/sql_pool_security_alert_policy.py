@@ -332,8 +332,8 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
             sql_administrator_login_password="H@Sh1CoR3!",
             aad_admin={
                 "login": "AzureAD Admin",
-                "objectId": "00000000-0000-0000-0000-000000000000",
-                "tenantId": "00000000-0000-0000-0000-000000000000",
+                "object_id": "00000000-0000-0000-0000-000000000000",
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
             },
             identity={
                 "type": "SystemAssigned",
@@ -421,8 +421,8 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
             sql_administrator_login_password="H@Sh1CoR3!",
             aad_admin={
                 "login": "AzureAD Admin",
-                "objectId": "00000000-0000-0000-0000-000000000000",
-                "tenantId": "00000000-0000-0000-0000-000000000000",
+                "object_id": "00000000-0000-0000-0000-000000000000",
+                "tenant_id": "00000000-0000-0000-0000-000000000000",
             },
             identity={
                 "type": "SystemAssigned",

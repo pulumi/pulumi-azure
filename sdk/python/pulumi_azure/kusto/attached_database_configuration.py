@@ -362,12 +362,12 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             cluster_resource_id=followed_cluster.id,
             database_name=example_database.name,
             sharing={
-                "externalTablesToExcludes": ["ExternalTable2"],
-                "externalTablesToIncludes": ["ExternalTable1"],
-                "materializedViewsToExcludes": ["MaterializedViewTable2"],
-                "materializedViewsToIncludes": ["MaterializedViewTable1"],
-                "tablesToExcludes": ["Table2"],
-                "tablesToIncludes": ["Table1"],
+                "external_tables_to_excludes": ["ExternalTable2"],
+                "external_tables_to_includes": ["ExternalTable1"],
+                "materialized_views_to_excludes": ["MaterializedViewTable2"],
+                "materialized_views_to_includes": ["MaterializedViewTable1"],
+                "tables_to_excludes": ["Table2"],
+                "tables_to_includes": ["Table1"],
             })
         ```
 
@@ -442,12 +442,12 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             cluster_resource_id=followed_cluster.id,
             database_name=example_database.name,
             sharing={
-                "externalTablesToExcludes": ["ExternalTable2"],
-                "externalTablesToIncludes": ["ExternalTable1"],
-                "materializedViewsToExcludes": ["MaterializedViewTable2"],
-                "materializedViewsToIncludes": ["MaterializedViewTable1"],
-                "tablesToExcludes": ["Table2"],
-                "tablesToIncludes": ["Table1"],
+                "external_tables_to_excludes": ["ExternalTable2"],
+                "external_tables_to_includes": ["ExternalTable1"],
+                "materialized_views_to_excludes": ["MaterializedViewTable2"],
+                "materialized_views_to_includes": ["MaterializedViewTable1"],
+                "tables_to_excludes": ["Table2"],
+                "tables_to_includes": ["Table1"],
             })
         ```
 

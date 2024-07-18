@@ -409,17 +409,17 @@ class Certificate(pulumi.CustomResource):
                 "password": "terraform",
             },
             certificate_policy={
-                "issuerParameters": {
+                "issuer_parameters": {
                     "name": "Self",
                 },
-                "keyProperties": {
+                "key_properties": {
                     "exportable": True,
-                    "keySize": 2048,
-                    "keyType": "RSA",
-                    "reuseKey": False,
+                    "key_size": 2048,
+                    "key_type": "RSA",
+                    "reuse_key": False,
                 },
-                "secretProperties": {
-                    "contentType": "application/x-pkcs12",
+                "secret_properties": {
+                    "content_type": "application/x-pkcs12",
                 },
             })
         example_certificate2 = azure.apimanagement.Certificate("example",
@@ -529,17 +529,17 @@ class Certificate(pulumi.CustomResource):
                 "password": "terraform",
             },
             certificate_policy={
-                "issuerParameters": {
+                "issuer_parameters": {
                     "name": "Self",
                 },
-                "keyProperties": {
+                "key_properties": {
                     "exportable": True,
-                    "keySize": 2048,
-                    "keyType": "RSA",
-                    "reuseKey": False,
+                    "key_size": 2048,
+                    "key_type": "RSA",
+                    "reuse_key": False,
                 },
-                "secretProperties": {
-                    "contentType": "application/x-pkcs12",
+                "secret_properties": {
+                    "content_type": "application/x-pkcs12",
                 },
             })
         example_certificate2 = azure.apimanagement.Certificate("example",

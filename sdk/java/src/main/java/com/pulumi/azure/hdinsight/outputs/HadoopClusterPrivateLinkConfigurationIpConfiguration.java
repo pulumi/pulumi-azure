@@ -18,8 +18,16 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfiguration {
      * 
      */
     private String name;
+    /**
+     * @return Indicates whether this IP configuration is primary.
+     * 
+     */
     private @Nullable Boolean primary;
     private @Nullable String privateIpAddress;
+    /**
+     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * 
+     */
     private @Nullable String privateIpAllocationMethod;
     private @Nullable String subnetId;
 
@@ -31,12 +39,20 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfiguration {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Indicates whether this IP configuration is primary.
+     * 
+     */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
     public Optional<String> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
+    /**
+     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * 
+     */
     public Optional<String> privateIpAllocationMethod() {
         return Optional.ofNullable(this.privateIpAllocationMethod);
     }

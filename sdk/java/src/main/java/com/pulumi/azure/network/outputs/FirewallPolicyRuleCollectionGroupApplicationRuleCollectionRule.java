@@ -18,9 +18,21 @@ import javax.annotation.Nullable;
 public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule {
     private @Nullable String description;
     private @Nullable List<String> destinationAddresses;
+    /**
+     * @return Specifies a list of destination FQDN tags.
+     * 
+     */
     private @Nullable List<String> destinationFqdnTags;
     private @Nullable List<String> destinationFqdns;
+    /**
+     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * 
+     */
     private @Nullable List<String> destinationUrls;
+    /**
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
     private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders;
     /**
      * @return The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
@@ -30,7 +42,15 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols;
     private @Nullable List<String> sourceAddresses;
     private @Nullable List<String> sourceIpGroups;
+    /**
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     private @Nullable Boolean terminateTls;
+    /**
+     * @return Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     private @Nullable List<String> webCategories;
 
     private FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule() {}
@@ -40,15 +60,27 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     public List<String> destinationAddresses() {
         return this.destinationAddresses == null ? List.of() : this.destinationAddresses;
     }
+    /**
+     * @return Specifies a list of destination FQDN tags.
+     * 
+     */
     public List<String> destinationFqdnTags() {
         return this.destinationFqdnTags == null ? List.of() : this.destinationFqdnTags;
     }
     public List<String> destinationFqdns() {
         return this.destinationFqdns == null ? List.of() : this.destinationFqdns;
     }
+    /**
+     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * 
+     */
     public List<String> destinationUrls() {
         return this.destinationUrls == null ? List.of() : this.destinationUrls;
     }
+    /**
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
     public List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader> httpHeaders() {
         return this.httpHeaders == null ? List.of() : this.httpHeaders;
     }
@@ -68,9 +100,17 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     public List<String> sourceIpGroups() {
         return this.sourceIpGroups == null ? List.of() : this.sourceIpGroups;
     }
+    /**
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     public Optional<Boolean> terminateTls() {
         return Optional.ofNullable(this.terminateTls);
     }
+    /**
+     * @return Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     public List<String> webCategories() {
         return this.webCategories == null ? List.of() : this.webCategories;
     }

@@ -256,7 +256,7 @@ class Snapshot(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "netapp",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",
@@ -341,7 +341,7 @@ class Snapshot(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "netapp",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",

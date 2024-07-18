@@ -1409,9 +1409,12 @@ func (o RunBookDraftPtrOutput) Parameters() RunBookDraftParameterArrayOutput {
 }
 
 type RunBookDraftContentLink struct {
-	Hash    *RunBookDraftContentLinkHash `pulumi:"hash"`
-	Uri     string                       `pulumi:"uri"`
-	Version *string                      `pulumi:"version"`
+	// A `hash` block as defined below.
+	Hash *RunBookDraftContentLinkHash `pulumi:"hash"`
+	// The URI of the runbook content.
+	Uri string `pulumi:"uri"`
+	// Specifies the version of the content
+	Version *string `pulumi:"version"`
 }
 
 // RunBookDraftContentLinkInput is an input type that accepts RunBookDraftContentLinkArgs and RunBookDraftContentLinkOutput values.
@@ -1426,9 +1429,12 @@ type RunBookDraftContentLinkInput interface {
 }
 
 type RunBookDraftContentLinkArgs struct {
-	Hash    RunBookDraftContentLinkHashPtrInput `pulumi:"hash"`
-	Uri     pulumi.StringInput                  `pulumi:"uri"`
-	Version pulumi.StringPtrInput               `pulumi:"version"`
+	// A `hash` block as defined below.
+	Hash RunBookDraftContentLinkHashPtrInput `pulumi:"hash"`
+	// The URI of the runbook content.
+	Uri pulumi.StringInput `pulumi:"uri"`
+	// Specifies the version of the content
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (RunBookDraftContentLinkArgs) ElementType() reflect.Type {
@@ -1508,14 +1514,17 @@ func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkPtrOutputWithCon
 	}).(RunBookDraftContentLinkPtrOutput)
 }
 
+// A `hash` block as defined below.
 func (o RunBookDraftContentLinkOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
 	return o.ApplyT(func(v RunBookDraftContentLink) *RunBookDraftContentLinkHash { return v.Hash }).(RunBookDraftContentLinkHashPtrOutput)
 }
 
+// The URI of the runbook content.
 func (o RunBookDraftContentLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookDraftContentLink) string { return v.Uri }).(pulumi.StringOutput)
 }
 
+// Specifies the version of the content
 func (o RunBookDraftContentLinkOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunBookDraftContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1544,6 +1553,7 @@ func (o RunBookDraftContentLinkPtrOutput) Elem() RunBookDraftContentLinkOutput {
 	}).(RunBookDraftContentLinkOutput)
 }
 
+// A `hash` block as defined below.
 func (o RunBookDraftContentLinkPtrOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
 	return o.ApplyT(func(v *RunBookDraftContentLink) *RunBookDraftContentLinkHash {
 		if v == nil {
@@ -1553,6 +1563,7 @@ func (o RunBookDraftContentLinkPtrOutput) Hash() RunBookDraftContentLinkHashPtrO
 	}).(RunBookDraftContentLinkHashPtrOutput)
 }
 
+// The URI of the runbook content.
 func (o RunBookDraftContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookDraftContentLink) *string {
 		if v == nil {
@@ -1562,6 +1573,7 @@ func (o RunBookDraftContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the content
 func (o RunBookDraftContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookDraftContentLink) *string {
 		if v == nil {

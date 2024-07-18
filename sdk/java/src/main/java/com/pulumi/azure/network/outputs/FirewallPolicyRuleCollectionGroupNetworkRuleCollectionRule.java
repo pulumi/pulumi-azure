@@ -16,6 +16,10 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
     private @Nullable String description;
     private @Nullable List<String> destinationAddresses;
     private @Nullable List<String> destinationFqdns;
+    /**
+     * @return Specifies a list of destination IP groups.
+     * 
+     */
     private @Nullable List<String> destinationIpGroups;
     private List<String> destinationPorts;
     /**
@@ -37,6 +41,10 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule {
     public List<String> destinationFqdns() {
         return this.destinationFqdns == null ? List.of() : this.destinationFqdns;
     }
+    /**
+     * @return Specifies a list of destination IP groups.
+     * 
+     */
     public List<String> destinationIpGroups() {
         return this.destinationIpGroups == null ? List.of() : this.destinationIpGroups;
     }

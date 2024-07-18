@@ -272,8 +272,8 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                             "port": 443,
                         },
                     ],
-                    "sourceAddresses": ["10.0.0.1"],
-                    "destinationFqdns": ["*.microsoft.com"],
+                    "source_addresses": ["10.0.0.1"],
+                    "destination_fqdns": ["*.microsoft.com"],
                 }],
             }],
             network_rule_collections=[{
@@ -286,12 +286,12 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         "TCP",
                         "UDP",
                     ],
-                    "sourceAddresses": ["10.0.0.1"],
-                    "destinationAddresses": [
+                    "source_addresses": ["10.0.0.1"],
+                    "destination_addresses": [
                         "192.168.1.1",
                         "192.168.1.2",
                     ],
-                    "destinationPorts": [
+                    "destination_ports": [
                         "80",
                         "1000-2000",
                     ],
@@ -307,14 +307,14 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         "TCP",
                         "UDP",
                     ],
-                    "sourceAddresses": [
+                    "source_addresses": [
                         "10.0.0.1",
                         "10.0.0.2",
                     ],
-                    "destinationAddress": "192.168.1.1",
-                    "destinationPorts": "80",
-                    "translatedAddress": "192.168.0.1",
-                    "translatedPort": 8080,
+                    "destination_address": "192.168.1.1",
+                    "destination_ports": "80",
+                    "translated_address": "192.168.0.1",
+                    "translated_port": 8080,
                 }],
             }])
         ```
@@ -378,8 +378,8 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                             "port": 443,
                         },
                     ],
-                    "sourceAddresses": ["10.0.0.1"],
-                    "destinationFqdns": ["*.microsoft.com"],
+                    "source_addresses": ["10.0.0.1"],
+                    "destination_fqdns": ["*.microsoft.com"],
                 }],
             }],
             network_rule_collections=[{
@@ -392,12 +392,12 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         "TCP",
                         "UDP",
                     ],
-                    "sourceAddresses": ["10.0.0.1"],
-                    "destinationAddresses": [
+                    "source_addresses": ["10.0.0.1"],
+                    "destination_addresses": [
                         "192.168.1.1",
                         "192.168.1.2",
                     ],
-                    "destinationPorts": [
+                    "destination_ports": [
                         "80",
                         "1000-2000",
                     ],
@@ -413,14 +413,14 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                         "TCP",
                         "UDP",
                     ],
-                    "sourceAddresses": [
+                    "source_addresses": [
                         "10.0.0.1",
                         "10.0.0.2",
                     ],
-                    "destinationAddress": "192.168.1.1",
-                    "destinationPorts": "80",
-                    "translatedAddress": "192.168.0.1",
-                    "translatedPort": 8080,
+                    "destination_address": "192.168.1.1",
+                    "destination_ports": "80",
+                    "translated_address": "192.168.0.1",
+                    "translated_port": 8080,
                 }],
             }])
         ```

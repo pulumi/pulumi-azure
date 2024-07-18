@@ -319,8 +319,8 @@ class BudgetManagementGroup(pulumi.CustomResource):
             amount=1000,
             time_grain="Monthly",
             time_period={
-                "startDate": "2022-06-01T00:00:00Z",
-                "endDate": "2022-07-01T00:00:00Z",
+                "start_date": "2022-06-01T00:00:00Z",
+                "end_date": "2022-07-01T00:00:00Z",
             },
             filter={
                 "dimensions": [{
@@ -340,7 +340,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
                     "enabled": True,
                     "threshold": 90,
                     "operator": "EqualTo",
-                    "contactEmails": [
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
@@ -349,8 +349,8 @@ class BudgetManagementGroup(pulumi.CustomResource):
                     "enabled": False,
                     "threshold": 100,
                     "operator": "GreaterThan",
-                    "thresholdType": "Forecasted",
-                    "contactEmails": [
+                    "threshold_type": "Forecasted",
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
@@ -402,8 +402,8 @@ class BudgetManagementGroup(pulumi.CustomResource):
             amount=1000,
             time_grain="Monthly",
             time_period={
-                "startDate": "2022-06-01T00:00:00Z",
-                "endDate": "2022-07-01T00:00:00Z",
+                "start_date": "2022-06-01T00:00:00Z",
+                "end_date": "2022-07-01T00:00:00Z",
             },
             filter={
                 "dimensions": [{
@@ -423,7 +423,7 @@ class BudgetManagementGroup(pulumi.CustomResource):
                     "enabled": True,
                     "threshold": 90,
                     "operator": "EqualTo",
-                    "contactEmails": [
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
@@ -432,8 +432,8 @@ class BudgetManagementGroup(pulumi.CustomResource):
                     "enabled": False,
                     "threshold": 100,
                     "operator": "GreaterThan",
-                    "thresholdType": "Forecasted",
-                    "contactEmails": [
+                    "threshold_type": "Forecasted",
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],

@@ -337,7 +337,7 @@ class Probe(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_probe = azure.lb.Probe("example",
             loadbalancer_id=example_load_balancer.id,
@@ -395,7 +395,7 @@ class Probe(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_probe = azure.lb.Probe("example",
             loadbalancer_id=example_load_balancer.id,

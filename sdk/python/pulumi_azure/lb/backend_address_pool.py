@@ -301,7 +301,7 @@ class BackendAddressPool(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,
@@ -357,7 +357,7 @@ class BackendAddressPool(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,

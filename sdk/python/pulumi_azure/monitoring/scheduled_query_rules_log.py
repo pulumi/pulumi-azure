@@ -358,7 +358,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             short_name="exampleact",
             webhook_receivers=[{
                 "name": "callmyapi",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
             }])
         # Example: Creates alert using the new Scheduled Query Rules metric
         example_metric_alert = azure.monitoring.MetricAlert("example",
@@ -369,14 +369,14 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             frequency="PT1M",
             window_size="PT5M",
             criterias=[{
-                "metricNamespace": "Microsoft.OperationalInsights/workspaces",
-                "metricName": "UsedCapacity",
+                "metric_namespace": "Microsoft.OperationalInsights/workspaces",
+                "metric_name": "UsedCapacity",
                 "aggregation": "Average",
                 "operator": "LessThan",
                 "threshold": 10,
             }],
             actions=[{
-                "actionGroupId": example_action_group.id,
+                "action_group_id": example_action_group.id,
             }])
         # Example: LogToMetric Action for the named Computer
         example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("example",
@@ -384,7 +384,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             criteria={
-                "metricName": "Average_% Idle Time",
+                "metric_name": "Average_% Idle Time",
                 "dimensions": [{
                     "name": "Computer",
                     "operator": "Include",
@@ -449,7 +449,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             short_name="exampleact",
             webhook_receivers=[{
                 "name": "callmyapi",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
             }])
         # Example: Creates alert using the new Scheduled Query Rules metric
         example_metric_alert = azure.monitoring.MetricAlert("example",
@@ -460,14 +460,14 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             frequency="PT1M",
             window_size="PT5M",
             criterias=[{
-                "metricNamespace": "Microsoft.OperationalInsights/workspaces",
-                "metricName": "UsedCapacity",
+                "metric_namespace": "Microsoft.OperationalInsights/workspaces",
+                "metric_name": "UsedCapacity",
                 "aggregation": "Average",
                 "operator": "LessThan",
                 "threshold": 10,
             }],
             actions=[{
-                "actionGroupId": example_action_group.id,
+                "action_group_id": example_action_group.id,
             }])
         # Example: LogToMetric Action for the named Computer
         example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("example",
@@ -475,7 +475,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             criteria={
-                "metricName": "Average_% Idle Time",
+                "metric_name": "Average_% Idle Time",
                 "dimensions": [{
                     "name": "Computer",
                     "operator": "Include",
