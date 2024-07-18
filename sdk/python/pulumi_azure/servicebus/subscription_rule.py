@@ -315,10 +315,10 @@ class SubscriptionRule(pulumi.CustomResource):
             subscription_id=example_subscription.id,
             filter_type="CorrelationFilter",
             correlation_filter={
-                "correlationId": "high",
+                "correlation_id": "high",
                 "label": "red",
                 "properties": {
-                    "customProperty": "value",
+                    "custom_property": "value",
                 },
             })
         ```
@@ -413,10 +413,10 @@ class SubscriptionRule(pulumi.CustomResource):
             subscription_id=example_subscription.id,
             filter_type="CorrelationFilter",
             correlation_filter={
-                "correlationId": "high",
+                "correlation_id": "high",
                 "label": "red",
                 "properties": {
-                    "customProperty": "value",
+                    "custom_property": "value",
                 },
             })
         ```

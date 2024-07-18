@@ -36,9 +36,17 @@ public final class WindowsVirtualMachineScaleSetGalleryApplicationArgs extends c
         return Optional.ofNullable(this.configurationReferenceBlobUri);
     }
 
+    /**
+     * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="order")
     private @Nullable Output<Integer> order;
 
+    /**
+     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<Integer>> order() {
         return Optional.ofNullable(this.order);
     }
@@ -121,11 +129,23 @@ public final class WindowsVirtualMachineScaleSetGalleryApplicationArgs extends c
             return configurationReferenceBlobUri(Output.of(configurationReferenceBlobUri));
         }
 
+        /**
+         * @param order Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(@Nullable Output<Integer> order) {
             $.order = order;
             return this;
         }
 
+        /**
+         * @param order Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder order(Integer order) {
             return order(Output.of(order));
         }

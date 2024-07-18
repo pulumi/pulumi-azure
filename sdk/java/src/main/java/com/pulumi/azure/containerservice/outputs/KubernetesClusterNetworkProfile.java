@@ -105,7 +105,19 @@ public final class KubernetesClusterNetworkProfile {
      * 
      */
     private @Nullable String networkPolicy;
+    /**
+     * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     private @Nullable List<String> outboundIpAddressIds;
+    /**
+     * @return The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     private @Nullable List<String> outboundIpPrefixIds;
     /**
      * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -250,9 +262,21 @@ public final class KubernetesClusterNetworkProfile {
     public Optional<String> networkPolicy() {
         return Optional.ofNullable(this.networkPolicy);
     }
+    /**
+     * @return The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     public List<String> outboundIpAddressIds() {
         return this.outboundIpAddressIds == null ? List.of() : this.outboundIpAddressIds;
     }
+    /**
+     * @return The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+     * 
+     * &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+     * 
+     */
     public List<String> outboundIpPrefixIds() {
         return this.outboundIpPrefixIds == null ? List.of() : this.outboundIpPrefixIds;
     }

@@ -301,13 +301,13 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             tenant_id=example.tenant_id,
             sku_name="standard",
             access_policies=[{
-                "tenantId": example.tenant_id,
-                "objectId": example.object_id,
-                "secretPermissions": [
+                "tenant_id": example.tenant_id,
+                "object_id": example.object_id,
+                "secret_permissions": [
                     "Get",
                     "Delete",
                 ],
-                "storagePermissions": [
+                "storage_permissions": [
                     "Get",
                     "List",
                     "Set",
@@ -409,13 +409,13 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
             tenant_id=example.tenant_id,
             sku_name="standard",
             access_policies=[{
-                "tenantId": example.tenant_id,
-                "objectId": example.object_id,
-                "secretPermissions": [
+                "tenant_id": example.tenant_id,
+                "object_id": example.object_id,
+                "secret_permissions": [
                     "Get",
                     "Delete",
                 ],
-                "storagePermissions": [
+                "storage_permissions": [
                     "Get",
                     "List",
                     "Set",

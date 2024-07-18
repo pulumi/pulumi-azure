@@ -563,15 +563,15 @@ class ApiDiagnostic(pulumi.CustomResource):
             path="example",
             protocols=["https"],
             import_={
-                "contentFormat": "swagger-link-json",
-                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_format": "swagger-link-json",
+                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
             })
         example_logger = azure.apimanagement.Logger("example",
             name="example-apimlogger",
             api_management_name=example_service.name,
             resource_group_name=example.name,
             application_insights={
-                "instrumentationKey": example_insights.instrumentation_key,
+                "instrumentation_key": example_insights.instrumentation_key,
             })
         example_api_diagnostic = azure.apimanagement.ApiDiagnostic("example",
             identifier="applicationinsights",
@@ -585,32 +585,32 @@ class ApiDiagnostic(pulumi.CustomResource):
             verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             frontend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",
                 ],
             },
             backend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             backend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",
@@ -683,15 +683,15 @@ class ApiDiagnostic(pulumi.CustomResource):
             path="example",
             protocols=["https"],
             import_={
-                "contentFormat": "swagger-link-json",
-                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_format": "swagger-link-json",
+                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
             })
         example_logger = azure.apimanagement.Logger("example",
             name="example-apimlogger",
             api_management_name=example_service.name,
             resource_group_name=example.name,
             application_insights={
-                "instrumentationKey": example_insights.instrumentation_key,
+                "instrumentation_key": example_insights.instrumentation_key,
             })
         example_api_diagnostic = azure.apimanagement.ApiDiagnostic("example",
             identifier="applicationinsights",
@@ -705,32 +705,32 @@ class ApiDiagnostic(pulumi.CustomResource):
             verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             frontend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",
                 ],
             },
             backend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             backend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",

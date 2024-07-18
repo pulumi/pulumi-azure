@@ -273,10 +273,10 @@ class SpringCloudCertificate(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "secretPermissions": ["Set"],
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "secret_permissions": ["Set"],
+                    "certificate_permissions": [
                         "Create",
                         "Delete",
                         "Get",
@@ -284,13 +284,13 @@ class SpringCloudCertificate(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": example.object_id,
-                    "secretPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": example.object_id,
+                    "secret_permissions": [
                         "Get",
                         "List",
                     ],
-                    "certificatePermissions": [
+                    "certificate_permissions": [
                         "Get",
                         "List",
                     ],
@@ -300,28 +300,28 @@ class SpringCloudCertificate(pulumi.CustomResource):
             name="cert-example",
             key_vault_id=example_key_vault.id,
             certificate_policy={
-                "issuerParameters": {
+                "issuer_parameters": {
                     "name": "Self",
                 },
-                "keyProperties": {
+                "key_properties": {
                     "exportable": True,
-                    "keySize": 2048,
-                    "keyType": "RSA",
-                    "reuseKey": True,
+                    "key_size": 2048,
+                    "key_type": "RSA",
+                    "reuse_key": True,
                 },
-                "lifetimeActions": [{
+                "lifetime_actions": [{
                     "action": {
-                        "actionType": "AutoRenew",
+                        "action_type": "AutoRenew",
                     },
                     "trigger": {
-                        "daysBeforeExpiry": 30,
+                        "days_before_expiry": 30,
                     },
                 }],
-                "secretProperties": {
-                    "contentType": "application/x-pkcs12",
+                "secret_properties": {
+                    "content_type": "application/x-pkcs12",
                 },
-                "x509CertificateProperties": {
-                    "keyUsages": [
+                "x509_certificate_properties": {
+                    "key_usages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -330,7 +330,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                         "keyEncipherment",
                     ],
                     "subject": "CN=contoso.com",
-                    "validityInMonths": 12,
+                    "validity_in_months": 12,
                 },
             })
         example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
@@ -391,10 +391,10 @@ class SpringCloudCertificate(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "secretPermissions": ["Set"],
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "secret_permissions": ["Set"],
+                    "certificate_permissions": [
                         "Create",
                         "Delete",
                         "Get",
@@ -402,13 +402,13 @@ class SpringCloudCertificate(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": example.object_id,
-                    "secretPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": example.object_id,
+                    "secret_permissions": [
                         "Get",
                         "List",
                     ],
-                    "certificatePermissions": [
+                    "certificate_permissions": [
                         "Get",
                         "List",
                     ],
@@ -418,28 +418,28 @@ class SpringCloudCertificate(pulumi.CustomResource):
             name="cert-example",
             key_vault_id=example_key_vault.id,
             certificate_policy={
-                "issuerParameters": {
+                "issuer_parameters": {
                     "name": "Self",
                 },
-                "keyProperties": {
+                "key_properties": {
                     "exportable": True,
-                    "keySize": 2048,
-                    "keyType": "RSA",
-                    "reuseKey": True,
+                    "key_size": 2048,
+                    "key_type": "RSA",
+                    "reuse_key": True,
                 },
-                "lifetimeActions": [{
+                "lifetime_actions": [{
                     "action": {
-                        "actionType": "AutoRenew",
+                        "action_type": "AutoRenew",
                     },
                     "trigger": {
-                        "daysBeforeExpiry": 30,
+                        "days_before_expiry": 30,
                     },
                 }],
-                "secretProperties": {
-                    "contentType": "application/x-pkcs12",
+                "secret_properties": {
+                    "content_type": "application/x-pkcs12",
                 },
-                "x509CertificateProperties": {
-                    "keyUsages": [
+                "x509_certificate_properties": {
+                    "key_usages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -448,7 +448,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                         "keyEncipherment",
                     ],
                     "subject": "CN=contoso.com",
-                    "validityInMonths": 12,
+                    "validity_in_months": 12,
                 },
             })
         example_spring_cloud_service = azure.appplatform.SpringCloudService("example",

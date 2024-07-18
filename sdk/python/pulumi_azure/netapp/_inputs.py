@@ -1462,9 +1462,21 @@ class VolumeGroupSapHanaVolumeArgs:
 if not MYPY:
     class VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict(TypedDict):
         remote_volume_location: pulumi.Input[str]
+        """
+        Location of the primary volume.
+        """
         remote_volume_resource_id: pulumi.Input[str]
+        """
+        Resource ID of the primary volume.
+        """
         replication_frequency: pulumi.Input[str]
+        """
+        eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        """
         endpoint_type: NotRequired[pulumi.Input[str]]
+        """
+        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        """
 elif False:
     VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1475,6 +1487,12 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
                  remote_volume_resource_id: pulumi.Input[str],
                  replication_frequency: pulumi.Input[str],
                  endpoint_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] remote_volume_location: Location of the primary volume.
+        :param pulumi.Input[str] remote_volume_resource_id: Resource ID of the primary volume.
+        :param pulumi.Input[str] replication_frequency: eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        :param pulumi.Input[str] endpoint_type: The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        """
         pulumi.set(__self__, "remote_volume_location", remote_volume_location)
         pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
         pulumi.set(__self__, "replication_frequency", replication_frequency)
@@ -1484,6 +1502,9 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     @property
     @pulumi.getter(name="remoteVolumeLocation")
     def remote_volume_location(self) -> pulumi.Input[str]:
+        """
+        Location of the primary volume.
+        """
         return pulumi.get(self, "remote_volume_location")
 
     @remote_volume_location.setter
@@ -1493,6 +1514,9 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     @property
     @pulumi.getter(name="remoteVolumeResourceId")
     def remote_volume_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of the primary volume.
+        """
         return pulumi.get(self, "remote_volume_resource_id")
 
     @remote_volume_resource_id.setter
@@ -1502,6 +1526,9 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     @property
     @pulumi.getter(name="replicationFrequency")
     def replication_frequency(self) -> pulumi.Input[str]:
+        """
+        eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        """
         return pulumi.get(self, "replication_frequency")
 
     @replication_frequency.setter
@@ -1511,6 +1538,9 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
     @property
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter

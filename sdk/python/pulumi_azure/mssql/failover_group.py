@@ -309,7 +309,7 @@ class FailoverGroup(pulumi.CustomResource):
             }],
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
-                "graceMinutes": 80,
+                "grace_minutes": 80,
             },
             tags={
                 "environment": "prod",
@@ -382,7 +382,7 @@ class FailoverGroup(pulumi.CustomResource):
             }],
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
-                "graceMinutes": 80,
+                "grace_minutes": 80,
             },
             tags={
                 "environment": "prod",

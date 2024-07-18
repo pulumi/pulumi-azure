@@ -803,24 +803,24 @@ class SparkCluster(pulumi.CustomResource):
                 "password": "Password123!",
             },
             storage_accounts=[{
-                "storageContainerId": example_container.id,
-                "storageAccountKey": example_account.primary_access_key,
-                "isDefault": True,
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
             }],
             roles={
-                "headNode": {
-                    "vmSize": "Standard_A3",
+                "head_node": {
+                    "vm_size": "Standard_A3",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-                "workerNode": {
-                    "vmSize": "Standard_A3",
+                "worker_node": {
+                    "vm_size": "Standard_A3",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
+                    "target_instance_count": 3,
                 },
-                "zookeeperNode": {
-                    "vmSize": "Medium",
+                "zookeeper_node": {
+                    "vm_size": "Medium",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
@@ -903,24 +903,24 @@ class SparkCluster(pulumi.CustomResource):
                 "password": "Password123!",
             },
             storage_accounts=[{
-                "storageContainerId": example_container.id,
-                "storageAccountKey": example_account.primary_access_key,
-                "isDefault": True,
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
             }],
             roles={
-                "headNode": {
-                    "vmSize": "Standard_A3",
+                "head_node": {
+                    "vm_size": "Standard_A3",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-                "workerNode": {
-                    "vmSize": "Standard_A3",
+                "worker_node": {
+                    "vm_size": "Standard_A3",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
+                    "target_instance_count": 3,
                 },
-                "zookeeperNode": {
-                    "vmSize": "Medium",
+                "zookeeper_node": {
+                    "vm_size": "Medium",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },

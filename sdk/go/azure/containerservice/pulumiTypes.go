@@ -13797,9 +13797,15 @@ type KubernetesClusterNetworkProfile struct {
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
-	NetworkPolicy        *string  `pulumi:"networkPolicy"`
+	NetworkPolicy *string `pulumi:"networkPolicy"`
+	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
-	OutboundIpPrefixIds  []string `pulumi:"outboundIpPrefixIds"`
+	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
+	OutboundIpPrefixIds []string `pulumi:"outboundIpPrefixIds"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
@@ -13875,9 +13881,15 @@ type KubernetesClusterNetworkProfileArgs struct {
 	// > **Note:** When `networkPolicy` is set to `azure`, the `networkPlugin` field can only be set to `azure`.
 	//
 	// > **Note:** When `networkPolicy` is set to `cilium`, the `networkDataPlane` field must be set to `cilium`.
-	NetworkPolicy        pulumi.StringPtrInput   `pulumi:"networkPolicy"`
+	NetworkPolicy pulumi.StringPtrInput `pulumi:"networkPolicy"`
+	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
-	OutboundIpPrefixIds  pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
+	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+	//
+	// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
+	OutboundIpPrefixIds pulumi.StringArrayInput `pulumi:"outboundIpPrefixIds"`
 	// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outboundType` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet` or `networkPluginMode` is set to `overlay`. Changing this forces a new resource to be created.
@@ -14059,10 +14071,16 @@ func (o KubernetesClusterNetworkProfileOutput) NetworkPolicy() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfileOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfileOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.OutboundIpPrefixIds }).(pulumi.StringArrayOutput)
 }
@@ -14264,6 +14282,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) NetworkPolicy() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpAddressIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpAddressIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfilePtrOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -14273,6 +14294,9 @@ func (o KubernetesClusterNetworkProfilePtrOutput) OutboundIpAddressIds() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+//
+// > **Note:** Set `outboundIpPrefixIds` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outboundIpPrefixIds` will revert the load balancing for the cluster back to a managed one.
 func (o KubernetesClusterNetworkProfilePtrOutput) OutboundIpPrefixIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
 		if v == nil {
@@ -19495,6 +19519,7 @@ func (o RegistryNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) Regist
 }
 
 type RegistryNetworkRuleSetVirtualNetwork struct {
+	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 	Action   string `pulumi:"action"`
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -19511,6 +19536,7 @@ type RegistryNetworkRuleSetVirtualNetworkInput interface {
 }
 
 type RegistryNetworkRuleSetVirtualNetworkArgs struct {
+	// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 	Action   pulumi.StringInput `pulumi:"action"`
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -19566,6 +19592,7 @@ func (o RegistryNetworkRuleSetVirtualNetworkOutput) ToRegistryNetworkRuleSetVirt
 	return o
 }
 
+// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
 func (o RegistryNetworkRuleSetVirtualNetworkOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryNetworkRuleSetVirtualNetwork) string { return v.Action }).(pulumi.StringOutput)
 }
@@ -22264,6 +22291,7 @@ func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type TokenPasswordPassword1 struct {
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -22281,6 +22309,7 @@ type TokenPasswordPassword1Input interface {
 }
 
 type TokenPasswordPassword1Args struct {
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -22363,6 +22392,7 @@ func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1PtrOutputWithConte
 	}).(TokenPasswordPassword1PtrOutput)
 }
 
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword1) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -22396,6 +22426,7 @@ func (o TokenPasswordPassword1PtrOutput) Elem() TokenPasswordPassword1Output {
 	}).(TokenPasswordPassword1Output)
 }
 
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword1PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword1) *string {
 		if v == nil {
@@ -22416,6 +22447,7 @@ func (o TokenPasswordPassword1PtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type TokenPasswordPassword2 struct {
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry *string `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value *string `pulumi:"value"`
@@ -22433,6 +22465,7 @@ type TokenPasswordPassword2Input interface {
 }
 
 type TokenPasswordPassword2Args struct {
+	// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The value of the password (Sensitive).
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -22515,6 +22548,7 @@ func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2PtrOutputWithConte
 	}).(TokenPasswordPassword2PtrOutput)
 }
 
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2Output) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TokenPasswordPassword2) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -22548,6 +22582,7 @@ func (o TokenPasswordPassword2PtrOutput) Elem() TokenPasswordPassword2Output {
 	}).(TokenPasswordPassword2Output)
 }
 
+// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 func (o TokenPasswordPassword2PtrOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TokenPasswordPassword2) *string {
 		if v == nil {

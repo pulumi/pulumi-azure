@@ -220,7 +220,7 @@ class RouteFilter(pulumi.CustomResource):
             rule={
                 "name": "rule",
                 "access": "Allow",
-                "ruleType": "Community",
+                "rule_type": "Community",
                 "communities": ["12076:52004"],
             })
         ```
@@ -263,7 +263,7 @@ class RouteFilter(pulumi.CustomResource):
             rule={
                 "name": "rule",
                 "access": "Allow",
-                "ruleType": "Community",
+                "rule_type": "Community",
                 "communities": ["12076:52004"],
             })
         ```

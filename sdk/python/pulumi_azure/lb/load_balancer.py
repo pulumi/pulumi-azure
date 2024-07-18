@@ -366,7 +366,7 @@ class LoadBalancer(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         ```
 
@@ -420,7 +420,7 @@ class LoadBalancer(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         ```
 

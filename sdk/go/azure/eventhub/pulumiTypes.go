@@ -3062,6 +3062,7 @@ func (o EventSubscriptionAdvancedFilterPtrOutput) StringNotIns() EventSubscripti
 }
 
 type EventSubscriptionAdvancedFilterBoolEqual struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   string `pulumi:"key"`
 	Value bool   `pulumi:"value"`
 }
@@ -3078,6 +3079,7 @@ type EventSubscriptionAdvancedFilterBoolEqualInput interface {
 }
 
 type EventSubscriptionAdvancedFilterBoolEqualArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.BoolInput   `pulumi:"value"`
 }
@@ -3133,6 +3135,7 @@ func (o EventSubscriptionAdvancedFilterBoolEqualOutput) ToEventSubscriptionAdvan
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterBoolEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterBoolEqual) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3162,6 +3165,7 @@ func (o EventSubscriptionAdvancedFilterBoolEqualArrayOutput) Index(i pulumi.IntI
 }
 
 type EventSubscriptionAdvancedFilterIsNotNull struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key string `pulumi:"key"`
 }
 
@@ -3177,6 +3181,7 @@ type EventSubscriptionAdvancedFilterIsNotNullInput interface {
 }
 
 type EventSubscriptionAdvancedFilterIsNotNullArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -3231,6 +3236,7 @@ func (o EventSubscriptionAdvancedFilterIsNotNullOutput) ToEventSubscriptionAdvan
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterIsNotNullOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterIsNotNull) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3256,6 +3262,7 @@ func (o EventSubscriptionAdvancedFilterIsNotNullArrayOutput) Index(i pulumi.IntI
 }
 
 type EventSubscriptionAdvancedFilterIsNullOrUndefined struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key string `pulumi:"key"`
 }
 
@@ -3271,6 +3278,7 @@ type EventSubscriptionAdvancedFilterIsNullOrUndefinedInput interface {
 }
 
 type EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key pulumi.StringInput `pulumi:"key"`
 }
 
@@ -3325,6 +3333,7 @@ func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) ToEventSubscript
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterIsNullOrUndefined) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3350,6 +3359,7 @@ func (o EventSubscriptionAdvancedFilterIsNullOrUndefinedArrayOutput) Index(i pul
 }
 
 type EventSubscriptionAdvancedFilterNumberGreaterThan struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   string  `pulumi:"key"`
 	Value float64 `pulumi:"value"`
 }
@@ -3366,6 +3376,7 @@ type EventSubscriptionAdvancedFilterNumberGreaterThanInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberGreaterThanArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   pulumi.StringInput  `pulumi:"key"`
 	Value pulumi.Float64Input `pulumi:"value"`
 }
@@ -3421,6 +3432,7 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) ToEventSubscript
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberGreaterThan) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3450,6 +3462,7 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanArrayOutput) Index(i pul
 }
 
 type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   string  `pulumi:"key"`
 	Value float64 `pulumi:"value"`
 }
@@ -3466,6 +3479,7 @@ type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   pulumi.StringInput  `pulumi:"key"`
 	Value pulumi.Float64Input `pulumi:"value"`
 }
@@ -3521,6 +3535,7 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) ToEventSu
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3550,7 +3565,11 @@ func (o EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArrayOutput) Inde
 }
 
 type EventSubscriptionAdvancedFilterNumberIn struct {
-	Key    string    `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []float64 `pulumi:"values"`
 }
 
@@ -3566,7 +3585,11 @@ type EventSubscriptionAdvancedFilterNumberInInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberInArgs struct {
-	Key    pulumi.StringInput       `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -3621,10 +3644,14 @@ func (o EventSubscriptionAdvancedFilterNumberInOutput) ToEventSubscriptionAdvanc
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberInOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberIn) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberInOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberIn) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -3650,7 +3677,11 @@ func (o EventSubscriptionAdvancedFilterNumberInArrayOutput) Index(i pulumi.IntIn
 }
 
 type EventSubscriptionAdvancedFilterNumberInRange struct {
-	Key    string      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values [][]float64 `pulumi:"values"`
 }
 
@@ -3666,7 +3697,11 @@ type EventSubscriptionAdvancedFilterNumberInRangeInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberInRangeArgs struct {
-	Key    pulumi.StringInput            `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayArrayInput `pulumi:"values"`
 }
 
@@ -3721,10 +3756,14 @@ func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) ToEventSubscriptionA
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberInRange) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberInRangeOutput) Values() pulumi.Float64ArrayArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberInRange) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
@@ -3750,6 +3789,7 @@ func (o EventSubscriptionAdvancedFilterNumberInRangeArrayOutput) Index(i pulumi.
 }
 
 type EventSubscriptionAdvancedFilterNumberLessThan struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   string  `pulumi:"key"`
 	Value float64 `pulumi:"value"`
 }
@@ -3766,6 +3806,7 @@ type EventSubscriptionAdvancedFilterNumberLessThanInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberLessThanArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   pulumi.StringInput  `pulumi:"key"`
 	Value pulumi.Float64Input `pulumi:"value"`
 }
@@ -3821,6 +3862,7 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) ToEventSubscription
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberLessThanOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberLessThan) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3850,6 +3892,7 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanArrayOutput) Index(i pulumi
 }
 
 type EventSubscriptionAdvancedFilterNumberLessThanOrEqual struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   string  `pulumi:"key"`
 	Value float64 `pulumi:"value"`
 }
@@ -3866,6 +3909,7 @@ type EventSubscriptionAdvancedFilterNumberLessThanOrEqualInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs struct {
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 	Key   pulumi.StringInput  `pulumi:"key"`
 	Value pulumi.Float64Input `pulumi:"value"`
 }
@@ -3921,6 +3965,7 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) ToEventSubsc
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberLessThanOrEqual) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -3950,7 +3995,11 @@ func (o EventSubscriptionAdvancedFilterNumberLessThanOrEqualArrayOutput) Index(i
 }
 
 type EventSubscriptionAdvancedFilterNumberNotIn struct {
-	Key    string    `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []float64 `pulumi:"values"`
 }
 
@@ -3966,7 +4015,11 @@ type EventSubscriptionAdvancedFilterNumberNotInInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberNotInArgs struct {
-	Key    pulumi.StringInput       `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayInput `pulumi:"values"`
 }
 
@@ -4021,10 +4074,14 @@ func (o EventSubscriptionAdvancedFilterNumberNotInOutput) ToEventSubscriptionAdv
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberNotInOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotIn) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberNotInOutput) Values() pulumi.Float64ArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotIn) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
 }
@@ -4050,7 +4107,11 @@ func (o EventSubscriptionAdvancedFilterNumberNotInArrayOutput) Index(i pulumi.In
 }
 
 type EventSubscriptionAdvancedFilterNumberNotInRange struct {
-	Key    string      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values [][]float64 `pulumi:"values"`
 }
 
@@ -4066,7 +4127,11 @@ type EventSubscriptionAdvancedFilterNumberNotInRangeInput interface {
 }
 
 type EventSubscriptionAdvancedFilterNumberNotInRangeArgs struct {
-	Key    pulumi.StringInput            `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.Float64ArrayArrayInput `pulumi:"values"`
 }
 
@@ -4121,10 +4186,14 @@ func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) ToEventSubscripti
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotInRange) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterNumberNotInRangeOutput) Values() pulumi.Float64ArrayArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterNumberNotInRange) [][]float64 { return v.Values }).(pulumi.Float64ArrayArrayOutput)
 }
@@ -4150,7 +4219,11 @@ func (o EventSubscriptionAdvancedFilterNumberNotInRangeArrayOutput) Index(i pulu
 }
 
 type EventSubscriptionAdvancedFilterStringBeginsWith struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4166,7 +4239,11 @@ type EventSubscriptionAdvancedFilterStringBeginsWithInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringBeginsWithArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4221,10 +4298,14 @@ func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) ToEventSubscripti
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringBeginsWith) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringBeginsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringBeginsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4250,7 +4331,11 @@ func (o EventSubscriptionAdvancedFilterStringBeginsWithArrayOutput) Index(i pulu
 }
 
 type EventSubscriptionAdvancedFilterStringContain struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4266,7 +4351,11 @@ type EventSubscriptionAdvancedFilterStringContainInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringContainArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4321,10 +4410,14 @@ func (o EventSubscriptionAdvancedFilterStringContainOutput) ToEventSubscriptionA
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringContainOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringContain) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringContainOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringContain) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4350,7 +4443,11 @@ func (o EventSubscriptionAdvancedFilterStringContainArrayOutput) Index(i pulumi.
 }
 
 type EventSubscriptionAdvancedFilterStringEndsWith struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4366,7 +4463,11 @@ type EventSubscriptionAdvancedFilterStringEndsWithInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringEndsWithArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4421,10 +4522,14 @@ func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) ToEventSubscription
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringEndsWith) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringEndsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringEndsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4450,7 +4555,11 @@ func (o EventSubscriptionAdvancedFilterStringEndsWithArrayOutput) Index(i pulumi
 }
 
 type EventSubscriptionAdvancedFilterStringIn struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4466,7 +4575,11 @@ type EventSubscriptionAdvancedFilterStringInInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringInArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4521,10 +4634,14 @@ func (o EventSubscriptionAdvancedFilterStringInOutput) ToEventSubscriptionAdvanc
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringInOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringIn) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringInOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringIn) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4550,7 +4667,11 @@ func (o EventSubscriptionAdvancedFilterStringInArrayOutput) Index(i pulumi.IntIn
 }
 
 type EventSubscriptionAdvancedFilterStringNotBeginsWith struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4566,7 +4687,11 @@ type EventSubscriptionAdvancedFilterStringNotBeginsWithInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringNotBeginsWithArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4621,10 +4746,14 @@ func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) ToEventSubscri
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotBeginsWith) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotBeginsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotBeginsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4650,7 +4779,11 @@ func (o EventSubscriptionAdvancedFilterStringNotBeginsWithArrayOutput) Index(i p
 }
 
 type EventSubscriptionAdvancedFilterStringNotContain struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4666,7 +4799,11 @@ type EventSubscriptionAdvancedFilterStringNotContainInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringNotContainArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4721,10 +4858,14 @@ func (o EventSubscriptionAdvancedFilterStringNotContainOutput) ToEventSubscripti
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringNotContainOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotContain) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotContainOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotContain) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4750,7 +4891,11 @@ func (o EventSubscriptionAdvancedFilterStringNotContainArrayOutput) Index(i pulu
 }
 
 type EventSubscriptionAdvancedFilterStringNotEndsWith struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4766,7 +4911,11 @@ type EventSubscriptionAdvancedFilterStringNotEndsWithInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringNotEndsWithArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4821,10 +4970,14 @@ func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) ToEventSubscript
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotEndsWith) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotEndsWithOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotEndsWith) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4850,7 +5003,11 @@ func (o EventSubscriptionAdvancedFilterStringNotEndsWithArrayOutput) Index(i pul
 }
 
 type EventSubscriptionAdvancedFilterStringNotIn struct {
-	Key    string   `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key string `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values []string `pulumi:"values"`
 }
 
@@ -4866,7 +5023,11 @@ type EventSubscriptionAdvancedFilterStringNotInInput interface {
 }
 
 type EventSubscriptionAdvancedFilterStringNotInArgs struct {
-	Key    pulumi.StringInput      `pulumi:"key"`
+	// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Specifies an array of values to compare to when using a multiple values operator.
+	//
+	// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -4921,10 +5082,14 @@ func (o EventSubscriptionAdvancedFilterStringNotInOutput) ToEventSubscriptionAdv
 	return o
 }
 
+// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
 func (o EventSubscriptionAdvancedFilterStringNotInOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotIn) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// Specifies an array of values to compare to when using a multiple values operator.
+//
+// > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
 func (o EventSubscriptionAdvancedFilterStringNotInOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSubscriptionAdvancedFilterStringNotIn) []string { return v.Values }).(pulumi.StringArrayOutput)
 }

@@ -4261,8 +4261,9 @@ func (o PoolStartTaskContainerArrayOutput) Index(i pulumi.IntInput) PoolStartTas
 }
 
 type PoolStartTaskContainerRegistry struct {
-	Password       *string `pulumi:"password"`
-	RegistryServer string  `pulumi:"registryServer"`
+	Password *string `pulumi:"password"`
+	// The container registry URL. Changing this forces a new resource to be created.
+	RegistryServer string `pulumi:"registryServer"`
 	// The User Assigned Identity to use for Container Registry access.
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 	UserName               *string `pulumi:"userName"`
@@ -4280,8 +4281,9 @@ type PoolStartTaskContainerRegistryInput interface {
 }
 
 type PoolStartTaskContainerRegistryArgs struct {
-	Password       pulumi.StringPtrInput `pulumi:"password"`
-	RegistryServer pulumi.StringInput    `pulumi:"registryServer"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The container registry URL. Changing this forces a new resource to be created.
+	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
 	// The User Assigned Identity to use for Container Registry access.
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 	UserName               pulumi.StringPtrInput `pulumi:"userName"`
@@ -4342,6 +4344,7 @@ func (o PoolStartTaskContainerRegistryOutput) Password() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// The container registry URL. Changing this forces a new resource to be created.
 func (o PoolStartTaskContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
 	return o.ApplyT(func(v PoolStartTaskContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }

@@ -1996,6 +1996,9 @@ if not MYPY:
     class AlertRuleScheduledIncidentConfigurationArgsDict(TypedDict):
         create_incident: pulumi.Input[bool]
         grouping: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgsDict']
+        """
+        A `grouping` block as defined below.
+        """
 elif False:
     AlertRuleScheduledIncidentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2004,6 +2007,9 @@ class AlertRuleScheduledIncidentConfigurationArgs:
     def __init__(__self__, *,
                  create_incident: pulumi.Input[bool],
                  grouping: pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs']):
+        """
+        :param pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs'] grouping: A `grouping` block as defined below.
+        """
         if create_incident is not None:
             warnings.warn("""The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""", DeprecationWarning)
             pulumi.log.warn("""create_incident is deprecated: The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider""")
@@ -2023,6 +2029,9 @@ class AlertRuleScheduledIncidentConfigurationArgs:
     @property
     @pulumi.getter
     def grouping(self) -> pulumi.Input['AlertRuleScheduledIncidentConfigurationGroupingArgs']:
+        """
+        A `grouping` block as defined below.
+        """
         return pulumi.get(self, "grouping")
 
     @grouping.setter

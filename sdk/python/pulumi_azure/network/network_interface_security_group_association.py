@@ -134,8 +134,8 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_network_interface_security_group_association = azure.network.NetworkInterfaceSecurityGroupAssociation("example",
             network_interface_id=example_network_interface.id,
@@ -193,8 +193,8 @@ class NetworkInterfaceSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_network_interface_security_group_association = azure.network.NetworkInterfaceSecurityGroupAssociation("example",
             network_interface_id=example_network_interface.id,

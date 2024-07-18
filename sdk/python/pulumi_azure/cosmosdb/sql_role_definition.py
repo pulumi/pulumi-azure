@@ -295,11 +295,11 @@ class SqlRoleDefinition(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
             role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
@@ -308,7 +308,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
             name="acctestsqlrole",
             assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
             permissions=[{
-                "dataActions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+                "data_actions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             }])
         ```
 
@@ -358,11 +358,11 @@ class SqlRoleDefinition(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
             role_definition_id="84cf3a8b-4122-4448-bce2-fa423cfe0a15",
@@ -371,7 +371,7 @@ class SqlRoleDefinition(pulumi.CustomResource):
             name="acctestsqlrole",
             assignable_scopes=[example_account.id.apply(lambda id: f"{id}/dbs/sales")],
             permissions=[{
-                "dataActions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
+                "data_actions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             }])
         ```
 

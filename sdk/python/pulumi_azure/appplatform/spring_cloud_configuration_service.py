@@ -231,11 +231,11 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                 "label": "master",
                 "patterns": ["app/dev"],
                 "uri": "https://github.com/Azure-Samples/piggymetrics",
-                "searchPaths": [
+                "search_paths": [
                     "dir1",
                     "dir2",
                 ],
-                "strictHostKeyChecking": False,
+                "strict_host_key_checking": False,
                 "username": "adminuser",
                 "password": "H@Sh1CoR3!",
             }])
@@ -290,11 +290,11 @@ class SpringCloudConfigurationService(pulumi.CustomResource):
                 "label": "master",
                 "patterns": ["app/dev"],
                 "uri": "https://github.com/Azure-Samples/piggymetrics",
-                "searchPaths": [
+                "search_paths": [
                     "dir1",
                     "dir2",
                 ],
-                "strictHostKeyChecking": False,
+                "strict_host_key_checking": False,
                 "username": "adminuser",
                 "password": "H@Sh1CoR3!",
             }])
