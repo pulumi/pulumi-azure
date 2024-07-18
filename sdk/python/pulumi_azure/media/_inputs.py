@@ -376,8 +376,17 @@ class AccountFilterTrackSelectionArgs:
 if not MYPY:
     class AccountFilterTrackSelectionConditionArgsDict(TypedDict):
         operation: pulumi.Input[str]
+        """
+        The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        """
         property: pulumi.Input[str]
+        """
+        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        """
         value: pulumi.Input[str]
+        """
+        The track property value to match or not match.
+        """
 elif False:
     AccountFilterTrackSelectionConditionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -387,6 +396,11 @@ class AccountFilterTrackSelectionConditionArgs:
                  operation: pulumi.Input[str],
                  property: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] operation: The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        :param pulumi.Input[str] property: The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        :param pulumi.Input[str] value: The track property value to match or not match.
+        """
         pulumi.set(__self__, "operation", operation)
         pulumi.set(__self__, "property", property)
         pulumi.set(__self__, "value", value)
@@ -394,6 +408,9 @@ class AccountFilterTrackSelectionConditionArgs:
     @property
     @pulumi.getter
     def operation(self) -> pulumi.Input[str]:
+        """
+        The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        """
         return pulumi.get(self, "operation")
 
     @operation.setter
@@ -403,6 +420,9 @@ class AccountFilterTrackSelectionConditionArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The track property value to match or not match.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -412,6 +432,9 @@ class AccountFilterTrackSelectionConditionArgs:
     @property
     @pulumi.getter
     def property(self) -> pulumi.Input[str]:
+        """
+        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        """
         return pulumi.get(self, "property")
 
     @property.setter

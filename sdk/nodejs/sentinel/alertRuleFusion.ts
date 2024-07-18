@@ -133,7 +133,7 @@ export class AlertRuleFusion extends pulumi.CustomResource {
             resourceInputs["sources"] = args ? args.sources : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertRuleFusion.__pulumiType, name, resourceInputs, opts);
+        super(AlertRuleFusion.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

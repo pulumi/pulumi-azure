@@ -248,7 +248,7 @@ export class Dashboard extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:dashboard/dashboard:Dashboard" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Dashboard.__pulumiType, name, resourceInputs, opts);
+        super(Dashboard.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

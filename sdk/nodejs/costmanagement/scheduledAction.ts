@@ -189,7 +189,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["weeksOfMonths"] = args ? args.weeksOfMonths : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScheduledAction.__pulumiType, name, resourceInputs, opts);
+        super(ScheduledAction.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

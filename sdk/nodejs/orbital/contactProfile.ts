@@ -198,7 +198,7 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ContactProfile.__pulumiType, name, resourceInputs, opts);
+        super(ContactProfile.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

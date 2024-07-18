@@ -386,7 +386,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(KubernetesClusterNodePool.__pulumiType, name, resourceInputs, opts);
+        super(KubernetesClusterNodePool.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

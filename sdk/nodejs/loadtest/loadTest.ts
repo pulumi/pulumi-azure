@@ -144,7 +144,7 @@ export class LoadTest extends pulumi.CustomResource {
             resourceInputs["dataPlaneUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LoadTest.__pulumiType, name, resourceInputs, opts);
+        super(LoadTest.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

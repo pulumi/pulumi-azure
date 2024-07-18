@@ -14,23 +14,47 @@ public final class AccountFilterTrackSelectionConditionArgs extends com.pulumi.r
 
     public static final AccountFilterTrackSelectionConditionArgs Empty = new AccountFilterTrackSelectionConditionArgs();
 
+    /**
+     * The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+     * 
+     */
     @Import(name="operation", required=true)
     private Output<String> operation;
 
+    /**
+     * @return The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+     * 
+     */
     public Output<String> operation() {
         return this.operation;
     }
 
+    /**
+     * The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+     * 
+     */
     @Import(name="property", required=true)
     private Output<String> property;
 
+    /**
+     * @return The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+     * 
+     */
     public Output<String> property() {
         return this.property;
     }
 
+    /**
+     * The track property value to match or not match.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return The track property value to match or not match.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -61,29 +85,65 @@ public final class AccountFilterTrackSelectionConditionArgs extends com.pulumi.r
             $ = new AccountFilterTrackSelectionConditionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param operation The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operation(Output<String> operation) {
             $.operation = operation;
             return this;
         }
 
+        /**
+         * @param operation The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder operation(String operation) {
             return operation(Output.of(operation));
         }
 
+        /**
+         * @param property The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder property(Output<String> property) {
             $.property = property;
             return this;
         }
 
+        /**
+         * @param property The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder property(String property) {
             return property(Output.of(property));
         }
 
+        /**
+         * @param value The track property value to match or not match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value The track property value to match or not match.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

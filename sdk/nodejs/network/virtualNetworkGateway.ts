@@ -301,7 +301,7 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["vpnType"] = args ? args.vpnType : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNetworkGateway.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetworkGateway.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

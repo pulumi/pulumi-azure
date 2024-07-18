@@ -153,7 +153,7 @@ export class NetworkAcl extends pulumi.CustomResource {
             resourceInputs["webPubsubId"] = args ? args.webPubsubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkAcl.__pulumiType, name, resourceInputs, opts);
+        super(NetworkAcl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

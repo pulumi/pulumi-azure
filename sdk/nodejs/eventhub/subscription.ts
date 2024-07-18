@@ -203,7 +203,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["topicId"] = args ? args.topicId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Subscription.__pulumiType, name, resourceInputs, opts);
+        super(Subscription.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -123,7 +123,7 @@ export class ActionCustom extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ActionCustom.__pulumiType, name, resourceInputs, opts);
+        super(ActionCustom.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

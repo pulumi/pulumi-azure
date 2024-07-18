@@ -168,7 +168,7 @@ export class CustomHttpsConfiguration extends pulumi.CustomResource {
             resourceInputs["frontendEndpointId"] = args ? args.frontendEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CustomHttpsConfiguration.__pulumiType, name, resourceInputs, opts);
+        super(CustomHttpsConfiguration.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

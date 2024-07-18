@@ -125,7 +125,7 @@ export class IdentityProviderTwitter extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey", "apiSecretKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(IdentityProviderTwitter.__pulumiType, name, resourceInputs, opts);
+        super(IdentityProviderTwitter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

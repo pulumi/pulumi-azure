@@ -154,7 +154,7 @@ export class ManagementPolicy extends pulumi.CustomResource {
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManagementPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ManagementPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

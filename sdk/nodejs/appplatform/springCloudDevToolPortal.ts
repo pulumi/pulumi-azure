@@ -140,7 +140,7 @@ export class SpringCloudDevToolPortal extends pulumi.CustomResource {
             resourceInputs["sso"] = args ? args.sso : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudDevToolPortal.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudDevToolPortal.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

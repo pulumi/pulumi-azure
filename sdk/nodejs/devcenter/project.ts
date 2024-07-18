@@ -149,7 +149,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["devCenterUri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Project.__pulumiType, name, resourceInputs, opts);
+        super(Project.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

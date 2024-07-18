@@ -141,7 +141,7 @@ export class FrontdoorOriginGroup extends pulumi.CustomResource {
             resourceInputs["sessionAffinityEnabled"] = args ? args.sessionAffinityEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorOriginGroup.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorOriginGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

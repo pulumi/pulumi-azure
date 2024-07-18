@@ -185,7 +185,7 @@ export class SpringCloudContainerDeployment extends pulumi.CustomResource {
             resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudContainerDeployment.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudContainerDeployment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

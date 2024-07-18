@@ -286,21 +286,21 @@ class RoleManagementPolicy(pulumi.CustomResource):
             scope=example.id,
             role_definition_id=mg_contributor.id,
             eligible_assignment_rules={
-                "expirationRequired": False,
+                "expiration_required": False,
             },
             active_assignment_rules={
-                "expireAfter": "P90D",
+                "expire_after": "P90D",
             },
             activation_rules={
-                "maximumDuration": "PT1H",
-                "requireApproval": True,
+                "maximum_duration": "PT1H",
+                "require_approval": True,
             },
             notification_rules={
-                "activeAssignments": {
-                    "adminNotifications": {
-                        "notificationLevel": "Critical",
-                        "defaultRecipients": False,
-                        "additionalRecipients": ["someone@example.com"],
+                "active_assignments": {
+                    "admin_notifications": {
+                        "notification_level": "Critical",
+                        "default_recipients": False,
+                        "additional_recipients": ["someone@example.com"],
                     },
                 },
             })
@@ -347,21 +347,21 @@ class RoleManagementPolicy(pulumi.CustomResource):
             scope=example.id,
             role_definition_id=mg_contributor.id,
             eligible_assignment_rules={
-                "expirationRequired": False,
+                "expiration_required": False,
             },
             active_assignment_rules={
-                "expireAfter": "P90D",
+                "expire_after": "P90D",
             },
             activation_rules={
-                "maximumDuration": "PT1H",
-                "requireApproval": True,
+                "maximum_duration": "PT1H",
+                "require_approval": True,
             },
             notification_rules={
-                "activeAssignments": {
-                    "adminNotifications": {
-                        "notificationLevel": "Critical",
-                        "defaultRecipients": False,
-                        "additionalRecipients": ["someone@example.com"],
+                "active_assignments": {
+                    "admin_notifications": {
+                        "notification_level": "Critical",
+                        "default_recipients": False,
+                        "additional_recipients": ["someone@example.com"],
                     },
                 },
             })

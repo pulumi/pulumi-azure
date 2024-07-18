@@ -1342,18 +1342,18 @@ class Account(pulumi.CustomResource):
                 },
             ],
             consistency_policy={
-                "consistencyLevel": "BoundedStaleness",
-                "maxIntervalInSeconds": 300,
-                "maxStalenessPrefix": 100000,
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 300,
+                "max_staleness_prefix": 100000,
             },
             geo_locations=[
                 {
                     "location": "eastus",
-                    "failoverPriority": 1,
+                    "failover_priority": 1,
                 },
                 {
                     "location": "westus",
-                    "failoverPriority": 0,
+                    "failover_priority": 0,
                 },
             ])
         ```
@@ -1384,15 +1384,15 @@ class Account(pulumi.CustomResource):
                 "name": "EnableMongo",
             }],
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": "westus",
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }],
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example.id],
+                "identity_ids": [example.id],
             })
         ```
 
@@ -1463,18 +1463,18 @@ class Account(pulumi.CustomResource):
                 },
             ],
             consistency_policy={
-                "consistencyLevel": "BoundedStaleness",
-                "maxIntervalInSeconds": 300,
-                "maxStalenessPrefix": 100000,
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 300,
+                "max_staleness_prefix": 100000,
             },
             geo_locations=[
                 {
                     "location": "eastus",
-                    "failoverPriority": 1,
+                    "failover_priority": 1,
                 },
                 {
                     "location": "westus",
-                    "failoverPriority": 0,
+                    "failover_priority": 0,
                 },
             ])
         ```
@@ -1505,15 +1505,15 @@ class Account(pulumi.CustomResource):
                 "name": "EnableMongo",
             }],
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": "westus",
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }],
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example.id],
+                "identity_ids": [example.id],
             })
         ```
 

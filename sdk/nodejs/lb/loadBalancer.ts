@@ -155,7 +155,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["privateIpAddresses"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

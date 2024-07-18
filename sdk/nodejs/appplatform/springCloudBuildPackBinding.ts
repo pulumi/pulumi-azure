@@ -137,7 +137,7 @@ export class SpringCloudBuildPackBinding extends pulumi.CustomResource {
             resourceInputs["springCloudBuilderId"] = args ? args.springCloudBuilderId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SpringCloudBuildPackBinding.__pulumiType, name, resourceInputs, opts);
+        super(SpringCloudBuildPackBinding.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

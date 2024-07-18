@@ -23,9 +23,17 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * The container registry URL. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="registryServer", required=true)
     private Output<String> registryServer;
 
+    /**
+     * @return The container registry URL. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> registryServer() {
         return this.registryServer;
     }
@@ -88,11 +96,23 @@ public final class PoolStartTaskContainerRegistryArgs extends com.pulumi.resourc
             return password(Output.of(password));
         }
 
+        /**
+         * @param registryServer The container registry URL. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryServer(Output<String> registryServer) {
             $.registryServer = registryServer;
             return this;
         }
 
+        /**
+         * @param registryServer The container registry URL. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder registryServer(String registryServer) {
             return registryServer(Output.of(registryServer));
         }

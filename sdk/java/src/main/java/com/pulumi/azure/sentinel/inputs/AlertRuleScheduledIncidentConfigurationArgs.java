@@ -34,9 +34,17 @@ public final class AlertRuleScheduledIncidentConfigurationArgs extends com.pulum
         return this.createIncident;
     }
 
+    /**
+     * A `grouping` block as defined below.
+     * 
+     */
     @Import(name="grouping", required=true)
     private Output<AlertRuleScheduledIncidentConfigurationGroupingArgs> grouping;
 
+    /**
+     * @return A `grouping` block as defined below.
+     * 
+     */
     public Output<AlertRuleScheduledIncidentConfigurationGroupingArgs> grouping() {
         return this.grouping;
     }
@@ -91,11 +99,23 @@ public final class AlertRuleScheduledIncidentConfigurationArgs extends com.pulum
             return createIncident(Output.of(createIncident));
         }
 
+        /**
+         * @param grouping A `grouping` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grouping(Output<AlertRuleScheduledIncidentConfigurationGroupingArgs> grouping) {
             $.grouping = grouping;
             return this;
         }
 
+        /**
+         * @param grouping A `grouping` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grouping(AlertRuleScheduledIncidentConfigurationGroupingArgs grouping) {
             return grouping(Output.of(grouping));
         }

@@ -190,7 +190,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ExpressRouteConnection.__pulumiType, name, resourceInputs, opts);
+        super(ExpressRouteConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

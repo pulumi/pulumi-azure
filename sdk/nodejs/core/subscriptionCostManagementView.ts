@@ -168,7 +168,7 @@ export class SubscriptionCostManagementView extends pulumi.CustomResource {
             resourceInputs["timeframe"] = args ? args.timeframe : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubscriptionCostManagementView.__pulumiType, name, resourceInputs, opts);
+        super(SubscriptionCostManagementView.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

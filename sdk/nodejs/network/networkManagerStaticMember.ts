@@ -133,7 +133,7 @@ export class NetworkManagerStaticMember extends pulumi.CustomResource {
             resourceInputs["region"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkManagerStaticMember.__pulumiType, name, resourceInputs, opts);
+        super(NetworkManagerStaticMember.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

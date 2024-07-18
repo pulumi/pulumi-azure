@@ -177,7 +177,7 @@ export class CacheBlobTarget extends pulumi.CustomResource {
             resourceInputs["storageContainerId"] = args ? args.storageContainerId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CacheBlobTarget.__pulumiType, name, resourceInputs, opts);
+        super(CacheBlobTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

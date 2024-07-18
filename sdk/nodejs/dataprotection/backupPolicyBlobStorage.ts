@@ -146,7 +146,7 @@ export class BackupPolicyBlobStorage extends pulumi.CustomResource {
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupPolicyBlobStorage.__pulumiType, name, resourceInputs, opts);
+        super(BackupPolicyBlobStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

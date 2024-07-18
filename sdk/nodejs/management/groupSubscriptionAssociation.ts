@@ -99,7 +99,7 @@ export class GroupSubscriptionAssociation extends pulumi.CustomResource {
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GroupSubscriptionAssociation.__pulumiType, name, resourceInputs, opts);
+        super(GroupSubscriptionAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -132,7 +132,7 @@ export class ServicesCommunicationsGatewayTestLine extends pulumi.CustomResource
             resourceInputs["voiceServicesCommunicationsGatewayId"] = args ? args.voiceServicesCommunicationsGatewayId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServicesCommunicationsGatewayTestLine.__pulumiType, name, resourceInputs, opts);
+        super(ServicesCommunicationsGatewayTestLine.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

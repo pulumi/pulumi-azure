@@ -276,7 +276,7 @@ export class HBaseCluster extends pulumi.CustomResource {
             resourceInputs["sshEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HBaseCluster.__pulumiType, name, resourceInputs, opts);
+        super(HBaseCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -173,7 +173,7 @@ export class DatasetBlobStorage extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetBlobStorage.__pulumiType, name, resourceInputs, opts);
+        super(DatasetBlobStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

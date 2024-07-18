@@ -185,7 +185,7 @@ export class AuthomationRule extends pulumi.CustomResource {
             resourceInputs["triggersWhen"] = args ? args.triggersWhen : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AuthomationRule.__pulumiType, name, resourceInputs, opts);
+        super(AuthomationRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

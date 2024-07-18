@@ -199,9 +199,9 @@ class AccountEncryption(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": "00000000-0000-0000-0000-000000000000",
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -212,9 +212,9 @@ class AccountEncryption(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                    "objectId": example_user_assigned_identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": "00000000-0000-0000-0000-000000000000",
+                    "object_id": example_user_assigned_identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "Encrypt",
                         "Decrypt",
@@ -240,7 +240,7 @@ class AccountEncryption(pulumi.CustomResource):
             resource_group_name=example.name,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,
@@ -300,9 +300,9 @@ class AccountEncryption(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": "00000000-0000-0000-0000-000000000000",
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Get",
                         "Create",
                         "Delete",
@@ -313,9 +313,9 @@ class AccountEncryption(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": "00000000-0000-0000-0000-000000000000",
-                    "objectId": example_user_assigned_identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": "00000000-0000-0000-0000-000000000000",
+                    "object_id": example_user_assigned_identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "Encrypt",
                         "Decrypt",
@@ -341,7 +341,7 @@ class AccountEncryption(pulumi.CustomResource):
             resource_group_name=example.name,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         example_account_encryption = azure.netapp.AccountEncryption("example",
             netapp_account_id=example_account.id,

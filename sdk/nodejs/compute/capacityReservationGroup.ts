@@ -111,7 +111,7 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             resourceInputs["zones"] = args ? args.zones : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CapacityReservationGroup.__pulumiType, name, resourceInputs, opts);
+        super(CapacityReservationGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

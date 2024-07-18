@@ -203,7 +203,7 @@ export class Experiment extends pulumi.CustomResource {
             resourceInputs["steps"] = args ? args.steps : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Experiment.__pulumiType, name, resourceInputs, opts);
+        super(Experiment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

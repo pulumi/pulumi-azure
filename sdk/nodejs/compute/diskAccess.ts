@@ -101,7 +101,7 @@ export class DiskAccess extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DiskAccess.__pulumiType, name, resourceInputs, opts);
+        super(DiskAccess.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -153,7 +153,7 @@ export class VirtualHubIp extends pulumi.CustomResource {
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualHubIp.__pulumiType, name, resourceInputs, opts);
+        super(VirtualHubIp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

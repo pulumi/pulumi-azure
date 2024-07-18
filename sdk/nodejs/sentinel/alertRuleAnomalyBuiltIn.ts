@@ -206,7 +206,7 @@ export class AlertRuleAnomalyBuiltIn extends pulumi.CustomResource {
             resourceInputs["thresholdObservations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AlertRuleAnomalyBuiltIn.__pulumiType, name, resourceInputs, opts);
+        super(AlertRuleAnomalyBuiltIn.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

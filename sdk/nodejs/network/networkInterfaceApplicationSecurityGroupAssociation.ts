@@ -122,7 +122,7 @@ export class NetworkInterfaceApplicationSecurityGroupAssociation extends pulumi.
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts);
+        super(NetworkInterfaceApplicationSecurityGroupAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -188,7 +188,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedAccessPolicyKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OutputServiceBusQueue.__pulumiType, name, resourceInputs, opts);
+        super(OutputServiceBusQueue.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

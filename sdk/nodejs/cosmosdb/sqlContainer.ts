@@ -210,7 +210,7 @@ export class SqlContainer extends pulumi.CustomResource {
             resourceInputs["uniqueKeys"] = args ? args.uniqueKeys : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SqlContainer.__pulumiType, name, resourceInputs, opts);
+        super(SqlContainer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -400,7 +400,7 @@ class VpnSite(pulumi.CustomResource):
             address_cidrs=["10.0.0.0/24"],
             links=[{
                 "name": "link1",
-                "ipAddress": "10.0.0.1",
+                "ip_address": "10.0.0.1",
             }])
         ```
 
@@ -457,7 +457,7 @@ class VpnSite(pulumi.CustomResource):
             address_cidrs=["10.0.0.0/24"],
             links=[{
                 "name": "link1",
-                "ipAddress": "10.0.0.1",
+                "ip_address": "10.0.0.1",
             }])
         ```
 

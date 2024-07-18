@@ -164,7 +164,7 @@ export class RestorePointCollection extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(RestorePointCollection.__pulumiType, name, resourceInputs, opts);
+        super(RestorePointCollection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -276,7 +276,7 @@ export class AppService extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AppService.__pulumiType, name, resourceInputs, opts);
+        super(AppService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

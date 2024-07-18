@@ -179,7 +179,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             resourceInputs["mtu"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ExpressRoutePort.__pulumiType, name, resourceInputs, opts);
+        super(ExpressRoutePort.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -109,7 +109,7 @@ export class DataConnectorAzureAdvancedThreadProtection extends pulumi.CustomRes
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorAzureAdvancedThreadProtection.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorAzureAdvancedThreadProtection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

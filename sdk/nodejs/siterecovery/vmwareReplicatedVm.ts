@@ -309,7 +309,7 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
             resourceInputs["testNetworkId"] = args ? args.testNetworkId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VmwareReplicatedVm.__pulumiType, name, resourceInputs, opts);
+        super(VmwareReplicatedVm.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

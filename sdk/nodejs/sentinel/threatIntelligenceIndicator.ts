@@ -282,7 +282,7 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             resourceInputs["parsedPatterns"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ThreatIntelligenceIndicator.__pulumiType, name, resourceInputs, opts);
+        super(ThreatIntelligenceIndicator.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

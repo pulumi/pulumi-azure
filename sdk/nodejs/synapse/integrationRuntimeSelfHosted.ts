@@ -144,7 +144,7 @@ export class IntegrationRuntimeSelfHosted extends pulumi.CustomResource {
             resourceInputs["authorizationKeySecondary"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IntegrationRuntimeSelfHosted.__pulumiType, name, resourceInputs, opts);
+        super(IntegrationRuntimeSelfHosted.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

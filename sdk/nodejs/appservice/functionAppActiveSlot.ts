@@ -166,7 +166,7 @@ export class FunctionAppActiveSlot extends pulumi.CustomResource {
             resourceInputs["lastSuccessfulSwap"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FunctionAppActiveSlot.__pulumiType, name, resourceInputs, opts);
+        super(FunctionAppActiveSlot.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

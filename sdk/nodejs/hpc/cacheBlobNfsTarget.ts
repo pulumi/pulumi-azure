@@ -136,7 +136,7 @@ export class CacheBlobNfsTarget extends pulumi.CustomResource {
             resourceInputs["writeBackTimerInSeconds"] = args ? args.writeBackTimerInSeconds : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(CacheBlobNfsTarget.__pulumiType, name, resourceInputs, opts);
+        super(CacheBlobNfsTarget.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

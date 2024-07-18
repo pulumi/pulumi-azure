@@ -121,7 +121,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["throughput"] = args ? args.throughput : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Table.__pulumiType, name, resourceInputs, opts);
+        super(Table.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

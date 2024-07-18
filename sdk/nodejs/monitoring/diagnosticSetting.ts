@@ -202,7 +202,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DiagnosticSetting.__pulumiType, name, resourceInputs, opts);
+        super(DiagnosticSetting.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -172,7 +172,7 @@ export class LocalUser extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password", "sid"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(LocalUser.__pulumiType, name, resourceInputs, opts);
+        super(LocalUser.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -167,7 +167,7 @@ export class Share extends pulumi.CustomResource {
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Share.__pulumiType, name, resourceInputs, opts);
+        super(Share.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -149,7 +149,7 @@ export class SingleNodeVirtualInstance extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SingleNodeVirtualInstance.__pulumiType, name, resourceInputs, opts);
+        super(SingleNodeVirtualInstance.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

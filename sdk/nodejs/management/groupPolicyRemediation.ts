@@ -162,7 +162,7 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GroupPolicyRemediation.__pulumiType, name, resourceInputs, opts);
+        super(GroupPolicyRemediation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
