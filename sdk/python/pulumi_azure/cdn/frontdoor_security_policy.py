@@ -166,15 +166,15 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                 "name": "Rule1",
                 "enabled": True,
                 "priority": 1,
-                "rateLimitDurationInMinutes": 1,
-                "rateLimitThreshold": 10,
+                "rate_limit_duration_in_minutes": 1,
+                "rate_limit_threshold": 10,
                 "type": "MatchRule",
                 "action": "Block",
-                "matchConditions": [{
-                    "matchVariable": "RemoteAddr",
+                "match_conditions": [{
+                    "match_variable": "RemoteAddr",
                     "operator": "IPMatch",
-                    "negationCondition": False,
-                    "matchValues": [
+                    "negation_condition": False,
+                    "match_values": [
                         "192.168.1.0/24",
                         "10.0.1.0/24",
                     ],
@@ -189,20 +189,20 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
             name="Example-Security-Policy",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             security_policies={
                 "firewall": {
-                    "cdnFrontdoorFirewallPolicyId": example_frontdoor_firewall_policy.id,
+                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                     "association": {
                         "domains": [{
-                            "cdnFrontdoorDomainId": example_frontdoor_custom_domain.id,
+                            "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                         }],
-                        "patternsToMatch": "/*",
+                        "patterns_to_match": "/*",
                     },
                 },
             })
@@ -257,15 +257,15 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                 "name": "Rule1",
                 "enabled": True,
                 "priority": 1,
-                "rateLimitDurationInMinutes": 1,
-                "rateLimitThreshold": 10,
+                "rate_limit_duration_in_minutes": 1,
+                "rate_limit_threshold": 10,
                 "type": "MatchRule",
                 "action": "Block",
-                "matchConditions": [{
-                    "matchVariable": "RemoteAddr",
+                "match_conditions": [{
+                    "match_variable": "RemoteAddr",
                     "operator": "IPMatch",
-                    "negationCondition": False,
-                    "matchValues": [
+                    "negation_condition": False,
+                    "match_values": [
                         "192.168.1.0/24",
                         "10.0.1.0/24",
                     ],
@@ -280,20 +280,20 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         example_frontdoor_security_policy = azure.cdn.FrontdoorSecurityPolicy("example",
             name="Example-Security-Policy",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             security_policies={
                 "firewall": {
-                    "cdnFrontdoorFirewallPolicyId": example_frontdoor_firewall_policy.id,
+                    "cdn_frontdoor_firewall_policy_id": example_frontdoor_firewall_policy.id,
                     "association": {
                         "domains": [{
-                            "cdnFrontdoorDomainId": example_frontdoor_custom_domain.id,
+                            "cdn_frontdoor_domain_id": example_frontdoor_custom_domain.id,
                         }],
-                        "patternsToMatch": "/*",
+                        "patterns_to_match": "/*",
                     },
                 },
             })

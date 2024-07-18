@@ -766,12 +766,12 @@ class Registry(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
-                    "zoneRedundancyEnabled": True,
+                    "zone_redundancy_enabled": True,
                     "tags": {},
                 },
                 {
                     "location": "North Europe",
-                    "zoneRedundancyEnabled": True,
+                    "zone_redundancy_enabled": True,
                     "tags": {},
                 },
             ])
@@ -799,12 +799,12 @@ class Registry(pulumi.CustomResource):
             sku="Premium",
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             encryption={
                 "enabled": True,
-                "keyVaultKeyId": example.id,
-                "identityClientId": example_user_assigned_identity.client_id,
+                "key_vault_key_id": example.id,
+                "identity_client_id": example_user_assigned_identity.client_id,
             })
         ```
 
@@ -829,8 +829,8 @@ class Registry(pulumi.CustomResource):
             dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_D2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_D2_v2",
             },
             identity={
                 "type": "SystemAssigned",
@@ -910,12 +910,12 @@ class Registry(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
-                    "zoneRedundancyEnabled": True,
+                    "zone_redundancy_enabled": True,
                     "tags": {},
                 },
                 {
                     "location": "North Europe",
-                    "zoneRedundancyEnabled": True,
+                    "zone_redundancy_enabled": True,
                     "tags": {},
                 },
             ])
@@ -943,12 +943,12 @@ class Registry(pulumi.CustomResource):
             sku="Premium",
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             encryption={
                 "enabled": True,
-                "keyVaultKeyId": example.id,
-                "identityClientId": example_user_assigned_identity.client_id,
+                "key_vault_key_id": example.id,
+                "identity_client_id": example_user_assigned_identity.client_id,
             })
         ```
 
@@ -973,8 +973,8 @@ class Registry(pulumi.CustomResource):
             dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_D2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_D2_v2",
             },
             identity={
                 "type": "SystemAssigned",

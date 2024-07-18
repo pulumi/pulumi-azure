@@ -673,14 +673,14 @@ class SpringCloudService(pulumi.CustomResource):
             config_server_git_setting={
                 "uri": "https://github.com/Azure-Samples/piggymetrics",
                 "label": "config",
-                "searchPaths": [
+                "search_paths": [
                     "dir1",
                     "dir2",
                 ],
             },
             trace={
-                "connectionString": example_insights.connection_string,
-                "sampleRate": 10,
+                "connection_string": example_insights.connection_string,
+                "sample_rate": 10,
             },
             tags={
                 "Env": "staging",
@@ -746,14 +746,14 @@ class SpringCloudService(pulumi.CustomResource):
             config_server_git_setting={
                 "uri": "https://github.com/Azure-Samples/piggymetrics",
                 "label": "config",
-                "searchPaths": [
+                "search_paths": [
                     "dir1",
                     "dir2",
                 ],
             },
             trace={
-                "connectionString": example_insights.connection_string,
-                "sampleRate": 10,
+                "connection_string": example_insights.connection_string,
+                "sample_rate": 10,
             },
             tags={
                 "Env": "staging",

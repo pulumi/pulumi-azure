@@ -256,8 +256,8 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             sku_name="GP_Standard_D2s_v3",
             zone="2",
             authentication={
-                "activeDirectoryAuthEnabled": True,
-                "tenantId": current.tenant_id,
+                "active_directory_auth_enabled": True,
+                "tenant_id": current.tenant_id,
             })
         example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example",
             server_name=example_flexible_server.name,
@@ -317,8 +317,8 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
             sku_name="GP_Standard_D2s_v3",
             zone="2",
             authentication={
-                "activeDirectoryAuthEnabled": True,
-                "tenantId": current.tenant_id,
+                "active_directory_auth_enabled": True,
+                "tenant_id": current.tenant_id,
             })
         example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example",
             server_name=example_flexible_server.name,

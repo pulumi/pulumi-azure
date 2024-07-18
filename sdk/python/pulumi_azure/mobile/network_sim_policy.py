@@ -363,13 +363,13 @@ class NetworkSimPolicy(pulumi.CustomResource):
             pcc_rules=[{
                 "name": "default-rule",
                 "precedence": 1,
-                "trafficControlEnabled": True,
-                "serviceDataFlowTemplates": [{
+                "traffic_control_enabled": True,
+                "service_data_flow_templates": [{
                     "direction": "Uplink",
                     "name": "IP-to-server",
                     "ports": [],
                     "protocols": ["ip"],
-                    "remoteIpLists": ["10.3.4.0/24"],
+                    "remote_ip_lists": ["10.3.4.0/24"],
                 }],
             }])
         example_network_slice = azure.mobile.NetworkSlice("example",
@@ -377,7 +377,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example.location,
             single_network_slice_selection_assistance_information={
-                "sliceServiceType": 1,
+                "slice_service_type": 1,
             })
         example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
             name="example-mnsp",
@@ -386,17 +386,17 @@ class NetworkSimPolicy(pulumi.CustomResource):
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
             slices=[{
-                "defaultDataNetworkId": example_network_data_network.id,
-                "sliceId": example_network_slice.id,
-                "dataNetworks": [{
-                    "dataNetworkId": example_network_data_network.id,
-                    "allocationAndRetentionPriorityLevel": 9,
-                    "defaultSessionType": "IPv4",
-                    "qosIndicator": 9,
-                    "preemptionCapability": "NotPreempt",
-                    "preemptionVulnerability": "Preemptable",
-                    "allowedServicesIds": [example_network_service.id],
-                    "sessionAggregateMaximumBitRate": {
+                "default_data_network_id": example_network_data_network.id,
+                "slice_id": example_network_slice.id,
+                "data_networks": [{
+                    "data_network_id": example_network_data_network.id,
+                    "allocation_and_retention_priority_level": 9,
+                    "default_session_type": "IPv4",
+                    "qos_indicator": 9,
+                    "preemption_capability": "NotPreempt",
+                    "preemption_vulnerability": "Preemptable",
+                    "allowed_services_ids": [example_network_service.id],
+                    "session_aggregate_maximum_bit_rate": {
                         "downlink": "1 Gbps",
                         "uplink": "500 Mbps",
                     },
@@ -467,13 +467,13 @@ class NetworkSimPolicy(pulumi.CustomResource):
             pcc_rules=[{
                 "name": "default-rule",
                 "precedence": 1,
-                "trafficControlEnabled": True,
-                "serviceDataFlowTemplates": [{
+                "traffic_control_enabled": True,
+                "service_data_flow_templates": [{
                     "direction": "Uplink",
                     "name": "IP-to-server",
                     "ports": [],
                     "protocols": ["ip"],
-                    "remoteIpLists": ["10.3.4.0/24"],
+                    "remote_ip_lists": ["10.3.4.0/24"],
                 }],
             }])
         example_network_slice = azure.mobile.NetworkSlice("example",
@@ -481,7 +481,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example.location,
             single_network_slice_selection_assistance_information={
-                "sliceServiceType": 1,
+                "slice_service_type": 1,
             })
         example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
             name="example-mnsp",
@@ -490,17 +490,17 @@ class NetworkSimPolicy(pulumi.CustomResource):
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
             slices=[{
-                "defaultDataNetworkId": example_network_data_network.id,
-                "sliceId": example_network_slice.id,
-                "dataNetworks": [{
-                    "dataNetworkId": example_network_data_network.id,
-                    "allocationAndRetentionPriorityLevel": 9,
-                    "defaultSessionType": "IPv4",
-                    "qosIndicator": 9,
-                    "preemptionCapability": "NotPreempt",
-                    "preemptionVulnerability": "Preemptable",
-                    "allowedServicesIds": [example_network_service.id],
-                    "sessionAggregateMaximumBitRate": {
+                "default_data_network_id": example_network_data_network.id,
+                "slice_id": example_network_slice.id,
+                "data_networks": [{
+                    "data_network_id": example_network_data_network.id,
+                    "allocation_and_retention_priority_level": 9,
+                    "default_session_type": "IPv4",
+                    "qos_indicator": 9,
+                    "preemption_capability": "NotPreempt",
+                    "preemption_vulnerability": "Preemptable",
+                    "allowed_services_ids": [example_network_service.id],
+                    "session_aggregate_maximum_bit_rate": {
                         "downlink": "1 Gbps",
                         "uplink": "500 Mbps",
                     },

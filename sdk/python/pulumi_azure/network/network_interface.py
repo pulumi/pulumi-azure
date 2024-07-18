@@ -664,8 +664,8 @@ class NetworkInterface(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         ```
 
@@ -736,8 +736,8 @@ class NetworkInterface(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         ```
 
