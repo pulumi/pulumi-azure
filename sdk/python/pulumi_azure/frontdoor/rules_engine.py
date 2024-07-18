@@ -234,13 +234,13 @@ class RulesEngine(pulumi.CustomResource):
             resource_group_name=example.name,
             backend_pools=[{
                 "name": "exampleBackendBing",
-                "loadBalancingName": "exampleLoadBalancingSettings1",
-                "healthProbeName": "exampleHealthProbeSetting1",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
                 "backends": [{
-                    "hostHeader": "www.bing.com",
+                    "host_header": "www.bing.com",
                     "address": "www.bing.com",
-                    "httpPort": 80,
-                    "httpsPort": 443,
+                    "http_port": 80,
+                    "https_port": 443,
                 }],
             }],
             backend_pool_health_probes=[{
@@ -251,16 +251,16 @@ class RulesEngine(pulumi.CustomResource):
             }],
             frontend_endpoints=[{
                 "name": "exampleFrontendEndpoint1",
-                "hostName": "example-FrontDoor.azurefd.net",
+                "host_name": "example-FrontDoor.azurefd.net",
             }],
             routing_rules=[{
                 "name": "exampleRoutingRule1",
-                "acceptedProtocols": [
+                "accepted_protocols": [
                     "Http",
                     "Https",
                 ],
-                "patternsToMatches": ["/*"],
-                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "patterns_to_matches": ["/*"],
+                "frontend_endpoints": ["exampleFrontendEndpoint1"],
             }])
         example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
             name="exampleRulesEngineConfig1",
@@ -271,9 +271,9 @@ class RulesEngine(pulumi.CustomResource):
                     "name": "debuggingoutput",
                     "priority": 1,
                     "action": {
-                        "responseHeaders": [{
-                            "headerActionType": "Append",
-                            "headerName": "X-TEST-HEADER",
+                        "response_headers": [{
+                            "header_action_type": "Append",
+                            "header_name": "X-TEST-HEADER",
                             "value": "Append Header Rule",
                         }],
                     },
@@ -281,7 +281,7 @@ class RulesEngine(pulumi.CustomResource):
                 {
                     "name": "overwriteorigin",
                     "priority": 2,
-                    "matchConditions": [{
+                    "match_conditions": [{
                         "variable": "RequestMethod",
                         "operator": "Equal",
                         "values": [
@@ -290,15 +290,15 @@ class RulesEngine(pulumi.CustomResource):
                         ],
                     }],
                     "action": {
-                        "responseHeaders": [
+                        "response_headers": [
                             {
-                                "headerActionType": "Overwrite",
-                                "headerName": "Access-Control-Allow-Origin",
+                                "header_action_type": "Overwrite",
+                                "header_name": "Access-Control-Allow-Origin",
                                 "value": "*",
                             },
                             {
-                                "headerActionType": "Overwrite",
-                                "headerName": "Access-Control-Allow-Credentials",
+                                "header_action_type": "Overwrite",
+                                "header_name": "Access-Control-Allow-Credentials",
                                 "value": "true",
                             },
                         ],
@@ -348,13 +348,13 @@ class RulesEngine(pulumi.CustomResource):
             resource_group_name=example.name,
             backend_pools=[{
                 "name": "exampleBackendBing",
-                "loadBalancingName": "exampleLoadBalancingSettings1",
-                "healthProbeName": "exampleHealthProbeSetting1",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
                 "backends": [{
-                    "hostHeader": "www.bing.com",
+                    "host_header": "www.bing.com",
                     "address": "www.bing.com",
-                    "httpPort": 80,
-                    "httpsPort": 443,
+                    "http_port": 80,
+                    "https_port": 443,
                 }],
             }],
             backend_pool_health_probes=[{
@@ -365,16 +365,16 @@ class RulesEngine(pulumi.CustomResource):
             }],
             frontend_endpoints=[{
                 "name": "exampleFrontendEndpoint1",
-                "hostName": "example-FrontDoor.azurefd.net",
+                "host_name": "example-FrontDoor.azurefd.net",
             }],
             routing_rules=[{
                 "name": "exampleRoutingRule1",
-                "acceptedProtocols": [
+                "accepted_protocols": [
                     "Http",
                     "Https",
                 ],
-                "patternsToMatches": ["/*"],
-                "frontendEndpoints": ["exampleFrontendEndpoint1"],
+                "patterns_to_matches": ["/*"],
+                "frontend_endpoints": ["exampleFrontendEndpoint1"],
             }])
         example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
             name="exampleRulesEngineConfig1",
@@ -385,9 +385,9 @@ class RulesEngine(pulumi.CustomResource):
                     "name": "debuggingoutput",
                     "priority": 1,
                     "action": {
-                        "responseHeaders": [{
-                            "headerActionType": "Append",
-                            "headerName": "X-TEST-HEADER",
+                        "response_headers": [{
+                            "header_action_type": "Append",
+                            "header_name": "X-TEST-HEADER",
                             "value": "Append Header Rule",
                         }],
                     },
@@ -395,7 +395,7 @@ class RulesEngine(pulumi.CustomResource):
                 {
                     "name": "overwriteorigin",
                     "priority": 2,
-                    "matchConditions": [{
+                    "match_conditions": [{
                         "variable": "RequestMethod",
                         "operator": "Equal",
                         "values": [
@@ -404,15 +404,15 @@ class RulesEngine(pulumi.CustomResource):
                         ],
                     }],
                     "action": {
-                        "responseHeaders": [
+                        "response_headers": [
                             {
-                                "headerActionType": "Overwrite",
-                                "headerName": "Access-Control-Allow-Origin",
+                                "header_action_type": "Overwrite",
+                                "header_name": "Access-Control-Allow-Origin",
                                 "value": "*",
                             },
                             {
-                                "headerActionType": "Overwrite",
-                                "headerName": "Access-Control-Allow-Credentials",
+                                "header_action_type": "Overwrite",
+                                "header_name": "Access-Control-Allow-Credentials",
                                 "value": "true",
                             },
                         ],

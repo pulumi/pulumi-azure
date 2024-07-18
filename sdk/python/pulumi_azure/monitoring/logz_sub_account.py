@@ -222,24 +222,24 @@ class LogzSubAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             plan={
-                "billingCycle": "MONTHLY",
-                "effectiveDate": "2022-06-06T00:00:00Z",
-                "usageType": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "effective_date": "2022-06-06T00:00:00Z",
+                "usage_type": "COMMITTED",
             },
             user={
                 "email": "user@example.com",
-                "firstName": "Example",
-                "lastName": "User",
-                "phoneNumber": "+12313803556",
+                "first_name": "Example",
+                "last_name": "User",
+                "phone_number": "+12313803556",
             })
         example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
             name="example-subaccount",
             logz_monitor_id=example_logz_monitor.id,
             user={
                 "email": example_logz_monitor.user.email,
-                "firstName": example_logz_monitor.user.first_name,
-                "lastName": example_logz_monitor.user.last_name,
-                "phoneNumber": example_logz_monitor.user.phone_number,
+                "first_name": example_logz_monitor.user.first_name,
+                "last_name": example_logz_monitor.user.last_name,
+                "phone_number": example_logz_monitor.user.phone_number,
             })
         ```
 
@@ -284,24 +284,24 @@ class LogzSubAccount(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             plan={
-                "billingCycle": "MONTHLY",
-                "effectiveDate": "2022-06-06T00:00:00Z",
-                "usageType": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "effective_date": "2022-06-06T00:00:00Z",
+                "usage_type": "COMMITTED",
             },
             user={
                 "email": "user@example.com",
-                "firstName": "Example",
-                "lastName": "User",
-                "phoneNumber": "+12313803556",
+                "first_name": "Example",
+                "last_name": "User",
+                "phone_number": "+12313803556",
             })
         example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
             name="example-subaccount",
             logz_monitor_id=example_logz_monitor.id,
             user={
                 "email": example_logz_monitor.user.email,
-                "firstName": example_logz_monitor.user.first_name,
-                "lastName": example_logz_monitor.user.last_name,
-                "phoneNumber": example_logz_monitor.user.phone_number,
+                "first_name": example_logz_monitor.user.first_name,
+                "last_name": example_logz_monitor.user.last_name,
+                "phone_number": example_logz_monitor.user.phone_number,
             })
         ```
 

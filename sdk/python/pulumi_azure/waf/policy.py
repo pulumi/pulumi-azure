@@ -321,14 +321,14 @@ class Policy(pulumi.CustomResource):
                 {
                     "name": "Rule1",
                     "priority": 1,
-                    "ruleType": "MatchRule",
-                    "matchConditions": [{
-                        "matchVariables": [{
-                            "variableName": "RemoteAddr",
+                    "rule_type": "MatchRule",
+                    "match_conditions": [{
+                        "match_variables": [{
+                            "variable_name": "RemoteAddr",
                         }],
                         "operator": "IPMatch",
-                        "negationCondition": False,
-                        "matchValues": [
+                        "negation_condition": False,
+                        "match_values": [
                             "192.168.1.0/24",
                             "10.0.0.0/24",
                         ],
@@ -338,24 +338,24 @@ class Policy(pulumi.CustomResource):
                 {
                     "name": "Rule2",
                     "priority": 2,
-                    "ruleType": "MatchRule",
-                    "matchConditions": [
+                    "rule_type": "MatchRule",
+                    "match_conditions": [
                         {
-                            "matchVariables": [{
-                                "variableName": "RemoteAddr",
+                            "match_variables": [{
+                                "variable_name": "RemoteAddr",
                             }],
                             "operator": "IPMatch",
-                            "negationCondition": False,
-                            "matchValues": ["192.168.1.0/24"],
+                            "negation_condition": False,
+                            "match_values": ["192.168.1.0/24"],
                         },
                         {
-                            "matchVariables": [{
-                                "variableName": "RequestHeaders",
+                            "match_variables": [{
+                                "variable_name": "RequestHeaders",
                                 "selector": "UserAgent",
                             }],
                             "operator": "Contains",
-                            "negationCondition": False,
-                            "matchValues": ["Windows"],
+                            "negation_condition": False,
+                            "match_values": ["Windows"],
                         },
                     ],
                     "action": "Block",
@@ -364,28 +364,28 @@ class Policy(pulumi.CustomResource):
             policy_settings={
                 "enabled": True,
                 "mode": "Prevention",
-                "requestBodyCheck": True,
-                "fileUploadLimitInMb": 100,
-                "maxRequestBodySizeInKb": 128,
+                "request_body_check": True,
+                "file_upload_limit_in_mb": 100,
+                "max_request_body_size_in_kb": 128,
             },
             managed_rules={
                 "exclusions": [
                     {
-                        "matchVariable": "RequestHeaderNames",
+                        "match_variable": "RequestHeaderNames",
                         "selector": "x-company-secret-header",
-                        "selectorMatchOperator": "Equals",
+                        "selector_match_operator": "Equals",
                     },
                     {
-                        "matchVariable": "RequestCookieNames",
+                        "match_variable": "RequestCookieNames",
                         "selector": "too-tasty",
-                        "selectorMatchOperator": "EndsWith",
+                        "selector_match_operator": "EndsWith",
                     },
                 ],
-                "managedRuleSets": [{
+                "managed_rule_sets": [{
                     "type": "OWASP",
                     "version": "3.2",
-                    "ruleGroupOverrides": [{
-                        "ruleGroupName": "REQUEST-920-PROTOCOL-ENFORCEMENT",
+                    "rule_group_overrides": [{
+                        "rule_group_name": "REQUEST-920-PROTOCOL-ENFORCEMENT",
                         "rules": [
                             {
                                 "id": "920300",
@@ -447,14 +447,14 @@ class Policy(pulumi.CustomResource):
                 {
                     "name": "Rule1",
                     "priority": 1,
-                    "ruleType": "MatchRule",
-                    "matchConditions": [{
-                        "matchVariables": [{
-                            "variableName": "RemoteAddr",
+                    "rule_type": "MatchRule",
+                    "match_conditions": [{
+                        "match_variables": [{
+                            "variable_name": "RemoteAddr",
                         }],
                         "operator": "IPMatch",
-                        "negationCondition": False,
-                        "matchValues": [
+                        "negation_condition": False,
+                        "match_values": [
                             "192.168.1.0/24",
                             "10.0.0.0/24",
                         ],
@@ -464,24 +464,24 @@ class Policy(pulumi.CustomResource):
                 {
                     "name": "Rule2",
                     "priority": 2,
-                    "ruleType": "MatchRule",
-                    "matchConditions": [
+                    "rule_type": "MatchRule",
+                    "match_conditions": [
                         {
-                            "matchVariables": [{
-                                "variableName": "RemoteAddr",
+                            "match_variables": [{
+                                "variable_name": "RemoteAddr",
                             }],
                             "operator": "IPMatch",
-                            "negationCondition": False,
-                            "matchValues": ["192.168.1.0/24"],
+                            "negation_condition": False,
+                            "match_values": ["192.168.1.0/24"],
                         },
                         {
-                            "matchVariables": [{
-                                "variableName": "RequestHeaders",
+                            "match_variables": [{
+                                "variable_name": "RequestHeaders",
                                 "selector": "UserAgent",
                             }],
                             "operator": "Contains",
-                            "negationCondition": False,
-                            "matchValues": ["Windows"],
+                            "negation_condition": False,
+                            "match_values": ["Windows"],
                         },
                     ],
                     "action": "Block",
@@ -490,28 +490,28 @@ class Policy(pulumi.CustomResource):
             policy_settings={
                 "enabled": True,
                 "mode": "Prevention",
-                "requestBodyCheck": True,
-                "fileUploadLimitInMb": 100,
-                "maxRequestBodySizeInKb": 128,
+                "request_body_check": True,
+                "file_upload_limit_in_mb": 100,
+                "max_request_body_size_in_kb": 128,
             },
             managed_rules={
                 "exclusions": [
                     {
-                        "matchVariable": "RequestHeaderNames",
+                        "match_variable": "RequestHeaderNames",
                         "selector": "x-company-secret-header",
-                        "selectorMatchOperator": "Equals",
+                        "selector_match_operator": "Equals",
                     },
                     {
-                        "matchVariable": "RequestCookieNames",
+                        "match_variable": "RequestCookieNames",
                         "selector": "too-tasty",
-                        "selectorMatchOperator": "EndsWith",
+                        "selector_match_operator": "EndsWith",
                     },
                 ],
-                "managedRuleSets": [{
+                "managed_rule_sets": [{
                     "type": "OWASP",
                     "version": "3.2",
-                    "ruleGroupOverrides": [{
-                        "ruleGroupName": "REQUEST-920-PROTOCOL-ENFORCEMENT",
+                    "rule_group_overrides": [{
+                        "rule_group_name": "REQUEST-920-PROTOCOL-ENFORCEMENT",
                         "rules": [
                             {
                                 "id": "920300",

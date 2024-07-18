@@ -466,13 +466,13 @@ class Monitor(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             plan={
-                "effectiveDate": "2023-06-06T00:00:00Z",
+                "effective_date": "2023-06-06T00:00:00Z",
             },
             user={
                 "email": "user@example.com",
-                "firstName": "Example",
-                "lastName": "User",
-                "phoneNumber": "+12313803556",
+                "first_name": "Example",
+                "last_name": "User",
+                "phone_number": "+12313803556",
             },
             identity={
                 "type": "SystemAssigned",
@@ -547,13 +547,13 @@ class Monitor(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             plan={
-                "effectiveDate": "2023-06-06T00:00:00Z",
+                "effective_date": "2023-06-06T00:00:00Z",
             },
             user={
                 "email": "user@example.com",
-                "firstName": "Example",
-                "lastName": "User",
-                "phoneNumber": "+12313803556",
+                "first_name": "Example",
+                "last_name": "User",
+                "phone_number": "+12313803556",
             },
             identity={
                 "type": "SystemAssigned",

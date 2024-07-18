@@ -291,13 +291,13 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             soft_delete_retention_days=7,
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Create",
                         "Get",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Set",
                         "Get",
                         "Delete",
@@ -306,13 +306,13 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_backup_vault.identity.tenant_id,
-                    "objectId": example_backup_vault.identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_backup_vault.identity.tenant_id,
+                    "object_id": example_backup_vault.identity.principal_id,
+                    "key_permissions": [
                         "Create",
                         "Get",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Set",
                         "Get",
                         "Delete",
@@ -425,13 +425,13 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             soft_delete_retention_days=7,
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Create",
                         "Get",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Set",
                         "Get",
                         "Delete",
@@ -440,13 +440,13 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_backup_vault.identity.tenant_id,
-                    "objectId": example_backup_vault.identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_backup_vault.identity.tenant_id,
+                    "object_id": example_backup_vault.identity.principal_id,
+                    "key_permissions": [
                         "Create",
                         "Get",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Set",
                         "Get",
                         "Delete",
