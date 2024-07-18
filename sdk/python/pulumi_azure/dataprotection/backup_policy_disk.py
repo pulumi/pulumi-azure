@@ -265,7 +265,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                     "duration": "P7D",
                     "priority": 25,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfDay",
+                        "absolute_criteria": "FirstOfDay",
                     },
                 },
                 {
@@ -273,7 +273,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                     "duration": "P7D",
                     "priority": 20,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfWeek",
+                        "absolute_criteria": "FirstOfWeek",
                     },
                 },
             ])
@@ -332,7 +332,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                     "duration": "P7D",
                     "priority": 25,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfDay",
+                        "absolute_criteria": "FirstOfDay",
                     },
                 },
                 {
@@ -340,7 +340,7 @@ class BackupPolicyDisk(pulumi.CustomResource):
                     "duration": "P7D",
                     "priority": 20,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfWeek",
+                        "absolute_criteria": "FirstOfWeek",
                     },
                 },
             ])

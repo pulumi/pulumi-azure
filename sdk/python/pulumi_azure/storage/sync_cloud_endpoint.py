@@ -233,7 +233,7 @@ class SyncCloudEndpoint(pulumi.CustomResource):
             quota=50,
             acls=[{
                 "id": "GhostedRecall",
-                "accessPolicies": [{
+                "access_policies": [{
                     "permissions": "r",
                 }],
             }])
@@ -299,7 +299,7 @@ class SyncCloudEndpoint(pulumi.CustomResource):
             quota=50,
             acls=[{
                 "id": "GhostedRecall",
-                "accessPolicies": [{
+                "access_policies": [{
                     "permissions": "r",
                 }],
             }])

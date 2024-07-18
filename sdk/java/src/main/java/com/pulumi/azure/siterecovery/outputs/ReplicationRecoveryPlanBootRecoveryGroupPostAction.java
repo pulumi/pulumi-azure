@@ -13,29 +13,81 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
+    /**
+     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+     * 
+     */
     private @Nullable String fabricLocation;
+    /**
+     * @return Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+     * 
+     */
     private List<String> failOverDirections;
+    /**
+     * @return Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+     * 
+     */
     private List<String> failOverTypes;
+    /**
+     * @return Instructions of manual action.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+     * 
+     */
     private @Nullable String manualActionInstruction;
     /**
      * @return The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created.
      * 
      */
     private String name;
+    /**
+     * @return Id of runbook.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+     * 
+     */
     private @Nullable String runbookId;
+    /**
+     * @return Path of action script.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+     * 
+     */
     private @Nullable String scriptPath;
     private String type;
 
     private ReplicationRecoveryPlanBootRecoveryGroupPostAction() {}
+    /**
+     * @return The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+     * 
+     * &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+     * 
+     */
     public Optional<String> fabricLocation() {
         return Optional.ofNullable(this.fabricLocation);
     }
+    /**
+     * @return Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+     * 
+     */
     public List<String> failOverDirections() {
         return this.failOverDirections;
     }
+    /**
+     * @return Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+     * 
+     */
     public List<String> failOverTypes() {
         return this.failOverTypes;
     }
+    /**
+     * @return Instructions of manual action.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+     * 
+     */
     public Optional<String> manualActionInstruction() {
         return Optional.ofNullable(this.manualActionInstruction);
     }
@@ -46,9 +98,21 @@ public final class ReplicationRecoveryPlanBootRecoveryGroupPostAction {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Id of runbook.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+     * 
+     */
     public Optional<String> runbookId() {
         return Optional.ofNullable(this.runbookId);
     }
+    /**
+     * @return Path of action script.
+     * 
+     * &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+     * 
+     */
     public Optional<String> scriptPath() {
         return Optional.ofNullable(this.scriptPath);
     }

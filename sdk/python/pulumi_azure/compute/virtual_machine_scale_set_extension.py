@@ -559,12 +559,12 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             },
             network_interfaces=[{
                 "name": "example",
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "internal",
                 }],
             }],
             os_disk={
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             })
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
@@ -654,12 +654,12 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             },
             network_interfaces=[{
                 "name": "example",
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "internal",
                 }],
             }],
             os_disk={
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             })
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",

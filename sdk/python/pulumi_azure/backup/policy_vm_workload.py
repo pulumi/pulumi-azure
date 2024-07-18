@@ -257,26 +257,26 @@ class PolicyVMWorkload(pulumi.CustomResource):
             recovery_vault_name=example_vault.name,
             workload_type="SQLDataBase",
             settings={
-                "timeZone": "UTC",
-                "compressionEnabled": False,
+                "time_zone": "UTC",
+                "compression_enabled": False,
             },
             protection_policies=[
                 {
-                    "policyType": "Full",
+                    "policy_type": "Full",
                     "backup": {
                         "frequency": "Daily",
                         "time": "15:00",
                     },
-                    "retentionDaily": {
+                    "retention_daily": {
                         "count": 8,
                     },
                 },
                 {
-                    "policyType": "Log",
+                    "policy_type": "Log",
                     "backup": {
-                        "frequencyInMinutes": 15,
+                        "frequency_in_minutes": 15,
                     },
-                    "simpleRetention": {
+                    "simple_retention": {
                         "count": 8,
                     },
                 },
@@ -330,26 +330,26 @@ class PolicyVMWorkload(pulumi.CustomResource):
             recovery_vault_name=example_vault.name,
             workload_type="SQLDataBase",
             settings={
-                "timeZone": "UTC",
-                "compressionEnabled": False,
+                "time_zone": "UTC",
+                "compression_enabled": False,
             },
             protection_policies=[
                 {
-                    "policyType": "Full",
+                    "policy_type": "Full",
                     "backup": {
                         "frequency": "Daily",
                         "time": "15:00",
                     },
-                    "retentionDaily": {
+                    "retention_daily": {
                         "count": 8,
                     },
                 },
                 {
-                    "policyType": "Log",
+                    "policy_type": "Log",
                     "backup": {
-                        "frequencyInMinutes": 15,
+                        "frequency_in_minutes": 15,
                     },
-                    "simpleRetention": {
+                    "simple_retention": {
                         "count": 8,
                     },
                 },

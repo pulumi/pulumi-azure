@@ -161,7 +161,7 @@ def get_network_manager(name: Optional[str] = None,
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         scope={
-            "subscriptionIds": [current.id],
+            "subscription_ids": [current.id],
         },
         scope_accesses=[
             "Connectivity",
@@ -216,7 +216,7 @@ def get_network_manager_output(name: Optional[pulumi.Input[str]] = None,
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         scope={
-            "subscriptionIds": [current.id],
+            "subscription_ids": [current.id],
         },
         scope_accesses=[
             "Connectivity",

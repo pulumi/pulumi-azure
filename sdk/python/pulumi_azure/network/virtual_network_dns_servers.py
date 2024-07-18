@@ -120,7 +120,7 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             resource_group_name=example.name,
             subnets=[{
                 "name": "subnet1",
-                "addressPrefix": "10.0.1.0/24",
+                "address_prefix": "10.0.1.0/24",
             }])
         example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,
@@ -167,7 +167,7 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
             resource_group_name=example.name,
             subnets=[{
                 "name": "subnet1",
-                "addressPrefix": "10.0.1.0/24",
+                "address_prefix": "10.0.1.0/24",
             }])
         example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,

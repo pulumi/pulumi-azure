@@ -3790,7 +3790,7 @@ if not MYPY:
 
         virtual = azure.network.Subnet("virtual", delegations=[{
             "name": "aciDelegation",
-            "serviceDelegation": {
+            "service_delegation": {
                 "name": "Microsoft.ContainerInstance/containerGroups",
                 "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
             },
@@ -3822,7 +3822,7 @@ class KubernetesClusterAciConnectorLinuxArgs:
                
                virtual = azure.network.Subnet("virtual", delegations=[{
                    "name": "aciDelegation",
-                   "serviceDelegation": {
+                   "service_delegation": {
                        "name": "Microsoft.ContainerInstance/containerGroups",
                        "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                    },
@@ -3850,7 +3850,7 @@ class KubernetesClusterAciConnectorLinuxArgs:
 
         virtual = azure.network.Subnet("virtual", delegations=[{
             "name": "aciDelegation",
-            "serviceDelegation": {
+            "service_delegation": {
                 "name": "Microsoft.ContainerInstance/containerGroups",
                 "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
             },
@@ -8540,7 +8540,17 @@ if not MYPY:
         > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         """
         outbound_ip_address_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+
+        > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+        """
         outbound_ip_prefix_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+
+        > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+        """
         outbound_type: NotRequired[pulumi.Input[str]]
         """
         The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
@@ -8624,6 +8634,12 @@ class KubernetesClusterNetworkProfileArgs:
                > **Note:** When `network_policy` is set to `azure`, the `network_plugin` field can only be set to `azure`.
                
                > **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_ids: The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+               
+               > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_prefix_ids: The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+               
+               > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
         :param pulumi.Input[str] outbound_type: The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).
         :param pulumi.Input[str] pod_cidr: The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet` or `network_plugin_mode` is set to `overlay`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] pod_cidrs: A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
@@ -8846,6 +8862,11 @@ class KubernetesClusterNetworkProfileArgs:
     @property
     @pulumi.getter(name="outboundIpAddressIds")
     def outbound_ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+
+        > **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+        """
         return pulumi.get(self, "outbound_ip_address_ids")
 
     @outbound_ip_address_ids.setter
@@ -8855,6 +8876,11 @@ class KubernetesClusterNetworkProfileArgs:
     @property
     @pulumi.getter(name="outboundIpPrefixIds")
     def outbound_ip_prefix_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+
+        > **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+        """
         return pulumi.get(self, "outbound_ip_prefix_ids")
 
     @outbound_ip_prefix_ids.setter
@@ -11665,6 +11691,9 @@ class RegistryNetworkRuleSetIpRuleArgs:
 if not MYPY:
     class RegistryNetworkRuleSetVirtualNetworkArgsDict(TypedDict):
         action: pulumi.Input[str]
+        """
+        The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+        """
         subnet_id: pulumi.Input[str]
 elif False:
     RegistryNetworkRuleSetVirtualNetworkArgsDict: TypeAlias = Mapping[str, Any]
@@ -11674,12 +11703,18 @@ class RegistryNetworkRuleSetVirtualNetworkArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] action: The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+        """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "subnet_id", subnet_id)
 
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input[str]:
+        """
+        The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -13045,6 +13080,9 @@ class RegistryTrustPolicyArgs:
 if not MYPY:
     class TokenPasswordPassword1ArgsDict(TypedDict):
         expiry: NotRequired[pulumi.Input[str]]
+        """
+        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+        """
         value: NotRequired[pulumi.Input[str]]
         """
         The value of the password (Sensitive).
@@ -13058,6 +13096,7 @@ class TokenPasswordPassword1Args:
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -13068,6 +13107,9 @@ class TokenPasswordPassword1Args:
     @property
     @pulumi.getter
     def expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "expiry")
 
     @expiry.setter
@@ -13090,6 +13132,9 @@ class TokenPasswordPassword1Args:
 if not MYPY:
     class TokenPasswordPassword2ArgsDict(TypedDict):
         expiry: NotRequired[pulumi.Input[str]]
+        """
+        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+        """
         value: NotRequired[pulumi.Input[str]]
         """
         The value of the password (Sensitive).
@@ -13103,6 +13148,7 @@ class TokenPasswordPassword2Args:
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] expiry: The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The value of the password (Sensitive).
         """
         if expiry is not None:
@@ -13113,6 +13159,9 @@ class TokenPasswordPassword2Args:
     @property
     @pulumi.getter
     def expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "expiry")
 
     @expiry.setter

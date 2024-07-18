@@ -251,9 +251,9 @@ class LinkedServer(pulumi.CustomResource):
             sku_name="Premium",
             enable_non_ssl_port=False,
             redis_configuration={
-                "maxmemoryReserved": 2,
-                "maxmemoryDelta": 2,
-                "maxmemoryPolicy": "allkeys-lru",
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
             })
         example_secondary = azure.core.ResourceGroup("example-secondary",
             name="example-resources-secondary",
@@ -267,9 +267,9 @@ class LinkedServer(pulumi.CustomResource):
             sku_name="Premium",
             enable_non_ssl_port=False,
             redis_configuration={
-                "maxmemoryReserved": 2,
-                "maxmemoryDelta": 2,
-                "maxmemoryPolicy": "allkeys-lru",
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
             })
         example_link = azure.redis.LinkedServer("example-link",
             target_redis_cache_name=example_primary_cache.name,
@@ -322,9 +322,9 @@ class LinkedServer(pulumi.CustomResource):
             sku_name="Premium",
             enable_non_ssl_port=False,
             redis_configuration={
-                "maxmemoryReserved": 2,
-                "maxmemoryDelta": 2,
-                "maxmemoryPolicy": "allkeys-lru",
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
             })
         example_secondary = azure.core.ResourceGroup("example-secondary",
             name="example-resources-secondary",
@@ -338,9 +338,9 @@ class LinkedServer(pulumi.CustomResource):
             sku_name="Premium",
             enable_non_ssl_port=False,
             redis_configuration={
-                "maxmemoryReserved": 2,
-                "maxmemoryDelta": 2,
-                "maxmemoryPolicy": "allkeys-lru",
+                "maxmemory_reserved": 2,
+                "maxmemory_delta": 2,
+                "maxmemory_policy": "allkeys-lru",
             })
         example_link = azure.redis.LinkedServer("example-link",
             target_redis_cache_name=example_primary_cache.name,

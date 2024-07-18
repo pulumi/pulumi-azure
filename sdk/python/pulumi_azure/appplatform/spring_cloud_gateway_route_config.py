@@ -383,11 +383,11 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
                 ],
                 "order": 1,
                 "predicates": ["Path=/api5/customer/**"],
-                "ssoValidationEnabled": True,
+                "sso_validation_enabled": True,
                 "title": "myApp route config",
-                "tokenRelay": True,
+                "token_relay": True,
                 "uri": "https://www.example.com",
-                "classificationTags": [
+                "classification_tags": [
                     "tag1",
                     "tag2",
                 ],
@@ -461,11 +461,11 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
                 ],
                 "order": 1,
                 "predicates": ["Path=/api5/customer/**"],
-                "ssoValidationEnabled": True,
+                "sso_validation_enabled": True,
                 "title": "myApp route config",
-                "tokenRelay": True,
+                "token_relay": True,
                 "uri": "https://www.example.com",
-                "classificationTags": [
+                "classification_tags": [
                     "tag1",
                     "tag2",
                 ],
