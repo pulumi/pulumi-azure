@@ -358,7 +358,7 @@ export class Certifiate extends pulumi.CustomResource {
             resourceInputs["versionlessSecretId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Certifiate.__pulumiType, name, resourceInputs, opts);
+        super(Certifiate.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

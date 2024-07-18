@@ -195,7 +195,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             spring_cloud_service_id=example_spring_cloud_service.id,
             build_pack_groups=[{
                 "name": "mix",
-                "buildPackIds": ["tanzu-Build Packs/java-azure"],
+                "build_pack_ids": ["tanzu-Build Packs/java-azure"],
             }],
             stack={
                 "id": "io.Build Packs.stacks.bionic",
@@ -208,11 +208,11 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             launch={
                 "properties": {
                     "abc": "def",
-                    "any-string": "any-string",
-                    "sampling-rate": "12.0",
+                    "any_string": "any-string",
+                    "sampling_rate": "12.0",
                 },
                 "secrets": {
-                    "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                    "connection_string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
             })
         ```
@@ -262,7 +262,7 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             spring_cloud_service_id=example_spring_cloud_service.id,
             build_pack_groups=[{
                 "name": "mix",
-                "buildPackIds": ["tanzu-Build Packs/java-azure"],
+                "build_pack_ids": ["tanzu-Build Packs/java-azure"],
             }],
             stack={
                 "id": "io.Build Packs.stacks.bionic",
@@ -275,11 +275,11 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
             launch={
                 "properties": {
                     "abc": "def",
-                    "any-string": "any-string",
-                    "sampling-rate": "12.0",
+                    "any_string": "any-string",
+                    "sampling_rate": "12.0",
                 },
                 "secrets": {
-                    "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                    "connection_string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
                 },
             })
         ```

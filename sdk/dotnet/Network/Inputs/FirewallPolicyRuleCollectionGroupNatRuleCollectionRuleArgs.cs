@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The destination IP address (including CIDR).
+        /// </summary>
         [Input("destinationAddress")]
         public Input<string>? DestinationAddress { get; set; }
 
@@ -51,12 +54,23 @@ namespace Pulumi.Azure.Network.Inputs
             set => _sourceIpGroups = value;
         }
 
+        /// <summary>
+        /// Specifies the translated address.
+        /// </summary>
         [Input("translatedAddress")]
         public Input<string>? TranslatedAddress { get; set; }
 
+        /// <summary>
+        /// Specifies the translated FQDN.
+        /// 
+        /// &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+        /// </summary>
         [Input("translatedFqdn")]
         public Input<string>? TranslatedFqdn { get; set; }
 
+        /// <summary>
+        /// Specifies the translated port.
+        /// </summary>
         [Input("translatedPort", required: true)]
         public Input<int> TranslatedPort { get; set; } = null!;
 

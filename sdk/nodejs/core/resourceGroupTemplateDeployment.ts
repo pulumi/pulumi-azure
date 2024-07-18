@@ -127,7 +127,7 @@ export class ResourceGroupTemplateDeployment extends pulumi.CustomResource {
             resourceInputs["outputContent"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ResourceGroupTemplateDeployment.__pulumiType, name, resourceInputs, opts);
+        super(ResourceGroupTemplateDeployment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

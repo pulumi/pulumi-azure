@@ -161,7 +161,7 @@ export class HciCluster extends pulumi.CustomResource {
             resourceInputs["serviceEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HciCluster.__pulumiType, name, resourceInputs, opts);
+        super(HciCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

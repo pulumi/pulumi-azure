@@ -17,15 +17,25 @@ namespace Pulumi.Azure.DataFactory.Inputs
 
         [Input("parameters")]
         private InputMap<string>? _parameters;
+
+        /// <summary>
+        /// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        /// </summary>
         public InputMap<string> Parameters
         {
             get => _parameters ?? (_parameters = new InputMap<string>());
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// Specifies the secret name in Azure Key Vault.
+        /// </summary>
         [Input("secretName", required: true)]
         public Input<string> SecretName { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the secret version in Azure Key Vault.
+        /// </summary>
         [Input("secretVersion")]
         public Input<string>? SecretVersion { get; set; }
 

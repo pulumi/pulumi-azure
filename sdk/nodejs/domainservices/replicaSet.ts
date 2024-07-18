@@ -340,7 +340,7 @@ export class ReplicaSet extends pulumi.CustomResource {
             resourceInputs["serviceStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ReplicaSet.__pulumiType, name, resourceInputs, opts);
+        super(ReplicaSet.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

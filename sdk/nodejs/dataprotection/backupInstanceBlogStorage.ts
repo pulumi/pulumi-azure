@@ -156,7 +156,7 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupInstanceBlogStorage.__pulumiType, name, resourceInputs, opts);
+        super(BackupInstanceBlogStorage.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

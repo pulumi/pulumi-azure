@@ -188,7 +188,7 @@ export class GroupPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GroupPolicyAssignment.__pulumiType, name, resourceInputs, opts);
+        super(GroupPolicyAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

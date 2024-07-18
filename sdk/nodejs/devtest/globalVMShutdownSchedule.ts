@@ -188,7 +188,7 @@ export class GlobalVMShutdownSchedule extends pulumi.CustomResource {
             resourceInputs["virtualMachineId"] = args ? args.virtualMachineId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GlobalVMShutdownSchedule.__pulumiType, name, resourceInputs, opts);
+        super(GlobalVMShutdownSchedule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

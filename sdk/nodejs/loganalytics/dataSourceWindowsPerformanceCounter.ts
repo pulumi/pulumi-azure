@@ -148,7 +148,7 @@ export class DataSourceWindowsPerformanceCounter extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataSourceWindowsPerformanceCounter.__pulumiType, name, resourceInputs, opts);
+        super(DataSourceWindowsPerformanceCounter.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

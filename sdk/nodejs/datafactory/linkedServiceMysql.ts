@@ -137,7 +137,7 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServiceMysql.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServiceMysql.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

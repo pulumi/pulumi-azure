@@ -194,7 +194,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["outboundIps"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Grafana.__pulumiType, name, resourceInputs, opts);
+        super(Grafana.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -147,7 +147,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["logsIngestionEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataCollectionEndpoint.__pulumiType, name, resourceInputs, opts);
+        super(DataCollectionEndpoint.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -219,7 +219,7 @@ export class TimeSeriesInsightsEventSourceEventhub extends pulumi.CustomResource
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sharedAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(TimeSeriesInsightsEventSourceEventhub.__pulumiType, name, resourceInputs, opts);
+        super(TimeSeriesInsightsEventSourceEventhub.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

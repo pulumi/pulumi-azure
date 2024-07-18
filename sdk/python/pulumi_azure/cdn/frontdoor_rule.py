@@ -289,15 +289,15 @@ class FrontdoorRule(pulumi.CustomResource):
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
-                "intervalInSeconds": 240,
+                "interval_in_seconds": 240,
                 "path": "/healthProbe",
                 "protocol": "Https",
-                "requestType": "GET",
+                "request_type": "GET",
             },
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
@@ -319,32 +319,32 @@ class FrontdoorRule(pulumi.CustomResource):
             order=1,
             behavior_on_match="Continue",
             actions={
-                "routeConfigurationOverrideAction": {
-                    "cdnFrontdoorOriginGroupId": example_frontdoor_origin_group.id,
-                    "forwardingProtocol": "HttpsOnly",
-                    "queryStringCachingBehavior": "IncludeSpecifiedQueryStrings",
-                    "queryStringParameters": [
+                "route_configuration_override_action": {
+                    "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
+                    "forwarding_protocol": "HttpsOnly",
+                    "query_string_caching_behavior": "IncludeSpecifiedQueryStrings",
+                    "query_string_parameters": [
                         "foo",
                         "clientIp={client_ip}",
                     ],
-                    "compressionEnabled": True,
-                    "cacheBehavior": "OverrideIfOriginMissing",
-                    "cacheDuration": "365.23:59:59",
+                    "compression_enabled": True,
+                    "cache_behavior": "OverrideIfOriginMissing",
+                    "cache_duration": "365.23:59:59",
                 },
-                "urlRedirectAction": {
-                    "redirectType": "PermanentRedirect",
-                    "redirectProtocol": "MatchRequest",
-                    "queryString": "clientIp={client_ip}",
-                    "destinationPath": "/exampleredirection",
-                    "destinationHostname": "contoso.com",
-                    "destinationFragment": "UrlRedirect",
+                "url_redirect_action": {
+                    "redirect_type": "PermanentRedirect",
+                    "redirect_protocol": "MatchRequest",
+                    "query_string": "clientIp={client_ip}",
+                    "destination_path": "/exampleredirection",
+                    "destination_hostname": "contoso.com",
+                    "destination_fragment": "UrlRedirect",
                 },
             },
             conditions={
-                "hostNameConditions": [{
+                "host_name_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": [
+                    "negate_condition": False,
+                    "match_values": [
                         "www.contoso.com",
                         "images.contoso.com",
                         "video.contoso.com",
@@ -354,29 +354,29 @@ class FrontdoorRule(pulumi.CustomResource):
                         "Trim",
                     ],
                 }],
-                "isDeviceConditions": [{
+                "is_device_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": "Mobile",
+                    "negate_condition": False,
+                    "match_values": "Mobile",
                 }],
-                "postArgsConditions": [{
-                    "postArgsName": "customerName",
+                "post_args_conditions": [{
+                    "post_args_name": "customerName",
                     "operator": "BeginsWith",
-                    "matchValues": [
+                    "match_values": [
                         "J",
                         "K",
                     ],
                     "transforms": ["Uppercase"],
                 }],
-                "requestMethodConditions": [{
+                "request_method_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": ["DELETE"],
+                    "negate_condition": False,
+                    "match_values": ["DELETE"],
                 }],
-                "urlFilenameConditions": [{
+                "url_filename_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": ["media.mp4"],
+                    "negate_condition": False,
+                    "match_values": ["media.mp4"],
                     "transforms": [
                         "Lowercase",
                         "RemoveNulls",
@@ -566,15 +566,15 @@ class FrontdoorRule(pulumi.CustomResource):
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
-                "intervalInSeconds": 240,
+                "interval_in_seconds": 240,
                 "path": "/healthProbe",
                 "protocol": "Https",
-                "requestType": "GET",
+                "request_type": "GET",
             },
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
@@ -596,32 +596,32 @@ class FrontdoorRule(pulumi.CustomResource):
             order=1,
             behavior_on_match="Continue",
             actions={
-                "routeConfigurationOverrideAction": {
-                    "cdnFrontdoorOriginGroupId": example_frontdoor_origin_group.id,
-                    "forwardingProtocol": "HttpsOnly",
-                    "queryStringCachingBehavior": "IncludeSpecifiedQueryStrings",
-                    "queryStringParameters": [
+                "route_configuration_override_action": {
+                    "cdn_frontdoor_origin_group_id": example_frontdoor_origin_group.id,
+                    "forwarding_protocol": "HttpsOnly",
+                    "query_string_caching_behavior": "IncludeSpecifiedQueryStrings",
+                    "query_string_parameters": [
                         "foo",
                         "clientIp={client_ip}",
                     ],
-                    "compressionEnabled": True,
-                    "cacheBehavior": "OverrideIfOriginMissing",
-                    "cacheDuration": "365.23:59:59",
+                    "compression_enabled": True,
+                    "cache_behavior": "OverrideIfOriginMissing",
+                    "cache_duration": "365.23:59:59",
                 },
-                "urlRedirectAction": {
-                    "redirectType": "PermanentRedirect",
-                    "redirectProtocol": "MatchRequest",
-                    "queryString": "clientIp={client_ip}",
-                    "destinationPath": "/exampleredirection",
-                    "destinationHostname": "contoso.com",
-                    "destinationFragment": "UrlRedirect",
+                "url_redirect_action": {
+                    "redirect_type": "PermanentRedirect",
+                    "redirect_protocol": "MatchRequest",
+                    "query_string": "clientIp={client_ip}",
+                    "destination_path": "/exampleredirection",
+                    "destination_hostname": "contoso.com",
+                    "destination_fragment": "UrlRedirect",
                 },
             },
             conditions={
-                "hostNameConditions": [{
+                "host_name_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": [
+                    "negate_condition": False,
+                    "match_values": [
                         "www.contoso.com",
                         "images.contoso.com",
                         "video.contoso.com",
@@ -631,29 +631,29 @@ class FrontdoorRule(pulumi.CustomResource):
                         "Trim",
                     ],
                 }],
-                "isDeviceConditions": [{
+                "is_device_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": "Mobile",
+                    "negate_condition": False,
+                    "match_values": "Mobile",
                 }],
-                "postArgsConditions": [{
-                    "postArgsName": "customerName",
+                "post_args_conditions": [{
+                    "post_args_name": "customerName",
                     "operator": "BeginsWith",
-                    "matchValues": [
+                    "match_values": [
                         "J",
                         "K",
                     ],
                     "transforms": ["Uppercase"],
                 }],
-                "requestMethodConditions": [{
+                "request_method_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": ["DELETE"],
+                    "negate_condition": False,
+                    "match_values": ["DELETE"],
                 }],
-                "urlFilenameConditions": [{
+                "url_filename_conditions": [{
                     "operator": "Equal",
-                    "negateCondition": False,
-                    "matchValues": ["media.mp4"],
+                    "negate_condition": False,
+                    "match_values": ["media.mp4"],
                     "transforms": [
                         "Lowercase",
                         "RemoveNulls",

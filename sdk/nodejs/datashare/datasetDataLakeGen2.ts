@@ -167,7 +167,7 @@ export class DatasetDataLakeGen2 extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DatasetDataLakeGen2.__pulumiType, name, resourceInputs, opts);
+        super(DatasetDataLakeGen2.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

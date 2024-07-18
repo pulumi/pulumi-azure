@@ -169,7 +169,7 @@ export class IotHubDps extends pulumi.CustomResource {
             resourceInputs["serviceOperationsHostName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IotHubDps.__pulumiType, name, resourceInputs, opts);
+        super(IotHubDps.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -179,7 +179,7 @@ export class FlexibleServerFirewallRule extends pulumi.CustomResource {
             resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FlexibleServerFirewallRule.__pulumiType, name, resourceInputs, opts);
+        super(FlexibleServerFirewallRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -107,7 +107,7 @@ export class DataConnectorMicrosoftDefenderAdvancedThreatProtection extends pulu
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataConnectorMicrosoftDefenderAdvancedThreatProtection.__pulumiType, name, resourceInputs, opts);
+        super(DataConnectorMicrosoftDefenderAdvancedThreatProtection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

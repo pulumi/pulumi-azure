@@ -152,7 +152,7 @@ export class Logger extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Logger.__pulumiType, name, resourceInputs, opts);
+        super(Logger.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -157,7 +157,7 @@ export class SqlRoleAssignment extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SqlRoleAssignment.__pulumiType, name, resourceInputs, opts);
+        super(SqlRoleAssignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

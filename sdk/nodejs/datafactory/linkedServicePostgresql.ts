@@ -137,7 +137,7 @@ export class LinkedServicePostgresql extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkedServicePostgresql.__pulumiType, name, resourceInputs, opts);
+        super(LinkedServicePostgresql.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

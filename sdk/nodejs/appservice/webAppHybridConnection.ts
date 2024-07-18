@@ -178,7 +178,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["sendKeyValue"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(WebAppHybridConnection.__pulumiType, name, resourceInputs, opts);
+        super(WebAppHybridConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

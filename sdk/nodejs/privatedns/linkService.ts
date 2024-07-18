@@ -208,7 +208,7 @@ export class LinkService extends pulumi.CustomResource {
             resourceInputs["alias"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LinkService.__pulumiType, name, resourceInputs, opts);
+        super(LinkService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -159,7 +159,7 @@ export class ManangementLock extends pulumi.CustomResource {
             resourceInputs["scope"] = args ? args.scope : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ManangementLock.__pulumiType, name, resourceInputs, opts);
+        super(ManangementLock.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

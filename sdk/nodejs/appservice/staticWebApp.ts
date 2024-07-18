@@ -163,7 +163,7 @@ export class StaticWebApp extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["apiKey", "basicAuth"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(StaticWebApp.__pulumiType, name, resourceInputs, opts);
+        super(StaticWebApp.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -134,7 +134,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["serverName"] = args ? args.serverName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Database.__pulumiType, name, resourceInputs, opts);
+        super(Database.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

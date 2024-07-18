@@ -189,7 +189,7 @@ export class ScheduledQueryRulesAlert extends pulumi.CustomResource {
             resourceInputs["trigger"] = args ? args.trigger : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScheduledQueryRulesAlert.__pulumiType, name, resourceInputs, opts);
+        super(ScheduledQueryRulesAlert.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

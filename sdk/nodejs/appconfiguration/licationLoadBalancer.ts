@@ -111,7 +111,7 @@ export class LicationLoadBalancer extends pulumi.CustomResource {
             resourceInputs["primaryConfigurationEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LicationLoadBalancer.__pulumiType, name, resourceInputs, opts);
+        super(LicationLoadBalancer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

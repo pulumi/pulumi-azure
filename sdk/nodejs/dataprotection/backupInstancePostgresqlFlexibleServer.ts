@@ -169,7 +169,7 @@ export class BackupInstancePostgresqlFlexibleServer extends pulumi.CustomResourc
             resourceInputs["vaultId"] = args ? args.vaultId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupInstancePostgresqlFlexibleServer.__pulumiType, name, resourceInputs, opts);
+        super(BackupInstancePostgresqlFlexibleServer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

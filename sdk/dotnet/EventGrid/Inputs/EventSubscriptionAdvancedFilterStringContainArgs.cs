@@ -12,11 +12,20 @@ namespace Pulumi.Azure.EventGrid.Inputs
 
     public sealed class EventSubscriptionAdvancedFilterStringContainArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// Specifies an array of values to compare to when using a multiple values operator.
+        /// 
+        /// &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

@@ -173,7 +173,7 @@ export class FirewallApplicationRuleCollection extends pulumi.CustomResource {
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FirewallApplicationRuleCollection.__pulumiType, name, resourceInputs, opts);
+        super(FirewallApplicationRuleCollection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

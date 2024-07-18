@@ -274,7 +274,7 @@ export class NamespaceCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["userAssignedIdentityId"] = args ? args.userAssignedIdentityId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NamespaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
+        super(NamespaceCustomerManagedKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -85,7 +85,7 @@ export class LocalRulestackOutboundUntrustCertificateAssociation extends pulumi.
             resourceInputs["certificateId"] = args ? args.certificateId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(LocalRulestackOutboundUntrustCertificateAssociation.__pulumiType, name, resourceInputs, opts);
+        super(LocalRulestackOutboundUntrustCertificateAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

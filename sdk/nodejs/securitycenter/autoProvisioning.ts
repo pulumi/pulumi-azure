@@ -81,7 +81,7 @@ export class AutoProvisioning extends pulumi.CustomResource {
             resourceInputs["autoProvision"] = args ? args.autoProvision : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AutoProvisioning.__pulumiType, name, resourceInputs, opts);
+        super(AutoProvisioning.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

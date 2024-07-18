@@ -1580,6 +1580,9 @@ class AlertRuleScheduledIncidentConfiguration(dict):
     def __init__(__self__, *,
                  create_incident: bool,
                  grouping: 'outputs.AlertRuleScheduledIncidentConfigurationGrouping'):
+        """
+        :param 'AlertRuleScheduledIncidentConfigurationGroupingArgs' grouping: A `grouping` block as defined below.
+        """
         pulumi.set(__self__, "create_incident", create_incident)
         pulumi.set(__self__, "grouping", grouping)
 
@@ -1592,6 +1595,9 @@ class AlertRuleScheduledIncidentConfiguration(dict):
     @property
     @pulumi.getter
     def grouping(self) -> 'outputs.AlertRuleScheduledIncidentConfigurationGrouping':
+        """
+        A `grouping` block as defined below.
+        """
         return pulumi.get(self, "grouping")
 
 

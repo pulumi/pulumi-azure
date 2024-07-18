@@ -167,7 +167,7 @@ export class Extension extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["protectedSettings"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Extension.__pulumiType, name, resourceInputs, opts);
+        super(Extension.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

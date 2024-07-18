@@ -117,7 +117,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["phone"] = args ? args.phone : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Contact.__pulumiType, name, resourceInputs, opts);
+        super(Contact.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

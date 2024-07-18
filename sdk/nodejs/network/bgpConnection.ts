@@ -153,7 +153,7 @@ export class BgpConnection extends pulumi.CustomResource {
             resourceInputs["virtualNetworkConnectionId"] = args ? args.virtualNetworkConnectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BgpConnection.__pulumiType, name, resourceInputs, opts);
+        super(BgpConnection.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -300,7 +300,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["secondaryWriteKeys"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConfigurationStore.__pulumiType, name, resourceInputs, opts);
+        super(ConfigurationStore.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

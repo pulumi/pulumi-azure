@@ -203,7 +203,7 @@ export class VolumeQuotaRule extends pulumi.CustomResource {
             resourceInputs["volumeId"] = args ? args.volumeId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VolumeQuotaRule.__pulumiType, name, resourceInputs, opts);
+        super(VolumeQuotaRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

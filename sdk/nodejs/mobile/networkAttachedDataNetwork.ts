@@ -146,7 +146,7 @@ export class NetworkAttachedDataNetwork extends pulumi.CustomResource {
             resourceInputs["userPlaneAccessName"] = args ? args.userPlaneAccessName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkAttachedDataNetwork.__pulumiType, name, resourceInputs, opts);
+        super(NetworkAttachedDataNetwork.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

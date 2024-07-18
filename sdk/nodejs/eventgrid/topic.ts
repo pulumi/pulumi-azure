@@ -176,7 +176,7 @@ export class Topic extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "secondaryAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(Topic.__pulumiType, name, resourceInputs, opts);
+        super(Topic.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

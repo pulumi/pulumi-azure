@@ -124,7 +124,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);
+        super(ConsumerGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

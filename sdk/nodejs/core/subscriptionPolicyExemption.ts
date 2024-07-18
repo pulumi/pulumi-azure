@@ -151,7 +151,7 @@ export class SubscriptionPolicyExemption extends pulumi.CustomResource {
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SubscriptionPolicyExemption.__pulumiType, name, resourceInputs, opts);
+        super(SubscriptionPolicyExemption.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

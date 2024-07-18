@@ -142,7 +142,7 @@ export class GlobalSchema extends pulumi.CustomResource {
             resourceInputs["value"] = args ? args.value : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(GlobalSchema.__pulumiType, name, resourceInputs, opts);
+        super(GlobalSchema.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

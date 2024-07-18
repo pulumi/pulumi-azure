@@ -315,7 +315,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["scmUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Service.__pulumiType, name, resourceInputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

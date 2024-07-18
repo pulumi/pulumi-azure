@@ -195,7 +195,7 @@ export class Topic extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:eventhub/topic:Topic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Topic.__pulumiType, name, resourceInputs, opts);
+        super(Topic.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

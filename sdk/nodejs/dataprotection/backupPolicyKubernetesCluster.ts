@@ -117,7 +117,7 @@ export class BackupPolicyKubernetesCluster extends pulumi.CustomResource {
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(BackupPolicyKubernetesCluster.__pulumiType, name, resourceInputs, opts);
+        super(BackupPolicyKubernetesCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -149,7 +149,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts);
+        super(VirtualNetworkRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -205,7 +205,7 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FhirService.__pulumiType, name, resourceInputs, opts);
+        super(FhirService.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

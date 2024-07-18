@@ -323,7 +323,7 @@ export class IoTHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(IoTHub.__pulumiType, name, resourceInputs, opts);
+        super(IoTHub.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -217,7 +217,7 @@ export class OutputBlob extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["storageAccountKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(OutputBlob.__pulumiType, name, resourceInputs, opts);
+        super(OutputBlob.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PoolStartTaskContainerRegistry {
     private @Nullable String password;
+    /**
+     * @return The container registry URL. Changing this forces a new resource to be created.
+     * 
+     */
     private String registryServer;
     /**
      * @return The User Assigned Identity to use for Container Registry access.
@@ -25,6 +29,10 @@ public final class PoolStartTaskContainerRegistry {
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
     }
+    /**
+     * @return The container registry URL. Changing this forces a new resource to be created.
+     * 
+     */
     public String registryServer() {
         return this.registryServer;
     }

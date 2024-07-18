@@ -326,7 +326,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             action_group_id=example_action_group.id,
             scope={
                 "type": "ResourceGroup",
-                "resourceIds": [example.id],
+                "resource_ids": [example.id],
             },
             tags={
                 "foo": "bar",
@@ -382,7 +382,7 @@ class ActionRuleActionGroup(pulumi.CustomResource):
             action_group_id=example_action_group.id,
             scope={
                 "type": "ResourceGroup",
-                "resourceIds": [example.id],
+                "resource_ids": [example.id],
             },
             tags={
                 "foo": "bar",

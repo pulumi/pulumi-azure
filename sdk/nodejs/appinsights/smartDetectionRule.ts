@@ -119,7 +119,7 @@ export class SmartDetectionRule extends pulumi.CustomResource {
             resourceInputs["sendEmailsToSubscriptionOwners"] = args ? args.sendEmailsToSubscriptionOwners : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SmartDetectionRule.__pulumiType, name, resourceInputs, opts);
+        super(SmartDetectionRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

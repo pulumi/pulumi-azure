@@ -213,7 +213,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(HostPool.__pulumiType, name, resourceInputs, opts);
+        super(HostPool.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

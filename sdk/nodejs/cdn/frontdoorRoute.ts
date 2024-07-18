@@ -292,7 +292,7 @@ export class FrontdoorRoute extends pulumi.CustomResource {
             resourceInputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(FrontdoorRoute.__pulumiType, name, resourceInputs, opts);
+        super(FrontdoorRoute.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

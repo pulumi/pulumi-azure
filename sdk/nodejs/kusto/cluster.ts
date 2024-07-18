@@ -243,7 +243,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Cluster.__pulumiType, name, resourceInputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

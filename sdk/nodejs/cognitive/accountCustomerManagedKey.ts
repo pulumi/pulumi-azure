@@ -206,7 +206,7 @@ export class AccountCustomerManagedKey extends pulumi.CustomResource {
             resourceInputs["keyVaultKeyId"] = args ? args.keyVaultKeyId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(AccountCustomerManagedKey.__pulumiType, name, resourceInputs, opts);
+        super(AccountCustomerManagedKey.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

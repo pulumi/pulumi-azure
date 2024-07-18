@@ -153,7 +153,7 @@ export class ServiceNetworkAcl extends pulumi.CustomResource {
             resourceInputs["signalrServiceId"] = args ? args.signalrServiceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ServiceNetworkAcl.__pulumiType, name, resourceInputs, opts);
+        super(ServiceNetworkAcl.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

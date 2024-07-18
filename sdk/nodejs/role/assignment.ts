@@ -301,7 +301,7 @@ export class Assignment extends pulumi.CustomResource {
             resourceInputs["skipServicePrincipalAadCheck"] = args ? args.skipServicePrincipalAadCheck : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(Assignment.__pulumiType, name, resourceInputs, opts);
+        super(Assignment.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

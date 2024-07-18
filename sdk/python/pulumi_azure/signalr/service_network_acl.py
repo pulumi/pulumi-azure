@@ -207,19 +207,19 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
-                "isManualConnection": False,
-                "privateConnectionResourceId": example_service.id,
-                "subresourceNames": ["signalr"],
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_service.id,
+                "subresource_names": ["signalr"],
             })
         example_service_network_acl = azure.signalr.ServiceNetworkAcl("example",
             signalr_service_id=example_service.id,
             default_action="Deny",
             public_network={
-                "allowedRequestTypes": ["ClientConnection"],
+                "allowed_request_types": ["ClientConnection"],
             },
             private_endpoints=[{
                 "id": example_endpoint.id,
-                "allowedRequestTypes": ["ServerConnection"],
+                "allowed_request_types": ["ServerConnection"],
             }])
         ```
 
@@ -282,19 +282,19 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
-                "isManualConnection": False,
-                "privateConnectionResourceId": example_service.id,
-                "subresourceNames": ["signalr"],
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_service.id,
+                "subresource_names": ["signalr"],
             })
         example_service_network_acl = azure.signalr.ServiceNetworkAcl("example",
             signalr_service_id=example_service.id,
             default_action="Deny",
             public_network={
-                "allowedRequestTypes": ["ClientConnection"],
+                "allowed_request_types": ["ClientConnection"],
             },
             private_endpoints=[{
                 "id": example_endpoint.id,
-                "allowedRequestTypes": ["ServerConnection"],
+                "allowed_request_types": ["ServerConnection"],
             }])
         ```
 

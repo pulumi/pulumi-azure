@@ -160,7 +160,7 @@ export class ScalingPlanHostPoolAssociation extends pulumi.CustomResource {
             resourceInputs["scalingPlanId"] = args ? args.scalingPlanId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ScalingPlanHostPoolAssociation.__pulumiType, name, resourceInputs, opts);
+        super(ScalingPlanHostPoolAssociation.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

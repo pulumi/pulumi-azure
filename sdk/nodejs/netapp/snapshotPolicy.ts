@@ -185,7 +185,7 @@ export class SnapshotPolicy extends pulumi.CustomResource {
             resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(SnapshotPolicy.__pulumiType, name, resourceInputs, opts);
+        super(SnapshotPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

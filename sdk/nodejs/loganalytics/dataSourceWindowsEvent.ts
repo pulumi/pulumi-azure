@@ -128,7 +128,7 @@ export class DataSourceWindowsEvent extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(DataSourceWindowsEvent.__pulumiType, name, resourceInputs, opts);
+        super(DataSourceWindowsEvent.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -128,7 +128,7 @@ export class ProtectionContainer extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ProtectionContainer.__pulumiType, name, resourceInputs, opts);
+        super(ProtectionContainer.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

@@ -132,7 +132,7 @@ export class ContainerImmutabilityPolicy extends pulumi.CustomResource {
             resourceInputs["storageContainerResourceManagerId"] = args ? args.storageContainerResourceManagerId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(ContainerImmutabilityPolicy.__pulumiType, name, resourceInputs, opts);
+        super(ContainerImmutabilityPolicy.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

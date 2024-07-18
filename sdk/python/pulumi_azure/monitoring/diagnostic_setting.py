@@ -531,13 +531,13 @@ class DiagnosticSetting(pulumi.CustomResource):
             storage_account_id=example_account.id,
             enabled_logs=[{
                 "category": "AuditEvent",
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
             }],
             metrics=[{
                 "category": "AllMetrics",
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
             }])
@@ -626,13 +626,13 @@ class DiagnosticSetting(pulumi.CustomResource):
             storage_account_id=example_account.id,
             enabled_logs=[{
                 "category": "AuditEvent",
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
             }],
             metrics=[{
                 "category": "AllMetrics",
-                "retentionPolicy": {
+                "retention_policy": {
                     "enabled": False,
                 },
             }])

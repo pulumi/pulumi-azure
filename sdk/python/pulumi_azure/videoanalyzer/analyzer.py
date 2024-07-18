@@ -273,11 +273,11 @@ class Analyzer(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_account={
                 "id": example_account.id,
-                "userAssignedIdentityId": example_user_assigned_identity.id,
+                "user_assigned_identity_id": example_user_assigned_identity.id,
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "environment": "staging",
@@ -349,11 +349,11 @@ class Analyzer(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_account={
                 "id": example_account.id,
-                "userAssignedIdentityId": example_user_assigned_identity.id,
+                "user_assigned_identity_id": example_user_assigned_identity.id,
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "environment": "staging",

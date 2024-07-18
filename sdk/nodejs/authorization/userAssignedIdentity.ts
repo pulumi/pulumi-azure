@@ -133,7 +133,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure:msi/userAssignedIdentity:UserAssignedIdentity" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(UserAssignedIdentity.__pulumiType, name, resourceInputs, opts);
+        super(UserAssignedIdentity.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

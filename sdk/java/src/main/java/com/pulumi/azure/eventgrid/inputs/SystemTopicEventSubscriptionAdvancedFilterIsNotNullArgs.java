@@ -14,9 +14,17 @@ public final class SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs exten
 
     public static final SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs Empty = new SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs();
 
+    /**
+     * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
@@ -45,11 +53,23 @@ public final class SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs exten
             $ = new SystemTopicEventSubscriptionAdvancedFilterIsNotNullArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }

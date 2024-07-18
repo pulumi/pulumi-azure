@@ -133,7 +133,7 @@ export class VpnServerConfigurationPolicyGroup extends pulumi.CustomResource {
             resourceInputs["vpnServerConfigurationId"] = args ? args.vpnServerConfigurationId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(VpnServerConfigurationPolicyGroup.__pulumiType, name, resourceInputs, opts);
+        super(VpnServerConfigurationPolicyGroup.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

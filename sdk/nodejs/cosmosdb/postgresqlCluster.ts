@@ -244,7 +244,7 @@ export class PostgresqlCluster extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["administratorLoginPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(PostgresqlCluster.__pulumiType, name, resourceInputs, opts);
+        super(PostgresqlCluster.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

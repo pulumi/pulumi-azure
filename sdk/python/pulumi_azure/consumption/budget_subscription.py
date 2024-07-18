@@ -331,8 +331,8 @@ class BudgetSubscription(pulumi.CustomResource):
             amount=1000,
             time_grain="Monthly",
             time_period={
-                "startDate": "2022-06-01T00:00:00Z",
-                "endDate": "2022-07-01T00:00:00Z",
+                "start_date": "2022-06-01T00:00:00Z",
+                "end_date": "2022-07-01T00:00:00Z",
             },
             filter={
                 "dimensions": [{
@@ -352,19 +352,19 @@ class BudgetSubscription(pulumi.CustomResource):
                     "enabled": True,
                     "threshold": 90,
                     "operator": "EqualTo",
-                    "contactEmails": [
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    "contactGroups": [example_action_group.id],
-                    "contactRoles": ["Owner"],
+                    "contact_groups": [example_action_group.id],
+                    "contact_roles": ["Owner"],
                 },
                 {
                     "enabled": False,
                     "threshold": 100,
                     "operator": "GreaterThan",
-                    "thresholdType": "Forecasted",
-                    "contactEmails": [
+                    "threshold_type": "Forecasted",
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
@@ -422,8 +422,8 @@ class BudgetSubscription(pulumi.CustomResource):
             amount=1000,
             time_grain="Monthly",
             time_period={
-                "startDate": "2022-06-01T00:00:00Z",
-                "endDate": "2022-07-01T00:00:00Z",
+                "start_date": "2022-06-01T00:00:00Z",
+                "end_date": "2022-07-01T00:00:00Z",
             },
             filter={
                 "dimensions": [{
@@ -443,19 +443,19 @@ class BudgetSubscription(pulumi.CustomResource):
                     "enabled": True,
                     "threshold": 90,
                     "operator": "EqualTo",
-                    "contactEmails": [
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],
-                    "contactGroups": [example_action_group.id],
-                    "contactRoles": ["Owner"],
+                    "contact_groups": [example_action_group.id],
+                    "contact_roles": ["Owner"],
                 },
                 {
                     "enabled": False,
                     "threshold": 100,
                     "operator": "GreaterThan",
-                    "thresholdType": "Forecasted",
-                    "contactEmails": [
+                    "threshold_type": "Forecasted",
+                    "contact_emails": [
                         "foo@example.com",
                         "bar@example.com",
                     ],

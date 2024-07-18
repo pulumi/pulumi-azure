@@ -211,7 +211,7 @@ export class NetworkManagerAdminRule extends pulumi.CustomResource {
             resourceInputs["sources"] = args ? args.sources : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        super(NetworkManagerAdminRule.__pulumiType, name, resourceInputs, opts);
+        super(NetworkManagerAdminRule.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 

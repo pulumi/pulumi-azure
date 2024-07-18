@@ -184,7 +184,7 @@ export class EnterpriseDatabase extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["primaryAccessKey", "secondaryAccessKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
-        super(EnterpriseDatabase.__pulumiType, name, resourceInputs, opts);
+        super(EnterpriseDatabase.__pulumiType, name, resourceInputs, opts, false /*remote*/);
     }
 }
 
