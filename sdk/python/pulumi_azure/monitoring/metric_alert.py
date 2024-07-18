@@ -630,7 +630,7 @@ class MetricAlert(pulumi.CustomResource):
             short_name="exampleact",
             webhook_receivers=[{
                 "name": "callmyapi",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
             }])
         example_metric_alert = azure.monitoring.MetricAlert("example",
             name="example-metricalert",
@@ -638,8 +638,8 @@ class MetricAlert(pulumi.CustomResource):
             scopes=[to_monitor.id],
             description="Action will be triggered when Transactions count is greater than 50.",
             criterias=[{
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "metricName": "Transactions",
+                "metric_namespace": "Microsoft.Storage/storageAccounts",
+                "metric_name": "Transactions",
                 "aggregation": "Total",
                 "operator": "GreaterThan",
                 "threshold": 50,
@@ -650,7 +650,7 @@ class MetricAlert(pulumi.CustomResource):
                 }],
             }],
             actions=[{
-                "actionGroupId": main.id,
+                "action_group_id": main.id,
             }])
         ```
 
@@ -721,7 +721,7 @@ class MetricAlert(pulumi.CustomResource):
             short_name="exampleact",
             webhook_receivers=[{
                 "name": "callmyapi",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
             }])
         example_metric_alert = azure.monitoring.MetricAlert("example",
             name="example-metricalert",
@@ -729,8 +729,8 @@ class MetricAlert(pulumi.CustomResource):
             scopes=[to_monitor.id],
             description="Action will be triggered when Transactions count is greater than 50.",
             criterias=[{
-                "metricNamespace": "Microsoft.Storage/storageAccounts",
-                "metricName": "Transactions",
+                "metric_namespace": "Microsoft.Storage/storageAccounts",
+                "metric_name": "Transactions",
                 "aggregation": "Total",
                 "operator": "GreaterThan",
                 "threshold": 50,
@@ -741,7 +741,7 @@ class MetricAlert(pulumi.CustomResource):
                 }],
             }],
             actions=[{
-                "actionGroupId": main.id,
+                "action_group_id": main.id,
             }])
         ```
 

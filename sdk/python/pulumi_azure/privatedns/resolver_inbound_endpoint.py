@@ -232,7 +232,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/28"],
             delegations=[{
                 "name": "Microsoft.Network.dnsResolvers",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
@@ -242,8 +242,8 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
             ip_configurations=[{
-                "privateIpAllocationMethod": "Dynamic",
-                "subnetId": example_subnet.id,
+                "private_ip_allocation_method": "Dynamic",
+                "subnet_id": example_subnet.id,
             }],
             tags={
                 "key": "value",
@@ -301,7 +301,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/28"],
             delegations=[{
                 "name": "Microsoft.Network.dnsResolvers",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
@@ -311,8 +311,8 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
             ip_configurations=[{
-                "privateIpAllocationMethod": "Dynamic",
-                "subnetId": example_subnet.id,
+                "private_ip_allocation_method": "Dynamic",
+                "subnet_id": example_subnet.id,
             }],
             tags={
                 "key": "value",

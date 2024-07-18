@@ -232,11 +232,11 @@ class CassandraKeyspace(pulumi.CustomResource):
                 "name": "EnableCassandra",
             }],
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",
@@ -290,11 +290,11 @@ class CassandraKeyspace(pulumi.CustomResource):
                 "name": "EnableCassandra",
             }],
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
             name="tfex-cosmos-cassandra-keyspace",

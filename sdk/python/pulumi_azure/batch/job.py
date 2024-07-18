@@ -258,7 +258,7 @@ class Job(pulumi.CustomResource):
             node_agent_sku_id="batch.node.ubuntu 16.04",
             vm_size="Standard_A1",
             fixed_scale={
-                "targetDedicatedNodes": 1,
+                "target_dedicated_nodes": 1,
             },
             storage_image_reference={
                 "publisher": "Canonical",
@@ -317,7 +317,7 @@ class Job(pulumi.CustomResource):
             node_agent_sku_id="batch.node.ubuntu 16.04",
             vm_size="Standard_A1",
             fixed_scale={
-                "targetDedicatedNodes": 1,
+                "target_dedicated_nodes": 1,
             },
             storage_image_reference={
                 "publisher": "Canonical",

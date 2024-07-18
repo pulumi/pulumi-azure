@@ -1298,6 +1298,9 @@ if not MYPY:
     class ResourceGroupPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
         ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         kind: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     ResourceGroupPolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
@@ -1308,6 +1311,9 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -1327,6 +1333,9 @@ class ResourceGroupPolicyAssignmentOverrideSelectorArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -1397,6 +1406,9 @@ class ResourceGroupPolicyAssignmentResourceSelectorArgs:
 if not MYPY:
     class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
         kind: pulumi.Input[str]
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -1408,6 +1420,9 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
                  kind: pulumi.Input[str],
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -1417,6 +1432,9 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs:
     @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -1645,6 +1663,9 @@ if not MYPY:
     class ResourcePolicyAssignmentOverrideSelectorArgsDict(TypedDict):
         ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         kind: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     ResourcePolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
@@ -1655,6 +1676,9 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -1674,6 +1698,9 @@ class ResourcePolicyAssignmentOverrideSelectorArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -1744,6 +1771,9 @@ class ResourcePolicyAssignmentResourceSelectorArgs:
 if not MYPY:
     class ResourcePolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
         kind: pulumi.Input[str]
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -1755,6 +1785,9 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
                  kind: pulumi.Input[str],
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -1764,6 +1797,9 @@ class ResourcePolicyAssignmentResourceSelectorSelectorArgs:
     @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -2462,6 +2498,9 @@ if not MYPY:
     class SubscriptionPolicyAssignmentOverrideSelectorArgsDict(TypedDict):
         ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         kind: NotRequired[pulumi.Input[str]]
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
     SubscriptionPolicyAssignmentOverrideSelectorArgsDict: TypeAlias = Mapping[str, Any]
@@ -2472,6 +2511,9 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
         if kind is not None:
@@ -2491,6 +2533,9 @@ class SubscriptionPolicyAssignmentOverrideSelectorArgs:
     @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter
@@ -2561,6 +2606,9 @@ class SubscriptionPolicyAssignmentResourceSelectorArgs:
 if not MYPY:
     class SubscriptionPolicyAssignmentResourceSelectorSelectorArgsDict(TypedDict):
         kind: pulumi.Input[str]
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         not_ins: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
 elif False:
@@ -2572,6 +2620,9 @@ class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
                  kind: pulumi.Input[str],
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         pulumi.set(__self__, "kind", kind)
         if ins is not None:
             pulumi.set(__self__, "ins", ins)
@@ -2581,6 +2632,9 @@ class SubscriptionPolicyAssignmentResourceSelectorSelectorArgs:
     @property
     @pulumi.getter
     def kind(self) -> pulumi.Input[str]:
+        """
+        Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`, `resourceType` and `resourceWithoutLocation`.
+        """
         return pulumi.get(self, "kind")
 
     @kind.setter

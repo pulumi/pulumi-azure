@@ -12,15 +12,27 @@ namespace Pulumi.Azure.NetApp.Inputs
 
     public sealed class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+        /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
 
+        /// <summary>
+        /// Location of the primary volume.
+        /// </summary>
         [Input("remoteVolumeLocation", required: true)]
         public Input<string> RemoteVolumeLocation { get; set; } = null!;
 
+        /// <summary>
+        /// Resource ID of the primary volume.
+        /// </summary>
         [Input("remoteVolumeResourceId", required: true)]
         public Input<string> RemoteVolumeResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+        /// </summary>
         [Input("replicationFrequency", required: true)]
         public Input<string> ReplicationFrequency { get; set; } = null!;
 

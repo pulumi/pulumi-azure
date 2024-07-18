@@ -269,8 +269,8 @@ class DataDiskAttachment(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": internal.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": internal.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name=vm_name,
@@ -287,16 +287,16 @@ class DataDiskAttachment(pulumi.CustomResource):
             storage_os_disk={
                 "name": "myosdisk1",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": vm_name,
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": vm_name,
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_managed_disk = azure.compute.ManagedDisk("example",
             name=f"{vm_name}-disk1",
@@ -372,8 +372,8 @@ class DataDiskAttachment(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": internal.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": internal.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name=vm_name,
@@ -390,16 +390,16 @@ class DataDiskAttachment(pulumi.CustomResource):
             storage_os_disk={
                 "name": "myosdisk1",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": vm_name,
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": vm_name,
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_managed_disk = azure.compute.ManagedDisk("example",
             name=f"{vm_name}-disk1",

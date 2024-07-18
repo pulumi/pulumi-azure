@@ -18,14 +18,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azurerm/sdk/v1/go/azurerm"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := index.NewPrivateDnsSoaRecord(ctx, "example", &index.PrivateDnsSoaRecordArgs{
+//			_, err := azurerm.NewPrivateDnsSoaRecord(ctx, "example", &azurerm.PrivateDnsSoaRecordArgs{
 //				ZoneName:          "test-zone",
 //				ResourceGroupName: "test-rg",
 //			})

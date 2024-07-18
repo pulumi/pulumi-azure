@@ -163,7 +163,7 @@ class ApiOperationTag(pulumi.CustomResource):
                 "required": True,
             }],
             responses=[{
-                "statusCode": 200,
+                "status_code": 200,
             }])
         example_api_operation_tag = azure.apimanagement.ApiOperationTag("example",
             name="example-Tag",
@@ -219,7 +219,7 @@ class ApiOperationTag(pulumi.CustomResource):
                 "required": True,
             }],
             responses=[{
-                "statusCode": 200,
+                "status_code": 200,
             }])
         example_api_operation_tag = azure.apimanagement.ApiOperationTag("example",
             name="example-Tag",

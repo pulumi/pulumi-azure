@@ -388,7 +388,7 @@ class SourceControl(pulumi.CustomResource):
             folder_path="runbook",
             security={
                 "token": "ghp_xxx",
-                "tokenType": "PersonalAccessToken",
+                "token_type": "PersonalAccessToken",
             },
             repository_url="https://github.com/foo/bat.git",
             source_control_type="GitHub",
@@ -445,7 +445,7 @@ class SourceControl(pulumi.CustomResource):
             folder_path="runbook",
             security={
                 "token": "ghp_xxx",
-                "tokenType": "PersonalAccessToken",
+                "token_type": "PersonalAccessToken",
             },
             repository_url="https://github.com/foo/bat.git",
             source_control_type="GitHub",

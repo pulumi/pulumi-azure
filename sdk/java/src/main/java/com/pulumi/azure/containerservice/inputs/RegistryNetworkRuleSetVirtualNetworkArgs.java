@@ -14,9 +14,17 @@ public final class RegistryNetworkRuleSetVirtualNetworkArgs extends com.pulumi.r
 
     public static final RegistryNetworkRuleSetVirtualNetworkArgs Empty = new RegistryNetworkRuleSetVirtualNetworkArgs();
 
+    /**
+     * The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+     * 
+     */
     @Import(name="action", required=true)
     private Output<String> action;
 
+    /**
+     * @return The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+     * 
+     */
     public Output<String> action() {
         return this.action;
     }
@@ -53,11 +61,23 @@ public final class RegistryNetworkRuleSetVirtualNetworkArgs extends com.pulumi.r
             $ = new RegistryNetworkRuleSetVirtualNetworkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param action The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(Output<String> action) {
             $.action = action;
             return this;
         }
 
+        /**
+         * @param action The behaviour for requests matching this rule. At this time the only supported value is `Allow`
+         * 
+         * @return builder
+         * 
+         */
         public Builder action(String action) {
             return action(Output.of(action));
         }

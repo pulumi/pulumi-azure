@@ -165,16 +165,16 @@ class RouteMap(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             rules=[{
                 "name": "rule1",
-                "nextStepIfMatched": "Continue",
+                "next_step_if_matched": "Continue",
                 "actions": [{
                     "type": "Add",
                     "parameters": [{
-                        "asPaths": ["22334"],
+                        "as_paths": ["22334"],
                     }],
                 }],
-                "matchCriterions": [{
-                    "matchCondition": "Contains",
-                    "routePrefixes": ["10.0.0.0/8"],
+                "match_criterions": [{
+                    "match_condition": "Contains",
+                    "route_prefixes": ["10.0.0.0/8"],
                 }],
             }])
         ```
@@ -226,16 +226,16 @@ class RouteMap(pulumi.CustomResource):
             virtual_hub_id=example_virtual_hub.id,
             rules=[{
                 "name": "rule1",
-                "nextStepIfMatched": "Continue",
+                "next_step_if_matched": "Continue",
                 "actions": [{
                     "type": "Add",
                     "parameters": [{
-                        "asPaths": ["22334"],
+                        "as_paths": ["22334"],
                     }],
                 }],
-                "matchCriterions": [{
-                    "matchCondition": "Contains",
-                    "routePrefixes": ["10.0.0.0/8"],
+                "match_criterions": [{
+                    "match_condition": "Contains",
+                    "route_prefixes": ["10.0.0.0/8"],
                 }],
             }])
         ```

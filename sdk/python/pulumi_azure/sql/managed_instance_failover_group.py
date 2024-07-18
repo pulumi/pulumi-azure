@@ -359,7 +359,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             partner_managed_instance_id=secondary.id,
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
-                "graceMinutes": 60,
+                "grace_minutes": 60,
             })
         ```
 
@@ -447,7 +447,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             partner_managed_instance_id=secondary.id,
             read_write_endpoint_failover_policy={
                 "mode": "Automatic",
-                "graceMinutes": 60,
+                "grace_minutes": 60,
             })
         ```
 

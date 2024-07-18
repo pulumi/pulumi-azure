@@ -226,8 +226,8 @@ class FleetUpdateRun(pulumi.CustomResource):
             dns_prefix="example",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
             },
             identity={
                 "type": "SystemAssigned",
@@ -243,9 +243,9 @@ class FleetUpdateRun(pulumi.CustomResource):
             managed_cluster_update={
                 "upgrade": {
                     "type": "Full",
-                    "kubernetesVersion": "1.27",
+                    "kubernetes_version": "1.27",
                 },
-                "nodeImageSelection": {
+                "node_image_selection": {
                     "type": "Latest",
                 },
             },
@@ -254,7 +254,7 @@ class FleetUpdateRun(pulumi.CustomResource):
                 "groups": [{
                     "name": "example-group",
                 }],
-                "afterStageWaitInSeconds": 21,
+                "after_stage_wait_in_seconds": 21,
             }])
         ```
 
@@ -303,8 +303,8 @@ class FleetUpdateRun(pulumi.CustomResource):
             dns_prefix="example",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
             },
             identity={
                 "type": "SystemAssigned",
@@ -320,9 +320,9 @@ class FleetUpdateRun(pulumi.CustomResource):
             managed_cluster_update={
                 "upgrade": {
                     "type": "Full",
-                    "kubernetesVersion": "1.27",
+                    "kubernetes_version": "1.27",
                 },
-                "nodeImageSelection": {
+                "node_image_selection": {
                     "type": "Latest",
                 },
             },
@@ -331,7 +331,7 @@ class FleetUpdateRun(pulumi.CustomResource):
                 "groups": [{
                     "name": "example-group",
                 }],
-                "afterStageWaitInSeconds": 21,
+                "after_stage_wait_in_seconds": 21,
             }])
         ```
 

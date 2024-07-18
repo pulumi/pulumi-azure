@@ -2039,6 +2039,7 @@ class PoolStartTaskContainerRegistry(dict):
                  user_assigned_identity_id: Optional[str] = None,
                  user_name: Optional[str] = None):
         """
+        :param str registry_server: The container registry URL. Changing this forces a new resource to be created.
         :param str user_assigned_identity_id: The User Assigned Identity to use for Container Registry access.
         """
         pulumi.set(__self__, "registry_server", registry_server)
@@ -2052,6 +2053,9 @@ class PoolStartTaskContainerRegistry(dict):
     @property
     @pulumi.getter(name="registryServer")
     def registry_server(self) -> str:
+        """
+        The container registry URL. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "registry_server")
 
     @property
