@@ -267,8 +267,8 @@ class Experiment(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "example",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example",
@@ -281,7 +281,7 @@ class Experiment(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -305,7 +305,7 @@ class Experiment(pulumi.CustomResource):
             },
             selectors=[{
                 "name": "Selector1",
-                "chaosStudioTargetIds": [example_target.id],
+                "chaos_studio_target_ids": [example_target.id],
             }],
             steps=[{
                 "name": "example",
@@ -313,11 +313,11 @@ class Experiment(pulumi.CustomResource):
                     "name": "example",
                     "actions": [{
                         "urn": example_capability.capability_urn,
-                        "selectorName": "Selector1",
+                        "selector_name": "Selector1",
                         "parameters": {
-                            "abruptShutdown": "false",
+                            "abrupt_shutdown": "false",
                         },
-                        "actionType": "continuous",
+                        "action_type": "continuous",
                         "duration": "PT10M",
                     }],
                 }],
@@ -379,8 +379,8 @@ class Experiment(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "example",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example",
@@ -393,7 +393,7 @@ class Experiment(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -417,7 +417,7 @@ class Experiment(pulumi.CustomResource):
             },
             selectors=[{
                 "name": "Selector1",
-                "chaosStudioTargetIds": [example_target.id],
+                "chaos_studio_target_ids": [example_target.id],
             }],
             steps=[{
                 "name": "example",
@@ -425,11 +425,11 @@ class Experiment(pulumi.CustomResource):
                     "name": "example",
                     "actions": [{
                         "urn": example_capability.capability_urn,
-                        "selectorName": "Selector1",
+                        "selector_name": "Selector1",
                         "parameters": {
-                            "abruptShutdown": "false",
+                            "abrupt_shutdown": "false",
                         },
-                        "actionType": "continuous",
+                        "action_type": "continuous",
                         "duration": "PT10M",
                     }],
                 }],

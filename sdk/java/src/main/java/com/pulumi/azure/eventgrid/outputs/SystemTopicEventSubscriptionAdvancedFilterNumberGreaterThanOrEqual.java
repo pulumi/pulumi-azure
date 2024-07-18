@@ -11,10 +11,18 @@ import java.util.Objects;
 
 @CustomType
 public final class SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual {
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     private String key;
     private Double value;
 
     private SystemTopicEventSubscriptionAdvancedFilterNumberGreaterThanOrEqual() {}
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     public String key() {
         return this.key;
     }

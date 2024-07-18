@@ -4238,6 +4238,11 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
                  secret_name: str,
                  parameters: Optional[Mapping[str, str]] = None,
                  secret_version: Optional[str] = None):
+        """
+        :param str secret_name: Specifies the secret name in Azure Key Vault.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        :param str secret_version: Specifies the secret version in Azure Key Vault.
+        """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "secret_name", secret_name)
         if parameters is not None:
@@ -4253,16 +4258,25 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(dict):
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault.
+        """
         return pulumi.get(self, "secret_name")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="secretVersion")
     def secret_version(self) -> Optional[str]:
+        """
+        Specifies the secret version in Azure Key Vault.
+        """
         return pulumi.get(self, "secret_version")
 
 
@@ -4353,6 +4367,11 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
                  secret_name: str,
                  parameters: Optional[Mapping[str, str]] = None,
                  secret_version: Optional[str] = None):
+        """
+        :param str secret_name: Specifies the secret name in Azure Key Vault.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        :param str secret_version: Specifies the secret version in Azure Key Vault.
+        """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "secret_name", secret_name)
         if parameters is not None:
@@ -4368,16 +4387,25 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
     @property
     @pulumi.getter(name="secretName")
     def secret_name(self) -> str:
+        """
+        Specifies the secret name in Azure Key Vault.
+        """
         return pulumi.get(self, "secret_name")
 
     @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="secretVersion")
     def secret_version(self) -> Optional[str]:
+        """
+        Specifies the secret version in Azure Key Vault.
+        """
         return pulumi.get(self, "secret_version")
 
 

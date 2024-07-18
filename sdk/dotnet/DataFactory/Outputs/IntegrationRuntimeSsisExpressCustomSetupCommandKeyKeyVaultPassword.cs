@@ -14,8 +14,17 @@ namespace Pulumi.Azure.DataFactory.Outputs
     public sealed class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword
     {
         public readonly string LinkedServiceName;
+        /// <summary>
+        /// A map of parameters to associate with the Key Vault Data Factory Linked Service.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// Specifies the secret name in Azure Key Vault.
+        /// </summary>
         public readonly string SecretName;
+        /// <summary>
+        /// Specifies the secret version in Azure Key Vault.
+        /// </summary>
         public readonly string? SecretVersion;
 
         [OutputConstructor]

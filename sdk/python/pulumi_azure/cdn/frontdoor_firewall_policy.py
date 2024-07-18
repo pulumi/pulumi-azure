@@ -495,15 +495,15 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "name": "Rule1",
                     "enabled": True,
                     "priority": 1,
-                    "rateLimitDurationInMinutes": 1,
-                    "rateLimitThreshold": 10,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
                     "type": "MatchRule",
                     "action": "Block",
-                    "matchConditions": [{
-                        "matchVariable": "RemoteAddr",
+                    "match_conditions": [{
+                        "match_variable": "RemoteAddr",
                         "operator": "IPMatch",
-                        "negationCondition": False,
-                        "matchValues": [
+                        "negation_condition": False,
+                        "match_values": [
                             "10.0.1.0/24",
                             "10.0.0.0/24",
                         ],
@@ -513,23 +513,23 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "name": "Rule2",
                     "enabled": True,
                     "priority": 2,
-                    "rateLimitDurationInMinutes": 1,
-                    "rateLimitThreshold": 10,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
                     "type": "MatchRule",
                     "action": "Block",
-                    "matchConditions": [
+                    "match_conditions": [
                         {
-                            "matchVariable": "RemoteAddr",
+                            "match_variable": "RemoteAddr",
                             "operator": "IPMatch",
-                            "negationCondition": False,
-                            "matchValues": ["192.168.1.0/24"],
+                            "negation_condition": False,
+                            "match_values": ["192.168.1.0/24"],
                         },
                         {
-                            "matchVariable": "RequestHeader",
+                            "match_variable": "RequestHeader",
                             "selector": "UserAgent",
                             "operator": "Contains",
-                            "negationCondition": False,
-                            "matchValues": ["windows"],
+                            "negation_condition": False,
+                            "match_values": ["windows"],
                             "transforms": [
                                 "Lowercase",
                                 "Trim",
@@ -543,31 +543,31 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "type": "DefaultRuleSet",
                     "version": "1.0",
                     "exclusions": [{
-                        "matchVariable": "QueryStringArgNames",
+                        "match_variable": "QueryStringArgNames",
                         "operator": "Equals",
                         "selector": "not_suspicious",
                     }],
                     "overrides": [
                         {
-                            "ruleGroupName": "PHP",
+                            "rule_group_name": "PHP",
                             "rules": [{
-                                "ruleId": "933100",
+                                "rule_id": "933100",
                                 "enabled": False,
                                 "action": "Block",
                             }],
                         },
                         {
-                            "ruleGroupName": "SQLI",
+                            "rule_group_name": "SQLI",
                             "exclusions": [{
-                                "matchVariable": "QueryStringArgNames",
+                                "match_variable": "QueryStringArgNames",
                                 "operator": "Equals",
                                 "selector": "really_not_suspicious",
                             }],
                             "rules": [{
-                                "ruleId": "942200",
+                                "rule_id": "942200",
                                 "action": "Block",
                                 "exclusions": [{
-                                    "matchVariable": "QueryStringArgNames",
+                                    "match_variable": "QueryStringArgNames",
                                     "operator": "Equals",
                                     "selector": "innocent",
                                 }],
@@ -646,15 +646,15 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "name": "Rule1",
                     "enabled": True,
                     "priority": 1,
-                    "rateLimitDurationInMinutes": 1,
-                    "rateLimitThreshold": 10,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
                     "type": "MatchRule",
                     "action": "Block",
-                    "matchConditions": [{
-                        "matchVariable": "RemoteAddr",
+                    "match_conditions": [{
+                        "match_variable": "RemoteAddr",
                         "operator": "IPMatch",
-                        "negationCondition": False,
-                        "matchValues": [
+                        "negation_condition": False,
+                        "match_values": [
                             "10.0.1.0/24",
                             "10.0.0.0/24",
                         ],
@@ -664,23 +664,23 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "name": "Rule2",
                     "enabled": True,
                     "priority": 2,
-                    "rateLimitDurationInMinutes": 1,
-                    "rateLimitThreshold": 10,
+                    "rate_limit_duration_in_minutes": 1,
+                    "rate_limit_threshold": 10,
                     "type": "MatchRule",
                     "action": "Block",
-                    "matchConditions": [
+                    "match_conditions": [
                         {
-                            "matchVariable": "RemoteAddr",
+                            "match_variable": "RemoteAddr",
                             "operator": "IPMatch",
-                            "negationCondition": False,
-                            "matchValues": ["192.168.1.0/24"],
+                            "negation_condition": False,
+                            "match_values": ["192.168.1.0/24"],
                         },
                         {
-                            "matchVariable": "RequestHeader",
+                            "match_variable": "RequestHeader",
                             "selector": "UserAgent",
                             "operator": "Contains",
-                            "negationCondition": False,
-                            "matchValues": ["windows"],
+                            "negation_condition": False,
+                            "match_values": ["windows"],
                             "transforms": [
                                 "Lowercase",
                                 "Trim",
@@ -694,31 +694,31 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "type": "DefaultRuleSet",
                     "version": "1.0",
                     "exclusions": [{
-                        "matchVariable": "QueryStringArgNames",
+                        "match_variable": "QueryStringArgNames",
                         "operator": "Equals",
                         "selector": "not_suspicious",
                     }],
                     "overrides": [
                         {
-                            "ruleGroupName": "PHP",
+                            "rule_group_name": "PHP",
                             "rules": [{
-                                "ruleId": "933100",
+                                "rule_id": "933100",
                                 "enabled": False,
                                 "action": "Block",
                             }],
                         },
                         {
-                            "ruleGroupName": "SQLI",
+                            "rule_group_name": "SQLI",
                             "exclusions": [{
-                                "matchVariable": "QueryStringArgNames",
+                                "match_variable": "QueryStringArgNames",
                                 "operator": "Equals",
                                 "selector": "really_not_suspicious",
                             }],
                             "rules": [{
-                                "ruleId": "942200",
+                                "rule_id": "942200",
                                 "action": "Block",
                                 "exclusions": [{
-                                    "matchVariable": "QueryStringArgNames",
+                                    "match_variable": "QueryStringArgNames",
                                     "operator": "Equals",
                                     "selector": "innocent",
                                 }],

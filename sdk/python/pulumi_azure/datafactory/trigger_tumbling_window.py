@@ -570,7 +570,7 @@ class TriggerTumblingWindow(pulumi.CustomResource):
             pipeline={
                 "name": example_pipeline.name,
                 "parameters": {
-                    "Env": "Prod",
+                    "env": "Prod",
                 },
             },
             trigger_dependencies=[{
@@ -655,7 +655,7 @@ class TriggerTumblingWindow(pulumi.CustomResource):
             pipeline={
                 "name": example_pipeline.name,
                 "parameters": {
-                    "Env": "Prod",
+                    "env": "Prod",
                 },
             },
             trigger_dependencies=[{

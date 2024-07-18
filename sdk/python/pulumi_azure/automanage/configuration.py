@@ -482,43 +482,43 @@ class Configuration(pulumi.CustomResource):
                     "paths": "C:\\\\Windows\\\\Temp;D:\\\\Temp",
                     "processes": "svchost.exe;notepad.exe",
                 },
-                "realTimeProtectionEnabled": True,
-                "scheduledScanEnabled": True,
-                "scheduledScanType": "Quick",
-                "scheduledScanDay": 1,
-                "scheduledScanTimeInMinutes": 1339,
+                "real_time_protection_enabled": True,
+                "scheduled_scan_enabled": True,
+                "scheduled_scan_type": "Quick",
+                "scheduled_scan_day": 1,
+                "scheduled_scan_time_in_minutes": 1339,
             },
             azure_security_baseline={
-                "assignmentType": "ApplyAndAutoCorrect",
+                "assignment_type": "ApplyAndAutoCorrect",
             },
             automation_account_enabled=True,
             backup={
-                "policyName": "acctest-backup-policy-%d",
-                "timeZone": "UTC",
-                "instantRpRetentionRangeInDays": 2,
-                "schedulePolicy": {
-                    "scheduleRunFrequency": "Daily",
-                    "scheduleRunDays": [
+                "policy_name": "acctest-backup-policy-%d",
+                "time_zone": "UTC",
+                "instant_rp_retention_range_in_days": 2,
+                "schedule_policy": {
+                    "schedule_run_frequency": "Daily",
+                    "schedule_run_days": [
                         "Monday",
                         "Tuesday",
                     ],
-                    "scheduleRunTimes": ["12:00"],
-                    "schedulePolicyType": "SimpleSchedulePolicy",
+                    "schedule_run_times": ["12:00"],
+                    "schedule_policy_type": "SimpleSchedulePolicy",
                 },
-                "retentionPolicy": {
-                    "retentionPolicyType": "LongTermRetentionPolicy",
-                    "dailySchedule": {
-                        "retentionTimes": ["12:00"],
-                        "retentionDuration": {
+                "retention_policy": {
+                    "retention_policy_type": "LongTermRetentionPolicy",
+                    "daily_schedule": {
+                        "retention_times": ["12:00"],
+                        "retention_duration": {
                             "count": 7,
-                            "durationType": "Days",
+                            "duration_type": "Days",
                         },
                     },
-                    "weeklySchedule": {
-                        "retentionTimes": ["14:00"],
-                        "retentionDuration": {
+                    "weekly_schedule": {
+                        "retention_times": ["14:00"],
+                        "retention_duration": {
                             "count": 4,
-                            "durationType": "Weeks",
+                            "duration_type": "Weeks",
                         },
                     },
                 },
@@ -584,43 +584,43 @@ class Configuration(pulumi.CustomResource):
                     "paths": "C:\\\\Windows\\\\Temp;D:\\\\Temp",
                     "processes": "svchost.exe;notepad.exe",
                 },
-                "realTimeProtectionEnabled": True,
-                "scheduledScanEnabled": True,
-                "scheduledScanType": "Quick",
-                "scheduledScanDay": 1,
-                "scheduledScanTimeInMinutes": 1339,
+                "real_time_protection_enabled": True,
+                "scheduled_scan_enabled": True,
+                "scheduled_scan_type": "Quick",
+                "scheduled_scan_day": 1,
+                "scheduled_scan_time_in_minutes": 1339,
             },
             azure_security_baseline={
-                "assignmentType": "ApplyAndAutoCorrect",
+                "assignment_type": "ApplyAndAutoCorrect",
             },
             automation_account_enabled=True,
             backup={
-                "policyName": "acctest-backup-policy-%d",
-                "timeZone": "UTC",
-                "instantRpRetentionRangeInDays": 2,
-                "schedulePolicy": {
-                    "scheduleRunFrequency": "Daily",
-                    "scheduleRunDays": [
+                "policy_name": "acctest-backup-policy-%d",
+                "time_zone": "UTC",
+                "instant_rp_retention_range_in_days": 2,
+                "schedule_policy": {
+                    "schedule_run_frequency": "Daily",
+                    "schedule_run_days": [
                         "Monday",
                         "Tuesday",
                     ],
-                    "scheduleRunTimes": ["12:00"],
-                    "schedulePolicyType": "SimpleSchedulePolicy",
+                    "schedule_run_times": ["12:00"],
+                    "schedule_policy_type": "SimpleSchedulePolicy",
                 },
-                "retentionPolicy": {
-                    "retentionPolicyType": "LongTermRetentionPolicy",
-                    "dailySchedule": {
-                        "retentionTimes": ["12:00"],
-                        "retentionDuration": {
+                "retention_policy": {
+                    "retention_policy_type": "LongTermRetentionPolicy",
+                    "daily_schedule": {
+                        "retention_times": ["12:00"],
+                        "retention_duration": {
                             "count": 7,
-                            "durationType": "Days",
+                            "duration_type": "Days",
                         },
                     },
-                    "weeklySchedule": {
-                        "retentionTimes": ["14:00"],
-                        "retentionDuration": {
+                    "weekly_schedule": {
+                        "retention_times": ["14:00"],
+                        "retention_duration": {
                             "count": 4,
-                            "durationType": "Weeks",
+                            "duration_type": "Weeks",
                         },
                     },
                 },

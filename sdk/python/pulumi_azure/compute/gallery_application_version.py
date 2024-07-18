@@ -478,11 +478,11 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 "remove": "[remove command]",
             },
             source={
-                "mediaLink": example_blob.id,
+                "media_link": example_blob.id,
             },
             target_regions=[{
                 "name": example_gallery_application.location,
-                "regionalReplicaCount": 1,
+                "regional_replica_count": 1,
             }])
         ```
 
@@ -561,11 +561,11 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 "remove": "[remove command]",
             },
             source={
-                "mediaLink": example_blob.id,
+                "media_link": example_blob.id,
             },
             target_regions=[{
                 "name": example_gallery_application.location,
-                "regionalReplicaCount": 1,
+                "regional_replica_count": 1,
             }])
         ```
 

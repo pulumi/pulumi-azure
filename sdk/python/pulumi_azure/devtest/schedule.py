@@ -455,7 +455,7 @@ class Schedule(pulumi.CustomResource):
             status="Enabled",
             weekly_recurrence={
                 "time": "1100",
-                "weekDays": [
+                "week_days": [
                     "Monday",
                     "Tuesday",
                 ],
@@ -521,7 +521,7 @@ class Schedule(pulumi.CustomResource):
             status="Enabled",
             weekly_recurrence={
                 "time": "1100",
-                "weekDays": [
+                "week_days": [
                     "Monday",
                     "Tuesday",
                 ],

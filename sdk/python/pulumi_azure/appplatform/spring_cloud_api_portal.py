@@ -350,9 +350,9 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             instance_count=1,
             api_try_out_enabled=True,
             sso={
-                "clientId": "test",
-                "clientSecret": "secret",
-                "issuerUri": "https://www.example.com/issueToken",
+                "client_id": "test",
+                "client_secret": "secret",
+                "issuer_uri": "https://www.example.com/issueToken",
                 "scopes": ["read"],
             })
         ```
@@ -413,9 +413,9 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             instance_count=1,
             api_try_out_enabled=True,
             sso={
-                "clientId": "test",
-                "clientSecret": "secret",
-                "issuerUri": "https://www.example.com/issueToken",
+                "client_id": "test",
+                "client_secret": "secret",
+                "issuer_uri": "https://www.example.com/issueToken",
                 "scopes": ["read"],
             })
         ```
