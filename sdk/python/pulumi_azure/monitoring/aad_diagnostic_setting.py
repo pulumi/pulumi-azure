@@ -338,28 +338,28 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             enabled_logs=[
                 {
                     "category": "SignInLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },
                 },
                 {
                     "category": "AuditLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },
                 },
                 {
                     "category": "NonInteractiveUserSignInLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },
                 },
                 {
                     "category": "ServicePrincipalSignInLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },
@@ -426,28 +426,28 @@ class AadDiagnosticSetting(pulumi.CustomResource):
             enabled_logs=[
                 {
                     "category": "SignInLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },
                 },
                 {
                     "category": "AuditLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },
                 },
                 {
                     "category": "NonInteractiveUserSignInLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },
                 },
                 {
                     "category": "ServicePrincipalSignInLogs",
-                    "retentionPolicy": {
+                    "retention_policy": {
                         "enabled": True,
                         "days": 1,
                     },

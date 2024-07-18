@@ -542,7 +542,7 @@ class DatasetParquet(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location={
-                "relativeUrl": "http://www.bing.com",
+                "relative_url": "http://www.bing.com",
                 "path": "foo/bar/",
                 "filename": "fizz.txt",
             })
@@ -609,7 +609,7 @@ class DatasetParquet(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location={
-                "relativeUrl": "http://www.bing.com",
+                "relative_url": "http://www.bing.com",
                 "path": "foo/bar/",
                 "filename": "fizz.txt",
             })

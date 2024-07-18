@@ -561,9 +561,9 @@ class ComputeCluster(pulumi.CustomResource):
             machine_learning_workspace_id=example_workspace.id,
             subnet_resource_id=example_subnet.id,
             scale_settings={
-                "minNodeCount": 0,
-                "maxNodeCount": 1,
-                "scaleDownNodesAfterIdleDuration": "PT30S",
+                "min_node_count": 0,
+                "max_node_count": 1,
+                "scale_down_nodes_after_idle_duration": "PT30S",
             },
             identity={
                 "type": "SystemAssigned",
@@ -664,9 +664,9 @@ class ComputeCluster(pulumi.CustomResource):
             machine_learning_workspace_id=example_workspace.id,
             subnet_resource_id=example_subnet.id,
             scale_settings={
-                "minNodeCount": 0,
-                "maxNodeCount": 1,
-                "scaleDownNodesAfterIdleDuration": "PT30S",
+                "min_node_count": 0,
+                "max_node_count": 1,
+                "scale_down_nodes_after_idle_duration": "PT30S",
             },
             identity={
                 "type": "SystemAssigned",

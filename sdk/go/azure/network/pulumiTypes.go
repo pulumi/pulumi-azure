@@ -7413,17 +7413,24 @@ func (o ExpressRoutePortIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ExpressRoutePortLink1 struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`
 	// The connector type of the Express Route Port Link.
 	ConnectorType *string `pulumi:"connectorType"`
 	// The ID of this Express Route Port Link.
 	Id *string `pulumi:"id"`
 	// The interface name of the Azure router associated with the Express Route Port Link.
-	InterfaceName             *string `pulumi:"interfaceName"`
+	InterfaceName *string `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
-	MacsecCipher              *string `pulumi:"macsecCipher"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher *string `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
-	MacsecSciEnabled          *bool   `pulumi:"macsecSciEnabled"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled *bool `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId *string `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -7444,17 +7451,24 @@ type ExpressRoutePortLink1Input interface {
 }
 
 type ExpressRoutePortLink1Args struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 	AdminEnabled pulumi.BoolPtrInput `pulumi:"adminEnabled"`
 	// The connector type of the Express Route Port Link.
 	ConnectorType pulumi.StringPtrInput `pulumi:"connectorType"`
 	// The ID of this Express Route Port Link.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The interface name of the Azure router associated with the Express Route Port Link.
-	InterfaceName             pulumi.StringPtrInput `pulumi:"interfaceName"`
+	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
-	MacsecCipher              pulumi.StringPtrInput `pulumi:"macsecCipher"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
-	MacsecSciEnabled          pulumi.BoolPtrInput   `pulumi:"macsecSciEnabled"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled pulumi.BoolPtrInput `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId pulumi.StringPtrInput `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -7540,6 +7554,7 @@ func (o ExpressRoutePortLink1Output) ToExpressRoutePortLink1PtrOutputWithContext
 	}).(ExpressRoutePortLink1PtrOutput)
 }
 
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 func (o ExpressRoutePortLink1Output) AdminEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *bool { return v.AdminEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7559,18 +7574,24 @@ func (o ExpressRoutePortLink1Output) InterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.InterfaceName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 func (o ExpressRoutePortLink1Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
 
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink1Output) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCipher }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 func (o ExpressRoutePortLink1Output) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *string { return v.MacsecCknKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
 
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink1Output) MacsecSciEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink1) *bool { return v.MacsecSciEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7614,6 +7635,7 @@ func (o ExpressRoutePortLink1PtrOutput) Elem() ExpressRoutePortLink1Output {
 	}).(ExpressRoutePortLink1Output)
 }
 
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 func (o ExpressRoutePortLink1PtrOutput) AdminEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *bool {
 		if v == nil {
@@ -7653,6 +7675,7 @@ func (o ExpressRoutePortLink1PtrOutput) InterfaceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 func (o ExpressRoutePortLink1PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
 		if v == nil {
@@ -7662,6 +7685,7 @@ func (o ExpressRoutePortLink1PtrOutput) MacsecCakKeyvaultSecretId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink1PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
 		if v == nil {
@@ -7671,6 +7695,7 @@ func (o ExpressRoutePortLink1PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 func (o ExpressRoutePortLink1PtrOutput) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *string {
 		if v == nil {
@@ -7680,6 +7705,9 @@ func (o ExpressRoutePortLink1PtrOutput) MacsecCknKeyvaultSecretId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink1PtrOutput) MacsecSciEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink1) *bool {
 		if v == nil {
@@ -7720,17 +7748,24 @@ func (o ExpressRoutePortLink1PtrOutput) RouterName() pulumi.StringPtrOutput {
 }
 
 type ExpressRoutePortLink2 struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 	AdminEnabled *bool `pulumi:"adminEnabled"`
 	// The connector type of the Express Route Port Link.
 	ConnectorType *string `pulumi:"connectorType"`
 	// The ID of this Express Route Port Link.
 	Id *string `pulumi:"id"`
 	// The interface name of the Azure router associated with the Express Route Port Link.
-	InterfaceName             *string `pulumi:"interfaceName"`
+	InterfaceName *string `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId *string `pulumi:"macsecCakKeyvaultSecretId"`
-	MacsecCipher              *string `pulumi:"macsecCipher"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher *string `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId *string `pulumi:"macsecCknKeyvaultSecretId"`
-	MacsecSciEnabled          *bool   `pulumi:"macsecSciEnabled"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled *bool `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId *string `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -7751,17 +7786,24 @@ type ExpressRoutePortLink2Input interface {
 }
 
 type ExpressRoutePortLink2Args struct {
+	// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 	AdminEnabled pulumi.BoolPtrInput `pulumi:"adminEnabled"`
 	// The connector type of the Express Route Port Link.
 	ConnectorType pulumi.StringPtrInput `pulumi:"connectorType"`
 	// The ID of this Express Route Port Link.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The interface name of the Azure router associated with the Express Route Port Link.
-	InterfaceName             pulumi.StringPtrInput `pulumi:"interfaceName"`
+	InterfaceName pulumi.StringPtrInput `pulumi:"interfaceName"`
+	// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 	MacsecCakKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCakKeyvaultSecretId"`
-	MacsecCipher              pulumi.StringPtrInput `pulumi:"macsecCipher"`
+	// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+	MacsecCipher pulumi.StringPtrInput `pulumi:"macsecCipher"`
+	// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 	MacsecCknKeyvaultSecretId pulumi.StringPtrInput `pulumi:"macsecCknKeyvaultSecretId"`
-	MacsecSciEnabled          pulumi.BoolPtrInput   `pulumi:"macsecSciEnabled"`
+	// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+	//
+	// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+	MacsecSciEnabled pulumi.BoolPtrInput `pulumi:"macsecSciEnabled"`
 	// The ID that maps from the Express Route Port Link to the patch panel port.
 	PatchPanelId pulumi.StringPtrInput `pulumi:"patchPanelId"`
 	// The ID that maps from the patch panel port to the rack.
@@ -7847,6 +7889,7 @@ func (o ExpressRoutePortLink2Output) ToExpressRoutePortLink2PtrOutputWithContext
 	}).(ExpressRoutePortLink2PtrOutput)
 }
 
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 func (o ExpressRoutePortLink2Output) AdminEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *bool { return v.AdminEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7866,18 +7909,24 @@ func (o ExpressRoutePortLink2Output) InterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.InterfaceName }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 func (o ExpressRoutePortLink2Output) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCakKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
 
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink2Output) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCipher }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 func (o ExpressRoutePortLink2Output) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *string { return v.MacsecCknKeyvaultSecretId }).(pulumi.StringPtrOutput)
 }
 
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink2Output) MacsecSciEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ExpressRoutePortLink2) *bool { return v.MacsecSciEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -7921,6 +7970,7 @@ func (o ExpressRoutePortLink2PtrOutput) Elem() ExpressRoutePortLink2Output {
 	}).(ExpressRoutePortLink2Output)
 }
 
+// Whether enable administration state on the Express Route Port Link? Defaults to `false`.
 func (o ExpressRoutePortLink2PtrOutput) AdminEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *bool {
 		if v == nil {
@@ -7960,6 +8010,7 @@ func (o ExpressRoutePortLink2PtrOutput) InterfaceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
 func (o ExpressRoutePortLink2PtrOutput) MacsecCakKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
 		if v == nil {
@@ -7969,6 +8020,7 @@ func (o ExpressRoutePortLink2PtrOutput) MacsecCakKeyvaultSecretId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
 func (o ExpressRoutePortLink2PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
 		if v == nil {
@@ -7978,6 +8030,7 @@ func (o ExpressRoutePortLink2PtrOutput) MacsecCipher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
 func (o ExpressRoutePortLink2PtrOutput) MacsecCknKeyvaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *string {
 		if v == nil {
@@ -7987,6 +8040,9 @@ func (o ExpressRoutePortLink2PtrOutput) MacsecCknKeyvaultSecretId() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+//
+// > **NOTE** `macsecCknKeyvaultSecretId` and `macsecCakKeyvaultSecretId` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
 func (o ExpressRoutePortLink2PtrOutput) MacsecSciEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExpressRoutePortLink2) *bool {
 		if v == nil {
@@ -10484,19 +10540,24 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArrayOutput) I
 }
 
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule struct {
-	Description          *string                                                                    `pulumi:"description"`
-	DestinationAddresses []string                                                                   `pulumi:"destinationAddresses"`
-	DestinationFqdnTags  []string                                                                   `pulumi:"destinationFqdnTags"`
-	DestinationFqdns     []string                                                                   `pulumi:"destinationFqdns"`
-	DestinationUrls      []string                                                                   `pulumi:"destinationUrls"`
-	HttpHeaders          []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader `pulumi:"httpHeaders"`
+	Description          *string  `pulumi:"description"`
+	DestinationAddresses []string `pulumi:"destinationAddresses"`
+	// Specifies a list of destination FQDN tags.
+	DestinationFqdnTags []string `pulumi:"destinationFqdnTags"`
+	DestinationFqdns    []string `pulumi:"destinationFqdns"`
+	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
+	DestinationUrls []string `pulumi:"destinationUrls"`
+	// Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
+	HttpHeaders []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader `pulumi:"httpHeaders"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name            string                                                                   `pulumi:"name"`
 	Protocols       []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol `pulumi:"protocols"`
 	SourceAddresses []string                                                                 `pulumi:"sourceAddresses"`
 	SourceIpGroups  []string                                                                 `pulumi:"sourceIpGroups"`
-	TerminateTls    *bool                                                                    `pulumi:"terminateTls"`
-	WebCategories   []string                                                                 `pulumi:"webCategories"`
+	// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
+	TerminateTls *bool `pulumi:"terminateTls"`
+	// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+	WebCategories []string `pulumi:"webCategories"`
 }
 
 // FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput is an input type that accepts FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs and FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput values.
@@ -10511,19 +10572,24 @@ type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleInput interfa
 }
 
 type FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs struct {
-	Description          pulumi.StringPtrInput                                                              `pulumi:"description"`
-	DestinationAddresses pulumi.StringArrayInput                                                            `pulumi:"destinationAddresses"`
-	DestinationFqdnTags  pulumi.StringArrayInput                                                            `pulumi:"destinationFqdnTags"`
-	DestinationFqdns     pulumi.StringArrayInput                                                            `pulumi:"destinationFqdns"`
-	DestinationUrls      pulumi.StringArrayInput                                                            `pulumi:"destinationUrls"`
-	HttpHeaders          FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayInput `pulumi:"httpHeaders"`
+	Description          pulumi.StringPtrInput   `pulumi:"description"`
+	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
+	// Specifies a list of destination FQDN tags.
+	DestinationFqdnTags pulumi.StringArrayInput `pulumi:"destinationFqdnTags"`
+	DestinationFqdns    pulumi.StringArrayInput `pulumi:"destinationFqdns"`
+	// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
+	DestinationUrls pulumi.StringArrayInput `pulumi:"destinationUrls"`
+	// Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
+	HttpHeaders FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayInput `pulumi:"httpHeaders"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name            pulumi.StringInput                                                               `pulumi:"name"`
 	Protocols       FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArrayInput `pulumi:"protocols"`
 	SourceAddresses pulumi.StringArrayInput                                                          `pulumi:"sourceAddresses"`
 	SourceIpGroups  pulumi.StringArrayInput                                                          `pulumi:"sourceIpGroups"`
-	TerminateTls    pulumi.BoolPtrInput                                                              `pulumi:"terminateTls"`
-	WebCategories   pulumi.StringArrayInput                                                          `pulumi:"webCategories"`
+	// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
+	TerminateTls pulumi.BoolPtrInput `pulumi:"terminateTls"`
+	// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+	WebCategories pulumi.StringArrayInput `pulumi:"webCategories"`
 }
 
 func (FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs) ElementType() reflect.Type {
@@ -10587,6 +10653,7 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of destination FQDN tags.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationFqdnTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.DestinationFqdnTags
@@ -10599,12 +10666,14 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) De
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destinationFqdns`.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) DestinationUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.DestinationUrls
 	}).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of HTTP/HTTPS headers to insert. One or more `httpHeaders` blocks as defined below.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) HttpHeaders() FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader {
 		return v.HttpHeaders
@@ -10634,10 +10703,12 @@ func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) So
 	}).(pulumi.StringArrayOutput)
 }
 
+// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destinationUrls`. Needs Premium SKU for Firewall Policy.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) TerminateTls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) *bool { return v.TerminateTls }).(pulumi.BoolPtrOutput)
 }
 
+// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
 func (o FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleOutput) WebCategories() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule) []string {
 		return v.WebCategories
@@ -11005,17 +11076,23 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionArrayOutput) Index(i p
 }
 
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRule struct {
-	Description        *string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The destination IP address (including CIDR).
 	DestinationAddress *string `pulumi:"destinationAddress"`
 	DestinationPorts   *string `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-	Name              string   `pulumi:"name"`
-	Protocols         []string `pulumi:"protocols"`
-	SourceAddresses   []string `pulumi:"sourceAddresses"`
-	SourceIpGroups    []string `pulumi:"sourceIpGroups"`
-	TranslatedAddress *string  `pulumi:"translatedAddress"`
-	TranslatedFqdn    *string  `pulumi:"translatedFqdn"`
-	TranslatedPort    int      `pulumi:"translatedPort"`
+	Name            string   `pulumi:"name"`
+	Protocols       []string `pulumi:"protocols"`
+	SourceAddresses []string `pulumi:"sourceAddresses"`
+	SourceIpGroups  []string `pulumi:"sourceIpGroups"`
+	// Specifies the translated address.
+	TranslatedAddress *string `pulumi:"translatedAddress"`
+	// Specifies the translated FQDN.
+	//
+	// > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
+	TranslatedFqdn *string `pulumi:"translatedFqdn"`
+	// Specifies the translated port.
+	TranslatedPort int `pulumi:"translatedPort"`
 }
 
 // FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput is an input type that accepts FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs and FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput values.
@@ -11030,17 +11107,23 @@ type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleInput interface {
 }
 
 type FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs struct {
-	Description        pulumi.StringPtrInput `pulumi:"description"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The destination IP address (including CIDR).
 	DestinationAddress pulumi.StringPtrInput `pulumi:"destinationAddress"`
 	DestinationPorts   pulumi.StringPtrInput `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
-	Name              pulumi.StringInput      `pulumi:"name"`
-	Protocols         pulumi.StringArrayInput `pulumi:"protocols"`
-	SourceAddresses   pulumi.StringArrayInput `pulumi:"sourceAddresses"`
-	SourceIpGroups    pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
-	TranslatedAddress pulumi.StringPtrInput   `pulumi:"translatedAddress"`
-	TranslatedFqdn    pulumi.StringPtrInput   `pulumi:"translatedFqdn"`
-	TranslatedPort    pulumi.IntInput         `pulumi:"translatedPort"`
+	Name            pulumi.StringInput      `pulumi:"name"`
+	Protocols       pulumi.StringArrayInput `pulumi:"protocols"`
+	SourceAddresses pulumi.StringArrayInput `pulumi:"sourceAddresses"`
+	SourceIpGroups  pulumi.StringArrayInput `pulumi:"sourceIpGroups"`
+	// Specifies the translated address.
+	TranslatedAddress pulumi.StringPtrInput `pulumi:"translatedAddress"`
+	// Specifies the translated FQDN.
+	//
+	// > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
+	TranslatedFqdn pulumi.StringPtrInput `pulumi:"translatedFqdn"`
+	// Specifies the translated port.
+	TranslatedPort pulumi.IntInput `pulumi:"translatedPort"`
 }
 
 func (FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs) ElementType() reflect.Type {
@@ -11098,6 +11181,7 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) Descriptio
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The destination IP address (including CIDR).
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) DestinationAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.DestinationAddress }).(pulumi.StringPtrOutput)
 }
@@ -11123,14 +11207,19 @@ func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) SourceIpGr
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) []string { return v.SourceIpGroups }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the translated address.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.TranslatedAddress }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the translated FQDN.
+//
+// > **NOTE:** Exactly one of `translatedAddress` and `translatedFqdn` should be set.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedFqdn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) *string { return v.TranslatedFqdn }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the translated port.
 func (o FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleOutput) TranslatedPort() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNatRuleCollectionRule) int { return v.TranslatedPort }).(pulumi.IntOutput)
 }
@@ -11285,8 +11374,9 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule struct {
 	Description          *string  `pulumi:"description"`
 	DestinationAddresses []string `pulumi:"destinationAddresses"`
 	DestinationFqdns     []string `pulumi:"destinationFqdns"`
-	DestinationIpGroups  []string `pulumi:"destinationIpGroups"`
-	DestinationPorts     []string `pulumi:"destinationPorts"`
+	// Specifies a list of destination IP groups.
+	DestinationIpGroups []string `pulumi:"destinationIpGroups"`
+	DestinationPorts    []string `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name            string   `pulumi:"name"`
 	Protocols       []string `pulumi:"protocols"`
@@ -11309,8 +11399,9 @@ type FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs struct {
 	Description          pulumi.StringPtrInput   `pulumi:"description"`
 	DestinationAddresses pulumi.StringArrayInput `pulumi:"destinationAddresses"`
 	DestinationFqdns     pulumi.StringArrayInput `pulumi:"destinationFqdns"`
-	DestinationIpGroups  pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
-	DestinationPorts     pulumi.StringArrayInput `pulumi:"destinationPorts"`
+	// Specifies a list of destination IP groups.
+	DestinationIpGroups pulumi.StringArrayInput `pulumi:"destinationIpGroups"`
+	DestinationPorts    pulumi.StringArrayInput `pulumi:"destinationPorts"`
 	// The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
 	Name            pulumi.StringInput      `pulumi:"name"`
 	Protocols       pulumi.StringArrayInput `pulumi:"protocols"`
@@ -11383,6 +11474,7 @@ func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) Destin
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string { return v.DestinationFqdns }).(pulumi.StringArrayOutput)
 }
 
+// Specifies a list of destination IP groups.
 func (o FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleOutput) DestinationIpGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule) []string {
 		return v.DestinationIpGroups
@@ -23282,6 +23374,7 @@ func (o VpnGatewayBgpSettingsPtrOutput) PeerWeight() pulumi.IntPtrOutput {
 }
 
 type VpnGatewayBgpSettingsInstance0BgpPeeringAddress struct {
+	// A list of custom BGP peering addresses to assign to this instance.
 	CustomIps []string `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps []string `pulumi:"defaultIps"`
@@ -23303,6 +23396,7 @@ type VpnGatewayBgpSettingsInstance0BgpPeeringAddressInput interface {
 }
 
 type VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs struct {
+	// A list of custom BGP peering addresses to assign to this instance.
 	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
@@ -23389,6 +23483,7 @@ func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) ToVpnGatewayBgpSe
 	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput)
 }
 
+// A list of custom BGP peering addresses to assign to this instance.
 func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput) CustomIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string { return v.CustomIps }).(pulumi.StringArrayOutput)
 }
@@ -23432,6 +23527,7 @@ func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) Elem() VpnGate
 	}).(VpnGatewayBgpSettingsInstance0BgpPeeringAddressOutput)
 }
 
+// A list of custom BGP peering addresses to assign to this instance.
 func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) CustomIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance0BgpPeeringAddress) []string {
 		if v == nil {
@@ -23472,6 +23568,7 @@ func (o VpnGatewayBgpSettingsInstance0BgpPeeringAddressPtrOutput) TunnelIps() pu
 }
 
 type VpnGatewayBgpSettingsInstance1BgpPeeringAddress struct {
+	// A list of custom BGP peering addresses to assign to this instance.
 	CustomIps []string `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps []string `pulumi:"defaultIps"`
@@ -23493,6 +23590,7 @@ type VpnGatewayBgpSettingsInstance1BgpPeeringAddressInput interface {
 }
 
 type VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs struct {
+	// A list of custom BGP peering addresses to assign to this instance.
 	CustomIps pulumi.StringArrayInput `pulumi:"customIps"`
 	// The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
 	DefaultIps pulumi.StringArrayInput `pulumi:"defaultIps"`
@@ -23579,6 +23677,7 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) ToVpnGatewayBgpSe
 	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput)
 }
 
+// A list of custom BGP peering addresses to assign to this instance.
 func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput) CustomIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string { return v.CustomIps }).(pulumi.StringArrayOutput)
 }
@@ -23622,6 +23721,7 @@ func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) Elem() VpnGate
 	}).(VpnGatewayBgpSettingsInstance1BgpPeeringAddressOutput)
 }
 
+// A list of custom BGP peering addresses to assign to this instance.
 func (o VpnGatewayBgpSettingsInstance1BgpPeeringAddressPtrOutput) CustomIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpnGatewayBgpSettingsInstance1BgpPeeringAddress) []string {
 		if v == nil {

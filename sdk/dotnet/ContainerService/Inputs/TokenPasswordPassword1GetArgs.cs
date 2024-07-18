@@ -12,6 +12,9 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
     public sealed class TokenPasswordPassword1GetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("expiry")]
         public Input<string>? Expiry { get; set; }
 

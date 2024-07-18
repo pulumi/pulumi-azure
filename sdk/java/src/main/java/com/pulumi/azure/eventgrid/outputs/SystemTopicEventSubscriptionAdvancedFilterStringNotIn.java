@@ -11,13 +11,33 @@ import java.util.Objects;
 
 @CustomType
 public final class SystemTopicEventSubscriptionAdvancedFilterStringNotIn {
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     private String key;
+    /**
+     * @return Specifies an array of values to compare to when using a multiple values operator.
+     * 
+     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * 
+     */
     private List<String> values;
 
     private SystemTopicEventSubscriptionAdvancedFilterStringNotIn() {}
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     public String key() {
         return this.key;
     }
+    /**
+     * @return Specifies an array of values to compare to when using a multiple values operator.
+     * 
+     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

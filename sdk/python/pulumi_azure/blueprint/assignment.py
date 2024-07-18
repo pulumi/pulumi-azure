@@ -490,7 +490,7 @@ class Assignment(pulumi.CustomResource):
             lock_exclude_principals=[current.object_id],
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             resource_groups=\"\"\"    {
               "ResourceGroup": {
@@ -588,7 +588,7 @@ class Assignment(pulumi.CustomResource):
             lock_exclude_principals=[current.object_id],
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             resource_groups=\"\"\"    {
               "ResourceGroup": {

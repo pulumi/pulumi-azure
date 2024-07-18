@@ -351,9 +351,12 @@ func (o AccountFilterTrackSelectionArrayOutput) Index(i pulumi.IntInput) Account
 }
 
 type AccountFilterTrackSelectionCondition struct {
+	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation string `pulumi:"operation"`
-	Property  string `pulumi:"property"`
-	Value     string `pulumi:"value"`
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+	Property string `pulumi:"property"`
+	// The track property value to match or not match.
+	Value string `pulumi:"value"`
 }
 
 // AccountFilterTrackSelectionConditionInput is an input type that accepts AccountFilterTrackSelectionConditionArgs and AccountFilterTrackSelectionConditionOutput values.
@@ -368,9 +371,12 @@ type AccountFilterTrackSelectionConditionInput interface {
 }
 
 type AccountFilterTrackSelectionConditionArgs struct {
+	// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 	Operation pulumi.StringInput `pulumi:"operation"`
-	Property  pulumi.StringInput `pulumi:"property"`
-	Value     pulumi.StringInput `pulumi:"value"`
+	// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+	Property pulumi.StringInput `pulumi:"property"`
+	// The track property value to match or not match.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (AccountFilterTrackSelectionConditionArgs) ElementType() reflect.Type {
@@ -424,14 +430,17 @@ func (o AccountFilterTrackSelectionConditionOutput) ToAccountFilterTrackSelectio
 	return o
 }
 
+// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
 func (o AccountFilterTrackSelectionConditionOutput) Operation() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Operation }).(pulumi.StringOutput)
 }
 
+// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
 func (o AccountFilterTrackSelectionConditionOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Property }).(pulumi.StringOutput)
 }
 
+// The track property value to match or not match.
 func (o AccountFilterTrackSelectionConditionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountFilterTrackSelectionCondition) string { return v.Value }).(pulumi.StringOutput)
 }

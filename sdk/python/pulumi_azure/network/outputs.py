@@ -4262,9 +4262,16 @@ class ExpressRoutePortLink1(dict):
                  rack_id: Optional[str] = None,
                  router_name: Optional[str] = None):
         """
+        :param bool admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         :param str connector_type: The connector type of the Express Route Port Link.
         :param str id: The ID of this Express Route Port Link.
         :param str interface_name: The interface name of the Azure router associated with the Express Route Port Link.
+        :param str macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        :param str macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        :param str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        :param bool macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+               
+               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param str rack_id: The ID that maps from the patch panel port to the rack.
         :param str router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4295,6 +4302,9 @@ class ExpressRoutePortLink1(dict):
     @property
     @pulumi.getter(name="adminEnabled")
     def admin_enabled(self) -> Optional[bool]:
+        """
+        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+        """
         return pulumi.get(self, "admin_enabled")
 
     @property
@@ -4324,21 +4334,35 @@ class ExpressRoutePortLink1(dict):
     @property
     @pulumi.getter(name="macsecCakKeyvaultSecretId")
     def macsec_cak_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
     @property
     @pulumi.getter(name="macsecCipher")
     def macsec_cipher(self) -> Optional[str]:
+        """
+        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        """
         return pulumi.get(self, "macsec_cipher")
 
     @property
     @pulumi.getter(name="macsecCknKeyvaultSecretId")
     def macsec_ckn_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        """
         return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
 
     @property
     @pulumi.getter(name="macsecSciEnabled")
     def macsec_sci_enabled(self) -> Optional[bool]:
+        """
+        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+
+        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        """
         return pulumi.get(self, "macsec_sci_enabled")
 
     @property
@@ -4416,9 +4440,16 @@ class ExpressRoutePortLink2(dict):
                  rack_id: Optional[str] = None,
                  router_name: Optional[str] = None):
         """
+        :param bool admin_enabled: Whether enable administration state on the Express Route Port Link? Defaults to `false`.
         :param str connector_type: The connector type of the Express Route Port Link.
         :param str id: The ID of this Express Route Port Link.
         :param str interface_name: The interface name of the Azure router associated with the Express Route Port Link.
+        :param str macsec_cak_keyvault_secret_id: The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        :param str macsec_cipher: The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        :param str macsec_ckn_keyvault_secret_id: The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        :param bool macsec_sci_enabled: Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+               
+               > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
         :param str patch_panel_id: The ID that maps from the Express Route Port Link to the patch panel port.
         :param str rack_id: The ID that maps from the patch panel port to the rack.
         :param str router_name: The name of the Azure router associated with the Express Route Port Link.
@@ -4449,6 +4480,9 @@ class ExpressRoutePortLink2(dict):
     @property
     @pulumi.getter(name="adminEnabled")
     def admin_enabled(self) -> Optional[bool]:
+        """
+        Whether enable administration state on the Express Route Port Link? Defaults to `false`.
+        """
         return pulumi.get(self, "admin_enabled")
 
     @property
@@ -4478,21 +4512,35 @@ class ExpressRoutePortLink2(dict):
     @property
     @pulumi.getter(name="macsecCakKeyvaultSecretId")
     def macsec_cak_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+        """
         return pulumi.get(self, "macsec_cak_keyvault_secret_id")
 
     @property
     @pulumi.getter(name="macsecCipher")
     def macsec_cipher(self) -> Optional[str]:
+        """
+        The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
+        """
         return pulumi.get(self, "macsec_cipher")
 
     @property
     @pulumi.getter(name="macsecCknKeyvaultSecretId")
     def macsec_ckn_keyvault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+        """
         return pulumi.get(self, "macsec_ckn_keyvault_secret_id")
 
     @property
     @pulumi.getter(name="macsecSciEnabled")
     def macsec_sci_enabled(self) -> Optional[bool]:
+        """
+        Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`.
+
+        > **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault.
+        """
         return pulumi.get(self, "macsec_sci_enabled")
 
     @property
@@ -5806,6 +5854,11 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
                  web_categories: Optional[Sequence[str]] = None):
         """
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+        :param Sequence[str] destination_fqdn_tags: Specifies a list of destination FQDN tags.
+        :param Sequence[str] destination_urls: Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        :param Sequence['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs'] http_headers: Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        :param bool terminate_tls: Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+        :param Sequence[str] web_categories: Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -5852,6 +5905,9 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @property
     @pulumi.getter(name="destinationFqdnTags")
     def destination_fqdn_tags(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of destination FQDN tags.
+        """
         return pulumi.get(self, "destination_fqdn_tags")
 
     @property
@@ -5862,11 +5918,17 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @property
     @pulumi.getter(name="destinationUrls")
     def destination_urls(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        """
         return pulumi.get(self, "destination_urls")
 
     @property
     @pulumi.getter(name="httpHeaders")
     def http_headers(self) -> Optional[Sequence['outputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeader']]:
+        """
+        Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        """
         return pulumi.get(self, "http_headers")
 
     @property
@@ -5887,11 +5949,17 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(dict):
     @property
     @pulumi.getter(name="terminateTls")
     def terminate_tls(self) -> Optional[bool]:
+        """
+        Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+        """
         return pulumi.get(self, "terminate_tls")
 
     @property
     @pulumi.getter(name="webCategories")
     def web_categories(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+        """
         return pulumi.get(self, "web_categories")
 
 
@@ -6048,6 +6116,12 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
                  translated_fqdn: Optional[str] = None):
         """
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+        :param int translated_port: Specifies the translated port.
+        :param str destination_address: The destination IP address (including CIDR).
+        :param str translated_address: Specifies the translated address.
+        :param str translated_fqdn: Specifies the translated FQDN.
+               
+               > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "protocols", protocols)
@@ -6083,6 +6157,9 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @property
     @pulumi.getter(name="translatedPort")
     def translated_port(self) -> int:
+        """
+        Specifies the translated port.
+        """
         return pulumi.get(self, "translated_port")
 
     @property
@@ -6093,6 +6170,9 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @property
     @pulumi.getter(name="destinationAddress")
     def destination_address(self) -> Optional[str]:
+        """
+        The destination IP address (including CIDR).
+        """
         return pulumi.get(self, "destination_address")
 
     @property
@@ -6113,11 +6193,19 @@ class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule(dict):
     @property
     @pulumi.getter(name="translatedAddress")
     def translated_address(self) -> Optional[str]:
+        """
+        Specifies the translated address.
+        """
         return pulumi.get(self, "translated_address")
 
     @property
     @pulumi.getter(name="translatedFqdn")
     def translated_fqdn(self) -> Optional[str]:
+        """
+        Specifies the translated FQDN.
+
+        > **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+        """
         return pulumi.get(self, "translated_fqdn")
 
 
@@ -6213,6 +6301,7 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
                  source_ip_groups: Optional[Sequence[str]] = None):
         """
         :param str name: The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created.
+        :param Sequence[str] destination_ip_groups: Specifies a list of destination IP groups.
         """
         pulumi.set(__self__, "destination_ports", destination_ports)
         pulumi.set(__self__, "name", name)
@@ -6266,6 +6355,9 @@ class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule(dict):
     @property
     @pulumi.getter(name="destinationIpGroups")
     def destination_ip_groups(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of destination IP groups.
+        """
         return pulumi.get(self, "destination_ip_groups")
 
     @property
@@ -11359,6 +11451,7 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
                  ip_configuration_id: Optional[str] = None,
                  tunnel_ips: Optional[Sequence[str]] = None):
         """
+        :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
         :param str ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -11374,6 +11467,9 @@ class VpnGatewayBgpSettingsInstance0BgpPeeringAddress(dict):
     @property
     @pulumi.getter(name="customIps")
     def custom_ips(self) -> Sequence[str]:
+        """
+        A list of custom BGP peering addresses to assign to this instance.
+        """
         return pulumi.get(self, "custom_ips")
 
     @property
@@ -11432,6 +11528,7 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
                  ip_configuration_id: Optional[str] = None,
                  tunnel_ips: Optional[Sequence[str]] = None):
         """
+        :param Sequence[str] custom_ips: A list of custom BGP peering addresses to assign to this instance.
         :param Sequence[str] default_ips: The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
         :param str ip_configuration_id: The pre-defined id of VPN Gateway IP Configuration.
         :param Sequence[str] tunnel_ips: The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -11447,6 +11544,9 @@ class VpnGatewayBgpSettingsInstance1BgpPeeringAddress(dict):
     @property
     @pulumi.getter(name="customIps")
     def custom_ips(self) -> Sequence[str]:
+        """
+        A list of custom BGP peering addresses to assign to this instance.
+        """
         return pulumi.get(self, "custom_ips")
 
     @property

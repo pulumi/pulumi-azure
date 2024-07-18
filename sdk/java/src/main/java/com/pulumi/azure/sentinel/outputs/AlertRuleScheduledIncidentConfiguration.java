@@ -18,6 +18,10 @@ public final class AlertRuleScheduledIncidentConfiguration {
      */
     @Deprecated /* The `create_incident` property has been superseded by the `create_incident_enabled` property and will be removed in v4.0 of the AzureRM Provider */
     private Boolean createIncident;
+    /**
+     * @return A `grouping` block as defined below.
+     * 
+     */
     private AlertRuleScheduledIncidentConfigurationGrouping grouping;
 
     private AlertRuleScheduledIncidentConfiguration() {}
@@ -30,6 +34,10 @@ public final class AlertRuleScheduledIncidentConfiguration {
     public Boolean createIncident() {
         return this.createIncident;
     }
+    /**
+     * @return A `grouping` block as defined below.
+     * 
+     */
     public AlertRuleScheduledIncidentConfigurationGrouping grouping() {
         return this.grouping;
     }

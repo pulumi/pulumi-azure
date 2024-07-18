@@ -14,6 +14,9 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineScaleSetGalleryApplication
     {
         public readonly string? ConfigurationReferenceBlobUri;
+        /// <summary>
+        /// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly int? Order;
         public readonly string PackageReferenceId;
         public readonly string? Tag;

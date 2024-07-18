@@ -588,7 +588,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_streaming_endpoint = azure.media.StreamingEndpoint("example",
             name="endpoint1",
@@ -619,7 +619,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_streaming_endpoint = azure.media.StreamingEndpoint("example",
             name="endpoint1",
@@ -628,7 +628,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             scale_units=2,
             access_control={
-                "ipAllows": [
+                "ip_allows": [
                     {
                         "name": "AllowedIP",
                         "address": "192.168.1.1",
@@ -638,16 +638,16 @@ class StreamingEndpoint(pulumi.CustomResource):
                         "address": "192.168.1.2",
                     },
                 ],
-                "akamaiSignatureHeaderAuthenticationKeys": [
+                "akamai_signature_header_authentication_keys": [
                     {
                         "identifier": "id1",
                         "expiration": "2030-12-31T16:00:00Z",
-                        "base64Key": "dGVzdGlkMQ==",
+                        "base64_key": "dGVzdGlkMQ==",
                     },
                     {
                         "identifier": "id2",
                         "expiration": "2032-01-28T16:00:00Z",
-                        "base64Key": "dGVzdGlkMQ==",
+                        "base64_key": "dGVzdGlkMQ==",
                     },
                 ],
             })
@@ -709,7 +709,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_streaming_endpoint = azure.media.StreamingEndpoint("example",
             name="endpoint1",
@@ -740,7 +740,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_streaming_endpoint = azure.media.StreamingEndpoint("example",
             name="endpoint1",
@@ -749,7 +749,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             scale_units=2,
             access_control={
-                "ipAllows": [
+                "ip_allows": [
                     {
                         "name": "AllowedIP",
                         "address": "192.168.1.1",
@@ -759,16 +759,16 @@ class StreamingEndpoint(pulumi.CustomResource):
                         "address": "192.168.1.2",
                     },
                 ],
-                "akamaiSignatureHeaderAuthenticationKeys": [
+                "akamai_signature_header_authentication_keys": [
                     {
                         "identifier": "id1",
                         "expiration": "2030-12-31T16:00:00Z",
-                        "base64Key": "dGVzdGlkMQ==",
+                        "base64_key": "dGVzdGlkMQ==",
                     },
                     {
                         "identifier": "id2",
                         "expiration": "2032-01-28T16:00:00Z",
-                        "base64Key": "dGVzdGlkMQ==",
+                        "base64_key": "dGVzdGlkMQ==",
                     },
                 ],
             })
