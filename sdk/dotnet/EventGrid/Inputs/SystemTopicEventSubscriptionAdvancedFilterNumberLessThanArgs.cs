@@ -12,6 +12,9 @@ namespace Pulumi.Azure.EventGrid.Inputs
 
     public sealed class SystemTopicEventSubscriptionAdvancedFilterNumberLessThanArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 

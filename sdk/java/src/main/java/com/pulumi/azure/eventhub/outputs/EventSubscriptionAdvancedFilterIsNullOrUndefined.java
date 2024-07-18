@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class EventSubscriptionAdvancedFilterIsNullOrUndefined {
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     private String key;
 
     private EventSubscriptionAdvancedFilterIsNullOrUndefined() {}
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     public String key() {
         return this.key;
     }

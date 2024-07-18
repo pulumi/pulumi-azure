@@ -424,13 +424,13 @@ class FlowletDataFlow(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             sources=[{
                 "name": "source1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
             sinks=[{
                 "name": "sink1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
@@ -451,13 +451,13 @@ class FlowletDataFlow(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             sources=[{
                 "name": "source1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
             sinks=[{
                 "name": "sink1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
@@ -481,7 +481,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example1_flowlet_data_flow.name,
                 },
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
@@ -490,7 +490,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example2_flowlet_data_flow.name,
                 },
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
@@ -590,13 +590,13 @@ class FlowletDataFlow(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             sources=[{
                 "name": "source1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
             sinks=[{
                 "name": "sink1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
@@ -617,13 +617,13 @@ class FlowletDataFlow(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             sources=[{
                 "name": "source1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
             sinks=[{
                 "name": "sink1",
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
@@ -647,7 +647,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example1_flowlet_data_flow.name,
                 },
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],
@@ -656,7 +656,7 @@ class FlowletDataFlow(pulumi.CustomResource):
                 "flowlet": {
                     "name": example2_flowlet_data_flow.name,
                 },
-                "linkedService": {
+                "linked_service": {
                     "name": example_linked_custom_service.name,
                 },
             }],

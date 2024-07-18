@@ -1568,12 +1568,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_D2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_D2_v2",
             },
             service_principal={
-                "clientId": "00000000-0000-0000-0000-000000000000",
-                "clientSecret": "00000000000000000000000000000000",
+                "client_id": "00000000-0000-0000-0000-000000000000",
+                "client_secret": "00000000000000000000000000000000",
             })
         example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("example",
             name="internal",
@@ -1693,12 +1693,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             dns_prefix="exampleaks1",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_D2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_D2_v2",
             },
             service_principal={
-                "clientId": "00000000-0000-0000-0000-000000000000",
-                "clientSecret": "00000000000000000000000000000000",
+                "client_id": "00000000-0000-0000-0000-000000000000",
+                "client_secret": "00000000000000000000000000000000",
             })
         example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("example",
             name="internal",

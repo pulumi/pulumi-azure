@@ -504,23 +504,23 @@ class Service(pulumi.CustomResource):
             authentication_configuration={
                 "authority": "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
                 "audience": "https://azurehealthcareapis.com/",
-                "smartProxyEnabled": True,
+                "smart_proxy_enabled": True,
             },
             cors_configuration={
-                "allowedOrigins": [
+                "allowed_origins": [
                     "http://www.example.com",
                     "http://www.example2.com",
                 ],
-                "allowedHeaders": [
+                "allowed_headers": [
                     "x-tempo-*",
                     "x-tempo2-*",
                 ],
-                "allowedMethods": [
+                "allowed_methods": [
                     "GET",
                     "PUT",
                 ],
-                "maxAgeInSeconds": 500,
-                "allowCredentials": True,
+                "max_age_in_seconds": 500,
+                "allow_credentials": True,
             })
         ```
 
@@ -585,23 +585,23 @@ class Service(pulumi.CustomResource):
             authentication_configuration={
                 "authority": "https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D",
                 "audience": "https://azurehealthcareapis.com/",
-                "smartProxyEnabled": True,
+                "smart_proxy_enabled": True,
             },
             cors_configuration={
-                "allowedOrigins": [
+                "allowed_origins": [
                     "http://www.example.com",
                     "http://www.example2.com",
                 ],
-                "allowedHeaders": [
+                "allowed_headers": [
                     "x-tempo-*",
                     "x-tempo2-*",
                 ],
-                "allowedMethods": [
+                "allowed_methods": [
                     "GET",
                     "PUT",
                 ],
-                "maxAgeInSeconds": 500,
-                "allowCredentials": True,
+                "max_age_in_seconds": 500,
+                "allow_credentials": True,
             })
         ```
 

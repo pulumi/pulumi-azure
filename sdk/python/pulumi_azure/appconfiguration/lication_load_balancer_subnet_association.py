@@ -204,7 +204,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.ServiceNetworking/trafficControllers",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -266,7 +266,7 @@ class LicationLoadBalancerSubnetAssociation(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.ServiceNetworking/trafficControllers",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },

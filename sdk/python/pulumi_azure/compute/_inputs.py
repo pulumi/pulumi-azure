@@ -2619,6 +2619,9 @@ if not MYPY:
         package_reference_id: pulumi.Input[str]
         configuration_reference_blob_uri: NotRequired[pulumi.Input[str]]
         order: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         tag: NotRequired[pulumi.Input[str]]
 elif False:
     LinuxVirtualMachineScaleSetGalleryApplicationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2630,6 +2633,9 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
                  configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  tag: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         if package_reference_id is not None:
             warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
@@ -2667,6 +2673,9 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "order")
 
     @order.setter
@@ -8051,7 +8060,7 @@ if not MYPY:
                 "name": "MSILinuxExtension",
                 "publisher": "Microsoft.ManagedIdentity",
                 "type": "ManagedIdentityExtensionForLinux",
-                "typeHandlerVersion": "1.0",
+                "type_handler_version": "1.0",
                 "settings": "{\\"port\\": 50342}",
             }])
         pulumi.export("principalId", example.identity.principal_id)
@@ -8093,7 +8102,7 @@ class ScaleSetIdentityArgs:
                        "name": "MSILinuxExtension",
                        "publisher": "Microsoft.ManagedIdentity",
                        "type": "ManagedIdentityExtensionForLinux",
-                       "typeHandlerVersion": "1.0",
+                       "type_handler_version": "1.0",
                        "settings": "{\\"port\\": 50342}",
                    }])
                pulumi.export("principalId", example.identity.principal_id)
@@ -8145,7 +8154,7 @@ class ScaleSetIdentityArgs:
                 "name": "MSILinuxExtension",
                 "publisher": "Microsoft.ManagedIdentity",
                 "type": "ManagedIdentityExtensionForLinux",
-                "typeHandlerVersion": "1.0",
+                "type_handler_version": "1.0",
                 "settings": "{\\"port\\": 50342}",
             }])
         pulumi.export("principalId", example.identity.principal_id)
@@ -10815,6 +10824,9 @@ if not MYPY:
         > **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
         """
         custom_data: NotRequired[pulumi.Input[str]]
+        """
+        Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
+        """
 elif False:
     VirtualMachineOsProfileArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -10831,6 +10843,7 @@ class VirtualMachineOsProfileArgs:
         :param pulumi.Input[str] admin_password: (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
                
                > **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
+        :param pulumi.Input[str] custom_data: Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "computer_name", computer_name)
@@ -10880,6 +10893,9 @@ class VirtualMachineOsProfileArgs:
     @property
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "custom_data")
 
     @custom_data.setter
@@ -13566,6 +13582,9 @@ if not MYPY:
         package_reference_id: pulumi.Input[str]
         configuration_reference_blob_uri: NotRequired[pulumi.Input[str]]
         order: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         tag: NotRequired[pulumi.Input[str]]
 elif False:
     WindowsVirtualMachineScaleSetGalleryApplicationArgsDict: TypeAlias = Mapping[str, Any]
@@ -13577,6 +13596,9 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
                  configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  tag: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         if package_reference_id is not None:
             warnings.warn("""`package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""", DeprecationWarning)
             pulumi.log.warn("""package_reference_id is deprecated: `package_reference_id` has been renamed to `version_id` and will be deprecated in 4.0""")
@@ -13614,6 +13636,9 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
     @property
     @pulumi.getter
     def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "order")
 
     @order.setter

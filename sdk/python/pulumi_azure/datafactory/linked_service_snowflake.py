@@ -386,8 +386,8 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
             key_vault_password={
-                "linkedServiceName": example_linked_service_key_vault.name,
-                "secretName": "secret",
+                "linked_service_name": example_linked_service_key_vault.name,
+                "secret_name": "secret",
             })
         ```
 
@@ -468,8 +468,8 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
             key_vault_password={
-                "linkedServiceName": example_linked_service_key_vault.name,
-                "secretName": "secret",
+                "linked_service_name": example_linked_service_key_vault.name,
+                "secret_name": "secret",
             })
         ```
 

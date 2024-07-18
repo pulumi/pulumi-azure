@@ -416,7 +416,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current.id],
+                "subscription_ids": [current.id],
             },
             scope_accesses=[
                 "Connectivity",
@@ -446,17 +446,17 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             ],
             destination_port_ranges=["80"],
             sources=[{
-                "addressPrefixType": "ServiceTag",
-                "addressPrefix": "Internet",
+                "address_prefix_type": "ServiceTag",
+                "address_prefix": "Internet",
             }],
             destinations=[
                 {
-                    "addressPrefixType": "IPPrefix",
-                    "addressPrefix": "10.1.0.1",
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.1.0.1",
                 },
                 {
-                    "addressPrefixType": "IPPrefix",
-                    "addressPrefix": "10.0.0.0/24",
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.0.0.0/24",
                 },
             ],
             description="example admin rule")
@@ -508,7 +508,7 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current.id],
+                "subscription_ids": [current.id],
             },
             scope_accesses=[
                 "Connectivity",
@@ -538,17 +538,17 @@ class NetworkManagerAdminRule(pulumi.CustomResource):
             ],
             destination_port_ranges=["80"],
             sources=[{
-                "addressPrefixType": "ServiceTag",
-                "addressPrefix": "Internet",
+                "address_prefix_type": "ServiceTag",
+                "address_prefix": "Internet",
             }],
             destinations=[
                 {
-                    "addressPrefixType": "IPPrefix",
-                    "addressPrefix": "10.1.0.1",
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.1.0.1",
                 },
                 {
-                    "addressPrefixType": "IPPrefix",
-                    "addressPrefix": "10.0.0.0/24",
+                    "address_prefix_type": "IPPrefix",
+                    "address_prefix": "10.0.0.0/24",
                 },
             ],
             description="example admin rule")

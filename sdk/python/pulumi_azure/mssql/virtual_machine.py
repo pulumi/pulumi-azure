@@ -589,9 +589,9 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_update_password="Password1234!",
             sql_connectivity_update_username="sqllogin",
             auto_patching={
-                "dayOfWeek": "Sunday",
-                "maintenanceWindowDurationInMinutes": 60,
-                "maintenanceWindowStartingHour": 2,
+                "day_of_week": "Sunday",
+                "maintenance_window_duration_in_minutes": 60,
+                "maintenance_window_starting_hour": 2,
             })
         ```
 
@@ -650,9 +650,9 @@ class VirtualMachine(pulumi.CustomResource):
             sql_connectivity_update_password="Password1234!",
             sql_connectivity_update_username="sqllogin",
             auto_patching={
-                "dayOfWeek": "Sunday",
-                "maintenanceWindowDurationInMinutes": 60,
-                "maintenanceWindowStartingHour": 2,
+                "day_of_week": "Sunday",
+                "maintenance_window_duration_in_minutes": 60,
+                "maintenance_window_starting_hour": 2,
             })
         ```
 

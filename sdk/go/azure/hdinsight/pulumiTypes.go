@@ -2002,9 +2002,12 @@ func (o HBaseClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOu
 
 type HBaseClusterPrivateLinkConfigurationIpConfiguration struct {
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-	Name                      string  `pulumi:"name"`
-	Primary                   *bool   `pulumi:"primary"`
-	PrivateIpAddress          *string `pulumi:"privateIpAddress"`
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  *string `pulumi:"subnetId"`
 }
@@ -2022,9 +2025,12 @@ type HBaseClusterPrivateLinkConfigurationIpConfigurationInput interface {
 
 type HBaseClusterPrivateLinkConfigurationIpConfigurationArgs struct {
 	// Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
-	Name                      pulumi.StringInput    `pulumi:"name"`
-	Primary                   pulumi.BoolPtrInput   `pulumi:"primary"`
-	PrivateIpAddress          pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
 }
@@ -2111,14 +2117,17 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
@@ -2163,6 +2172,7 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *bool {
 		if v == nil {
@@ -2172,6 +2182,7 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -2181,6 +2192,7 @@ func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o HBaseClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -6566,9 +6578,11 @@ func (o HadoopClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrO
 
 type HadoopClusterPrivateLinkConfigurationIpConfiguration struct {
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-	Name                      string  `pulumi:"name"`
-	Primary                   *bool   `pulumi:"primary"`
-	PrivateIpAddress          *string `pulumi:"privateIpAddress"`
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary          *bool   `pulumi:"primary"`
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  *string `pulumi:"subnetId"`
 }
@@ -6586,9 +6600,11 @@ type HadoopClusterPrivateLinkConfigurationIpConfigurationInput interface {
 
 type HadoopClusterPrivateLinkConfigurationIpConfigurationArgs struct {
 	// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
-	Name                      pulumi.StringInput    `pulumi:"name"`
-	Primary                   pulumi.BoolPtrInput   `pulumi:"primary"`
-	PrivateIpAddress          pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary          pulumi.BoolPtrInput   `pulumi:"primary"`
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
 }
@@ -6675,6 +6691,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulum
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
@@ -6683,6 +6700,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAdd
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
@@ -6727,6 +6745,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *bool {
 		if v == nil {
@@ -6745,6 +6764,7 @@ func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o HadoopClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -11908,9 +11928,12 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.
 
 type InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration struct {
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-	Name                      string  `pulumi:"name"`
-	Primary                   *bool   `pulumi:"primary"`
-	PrivateIpAddress          *string `pulumi:"privateIpAddress"`
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  *string `pulumi:"subnetId"`
 }
@@ -11928,9 +11951,12 @@ type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationInput interfa
 
 type InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationArgs struct {
 	// Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
-	Name                      pulumi.StringInput    `pulumi:"name"`
-	Primary                   pulumi.BoolPtrInput   `pulumi:"primary"`
-	PrivateIpAddress          pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
 }
@@ -12017,16 +12043,19 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) Na
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAddress
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
@@ -12071,6 +12100,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *bool {
 		if v == nil {
@@ -12080,6 +12110,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -12089,6 +12120,7 @@ func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o InteractiveQueryClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -16659,9 +16691,12 @@ func (o KafkaClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOu
 
 type KafkaClusterPrivateLinkConfigurationIpConfiguration struct {
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-	Name                      string  `pulumi:"name"`
-	Primary                   *bool   `pulumi:"primary"`
-	PrivateIpAddress          *string `pulumi:"privateIpAddress"`
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  *string `pulumi:"subnetId"`
 }
@@ -16679,9 +16714,12 @@ type KafkaClusterPrivateLinkConfigurationIpConfigurationInput interface {
 
 type KafkaClusterPrivateLinkConfigurationIpConfigurationArgs struct {
 	// Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
-	Name                      pulumi.StringInput    `pulumi:"name"`
-	Primary                   pulumi.BoolPtrInput   `pulumi:"primary"`
-	PrivateIpAddress          pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
 }
@@ -16768,14 +16806,17 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
@@ -16820,6 +16861,7 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *bool {
 		if v == nil {
@@ -16829,6 +16871,7 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -16838,6 +16881,7 @@ func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o KafkaClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -21378,9 +21422,12 @@ func (o SparkClusterPrivateLinkConfigurationPtrOutput) Name() pulumi.StringPtrOu
 
 type SparkClusterPrivateLinkConfigurationIpConfiguration struct {
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-	Name                      string  `pulumi:"name"`
-	Primary                   *bool   `pulumi:"primary"`
-	PrivateIpAddress          *string `pulumi:"privateIpAddress"`
+	Name string `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary *bool `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod *string `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  *string `pulumi:"subnetId"`
 }
@@ -21398,9 +21445,12 @@ type SparkClusterPrivateLinkConfigurationIpConfigurationInput interface {
 
 type SparkClusterPrivateLinkConfigurationIpConfigurationArgs struct {
 	// Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
-	Name                      pulumi.StringInput    `pulumi:"name"`
-	Primary                   pulumi.BoolPtrInput   `pulumi:"primary"`
-	PrivateIpAddress          pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether this IP configuration is primary.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// The private IP address of the IP configuration.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The private IP allocation method. The only possible value now is `Dynamic`.
 	PrivateIpAllocationMethod pulumi.StringPtrInput `pulumi:"privateIpAllocationMethod"`
 	SubnetId                  pulumi.StringPtrInput `pulumi:"subnetId"`
 }
@@ -21487,14 +21537,17 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) Name() pulumi
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
 		return v.PrivateIpAllocationMethod
@@ -21539,6 +21592,7 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Name() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Indicates whether this IP configuration is primary.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *bool {
 		if v == nil {
@@ -21548,6 +21602,7 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) Primary() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The private IP address of the IP configuration.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {
@@ -21557,6 +21612,7 @@ func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpA
 	}).(pulumi.StringPtrOutput)
 }
 
+// The private IP allocation method. The only possible value now is `Dynamic`.
 func (o SparkClusterPrivateLinkConfigurationIpConfigurationPtrOutput) PrivateIpAllocationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterPrivateLinkConfigurationIpConfiguration) *string {
 		if v == nil {

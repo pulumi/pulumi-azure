@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class AccountFilterTrackSelectionCondition {
+    /**
+     * @return The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+     * 
+     */
     private String operation;
+    /**
+     * @return The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+     * 
+     */
     private String property;
+    /**
+     * @return The track property value to match or not match.
+     * 
+     */
     private String value;
 
     private AccountFilterTrackSelectionCondition() {}
+    /**
+     * @return The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+     * 
+     */
     public String operation() {
         return this.operation;
     }
+    /**
+     * @return The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+     * 
+     */
     public String property() {
         return this.property;
     }
+    /**
+     * @return The track property value to match or not match.
+     * 
+     */
     public String value() {
         return this.value;
     }

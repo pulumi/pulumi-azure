@@ -1365,9 +1365,9 @@ class Database(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current["tenantId"],
-                    "objectId": current["objectId"],
-                    "keyPermissions": [
+                    "tenant_id": current["tenantId"],
+                    "object_id": current["objectId"],
+                    "key_permissions": [
                         "Get",
                         "List",
                         "Create",
@@ -1379,9 +1379,9 @@ class Database(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_user_assigned_identity.tenant_id,
-                    "objectId": example_user_assigned_identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_user_assigned_identity.tenant_id,
+                    "object_id": example_user_assigned_identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",
@@ -1413,7 +1413,7 @@ class Database(pulumi.CustomResource):
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```
@@ -1569,9 +1569,9 @@ class Database(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current["tenantId"],
-                    "objectId": current["objectId"],
-                    "keyPermissions": [
+                    "tenant_id": current["tenantId"],
+                    "object_id": current["objectId"],
+                    "key_permissions": [
                         "Get",
                         "List",
                         "Create",
@@ -1583,9 +1583,9 @@ class Database(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_user_assigned_identity.tenant_id,
-                    "objectId": example_user_assigned_identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_user_assigned_identity.tenant_id,
+                    "object_id": example_user_assigned_identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",
@@ -1617,7 +1617,7 @@ class Database(pulumi.CustomResource):
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             transparent_data_encryption_key_vault_key_id=example_key.id)
         ```

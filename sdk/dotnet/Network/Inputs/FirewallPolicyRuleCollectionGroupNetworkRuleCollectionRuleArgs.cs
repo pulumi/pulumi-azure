@@ -33,6 +33,10 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationIpGroups")]
         private InputList<string>? _destinationIpGroups;
+
+        /// <summary>
+        /// Specifies a list of destination IP groups.
+        /// </summary>
         public InputList<string> DestinationIpGroups
         {
             get => _destinationIpGroups ?? (_destinationIpGroups = new InputList<string>());

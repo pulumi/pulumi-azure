@@ -509,12 +509,12 @@ class VirtualNetwork(pulumi.CustomResource):
             subnets=[
                 {
                     "name": "subnet1",
-                    "addressPrefix": "10.0.1.0/24",
+                    "address_prefix": "10.0.1.0/24",
                 },
                 {
                     "name": "subnet2",
-                    "addressPrefix": "10.0.2.0/24",
-                    "securityGroup": example_network_security_group.id,
+                    "address_prefix": "10.0.2.0/24",
+                    "security_group": example_network_security_group.id,
                 },
             ],
             tags={
@@ -592,12 +592,12 @@ class VirtualNetwork(pulumi.CustomResource):
             subnets=[
                 {
                     "name": "subnet1",
-                    "addressPrefix": "10.0.1.0/24",
+                    "address_prefix": "10.0.1.0/24",
                 },
                 {
                     "name": "subnet2",
-                    "addressPrefix": "10.0.2.0/24",
-                    "securityGroup": example_network_security_group.id,
+                    "address_prefix": "10.0.2.0/24",
+                    "security_group": example_network_security_group.id,
                 },
             ],
             tags={
