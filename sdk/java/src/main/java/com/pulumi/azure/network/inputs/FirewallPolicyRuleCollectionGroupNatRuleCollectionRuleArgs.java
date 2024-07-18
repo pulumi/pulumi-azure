@@ -25,9 +25,17 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The destination IP address (including CIDR).
+     * 
+     */
     @Import(name="destinationAddress")
     private @Nullable Output<String> destinationAddress;
 
+    /**
+     * @return The destination IP address (including CIDR).
+     * 
+     */
     public Optional<Output<String>> destinationAddress() {
         return Optional.ofNullable(this.destinationAddress);
     }
@@ -75,23 +83,51 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
         return Optional.ofNullable(this.sourceIpGroups);
     }
 
+    /**
+     * Specifies the translated address.
+     * 
+     */
     @Import(name="translatedAddress")
     private @Nullable Output<String> translatedAddress;
 
+    /**
+     * @return Specifies the translated address.
+     * 
+     */
     public Optional<Output<String>> translatedAddress() {
         return Optional.ofNullable(this.translatedAddress);
     }
 
+    /**
+     * Specifies the translated FQDN.
+     * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+     * 
+     */
     @Import(name="translatedFqdn")
     private @Nullable Output<String> translatedFqdn;
 
+    /**
+     * @return Specifies the translated FQDN.
+     * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+     * 
+     */
     public Optional<Output<String>> translatedFqdn() {
         return Optional.ofNullable(this.translatedFqdn);
     }
 
+    /**
+     * Specifies the translated port.
+     * 
+     */
     @Import(name="translatedPort", required=true)
     private Output<Integer> translatedPort;
 
+    /**
+     * @return Specifies the translated port.
+     * 
+     */
     public Output<Integer> translatedPort() {
         return this.translatedPort;
     }
@@ -138,11 +174,23 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
             return description(Output.of(description));
         }
 
+        /**
+         * @param destinationAddress The destination IP address (including CIDR).
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationAddress(@Nullable Output<String> destinationAddress) {
             $.destinationAddress = destinationAddress;
             return this;
         }
 
+        /**
+         * @param destinationAddress The destination IP address (including CIDR).
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationAddress(String destinationAddress) {
             return destinationAddress(Output.of(destinationAddress));
         }
@@ -216,29 +264,69 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs ex
             return sourceIpGroups(List.of(sourceIpGroups));
         }
 
+        /**
+         * @param translatedAddress Specifies the translated address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder translatedAddress(@Nullable Output<String> translatedAddress) {
             $.translatedAddress = translatedAddress;
             return this;
         }
 
+        /**
+         * @param translatedAddress Specifies the translated address.
+         * 
+         * @return builder
+         * 
+         */
         public Builder translatedAddress(String translatedAddress) {
             return translatedAddress(Output.of(translatedAddress));
         }
 
+        /**
+         * @param translatedFqdn Specifies the translated FQDN.
+         * 
+         * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder translatedFqdn(@Nullable Output<String> translatedFqdn) {
             $.translatedFqdn = translatedFqdn;
             return this;
         }
 
+        /**
+         * @param translatedFqdn Specifies the translated FQDN.
+         * 
+         * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+         * 
+         * @return builder
+         * 
+         */
         public Builder translatedFqdn(String translatedFqdn) {
             return translatedFqdn(Output.of(translatedFqdn));
         }
 
+        /**
+         * @param translatedPort Specifies the translated port.
+         * 
+         * @return builder
+         * 
+         */
         public Builder translatedPort(Output<Integer> translatedPort) {
             $.translatedPort = translatedPort;
             return this;
         }
 
+        /**
+         * @param translatedPort Specifies the translated port.
+         * 
+         * @return builder
+         * 
+         */
         public Builder translatedPort(Integer translatedPort) {
             return translatedPort(Output.of(translatedPort));
         }

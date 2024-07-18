@@ -12,12 +12,21 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class RunBookDraftContentLinkGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A `hash` block as defined below.
+        /// </summary>
         [Input("hash")]
         public Input<Inputs.RunBookDraftContentLinkHashGetArgs>? Hash { get; set; }
 
+        /// <summary>
+        /// The URI of the runbook content.
+        /// </summary>
         [Input("uri", required: true)]
         public Input<string> Uri { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the version of the content
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

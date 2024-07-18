@@ -424,8 +424,8 @@ class FunctionAppFunction(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
-                "applicationStack": {
-                    "pythonVersion": "3.9",
+                "application_stack": {
+                    "python_version": "3.9",
                 },
             })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
@@ -487,8 +487,8 @@ class FunctionAppFunction(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
-                "applicationStack": {
-                    "dotnetVersion": "6",
+                "application_stack": {
+                    "dotnet_version": "6",
                 },
             })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
@@ -584,8 +584,8 @@ class FunctionAppFunction(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
-                "applicationStack": {
-                    "pythonVersion": "3.9",
+                "application_stack": {
+                    "python_version": "3.9",
                 },
             })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",
@@ -647,8 +647,8 @@ class FunctionAppFunction(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
-                "applicationStack": {
-                    "dotnetVersion": "6",
+                "application_stack": {
+                    "dotnet_version": "6",
                 },
             })
         example_function_app_function = azure.appservice.FunctionAppFunction("example",

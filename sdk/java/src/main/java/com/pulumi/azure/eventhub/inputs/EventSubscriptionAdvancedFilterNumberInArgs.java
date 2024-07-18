@@ -16,16 +16,36 @@ public final class EventSubscriptionAdvancedFilterNumberInArgs extends com.pulum
 
     public static final EventSubscriptionAdvancedFilterNumberInArgs Empty = new EventSubscriptionAdvancedFilterNumberInArgs();
 
+    /**
+     * Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     @Import(name="key", required=true)
     private Output<String> key;
 
+    /**
+     * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+     * 
+     */
     public Output<String> key() {
         return this.key;
     }
 
+    /**
+     * Specifies an array of values to compare to when using a multiple values operator.
+     * 
+     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<Double>> values;
 
+    /**
+     * @return Specifies an array of values to compare to when using a multiple values operator.
+     * 
+     * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+     * 
+     */
     public Output<List<Double>> values() {
         return this.values;
     }
@@ -55,24 +75,60 @@ public final class EventSubscriptionAdvancedFilterNumberInArgs extends com.pulum
             $ = new EventSubscriptionAdvancedFilterNumberInArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param key Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(Output<String> key) {
             $.key = key;
             return this;
         }
 
+        /**
+         * @param key Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+         * 
+         * @return builder
+         * 
+         */
         public Builder key(String key) {
             return key(Output.of(key));
         }
 
+        /**
+         * @param values Specifies an array of values to compare to when using a multiple values operator.
+         * 
+         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<Double>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Specifies an array of values to compare to when using a multiple values operator.
+         * 
+         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<Double> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values Specifies an array of values to compare to when using a multiple values operator.
+         * 
+         * &gt; **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Double... values) {
             return values(List.of(values));
         }

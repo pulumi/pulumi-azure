@@ -15,6 +15,10 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     private @Nullable String description;
+    /**
+     * @return The destination IP address (including CIDR).
+     * 
+     */
     private @Nullable String destinationAddress;
     private @Nullable String destinationPorts;
     /**
@@ -25,14 +29,32 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     private List<String> protocols;
     private @Nullable List<String> sourceAddresses;
     private @Nullable List<String> sourceIpGroups;
+    /**
+     * @return Specifies the translated address.
+     * 
+     */
     private @Nullable String translatedAddress;
+    /**
+     * @return Specifies the translated FQDN.
+     * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+     * 
+     */
     private @Nullable String translatedFqdn;
+    /**
+     * @return Specifies the translated port.
+     * 
+     */
     private Integer translatedPort;
 
     private FirewallPolicyRuleCollectionGroupNatRuleCollectionRule() {}
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return The destination IP address (including CIDR).
+     * 
+     */
     public Optional<String> destinationAddress() {
         return Optional.ofNullable(this.destinationAddress);
     }
@@ -55,12 +77,26 @@ public final class FirewallPolicyRuleCollectionGroupNatRuleCollectionRule {
     public List<String> sourceIpGroups() {
         return this.sourceIpGroups == null ? List.of() : this.sourceIpGroups;
     }
+    /**
+     * @return Specifies the translated address.
+     * 
+     */
     public Optional<String> translatedAddress() {
         return Optional.ofNullable(this.translatedAddress);
     }
+    /**
+     * @return Specifies the translated FQDN.
+     * 
+     * &gt; **NOTE:** Exactly one of `translated_address` and `translated_fqdn` should be set.
+     * 
+     */
     public Optional<String> translatedFqdn() {
         return Optional.ofNullable(this.translatedFqdn);
     }
+    /**
+     * @return Specifies the translated port.
+     * 
+     */
     public Integer translatedPort() {
         return this.translatedPort;
     }

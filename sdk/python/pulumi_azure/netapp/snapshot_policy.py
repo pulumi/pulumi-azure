@@ -390,17 +390,17 @@ class SnapshotPolicy(pulumi.CustomResource):
             account_name=example_account.name,
             enabled=True,
             hourly_schedule={
-                "snapshotsToKeep": 4,
+                "snapshots_to_keep": 4,
                 "minute": 15,
             },
             daily_schedule={
-                "snapshotsToKeep": 2,
+                "snapshots_to_keep": 2,
                 "hour": 20,
                 "minute": 15,
             },
             weekly_schedule={
-                "snapshotsToKeep": 1,
-                "daysOfWeeks": [
+                "snapshots_to_keep": 1,
+                "days_of_weeks": [
                     "Monday",
                     "Friday",
                 ],
@@ -408,8 +408,8 @@ class SnapshotPolicy(pulumi.CustomResource):
                 "minute": 0,
             },
             monthly_schedule={
-                "snapshotsToKeep": 1,
-                "daysOfMonths": [
+                "snapshots_to_keep": 1,
+                "days_of_months": [
                     1,
                     15,
                     20,
@@ -470,17 +470,17 @@ class SnapshotPolicy(pulumi.CustomResource):
             account_name=example_account.name,
             enabled=True,
             hourly_schedule={
-                "snapshotsToKeep": 4,
+                "snapshots_to_keep": 4,
                 "minute": 15,
             },
             daily_schedule={
-                "snapshotsToKeep": 2,
+                "snapshots_to_keep": 2,
                 "hour": 20,
                 "minute": 15,
             },
             weekly_schedule={
-                "snapshotsToKeep": 1,
-                "daysOfWeeks": [
+                "snapshots_to_keep": 1,
+                "days_of_weeks": [
                     "Monday",
                     "Friday",
                 ],
@@ -488,8 +488,8 @@ class SnapshotPolicy(pulumi.CustomResource):
                 "minute": 0,
             },
             monthly_schedule={
-                "snapshotsToKeep": 1,
-                "daysOfMonths": [
+                "snapshots_to_keep": 1,
+                "days_of_months": [
                     1,
                     15,
                     20,

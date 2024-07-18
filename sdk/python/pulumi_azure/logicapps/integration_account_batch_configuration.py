@@ -257,7 +257,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             integration_account_name=example_integration_account.name,
             batch_group_name="TestBatchGroup",
             release_criteria={
-                "messageCount": 80,
+                "message_count": 80,
             })
         ```
 
@@ -307,7 +307,7 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
             integration_account_name=example_integration_account.name,
             batch_group_name="TestBatchGroup",
             release_criteria={
-                "messageCount": 80,
+                "message_count": 80,
             })
         ```
 

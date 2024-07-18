@@ -38,9 +38,17 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
         return Optional.ofNullable(this.destinationFqdns);
     }
 
+    /**
+     * Specifies a list of destination IP groups.
+     * 
+     */
     @Import(name="destinationIpGroups")
     private @Nullable Output<List<String>> destinationIpGroups;
 
+    /**
+     * @return Specifies a list of destination IP groups.
+     * 
+     */
     public Optional<Output<List<String>>> destinationIpGroups() {
         return Optional.ofNullable(this.destinationIpGroups);
     }
@@ -155,15 +163,33 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArg
             return destinationFqdns(List.of(destinationFqdns));
         }
 
+        /**
+         * @param destinationIpGroups Specifies a list of destination IP groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationIpGroups(@Nullable Output<List<String>> destinationIpGroups) {
             $.destinationIpGroups = destinationIpGroups;
             return this;
         }
 
+        /**
+         * @param destinationIpGroups Specifies a list of destination IP groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationIpGroups(List<String> destinationIpGroups) {
             return destinationIpGroups(Output.of(destinationIpGroups));
         }
 
+        /**
+         * @param destinationIpGroups Specifies a list of destination IP groups.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationIpGroups(String... destinationIpGroups) {
             return destinationIpGroups(List.of(destinationIpGroups));
         }

@@ -251,43 +251,43 @@ class Hub(pulumi.CustomResource):
             web_pubsub_id=example_service.id,
             event_handlers=[
                 {
-                    "urlTemplate": "https://test.com/api/{hub}/{event}",
-                    "userEventPattern": "*",
-                    "systemEvents": [
+                    "url_template": "https://test.com/api/{hub}/{event}",
+                    "user_event_pattern": "*",
+                    "system_events": [
                         "connect",
                         "connected",
                     ],
                 },
                 {
-                    "urlTemplate": "https://test.com/api/{hub}/{event}",
-                    "userEventPattern": "event1, event2",
-                    "systemEvents": ["connected"],
+                    "url_template": "https://test.com/api/{hub}/{event}",
+                    "user_event_pattern": "event1, event2",
+                    "system_events": ["connected"],
                     "auth": {
-                        "managedIdentityId": example_user_assigned_identity.id,
+                        "managed_identity_id": example_user_assigned_identity.id,
                     },
                 },
             ],
             event_listeners=[
                 {
-                    "systemEventNameFilters": ["connected"],
-                    "userEventNameFilters": [
+                    "system_event_name_filters": ["connected"],
+                    "user_event_name_filters": [
                         "event1",
                         "event2",
                     ],
-                    "eventhubNamespaceName": test["name"],
-                    "eventhubName": test1["name"],
+                    "eventhub_namespace_name": test["name"],
+                    "eventhub_name": test1["name"],
                 },
                 {
-                    "systemEventNameFilters": ["connected"],
-                    "userEventNameFilters": ["*"],
-                    "eventhubNamespaceName": test["name"],
-                    "eventhubName": test1["name"],
+                    "system_event_name_filters": ["connected"],
+                    "user_event_name_filters": ["*"],
+                    "eventhub_namespace_name": test["name"],
+                    "eventhub_name": test1["name"],
                 },
                 {
-                    "systemEventNameFilters": ["connected"],
-                    "userEventNameFilters": ["event1"],
-                    "eventhubNamespaceName": test["name"],
-                    "eventhubName": test1["name"],
+                    "system_event_name_filters": ["connected"],
+                    "user_event_name_filters": ["event1"],
+                    "eventhub_namespace_name": test["name"],
+                    "eventhub_name": test1["name"],
                 },
             ],
             anonymous_connections_enabled=True,
@@ -348,43 +348,43 @@ class Hub(pulumi.CustomResource):
             web_pubsub_id=example_service.id,
             event_handlers=[
                 {
-                    "urlTemplate": "https://test.com/api/{hub}/{event}",
-                    "userEventPattern": "*",
-                    "systemEvents": [
+                    "url_template": "https://test.com/api/{hub}/{event}",
+                    "user_event_pattern": "*",
+                    "system_events": [
                         "connect",
                         "connected",
                     ],
                 },
                 {
-                    "urlTemplate": "https://test.com/api/{hub}/{event}",
-                    "userEventPattern": "event1, event2",
-                    "systemEvents": ["connected"],
+                    "url_template": "https://test.com/api/{hub}/{event}",
+                    "user_event_pattern": "event1, event2",
+                    "system_events": ["connected"],
                     "auth": {
-                        "managedIdentityId": example_user_assigned_identity.id,
+                        "managed_identity_id": example_user_assigned_identity.id,
                     },
                 },
             ],
             event_listeners=[
                 {
-                    "systemEventNameFilters": ["connected"],
-                    "userEventNameFilters": [
+                    "system_event_name_filters": ["connected"],
+                    "user_event_name_filters": [
                         "event1",
                         "event2",
                     ],
-                    "eventhubNamespaceName": test["name"],
-                    "eventhubName": test1["name"],
+                    "eventhub_namespace_name": test["name"],
+                    "eventhub_name": test1["name"],
                 },
                 {
-                    "systemEventNameFilters": ["connected"],
-                    "userEventNameFilters": ["*"],
-                    "eventhubNamespaceName": test["name"],
-                    "eventhubName": test1["name"],
+                    "system_event_name_filters": ["connected"],
+                    "user_event_name_filters": ["*"],
+                    "eventhub_namespace_name": test["name"],
+                    "eventhub_name": test1["name"],
                 },
                 {
-                    "systemEventNameFilters": ["connected"],
-                    "userEventNameFilters": ["event1"],
-                    "eventhubNamespaceName": test["name"],
-                    "eventhubName": test1["name"],
+                    "system_event_name_filters": ["connected"],
+                    "user_event_name_filters": ["event1"],
+                    "eventhub_namespace_name": test["name"],
+                    "eventhub_name": test1["name"],
                 },
             ],
             anonymous_connections_enabled=True,

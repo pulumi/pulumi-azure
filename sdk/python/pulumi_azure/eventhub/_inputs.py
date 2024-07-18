@@ -1779,6 +1779,9 @@ class EventSubscriptionAdvancedFilterArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterBoolEqualArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         value: pulumi.Input[bool]
 elif False:
     EventSubscriptionAdvancedFilterBoolEqualArgsDict: TypeAlias = Mapping[str, Any]
@@ -1788,12 +1791,18 @@ class EventSubscriptionAdvancedFilterBoolEqualArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1813,6 +1822,9 @@ class EventSubscriptionAdvancedFilterBoolEqualArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterIsNotNullArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
 elif False:
     EventSubscriptionAdvancedFilterIsNotNullArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1820,11 +1832,17 @@ elif False:
 class EventSubscriptionAdvancedFilterIsNotNullArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1835,6 +1853,9 @@ class EventSubscriptionAdvancedFilterIsNotNullArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterIsNullOrUndefinedArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
 elif False:
     EventSubscriptionAdvancedFilterIsNullOrUndefinedArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1842,11 +1863,17 @@ elif False:
 class EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         pulumi.set(__self__, "key", key)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1857,6 +1884,9 @@ class EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberGreaterThanArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         value: pulumi.Input[float]
 elif False:
     EventSubscriptionAdvancedFilterNumberGreaterThanArgsDict: TypeAlias = Mapping[str, Any]
@@ -1866,12 +1896,18 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[float]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1891,6 +1927,9 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         value: pulumi.Input[float]
 elif False:
     EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgsDict: TypeAlias = Mapping[str, Any]
@@ -1900,12 +1939,18 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[float]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1925,7 +1970,15 @@ class EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberInArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[float]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterNumberInArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1934,12 +1987,21 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1949,6 +2011,11 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1959,7 +2026,15 @@ class EventSubscriptionAdvancedFilterNumberInArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberInRangeArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterNumberInRangeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1968,12 +2043,21 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -1983,6 +2067,11 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -1993,6 +2082,9 @@ class EventSubscriptionAdvancedFilterNumberInRangeArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberLessThanArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         value: pulumi.Input[float]
 elif False:
     EventSubscriptionAdvancedFilterNumberLessThanArgsDict: TypeAlias = Mapping[str, Any]
@@ -2002,12 +2094,18 @@ class EventSubscriptionAdvancedFilterNumberLessThanArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[float]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2027,6 +2125,9 @@ class EventSubscriptionAdvancedFilterNumberLessThanArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         value: pulumi.Input[float]
 elif False:
     EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgsDict: TypeAlias = Mapping[str, Any]
@@ -2036,12 +2137,18 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[float]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2061,7 +2168,15 @@ class EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberNotInArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[float]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterNumberNotInArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2070,12 +2185,21 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[float]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[float]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2085,6 +2209,11 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[float]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2095,7 +2224,15 @@ class EventSubscriptionAdvancedFilterNumberNotInArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterNumberNotInRangeArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterNumberNotInRangeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2104,12 +2241,21 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2119,6 +2265,11 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[float]]]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2129,7 +2280,15 @@ class EventSubscriptionAdvancedFilterNumberNotInRangeArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringBeginsWithArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringBeginsWithArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2138,12 +2297,21 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2153,6 +2321,11 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2163,7 +2336,15 @@ class EventSubscriptionAdvancedFilterStringBeginsWithArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringContainArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringContainArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2172,12 +2353,21 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2187,6 +2377,11 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2197,7 +2392,15 @@ class EventSubscriptionAdvancedFilterStringContainArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringEndsWithArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringEndsWithArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2206,12 +2409,21 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2221,6 +2433,11 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2231,7 +2448,15 @@ class EventSubscriptionAdvancedFilterStringEndsWithArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringInArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringInArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2240,12 +2465,21 @@ class EventSubscriptionAdvancedFilterStringInArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2255,6 +2489,11 @@ class EventSubscriptionAdvancedFilterStringInArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2265,7 +2504,15 @@ class EventSubscriptionAdvancedFilterStringInArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringNotBeginsWithArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringNotBeginsWithArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2274,12 +2521,21 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2289,6 +2545,11 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2299,7 +2560,15 @@ class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringNotContainArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringNotContainArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2308,12 +2577,21 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2323,6 +2601,11 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2333,7 +2616,15 @@ class EventSubscriptionAdvancedFilterStringNotContainArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringNotEndsWithArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringNotEndsWithArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2342,12 +2633,21 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2357,6 +2657,11 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter
@@ -2367,7 +2672,15 @@ class EventSubscriptionAdvancedFilterStringNotEndsWithArgs:
 if not MYPY:
     class EventSubscriptionAdvancedFilterStringNotInArgsDict(TypedDict):
         key: pulumi.Input[str]
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
 elif False:
     EventSubscriptionAdvancedFilterStringNotInArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2376,12 +2689,21 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] key: Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies an array of values to compare to when using a multiple values operator.
+               
+               > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -2391,6 +2713,11 @@ class EventSubscriptionAdvancedFilterStringNotInArgs:
     @property
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies an array of values to compare to when using a multiple values operator.
+
+        > **NOTE:** A maximum of total number of advanced filter values allowed on event subscription is 25.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

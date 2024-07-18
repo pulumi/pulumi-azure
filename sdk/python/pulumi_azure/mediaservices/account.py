@@ -397,7 +397,7 @@ class Account(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         ```
 
@@ -452,7 +452,7 @@ class Account(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         ```
 
