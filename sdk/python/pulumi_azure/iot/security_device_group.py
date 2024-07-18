@@ -201,7 +201,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
             name="example-device-security-group",
             iothub_id=example_io_t_hub.id,
             allow_rule={
-                "connectionToIpsNotAlloweds": ["10.0.0.0/24"],
+                "connection_to_ips_not_alloweds": ["10.0.0.0/24"],
             },
             range_rules=[{
                 "type": "ActiveConnectionsNotInAllowedRange",
@@ -263,7 +263,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
             name="example-device-security-group",
             iothub_id=example_io_t_hub.id,
             allow_rule={
-                "connectionToIpsNotAlloweds": ["10.0.0.0/24"],
+                "connection_to_ips_not_alloweds": ["10.0.0.0/24"],
             },
             range_rules=[{
                 "type": "ActiveConnectionsNotInAllowedRange",

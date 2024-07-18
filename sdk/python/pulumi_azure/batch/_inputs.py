@@ -2437,6 +2437,9 @@ class PoolStartTaskContainerArgs:
 if not MYPY:
     class PoolStartTaskContainerRegistryArgsDict(TypedDict):
         registry_server: pulumi.Input[str]
+        """
+        The container registry URL. Changing this forces a new resource to be created.
+        """
         password: NotRequired[pulumi.Input[str]]
         user_assigned_identity_id: NotRequired[pulumi.Input[str]]
         """
@@ -2454,6 +2457,7 @@ class PoolStartTaskContainerRegistryArgs:
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] registry_server: The container registry URL. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user_assigned_identity_id: The User Assigned Identity to use for Container Registry access.
         """
         pulumi.set(__self__, "registry_server", registry_server)
@@ -2467,6 +2471,9 @@ class PoolStartTaskContainerRegistryArgs:
     @property
     @pulumi.getter(name="registryServer")
     def registry_server(self) -> pulumi.Input[str]:
+        """
+        The container registry URL. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "registry_server")
 
     @registry_server.setter

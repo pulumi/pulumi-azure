@@ -175,7 +175,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             address_prefixes=["10.6.2.0/24"],
             delegations=[{
                 "name": "testdelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",
@@ -196,8 +196,8 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             sku="Standard",
             ip_configurations=[{
                 "name": "vnetGatewayConfig",
-                "publicIpAddressId": test.id,
-                "subnetId": gateway_subnet.id,
+                "public_ip_address_id": test.id,
+                "subnet_id": gateway_subnet.id,
             }])
         test_account = azure.netapp.Account("test",
             name="example-NetAppAccount",
@@ -223,12 +223,12 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             storage_quota_in_gb=100,
             azure_vmware_data_store_enabled=True,
             export_policy_rules=[{
-                "ruleIndex": 1,
-                "allowedClients": ["0.0.0.0/0"],
-                "protocolsEnabled": "NFSv3",
-                "unixReadOnly": False,
-                "unixReadWrite": True,
-                "rootAccessEnabled": True,
+                "rule_index": 1,
+                "allowed_clients": ["0.0.0.0/0"],
+                "protocols_enabled": "NFSv3",
+                "unix_read_only": False,
+                "unix_read_write": True,
+                "root_access_enabled": True,
             }])
         test_private_cloud = azure.avs.PrivateCloud("test",
             name="example-PC",
@@ -316,7 +316,7 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             address_prefixes=["10.6.2.0/24"],
             delegations=[{
                 "name": "testdelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Netapp/volumes",
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",
@@ -337,8 +337,8 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             sku="Standard",
             ip_configurations=[{
                 "name": "vnetGatewayConfig",
-                "publicIpAddressId": test.id,
-                "subnetId": gateway_subnet.id,
+                "public_ip_address_id": test.id,
+                "subnet_id": gateway_subnet.id,
             }])
         test_account = azure.netapp.Account("test",
             name="example-NetAppAccount",
@@ -364,12 +364,12 @@ class NetappVolumeAttachment(pulumi.CustomResource):
             storage_quota_in_gb=100,
             azure_vmware_data_store_enabled=True,
             export_policy_rules=[{
-                "ruleIndex": 1,
-                "allowedClients": ["0.0.0.0/0"],
-                "protocolsEnabled": "NFSv3",
-                "unixReadOnly": False,
-                "unixReadWrite": True,
-                "rootAccessEnabled": True,
+                "rule_index": 1,
+                "allowed_clients": ["0.0.0.0/0"],
+                "protocols_enabled": "NFSv3",
+                "unix_read_only": False,
+                "unix_read_write": True,
+                "root_access_enabled": True,
             }])
         test_private_cloud = azure.avs.PrivateCloud("test",
             name="example-PC",

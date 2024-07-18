@@ -576,8 +576,8 @@ class Firewall(pulumi.CustomResource):
             sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         ```
 
@@ -651,8 +651,8 @@ class Firewall(pulumi.CustomResource):
             sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         ```
 

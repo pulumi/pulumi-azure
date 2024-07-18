@@ -113,6 +113,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("outboundIpAddressIds")]
         private InputList<string>? _outboundIpAddressIds;
+
+        /// <summary>
+        /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+        /// 
+        /// &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+        /// </summary>
         public InputList<string> OutboundIpAddressIds
         {
             get => _outboundIpAddressIds ?? (_outboundIpAddressIds = new InputList<string>());
@@ -121,6 +127,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
 
         [Input("outboundIpPrefixIds")]
         private InputList<string>? _outboundIpPrefixIds;
+
+        /// <summary>
+        /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+        /// 
+        /// &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+        /// </summary>
         public InputList<string> OutboundIpPrefixIds
         {
             get => _outboundIpPrefixIds ?? (_outboundIpPrefixIds = new InputList<string>());

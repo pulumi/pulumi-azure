@@ -564,8 +564,8 @@ class SqlContainer(pulumi.CustomResource):
             partition_key_version=1,
             throughput=400,
             indexing_policy={
-                "indexingMode": "consistent",
-                "includedPaths": [
+                "indexing_mode": "consistent",
+                "included_paths": [
                     {
                         "path": "/*",
                     },
@@ -573,7 +573,7 @@ class SqlContainer(pulumi.CustomResource):
                         "path": "/included/?",
                     },
                 ],
-                "excludedPaths": [{
+                "excluded_paths": [{
                     "path": "/excluded/?",
                 }],
             },
@@ -642,8 +642,8 @@ class SqlContainer(pulumi.CustomResource):
             partition_key_version=1,
             throughput=400,
             indexing_policy={
-                "indexingMode": "consistent",
-                "includedPaths": [
+                "indexing_mode": "consistent",
+                "included_paths": [
                     {
                         "path": "/*",
                     },
@@ -651,7 +651,7 @@ class SqlContainer(pulumi.CustomResource):
                         "path": "/included/?",
                     },
                 ],
-                "excludedPaths": [{
+                "excluded_paths": [{
                     "path": "/excluded/?",
                 }],
             },

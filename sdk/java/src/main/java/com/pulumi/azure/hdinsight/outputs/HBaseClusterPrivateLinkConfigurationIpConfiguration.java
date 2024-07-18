@@ -18,8 +18,20 @@ public final class HBaseClusterPrivateLinkConfigurationIpConfiguration {
      * 
      */
     private String name;
+    /**
+     * @return Indicates whether this IP configuration is primary.
+     * 
+     */
     private @Nullable Boolean primary;
+    /**
+     * @return The private IP address of the IP configuration.
+     * 
+     */
     private @Nullable String privateIpAddress;
+    /**
+     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * 
+     */
     private @Nullable String privateIpAllocationMethod;
     private @Nullable String subnetId;
 
@@ -31,12 +43,24 @@ public final class HBaseClusterPrivateLinkConfigurationIpConfiguration {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Indicates whether this IP configuration is primary.
+     * 
+     */
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
+    /**
+     * @return The private IP address of the IP configuration.
+     * 
+     */
     public Optional<String> privateIpAddress() {
         return Optional.ofNullable(this.privateIpAddress);
     }
+    /**
+     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * 
+     */
     public Optional<String> privateIpAllocationMethod() {
         return Optional.ofNullable(this.privateIpAllocationMethod);
     }

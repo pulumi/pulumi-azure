@@ -816,19 +816,19 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "query": \"\"\"requests
           | summarize CountByCountry=count() by client_CountryOrRegion
         \"\"\",
-                "timeAggregationMethod": "Maximum",
+                "time_aggregation_method": "Maximum",
                 "threshold": 17.5,
                 "operator": "LessThan",
-                "resourceIdColumn": "client_CountryOrRegion",
-                "metricMeasureColumn": "CountByCountry",
+                "resource_id_column": "client_CountryOrRegion",
+                "metric_measure_column": "CountByCountry",
                 "dimensions": [{
                     "name": "client_CountryOrRegion",
                     "operator": "Exclude",
                     "values": ["123"],
                 }],
-                "failingPeriods": {
-                    "minimumFailingPeriodsToTriggerAlert": 1,
-                    "numberOfEvaluationPeriods": 1,
+                "failing_periods": {
+                    "minimum_failing_periods_to_trigger_alert": 1,
+                    "number_of_evaluation_periods": 1,
                 },
             }],
             auto_mitigation_enabled=True,
@@ -839,15 +839,15 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             query_time_range_override="PT1H",
             skip_query_validation=True,
             action={
-                "actionGroups": [example_action_group.id],
-                "customProperties": {
+                "action_groups": [example_action_group.id],
+                "custom_properties": {
                     "key": "value",
                     "key2": "value2",
                 },
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "key": "value",
@@ -942,19 +942,19 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                 "query": \"\"\"requests
           | summarize CountByCountry=count() by client_CountryOrRegion
         \"\"\",
-                "timeAggregationMethod": "Maximum",
+                "time_aggregation_method": "Maximum",
                 "threshold": 17.5,
                 "operator": "LessThan",
-                "resourceIdColumn": "client_CountryOrRegion",
-                "metricMeasureColumn": "CountByCountry",
+                "resource_id_column": "client_CountryOrRegion",
+                "metric_measure_column": "CountByCountry",
                 "dimensions": [{
                     "name": "client_CountryOrRegion",
                     "operator": "Exclude",
                     "values": ["123"],
                 }],
-                "failingPeriods": {
-                    "minimumFailingPeriodsToTriggerAlert": 1,
-                    "numberOfEvaluationPeriods": 1,
+                "failing_periods": {
+                    "minimum_failing_periods_to_trigger_alert": 1,
+                    "number_of_evaluation_periods": 1,
                 },
             }],
             auto_mitigation_enabled=True,
@@ -965,15 +965,15 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
             query_time_range_override="PT1H",
             skip_query_validation=True,
             action={
-                "actionGroups": [example_action_group.id],
-                "customProperties": {
+                "action_groups": [example_action_group.id],
+                "custom_properties": {
                     "key": "value",
                     "key2": "value2",
                 },
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "key": "value",

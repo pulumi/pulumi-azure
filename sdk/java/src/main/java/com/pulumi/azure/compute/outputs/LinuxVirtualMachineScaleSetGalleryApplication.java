@@ -20,6 +20,10 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
      */
     @Deprecated /* `configuration_reference_blob_uri` has been renamed to `configuration_blob_uri` and will be deprecated in 4.0 */
     private @Nullable String configurationReferenceBlobUri;
+    /**
+     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable Integer order;
     /**
      * @deprecated
@@ -40,6 +44,10 @@ public final class LinuxVirtualMachineScaleSetGalleryApplication {
     public Optional<String> configurationReferenceBlobUri() {
         return Optional.ofNullable(this.configurationReferenceBlobUri);
     }
+    /**
+     * @return Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Integer> order() {
         return Optional.ofNullable(this.order);
     }

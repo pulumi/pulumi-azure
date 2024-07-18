@@ -157,7 +157,7 @@ class Gallery(pulumi.CustomResource):
             location=test_azurerm_resource_group["location"],
             identity={
                 "type": "UserAssigned",
-                "identityIds": [test_user_assigned_identity.id],
+                "identity_ids": [test_user_assigned_identity.id],
             })
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",
@@ -219,7 +219,7 @@ class Gallery(pulumi.CustomResource):
             location=test_azurerm_resource_group["location"],
             identity={
                 "type": "UserAssigned",
-                "identityIds": [test_user_assigned_identity.id],
+                "identity_ids": [test_user_assigned_identity.id],
             })
         example_shared_image_gallery = azure.compute.SharedImageGallery("example",
             name="example-image-gallery",

@@ -32,9 +32,17 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
         return this.name;
     }
 
+    /**
+     * Indicates whether this IP configuration is primary.
+     * 
+     */
     @Import(name="primary")
     private @Nullable Output<Boolean> primary;
 
+    /**
+     * @return Indicates whether this IP configuration is primary.
+     * 
+     */
     public Optional<Output<Boolean>> primary() {
         return Optional.ofNullable(this.primary);
     }
@@ -46,9 +54,17 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
         return Optional.ofNullable(this.privateIpAddress);
     }
 
+    /**
+     * The private IP allocation method. The only possible value now is `Dynamic`.
+     * 
+     */
     @Import(name="privateIpAllocationMethod")
     private @Nullable Output<String> privateIpAllocationMethod;
 
+    /**
+     * @return The private IP allocation method. The only possible value now is `Dynamic`.
+     * 
+     */
     public Optional<Output<String>> privateIpAllocationMethod() {
         return Optional.ofNullable(this.privateIpAllocationMethod);
     }
@@ -109,11 +125,23 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
             return name(Output.of(name));
         }
 
+        /**
+         * @param primary Indicates whether this IP configuration is primary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primary(@Nullable Output<Boolean> primary) {
             $.primary = primary;
             return this;
         }
 
+        /**
+         * @param primary Indicates whether this IP configuration is primary.
+         * 
+         * @return builder
+         * 
+         */
         public Builder primary(Boolean primary) {
             return primary(Output.of(primary));
         }
@@ -127,11 +155,23 @@ public final class HadoopClusterPrivateLinkConfigurationIpConfigurationArgs exte
             return privateIpAddress(Output.of(privateIpAddress));
         }
 
+        /**
+         * @param privateIpAllocationMethod The private IP allocation method. The only possible value now is `Dynamic`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateIpAllocationMethod(@Nullable Output<String> privateIpAllocationMethod) {
             $.privateIpAllocationMethod = privateIpAllocationMethod;
             return this;
         }
 
+        /**
+         * @param privateIpAllocationMethod The private IP allocation method. The only possible value now is `Dynamic`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateIpAllocationMethod(String privateIpAllocationMethod) {
             return privateIpAllocationMethod(Output.of(privateIpAllocationMethod));
         }

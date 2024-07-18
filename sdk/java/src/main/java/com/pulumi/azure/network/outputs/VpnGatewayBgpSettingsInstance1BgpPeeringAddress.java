@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
+    /**
+     * @return A list of custom BGP peering addresses to assign to this instance.
+     * 
+     */
     private List<String> customIps;
     /**
      * @return The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
@@ -31,6 +35,10 @@ public final class VpnGatewayBgpSettingsInstance1BgpPeeringAddress {
     private @Nullable List<String> tunnelIps;
 
     private VpnGatewayBgpSettingsInstance1BgpPeeringAddress() {}
+    /**
+     * @return A list of custom BGP peering addresses to assign to this instance.
+     * 
+     */
     public List<String> customIps() {
         return this.customIps;
     }

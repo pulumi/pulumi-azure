@@ -619,8 +619,8 @@ class EventGridDataConnection(pulumi.CustomResource):
                 "Microsoft.Storage.BlobRenamed",
             ],
             retry_policy={
-                "eventTimeToLive": 144,
-                "maxDeliveryAttempts": 10,
+                "event_time_to_live": 144,
+                "max_delivery_attempts": 10,
             })
         example_event_grid_data_connection = azure.kusto.EventGridDataConnection("example",
             name="my-kusto-eventgrid-data-connection",
@@ -729,8 +729,8 @@ class EventGridDataConnection(pulumi.CustomResource):
                 "Microsoft.Storage.BlobRenamed",
             ],
             retry_policy={
-                "eventTimeToLive": 144,
-                "maxDeliveryAttempts": 10,
+                "event_time_to_live": 144,
+                "max_delivery_attempts": 10,
             })
         example_event_grid_data_connection = azure.kusto.EventGridDataConnection("example",
             name="my-kusto-eventgrid-data-connection",

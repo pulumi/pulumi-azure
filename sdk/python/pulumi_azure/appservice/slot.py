@@ -668,7 +668,7 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "dotnetFrameworkVersion": "v4.0",
+                "dotnet_framework_version": "v4.0",
             },
             app_settings={
                 "SOME_KEY": "some-value",
@@ -685,7 +685,7 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "dotnetFrameworkVersion": "v4.0",
+                "dotnet_framework_version": "v4.0",
             },
             app_settings={
                 "SOME_KEY": "some-value",
@@ -726,9 +726,9 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "javaVersion": "1.8",
-                "javaContainer": "JETTY",
-                "javaContainerVersion": "9.3",
+                "java_version": "1.8",
+                "java_container": "JETTY",
+                "java_container_version": "9.3",
             })
         example_slot = azure.appservice.Slot("example",
             name=server.hex,
@@ -737,9 +737,9 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "javaVersion": "1.8",
-                "javaContainer": "JETTY",
-                "javaContainerVersion": "9.3",
+                "java_version": "1.8",
+                "java_container": "JETTY",
+                "java_container_version": "9.3",
             })
         ```
 
@@ -815,7 +815,7 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "dotnetFrameworkVersion": "v4.0",
+                "dotnet_framework_version": "v4.0",
             },
             app_settings={
                 "SOME_KEY": "some-value",
@@ -832,7 +832,7 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "dotnetFrameworkVersion": "v4.0",
+                "dotnet_framework_version": "v4.0",
             },
             app_settings={
                 "SOME_KEY": "some-value",
@@ -873,9 +873,9 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "javaVersion": "1.8",
-                "javaContainer": "JETTY",
-                "javaContainerVersion": "9.3",
+                "java_version": "1.8",
+                "java_container": "JETTY",
+                "java_container_version": "9.3",
             })
         example_slot = azure.appservice.Slot("example",
             name=server.hex,
@@ -884,9 +884,9 @@ class Slot(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "javaVersion": "1.8",
-                "javaContainer": "JETTY",
-                "javaContainerVersion": "9.3",
+                "java_version": "1.8",
+                "java_container": "JETTY",
+                "java_container_version": "9.3",
             })
         ```
 

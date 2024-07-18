@@ -770,24 +770,24 @@ class HadoopCluster(pulumi.CustomResource):
                 "password": "PAssword123!",
             },
             storage_accounts=[{
-                "storageContainerId": example_container.id,
-                "storageAccountKey": example_account.primary_access_key,
-                "isDefault": True,
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
             }],
             roles={
-                "headNode": {
-                    "vmSize": "Standard_D3_V2",
+                "head_node": {
+                    "vm_size": "Standard_D3_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-                "workerNode": {
-                    "vmSize": "Standard_D4_V2",
+                "worker_node": {
+                    "vm_size": "Standard_D4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
+                    "target_instance_count": 3,
                 },
-                "zookeeperNode": {
-                    "vmSize": "Standard_D3_V2",
+                "zookeeper_node": {
+                    "vm_size": "Standard_D3_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
@@ -869,24 +869,24 @@ class HadoopCluster(pulumi.CustomResource):
                 "password": "PAssword123!",
             },
             storage_accounts=[{
-                "storageContainerId": example_container.id,
-                "storageAccountKey": example_account.primary_access_key,
-                "isDefault": True,
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
             }],
             roles={
-                "headNode": {
-                    "vmSize": "Standard_D3_V2",
+                "head_node": {
+                    "vm_size": "Standard_D3_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-                "workerNode": {
-                    "vmSize": "Standard_D4_V2",
+                "worker_node": {
+                    "vm_size": "Standard_D4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
+                    "target_instance_count": 3,
                 },
-                "zookeeperNode": {
-                    "vmSize": "Standard_D3_V2",
+                "zookeeper_node": {
+                    "vm_size": "Standard_D3_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },

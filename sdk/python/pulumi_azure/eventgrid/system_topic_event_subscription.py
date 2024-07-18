@@ -815,8 +815,8 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             system_topic=example_system_topic.name,
             resource_group_name=example.name,
             storage_queue_endpoint={
-                "storageAccountId": example_account.id,
-                "queueName": example_queue.name,
+                "storage_account_id": example_account.id,
+                "queue_name": example_queue.name,
             })
         ```
 
@@ -898,8 +898,8 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             system_topic=example_system_topic.name,
             resource_group_name=example.name,
             storage_queue_endpoint={
-                "storageAccountId": example_account.id,
-                "queueName": example_queue.name,
+                "storage_account_id": example_account.id,
+                "queue_name": example_queue.name,
             })
         ```
 

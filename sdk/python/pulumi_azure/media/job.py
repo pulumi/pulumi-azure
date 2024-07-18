@@ -323,7 +323,7 @@ class Job(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_transform = azure.media.Transform("example",
             name="transform1",
@@ -331,10 +331,10 @@ class Job(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[{
-                "relativePriority": "Normal",
-                "onErrorAction": "ContinueJob",
-                "builtinPreset": {
-                    "presetName": "AACGoodQualityAudio",
+                "relative_priority": "Normal",
+                "on_error_action": "ContinueJob",
+                "builtin_preset": {
+                    "preset_name": "AACGoodQualityAudio",
                 },
             }])
         input = azure.media.Asset("input",
@@ -411,7 +411,7 @@ class Job(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_transform = azure.media.Transform("example",
             name="transform1",
@@ -419,10 +419,10 @@ class Job(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[{
-                "relativePriority": "Normal",
-                "onErrorAction": "ContinueJob",
-                "builtinPreset": {
-                    "presetName": "AACGoodQualityAudio",
+                "relative_priority": "Normal",
+                "on_error_action": "ContinueJob",
+                "builtin_preset": {
+                    "preset_name": "AACGoodQualityAudio",
                 },
             }])
         input = azure.media.Asset("input",
