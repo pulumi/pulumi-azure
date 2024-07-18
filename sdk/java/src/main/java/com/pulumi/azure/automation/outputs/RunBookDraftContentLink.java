@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RunBookDraftContentLink {
+    /**
+     * @return A `hash` block as defined below.
+     * 
+     */
     private @Nullable RunBookDraftContentLinkHash hash;
+    /**
+     * @return The URI of the runbook content.
+     * 
+     */
     private String uri;
+    /**
+     * @return Specifies the version of the content
+     * 
+     */
     private @Nullable String version;
 
     private RunBookDraftContentLink() {}
+    /**
+     * @return A `hash` block as defined below.
+     * 
+     */
     public Optional<RunBookDraftContentLinkHash> hash() {
         return Optional.ofNullable(this.hash);
     }
+    /**
+     * @return The URI of the runbook content.
+     * 
+     */
     public String uri() {
         return this.uri;
     }
+    /**
+     * @return Specifies the version of the content
+     * 
+     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

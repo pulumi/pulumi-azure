@@ -1187,7 +1187,7 @@ class ApplicationGateway(pulumi.CustomResource):
             },
             gateway_ip_configurations=[{
                 "name": "my-gateway-ip-configuration",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }],
             frontend_ports=[{
                 "name": frontend_port_name,
@@ -1195,32 +1195,32 @@ class ApplicationGateway(pulumi.CustomResource):
             }],
             frontend_ip_configurations=[{
                 "name": frontend_ip_configuration_name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }],
             backend_address_pools=[{
                 "name": backend_address_pool_name,
             }],
             backend_http_settings=[{
                 "name": http_setting_name,
-                "cookieBasedAffinity": "Disabled",
+                "cookie_based_affinity": "Disabled",
                 "path": "/path1/",
                 "port": 80,
                 "protocol": "Http",
-                "requestTimeout": 60,
+                "request_timeout": 60,
             }],
             http_listeners=[{
                 "name": listener_name,
-                "frontendIpConfigurationName": frontend_ip_configuration_name,
-                "frontendPortName": frontend_port_name,
+                "frontend_ip_configuration_name": frontend_ip_configuration_name,
+                "frontend_port_name": frontend_port_name,
                 "protocol": "Http",
             }],
             request_routing_rules=[{
                 "name": request_routing_rule_name,
                 "priority": 9,
-                "ruleType": "Basic",
-                "httpListenerName": listener_name,
-                "backendAddressPoolName": backend_address_pool_name,
-                "backendHttpSettingsName": http_setting_name,
+                "rule_type": "Basic",
+                "http_listener_name": listener_name,
+                "backend_address_pool_name": backend_address_pool_name,
+                "backend_http_settings_name": http_setting_name,
             }])
         ```
 
@@ -1319,7 +1319,7 @@ class ApplicationGateway(pulumi.CustomResource):
             },
             gateway_ip_configurations=[{
                 "name": "my-gateway-ip-configuration",
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }],
             frontend_ports=[{
                 "name": frontend_port_name,
@@ -1327,32 +1327,32 @@ class ApplicationGateway(pulumi.CustomResource):
             }],
             frontend_ip_configurations=[{
                 "name": frontend_ip_configuration_name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }],
             backend_address_pools=[{
                 "name": backend_address_pool_name,
             }],
             backend_http_settings=[{
                 "name": http_setting_name,
-                "cookieBasedAffinity": "Disabled",
+                "cookie_based_affinity": "Disabled",
                 "path": "/path1/",
                 "port": 80,
                 "protocol": "Http",
-                "requestTimeout": 60,
+                "request_timeout": 60,
             }],
             http_listeners=[{
                 "name": listener_name,
-                "frontendIpConfigurationName": frontend_ip_configuration_name,
-                "frontendPortName": frontend_port_name,
+                "frontend_ip_configuration_name": frontend_ip_configuration_name,
+                "frontend_port_name": frontend_port_name,
                 "protocol": "Http",
             }],
             request_routing_rules=[{
                 "name": request_routing_rule_name,
                 "priority": 9,
-                "ruleType": "Basic",
-                "httpListenerName": listener_name,
-                "backendAddressPoolName": backend_address_pool_name,
-                "backendHttpSettingsName": http_setting_name,
+                "rule_type": "Basic",
+                "http_listener_name": listener_name,
+                "backend_address_pool_name": backend_address_pool_name,
+                "backend_http_settings_name": http_setting_name,
             }])
         ```
 

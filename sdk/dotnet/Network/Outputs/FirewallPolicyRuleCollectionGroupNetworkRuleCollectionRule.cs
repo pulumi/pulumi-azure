@@ -16,6 +16,9 @@ namespace Pulumi.Azure.Network.Outputs
         public readonly string? Description;
         public readonly ImmutableArray<string> DestinationAddresses;
         public readonly ImmutableArray<string> DestinationFqdns;
+        /// <summary>
+        /// Specifies a list of destination IP groups.
+        /// </summary>
         public readonly ImmutableArray<string> DestinationIpGroups;
         public readonly ImmutableArray<string> DestinationPorts;
         /// <summary>

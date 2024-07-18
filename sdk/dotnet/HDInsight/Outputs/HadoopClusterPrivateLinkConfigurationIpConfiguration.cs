@@ -17,8 +17,14 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Indicates whether this IP configuration is primary.
+        /// </summary>
         public readonly bool? Primary;
         public readonly string? PrivateIpAddress;
+        /// <summary>
+        /// The private IP allocation method. The only possible value now is `Dynamic`.
+        /// </summary>
         public readonly string? PrivateIpAllocationMethod;
         public readonly string? SubnetId;
 

@@ -11,6 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class TokenPasswordPassword1 {
+    /**
+     * @return The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+     * 
+     */
     private @Nullable String expiry;
     /**
      * @return The value of the password (Sensitive).
@@ -19,6 +23,10 @@ public final class TokenPasswordPassword1 {
     private @Nullable String value;
 
     private TokenPasswordPassword1() {}
+    /**
+     * @return The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<String> expiry() {
         return Optional.ofNullable(this.expiry);
     }

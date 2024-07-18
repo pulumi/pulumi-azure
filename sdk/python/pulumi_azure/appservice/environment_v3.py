@@ -554,7 +554,7 @@ class EnvironmentV3(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "Microsoft.Web.hostingEnvironments",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Web/hostingEnvironments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
@@ -649,7 +649,7 @@ class EnvironmentV3(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "Microsoft.Web.hostingEnvironments",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Web/hostingEnvironments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },

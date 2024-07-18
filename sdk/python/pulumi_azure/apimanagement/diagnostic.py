@@ -527,7 +527,7 @@ class Diagnostic(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example.name,
             application_insights={
-                "instrumentationKey": example_insights.instrumentation_key,
+                "instrumentation_key": example_insights.instrumentation_key,
             })
         example_diagnostic = azure.apimanagement.Diagnostic("example",
             identifier="applicationinsights",
@@ -540,32 +540,32 @@ class Diagnostic(pulumi.CustomResource):
             verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             frontend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",
                 ],
             },
             backend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             backend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",
@@ -633,7 +633,7 @@ class Diagnostic(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example.name,
             application_insights={
-                "instrumentationKey": example_insights.instrumentation_key,
+                "instrumentation_key": example_insights.instrumentation_key,
             })
         example_diagnostic = azure.apimanagement.Diagnostic("example",
             identifier="applicationinsights",
@@ -646,32 +646,32 @@ class Diagnostic(pulumi.CustomResource):
             verbosity="verbose",
             http_correlation_protocol="W3C",
             frontend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             frontend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",
                 ],
             },
             backend_request={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "accept",
                     "origin",
                 ],
             },
             backend_response={
-                "bodyBytes": 32,
-                "headersToLogs": [
+                "body_bytes": 32,
+                "headers_to_logs": [
                     "content-type",
                     "content-length",
                     "origin",

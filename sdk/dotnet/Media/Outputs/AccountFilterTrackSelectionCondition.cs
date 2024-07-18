@@ -13,8 +13,17 @@ namespace Pulumi.Azure.Media.Outputs
     [OutputType]
     public sealed class AccountFilterTrackSelectionCondition
     {
+        /// <summary>
+        /// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        /// </summary>
         public readonly string Operation;
+        /// <summary>
+        /// The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        /// </summary>
         public readonly string Property;
+        /// <summary>
+        /// The track property value to match or not match.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

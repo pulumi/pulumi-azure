@@ -200,27 +200,27 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             sku_name="premium",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "certificate_permissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Get",
                         "List",
                     ],
                 },
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": test_azurerm_signalr_service["identity"][0]["principalId"],
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": test_azurerm_signalr_service["identity"][0]["principalId"],
+                    "certificate_permissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Get",
                         "List",
                     ],
@@ -297,27 +297,27 @@ class ServiceCustomCertificate(pulumi.CustomResource):
             sku_name="premium",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "certificate_permissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Get",
                         "List",
                     ],
                 },
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": test_azurerm_signalr_service["identity"][0]["principalId"],
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": test_azurerm_signalr_service["identity"][0]["principalId"],
+                    "certificate_permissions": [
                         "Create",
                         "Get",
                         "List",
                     ],
-                    "secretPermissions": [
+                    "secret_permissions": [
                         "Get",
                         "List",
                     ],

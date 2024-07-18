@@ -18,12 +18,21 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether this IP configuration is primary.
+        /// </summary>
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The private IP allocation method. The only possible value now is `Dynamic`.
+        /// </summary>
         [Input("privateIpAllocationMethod")]
         public Input<string>? PrivateIpAllocationMethod { get; set; }
 

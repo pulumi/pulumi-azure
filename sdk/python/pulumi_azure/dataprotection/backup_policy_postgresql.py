@@ -298,7 +298,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                     "duration": "P6M",
                     "priority": 20,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfWeek",
+                        "absolute_criteria": "FirstOfWeek",
                     },
                 },
                 {
@@ -306,8 +306,8 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                     "duration": "P1W",
                     "priority": 25,
                     "criteria": {
-                        "daysOfWeeks": ["Thursday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Thursday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
                 {
@@ -315,12 +315,12 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                     "duration": "P1D",
                     "priority": 15,
                     "criteria": {
-                        "weeksOfMonths": [
+                        "weeks_of_months": [
                             "First",
                             "Last",
                         ],
-                        "daysOfWeeks": ["Tuesday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Tuesday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
             ])
@@ -381,7 +381,7 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                     "duration": "P6M",
                     "priority": 20,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfWeek",
+                        "absolute_criteria": "FirstOfWeek",
                     },
                 },
                 {
@@ -389,8 +389,8 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                     "duration": "P1W",
                     "priority": 25,
                     "criteria": {
-                        "daysOfWeeks": ["Thursday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Thursday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
                 {
@@ -398,12 +398,12 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
                     "duration": "P1D",
                     "priority": 15,
                     "criteria": {
-                        "weeksOfMonths": [
+                        "weeks_of_months": [
                             "First",
                             "Last",
                         ],
-                        "daysOfWeeks": ["Tuesday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Tuesday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
             ])

@@ -14,6 +14,9 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class PoolStartTaskContainerRegistry
     {
         public readonly string? Password;
+        /// <summary>
+        /// The container registry URL. Changing this forces a new resource to be created.
+        /// </summary>
         public readonly string RegistryServer;
         /// <summary>
         /// The User Assigned Identity to use for Container Registry access.
