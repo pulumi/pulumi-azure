@@ -2023,6 +2023,9 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
                  configuration_reference_blob_uri: Optional[str] = None,
                  order: Optional[int] = None,
                  tag: Optional[str] = None):
+        """
+        :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         pulumi.set(__self__, "package_reference_id", package_reference_id)
         if configuration_reference_blob_uri is not None:
             pulumi.set(__self__, "configuration_reference_blob_uri", configuration_reference_blob_uri)
@@ -2046,6 +2049,9 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter
     def order(self) -> Optional[int]:
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "order")
 
     @property
@@ -8346,6 +8352,7 @@ class VirtualMachineOsProfile(dict):
         :param str admin_password: (Optional for Windows, Optional for Linux) The password associated with the local administrator account.
                
                > **NOTE:** If using Linux, it may be preferable to use SSH Key authentication (available in the `os_profile_linux_config` block) instead of password authentication.
+        :param str custom_data: Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "computer_name", computer_name)
@@ -8383,6 +8390,9 @@ class VirtualMachineOsProfile(dict):
     @property
     @pulumi.getter(name="customData")
     def custom_data(self) -> Optional[str]:
+        """
+        Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "custom_data")
 
 
@@ -10470,6 +10480,9 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
                  configuration_reference_blob_uri: Optional[str] = None,
                  order: Optional[int] = None,
                  tag: Optional[str] = None):
+        """
+        :param int order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         pulumi.set(__self__, "package_reference_id", package_reference_id)
         if configuration_reference_blob_uri is not None:
             pulumi.set(__self__, "configuration_reference_blob_uri", configuration_reference_blob_uri)
@@ -10493,6 +10506,9 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
     @property
     @pulumi.getter
     def order(self) -> Optional[int]:
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2147483647`. Defaults to `0`. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "order")
 
     @property

@@ -82,7 +82,17 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// &gt; **Note:** When `network_policy` is set to `cilium`, the `network_data_plane` field must be set to `cilium`.
         /// </summary>
         public readonly string? NetworkPolicy;
+        /// <summary>
+        /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
+        /// 
+        /// &gt; **Note:** Set `outbound_ip_address_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_address_ids` will revert the load balancing for the cluster back to a managed one.
+        /// </summary>
         public readonly ImmutableArray<string> OutboundIpAddressIds;
+        /// <summary>
+        /// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
+        /// 
+        /// &gt; **Note:** Set `outbound_ip_prefix_ids` to an empty slice `[]` in order to unlink it from the cluster. Unlinking a `outbound_ip_prefix_ids` will revert the load balancing for the cluster back to a managed one.
+        /// </summary>
         public readonly ImmutableArray<string> OutboundIpPrefixIds;
         /// <summary>
         /// The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`. More information on supported migration paths for `outbound_type` can be found in [this documentation](https://learn.microsoft.com/azure/aks/egress-outboundtype#updating-outboundtype-after-cluster-creation).

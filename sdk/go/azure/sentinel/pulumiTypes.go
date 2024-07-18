@@ -3309,8 +3309,9 @@ func (o AlertRuleScheduledIncidentPtrOutput) Grouping() AlertRuleScheduledIncide
 
 type AlertRuleScheduledIncidentConfiguration struct {
 	// Deprecated: The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
-	CreateIncident bool                                            `pulumi:"createIncident"`
-	Grouping       AlertRuleScheduledIncidentConfigurationGrouping `pulumi:"grouping"`
+	CreateIncident bool `pulumi:"createIncident"`
+	// A `grouping` block as defined below.
+	Grouping AlertRuleScheduledIncidentConfigurationGrouping `pulumi:"grouping"`
 }
 
 // AlertRuleScheduledIncidentConfigurationInput is an input type that accepts AlertRuleScheduledIncidentConfigurationArgs and AlertRuleScheduledIncidentConfigurationOutput values.
@@ -3326,8 +3327,9 @@ type AlertRuleScheduledIncidentConfigurationInput interface {
 
 type AlertRuleScheduledIncidentConfigurationArgs struct {
 	// Deprecated: The `createIncident` property has been superseded by the `createIncidentEnabled` property and will be removed in v4.0 of the AzureRM Provider
-	CreateIncident pulumi.BoolInput                                     `pulumi:"createIncident"`
-	Grouping       AlertRuleScheduledIncidentConfigurationGroupingInput `pulumi:"grouping"`
+	CreateIncident pulumi.BoolInput `pulumi:"createIncident"`
+	// A `grouping` block as defined below.
+	Grouping AlertRuleScheduledIncidentConfigurationGroupingInput `pulumi:"grouping"`
 }
 
 func (AlertRuleScheduledIncidentConfigurationArgs) ElementType() reflect.Type {
@@ -3412,6 +3414,7 @@ func (o AlertRuleScheduledIncidentConfigurationOutput) CreateIncident() pulumi.B
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfiguration) bool { return v.CreateIncident }).(pulumi.BoolOutput)
 }
 
+// A `grouping` block as defined below.
 func (o AlertRuleScheduledIncidentConfigurationOutput) Grouping() AlertRuleScheduledIncidentConfigurationGroupingOutput {
 	return o.ApplyT(func(v AlertRuleScheduledIncidentConfiguration) AlertRuleScheduledIncidentConfigurationGrouping {
 		return v.Grouping
@@ -3452,6 +3455,7 @@ func (o AlertRuleScheduledIncidentConfigurationPtrOutput) CreateIncident() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A `grouping` block as defined below.
 func (o AlertRuleScheduledIncidentConfigurationPtrOutput) Grouping() AlertRuleScheduledIncidentConfigurationGroupingPtrOutput {
 	return o.ApplyT(func(v *AlertRuleScheduledIncidentConfiguration) *AlertRuleScheduledIncidentConfigurationGrouping {
 		if v == nil {

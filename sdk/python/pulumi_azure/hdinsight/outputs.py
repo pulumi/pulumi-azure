@@ -818,6 +818,9 @@ class HBaseClusterPrivateLinkConfigurationIpConfiguration(dict):
                  subnet_id: Optional[str] = None):
         """
         :param str name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -840,16 +843,25 @@ class HBaseClusterPrivateLinkConfigurationIpConfiguration(dict):
     @property
     @pulumi.getter
     def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
         return pulumi.get(self, "primary")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @property
@@ -2483,6 +2495,8 @@ class HadoopClusterPrivateLinkConfigurationIpConfiguration(dict):
                  subnet_id: Optional[str] = None):
         """
         :param str name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -2505,6 +2519,9 @@ class HadoopClusterPrivateLinkConfigurationIpConfiguration(dict):
     @property
     @pulumi.getter
     def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
         return pulumi.get(self, "primary")
 
     @property
@@ -2515,6 +2532,9 @@ class HadoopClusterPrivateLinkConfigurationIpConfiguration(dict):
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @property
@@ -4502,6 +4522,9 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration(dict):
                  subnet_id: Optional[str] = None):
         """
         :param str name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -4524,16 +4547,25 @@ class InteractiveQueryClusterPrivateLinkConfigurationIpConfiguration(dict):
     @property
     @pulumi.getter
     def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
         return pulumi.get(self, "primary")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @property
@@ -6218,6 +6250,9 @@ class KafkaClusterPrivateLinkConfigurationIpConfiguration(dict):
                  subnet_id: Optional[str] = None):
         """
         :param str name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -6240,16 +6275,25 @@ class KafkaClusterPrivateLinkConfigurationIpConfiguration(dict):
     @property
     @pulumi.getter
     def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
         return pulumi.get(self, "primary")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @property
@@ -8008,6 +8052,9 @@ class SparkClusterPrivateLinkConfigurationIpConfiguration(dict):
                  subnet_id: Optional[str] = None):
         """
         :param str name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param bool primary: Indicates whether this IP configuration is primary.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP allocation method. The only possible value now is `Dynamic`.
         """
         pulumi.set(__self__, "name", name)
         if primary is not None:
@@ -8030,16 +8077,25 @@ class SparkClusterPrivateLinkConfigurationIpConfiguration(dict):
     @property
     @pulumi.getter
     def primary(self) -> Optional[bool]:
+        """
+        Indicates whether this IP configuration is primary.
+        """
         return pulumi.get(self, "primary")
 
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="privateIpAllocationMethod")
     def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP allocation method. The only possible value now is `Dynamic`.
+        """
         return pulumi.get(self, "private_ip_allocation_method")
 
     @property
