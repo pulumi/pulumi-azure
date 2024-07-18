@@ -516,6 +516,11 @@ class RunBookDraftContentLink(dict):
                  uri: str,
                  hash: Optional['outputs.RunBookDraftContentLinkHash'] = None,
                  version: Optional[str] = None):
+        """
+        :param str uri: The URI of the runbook content.
+        :param 'RunBookDraftContentLinkHashArgs' hash: A `hash` block as defined below.
+        :param str version: Specifies the version of the content
+        """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
             pulumi.set(__self__, "hash", hash)
@@ -525,16 +530,25 @@ class RunBookDraftContentLink(dict):
     @property
     @pulumi.getter
     def uri(self) -> str:
+        """
+        The URI of the runbook content.
+        """
         return pulumi.get(self, "uri")
 
     @property
     @pulumi.getter
     def hash(self) -> Optional['outputs.RunBookDraftContentLinkHash']:
+        """
+        A `hash` block as defined below.
+        """
         return pulumi.get(self, "hash")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        Specifies the version of the content
+        """
         return pulumi.get(self, "version")
 
 

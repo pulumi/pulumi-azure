@@ -25,6 +25,10 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationFqdnTags")]
         private InputList<string>? _destinationFqdnTags;
+
+        /// <summary>
+        /// Specifies a list of destination FQDN tags.
+        /// </summary>
         public InputList<string> DestinationFqdnTags
         {
             get => _destinationFqdnTags ?? (_destinationFqdnTags = new InputList<string>());
@@ -41,6 +45,10 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("destinationUrls")]
         private InputList<string>? _destinationUrls;
+
+        /// <summary>
+        /// Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+        /// </summary>
         public InputList<string> DestinationUrls
         {
             get => _destinationUrls ?? (_destinationUrls = new InputList<string>());
@@ -49,6 +57,10 @@ namespace Pulumi.Azure.Network.Inputs
 
         [Input("httpHeaders")]
         private InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs>? _httpHeaders;
+
+        /// <summary>
+        /// Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+        /// </summary>
         public InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs> HttpHeaders
         {
             get => _httpHeaders ?? (_httpHeaders = new InputList<Inputs.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderGetArgs>());
@@ -85,11 +97,18 @@ namespace Pulumi.Azure.Network.Inputs
             set => _sourceIpGroups = value;
         }
 
+        /// <summary>
+        /// Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+        /// </summary>
         [Input("terminateTls")]
         public Input<bool>? TerminateTls { get; set; }
 
         [Input("webCategories")]
         private InputList<string>? _webCategories;
+
+        /// <summary>
+        /// Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+        /// </summary>
         public InputList<string> WebCategories
         {
             get => _webCategories ?? (_webCategories = new InputList<string>());

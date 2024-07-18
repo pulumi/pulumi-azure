@@ -394,7 +394,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             vpn_authentication_types=["Certificate"],
             client_root_certificates=[{
                 "name": "DigiCert-Federated-ID-Root-CA",
-                "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+                "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -425,8 +425,8 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             scale_unit=1,
             connection_configuration={
                 "name": "example-gateway-config",
-                "vpnClientAddressPool": {
-                    "addressPrefixes": ["10.0.2.0/24"],
+                "vpn_client_address_pool": {
+                    "address_prefixes": ["10.0.2.0/24"],
                 },
             })
         ```
@@ -487,7 +487,7 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             vpn_authentication_types=["Certificate"],
             client_root_certificates=[{
                 "name": "DigiCert-Federated-ID-Root-CA",
-                "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+                "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -518,8 +518,8 @@ class PointToPointVpnGateway(pulumi.CustomResource):
             scale_unit=1,
             connection_configuration={
                 "name": "example-gateway-config",
-                "vpnClientAddressPool": {
-                    "addressPrefixes": ["10.0.2.0/24"],
+                "vpn_client_address_pool": {
+                    "address_prefixes": ["10.0.2.0/24"],
                 },
             })
         ```

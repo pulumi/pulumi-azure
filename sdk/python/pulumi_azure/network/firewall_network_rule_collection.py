@@ -269,8 +269,8 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
             name="testcollection",
@@ -280,9 +280,9 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             action="Allow",
             rules=[{
                 "name": "testrule",
-                "sourceAddresses": ["10.0.0.0/16"],
-                "destinationPorts": ["53"],
-                "destinationAddresses": [
+                "source_addresses": ["10.0.0.0/16"],
+                "destination_ports": ["53"],
+                "destination_addresses": [
                     "8.8.8.8",
                     "8.8.4.4",
                 ],
@@ -352,8 +352,8 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_firewall_network_rule_collection = azure.network.FirewallNetworkRuleCollection("example",
             name="testcollection",
@@ -363,9 +363,9 @@ class FirewallNetworkRuleCollection(pulumi.CustomResource):
             action="Allow",
             rules=[{
                 "name": "testrule",
-                "sourceAddresses": ["10.0.0.0/16"],
-                "destinationPorts": ["53"],
-                "destinationAddresses": [
+                "source_addresses": ["10.0.0.0/16"],
+                "destination_ports": ["53"],
+                "destination_addresses": [
                     "8.8.8.8",
                     "8.8.4.4",
                 ],

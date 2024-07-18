@@ -130,19 +130,19 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             sku_name="premium",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Create",
                         "Get",
                         "GetRotationPolicy",
                     ],
-                    "secretPermissions": ["Set"],
+                    "secret_permissions": ["Set"],
                 },
                 {
-                    "tenantId": example_cluster.identity.tenant_id,
-                    "objectId": example_cluster.identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_cluster.identity.tenant_id,
+                    "object_id": example_cluster.identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "Unwrapkey",
                         "Wrapkey",
@@ -217,19 +217,19 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             sku_name="premium",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Create",
                         "Get",
                         "GetRotationPolicy",
                     ],
-                    "secretPermissions": ["Set"],
+                    "secret_permissions": ["Set"],
                 },
                 {
-                    "tenantId": example_cluster.identity.tenant_id,
-                    "objectId": example_cluster.identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_cluster.identity.tenant_id,
+                    "object_id": example_cluster.identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "Unwrapkey",
                         "Wrapkey",

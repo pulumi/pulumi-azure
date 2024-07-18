@@ -244,6 +244,11 @@ class AccountFilterTrackSelectionCondition(dict):
                  operation: str,
                  property: str,
                  value: str):
+        """
+        :param str operation: The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        :param str property: The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        :param str value: The track property value to match or not match.
+        """
         pulumi.set(__self__, "operation", operation)
         pulumi.set(__self__, "property", property)
         pulumi.set(__self__, "value", value)
@@ -251,16 +256,25 @@ class AccountFilterTrackSelectionCondition(dict):
     @property
     @pulumi.getter
     def operation(self) -> str:
+        """
+        The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
+        """
         return pulumi.get(self, "operation")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        The track property value to match or not match.
+        """
         return pulumi.get(self, "value")
 
     @property
     @pulumi.getter
     def property(self) -> str:
+        """
+        The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
+        """
         return pulumi.get(self, "property")
 
 

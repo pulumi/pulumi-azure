@@ -12,11 +12,20 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
 
     public sealed class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
+        /// 
+        /// &gt; **NOTE:** This is required when `type` is set to `AutomationRunbookActionDetails` or `ScriptActionDetails`.
+        /// </summary>
         [Input("fabricLocation")]
         public Input<string>? FabricLocation { get; set; }
 
         [Input("failOverDirections", required: true)]
         private InputList<string>? _failOverDirections;
+
+        /// <summary>
+        /// Directions of fail over. Possible values are `PrimaryToRecovery` and `RecoveryToPrimary`
+        /// </summary>
         public InputList<string> FailOverDirections
         {
             get => _failOverDirections ?? (_failOverDirections = new InputList<string>());
@@ -25,12 +34,21 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
 
         [Input("failOverTypes", required: true)]
         private InputList<string>? _failOverTypes;
+
+        /// <summary>
+        /// Types of fail over. Possible values are `TestFailover`, `PlannedFailover` and `UnplannedFailover`
+        /// </summary>
         public InputList<string> FailOverTypes
         {
             get => _failOverTypes ?? (_failOverTypes = new InputList<string>());
             set => _failOverTypes = value;
         }
 
+        /// <summary>
+        /// Instructions of manual action.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `ManualActionDetails`.
+        /// </summary>
         [Input("manualActionInstruction")]
         public Input<string>? ManualActionInstruction { get; set; }
 
@@ -40,9 +58,19 @@ namespace Pulumi.Azure.SiteRecovery.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Id of runbook.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `AutomationRunbookActionDetails`.
+        /// </summary>
         [Input("runbookId")]
         public Input<string>? RunbookId { get; set; }
 
+        /// <summary>
+        /// Path of action script.
+        /// 
+        /// &gt; **NOTE:** This property is required when `type` is set to `ScriptActionDetails`.
+        /// </summary>
         [Input("scriptPath")]
         public Input<string>? ScriptPath { get; set; }
 

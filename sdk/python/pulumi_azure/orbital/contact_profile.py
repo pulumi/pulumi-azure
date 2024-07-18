@@ -389,7 +389,7 @@ class ContactProfile(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "orbitalgateway",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Orbital/orbitalGateways",
                     "actions": [
                         "Microsoft.Network/publicIPAddresses/join/action",
@@ -408,11 +408,11 @@ class ContactProfile(pulumi.CustomResource):
             links=[{
                 "channels": [{
                     "name": "channelname",
-                    "bandwidthMhz": 100,
-                    "centerFrequencyMhz": 101,
-                    "endPoints": [{
-                        "endPointName": "AQUA_command",
-                        "ipAddress": "10.0.1.0",
+                    "bandwidth_mhz": 100,
+                    "center_frequency_mhz": 101,
+                    "end_points": [{
+                        "end_point_name": "AQUA_command",
+                        "ip_address": "10.0.1.0",
                         "port": "49513",
                         "protocol": "TCP",
                     }],
@@ -475,7 +475,7 @@ class ContactProfile(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "orbitalgateway",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Orbital/orbitalGateways",
                     "actions": [
                         "Microsoft.Network/publicIPAddresses/join/action",
@@ -494,11 +494,11 @@ class ContactProfile(pulumi.CustomResource):
             links=[{
                 "channels": [{
                     "name": "channelname",
-                    "bandwidthMhz": 100,
-                    "centerFrequencyMhz": 101,
-                    "endPoints": [{
-                        "endPointName": "AQUA_command",
-                        "ipAddress": "10.0.1.0",
+                    "bandwidth_mhz": 100,
+                    "center_frequency_mhz": 101,
+                    "end_points": [{
+                        "end_point_name": "AQUA_command",
+                        "ip_address": "10.0.1.0",
                         "port": "49513",
                         "protocol": "TCP",
                     }],

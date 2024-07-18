@@ -12,21 +12,53 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class VolumeGroupSapHanaVolumeDataProtectionReplication {
+    /**
+     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * 
+     */
     private @Nullable String endpointType;
+    /**
+     * @return Location of the primary volume.
+     * 
+     */
     private String remoteVolumeLocation;
+    /**
+     * @return Resource ID of the primary volume.
+     * 
+     */
     private String remoteVolumeResourceId;
+    /**
+     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * 
+     */
     private String replicationFrequency;
 
     private VolumeGroupSapHanaVolumeDataProtectionReplication() {}
+    /**
+     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * 
+     */
     public Optional<String> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }
+    /**
+     * @return Location of the primary volume.
+     * 
+     */
     public String remoteVolumeLocation() {
         return this.remoteVolumeLocation;
     }
+    /**
+     * @return Resource ID of the primary volume.
+     * 
+     */
     public String remoteVolumeResourceId() {
         return this.remoteVolumeResourceId;
     }
+    /**
+     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * 
+     */
     public String replicationFrequency() {
         return this.replicationFrequency;
     }

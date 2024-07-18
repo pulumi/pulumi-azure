@@ -16,30 +16,62 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
 
     public static final VolumeGroupSapHanaVolumeDataProtectionReplicationArgs Empty = new VolumeGroupSapHanaVolumeDataProtectionReplicationArgs();
 
+    /**
+     * The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * 
+     */
     @Import(name="endpointType")
     private @Nullable Output<String> endpointType;
 
+    /**
+     * @return The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+     * 
+     */
     public Optional<Output<String>> endpointType() {
         return Optional.ofNullable(this.endpointType);
     }
 
+    /**
+     * Location of the primary volume.
+     * 
+     */
     @Import(name="remoteVolumeLocation", required=true)
     private Output<String> remoteVolumeLocation;
 
+    /**
+     * @return Location of the primary volume.
+     * 
+     */
     public Output<String> remoteVolumeLocation() {
         return this.remoteVolumeLocation;
     }
 
+    /**
+     * Resource ID of the primary volume.
+     * 
+     */
     @Import(name="remoteVolumeResourceId", required=true)
     private Output<String> remoteVolumeResourceId;
 
+    /**
+     * @return Resource ID of the primary volume.
+     * 
+     */
     public Output<String> remoteVolumeResourceId() {
         return this.remoteVolumeResourceId;
     }
 
+    /**
+     * eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * 
+     */
     @Import(name="replicationFrequency", required=true)
     private Output<String> replicationFrequency;
 
+    /**
+     * @return eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+     * 
+     */
     public Output<String> replicationFrequency() {
         return this.replicationFrequency;
     }
@@ -71,38 +103,86 @@ public final class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs extends
             $ = new VolumeGroupSapHanaVolumeDataProtectionReplicationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param endpointType The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointType(@Nullable Output<String> endpointType) {
             $.endpointType = endpointType;
             return this;
         }
 
+        /**
+         * @param endpointType The endpoint type. Possible values are `dst` and `src`. Defaults to `dst`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointType(String endpointType) {
             return endpointType(Output.of(endpointType));
         }
 
+        /**
+         * @param remoteVolumeLocation Location of the primary volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteVolumeLocation(Output<String> remoteVolumeLocation) {
             $.remoteVolumeLocation = remoteVolumeLocation;
             return this;
         }
 
+        /**
+         * @param remoteVolumeLocation Location of the primary volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteVolumeLocation(String remoteVolumeLocation) {
             return remoteVolumeLocation(Output.of(remoteVolumeLocation));
         }
 
+        /**
+         * @param remoteVolumeResourceId Resource ID of the primary volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteVolumeResourceId(Output<String> remoteVolumeResourceId) {
             $.remoteVolumeResourceId = remoteVolumeResourceId;
             return this;
         }
 
+        /**
+         * @param remoteVolumeResourceId Resource ID of the primary volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder remoteVolumeResourceId(String remoteVolumeResourceId) {
             return remoteVolumeResourceId(Output.of(remoteVolumeResourceId));
         }
 
+        /**
+         * @param replicationFrequency eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationFrequency(Output<String> replicationFrequency) {
             $.replicationFrequency = replicationFrequency;
             return this;
         }
 
+        /**
+         * @param replicationFrequency eplication frequency. Possible values are `10minutes`, `daily` and `hourly`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder replicationFrequency(String replicationFrequency) {
             return replicationFrequency(Output.of(replicationFrequency));
         }

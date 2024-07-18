@@ -34,9 +34,17 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return Optional.ofNullable(this.destinationAddresses);
     }
 
+    /**
+     * Specifies a list of destination FQDN tags.
+     * 
+     */
     @Import(name="destinationFqdnTags")
     private @Nullable Output<List<String>> destinationFqdnTags;
 
+    /**
+     * @return Specifies a list of destination FQDN tags.
+     * 
+     */
     public Optional<Output<List<String>>> destinationFqdnTags() {
         return Optional.ofNullable(this.destinationFqdnTags);
     }
@@ -48,16 +56,32 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return Optional.ofNullable(this.destinationFqdns);
     }
 
+    /**
+     * Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * 
+     */
     @Import(name="destinationUrls")
     private @Nullable Output<List<String>> destinationUrls;
 
+    /**
+     * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+     * 
+     */
     public Optional<Output<List<String>>> destinationUrls() {
         return Optional.ofNullable(this.destinationUrls);
     }
 
+    /**
+     * Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
     @Import(name="httpHeaders")
     private @Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>> httpHeaders;
 
+    /**
+     * @return Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+     * 
+     */
     public Optional<Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>>> httpHeaders() {
         return Optional.ofNullable(this.httpHeaders);
     }
@@ -98,16 +122,32 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         return Optional.ofNullable(this.sourceIpGroups);
     }
 
+    /**
+     * Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     @Import(name="terminateTls")
     private @Nullable Output<Boolean> terminateTls;
 
+    /**
+     * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     public Optional<Output<Boolean>> terminateTls() {
         return Optional.ofNullable(this.terminateTls);
     }
 
+    /**
+     * Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     @Import(name="webCategories")
     private @Nullable Output<List<String>> webCategories;
 
+    /**
+     * @return Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+     * 
+     */
     public Optional<Output<List<String>>> webCategories() {
         return Optional.ofNullable(this.webCategories);
     }
@@ -169,15 +209,33 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
             return destinationAddresses(List.of(destinationAddresses));
         }
 
+        /**
+         * @param destinationFqdnTags Specifies a list of destination FQDN tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationFqdnTags(@Nullable Output<List<String>> destinationFqdnTags) {
             $.destinationFqdnTags = destinationFqdnTags;
             return this;
         }
 
+        /**
+         * @param destinationFqdnTags Specifies a list of destination FQDN tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationFqdnTags(List<String> destinationFqdnTags) {
             return destinationFqdnTags(Output.of(destinationFqdnTags));
         }
 
+        /**
+         * @param destinationFqdnTags Specifies a list of destination FQDN tags.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationFqdnTags(String... destinationFqdnTags) {
             return destinationFqdnTags(List.of(destinationFqdnTags));
         }
@@ -195,28 +253,64 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
             return destinationFqdns(List.of(destinationFqdns));
         }
 
+        /**
+         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationUrls(@Nullable Output<List<String>> destinationUrls) {
             $.destinationUrls = destinationUrls;
             return this;
         }
 
+        /**
+         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationUrls(List<String> destinationUrls) {
             return destinationUrls(Output.of(destinationUrls));
         }
 
+        /**
+         * @param destinationUrls Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationUrls(String... destinationUrls) {
             return destinationUrls(List.of(destinationUrls));
         }
 
+        /**
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpHeaders(@Nullable Output<List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs>> httpHeaders) {
             $.httpHeaders = httpHeaders;
             return this;
         }
 
+        /**
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpHeaders(List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs> httpHeaders) {
             return httpHeaders(Output.of(httpHeaders));
         }
 
+        /**
+         * @param httpHeaders Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder httpHeaders(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs... httpHeaders) {
             return httpHeaders(List.of(httpHeaders));
         }
@@ -281,24 +375,54 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
             return sourceIpGroups(List.of(sourceIpGroups));
         }
 
+        /**
+         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terminateTls(@Nullable Output<Boolean> terminateTls) {
             $.terminateTls = terminateTls;
             return this;
         }
 
+        /**
+         * @param terminateTls Boolean specifying if TLS shall be terminated (true) or not (false). Must be `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder terminateTls(Boolean terminateTls) {
             return terminateTls(Output.of(terminateTls));
         }
 
+        /**
+         * @param webCategories Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webCategories(@Nullable Output<List<String>> webCategories) {
             $.webCategories = webCategories;
             return this;
         }
 
+        /**
+         * @param webCategories Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webCategories(List<String> webCategories) {
             return webCategories(Output.of(webCategories));
         }
 
+        /**
+         * @param webCategories Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder webCategories(String... webCategories) {
             return webCategories(List.of(webCategories));
         }

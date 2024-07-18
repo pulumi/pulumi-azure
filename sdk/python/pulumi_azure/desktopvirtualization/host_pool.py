@@ -645,8 +645,8 @@ class HostPool(pulumi.CustomResource):
             scheduled_agent_updates={
                 "enabled": True,
                 "schedules": [{
-                    "dayOfWeek": "Saturday",
-                    "hourOfDay": 2,
+                    "day_of_week": "Saturday",
+                    "hour_of_day": 2,
                 }],
             })
         ```
@@ -719,8 +719,8 @@ class HostPool(pulumi.CustomResource):
             scheduled_agent_updates={
                 "enabled": True,
                 "schedules": [{
-                    "dayOfWeek": "Saturday",
-                    "hourOfDay": 2,
+                    "day_of_week": "Saturday",
+                    "hour_of_day": 2,
                 }],
             })
         ```

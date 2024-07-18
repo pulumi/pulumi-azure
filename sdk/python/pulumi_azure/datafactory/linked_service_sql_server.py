@@ -453,8 +453,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
             key_vault_password={
-                "linkedServiceName": example_linked_service_key_vault.name,
-                "secretName": "secret",
+                "linked_service_name": example_linked_service_key_vault.name,
+                "secret_name": "secret",
             })
         ```
 
@@ -537,8 +537,8 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
             key_vault_password={
-                "linkedServiceName": example_linked_service_key_vault.name,
-                "secretName": "secret",
+                "linked_service_name": example_linked_service_key_vault.name,
+                "secret_name": "secret",
             })
         ```
 

@@ -368,8 +368,8 @@ class FluxConfiguration(pulumi.CustomResource):
             namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
-                "referenceType": "branch",
-                "referenceValue": "main",
+                "reference_type": "branch",
+                "reference_value": "main",
             },
             kustomizations=[{
                 "name": "kustomization-1",
@@ -437,8 +437,8 @@ class FluxConfiguration(pulumi.CustomResource):
             namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
-                "referenceType": "branch",
-                "referenceValue": "main",
+                "reference_type": "branch",
+                "reference_value": "main",
             },
             kustomizations=[{
                 "name": "kustomization-1",
