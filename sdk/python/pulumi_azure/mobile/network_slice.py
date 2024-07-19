@@ -260,7 +260,7 @@ class NetworkSlice(pulumi.CustomResource):
             location=example.location,
             description="an example slice",
             single_network_slice_selection_assistance_information={
-                "sliceServiceType": 1,
+                "slice_service_type": 1,
             },
             tags={
                 "key": "value",
@@ -314,7 +314,7 @@ class NetworkSlice(pulumi.CustomResource):
             location=example.location,
             description="an example slice",
             single_network_slice_selection_assistance_information={
-                "sliceServiceType": 1,
+                "slice_service_type": 1,
             },
             tags={
                 "key": "value",

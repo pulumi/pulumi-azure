@@ -224,7 +224,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
                 "name": "name2",
                 "description": "definition2",
                 "service": "Global",
-                "serviceResources": [
+                "service_resources": [
                     "/services/Azure",
                     "/services/Azure/Batch",
                     "/services/Azure/DataFactory",
@@ -283,7 +283,7 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
                 "name": "name2",
                 "description": "definition2",
                 "service": "Global",
-                "serviceResources": [
+                "service_resources": [
                     "/services/Azure",
                     "/services/Azure/Batch",
                     "/services/Azure/DataFactory",

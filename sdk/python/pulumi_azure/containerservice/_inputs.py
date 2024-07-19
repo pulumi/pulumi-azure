@@ -3790,7 +3790,7 @@ if not MYPY:
 
         virtual = azure.network.Subnet("virtual", delegations=[{
             "name": "aciDelegation",
-            "serviceDelegation": {
+            "service_delegation": {
                 "name": "Microsoft.ContainerInstance/containerGroups",
                 "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
             },
@@ -3822,7 +3822,7 @@ class KubernetesClusterAciConnectorLinuxArgs:
                
                virtual = azure.network.Subnet("virtual", delegations=[{
                    "name": "aciDelegation",
-                   "serviceDelegation": {
+                   "service_delegation": {
                        "name": "Microsoft.ContainerInstance/containerGroups",
                        "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                    },
@@ -3850,7 +3850,7 @@ class KubernetesClusterAciConnectorLinuxArgs:
 
         virtual = azure.network.Subnet("virtual", delegations=[{
             "name": "aciDelegation",
-            "serviceDelegation": {
+            "service_delegation": {
                 "name": "Microsoft.ContainerInstance/containerGroups",
                 "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
             },

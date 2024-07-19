@@ -164,8 +164,8 @@ class ApiRelease(pulumi.CustomResource):
             path="example",
             protocols=["https"],
             import_={
-                "contentFormat": "swagger-link-json",
-                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_format": "swagger-link-json",
+                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
             })
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",
@@ -220,8 +220,8 @@ class ApiRelease(pulumi.CustomResource):
             path="example",
             protocols=["https"],
             import_={
-                "contentFormat": "swagger-link-json",
-                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_format": "swagger-link-json",
+                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
             })
         example_api_release = azure.apimanagement.ApiRelease("example",
             name="example-Api-Release",

@@ -547,7 +547,7 @@ class ComputeInstance(pulumi.CustomResource):
             virtual_machine_size="STANDARD_DS2_V2",
             authorization_type="personal",
             ssh={
-                "publicKey": ssh_key,
+                "public_key": ssh_key,
             },
             subnet_resource_id=example_subnet.id,
             description="foo",
@@ -652,7 +652,7 @@ class ComputeInstance(pulumi.CustomResource):
             virtual_machine_size="STANDARD_DS2_V2",
             authorization_type="personal",
             ssh={
-                "publicKey": ssh_key,
+                "public_key": ssh_key,
             },
             subnet_resource_id=example_subnet.id,
             description="foo",

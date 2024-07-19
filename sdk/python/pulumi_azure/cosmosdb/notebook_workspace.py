@@ -176,11 +176,11 @@ class NotebookWorkspace(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "BoundedStaleness",
+                "consistency_level": "BoundedStaleness",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("example",
             name="default",
@@ -233,11 +233,11 @@ class NotebookWorkspace(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "BoundedStaleness",
+                "consistency_level": "BoundedStaleness",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_notebook_workspace = azure.cosmosdb.NotebookWorkspace("example",
             name="default",

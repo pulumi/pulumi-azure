@@ -206,19 +206,19 @@ class NetworkAcl(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
-                "isManualConnection": False,
-                "privateConnectionResourceId": example_service.id,
-                "subresourceNames": ["webpubsub"],
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_service.id,
+                "subresource_names": ["webpubsub"],
             })
         example_network_acl = azure.webpubsub.NetworkAcl("example",
             web_pubsub_id=example_service.id,
             default_action="Allow",
             public_network={
-                "deniedRequestTypes": ["ClientConnection"],
+                "denied_request_types": ["ClientConnection"],
             },
             private_endpoints=[{
                 "id": example_endpoint.id,
-                "deniedRequestTypes": [
+                "denied_request_types": [
                     "RESTAPI",
                     "ClientConnection",
                 ],
@@ -283,19 +283,19 @@ class NetworkAcl(pulumi.CustomResource):
             subnet_id=example_subnet.id,
             private_service_connection={
                 "name": "psc-sig-test",
-                "isManualConnection": False,
-                "privateConnectionResourceId": example_service.id,
-                "subresourceNames": ["webpubsub"],
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_service.id,
+                "subresource_names": ["webpubsub"],
             })
         example_network_acl = azure.webpubsub.NetworkAcl("example",
             web_pubsub_id=example_service.id,
             default_action="Allow",
             public_network={
-                "deniedRequestTypes": ["ClientConnection"],
+                "denied_request_types": ["ClientConnection"],
             },
             private_endpoints=[{
                 "id": example_endpoint.id,
-                "deniedRequestTypes": [
+                "denied_request_types": [
                     "RESTAPI",
                     "ClientConnection",
                 ],

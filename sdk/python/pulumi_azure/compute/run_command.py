@@ -507,8 +507,8 @@ class RunCommand(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
@@ -525,7 +525,7 @@ class RunCommand(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Premium_LRS",
+                "storage_account_type": "Premium_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -535,7 +535,7 @@ class RunCommand(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned, UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         example_account = azure.storage.Account("example",
             name="exampleaccount",
@@ -613,16 +613,16 @@ class RunCommand(pulumi.CustomResource):
             run_as_password="P@$$w0rd1234!",
             run_as_user="adminuser",
             source={
-                "scriptUri": example1.id,
-                "scriptUriManagedIdentity": {
-                    "clientId": example_user_assigned_identity.client_id,
+                "script_uri": example1.id,
+                "script_uri_managed_identity": {
+                    "client_id": example_user_assigned_identity.client_id,
                 },
             },
             error_blob_managed_identity={
-                "clientId": example_user_assigned_identity.client_id,
+                "client_id": example_user_assigned_identity.client_id,
             },
             output_blob_managed_identity={
-                "clientId": example_user_assigned_identity.client_id,
+                "client_id": example_user_assigned_identity.client_id,
             },
             parameters=[{
                 "name": "examplev1",
@@ -647,7 +647,7 @@ class RunCommand(pulumi.CustomResource):
             error_blob_uri=pulumi.Output.all(example3.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             output_blob_uri=pulumi.Output.all(example2.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             source={
-                "scriptUri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
+                "script_uri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             },
             parameters=[{
                 "name": "example-vm1",
@@ -717,8 +717,8 @@ class RunCommand(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
             name="example-uai",
@@ -735,7 +735,7 @@ class RunCommand(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Premium_LRS",
+                "storage_account_type": "Premium_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -745,7 +745,7 @@ class RunCommand(pulumi.CustomResource):
             },
             identity={
                 "type": "SystemAssigned, UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         example_account = azure.storage.Account("example",
             name="exampleaccount",
@@ -823,16 +823,16 @@ class RunCommand(pulumi.CustomResource):
             run_as_password="P@$$w0rd1234!",
             run_as_user="adminuser",
             source={
-                "scriptUri": example1.id,
-                "scriptUriManagedIdentity": {
-                    "clientId": example_user_assigned_identity.client_id,
+                "script_uri": example1.id,
+                "script_uri_managed_identity": {
+                    "client_id": example_user_assigned_identity.client_id,
                 },
             },
             error_blob_managed_identity={
-                "clientId": example_user_assigned_identity.client_id,
+                "client_id": example_user_assigned_identity.client_id,
             },
             output_blob_managed_identity={
-                "clientId": example_user_assigned_identity.client_id,
+                "client_id": example_user_assigned_identity.client_id,
             },
             parameters=[{
                 "name": "examplev1",
@@ -857,7 +857,7 @@ class RunCommand(pulumi.CustomResource):
             error_blob_uri=pulumi.Output.all(example3.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             output_blob_uri=pulumi.Output.all(example2.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             source={
-                "scriptUri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
+                "script_uri": pulumi.Output.all(example1.id, example).apply(lambda id, example: f"{id}{example.sas}"),
             },
             parameters=[{
                 "name": "example-vm1",

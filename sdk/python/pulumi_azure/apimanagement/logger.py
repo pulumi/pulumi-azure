@@ -332,7 +332,7 @@ class Logger(pulumi.CustomResource):
             resource_group_name=example.name,
             resource_id=example_insights.id,
             application_insights={
-                "instrumentationKey": example_insights.instrumentation_key,
+                "instrumentation_key": example_insights.instrumentation_key,
             })
         ```
 
@@ -391,7 +391,7 @@ class Logger(pulumi.CustomResource):
             resource_group_name=example.name,
             resource_id=example_insights.id,
             application_insights={
-                "instrumentationKey": example_insights.instrumentation_key,
+                "instrumentation_key": example_insights.instrumentation_key,
             })
         ```
 

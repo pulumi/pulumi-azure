@@ -220,10 +220,10 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             labels=["label1"],
             routes=[{
                 "name": "example-route",
-                "destinationsType": "CIDR",
+                "destinations_type": "CIDR",
                 "destinations": ["10.0.0.0/16"],
-                "nextHopType": "ResourceId",
-                "nextHop": example_virtual_hub_connection.id,
+                "next_hop_type": "ResourceId",
+                "next_hop": example_virtual_hub_connection.id,
             }])
         ```
 
@@ -297,10 +297,10 @@ class VirtualHubRouteTable(pulumi.CustomResource):
             labels=["label1"],
             routes=[{
                 "name": "example-route",
-                "destinationsType": "CIDR",
+                "destinations_type": "CIDR",
                 "destinations": ["10.0.0.0/16"],
-                "nextHopType": "ResourceId",
-                "nextHop": example_virtual_hub_connection.id,
+                "next_hop_type": "ResourceId",
+                "next_hop": example_virtual_hub_connection.id,
             }])
         ```
 
