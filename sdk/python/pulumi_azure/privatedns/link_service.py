@@ -429,7 +429,7 @@ class LinkService(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_link_service = azure.privatedns.LinkService("example",
             name="example-privatelink",
@@ -441,16 +441,16 @@ class LinkService(pulumi.CustomResource):
             nat_ip_configurations=[
                 {
                     "name": "primary",
-                    "privateIpAddress": "10.5.1.17",
-                    "privateIpAddressVersion": "IPv4",
-                    "subnetId": example_subnet.id,
+                    "private_ip_address": "10.5.1.17",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
                     "primary": True,
                 },
                 {
                     "name": "secondary",
-                    "privateIpAddress": "10.5.1.18",
-                    "privateIpAddressVersion": "IPv4",
-                    "subnetId": example_subnet.id,
+                    "private_ip_address": "10.5.1.18",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
                     "primary": False,
                 },
             ])
@@ -523,7 +523,7 @@ class LinkService(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_link_service = azure.privatedns.LinkService("example",
             name="example-privatelink",
@@ -535,16 +535,16 @@ class LinkService(pulumi.CustomResource):
             nat_ip_configurations=[
                 {
                     "name": "primary",
-                    "privateIpAddress": "10.5.1.17",
-                    "privateIpAddressVersion": "IPv4",
-                    "subnetId": example_subnet.id,
+                    "private_ip_address": "10.5.1.17",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
                     "primary": True,
                 },
                 {
                     "name": "secondary",
-                    "privateIpAddress": "10.5.1.18",
-                    "privateIpAddressVersion": "IPv4",
-                    "subnetId": example_subnet.id,
+                    "private_ip_address": "10.5.1.18",
+                    "private_ip_address_version": "IPv4",
+                    "subnet_id": example_subnet.id,
                     "primary": False,
                 },
             ])

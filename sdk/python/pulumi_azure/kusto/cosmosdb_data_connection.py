@@ -334,13 +334,13 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "Session",
-                "maxIntervalInSeconds": 5,
-                "maxStalenessPrefix": 100,
+                "consistency_level": "Session",
+                "max_interval_in_seconds": 5,
+                "max_staleness_prefix": 100,
             },
             geo_locations=[{
                 "location": example_resource_group.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="examplecosmosdbsqldb",
@@ -452,13 +452,13 @@ class CosmosdbDataConnection(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "Session",
-                "maxIntervalInSeconds": 5,
-                "maxStalenessPrefix": 100,
+                "consistency_level": "Session",
+                "max_interval_in_seconds": 5,
+                "max_staleness_prefix": 100,
             },
             geo_locations=[{
                 "location": example_resource_group.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="examplecosmosdbsqldb",

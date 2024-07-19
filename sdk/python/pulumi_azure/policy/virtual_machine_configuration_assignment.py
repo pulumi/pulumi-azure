@@ -200,8 +200,8 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             location=example.location,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
             name="examplevm",
@@ -216,7 +216,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             },
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "MicrosoftWindowsServer",
@@ -236,7 +236,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
             configuration={
-                "assignmentType": "ApplyAndMonitor",
+                "assignment_type": "ApplyAndMonitor",
                 "version": "1.*",
                 "parameters": [
                     {
@@ -314,8 +314,8 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             location=example.location,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
             name="examplevm",
@@ -330,7 +330,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             },
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "MicrosoftWindowsServer",
@@ -350,7 +350,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
             configuration={
-                "assignmentType": "ApplyAndMonitor",
+                "assignment_type": "ApplyAndMonitor",
                 "version": "1.*",
                 "parameters": [
                     {

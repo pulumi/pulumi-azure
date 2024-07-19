@@ -187,26 +187,26 @@ class FrontdoorSecret(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             network_acls={
-                "defaultAction": "Deny",
+                "default_action": "Deny",
                 "bypass": "AzureServices",
-                "ipRules": ["10.0.0.0/24"],
+                "ip_rules": ["10.0.0.0/24"],
             },
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": frontdoor.object_id,
-                    "secretPermissions": ["Get"],
+                    "tenant_id": current.tenant_id,
+                    "object_id": frontdoor.object_id,
+                    "secret_permissions": ["Get"],
                 },
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "certificate_permissions": [
                         "Get",
                         "Import",
                         "Delete",
                         "Purge",
                     ],
-                    "secretPermissions": ["Get"],
+                    "secret_permissions": ["Get"],
                 },
             ])
         example_certificate = azure.keyvault.Certificate("example",
@@ -223,8 +223,8 @@ class FrontdoorSecret(pulumi.CustomResource):
             name="example-customer-managed-secret",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             secret={
-                "customerCertificates": [{
-                    "keyVaultCertificateId": example_certificate.id,
+                "customer_certificates": [{
+                    "key_vault_certificate_id": example_certificate.id,
                 }],
             })
         ```
@@ -283,26 +283,26 @@ class FrontdoorSecret(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             network_acls={
-                "defaultAction": "Deny",
+                "default_action": "Deny",
                 "bypass": "AzureServices",
-                "ipRules": ["10.0.0.0/24"],
+                "ip_rules": ["10.0.0.0/24"],
             },
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": frontdoor.object_id,
-                    "secretPermissions": ["Get"],
+                    "tenant_id": current.tenant_id,
+                    "object_id": frontdoor.object_id,
+                    "secret_permissions": ["Get"],
                 },
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "certificatePermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "certificate_permissions": [
                         "Get",
                         "Import",
                         "Delete",
                         "Purge",
                     ],
-                    "secretPermissions": ["Get"],
+                    "secret_permissions": ["Get"],
                 },
             ])
         example_certificate = azure.keyvault.Certificate("example",
@@ -319,8 +319,8 @@ class FrontdoorSecret(pulumi.CustomResource):
             name="example-customer-managed-secret",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             secret={
-                "customerCertificates": [{
-                    "keyVaultCertificateId": example_certificate.id,
+                "customer_certificates": [{
+                    "key_vault_certificate_id": example_certificate.id,
                 }],
             })
         ```

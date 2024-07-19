@@ -375,8 +375,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="pctest-vm",
@@ -393,16 +393,16 @@ class NetworkPacketCapture(pulumi.CustomResource):
             storage_os_disk={
                 "name": "osdisk",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": "pctest-vm",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "pctest-vm",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_extension = azure.compute.Extension("example",
             name="network-watcher",
@@ -423,7 +423,7 @@ class NetworkPacketCapture(pulumi.CustomResource):
             resource_group_name=example.name,
             target_resource_id=example_virtual_machine.id,
             storage_location={
-                "storageAccountId": example_account.id,
+                "storage_account_id": example_account.id,
             },
             opts = pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
@@ -492,8 +492,8 @@ class NetworkPacketCapture(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="pctest-vm",
@@ -510,16 +510,16 @@ class NetworkPacketCapture(pulumi.CustomResource):
             storage_os_disk={
                 "name": "osdisk",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": "pctest-vm",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "pctest-vm",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_extension = azure.compute.Extension("example",
             name="network-watcher",
@@ -540,7 +540,7 @@ class NetworkPacketCapture(pulumi.CustomResource):
             resource_group_name=example.name,
             target_resource_id=example_virtual_machine.id,
             storage_location={
-                "storageAccountId": example_account.id,
+                "storage_account_id": example_account.id,
             },
             opts = pulumi.ResourceOptions(depends_on=[example_extension]))
         ```
