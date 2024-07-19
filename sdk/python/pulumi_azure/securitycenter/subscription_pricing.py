@@ -204,8 +204,8 @@ class SubscriptionPricing(pulumi.CustomResource):
                 },
                 {
                     "name": "AgentlessVmScanning",
-                    "additionalExtensionProperties": {
-                        "ExclusionTags": "[]",
+                    "additional_extension_properties": {
+                        "exclusion_tags": "[]",
                     },
                 },
                 {
@@ -271,8 +271,8 @@ class SubscriptionPricing(pulumi.CustomResource):
                 },
                 {
                     "name": "AgentlessVmScanning",
-                    "additionalExtensionProperties": {
-                        "ExclusionTags": "[]",
+                    "additional_extension_properties": {
+                        "exclusion_tags": "[]",
                     },
                 },
                 {

@@ -192,7 +192,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
             address_prefixes=["10.0.0.64/28"],
             delegations=[{
                 "name": "Microsoft.Network.dnsResolvers",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
@@ -272,7 +272,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
             address_prefixes=["10.0.0.64/28"],
             delegations=[{
                 "name": "Microsoft.Network.dnsResolvers",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },

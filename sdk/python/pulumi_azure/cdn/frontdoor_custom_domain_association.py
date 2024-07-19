@@ -136,15 +136,15 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
-                "intervalInSeconds": 240,
+                "interval_in_seconds": 240,
                 "path": "/healthProbe",
                 "protocol": "Https",
-                "requestType": "HEAD",
+                "request_type": "HEAD",
             },
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
@@ -173,8 +173,8 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",
@@ -244,15 +244,15 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
-                "intervalInSeconds": 240,
+                "interval_in_seconds": 240,
                 "path": "/healthProbe",
                 "protocol": "Https",
-                "requestType": "HEAD",
+                "request_type": "HEAD",
             },
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
@@ -281,8 +281,8 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",

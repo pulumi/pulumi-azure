@@ -375,7 +375,7 @@ class Module(pulumi.CustomResource):
             address_prefixes=["10.2.1.0/24"],
             delegations=[{
                 "name": "first",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.HardwareSecurityModules/dedicatedHSMs",
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",
@@ -401,9 +401,9 @@ class Module(pulumi.CustomResource):
             vpn_type="PolicyBased",
             sku="Standard",
             ip_configurations=[{
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example3.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example3.id,
             }])
         example_module = azure.hsm.Module("example",
             name="example-hsm",
@@ -411,12 +411,12 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="payShield10K_LMK1_CPS60",
             management_network_profile={
-                "networkInterfacePrivateIpAddresses": ["10.2.1.7"],
-                "subnetId": example2.id,
+                "network_interface_private_ip_addresses": ["10.2.1.7"],
+                "subnet_id": example2.id,
             },
             network_profile={
-                "networkInterfacePrivateIpAddresses": ["10.2.1.8"],
-                "subnetId": example2.id,
+                "network_interface_private_ip_addresses": ["10.2.1.8"],
+                "subnet_id": example2.id,
             },
             stamp_id="stamp2",
             tags={
@@ -486,7 +486,7 @@ class Module(pulumi.CustomResource):
             address_prefixes=["10.2.1.0/24"],
             delegations=[{
                 "name": "first",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.HardwareSecurityModules/dedicatedHSMs",
                     "actions": [
                         "Microsoft.Network/networkinterfaces/*",
@@ -512,9 +512,9 @@ class Module(pulumi.CustomResource):
             vpn_type="PolicyBased",
             sku="Standard",
             ip_configurations=[{
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example3.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example3.id,
             }])
         example_module = azure.hsm.Module("example",
             name="example-hsm",
@@ -522,12 +522,12 @@ class Module(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="payShield10K_LMK1_CPS60",
             management_network_profile={
-                "networkInterfacePrivateIpAddresses": ["10.2.1.7"],
-                "subnetId": example2.id,
+                "network_interface_private_ip_addresses": ["10.2.1.7"],
+                "subnet_id": example2.id,
             },
             network_profile={
-                "networkInterfacePrivateIpAddresses": ["10.2.1.8"],
-                "subnetId": example2.id,
+                "network_interface_private_ip_addresses": ["10.2.1.8"],
+                "subnet_id": example2.id,
             },
             stamp_id="stamp2",
             tags={
