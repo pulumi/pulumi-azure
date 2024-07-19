@@ -664,7 +664,7 @@ class Deployment(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -678,10 +678,10 @@ class Deployment(pulumi.CustomResource):
             diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
             frontend_public={
-                "ipAddresses": [example_public_ip.id],
+                "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }],
             capacity=20,
             email="user@test.com")
@@ -754,7 +754,7 @@ class Deployment(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -768,10 +768,10 @@ class Deployment(pulumi.CustomResource):
             diagnose_support_enabled=True,
             automatic_upgrade_channel="stable",
             frontend_public={
-                "ipAddresses": [example_public_ip.id],
+                "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }],
             capacity=20,
             email="user@test.com")

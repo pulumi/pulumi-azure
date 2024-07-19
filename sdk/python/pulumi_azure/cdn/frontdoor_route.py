@@ -545,9 +545,9 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="example-originGroup",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
@@ -576,8 +576,8 @@ class FrontdoorRoute(pulumi.CustomResource):
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
             name="fabrikam-custom-domain",
@@ -589,8 +589,8 @@ class FrontdoorRoute(pulumi.CustomResource):
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",
@@ -612,13 +612,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             ],
             link_to_default_domain=False,
             cache={
-                "queryStringCachingBehavior": "IgnoreSpecifiedQueryStrings",
-                "queryStrings": [
+                "query_string_caching_behavior": "IgnoreSpecifiedQueryStrings",
+                "query_strings": [
                     "account",
                     "settings",
                 ],
-                "compressionEnabled": True,
-                "contentTypesToCompresses": [
+                "compression_enabled": True,
+                "content_types_to_compresses": [
                     "text/html",
                     "text/javascript",
                     "text/xml",
@@ -693,9 +693,9 @@ class FrontdoorRoute(pulumi.CustomResource):
             name="example-originGroup",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="example-origin",
@@ -724,8 +724,8 @@ class FrontdoorRoute(pulumi.CustomResource):
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         fabrikam = azure.cdn.FrontdoorCustomDomain("fabrikam",
             name="fabrikam-custom-domain",
@@ -737,8 +737,8 @@ class FrontdoorRoute(pulumi.CustomResource):
                     example_zone.name,
                 ]).apply(lambda invoke: invoke.result),
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         example_frontdoor_route = azure.cdn.FrontdoorRoute("example",
             name="example-route",
@@ -760,13 +760,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             ],
             link_to_default_domain=False,
             cache={
-                "queryStringCachingBehavior": "IgnoreSpecifiedQueryStrings",
-                "queryStrings": [
+                "query_string_caching_behavior": "IgnoreSpecifiedQueryStrings",
+                "query_strings": [
                     "account",
                     "settings",
                 ],
-                "compressionEnabled": True,
-                "contentTypesToCompresses": [
+                "compression_enabled": True,
+                "content_types_to_compresses": [
                     "text/html",
                     "text/javascript",
                     "text/xml",

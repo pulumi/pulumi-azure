@@ -246,8 +246,8 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="machine",
@@ -260,7 +260,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             disable_password_authentication=False,
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -273,7 +273,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             destinations={
-                "azureMonitorMetrics": {
+                "azure_monitor_metrics": {
                     "name": "example-destination-metrics",
                 },
             },
@@ -352,8 +352,8 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="machine",
@@ -366,7 +366,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             disable_password_authentication=False,
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -379,7 +379,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             destinations={
-                "azureMonitorMetrics": {
+                "azure_monitor_metrics": {
                     "name": "example-destination-metrics",
                 },
             },

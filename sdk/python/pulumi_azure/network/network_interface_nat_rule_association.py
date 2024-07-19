@@ -167,7 +167,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "primary",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_nat_rule = azure.lb.NatRule("example",
             resource_group_name=example.name,
@@ -183,8 +183,8 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_network_interface_nat_rule_association = azure.network.NetworkInterfaceNatRuleAssociation("example",
             network_interface_id=example_network_interface.id,
@@ -245,7 +245,7 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "primary",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_nat_rule = azure.lb.NatRule("example",
             resource_group_name=example.name,
@@ -261,8 +261,8 @@ class NetworkInterfaceNatRuleAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_network_interface_nat_rule_association = azure.network.NetworkInterfaceNatRuleAssociation("example",
             network_interface_id=example_network_interface.id,

@@ -260,7 +260,7 @@ class AccountFilter(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",
@@ -268,12 +268,12 @@ class AccountFilter(pulumi.CustomResource):
             media_services_account_name=test["name"],
             first_quality_bitrate=128000,
             presentation_time_range={
-                "startInUnits": 0,
-                "endInUnits": 15,
-                "presentationWindowInUnits": 90,
-                "liveBackoffInUnits": 0,
-                "unitTimescaleInMilliseconds": 1000,
-                "forceEnd": False,
+                "start_in_units": 0,
+                "end_in_units": 15,
+                "presentation_window_in_units": 90,
+                "live_backoff_in_units": 0,
+                "unit_timescale_in_milliseconds": 1000,
+                "force_end": False,
             },
             track_selections=[
                 {
@@ -359,7 +359,7 @@ class AccountFilter(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",
@@ -367,12 +367,12 @@ class AccountFilter(pulumi.CustomResource):
             media_services_account_name=test["name"],
             first_quality_bitrate=128000,
             presentation_time_range={
-                "startInUnits": 0,
-                "endInUnits": 15,
-                "presentationWindowInUnits": 90,
-                "liveBackoffInUnits": 0,
-                "unitTimescaleInMilliseconds": 1000,
-                "forceEnd": False,
+                "start_in_units": 0,
+                "end_in_units": 15,
+                "presentation_window_in_units": 90,
+                "live_backoff_in_units": 0,
+                "unit_timescale_in_milliseconds": 1000,
+                "force_end": False,
             },
             track_selections=[
                 {

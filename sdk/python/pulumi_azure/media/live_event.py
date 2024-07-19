@@ -556,7 +556,7 @@ class LiveEvent(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_live_event = azure.media.LiveEvent("example",
             name="example",
@@ -565,24 +565,24 @@ class LiveEvent(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My Event Description",
             input={
-                "streamingProtocol": "RTMP",
-                "ipAccessControlAllows": [{
+                "streaming_protocol": "RTMP",
+                "ip_access_control_allows": [{
                     "name": "AllowAll",
                     "address": "0.0.0.0",
-                    "subnetPrefixLength": 0,
+                    "subnet_prefix_length": 0,
                 }],
             },
             encoding={
                 "type": "Standard",
-                "presetName": "Default720p",
-                "stretchMode": "AutoFit",
-                "keyFrameInterval": "PT2S",
+                "preset_name": "Default720p",
+                "stretch_mode": "AutoFit",
+                "key_frame_interval": "PT2S",
             },
             preview={
-                "ipAccessControlAllows": [{
+                "ip_access_control_allows": [{
                     "name": "AllowAll",
                     "address": "0.0.0.0",
-                    "subnetPrefixLength": 0,
+                    "subnet_prefix_length": 0,
                 }],
             },
             stream_options=["LowLatency"],
@@ -647,7 +647,7 @@ class LiveEvent(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_live_event = azure.media.LiveEvent("example",
             name="example",
@@ -656,24 +656,24 @@ class LiveEvent(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My Event Description",
             input={
-                "streamingProtocol": "RTMP",
-                "ipAccessControlAllows": [{
+                "streaming_protocol": "RTMP",
+                "ip_access_control_allows": [{
                     "name": "AllowAll",
                     "address": "0.0.0.0",
-                    "subnetPrefixLength": 0,
+                    "subnet_prefix_length": 0,
                 }],
             },
             encoding={
                 "type": "Standard",
-                "presetName": "Default720p",
-                "stretchMode": "AutoFit",
-                "keyFrameInterval": "PT2S",
+                "preset_name": "Default720p",
+                "stretch_mode": "AutoFit",
+                "key_frame_interval": "PT2S",
             },
             preview={
-                "ipAccessControlAllows": [{
+                "ip_access_control_allows": [{
                     "name": "AllowAll",
                     "address": "0.0.0.0",
-                    "subnetPrefixLength": 0,
+                    "subnet_prefix_length": 0,
                 }],
             },
             stream_options=["LowLatency"],

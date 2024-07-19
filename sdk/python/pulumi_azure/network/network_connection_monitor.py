@@ -367,8 +367,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="example-VM",
@@ -385,16 +385,16 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             storage_os_disk={
                 "name": "osdisk-example01",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": "hostnametest01",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "hostnametest01",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_extension = azure.compute.Extension("example",
             name="example-VMExtension",
@@ -415,7 +415,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             endpoints=[
                 {
                     "name": "source",
-                    "targetResourceId": example_virtual_machine.id,
+                    "target_resource_id": example_virtual_machine.id,
                     "filter": {
                         "items": [{
                             "address": example_virtual_machine.id,
@@ -432,16 +432,16 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             test_configurations=[{
                 "name": "tcpName",
                 "protocol": "Tcp",
-                "testFrequencyInSeconds": 60,
-                "tcpConfiguration": {
+                "test_frequency_in_seconds": 60,
+                "tcp_configuration": {
                     "port": 80,
                 },
             }],
             test_groups=[{
                 "name": "exampletg",
-                "destinationEndpoints": ["destination"],
-                "sourceEndpoints": ["source"],
-                "testConfigurationNames": ["tcpName"],
+                "destination_endpoints": ["destination"],
+                "source_endpoints": ["source"],
+                "test_configuration_names": ["tcpName"],
             }],
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id],
@@ -508,8 +508,8 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_virtual_machine = azure.compute.VirtualMachine("example",
             name="example-VM",
@@ -526,16 +526,16 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             storage_os_disk={
                 "name": "osdisk-example01",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": "hostnametest01",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "hostnametest01",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         example_extension = azure.compute.Extension("example",
             name="example-VMExtension",
@@ -556,7 +556,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             endpoints=[
                 {
                     "name": "source",
-                    "targetResourceId": example_virtual_machine.id,
+                    "target_resource_id": example_virtual_machine.id,
                     "filter": {
                         "items": [{
                             "address": example_virtual_machine.id,
@@ -573,16 +573,16 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             test_configurations=[{
                 "name": "tcpName",
                 "protocol": "Tcp",
-                "testFrequencyInSeconds": 60,
-                "tcpConfiguration": {
+                "test_frequency_in_seconds": 60,
+                "tcp_configuration": {
                     "port": 80,
                 },
             }],
             test_groups=[{
                 "name": "exampletg",
-                "destinationEndpoints": ["destination"],
-                "sourceEndpoints": ["source"],
-                "testConfigurationNames": ["tcpName"],
+                "destination_endpoints": ["destination"],
+                "source_endpoints": ["source"],
+                "test_configuration_names": ["tcpName"],
             }],
             notes="examplenote",
             output_workspace_resource_ids=[example_analytics_workspace.id],
