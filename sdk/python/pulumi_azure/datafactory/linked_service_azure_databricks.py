@@ -535,25 +535,25 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
             msi_work_space_resource_id=example_workspace.id,
             new_cluster_config={
-                "nodeType": "Standard_NC12",
-                "clusterVersion": "5.5.x-gpu-scala2.11",
-                "minNumberOfWorkers": 1,
-                "maxNumberOfWorkers": 5,
-                "driverNodeType": "Standard_NC12",
-                "logDestination": "dbfs:/logs",
-                "customTags": {
+                "node_type": "Standard_NC12",
+                "cluster_version": "5.5.x-gpu-scala2.11",
+                "min_number_of_workers": 1,
+                "max_number_of_workers": 5,
+                "driver_node_type": "Standard_NC12",
+                "log_destination": "dbfs:/logs",
+                "custom_tags": {
                     "custom_tag1": "sct_value_1",
                     "custom_tag2": "sct_value_2",
                 },
-                "sparkConfig": {
+                "spark_config": {
                     "config1": "value1",
                     "config2": "value2",
                 },
-                "sparkEnvironmentVariables": {
-                    "envVar1": "value1",
-                    "envVar2": "value2",
+                "spark_environment_variables": {
+                    "env_var1": "value1",
+                    "env_var2": "value2",
                 },
-                "initScripts": [
+                "init_scripts": [
                     "init.sh",
                     "init2.sh",
                 ],
@@ -655,25 +655,25 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
             msi_work_space_resource_id=example_workspace.id,
             new_cluster_config={
-                "nodeType": "Standard_NC12",
-                "clusterVersion": "5.5.x-gpu-scala2.11",
-                "minNumberOfWorkers": 1,
-                "maxNumberOfWorkers": 5,
-                "driverNodeType": "Standard_NC12",
-                "logDestination": "dbfs:/logs",
-                "customTags": {
+                "node_type": "Standard_NC12",
+                "cluster_version": "5.5.x-gpu-scala2.11",
+                "min_number_of_workers": 1,
+                "max_number_of_workers": 5,
+                "driver_node_type": "Standard_NC12",
+                "log_destination": "dbfs:/logs",
+                "custom_tags": {
                     "custom_tag1": "sct_value_1",
                     "custom_tag2": "sct_value_2",
                 },
-                "sparkConfig": {
+                "spark_config": {
                     "config1": "value1",
                     "config2": "value2",
                 },
-                "sparkEnvironmentVariables": {
-                    "envVar1": "value1",
-                    "envVar2": "value2",
+                "spark_environment_variables": {
+                    "env_var1": "value1",
+                    "env_var2": "value2",
                 },
-                "initScripts": [
+                "init_scripts": [
                     "init.sh",
                     "init2.sh",
                 ],

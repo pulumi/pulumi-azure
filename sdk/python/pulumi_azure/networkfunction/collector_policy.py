@@ -273,7 +273,7 @@ class CollectorPolicy(pulumi.CustomResource):
             secondary_peer_address_prefix="192.168.200.0/30",
             vlan_id=300,
             microsoft_peering_config={
-                "advertisedPublicPrefixes": ["123.6.0.0/24"],
+                "advertised_public_prefixes": ["123.6.0.0/24"],
             })
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
@@ -285,10 +285,10 @@ class CollectorPolicy(pulumi.CustomResource):
             traffic_collector_id=example_azure_traffic_collector.id,
             location=example.location,
             ipfx_emission={
-                "destinationTypes": "AzureMonitor",
+                "destination_types": "AzureMonitor",
             },
             ipfx_ingestion={
-                "sourceResourceIds": [example_express_route_circuit.id],
+                "source_resource_ids": [example_express_route_circuit.id],
             },
             tags={
                 "key": "value",
@@ -356,7 +356,7 @@ class CollectorPolicy(pulumi.CustomResource):
             secondary_peer_address_prefix="192.168.200.0/30",
             vlan_id=300,
             microsoft_peering_config={
-                "advertisedPublicPrefixes": ["123.6.0.0/24"],
+                "advertised_public_prefixes": ["123.6.0.0/24"],
             })
         example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
             name="example-nfatc",
@@ -368,10 +368,10 @@ class CollectorPolicy(pulumi.CustomResource):
             traffic_collector_id=example_azure_traffic_collector.id,
             location=example.location,
             ipfx_emission={
-                "destinationTypes": "AzureMonitor",
+                "destination_types": "AzureMonitor",
             },
             ipfx_ingestion={
-                "sourceResourceIds": [example_express_route_circuit.id],
+                "source_resource_ids": [example_express_route_circuit.id],
             },
             tags={
                 "key": "value",

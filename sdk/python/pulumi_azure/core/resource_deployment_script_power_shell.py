@@ -648,7 +648,7 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         \"\"\",
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "key": "value",
@@ -723,7 +723,7 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         \"\"\",
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "key": "value",
