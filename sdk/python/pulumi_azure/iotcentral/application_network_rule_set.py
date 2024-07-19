@@ -198,11 +198,11 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
             ip_rules=[
                 {
                     "name": "rule1",
-                    "ipMask": "10.0.1.0/24",
+                    "ip_mask": "10.0.1.0/24",
                 },
                 {
                     "name": "rule2",
-                    "ipMask": "10.1.1.0/24",
+                    "ip_mask": "10.1.1.0/24",
                 },
             ])
         ```
@@ -255,11 +255,11 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
             ip_rules=[
                 {
                     "name": "rule1",
-                    "ipMask": "10.0.1.0/24",
+                    "ip_mask": "10.0.1.0/24",
                 },
                 {
                     "name": "rule2",
-                    "ipMask": "10.1.1.0/24",
+                    "ip_mask": "10.1.1.0/24",
                 },
             ])
         ```

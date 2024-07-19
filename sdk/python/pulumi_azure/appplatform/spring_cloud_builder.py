@@ -193,7 +193,7 @@ class SpringCloudBuilder(pulumi.CustomResource):
             spring_cloud_service_id=example_spring_cloud_service.id,
             build_pack_groups=[{
                 "name": "mix",
-                "buildPackIds": ["tanzu-buildpacks/java-azure"],
+                "build_pack_ids": ["tanzu-buildpacks/java-azure"],
             }],
             stack={
                 "id": "io.buildpacks.stacks.bionic",
@@ -246,7 +246,7 @@ class SpringCloudBuilder(pulumi.CustomResource):
             spring_cloud_service_id=example_spring_cloud_service.id,
             build_pack_groups=[{
                 "name": "mix",
-                "buildPackIds": ["tanzu-buildpacks/java-azure"],
+                "build_pack_ids": ["tanzu-buildpacks/java-azure"],
             }],
             stack={
                 "id": "io.buildpacks.stacks.bionic",

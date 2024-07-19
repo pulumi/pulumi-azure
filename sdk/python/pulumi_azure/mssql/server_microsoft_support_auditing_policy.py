@@ -334,9 +334,9 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
             network_rules={
-                "defaultAction": "Deny",
-                "ipRules": ["127.0.0.1"],
-                "virtualNetworkSubnetIds": [example_subnet.id],
+                "default_action": "Deny",
+                "ip_rules": ["127.0.0.1"],
+                "virtual_network_subnet_ids": [example_subnet.id],
                 "bypasses": ["AzureServices"],
             },
             identity={
@@ -469,9 +469,9 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             account_kind="StorageV2",
             allow_nested_items_to_be_public=False,
             network_rules={
-                "defaultAction": "Deny",
-                "ipRules": ["127.0.0.1"],
-                "virtualNetworkSubnetIds": [example_subnet.id],
+                "default_action": "Deny",
+                "ip_rules": ["127.0.0.1"],
+                "virtual_network_subnet_ids": [example_subnet.id],
                 "bypasses": ["AzureServices"],
             },
             identity={

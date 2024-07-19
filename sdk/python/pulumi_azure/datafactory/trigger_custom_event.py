@@ -441,7 +441,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
             pipelines=[{
                 "name": example_pipeline.name,
                 "parameters": {
-                    "Env": "Prod",
+                    "env": "Prod",
                 },
             }],
             additional_properties={
@@ -520,7 +520,7 @@ class TriggerCustomEvent(pulumi.CustomResource):
             pipelines=[{
                 "name": example_pipeline.name,
                 "parameters": {
-                    "Env": "Prod",
+                    "env": "Prod",
                 },
             }],
             additional_properties={

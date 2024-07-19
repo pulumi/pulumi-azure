@@ -469,7 +469,7 @@ class Assignment(pulumi.CustomResource):
             scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
@@ -493,7 +493,7 @@ class Assignment(pulumi.CustomResource):
             scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
@@ -518,7 +518,7 @@ class Assignment(pulumi.CustomResource):
             scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
@@ -646,7 +646,7 @@ class Assignment(pulumi.CustomResource):
             scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
@@ -670,7 +670,7 @@ class Assignment(pulumi.CustomResource):
             scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",
@@ -695,7 +695,7 @@ class Assignment(pulumi.CustomResource):
             scope=primary.id,
             permissions=[{
                 "actions": ["Microsoft.Resources/subscriptions/resourceGroups/read"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         example_assignment = azure.authorization.Assignment("example",

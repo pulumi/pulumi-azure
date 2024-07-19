@@ -527,15 +527,15 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             automation_account_id=example_account.id,
             operating_system="Linux",
             linuxes=[{
-                "classificationIncluded": "Security",
-                "excludedPackages": ["apt"],
-                "includedPackages": ["vim"],
+                "classification_included": "Security",
+                "excluded_packages": ["apt"],
+                "included_packages": ["vim"],
                 "reboot": "IfRequired",
             }],
             pre_tasks=[{
                 "source": example_run_book.name,
                 "parameters": {
-                    "COMPUTER_NAME": "Foo",
+                    "compute_r__name": "Foo",
                 },
             }],
             duration="PT2H2M2S")
@@ -608,15 +608,15 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             automation_account_id=example_account.id,
             operating_system="Linux",
             linuxes=[{
-                "classificationIncluded": "Security",
-                "excludedPackages": ["apt"],
-                "includedPackages": ["vim"],
+                "classification_included": "Security",
+                "excluded_packages": ["apt"],
+                "included_packages": ["vim"],
                 "reboot": "IfRequired",
             }],
             pre_tasks=[{
                 "source": example_run_book.name,
                 "parameters": {
-                    "COMPUTER_NAME": "Foo",
+                    "compute_r__name": "Foo",
                 },
             }],
             duration="PT2H2M2S")

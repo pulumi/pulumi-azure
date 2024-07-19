@@ -418,16 +418,16 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             traffic_routing_method="Weighted",
             dns_config={
-                "relativeName": "example-profile",
+                "relative_name": "example-profile",
                 "ttl": 100,
             },
             monitor_config={
                 "protocol": "HTTP",
                 "port": 80,
                 "path": "/",
-                "intervalInSeconds": 30,
-                "timeoutInSeconds": 9,
-                "toleratedNumberOfFailures": 3,
+                "interval_in_seconds": 30,
+                "timeout_in_seconds": 9,
+                "tolerated_number_of_failures": 3,
             },
             tags={
                 "environment": "Production",
@@ -485,16 +485,16 @@ class TrafficManagerExternalEndpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             traffic_routing_method="Weighted",
             dns_config={
-                "relativeName": "example-profile",
+                "relative_name": "example-profile",
                 "ttl": 100,
             },
             monitor_config={
                 "protocol": "HTTP",
                 "port": 80,
                 "path": "/",
-                "intervalInSeconds": 30,
-                "timeoutInSeconds": 9,
-                "toleratedNumberOfFailures": 3,
+                "interval_in_seconds": 30,
+                "timeout_in_seconds": 9,
+                "tolerated_number_of_failures": 3,
             },
             tags={
                 "environment": "Production",

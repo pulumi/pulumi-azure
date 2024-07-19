@@ -158,7 +158,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "example-delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Web/serverFarms",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
@@ -232,7 +232,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "example-delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Web/serverFarms",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },

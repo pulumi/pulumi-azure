@@ -361,8 +361,8 @@ class PolicySetDefinition(pulumi.CustomResource):
             }
         \"\"\",
             policy_definition_references=[{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                "parameterValues": \"\"\"    {
+                "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+                "parameter_values": \"\"\"    {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
         \"\"\",
@@ -428,8 +428,8 @@ class PolicySetDefinition(pulumi.CustomResource):
             }
         \"\"\",
             policy_definition_references=[{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-                "parameterValues": \"\"\"    {
+                "policy_definition_id": "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
+                "parameter_values": \"\"\"    {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
         \"\"\",
