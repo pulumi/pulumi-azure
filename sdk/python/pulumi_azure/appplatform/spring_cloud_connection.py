@@ -263,13 +263,13 @@ class SpringCloudConnection(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "BoundedStaleness",
-                "maxIntervalInSeconds": 10,
-                "maxStalenessPrefix": 200,
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 10,
+                "max_staleness_prefix": 200,
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
@@ -345,13 +345,13 @@ class SpringCloudConnection(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "BoundedStaleness",
-                "maxIntervalInSeconds": 10,
-                "maxStalenessPrefix": 200,
+                "consistency_level": "BoundedStaleness",
+                "max_interval_in_seconds": 10,
+                "max_staleness_prefix": 200,
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",

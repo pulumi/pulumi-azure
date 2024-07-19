@@ -236,7 +236,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current_get_subscription.id],
+                "subscription_ids": [current_get_subscription.id],
             },
             scope_accesses=["SecurityAdmin"])
         example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("example",
@@ -289,7 +289,7 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current_get_subscription.id],
+                "subscription_ids": [current_get_subscription.id],
             },
             scope_accesses=["SecurityAdmin"])
         example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("example",

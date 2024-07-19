@@ -327,8 +327,8 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
             git_repository={
                 "url": "https://github.com/Azure-Samples/piggymetrics",
-                "gitTag": "spring.version.2.0.3",
-                "intervalInSeconds": 100,
+                "git_tag": "spring.version.2.0.3",
+                "interval_in_seconds": 100,
             },
             accelerator_tags=[
                 "tag-a",
@@ -389,8 +389,8 @@ class SpringCloudCustomizedAccelerator(pulumi.CustomResource):
             spring_cloud_accelerator_id=example_spring_cloud_accelerator.id,
             git_repository={
                 "url": "https://github.com/Azure-Samples/piggymetrics",
-                "gitTag": "spring.version.2.0.3",
-                "intervalInSeconds": 100,
+                "git_tag": "spring.version.2.0.3",
+                "interval_in_seconds": 100,
             },
             accelerator_tags=[
                 "tag-a",

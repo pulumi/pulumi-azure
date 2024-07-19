@@ -515,18 +515,18 @@ class FhirService(pulumi.CustomResource):
             },
             container_registry_login_server_urls=["tfex-container_registry_login_server"],
             cors={
-                "allowedOrigins": [
+                "allowed_origins": [
                     "https://tfex.com:123",
                     "https://tfex1.com:3389",
                 ],
-                "allowedHeaders": ["*"],
-                "allowedMethods": [
+                "allowed_headers": ["*"],
+                "allowed_methods": [
                     "GET",
                     "DELETE",
                     "PUT",
                 ],
-                "maxAgeInSeconds": 3600,
-                "credentialsAllowed": True,
+                "max_age_in_seconds": 3600,
+                "credentials_allowed": True,
             },
             configuration_export_storage_account_name="storage_account_name")
         ```
@@ -594,18 +594,18 @@ class FhirService(pulumi.CustomResource):
             },
             container_registry_login_server_urls=["tfex-container_registry_login_server"],
             cors={
-                "allowedOrigins": [
+                "allowed_origins": [
                     "https://tfex.com:123",
                     "https://tfex1.com:3389",
                 ],
-                "allowedHeaders": ["*"],
-                "allowedMethods": [
+                "allowed_headers": ["*"],
+                "allowed_methods": [
                     "GET",
                     "DELETE",
                     "PUT",
                 ],
-                "maxAgeInSeconds": 3600,
-                "credentialsAllowed": True,
+                "max_age_in_seconds": 3600,
+                "credentials_allowed": True,
             },
             configuration_export_storage_account_name="storage_account_name")
         ```

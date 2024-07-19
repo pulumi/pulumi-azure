@@ -291,7 +291,7 @@ class DiskPool(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "diskspool",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/read"],
                     "name": "Microsoft.StoragePool/diskPools",
                 },
@@ -355,7 +355,7 @@ class DiskPool(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "diskspool",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/read"],
                     "name": "Microsoft.StoragePool/diskPools",
                 },
