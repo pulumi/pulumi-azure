@@ -272,9 +272,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
             schedule={
-                "startDateTime": example_static.rfc3339,
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
-                    "durationHours": 8,
+                    "duration_hours": 8,
                 },
             },
             justification="Expiration Duration Set",
@@ -300,9 +300,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
             schedule={
-                "startDateTime": example_static.rfc3339,
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
-                    "durationHours": 8,
+                    "duration_hours": 8,
                 },
             },
             justification="Expiration Duration Set",
@@ -356,9 +356,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=f"{primary.id}{example_get_role_definition.id}",
             principal_id=example.object_id,
             schedule={
-                "startDateTime": example_static.rfc3339,
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
-                    "durationHours": 8,
+                    "duration_hours": 8,
                 },
             },
             justification="Expiration Duration Set",
@@ -384,9 +384,9 @@ class ActiveRoleAssignment(pulumi.CustomResource):
             role_definition_id=example_get_role_definition.id,
             principal_id=example.object_id,
             schedule={
-                "startDateTime": example_static.rfc3339,
+                "start_date_time": example_static.rfc3339,
                 "expiration": {
-                    "durationHours": 8,
+                    "duration_hours": 8,
                 },
             },
             justification="Expiration Duration Set",

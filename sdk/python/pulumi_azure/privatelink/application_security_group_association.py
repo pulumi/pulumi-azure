@@ -145,7 +145,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_link_service = azure.privatedns.LinkService("example",
             name="examplePLS",
@@ -156,7 +156,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             nat_ip_configurations=[{
                 "name": "primaryIpConfiguration",
                 "primary": True,
-                "subnetId": service.id,
+                "subnet_id": service.id,
             }],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
         example_endpoint = azure.privatelink.Endpoint("example",
@@ -166,8 +166,8 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             subnet_id=endpoint.id,
             private_service_connection={
                 "name": example_link_service.name,
-                "isManualConnection": False,
-                "privateConnectionResourceId": example_link_service.id,
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_link_service.id,
             })
         example_application_security_group = azure.network.ApplicationSecurityGroup("example",
             name="example",
@@ -240,7 +240,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_link_service = azure.privatedns.LinkService("example",
             name="examplePLS",
@@ -251,7 +251,7 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             nat_ip_configurations=[{
                 "name": "primaryIpConfiguration",
                 "primary": True,
-                "subnetId": service.id,
+                "subnet_id": service.id,
             }],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
         example_endpoint = azure.privatelink.Endpoint("example",
@@ -261,8 +261,8 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
             subnet_id=endpoint.id,
             private_service_connection={
                 "name": example_link_service.name,
-                "isManualConnection": False,
-                "privateConnectionResourceId": example_link_service.id,
+                "is_manual_connection": False,
+                "private_connection_resource_id": example_link_service.id,
             })
         example_application_security_group = azure.network.ApplicationSecurityGroup("example",
             name="example",
