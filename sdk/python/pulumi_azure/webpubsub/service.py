@@ -603,8 +603,8 @@ class Service(pulumi.CustomResource):
             public_network_access_enabled=False,
             live_trace={
                 "enabled": True,
-                "messagingLogsEnabled": True,
-                "connectivityLogsEnabled": False,
+                "messaging_logs_enabled": True,
+                "connectivity_logs_enabled": False,
             },
             identity={
                 "type": "SystemAssigned",
@@ -663,8 +663,8 @@ class Service(pulumi.CustomResource):
             public_network_access_enabled=False,
             live_trace={
                 "enabled": True,
-                "messagingLogsEnabled": True,
-                "connectivityLogsEnabled": False,
+                "messaging_logs_enabled": True,
+                "connectivity_logs_enabled": False,
             },
             identity={
                 "type": "SystemAssigned",

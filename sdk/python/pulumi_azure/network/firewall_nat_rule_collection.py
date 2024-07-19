@@ -269,8 +269,8 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
             sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_firewall_nat_rule_collection = azure.network.FirewallNatRuleCollection("example",
             name="testcollection",
@@ -280,11 +280,11 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
             action="Dnat",
             rules=[{
                 "name": "testrule",
-                "sourceAddresses": ["10.0.0.0/16"],
-                "destinationPorts": ["53"],
-                "destinationAddresses": [example_public_ip.ip_address],
-                "translatedPort": "53",
-                "translatedAddress": "8.8.8.8",
+                "source_addresses": ["10.0.0.0/16"],
+                "destination_ports": ["53"],
+                "destination_addresses": [example_public_ip.ip_address],
+                "translated_port": "53",
+                "translated_address": "8.8.8.8",
                 "protocols": [
                     "TCP",
                     "UDP",
@@ -351,8 +351,8 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
             sku_tier="Standard",
             ip_configurations=[{
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_firewall_nat_rule_collection = azure.network.FirewallNatRuleCollection("example",
             name="testcollection",
@@ -362,11 +362,11 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
             action="Dnat",
             rules=[{
                 "name": "testrule",
-                "sourceAddresses": ["10.0.0.0/16"],
-                "destinationPorts": ["53"],
-                "destinationAddresses": [example_public_ip.ip_address],
-                "translatedPort": "53",
-                "translatedAddress": "8.8.8.8",
+                "source_addresses": ["10.0.0.0/16"],
+                "destination_ports": ["53"],
+                "destination_addresses": [example_public_ip.ip_address],
+                "translated_port": "53",
+                "translated_address": "8.8.8.8",
                 "protocols": [
                     "TCP",
                     "UDP",

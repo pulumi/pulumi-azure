@@ -921,8 +921,8 @@ class Api(pulumi.CustomResource):
             path="example",
             protocols=["https"],
             import_={
-                "contentFormat": "swagger-link-json",
-                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_format": "swagger-link-json",
+                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
             })
         ```
 
@@ -1001,8 +1001,8 @@ class Api(pulumi.CustomResource):
             path="example",
             protocols=["https"],
             import_={
-                "contentFormat": "swagger-link-json",
-                "contentValue": "http://conferenceapi.azurewebsites.net/?format=json",
+                "content_format": "swagger-link-json",
+                "content_value": "http://conferenceapi.azurewebsites.net/?format=json",
             })
         ```
 

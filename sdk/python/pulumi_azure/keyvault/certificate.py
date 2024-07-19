@@ -397,9 +397,9 @@ class Certificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "certificatePermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "certificate_permissions": [
                     "Create",
                     "Delete",
                     "DeleteIssuers",
@@ -413,7 +413,7 @@ class Certificate(pulumi.CustomResource):
                     "SetIssuers",
                     "Update",
                 ],
-                "keyPermissions": [
+                "key_permissions": [
                     "Backup",
                     "Create",
                     "Decrypt",
@@ -431,7 +431,7 @@ class Certificate(pulumi.CustomResource):
                     "Verify",
                     "WrapKey",
                 ],
-                "secretPermissions": [
+                "secret_permissions": [
                     "Backup",
                     "Delete",
                     "Get",
@@ -469,9 +469,9 @@ class Certificate(pulumi.CustomResource):
             sku_name="standard",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "certificatePermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "certificate_permissions": [
                     "Create",
                     "Delete",
                     "DeleteIssuers",
@@ -486,7 +486,7 @@ class Certificate(pulumi.CustomResource):
                     "SetIssuers",
                     "Update",
                 ],
-                "keyPermissions": [
+                "key_permissions": [
                     "Backup",
                     "Create",
                     "Decrypt",
@@ -504,7 +504,7 @@ class Certificate(pulumi.CustomResource):
                     "Verify",
                     "WrapKey",
                 ],
-                "secretPermissions": [
+                "secret_permissions": [
                     "Backup",
                     "Delete",
                     "Get",
@@ -519,29 +519,29 @@ class Certificate(pulumi.CustomResource):
             name="generated-cert",
             key_vault_id=example_key_vault.id,
             certificate_policy={
-                "issuerParameters": {
+                "issuer_parameters": {
                     "name": "Self",
                 },
-                "keyProperties": {
+                "key_properties": {
                     "exportable": True,
-                    "keySize": 2048,
-                    "keyType": "RSA",
-                    "reuseKey": True,
+                    "key_size": 2048,
+                    "key_type": "RSA",
+                    "reuse_key": True,
                 },
-                "lifetimeActions": [{
+                "lifetime_actions": [{
                     "action": {
-                        "actionType": "AutoRenew",
+                        "action_type": "AutoRenew",
                     },
                     "trigger": {
-                        "daysBeforeExpiry": 30,
+                        "days_before_expiry": 30,
                     },
                 }],
-                "secretProperties": {
-                    "contentType": "application/x-pkcs12",
+                "secret_properties": {
+                    "content_type": "application/x-pkcs12",
                 },
-                "x509CertificateProperties": {
-                    "extendedKeyUsages": ["1.3.6.1.5.5.7.3.1"],
-                    "keyUsages": [
+                "x509_certificate_properties": {
+                    "extended_key_usages": ["1.3.6.1.5.5.7.3.1"],
+                    "key_usages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -549,14 +549,14 @@ class Certificate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    "subjectAlternativeNames": {
-                        "dnsNames": [
+                    "subject_alternative_names": {
+                        "dns_names": [
                             "internal.contoso.com",
                             "domain.hello.world",
                         ],
                     },
                     "subject": "CN=hello-world",
-                    "validityInMonths": 12,
+                    "validity_in_months": 12,
                 },
             })
         ```
@@ -610,9 +610,9 @@ class Certificate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "certificatePermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "certificate_permissions": [
                     "Create",
                     "Delete",
                     "DeleteIssuers",
@@ -626,7 +626,7 @@ class Certificate(pulumi.CustomResource):
                     "SetIssuers",
                     "Update",
                 ],
-                "keyPermissions": [
+                "key_permissions": [
                     "Backup",
                     "Create",
                     "Decrypt",
@@ -644,7 +644,7 @@ class Certificate(pulumi.CustomResource):
                     "Verify",
                     "WrapKey",
                 ],
-                "secretPermissions": [
+                "secret_permissions": [
                     "Backup",
                     "Delete",
                     "Get",
@@ -682,9 +682,9 @@ class Certificate(pulumi.CustomResource):
             sku_name="standard",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "certificatePermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "certificate_permissions": [
                     "Create",
                     "Delete",
                     "DeleteIssuers",
@@ -699,7 +699,7 @@ class Certificate(pulumi.CustomResource):
                     "SetIssuers",
                     "Update",
                 ],
-                "keyPermissions": [
+                "key_permissions": [
                     "Backup",
                     "Create",
                     "Decrypt",
@@ -717,7 +717,7 @@ class Certificate(pulumi.CustomResource):
                     "Verify",
                     "WrapKey",
                 ],
-                "secretPermissions": [
+                "secret_permissions": [
                     "Backup",
                     "Delete",
                     "Get",
@@ -732,29 +732,29 @@ class Certificate(pulumi.CustomResource):
             name="generated-cert",
             key_vault_id=example_key_vault.id,
             certificate_policy={
-                "issuerParameters": {
+                "issuer_parameters": {
                     "name": "Self",
                 },
-                "keyProperties": {
+                "key_properties": {
                     "exportable": True,
-                    "keySize": 2048,
-                    "keyType": "RSA",
-                    "reuseKey": True,
+                    "key_size": 2048,
+                    "key_type": "RSA",
+                    "reuse_key": True,
                 },
-                "lifetimeActions": [{
+                "lifetime_actions": [{
                     "action": {
-                        "actionType": "AutoRenew",
+                        "action_type": "AutoRenew",
                     },
                     "trigger": {
-                        "daysBeforeExpiry": 30,
+                        "days_before_expiry": 30,
                     },
                 }],
-                "secretProperties": {
-                    "contentType": "application/x-pkcs12",
+                "secret_properties": {
+                    "content_type": "application/x-pkcs12",
                 },
-                "x509CertificateProperties": {
-                    "extendedKeyUsages": ["1.3.6.1.5.5.7.3.1"],
-                    "keyUsages": [
+                "x509_certificate_properties": {
+                    "extended_key_usages": ["1.3.6.1.5.5.7.3.1"],
+                    "key_usages": [
                         "cRLSign",
                         "dataEncipherment",
                         "digitalSignature",
@@ -762,14 +762,14 @@ class Certificate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    "subjectAlternativeNames": {
-                        "dnsNames": [
+                    "subject_alternative_names": {
+                        "dns_names": [
                             "internal.contoso.com",
                             "domain.hello.world",
                         ],
                     },
                     "subject": "CN=hello-world",
-                    "validityInMonths": 12,
+                    "validity_in_months": 12,
                 },
             })
         ```

@@ -641,10 +641,10 @@ class RegistryTask(pulumi.CustomResource):
                 "os": "Linux",
             },
             docker_step={
-                "dockerfilePath": "Dockerfile",
-                "contextPath": "https://github.com/<username>/<repository>#<branch>:<folder>",
-                "contextAccessToken": "<github personal access token>",
-                "imageNames": ["helloworld:{{.Run.ID}}"],
+                "dockerfile_path": "Dockerfile",
+                "context_path": "https://github.com/<username>/<repository>#<branch>:<folder>",
+                "context_access_token": "<github personal access token>",
+                "image_names": ["helloworld:{{.Run.ID}}"],
             })
         ```
 
@@ -707,10 +707,10 @@ class RegistryTask(pulumi.CustomResource):
                 "os": "Linux",
             },
             docker_step={
-                "dockerfilePath": "Dockerfile",
-                "contextPath": "https://github.com/<username>/<repository>#<branch>:<folder>",
-                "contextAccessToken": "<github personal access token>",
-                "imageNames": ["helloworld:{{.Run.ID}}"],
+                "dockerfile_path": "Dockerfile",
+                "context_path": "https://github.com/<username>/<repository>#<branch>:<folder>",
+                "context_access_token": "<github personal access token>",
+                "image_names": ["helloworld:{{.Run.ID}}"],
             })
         ```
 

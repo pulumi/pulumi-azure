@@ -406,9 +406,9 @@ class InferenceCluster(pulumi.CustomResource):
             dns_prefix_private_cluster="prefix",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 3,
-                "vmSize": "Standard_D3_v2",
-                "vnetSubnetId": example_subnet.id,
+                "node_count": 3,
+                "vm_size": "Standard_D3_v2",
+                "vnet_subnet_id": example_subnet.id,
             },
             identity={
                 "type": "SystemAssigned",
@@ -516,9 +516,9 @@ class InferenceCluster(pulumi.CustomResource):
             dns_prefix_private_cluster="prefix",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 3,
-                "vmSize": "Standard_D3_v2",
-                "vnetSubnetId": example_subnet.id,
+                "node_count": 3,
+                "vm_size": "Standard_D3_v2",
+                "vnet_subnet_id": example_subnet.id,
             },
             identity={
                 "type": "SystemAssigned",
