@@ -1014,7 +1014,7 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         bpepool = azure.lb.BackendAddressPool("bpepool",
             loadbalancer_id=example_load_balancer.id,
@@ -1041,10 +1041,10 @@ class ScaleSet(pulumi.CustomResource):
             automatic_os_upgrade=True,
             upgrade_policy_mode="Rolling",
             rolling_upgrade_policy={
-                "maxBatchInstancePercent": 20,
-                "maxUnhealthyInstancePercent": 20,
-                "maxUnhealthyUpgradedInstancePercent": 5,
-                "pauseTimeBetweenBatches": "PT0S",
+                "max_batch_instance_percent": 20,
+                "max_unhealthy_instance_percent": 20,
+                "max_unhealthy_upgraded_instance_percent": 5,
+                "pause_time_between_batches": "PT0S",
             },
             health_probe_id=example_probe.id,
             sku={
@@ -1061,35 +1061,35 @@ class ScaleSet(pulumi.CustomResource):
             storage_profile_os_disk={
                 "name": "",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             storage_profile_data_disks=[{
                 "lun": 0,
                 "caching": "ReadWrite",
-                "createOption": "Empty",
-                "diskSizeGb": 10,
+                "create_option": "Empty",
+                "disk_size_gb": 10,
             }],
             os_profile={
-                "computerNamePrefix": "testvm",
-                "adminUsername": "myadmin",
+                "computer_name_prefix": "testvm",
+                "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": True,
-                "sshKeys": [{
+                "disable_password_authentication": True,
+                "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "keyData": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
                 }],
             },
             network_profiles=[{
                 "name": "mynetworkprofile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
-                    "loadBalancerBackendAddressPoolIds": [bpepool.id],
-                    "loadBalancerInboundNatRulesIds": [lbnatpool.id],
+                    "subnet_id": example_subnet.id,
+                    "load_balancer_backend_address_pool_ids": [bpepool.id],
+                    "load_balancer_inbound_nat_rules_ids": [lbnatpool.id],
                 }],
             }],
             tags={
@@ -1141,30 +1141,30 @@ class ScaleSet(pulumi.CustomResource):
                 "capacity": 2,
             },
             os_profile={
-                "computerNamePrefix": "testvm",
-                "adminUsername": "myadmin",
+                "computer_name_prefix": "testvm",
+                "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": True,
-                "sshKeys": [{
+                "disable_password_authentication": True,
+                "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "keyData": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
                 }],
             },
             network_profiles=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             storage_profile_os_disk={
                 "name": "osDiskProfile",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "vhdContainers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
+                "create_option": "FromImage",
+                "vhd_containers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
             },
             storage_profile_image_reference={
                 "publisher": "Canonical",
@@ -1277,7 +1277,7 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "PublicIPAddress",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         bpepool = azure.lb.BackendAddressPool("bpepool",
             loadbalancer_id=example_load_balancer.id,
@@ -1304,10 +1304,10 @@ class ScaleSet(pulumi.CustomResource):
             automatic_os_upgrade=True,
             upgrade_policy_mode="Rolling",
             rolling_upgrade_policy={
-                "maxBatchInstancePercent": 20,
-                "maxUnhealthyInstancePercent": 20,
-                "maxUnhealthyUpgradedInstancePercent": 5,
-                "pauseTimeBetweenBatches": "PT0S",
+                "max_batch_instance_percent": 20,
+                "max_unhealthy_instance_percent": 20,
+                "max_unhealthy_upgraded_instance_percent": 5,
+                "pause_time_between_batches": "PT0S",
             },
             health_probe_id=example_probe.id,
             sku={
@@ -1324,35 +1324,35 @@ class ScaleSet(pulumi.CustomResource):
             storage_profile_os_disk={
                 "name": "",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             storage_profile_data_disks=[{
                 "lun": 0,
                 "caching": "ReadWrite",
-                "createOption": "Empty",
-                "diskSizeGb": 10,
+                "create_option": "Empty",
+                "disk_size_gb": 10,
             }],
             os_profile={
-                "computerNamePrefix": "testvm",
-                "adminUsername": "myadmin",
+                "computer_name_prefix": "testvm",
+                "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": True,
-                "sshKeys": [{
+                "disable_password_authentication": True,
+                "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "keyData": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
                 }],
             },
             network_profiles=[{
                 "name": "mynetworkprofile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
-                    "loadBalancerBackendAddressPoolIds": [bpepool.id],
-                    "loadBalancerInboundNatRulesIds": [lbnatpool.id],
+                    "subnet_id": example_subnet.id,
+                    "load_balancer_backend_address_pool_ids": [bpepool.id],
+                    "load_balancer_inbound_nat_rules_ids": [lbnatpool.id],
                 }],
             }],
             tags={
@@ -1404,30 +1404,30 @@ class ScaleSet(pulumi.CustomResource):
                 "capacity": 2,
             },
             os_profile={
-                "computerNamePrefix": "testvm",
-                "adminUsername": "myadmin",
+                "computer_name_prefix": "testvm",
+                "admin_username": "myadmin",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": True,
-                "sshKeys": [{
+                "disable_password_authentication": True,
+                "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "keyData": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
                 }],
             },
             network_profiles=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             storage_profile_os_disk={
                 "name": "osDiskProfile",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "vhdContainers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
+                "create_option": "FromImage",
+                "vhd_containers": [pulumi.Output.all(example_account.primary_blob_endpoint, example_container.name).apply(lambda primary_blob_endpoint, name: f"{primary_blob_endpoint}{name}")],
             },
             storage_profile_image_reference={
                 "publisher": "Canonical",

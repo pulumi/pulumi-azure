@@ -2846,7 +2846,7 @@ class KubernetesClusterAciConnectorLinux(dict):
                
                virtual = azure.network.Subnet("virtual", delegations=[{
                    "name": "aciDelegation",
-                   "serviceDelegation": {
+                   "service_delegation": {
                        "name": "Microsoft.ContainerInstance/containerGroups",
                        "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                    },
@@ -2874,7 +2874,7 @@ class KubernetesClusterAciConnectorLinux(dict):
 
         virtual = azure.network.Subnet("virtual", delegations=[{
             "name": "aciDelegation",
-            "serviceDelegation": {
+            "service_delegation": {
                 "name": "Microsoft.ContainerInstance/containerGroups",
                 "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
             },

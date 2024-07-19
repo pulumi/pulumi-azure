@@ -296,8 +296,8 @@ class DatasetBlobStorage(pulumi.CustomResource):
             container_name=example_container.name,
             storage_account={
                 "name": example_account2.name,
-                "resourceGroupName": example_account2.resource_group_name,
-                "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                "resource_group_name": example_account2.resource_group_name,
+                "subscription_id": "00000000-0000-0000-0000-000000000000",
             },
             file_path="myfile.txt",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
@@ -371,8 +371,8 @@ class DatasetBlobStorage(pulumi.CustomResource):
             container_name=example_container.name,
             storage_account={
                 "name": example_account2.name,
-                "resourceGroupName": example_account2.resource_group_name,
-                "subscriptionId": "00000000-0000-0000-0000-000000000000",
+                "resource_group_name": example_account2.resource_group_name,
+                "subscription_id": "00000000-0000-0000-0000-000000000000",
             },
             file_path="myfile.txt",
             opts = pulumi.ResourceOptions(depends_on=[example_assignment]))

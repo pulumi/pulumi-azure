@@ -848,10 +848,10 @@ class Cluster(pulumi.CustomResource):
             management_endpoint="https://example:80",
             node_types=[{
                 "name": "first",
-                "instanceCount": 3,
-                "isPrimary": True,
-                "clientEndpointPort": 2020,
-                "httpEndpointPort": 80,
+                "instance_count": 3,
+                "is_primary": True,
+                "client_endpoint_port": 2020,
+                "http_endpoint_port": 80,
             }])
         ```
 
@@ -922,10 +922,10 @@ class Cluster(pulumi.CustomResource):
             management_endpoint="https://example:80",
             node_types=[{
                 "name": "first",
-                "instanceCount": 3,
-                "isPrimary": True,
-                "clientEndpointPort": 2020,
-                "httpEndpointPort": 80,
+                "instance_count": 3,
+                "is_primary": True,
+                "client_endpoint_port": 2020,
+                "http_endpoint_port": 80,
             }])
         ```
 

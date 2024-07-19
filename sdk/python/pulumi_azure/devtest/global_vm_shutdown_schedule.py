@@ -297,8 +297,8 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="SampleVM",
@@ -315,7 +315,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             os_disk={
                 "name": "myosdisk-example",
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             admin_username="testadmin",
             admin_password="Password1234!",
@@ -328,8 +328,8 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             timezone="Pacific Standard Time",
             notification_settings={
                 "enabled": True,
-                "timeInMinutes": 60,
-                "webhookUrl": "https://sample-webhook-url.example.com",
+                "time_in_minutes": 60,
+                "webhook_url": "https://sample-webhook-url.example.com",
             })
         ```
 
@@ -389,8 +389,8 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="SampleVM",
@@ -407,7 +407,7 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             os_disk={
                 "name": "myosdisk-example",
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             admin_username="testadmin",
             admin_password="Password1234!",
@@ -420,8 +420,8 @@ class GlobalVMShutdownSchedule(pulumi.CustomResource):
             timezone="Pacific Standard Time",
             notification_settings={
                 "enabled": True,
-                "timeInMinutes": 60,
-                "webhookUrl": "https://sample-webhook-url.example.com",
+                "time_in_minutes": 60,
+                "webhook_url": "https://sample-webhook-url.example.com",
             })
         ```
 

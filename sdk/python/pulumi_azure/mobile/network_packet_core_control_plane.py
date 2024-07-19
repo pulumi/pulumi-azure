@@ -636,11 +636,11 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
             control_plane_access_ipv4_subnet="192.168.1.0/25",
             site_ids=[example_network_site.id],
             local_diagnostics_access={
-                "authenticationType": "AAD",
+                "authentication_type": "AAD",
             },
             platform={
                 "type": "AKS-HCI",
-                "edgeDeviceId": example_device.id,
+                "edge_device_id": example_device.id,
             },
             interoperability_settings_json=json.dumps({
                 "key": "value",
@@ -723,11 +723,11 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
             control_plane_access_ipv4_subnet="192.168.1.0/25",
             site_ids=[example_network_site.id],
             local_diagnostics_access={
-                "authenticationType": "AAD",
+                "authentication_type": "AAD",
             },
             platform={
                 "type": "AKS-HCI",
-                "edgeDeviceId": example_device.id,
+                "edge_device_id": example_device.id,
             },
             interoperability_settings_json=json.dumps({
                 "key": "value",
