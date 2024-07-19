@@ -259,7 +259,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
             address_prefixes=["10.0.0.64/28"],
             delegations=[{
                 "name": "Microsoft.Network.dnsResolvers",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
@@ -288,7 +288,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
             domain_name="onprem.local.",
             enabled=True,
             target_dns_servers=[{
-                "ipAddress": "10.10.0.1",
+                "ip_address": "10.10.0.1",
                 "port": 53,
             }],
             metadata={
@@ -343,7 +343,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
             address_prefixes=["10.0.0.64/28"],
             delegations=[{
                 "name": "Microsoft.Network.dnsResolvers",
-                "serviceDelegation": {
+                "service_delegation": {
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     "name": "Microsoft.Network/dnsResolvers",
                 },
@@ -372,7 +372,7 @@ class ResolverForwardingRule(pulumi.CustomResource):
             domain_name="onprem.local.",
             enabled=True,
             target_dns_servers=[{
-                "ipAddress": "10.10.0.1",
+                "ip_address": "10.10.0.1",
                 "port": 53,
             }],
             metadata={

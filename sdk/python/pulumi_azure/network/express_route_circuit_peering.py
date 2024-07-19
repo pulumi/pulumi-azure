@@ -547,14 +547,14 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             ipv4_enabled=True,
             vlan_id=300,
             microsoft_peering_config={
-                "advertisedPublicPrefixes": ["123.1.0.0/24"],
+                "advertised_public_prefixes": ["123.1.0.0/24"],
             },
             ipv6={
-                "primaryPeerAddressPrefix": "2002:db01::/126",
-                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
                 "enabled": True,
-                "microsoftPeering": {
-                    "advertisedPublicPrefixes": ["2002:db01::/126"],
+                "microsoft_peering": {
+                    "advertised_public_prefixes": ["2002:db01::/126"],
                 },
             })
         ```
@@ -593,8 +593,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             ipv4_enabled=True,
             vlan_id=300,
             ipv6={
-                "primaryPeerAddressPrefix": "2002:db01::/126",
-                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
                 "enabled": True,
             })
         ```
@@ -671,14 +671,14 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             ipv4_enabled=True,
             vlan_id=300,
             microsoft_peering_config={
-                "advertisedPublicPrefixes": ["123.1.0.0/24"],
+                "advertised_public_prefixes": ["123.1.0.0/24"],
             },
             ipv6={
-                "primaryPeerAddressPrefix": "2002:db01::/126",
-                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
                 "enabled": True,
-                "microsoftPeering": {
-                    "advertisedPublicPrefixes": ["2002:db01::/126"],
+                "microsoft_peering": {
+                    "advertised_public_prefixes": ["2002:db01::/126"],
                 },
             })
         ```
@@ -717,8 +717,8 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             ipv4_enabled=True,
             vlan_id=300,
             ipv6={
-                "primaryPeerAddressPrefix": "2002:db01::/126",
-                "secondaryPeerAddressPrefix": "2003:db01::/126",
+                "primary_peer_address_prefix": "2002:db01::/126",
+                "secondary_peer_address_prefix": "2003:db01::/126",
                 "enabled": True,
             })
         ```

@@ -776,8 +776,8 @@ class EventSubscription(pulumi.CustomResource):
             name="example-aees",
             scope=example.id,
             storage_queue_endpoint={
-                "storageAccountId": example_account.id,
-                "queueName": example_queue.name,
+                "storage_account_id": example_account.id,
+                "queue_name": example_queue.name,
             })
         ```
 
@@ -851,8 +851,8 @@ class EventSubscription(pulumi.CustomResource):
             name="example-aees",
             scope=example.id,
             storage_queue_endpoint={
-                "storageAccountId": example_account.id,
-                "queueName": example_queue.name,
+                "storage_account_id": example_account.id,
+                "queue_name": example_queue.name,
             })
         ```
 

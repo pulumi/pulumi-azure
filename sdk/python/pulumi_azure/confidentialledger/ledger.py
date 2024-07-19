@@ -319,9 +319,9 @@ class Ledger(pulumi.CustomResource):
             location=example.location,
             ledger_type="Private",
             azuread_based_service_principals=[{
-                "principalId": current.object_id,
-                "tenantId": current.tenant_id,
-                "ledgerRoleName": "Administrator",
+                "principal_id": current.object_id,
+                "tenant_id": current.tenant_id,
+                "ledger_role_name": "Administrator",
             }])
         ```
 
@@ -368,9 +368,9 @@ class Ledger(pulumi.CustomResource):
             location=example.location,
             ledger_type="Private",
             azuread_based_service_principals=[{
-                "principalId": current.object_id,
-                "tenantId": current.tenant_id,
-                "ledgerRoleName": "Administrator",
+                "principal_id": current.object_id,
+                "tenant_id": current.tenant_id,
+                "ledger_role_name": "Administrator",
             }])
         ```
 

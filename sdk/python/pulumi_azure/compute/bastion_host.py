@@ -609,8 +609,8 @@ class BastionHost(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configuration={
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             })
         ```
 
@@ -695,8 +695,8 @@ class BastionHost(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configuration={
                 "name": "configuration",
-                "subnetId": example_subnet.id,
-                "publicIpAddressId": example_public_ip.id,
+                "subnet_id": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
             })
         ```
 
