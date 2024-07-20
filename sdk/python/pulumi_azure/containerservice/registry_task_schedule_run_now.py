@@ -94,10 +94,10 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
                 "os": "Linux",
             },
             docker_step={
-                "dockerfilePath": "Dockerfile",
-                "contextPath": "https://github.com/<user name>/acr-build-helloworld-node#main",
-                "contextAccessToken": "<github personal access token>",
-                "imageNames": ["helloworld:{{.Run.ID}}"],
+                "dockerfile_path": "Dockerfile",
+                "context_path": "https://github.com/<user name>/acr-build-helloworld-node#main",
+                "context_access_token": "<github personal access token>",
+                "image_names": ["helloworld:{{.Run.ID}}"],
             })
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
@@ -136,10 +136,10 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
                 "os": "Linux",
             },
             docker_step={
-                "dockerfilePath": "Dockerfile",
-                "contextPath": "https://github.com/<user name>/acr-build-helloworld-node#main",
-                "contextAccessToken": "<github personal access token>",
-                "imageNames": ["helloworld:{{.Run.ID}}"],
+                "dockerfile_path": "Dockerfile",
+                "context_path": "https://github.com/<user name>/acr-build-helloworld-node#main",
+                "context_access_token": "<github personal access token>",
+                "image_names": ["helloworld:{{.Run.ID}}"],
             })
         example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```

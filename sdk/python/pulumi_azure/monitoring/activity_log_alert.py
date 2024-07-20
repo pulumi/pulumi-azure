@@ -352,7 +352,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             short_name="p0action",
             webhook_receivers=[{
                 "name": "callmyapi",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
             }])
         to_monitor = azure.storage.Account("to_monitor",
             name="examplesa",
@@ -366,14 +366,14 @@ class ActivityLogAlert(pulumi.CustomResource):
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
             criteria={
-                "resourceId": to_monitor.id,
-                "operationName": "Microsoft.Storage/storageAccounts/write",
+                "resource_id": to_monitor.id,
+                "operation_name": "Microsoft.Storage/storageAccounts/write",
                 "category": "Recommendation",
             },
             actions=[{
-                "actionGroupId": main.id,
-                "webhookProperties": {
-                    "from": "source",
+                "action_group_id": main.id,
+                "webhook_properties": {
+                    "from_": "source",
                 },
             }])
         ```
@@ -422,7 +422,7 @@ class ActivityLogAlert(pulumi.CustomResource):
             short_name="p0action",
             webhook_receivers=[{
                 "name": "callmyapi",
-                "serviceUri": "http://example.com/alert",
+                "service_uri": "http://example.com/alert",
             }])
         to_monitor = azure.storage.Account("to_monitor",
             name="examplesa",
@@ -436,14 +436,14 @@ class ActivityLogAlert(pulumi.CustomResource):
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
             criteria={
-                "resourceId": to_monitor.id,
-                "operationName": "Microsoft.Storage/storageAccounts/write",
+                "resource_id": to_monitor.id,
+                "operation_name": "Microsoft.Storage/storageAccounts/write",
                 "category": "Recommendation",
             },
             actions=[{
-                "actionGroupId": main.id,
-                "webhookProperties": {
-                    "from": "source",
+                "action_group_id": main.id,
+                "webhook_properties": {
+                    "from_": "source",
                 },
             }])
         ```

@@ -189,8 +189,8 @@ class MonitorTagRule(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             datadog_organization={
-                "apiKey": "XXXX",
-                "applicationKey": "XXXX",
+                "api_key": "XXXX",
+                "application_key": "XXXX",
             },
             user={
                 "name": "Example",
@@ -203,7 +203,7 @@ class MonitorTagRule(pulumi.CustomResource):
         example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
             logs=[{
-                "subscriptionLogEnabled": True,
+                "subscription_log_enabled": True,
             }],
             metrics=[{
                 "filters": [{
@@ -253,8 +253,8 @@ class MonitorTagRule(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             datadog_organization={
-                "apiKey": "XXXX",
-                "applicationKey": "XXXX",
+                "api_key": "XXXX",
+                "application_key": "XXXX",
             },
             user={
                 "name": "Example",
@@ -267,7 +267,7 @@ class MonitorTagRule(pulumi.CustomResource):
         example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
             logs=[{
-                "subscriptionLogEnabled": True,
+                "subscription_log_enabled": True,
             }],
             metrics=[{
                 "filters": [{

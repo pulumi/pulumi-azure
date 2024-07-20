@@ -321,14 +321,14 @@ class ActionRuleSuppression(pulumi.CustomResource):
             resource_group_name=example.name,
             scope={
                 "type": "ResourceGroup",
-                "resourceIds": [example.id],
+                "resource_ids": [example.id],
             },
             suppression={
-                "recurrenceType": "Weekly",
+                "recurrence_type": "Weekly",
                 "schedule": {
-                    "startDateUtc": "2019-01-01T01:02:03Z",
-                    "endDateUtc": "2019-01-03T15:02:07Z",
-                    "recurrenceWeeklies": [
+                    "start_date_utc": "2019-01-01T01:02:03Z",
+                    "end_date_utc": "2019-01-03T15:02:07Z",
+                    "recurrence_weeklies": [
                         "Sunday",
                         "Monday",
                         "Friday",
@@ -385,14 +385,14 @@ class ActionRuleSuppression(pulumi.CustomResource):
             resource_group_name=example.name,
             scope={
                 "type": "ResourceGroup",
-                "resourceIds": [example.id],
+                "resource_ids": [example.id],
             },
             suppression={
-                "recurrenceType": "Weekly",
+                "recurrence_type": "Weekly",
                 "schedule": {
-                    "startDateUtc": "2019-01-01T01:02:03Z",
-                    "endDateUtc": "2019-01-03T15:02:07Z",
-                    "recurrenceWeeklies": [
+                    "start_date_utc": "2019-01-01T01:02:03Z",
+                    "end_date_utc": "2019-01-03T15:02:07Z",
+                    "recurrence_weeklies": [
                         "Sunday",
                         "Monday",
                         "Friday",

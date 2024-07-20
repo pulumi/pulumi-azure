@@ -235,8 +235,8 @@ class VirtualMachineRestorePointCollection(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example-machine",
@@ -247,11 +247,11 @@ class VirtualMachineRestorePointCollection(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -317,8 +317,8 @@ class VirtualMachineRestorePointCollection(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
             name="example-machine",
@@ -329,11 +329,11 @@ class VirtualMachineRestorePointCollection(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",

@@ -411,9 +411,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             resource_group_name=primary.name,
             ip_configurations=[{
                 "name": "vm",
-                "subnetId": primary_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "publicIpAddressId": primary_public_ip.id,
+                "subnet_id": primary_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
+                "public_ip_address_id": primary_public_ip.id,
             }])
         vm = azure.compute.VirtualMachine("vm",
             name="vm",
@@ -429,18 +429,18 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             },
             storage_os_disk={
                 "name": "vm-os-disk",
-                "osType": "Linux",
+                "os_type": "Linux",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Premium_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Premium_LRS",
             },
             os_profile={
-                "adminUsername": "test-admin-123",
-                "adminPassword": "test-pwd-123",
-                "computerName": "vm",
+                "admin_username": "test-admin-123",
+                "admin_password": "test-pwd-123",
+                "computer_name": "vm",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
@@ -523,16 +523,16 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             target_recovery_fabric_id=secondary_fabric.id,
             target_recovery_protection_container_id=secondary_protection_container.id,
             managed_disks=[{
-                "diskId": vm.storage_os_disk.managed_disk_id,
-                "stagingStorageAccountId": primary_account.id,
-                "targetResourceGroupId": secondary.id,
-                "targetDiskType": "Premium_LRS",
-                "targetReplicaDiskType": "Premium_LRS",
+                "disk_id": vm.storage_os_disk.managed_disk_id,
+                "staging_storage_account_id": primary_account.id,
+                "target_resource_group_id": secondary.id,
+                "target_disk_type": "Premium_LRS",
+                "target_replica_disk_type": "Premium_LRS",
             }],
             network_interfaces=[{
-                "sourceNetworkInterfaceId": vm_network_interface.id,
-                "targetSubnetName": secondary_subnet.name,
-                "recoveryPublicIpAddressId": secondary_public_ip.id,
+                "source_network_interface_id": vm_network_interface.id,
+                "target_subnet_name": secondary_subnet.name,
+                "recovery_public_ip_address_id": secondary_public_ip.id,
             }],
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
@@ -546,7 +546,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             shutdown_recovery_group={},
             failover_recovery_group={},
             boot_recovery_groups=[{
-                "replicatedProtectedItems": [vm_replication.id],
+                "replicated_protected_items": [vm_replication.id],
             }])
         ```
 
@@ -621,9 +621,9 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             resource_group_name=primary.name,
             ip_configurations=[{
                 "name": "vm",
-                "subnetId": primary_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "publicIpAddressId": primary_public_ip.id,
+                "subnet_id": primary_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
+                "public_ip_address_id": primary_public_ip.id,
             }])
         vm = azure.compute.VirtualMachine("vm",
             name="vm",
@@ -639,18 +639,18 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             },
             storage_os_disk={
                 "name": "vm-os-disk",
-                "osType": "Linux",
+                "os_type": "Linux",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Premium_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Premium_LRS",
             },
             os_profile={
-                "adminUsername": "test-admin-123",
-                "adminPassword": "test-pwd-123",
-                "computerName": "vm",
+                "admin_username": "test-admin-123",
+                "admin_password": "test-pwd-123",
+                "computer_name": "vm",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             })
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
@@ -733,16 +733,16 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             target_recovery_fabric_id=secondary_fabric.id,
             target_recovery_protection_container_id=secondary_protection_container.id,
             managed_disks=[{
-                "diskId": vm.storage_os_disk.managed_disk_id,
-                "stagingStorageAccountId": primary_account.id,
-                "targetResourceGroupId": secondary.id,
-                "targetDiskType": "Premium_LRS",
-                "targetReplicaDiskType": "Premium_LRS",
+                "disk_id": vm.storage_os_disk.managed_disk_id,
+                "staging_storage_account_id": primary_account.id,
+                "target_resource_group_id": secondary.id,
+                "target_disk_type": "Premium_LRS",
+                "target_replica_disk_type": "Premium_LRS",
             }],
             network_interfaces=[{
-                "sourceNetworkInterfaceId": vm_network_interface.id,
-                "targetSubnetName": secondary_subnet.name,
-                "recoveryPublicIpAddressId": secondary_public_ip.id,
+                "source_network_interface_id": vm_network_interface.id,
+                "target_subnet_name": secondary_subnet.name,
+                "recovery_public_ip_address_id": secondary_public_ip.id,
             }],
             opts = pulumi.ResourceOptions(depends_on=[
                     container_mapping,
@@ -756,7 +756,7 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             shutdown_recovery_group={},
             failover_recovery_group={},
             boot_recovery_groups=[{
-                "replicatedProtectedItems": [vm_replication.id],
+                "replicated_protected_items": [vm_replication.id],
             }])
         ```
 

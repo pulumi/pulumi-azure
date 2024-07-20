@@ -195,7 +195,7 @@ class ChannelLine(pulumi.CustomResource):
             location=example_channels_registration.location,
             resource_group_name=example.name,
             line_channels=[{
-                "accessToken": "asdfdsdfTYUIOIoj1231hkjhk",
+                "access_token": "asdfdsdfTYUIOIoj1231hkjhk",
                 "secret": "aagfdgfd123567",
             }])
         ```
@@ -247,7 +247,7 @@ class ChannelLine(pulumi.CustomResource):
             location=example_channels_registration.location,
             resource_group_name=example.name,
             line_channels=[{
-                "accessToken": "asdfdsdfTYUIOIoj1231hkjhk",
+                "access_token": "asdfdsdfTYUIOIoj1231hkjhk",
                 "secret": "aagfdgfd123567",
             }])
         ```

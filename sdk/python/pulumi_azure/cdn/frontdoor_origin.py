@@ -517,7 +517,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
             account_replication_type="LRS",
             allow_nested_items_to_be_public=False,
             network_rules={
-                "defaultAction": "Deny",
+                "default_action": "Deny",
             },
             tags={
                 "environment": "Example",
@@ -540,10 +540,10 @@ class FrontdoorOrigin(pulumi.CustomResource):
             priority=1,
             weight=500,
             private_link={
-                "requestMessage": "Request access for Private Link Origin CDN Frontdoor",
-                "targetType": "blob",
+                "request_message": "Request access for Private Link Origin CDN Frontdoor",
+                "target_type": "blob",
                 "location": example_account.location,
-                "privateLinkTargetId": example_account.id,
+                "private_link_target_id": example_account.id,
             })
         ```
 
@@ -581,7 +581,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_link_service = azure.privatedns.LinkService("example",
             name="pls-example",
@@ -591,9 +591,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
             nat_ip_configurations=[{
                 "name": "primary",
-                "privateIpAddress": "10.5.1.17",
-                "privateIpAddressVersion": "IPv4",
-                "subnetId": example_subnet.id,
+                "private_ip_address": "10.5.1.17",
+                "private_ip_address_version": "IPv4",
+                "subnet_id": example_subnet.id,
                 "primary": True,
             }])
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
@@ -605,9 +605,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             name="group-example",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="origin-example",
@@ -619,9 +619,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             weight=1000,
             certificate_name_check_enabled=False,
             private_link={
-                "requestMessage": "Request access for Private Link Origin CDN Frontdoor",
+                "request_message": "Request access for Private Link Origin CDN Frontdoor",
                 "location": example.location,
-                "privateLinkTargetId": example_link_service.id,
+                "private_link_target_id": example_link_service.id,
             })
         ```
 
@@ -720,7 +720,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
             account_replication_type="LRS",
             allow_nested_items_to_be_public=False,
             network_rules={
-                "defaultAction": "Deny",
+                "default_action": "Deny",
             },
             tags={
                 "environment": "Example",
@@ -743,10 +743,10 @@ class FrontdoorOrigin(pulumi.CustomResource):
             priority=1,
             weight=500,
             private_link={
-                "requestMessage": "Request access for Private Link Origin CDN Frontdoor",
-                "targetType": "blob",
+                "request_message": "Request access for Private Link Origin CDN Frontdoor",
+                "target_type": "blob",
                 "location": example_account.location,
-                "privateLinkTargetId": example_account.id,
+                "private_link_target_id": example_account.id,
             })
         ```
 
@@ -784,7 +784,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": example_public_ip.name,
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_link_service = azure.privatedns.LinkService("example",
             name="pls-example",
@@ -794,9 +794,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
             nat_ip_configurations=[{
                 "name": "primary",
-                "privateIpAddress": "10.5.1.17",
-                "privateIpAddressVersion": "IPv4",
-                "subnetId": example_subnet.id,
+                "private_ip_address": "10.5.1.17",
+                "private_ip_address_version": "IPv4",
+                "subnet_id": example_subnet.id,
                 "primary": True,
             }])
         example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
@@ -808,9 +808,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             name="group-example",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         example_frontdoor_origin = azure.cdn.FrontdoorOrigin("example",
             name="origin-example",
@@ -822,9 +822,9 @@ class FrontdoorOrigin(pulumi.CustomResource):
             weight=1000,
             certificate_name_check_enabled=False,
             private_link={
-                "requestMessage": "Request access for Private Link Origin CDN Frontdoor",
+                "request_message": "Request access for Private Link Origin CDN Frontdoor",
                 "location": example.location,
-                "privateLinkTargetId": example_link_service.id,
+                "private_link_target_id": example_link_service.id,
             })
         ```
 

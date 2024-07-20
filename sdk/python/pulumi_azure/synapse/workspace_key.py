@@ -237,8 +237,8 @@ class WorkspaceKey(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             customer_managed_key={
-                "keyVersionlessId": example_key.versionless_id,
-                "keyName": "enckey",
+                "key_versionless_id": example_key.versionless_id,
+                "key_name": "enckey",
             },
             identity={
                 "type": "SystemAssigned",
@@ -348,8 +348,8 @@ class WorkspaceKey(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             customer_managed_key={
-                "keyVersionlessId": example_key.versionless_id,
-                "keyName": "enckey",
+                "key_versionless_id": example_key.versionless_id,
+                "key_name": "enckey",
             },
             identity={
                 "type": "SystemAssigned",

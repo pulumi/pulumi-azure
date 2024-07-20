@@ -357,7 +357,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                 "category": "workbook",
                 "name": "test",
                 "order": 100,
-                "resourceType": "microsoft.insights/components",
+                "resource_type": "microsoft.insights/components",
                 "type": "tsg",
             }],
             template_data=json.dumps({
@@ -455,7 +455,7 @@ class WorkbookTemplate(pulumi.CustomResource):
                 "category": "workbook",
                 "name": "test",
                 "order": 100,
-                "resourceType": "microsoft.insights/components",
+                "resource_type": "microsoft.insights/components",
                 "type": "tsg",
             }],
             template_data=json.dumps({

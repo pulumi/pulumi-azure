@@ -287,7 +287,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
             sql_image_sku="Developer",
             wsfc_domain_profile={
                 "fqdn": "testdomain.com",
-                "clusterSubnetType": "SingleSubnet",
+                "cluster_subnet_type": "SingleSubnet",
             })
         ```
 
@@ -335,7 +335,7 @@ class VirtualMachineGroup(pulumi.CustomResource):
             sql_image_sku="Developer",
             wsfc_domain_profile={
                 "fqdn": "testdomain.com",
-                "clusterSubnetType": "SingleSubnet",
+                "cluster_subnet_type": "SingleSubnet",
             })
         ```
 

@@ -531,7 +531,7 @@ class OutputBlob(pulumi.CustomResource):
             serialization={
                 "type": "Csv",
                 "encoding": "UTF8",
-                "fieldDelimiter": ",",
+                "field_delimiter": ",",
             })
         ```
 
@@ -603,7 +603,7 @@ class OutputBlob(pulumi.CustomResource):
             serialization={
                 "type": "Csv",
                 "encoding": "UTF8",
-                "fieldDelimiter": ",",
+                "field_delimiter": ",",
             })
         ```
 
