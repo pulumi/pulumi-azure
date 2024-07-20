@@ -476,7 +476,7 @@ class DatasetJson(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location={
-                "relativeUrl": "/fizz/buzz/",
+                "relative_url": "/fizz/buzz/",
                 "path": "foo/bar/",
                 "filename": "foo.txt",
             },
@@ -542,7 +542,7 @@ class DatasetJson(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location={
-                "relativeUrl": "/fizz/buzz/",
+                "relative_url": "/fizz/buzz/",
                 "path": "foo/bar/",
                 "filename": "foo.txt",
             },

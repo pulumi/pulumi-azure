@@ -482,14 +482,14 @@ class Lab(pulumi.CustomResource):
             location=example.location,
             title="Test Title",
             security={
-                "openAccessEnabled": False,
+                "open_access_enabled": False,
             },
             virtual_machine={
-                "adminUser": {
+                "admin_user": {
                     "username": "testadmin",
                     "password": "Password1234!",
                 },
-                "imageReference": {
+                "image_reference": {
                     "publisher": "Canonical",
                     "offer": "0001-com-ubuntu-server-jammy",
                     "sku": "22_04-lts",
@@ -550,14 +550,14 @@ class Lab(pulumi.CustomResource):
             location=example.location,
             title="Test Title",
             security={
-                "openAccessEnabled": False,
+                "open_access_enabled": False,
             },
             virtual_machine={
-                "adminUser": {
+                "admin_user": {
                     "username": "testadmin",
                     "password": "Password1234!",
                 },
-                "imageReference": {
+                "image_reference": {
                     "publisher": "Canonical",
                     "offer": "0001-com-ubuntu-server-jammy",
                     "sku": "22_04-lts",

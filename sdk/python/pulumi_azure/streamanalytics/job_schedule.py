@@ -218,7 +218,7 @@ class JobSchedule(pulumi.CustomResource):
             serialization={
                 "type": "Csv",
                 "encoding": "UTF8",
-                "fieldDelimiter": ",",
+                "field_delimiter": ",",
             })
         example_output_blob = azure.streamanalytics.OutputBlob("example",
             name="exampleoutput",
@@ -325,7 +325,7 @@ class JobSchedule(pulumi.CustomResource):
             serialization={
                 "type": "Csv",
                 "encoding": "UTF8",
-                "fieldDelimiter": ",",
+                "field_delimiter": ",",
             })
         example_output_blob = azure.streamanalytics.OutputBlob("example",
             name="exampleoutput",

@@ -869,7 +869,7 @@ class Standard(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
-                "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+                "linux_fx_version": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
             },
             app_settings={
                 "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",
@@ -994,7 +994,7 @@ class Standard(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
-                "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+                "linux_fx_version": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
             },
             app_settings={
                 "DOCKER_REGISTRY_SERVER_URL": "https://<server-name>.azurecr.io",

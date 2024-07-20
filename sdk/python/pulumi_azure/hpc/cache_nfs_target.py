@@ -342,8 +342,8 @@ class CacheNfsTarget(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_vm.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_vm.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         custom_data = \"\"\"#!/bin/bash
         sudo -i 
@@ -367,11 +367,11 @@ class CacheNfsTarget(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -388,13 +388,13 @@ class CacheNfsTarget(pulumi.CustomResource):
             usage_model="READ_HEAVY_INFREQ",
             namespace_junctions=[
                 {
-                    "namespacePath": "/nfs/a1",
-                    "nfsExport": "/export/a",
-                    "targetPath": "1",
+                    "namespace_path": "/nfs/a1",
+                    "nfs_export": "/export/a",
+                    "target_path": "1",
                 },
                 {
-                    "namespacePath": "/nfs/b",
-                    "nfsExport": "/export/b",
+                    "namespace_path": "/nfs/b",
+                    "nfs_export": "/export/b",
                 },
             ])
         ```
@@ -467,8 +467,8 @@ class CacheNfsTarget(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "internal",
-                "subnetId": example_vm.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_vm.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         custom_data = \"\"\"#!/bin/bash
         sudo -i 
@@ -492,11 +492,11 @@ class CacheNfsTarget(pulumi.CustomResource):
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -513,13 +513,13 @@ class CacheNfsTarget(pulumi.CustomResource):
             usage_model="READ_HEAVY_INFREQ",
             namespace_junctions=[
                 {
-                    "namespacePath": "/nfs/a1",
-                    "nfsExport": "/export/a",
-                    "targetPath": "1",
+                    "namespace_path": "/nfs/a1",
+                    "nfs_export": "/export/a",
+                    "target_path": "1",
                 },
                 {
-                    "namespacePath": "/nfs/b",
-                    "nfsExport": "/export/b",
+                    "namespace_path": "/nfs/b",
+                    "nfs_export": "/export/b",
                 },
             ])
         ```

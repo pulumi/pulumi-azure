@@ -317,9 +317,9 @@ class Definition(pulumi.CustomResource):
             managing_tenant_id="00000000-0000-0000-0000-000000000000",
             scope="/subscriptions/00000000-0000-0000-0000-000000000000",
             authorizations=[{
-                "principalId": "00000000-0000-0000-0000-000000000000",
-                "roleDefinitionId": contributor.role_definition_id,
-                "principalDisplayName": "Tier 1 Support",
+                "principal_id": "00000000-0000-0000-0000-000000000000",
+                "role_definition_id": contributor.role_definition_id,
+                "principal_display_name": "Tier 1 Support",
             }])
         ```
 
@@ -364,9 +364,9 @@ class Definition(pulumi.CustomResource):
             managing_tenant_id="00000000-0000-0000-0000-000000000000",
             scope="/subscriptions/00000000-0000-0000-0000-000000000000",
             authorizations=[{
-                "principalId": "00000000-0000-0000-0000-000000000000",
-                "roleDefinitionId": contributor.role_definition_id,
-                "principalDisplayName": "Tier 1 Support",
+                "principal_id": "00000000-0000-0000-0000-000000000000",
+                "role_definition_id": contributor.role_definition_id,
+                "principal_display_name": "Tier 1 Support",
             }])
         ```
 

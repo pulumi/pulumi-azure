@@ -161,7 +161,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                 "groups": [{
                     "name": "example-group-1",
                 }],
-                "afterStageWaitInSeconds": 21,
+                "after_stage_wait_in_seconds": 21,
             }])
         ```
 
@@ -209,7 +209,7 @@ class FleetUpdateStrategy(pulumi.CustomResource):
                 "groups": [{
                     "name": "example-group-1",
                 }],
-                "afterStageWaitInSeconds": 21,
+                "after_stage_wait_in_seconds": 21,
             }])
         ```
 
