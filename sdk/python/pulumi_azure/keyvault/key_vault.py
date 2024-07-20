@@ -666,11 +666,11 @@ class KeyVault(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard",
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": ["Get"],
-                "secretPermissions": ["Get"],
-                "storagePermissions": ["Get"],
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": ["Get"],
+                "secret_permissions": ["Get"],
+                "storage_permissions": ["Get"],
             }])
         ```
 
@@ -748,11 +748,11 @@ class KeyVault(pulumi.CustomResource):
             purge_protection_enabled=False,
             sku_name="standard",
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": ["Get"],
-                "secretPermissions": ["Get"],
-                "storagePermissions": ["Get"],
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": ["Get"],
+                "secret_permissions": ["Get"],
+                "storage_permissions": ["Get"],
             }])
         ```
 

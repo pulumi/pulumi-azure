@@ -910,8 +910,8 @@ class VirtualMachine(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": internal.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": internal.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         main_virtual_machine = azure.compute.VirtualMachine("main",
             name=f"{prefix}-vm",
@@ -928,16 +928,16 @@ class VirtualMachine(pulumi.CustomResource):
             storage_os_disk={
                 "name": "myosdisk1",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": "hostname",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "hostname",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             },
             tags={
                 "environment": "staging",
@@ -1037,8 +1037,8 @@ class VirtualMachine(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": internal.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": internal.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         main_virtual_machine = azure.compute.VirtualMachine("main",
             name=f"{prefix}-vm",
@@ -1055,16 +1055,16 @@ class VirtualMachine(pulumi.CustomResource):
             storage_os_disk={
                 "name": "myosdisk1",
                 "caching": "ReadWrite",
-                "createOption": "FromImage",
-                "managedDiskType": "Standard_LRS",
+                "create_option": "FromImage",
+                "managed_disk_type": "Standard_LRS",
             },
             os_profile={
-                "computerName": "hostname",
-                "adminUsername": "testadmin",
-                "adminPassword": "Password1234!",
+                "computer_name": "hostname",
+                "admin_username": "testadmin",
+                "admin_password": "Password1234!",
             },
             os_profile_linux_config={
-                "disablePasswordAuthentication": False,
+                "disable_password_authentication": False,
             },
             tags={
                 "environment": "staging",

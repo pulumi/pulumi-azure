@@ -1026,7 +1026,7 @@ class FlexibleServer(pulumi.CustomResource):
             service_endpoints=["Microsoft.Storage"],
             delegations=[{
                 "name": "fs",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.DBforPostgreSQL/flexibleServers",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -1169,7 +1169,7 @@ class FlexibleServer(pulumi.CustomResource):
             service_endpoints=["Microsoft.Storage"],
             delegations=[{
                 "name": "fs",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.DBforPostgreSQL/flexibleServers",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },

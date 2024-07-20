@@ -674,8 +674,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             lab_name=example_lab.name,
             resource_group_name=example.name,
             subnet={
-                "usePublicIpAddress": "Allow",
-                "useInVirtualMachineCreation": "Allow",
+                "use_public_ip_address": "Allow",
+                "use_in_virtual_machine_creation": "Allow",
             })
         example_linux_virtual_machine = azure.devtest.LinuxVirtualMachine("example",
             name="example-vm03",
@@ -762,8 +762,8 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             lab_name=example_lab.name,
             resource_group_name=example.name,
             subnet={
-                "usePublicIpAddress": "Allow",
-                "useInVirtualMachineCreation": "Allow",
+                "use_public_ip_address": "Allow",
+                "use_in_virtual_machine_creation": "Allow",
             })
         example_linux_virtual_machine = azure.devtest.LinuxVirtualMachine("example",
             name="example-vm03",
