@@ -265,6 +265,7 @@ func TestAccDurableFunctions(t *testing.T) {
 }
 
 func TestAccEventgrid(t *testing.T) {
+	t.Skip(`Passes locally but fails in CI with 'Waiting for 'eventgrid_extension' key to become available' until timeout. #2222`)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:                      filepath.Join(getCwd(t), "eventgrid"),
