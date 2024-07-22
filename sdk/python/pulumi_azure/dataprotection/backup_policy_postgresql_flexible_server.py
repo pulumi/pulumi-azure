@@ -262,49 +262,49 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             time_zone="India Standard Time",
             default_retention_rule={
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P4M",
-                    "dataStoreType": "VaultStore",
+                    "data_store_type": "VaultStore",
                 }],
             },
             retention_rules=[
                 {
                     "name": "weekly",
-                    "lifeCycles": [{
+                    "life_cycles": [{
                         "duration": "P6M",
-                        "dataStoreType": "VaultStore",
+                        "data_store_type": "VaultStore",
                     }],
                     "priority": 20,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfWeek",
+                        "absolute_criteria": "FirstOfWeek",
                     },
                 },
                 {
                     "name": "thursday",
-                    "lifeCycles": [{
+                    "life_cycles": [{
                         "duration": "P1W",
-                        "dataStoreType": "VaultStore",
+                        "data_store_type": "VaultStore",
                     }],
                     "priority": 25,
                     "criteria": {
-                        "daysOfWeeks": ["Thursday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Thursday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
                 {
                     "name": "monthly",
-                    "lifeCycles": [{
+                    "life_cycles": [{
                         "duration": "P1D",
-                        "dataStoreType": "VaultStore",
+                        "data_store_type": "VaultStore",
                     }],
                     "priority": 15,
                     "criteria": {
-                        "weeksOfMonths": [
+                        "weeks_of_months": [
                             "First",
                             "Last",
                         ],
-                        "daysOfWeeks": ["Tuesday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Tuesday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
             ])
@@ -360,49 +360,49 @@ class BackupPolicyPostgresqlFlexibleServer(pulumi.CustomResource):
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             time_zone="India Standard Time",
             default_retention_rule={
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P4M",
-                    "dataStoreType": "VaultStore",
+                    "data_store_type": "VaultStore",
                 }],
             },
             retention_rules=[
                 {
                     "name": "weekly",
-                    "lifeCycles": [{
+                    "life_cycles": [{
                         "duration": "P6M",
-                        "dataStoreType": "VaultStore",
+                        "data_store_type": "VaultStore",
                     }],
                     "priority": 20,
                     "criteria": {
-                        "absoluteCriteria": "FirstOfWeek",
+                        "absolute_criteria": "FirstOfWeek",
                     },
                 },
                 {
                     "name": "thursday",
-                    "lifeCycles": [{
+                    "life_cycles": [{
                         "duration": "P1W",
-                        "dataStoreType": "VaultStore",
+                        "data_store_type": "VaultStore",
                     }],
                     "priority": 25,
                     "criteria": {
-                        "daysOfWeeks": ["Thursday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Thursday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
                 {
                     "name": "monthly",
-                    "lifeCycles": [{
+                    "life_cycles": [{
                         "duration": "P1D",
-                        "dataStoreType": "VaultStore",
+                        "data_store_type": "VaultStore",
                     }],
                     "priority": 15,
                     "criteria": {
-                        "weeksOfMonths": [
+                        "weeks_of_months": [
                             "First",
                             "Last",
                         ],
-                        "daysOfWeeks": ["Tuesday"],
-                        "scheduledBackupTimes": ["2021-05-23T02:30:00Z"],
+                        "days_of_weeks": ["Tuesday"],
+                        "scheduled_backup_times": ["2021-05-23T02:30:00Z"],
                     },
                 },
             ])

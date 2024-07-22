@@ -237,7 +237,7 @@ class Configuration(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -250,10 +250,10 @@ class Configuration(pulumi.CustomResource):
             managed_resource_group="example",
             diagnose_support_enabled=True,
             frontend_public={
-                "ipAddresses": [example_public_ip.id],
+                "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }])
         example_configuration = azure.nginx.Configuration("example",
             nginx_deployment_id=example_deployment.id,
@@ -274,7 +274,7 @@ class Configuration(pulumi.CustomResource):
             }
         }
         \"\"\").result,
-                    "virtualPath": "/etc/nginx/nginx.conf",
+                    "virtual_path": "/etc/nginx/nginx.conf",
                 },
                 {
                     "content": std.base64encode(input=\"\"\"location /bbb {
@@ -285,7 +285,7 @@ class Configuration(pulumi.CustomResource):
          </body></html>';
         }
         \"\"\").result,
-                    "virtualPath": "/etc/nginx/site/b.conf",
+                    "virtual_path": "/etc/nginx/site/b.conf",
                 },
             ])
         ```
@@ -346,7 +346,7 @@ class Configuration(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "delegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "NGINX.NGINXPLUS/nginxDeployments",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -359,10 +359,10 @@ class Configuration(pulumi.CustomResource):
             managed_resource_group="example",
             diagnose_support_enabled=True,
             frontend_public={
-                "ipAddresses": [example_public_ip.id],
+                "ip_addresses": [example_public_ip.id],
             },
             network_interfaces=[{
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
             }])
         example_configuration = azure.nginx.Configuration("example",
             nginx_deployment_id=example_deployment.id,
@@ -383,7 +383,7 @@ class Configuration(pulumi.CustomResource):
             }
         }
         \"\"\").result,
-                    "virtualPath": "/etc/nginx/nginx.conf",
+                    "virtual_path": "/etc/nginx/nginx.conf",
                 },
                 {
                     "content": std.base64encode(input=\"\"\"location /bbb {
@@ -394,7 +394,7 @@ class Configuration(pulumi.CustomResource):
          </body></html>';
         }
         \"\"\").result,
-                    "virtualPath": "/etc/nginx/site/b.conf",
+                    "virtual_path": "/etc/nginx/site/b.conf",
                 },
             ])
         ```

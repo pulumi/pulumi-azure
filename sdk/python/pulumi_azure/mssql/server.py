@@ -618,8 +618,8 @@ class Server(pulumi.CustomResource):
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
             azuread_administrator={
-                "loginUsername": "AzureAD Admin",
-                "objectId": "00000000-0000-0000-0000-000000000000",
+                "login_username": "AzureAD Admin",
+                "object_id": "00000000-0000-0000-0000-000000000000",
             },
             tags={
                 "environment": "production",
@@ -652,9 +652,9 @@ class Server(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Get",
                         "List",
                         "Create",
@@ -666,9 +666,9 @@ class Server(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_user_assigned_identity.tenant_id,
-                    "objectId": example_user_assigned_identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_user_assigned_identity.tenant_id,
+                    "object_id": example_user_assigned_identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",
@@ -694,12 +694,12 @@ class Server(pulumi.CustomResource):
             administrator_login_password="Example_Password!",
             minimum_tls_version="1.2",
             azuread_administrator={
-                "loginUsername": example_user_assigned_identity.name,
-                "objectId": example_user_assigned_identity.principal_id,
+                "login_username": example_user_assigned_identity.name,
+                "object_id": example_user_assigned_identity.principal_id,
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             primary_user_assigned_identity_id=example_user_assigned_identity.id,
             transparent_data_encryption_key_vault_key_id=example_key.id)
@@ -766,8 +766,8 @@ class Server(pulumi.CustomResource):
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
             azuread_administrator={
-                "loginUsername": "AzureAD Admin",
-                "objectId": "00000000-0000-0000-0000-000000000000",
+                "login_username": "AzureAD Admin",
+                "object_id": "00000000-0000-0000-0000-000000000000",
             },
             tags={
                 "environment": "production",
@@ -800,9 +800,9 @@ class Server(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Get",
                         "List",
                         "Create",
@@ -814,9 +814,9 @@ class Server(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_user_assigned_identity.tenant_id,
-                    "objectId": example_user_assigned_identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_user_assigned_identity.tenant_id,
+                    "object_id": example_user_assigned_identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",
@@ -842,12 +842,12 @@ class Server(pulumi.CustomResource):
             administrator_login_password="Example_Password!",
             minimum_tls_version="1.2",
             azuread_administrator={
-                "loginUsername": example_user_assigned_identity.name,
-                "objectId": example_user_assigned_identity.principal_id,
+                "login_username": example_user_assigned_identity.name,
+                "object_id": example_user_assigned_identity.principal_id,
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             primary_user_assigned_identity_id=example_user_assigned_identity.id,
             transparent_data_encryption_key_vault_key_id=example_key.id)

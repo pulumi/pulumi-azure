@@ -267,7 +267,7 @@ class Share(pulumi.CustomResource):
             snapshot_schedule={
                 "name": "example-ss",
                 "recurrence": "Day",
-                "startTime": "2020-04-17T04:47:52.9614956Z",
+                "start_time": "2020-04-17T04:47:52.9614956Z",
             })
         ```
 
@@ -325,7 +325,7 @@ class Share(pulumi.CustomResource):
             snapshot_schedule={
                 "name": "example-ss",
                 "recurrence": "Day",
-                "startTime": "2020-04-17T04:47:52.9614956Z",
+                "start_time": "2020-04-17T04:47:52.9614956Z",
             })
         ```
 

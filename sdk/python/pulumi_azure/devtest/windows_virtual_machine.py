@@ -631,8 +631,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             lab_name=example_lab.name,
             resource_group_name=example.name,
             subnet={
-                "usePublicIpAddress": "Allow",
-                "useInVirtualMachineCreation": "Allow",
+                "use_public_ip_address": "Allow",
+                "use_in_virtual_machine_creation": "Allow",
             })
         example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("example",
             name="example-vm03",
@@ -715,8 +715,8 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             lab_name=example_lab.name,
             resource_group_name=example.name,
             subnet={
-                "usePublicIpAddress": "Allow",
-                "useInVirtualMachineCreation": "Allow",
+                "use_public_ip_address": "Allow",
+                "use_in_virtual_machine_creation": "Allow",
             })
         example_windows_virtual_machine = azure.devtest.WindowsVirtualMachine("example",
             name="example-vm03",

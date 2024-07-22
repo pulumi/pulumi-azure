@@ -228,7 +228,7 @@ class AssetFilter(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_asset = azure.media.Asset("example",
             name="Asset1",
@@ -240,12 +240,12 @@ class AssetFilter(pulumi.CustomResource):
             asset_id=example_asset.id,
             first_quality_bitrate=128000,
             presentation_time_range={
-                "startInUnits": 0,
-                "endInUnits": 15,
-                "presentationWindowInUnits": 90,
-                "liveBackoffInUnits": 0,
-                "unitTimescaleInMiliseconds": 1000,
-                "forceEnd": False,
+                "start_in_units": 0,
+                "end_in_units": 15,
+                "presentation_window_in_units": 90,
+                "live_backoff_in_units": 0,
+                "unit_timescale_in_miliseconds": 1000,
+                "force_end": False,
             },
             track_selections=[
                 {
@@ -330,7 +330,7 @@ class AssetFilter(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_asset = azure.media.Asset("example",
             name="Asset1",
@@ -342,12 +342,12 @@ class AssetFilter(pulumi.CustomResource):
             asset_id=example_asset.id,
             first_quality_bitrate=128000,
             presentation_time_range={
-                "startInUnits": 0,
-                "endInUnits": 15,
-                "presentationWindowInUnits": 90,
-                "liveBackoffInUnits": 0,
-                "unitTimescaleInMiliseconds": 1000,
-                "forceEnd": False,
+                "start_in_units": 0,
+                "end_in_units": 15,
+                "presentation_window_in_units": 90,
+                "live_backoff_in_units": 0,
+                "unit_timescale_in_miliseconds": 1000,
+                "force_end": False,
             },
             track_selections=[
                 {

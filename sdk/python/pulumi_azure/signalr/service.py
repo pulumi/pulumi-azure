@@ -838,20 +838,20 @@ class Service(pulumi.CustomResource):
                 "capacity": 1,
             },
             cors=[{
-                "allowedOrigins": ["http://www.example.com"],
+                "allowed_origins": ["http://www.example.com"],
             }],
             public_network_access_enabled=False,
             connectivity_logs_enabled=True,
             messaging_logs_enabled=True,
             service_mode="Default",
             upstream_endpoints=[{
-                "categoryPatterns": [
+                "category_patterns": [
                     "connections",
                     "messages",
                 ],
-                "eventPatterns": ["*"],
-                "hubPatterns": ["hub1"],
-                "urlTemplate": "http://foo.com",
+                "event_patterns": ["*"],
+                "hub_patterns": ["hub1"],
+                "url_template": "http://foo.com",
             }])
         ```
 
@@ -916,20 +916,20 @@ class Service(pulumi.CustomResource):
                 "capacity": 1,
             },
             cors=[{
-                "allowedOrigins": ["http://www.example.com"],
+                "allowed_origins": ["http://www.example.com"],
             }],
             public_network_access_enabled=False,
             connectivity_logs_enabled=True,
             messaging_logs_enabled=True,
             service_mode="Default",
             upstream_endpoints=[{
-                "categoryPatterns": [
+                "category_patterns": [
                     "connections",
                     "messages",
                 ],
-                "eventPatterns": ["*"],
-                "hubPatterns": ["hub1"],
-                "urlTemplate": "http://foo.com",
+                "event_patterns": ["*"],
+                "hub_patterns": ["hub1"],
+                "url_template": "http://foo.com",
             }])
         ```
 

@@ -644,11 +644,11 @@ class ConfigurationStore(pulumi.CustomResource):
             soft_delete_retention_days=1,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             encryption={
-                "keyVaultKeyIdentifier": example_key.id,
-                "identityClientId": example_user_assigned_identity.client_id,
+                "key_vault_key_identifier": example_key.id,
+                "identity_client_id": example_user_assigned_identity.client_id,
             },
             replicas=[{
                 "name": "replica1",
@@ -797,11 +797,11 @@ class ConfigurationStore(pulumi.CustomResource):
             soft_delete_retention_days=1,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             encryption={
-                "keyVaultKeyIdentifier": example_key.id,
-                "identityClientId": example_user_assigned_identity.client_id,
+                "key_vault_key_identifier": example_key.id,
+                "identity_client_id": example_user_assigned_identity.client_id,
             },
             replicas=[{
                 "name": "replica1",
