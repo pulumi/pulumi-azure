@@ -156,10 +156,10 @@ class Target(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "nodeCount": "example-value",
-                "vmSize": "example-value",
-                "upgradeSettings": {
-                    "maxSurge": "example-value",
+                "node_count": "example-value",
+                "vm_size": "example-value",
+                "upgrade_settings": {
+                    "max_surge": "example-value",
                 },
             },
             identity={
@@ -216,10 +216,10 @@ class Target(pulumi.CustomResource):
             dns_prefix="acctestaksexample",
             default_node_pool={
                 "name": "example-value",
-                "nodeCount": "example-value",
-                "vmSize": "example-value",
-                "upgradeSettings": {
-                    "maxSurge": "example-value",
+                "node_count": "example-value",
+                "vm_size": "example-value",
+                "upgrade_settings": {
+                    "max_surge": "example-value",
                 },
             },
             identity={

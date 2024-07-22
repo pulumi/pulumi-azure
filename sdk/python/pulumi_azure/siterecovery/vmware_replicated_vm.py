@@ -913,9 +913,9 @@ class VmwareReplicatedVm(pulumi.CustomResource):
             default_recovery_disk_type="Standard_LRS",
             target_network_id=example_virtual_network.id,
             network_interfaces=[{
-                "sourceMacAddress": "00:00:00:00:00:00",
-                "targetSubnetName": example_subnet.name,
-                "isPrimary": True,
+                "source_mac_address": "00:00:00:00:00:00",
+                "target_subnet_name": example_subnet.name,
+                "is_primary": True,
             }])
         ```
 
@@ -1040,9 +1040,9 @@ class VmwareReplicatedVm(pulumi.CustomResource):
             default_recovery_disk_type="Standard_LRS",
             target_network_id=example_virtual_network.id,
             network_interfaces=[{
-                "sourceMacAddress": "00:00:00:00:00:00",
-                "targetSubnetName": example_subnet.name,
-                "isPrimary": True,
+                "source_mac_address": "00:00:00:00:00:00",
+                "target_subnet_name": example_subnet.name,
+                "is_primary": True,
             }])
         ```
 

@@ -938,9 +938,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             enable_bgp=False,
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
             }])
         onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremise",
             name="onpremise",
@@ -987,9 +987,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": us_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": us_gateway.id,
+                "public_ip_address_id": us_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": us_gateway.id,
             }])
         europe = azure.core.ResourceGroup("europe",
             name="europe",
@@ -1017,9 +1017,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": europe_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": europe_gateway.id,
+                "public_ip_address_id": europe_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": europe_gateway.id,
             }])
         us_to_europe = azure.network.VirtualNetworkGatewayConnection("us_to_europe",
             name="us-to-europe",
@@ -1136,9 +1136,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             enable_bgp=False,
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
             }])
         onpremise_virtual_network_gateway_connection = azure.network.VirtualNetworkGatewayConnection("onpremise",
             name="onpremise",
@@ -1185,9 +1185,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": us_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": us_gateway.id,
+                "public_ip_address_id": us_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": us_gateway.id,
             }])
         europe = azure.core.ResourceGroup("europe",
             name="europe",
@@ -1215,9 +1215,9 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": europe_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": europe_gateway.id,
+                "public_ip_address_id": europe_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": europe_gateway.id,
             }])
         us_to_europe = azure.network.VirtualNetworkGatewayConnection("us_to_europe",
             name="us-to-europe",

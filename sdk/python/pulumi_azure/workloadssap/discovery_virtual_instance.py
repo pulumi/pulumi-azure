@@ -390,7 +390,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             managed_storage_account_name="managedsa",
             identity={
                 "type": "UserAssigned",
-                "identityIds": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
+                "identity_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
             })
         ```
 
@@ -445,7 +445,7 @@ class DiscoveryVirtualInstance(pulumi.CustomResource):
             managed_storage_account_name="managedsa",
             identity={
                 "type": "UserAssigned",
-                "identityIds": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
+                "identity_ids": ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1"],
             })
         ```
 

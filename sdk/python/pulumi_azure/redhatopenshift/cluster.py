@@ -472,12 +472,12 @@ class Cluster(pulumi.CustomResource):
                 "version": "4.13.23",
             },
             network_profile={
-                "podCidr": "10.128.0.0/14",
-                "serviceCidr": "172.30.0.0/16",
+                "pod_cidr": "10.128.0.0/14",
+                "service_cidr": "172.30.0.0/16",
             },
             main_profile={
-                "vmSize": "Standard_D8s_v3",
-                "subnetId": main_subnet.id,
+                "vm_size": "Standard_D8s_v3",
+                "subnet_id": main_subnet.id,
             },
             api_server_profile={
                 "visibility": "Public",
@@ -486,14 +486,14 @@ class Cluster(pulumi.CustomResource):
                 "visibility": "Public",
             },
             worker_profile={
-                "vmSize": "Standard_D4s_v3",
-                "diskSizeGb": 128,
-                "nodeCount": 3,
-                "subnetId": worker_subnet.id,
+                "vm_size": "Standard_D4s_v3",
+                "disk_size_gb": 128,
+                "node_count": 3,
+                "subnet_id": worker_subnet.id,
             },
             service_principal={
-                "clientId": example_application.client_id,
-                "clientSecret": example_service_principal_password.value,
+                "client_id": example_application.client_id,
+                "client_secret": example_service_principal_password.value,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     role_network1,
@@ -591,12 +591,12 @@ class Cluster(pulumi.CustomResource):
                 "version": "4.13.23",
             },
             network_profile={
-                "podCidr": "10.128.0.0/14",
-                "serviceCidr": "172.30.0.0/16",
+                "pod_cidr": "10.128.0.0/14",
+                "service_cidr": "172.30.0.0/16",
             },
             main_profile={
-                "vmSize": "Standard_D8s_v3",
-                "subnetId": main_subnet.id,
+                "vm_size": "Standard_D8s_v3",
+                "subnet_id": main_subnet.id,
             },
             api_server_profile={
                 "visibility": "Public",
@@ -605,14 +605,14 @@ class Cluster(pulumi.CustomResource):
                 "visibility": "Public",
             },
             worker_profile={
-                "vmSize": "Standard_D4s_v3",
-                "diskSizeGb": 128,
-                "nodeCount": 3,
-                "subnetId": worker_subnet.id,
+                "vm_size": "Standard_D4s_v3",
+                "disk_size_gb": 128,
+                "node_count": 3,
+                "subnet_id": worker_subnet.id,
             },
             service_principal={
-                "clientId": example_application.client_id,
-                "clientSecret": example_service_principal_password.value,
+                "client_id": example_application.client_id,
+                "client_secret": example_service_principal_password.value,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     role_network1,

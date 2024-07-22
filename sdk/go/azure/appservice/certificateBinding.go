@@ -67,12 +67,12 @@ import (
 //			}, nil)
 //			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
 //				Name: pulumi.String("www"),
-//				ZoneName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Ttl:    pulumi.Int(300),
 //				Record: exampleAppService.DefaultSiteHostname,
 //			})
@@ -83,12 +83,12 @@ import (
 //				Name: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("asuid.%v", name), nil
 //				}).(pulumi.StringOutput),
-//				ZoneName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Ttl: pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
@@ -100,12 +100,12 @@ import (
 //				return err
 //			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname: std.TrimOutput(ctx, std.TrimOutputArgs{
+//				Hostname: pulumi.String(std.TrimOutput(ctx, std.TrimOutputArgs{
 //					Input:  exampleCNameRecord.Fqdn,
 //					Cutset: pulumi.String("."),
 //				}, nil).ApplyT(func(invoke std.TrimResult) (*string, error) {
 //					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, pulumi.DependsOn([]pulumi.Resource{

@@ -164,15 +164,15 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             resource_group_name=example.name,
             routing_rules=[{
                 "name": "exampleRoutingRule1",
-                "acceptedProtocols": [
+                "accepted_protocols": [
                     "Http",
                     "Https",
                 ],
-                "patternsToMatches": ["/*"],
-                "frontendEndpoints": ["exampleFrontendEndpoint1"],
-                "forwardingConfiguration": {
-                    "forwardingProtocol": "MatchRequest",
-                    "backendPoolName": "exampleBackendBing",
+                "patterns_to_matches": ["/*"],
+                "frontend_endpoints": ["exampleFrontendEndpoint1"],
+                "forwarding_configuration": {
+                    "forwarding_protocol": "MatchRequest",
+                    "backend_pool_name": "exampleBackendBing",
                 },
             }],
             backend_pool_load_balancings=[{
@@ -184,22 +184,22 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             backend_pools=[{
                 "name": "exampleBackendBing",
                 "backends": [{
-                    "hostHeader": "www.bing.com",
+                    "host_header": "www.bing.com",
                     "address": "www.bing.com",
-                    "httpPort": 80,
-                    "httpsPort": 443,
+                    "http_port": 80,
+                    "https_port": 443,
                 }],
-                "loadBalancingName": "exampleLoadBalancingSettings1",
-                "healthProbeName": "exampleHealthProbeSetting1",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
             }],
             frontend_endpoints=[
                 {
                     "name": "exampleFrontendEndpoint1",
-                    "hostName": "example-FrontDoor.azurefd.net",
+                    "host_name": "example-FrontDoor.azurefd.net",
                 },
                 {
                     "name": "exampleFrontendEndpoint2",
-                    "hostName": "examplefd1.examplefd.net",
+                    "host_name": "examplefd1.examplefd.net",
                 },
             ])
         example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0",
@@ -209,9 +209,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
             custom_https_provisioning_enabled=True,
             custom_https_configuration={
-                "certificateSource": "AzureKeyVault",
-                "azureKeyVaultCertificateSecretName": "examplefd1",
-                "azureKeyVaultCertificateVaultId": vault.id,
+                "certificate_source": "AzureKeyVault",
+                "azure_key_vault_certificate_secret_name": "examplefd1",
+                "azure_key_vault_certificate_vault_id": vault.id,
             })
         ```
 
@@ -262,15 +262,15 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             resource_group_name=example.name,
             routing_rules=[{
                 "name": "exampleRoutingRule1",
-                "acceptedProtocols": [
+                "accepted_protocols": [
                     "Http",
                     "Https",
                 ],
-                "patternsToMatches": ["/*"],
-                "frontendEndpoints": ["exampleFrontendEndpoint1"],
-                "forwardingConfiguration": {
-                    "forwardingProtocol": "MatchRequest",
-                    "backendPoolName": "exampleBackendBing",
+                "patterns_to_matches": ["/*"],
+                "frontend_endpoints": ["exampleFrontendEndpoint1"],
+                "forwarding_configuration": {
+                    "forwarding_protocol": "MatchRequest",
+                    "backend_pool_name": "exampleBackendBing",
                 },
             }],
             backend_pool_load_balancings=[{
@@ -282,22 +282,22 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             backend_pools=[{
                 "name": "exampleBackendBing",
                 "backends": [{
-                    "hostHeader": "www.bing.com",
+                    "host_header": "www.bing.com",
                     "address": "www.bing.com",
-                    "httpPort": 80,
-                    "httpsPort": 443,
+                    "http_port": 80,
+                    "https_port": 443,
                 }],
-                "loadBalancingName": "exampleLoadBalancingSettings1",
-                "healthProbeName": "exampleHealthProbeSetting1",
+                "load_balancing_name": "exampleLoadBalancingSettings1",
+                "health_probe_name": "exampleHealthProbeSetting1",
             }],
             frontend_endpoints=[
                 {
                     "name": "exampleFrontendEndpoint1",
-                    "hostName": "example-FrontDoor.azurefd.net",
+                    "host_name": "example-FrontDoor.azurefd.net",
                 },
                 {
                     "name": "exampleFrontendEndpoint2",
-                    "hostName": "examplefd1.examplefd.net",
+                    "host_name": "examplefd1.examplefd.net",
                 },
             ])
         example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0",
@@ -307,9 +307,9 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
             custom_https_provisioning_enabled=True,
             custom_https_configuration={
-                "certificateSource": "AzureKeyVault",
-                "azureKeyVaultCertificateSecretName": "examplefd1",
-                "azureKeyVaultCertificateVaultId": vault.id,
+                "certificate_source": "AzureKeyVault",
+                "azure_key_vault_certificate_secret_name": "examplefd1",
+                "azure_key_vault_certificate_vault_id": vault.id,
             })
         ```
 

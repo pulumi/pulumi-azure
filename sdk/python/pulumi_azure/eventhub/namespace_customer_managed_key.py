@@ -292,7 +292,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             dedicated_cluster_id=example_cluster.id,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",
@@ -480,7 +480,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             dedicated_cluster_id=example_cluster.id,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         current = azure.core.get_client_config()
         example_key_vault = azure.keyvault.KeyVault("example",

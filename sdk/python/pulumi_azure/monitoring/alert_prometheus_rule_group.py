@@ -394,9 +394,9 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
-                "enableHostEncryption": True,
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
+                "enable_host_encryption": True,
             },
             identity={
                 "type": "SystemAssigned",
@@ -423,17 +423,17 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                     "alert": "Billing_Processing_Very_Slow",
                     "enabled": True,
                     "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
-                    "for": "PT5M",
+                    "for_": "PT5M",
                     "severity": 2,
                     "actions": [{
-                        "actionGroupId": example_action_group.id,
+                        "action_group_id": example_action_group.id,
                     }],
-                    "alertResolution": {
-                        "autoResolved": True,
-                        "timeToResolve": "PT10M",
+                    "alert_resolution": {
+                        "auto_resolved": True,
+                        "time_to_resolve": "PT10M",
                     },
                     "annotations": {
-                        "annotationName": "annotationValue",
+                        "annotation_name": "annotationValue",
                     },
                     "labels": {
                         "team": "prod",
@@ -499,9 +499,9 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
             dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
-                "enableHostEncryption": True,
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
+                "enable_host_encryption": True,
             },
             identity={
                 "type": "SystemAssigned",
@@ -528,17 +528,17 @@ class AlertPrometheusRuleGroup(pulumi.CustomResource):
                     "alert": "Billing_Processing_Very_Slow",
                     "enabled": True,
                     "expression": "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))\\n",
-                    "for": "PT5M",
+                    "for_": "PT5M",
                     "severity": 2,
                     "actions": [{
-                        "actionGroupId": example_action_group.id,
+                        "action_group_id": example_action_group.id,
                     }],
-                    "alertResolution": {
-                        "autoResolved": True,
-                        "timeToResolve": "PT10M",
+                    "alert_resolution": {
+                        "auto_resolved": True,
+                        "time_to_resolve": "PT10M",
                     },
                     "annotations": {
-                        "annotationName": "annotationValue",
+                        "annotation_name": "annotationValue",
                     },
                     "labels": {
                         "team": "prod",

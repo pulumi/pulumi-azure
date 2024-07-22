@@ -602,8 +602,8 @@ class SharedImageVersion(pulumi.CustomResource):
             managed_image_id=existing.id,
             target_regions=[{
                 "name": existing_get_shared_image.location,
-                "regionalReplicaCount": 5,
-                "storageAccountType": "Standard_LRS",
+                "regional_replica_count": 5,
+                "storage_account_type": "Standard_LRS",
             }])
         ```
 
@@ -674,8 +674,8 @@ class SharedImageVersion(pulumi.CustomResource):
             managed_image_id=existing.id,
             target_regions=[{
                 "name": existing_get_shared_image.location,
-                "regionalReplicaCount": 5,
-                "storageAccountType": "Standard_LRS",
+                "regional_replica_count": 5,
+                "storage_account_type": "Standard_LRS",
             }])
         ```
 

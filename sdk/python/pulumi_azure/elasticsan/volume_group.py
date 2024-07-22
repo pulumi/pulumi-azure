@@ -376,15 +376,15 @@ class VolumeGroup(pulumi.CustomResource):
             elastic_san_id=example_elastic_san.id,
             encryption_type="EncryptionAtRestWithCustomerManagedKey",
             encryption={
-                "keyVaultKeyId": example_key.versionless_id,
-                "userAssignedIdentityId": example_user_assigned_identity.id,
+                "key_vault_key_id": example_key.versionless_id,
+                "user_assigned_identity_id": example_user_assigned_identity.id,
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             network_rules=[{
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
                 "action": "Allow",
             }])
         ```
@@ -513,15 +513,15 @@ class VolumeGroup(pulumi.CustomResource):
             elastic_san_id=example_elastic_san.id,
             encryption_type="EncryptionAtRestWithCustomerManagedKey",
             encryption={
-                "keyVaultKeyId": example_key.versionless_id,
-                "userAssignedIdentityId": example_user_assigned_identity.id,
+                "key_vault_key_id": example_key.versionless_id,
+                "user_assigned_identity_id": example_user_assigned_identity.id,
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             network_rules=[{
-                "subnetId": example_subnet.id,
+                "subnet_id": example_subnet.id,
                 "action": "Allow",
             }])
         ```

@@ -59,7 +59,7 @@ import (
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("xml"),
-//				Value:             invokeFile.Result,
+//				Value:             pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

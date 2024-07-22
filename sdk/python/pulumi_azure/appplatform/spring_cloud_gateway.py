@@ -610,32 +610,32 @@ class SpringCloudGateway(pulumi.CustomResource):
             instance_count=2,
             api_metadata={
                 "description": "example description",
-                "documentationUrl": "https://www.example.com/docs",
-                "serverUrl": "https://wwww.example.com",
+                "documentation_url": "https://www.example.com/docs",
+                "server_url": "https://wwww.example.com",
                 "title": "example title",
                 "version": "1.0",
             },
             cors={
-                "credentialsAllowed": False,
-                "allowedHeaders": ["*"],
-                "allowedMethods": ["PUT"],
-                "allowedOrigins": ["example.com"],
-                "exposedHeaders": ["x-example-header"],
-                "maxAgeSeconds": 86400,
+                "credentials_allowed": False,
+                "allowed_headers": ["*"],
+                "allowed_methods": ["PUT"],
+                "allowed_origins": ["example.com"],
+                "exposed_headers": ["x-example-header"],
+                "max_age_seconds": 86400,
             },
             quota={
                 "cpu": "1",
                 "memory": "2Gi",
             },
             sso={
-                "clientId": "example id",
-                "clientSecret": "example secret",
-                "issuerUri": "https://www.test.com/issueToken",
+                "client_id": "example id",
+                "client_secret": "example secret",
+                "issuer_uri": "https://www.test.com/issueToken",
                 "scopes": ["read"],
             },
             local_response_cache_per_instance={
                 "size": "100MB",
-                "timeToLive": "30s",
+                "time_to_live": "30s",
             })
         ```
 
@@ -699,32 +699,32 @@ class SpringCloudGateway(pulumi.CustomResource):
             instance_count=2,
             api_metadata={
                 "description": "example description",
-                "documentationUrl": "https://www.example.com/docs",
-                "serverUrl": "https://wwww.example.com",
+                "documentation_url": "https://www.example.com/docs",
+                "server_url": "https://wwww.example.com",
                 "title": "example title",
                 "version": "1.0",
             },
             cors={
-                "credentialsAllowed": False,
-                "allowedHeaders": ["*"],
-                "allowedMethods": ["PUT"],
-                "allowedOrigins": ["example.com"],
-                "exposedHeaders": ["x-example-header"],
-                "maxAgeSeconds": 86400,
+                "credentials_allowed": False,
+                "allowed_headers": ["*"],
+                "allowed_methods": ["PUT"],
+                "allowed_origins": ["example.com"],
+                "exposed_headers": ["x-example-header"],
+                "max_age_seconds": 86400,
             },
             quota={
                 "cpu": "1",
                 "memory": "2Gi",
             },
             sso={
-                "clientId": "example id",
-                "clientSecret": "example secret",
-                "issuerUri": "https://www.test.com/issueToken",
+                "client_id": "example id",
+                "client_secret": "example secret",
+                "issuer_uri": "https://www.test.com/issueToken",
                 "scopes": ["read"],
             },
             local_response_cache_per_instance={
                 "size": "100MB",
-                "timeToLive": "30s",
+                "time_to_live": "30s",
             })
         ```
 

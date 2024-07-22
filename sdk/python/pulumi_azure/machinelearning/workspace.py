@@ -967,8 +967,8 @@ class Workspace(pulumi.CustomResource):
                 "type": "SystemAssigned",
             },
             encryption={
-                "keyVaultId": example_key_vault.id,
-                "keyId": example_key.id,
+                "key_vault_id": example_key_vault.id,
+                "key_id": example_key.id,
             })
         ```
 
@@ -1097,12 +1097,12 @@ class Workspace(pulumi.CustomResource):
             primary_user_assigned_identity=example_user_assigned_identity.id,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             encryption={
-                "userAssignedIdentityId": example_user_assigned_identity.id,
-                "keyVaultId": example_key_vault.id,
-                "keyId": example_key.id,
+                "user_assigned_identity_id": example_user_assigned_identity.id,
+                "key_vault_id": example_key_vault.id,
+                "key_id": example_key.id,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     example_role1,
@@ -1268,8 +1268,8 @@ class Workspace(pulumi.CustomResource):
                 "type": "SystemAssigned",
             },
             encryption={
-                "keyVaultId": example_key_vault.id,
-                "keyId": example_key.id,
+                "key_vault_id": example_key_vault.id,
+                "key_id": example_key.id,
             })
         ```
 
@@ -1398,12 +1398,12 @@ class Workspace(pulumi.CustomResource):
             primary_user_assigned_identity=example_user_assigned_identity.id,
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             encryption={
-                "userAssignedIdentityId": example_user_assigned_identity.id,
-                "keyVaultId": example_key_vault.id,
-                "keyId": example_key.id,
+                "user_assigned_identity_id": example_user_assigned_identity.id,
+                "key_vault_id": example_key_vault.id,
+                "key_id": example_key.id,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     example_role1,

@@ -378,16 +378,16 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 "version": "latest",
             },
             os_disk={
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
                 "name": "example",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }])
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
@@ -403,11 +403,11 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             network_watcher_id=example_network_watcher.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
             storage_location={
-                "filePath": "/var/captures/packet.cap",
+                "file_path": "/var/captures/packet.cap",
             },
             machine_scope={
-                "includeInstanceIds": ["0"],
-                "excludeInstanceIds": ["1"],
+                "include_instance_ids": ["0"],
+                "exclude_instance_ids": ["1"],
             },
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
@@ -484,16 +484,16 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
                 "version": "latest",
             },
             os_disk={
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
                 "name": "example",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }])
         example_virtual_machine_scale_set_extension = azure.compute.VirtualMachineScaleSetExtension("example",
@@ -509,11 +509,11 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             network_watcher_id=example_network_watcher.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine_scale_set.id,
             storage_location={
-                "filePath": "/var/captures/packet.cap",
+                "file_path": "/var/captures/packet.cap",
             },
             machine_scope={
-                "includeInstanceIds": ["0"],
-                "excludeInstanceIds": ["1"],
+                "include_instance_ids": ["0"],
+                "exclude_instance_ids": ["1"],
             },
             opts = pulumi.ResourceOptions(depends_on=[example_virtual_machine_scale_set_extension]))
         ```
