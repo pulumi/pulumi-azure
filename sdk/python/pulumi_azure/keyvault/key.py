@@ -562,9 +562,9 @@ class Key(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": [
                     "Create",
                     "Delete",
                     "Get",
@@ -574,7 +574,7 @@ class Key(pulumi.CustomResource):
                     "GetRotationPolicy",
                     "SetRotationPolicy",
                 ],
-                "secretPermissions": ["Set"],
+                "secret_permissions": ["Set"],
             }])
         generated = azure.keyvault.Key("generated",
             name="generated-certificate",
@@ -591,10 +591,10 @@ class Key(pulumi.CustomResource):
             ],
             rotation_policy={
                 "automatic": {
-                    "timeBeforeExpiry": "P30D",
+                    "time_before_expiry": "P30D",
                 },
-                "expireAfter": "P90D",
-                "notifyBeforeExpiry": "P29D",
+                "expire_after": "P90D",
+                "notify_before_expiry": "P29D",
             })
         ```
 
@@ -654,9 +654,9 @@ class Key(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": [
                     "Create",
                     "Delete",
                     "Get",
@@ -666,7 +666,7 @@ class Key(pulumi.CustomResource):
                     "GetRotationPolicy",
                     "SetRotationPolicy",
                 ],
-                "secretPermissions": ["Set"],
+                "secret_permissions": ["Set"],
             }])
         generated = azure.keyvault.Key("generated",
             name="generated-certificate",
@@ -683,10 +683,10 @@ class Key(pulumi.CustomResource):
             ],
             rotation_policy={
                 "automatic": {
-                    "timeBeforeExpiry": "P30D",
+                    "time_before_expiry": "P30D",
                 },
-                "expireAfter": "P90D",
-                "notifyBeforeExpiry": "P29D",
+                "expire_after": "P90D",
+                "notify_before_expiry": "P29D",
             })
         ```
 

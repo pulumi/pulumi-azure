@@ -123,7 +123,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS",
             blob_properties={
-                "versioningEnabled": True,
+                "versioning_enabled": True,
             })
         example_container = azure.storage.Container("example",
             name="examplecontainer",
@@ -133,11 +133,11 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             storage_account_id=example_account.id,
             rules=[{
                 "name": "rule1",
-                "storageContainerName": example_container.name,
+                "storage_container_name": example_container.name,
                 "format": "Csv",
                 "schedule": "Daily",
                 "scope": "Container",
-                "schemaFields": [
+                "schema_fields": [
                     "Name",
                     "Last-Modified",
                 ],
@@ -182,7 +182,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS",
             blob_properties={
-                "versioningEnabled": True,
+                "versioning_enabled": True,
             })
         example_container = azure.storage.Container("example",
             name="examplecontainer",
@@ -192,11 +192,11 @@ class BlobInventoryPolicy(pulumi.CustomResource):
             storage_account_id=example_account.id,
             rules=[{
                 "name": "rule1",
-                "storageContainerName": example_container.name,
+                "storage_container_name": example_container.name,
                 "format": "Csv",
                 "schedule": "Daily",
                 "scope": "Container",
-                "schemaFields": [
+                "schema_fields": [
                     "Name",
                     "Last-Modified",
                 ],

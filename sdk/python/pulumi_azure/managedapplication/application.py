@@ -424,8 +424,8 @@ class Application(pulumi.CustomResource):
             display_name="TestManagedAppDefinition",
             description="Test Managed App Definition",
             authorizations=[{
-                "servicePrincipalId": current.object_id,
-                "roleDefinitionId": std.split(separator="/",
+                "service_principal_id": current.object_id,
+                "role_definition_id": std.split(separator="/",
                     text=builtin.id).result[len(std.split(separator="/",
                     text=builtin.id).result) - 1],
             }])
@@ -503,8 +503,8 @@ class Application(pulumi.CustomResource):
             display_name="TestManagedAppDefinition",
             description="Test Managed App Definition",
             authorizations=[{
-                "servicePrincipalId": current.object_id,
-                "roleDefinitionId": std.split(separator="/",
+                "service_principal_id": current.object_id,
+                "role_definition_id": std.split(separator="/",
                     text=builtin.id).result[len(std.split(separator="/",
                     text=builtin.id).result) - 1],
             }])

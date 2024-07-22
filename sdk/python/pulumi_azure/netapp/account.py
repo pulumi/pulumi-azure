@@ -263,14 +263,14 @@ class Account(pulumi.CustomResource):
             active_directory={
                 "username": "aduser",
                 "password": "aduserpwd",
-                "smbServerName": "SMBSERVER",
-                "dnsServers": ["1.2.3.4"],
+                "smb_server_name": "SMBSERVER",
+                "dns_servers": ["1.2.3.4"],
                 "domain": "westcentralus.com",
-                "organizationalUnit": "OU=FirstLevel",
+                "organizational_unit": "OU=FirstLevel",
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         ```
 
@@ -325,14 +325,14 @@ class Account(pulumi.CustomResource):
             active_directory={
                 "username": "aduser",
                 "password": "aduserpwd",
-                "smbServerName": "SMBSERVER",
-                "dnsServers": ["1.2.3.4"],
+                "smb_server_name": "SMBSERVER",
+                "dns_servers": ["1.2.3.4"],
                 "domain": "westcentralus.com",
-                "organizationalUnit": "OU=FirstLevel",
+                "organizational_unit": "OU=FirstLevel",
             },
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             })
         ```
 

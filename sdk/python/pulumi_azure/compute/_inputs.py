@@ -8060,7 +8060,7 @@ if not MYPY:
                 "name": "MSILinuxExtension",
                 "publisher": "Microsoft.ManagedIdentity",
                 "type": "ManagedIdentityExtensionForLinux",
-                "typeHandlerVersion": "1.0",
+                "type_handler_version": "1.0",
                 "settings": "{\\"port\\": 50342}",
             }])
         pulumi.export("principalId", example.identity.principal_id)
@@ -8102,7 +8102,7 @@ class ScaleSetIdentityArgs:
                        "name": "MSILinuxExtension",
                        "publisher": "Microsoft.ManagedIdentity",
                        "type": "ManagedIdentityExtensionForLinux",
-                       "typeHandlerVersion": "1.0",
+                       "type_handler_version": "1.0",
                        "settings": "{\\"port\\": 50342}",
                    }])
                pulumi.export("principalId", example.identity.principal_id)
@@ -8154,7 +8154,7 @@ class ScaleSetIdentityArgs:
                 "name": "MSILinuxExtension",
                 "publisher": "Microsoft.ManagedIdentity",
                 "type": "ManagedIdentityExtensionForLinux",
-                "typeHandlerVersion": "1.0",
+                "type_handler_version": "1.0",
                 "settings": "{\\"port\\": 50342}",
             }])
         pulumi.export("principalId", example.identity.principal_id)
