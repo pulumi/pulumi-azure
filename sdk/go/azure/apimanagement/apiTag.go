@@ -43,18 +43,18 @@ import (
 //			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
 //				Name:              pulumi.String("example-api"),
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				ApiManagementName: example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
+//				ApiManagementName: pulumi.String(example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Revision: pulumi.String("1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleTag, err := apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
-//				ApiManagementId: example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
+//				ApiManagementId: pulumi.String(example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
 //					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Name: pulumi.String("example-tag"),
 //			})
 //			if err != nil {

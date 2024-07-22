@@ -624,11 +624,11 @@ class SparkPool(pulumi.CustomResource):
             node_size="Small",
             cache_size=100,
             auto_scale={
-                "maxNodeCount": 50,
-                "minNodeCount": 3,
+                "max_node_count": 50,
+                "min_node_count": 3,
             },
             auto_pause={
-                "delayInMinutes": 15,
+                "delay_in_minutes": 15,
             },
             library_requirement={
                 "content": \"\"\"appnope==0.1.0
@@ -711,11 +711,11 @@ class SparkPool(pulumi.CustomResource):
             node_size="Small",
             cache_size=100,
             auto_scale={
-                "maxNodeCount": 50,
-                "minNodeCount": 3,
+                "max_node_count": 50,
+                "min_node_count": 3,
             },
             auto_pause={
-                "delayInMinutes": 15,
+                "delay_in_minutes": 15,
             },
             library_requirement={
                 "content": \"\"\"appnope==0.1.0

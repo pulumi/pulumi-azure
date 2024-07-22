@@ -59,7 +59,7 @@ import (
 //				Name:               pulumi.String("example"),
 //				ResourceGroupName:  example.Name,
 //				IotDpsName:         exampleIotHubDps.Name,
-//				CertificateContent: invokeFilebase64.Result,
+//				CertificateContent: pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err

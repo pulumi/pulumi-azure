@@ -485,11 +485,11 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",
@@ -579,11 +579,11 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_sql_database = azure.cosmosdb.SqlDatabase("example",
             name="cosmos-sql-db",

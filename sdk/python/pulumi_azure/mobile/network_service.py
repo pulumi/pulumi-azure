@@ -294,35 +294,35 @@ class NetworkService(pulumi.CustomResource):
             pcc_rules=[{
                 "name": "default-rule",
                 "precedence": 1,
-                "trafficControlEnabled": True,
-                "qosPolicy": {
-                    "allocationAndRetentionPriorityLevel": 9,
-                    "qosIndicator": 9,
-                    "preemptionCapability": "NotPreempt",
-                    "preemptionVulnerability": "Preemptable",
-                    "guaranteedBitRate": {
+                "traffic_control_enabled": True,
+                "qos_policy": {
+                    "allocation_and_retention_priority_level": 9,
+                    "qos_indicator": 9,
+                    "preemption_capability": "NotPreempt",
+                    "preemption_vulnerability": "Preemptable",
+                    "guaranteed_bit_rate": {
                         "downlink": "100 Mbps",
                         "uplink": "10 Mbps",
                     },
-                    "maximumBitRate": {
+                    "maximum_bit_rate": {
                         "downlink": "1 Gbps",
                         "uplink": "100 Mbps",
                     },
                 },
-                "serviceDataFlowTemplates": [{
+                "service_data_flow_templates": [{
                     "direction": "Uplink",
                     "name": "IP-to-server",
                     "ports": [],
                     "protocols": ["ip"],
-                    "remoteIpLists": ["10.3.4.0/24"],
+                    "remote_ip_lists": ["10.3.4.0/24"],
                 }],
             }],
             service_qos_policy={
-                "allocationAndRetentionPriorityLevel": 9,
-                "qosIndicator": 9,
-                "preemptionCapability": "NotPreempt",
-                "preemptionVulnerability": "Preemptable",
-                "maximumBitRate": {
+                "allocation_and_retention_priority_level": 9,
+                "qos_indicator": 9,
+                "preemption_capability": "NotPreempt",
+                "preemption_vulnerability": "Preemptable",
+                "maximum_bit_rate": {
                     "downlink": "1 Gbps",
                     "uplink": "100 Mbps",
                 },
@@ -382,35 +382,35 @@ class NetworkService(pulumi.CustomResource):
             pcc_rules=[{
                 "name": "default-rule",
                 "precedence": 1,
-                "trafficControlEnabled": True,
-                "qosPolicy": {
-                    "allocationAndRetentionPriorityLevel": 9,
-                    "qosIndicator": 9,
-                    "preemptionCapability": "NotPreempt",
-                    "preemptionVulnerability": "Preemptable",
-                    "guaranteedBitRate": {
+                "traffic_control_enabled": True,
+                "qos_policy": {
+                    "allocation_and_retention_priority_level": 9,
+                    "qos_indicator": 9,
+                    "preemption_capability": "NotPreempt",
+                    "preemption_vulnerability": "Preemptable",
+                    "guaranteed_bit_rate": {
                         "downlink": "100 Mbps",
                         "uplink": "10 Mbps",
                     },
-                    "maximumBitRate": {
+                    "maximum_bit_rate": {
                         "downlink": "1 Gbps",
                         "uplink": "100 Mbps",
                     },
                 },
-                "serviceDataFlowTemplates": [{
+                "service_data_flow_templates": [{
                     "direction": "Uplink",
                     "name": "IP-to-server",
                     "ports": [],
                     "protocols": ["ip"],
-                    "remoteIpLists": ["10.3.4.0/24"],
+                    "remote_ip_lists": ["10.3.4.0/24"],
                 }],
             }],
             service_qos_policy={
-                "allocationAndRetentionPriorityLevel": 9,
-                "qosIndicator": 9,
-                "preemptionCapability": "NotPreempt",
-                "preemptionVulnerability": "Preemptable",
-                "maximumBitRate": {
+                "allocation_and_retention_priority_level": 9,
+                "qos_indicator": 9,
+                "preemption_capability": "NotPreempt",
+                "preemption_vulnerability": "Preemptable",
+                "maximum_bit_rate": {
                     "downlink": "1 Gbps",
                     "uplink": "100 Mbps",
                 },

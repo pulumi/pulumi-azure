@@ -60,7 +60,7 @@ import (
 //				Name:                  pulumi.String("certificate-example"),
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
-//				Base64:                invokeFilebase64.Result,
+//				Base64:                pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err

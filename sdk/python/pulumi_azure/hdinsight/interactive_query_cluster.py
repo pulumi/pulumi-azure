@@ -796,31 +796,31 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             cluster_version="3.6",
             tier="Standard",
             component_version={
-                "interactiveHive": "2.1",
+                "interactive_hive": "2.1",
             },
             gateway={
                 "username": "acctestusrgw",
                 "password": "Password!",
             },
             storage_accounts=[{
-                "storageContainerId": example_container.id,
-                "storageAccountKey": example_account.primary_access_key,
-                "isDefault": True,
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
             }],
             roles={
-                "headNode": {
-                    "vmSize": "Standard_D13_V2",
+                "head_node": {
+                    "vm_size": "Standard_D13_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-                "workerNode": {
-                    "vmSize": "Standard_D14_V2",
+                "worker_node": {
+                    "vm_size": "Standard_D14_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
+                    "target_instance_count": 3,
                 },
-                "zookeeperNode": {
-                    "vmSize": "Standard_A4_V2",
+                "zookeeper_node": {
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
@@ -896,31 +896,31 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             cluster_version="3.6",
             tier="Standard",
             component_version={
-                "interactiveHive": "2.1",
+                "interactive_hive": "2.1",
             },
             gateway={
                 "username": "acctestusrgw",
                 "password": "Password!",
             },
             storage_accounts=[{
-                "storageContainerId": example_container.id,
-                "storageAccountKey": example_account.primary_access_key,
-                "isDefault": True,
+                "storage_container_id": example_container.id,
+                "storage_account_key": example_account.primary_access_key,
+                "is_default": True,
             }],
             roles={
-                "headNode": {
-                    "vmSize": "Standard_D13_V2",
+                "head_node": {
+                    "vm_size": "Standard_D13_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
-                "workerNode": {
-                    "vmSize": "Standard_D14_V2",
+                "worker_node": {
+                    "vm_size": "Standard_D14_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
-                    "targetInstanceCount": 3,
+                    "target_instance_count": 3,
                 },
-                "zookeeperNode": {
-                    "vmSize": "Standard_A4_V2",
+                "zookeeper_node": {
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },

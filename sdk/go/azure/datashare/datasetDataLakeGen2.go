@@ -82,9 +82,9 @@ import (
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount2.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
-//				PrincipalId: example.ApplyT(func(example azuread.GetServicePrincipalResult) (*string, error) {
+//				PrincipalId: pulumi.String(example.ApplyT(func(example azuread.GetServicePrincipalResult) (*string, error) {
 //					return &example.ObjectId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

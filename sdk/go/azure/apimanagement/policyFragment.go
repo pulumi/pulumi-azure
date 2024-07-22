@@ -58,7 +58,7 @@ import (
 //				ApiManagementId: exampleService.ID(),
 //				Name:            pulumi.String("example-policy-fragment"),
 //				Format:          pulumi.String("xml"),
-//				Value:           invokeFile.Result,
+//				Value:           pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

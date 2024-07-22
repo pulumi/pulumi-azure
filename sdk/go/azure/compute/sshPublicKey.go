@@ -39,7 +39,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
-//				PublicKey:         invokeFile.Result,
+//				PublicKey:         pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

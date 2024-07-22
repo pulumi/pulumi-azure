@@ -146,11 +146,11 @@ import (
 //				RootFile:          pulumi.String("/etc/nginx/nginx.conf"),
 //				ConfigFiles: nginx.ConfigurationConfigFileArray{
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     invokeBase64encode.Result,
+//						Content:     pulumi.String(invokeBase64encode.Result),
 //						VirtualPath: pulumi.String("/etc/nginx/nginx.conf"),
 //					},
 //					&nginx.ConfigurationConfigFileArgs{
-//						Content:     invokeBase64encode1.Result,
+//						Content:     pulumi.String(invokeBase64encode1.Result),
 //						VirtualPath: pulumi.String("/etc/nginx/site/b.conf"),
 //					},
 //				},

@@ -97,7 +97,7 @@ import (
 //				return err
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
-//				Name:              invokeJoin.Result,
+//				Name:              pulumi.String(invokeJoin.Result),
 //				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
 //				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
 //				Ttl:               pulumi.Int(3600),

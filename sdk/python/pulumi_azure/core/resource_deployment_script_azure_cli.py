@@ -643,7 +643,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "key": "value",
@@ -713,7 +713,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
             script_content="            echo \\"{\\\\\\"name\\\\\\":{\\\\\\"displayName\\\\\\":\\\\\\"$1 $2\\\\\\"}}\\" > $AZ_SCRIPTS_OUTPUT_PATH\\n",
             identity={
                 "type": "UserAssigned",
-                "identityIds": [example_user_assigned_identity.id],
+                "identity_ids": [example_user_assigned_identity.id],
             },
             tags={
                 "key": "value",

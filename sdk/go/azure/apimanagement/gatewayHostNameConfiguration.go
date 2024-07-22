@@ -72,7 +72,7 @@ import (
 //				Name:              pulumi.String("example-cert"),
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
-//				Data:              invokeFilebase64.Result,
+//				Data:              pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err

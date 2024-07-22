@@ -173,7 +173,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: invokeFile.Result,
+//							KeyData: pulumi.String(invokeFile.Result),
 //						},
 //					},
 //				},
@@ -304,7 +304,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: invokeFile.Result,
+//							KeyData: pulumi.String(invokeFile.Result),
 //						},
 //					},
 //				},
