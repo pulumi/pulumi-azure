@@ -319,7 +319,7 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
             resource_group_name="example",
             scopes=[example.id],
             condition={
-                "targetResourceType": {
+                "target_resource_type": {
                     "operator": "Equals",
                     "values": ["Microsoft.Compute/VirtualMachines"],
                 },
@@ -333,16 +333,16 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
                 },
             },
             schedule={
-                "effectiveFrom": "2022-01-01T01:02:03",
-                "effectiveUntil": "2022-02-02T01:02:03",
-                "timeZone": "Pacific Standard Time",
+                "effective_from": "2022-01-01T01:02:03",
+                "effective_until": "2022-02-02T01:02:03",
+                "time_zone": "Pacific Standard Time",
                 "recurrence": {
                     "dailies": [{
-                        "startTime": "17:00:00",
-                        "endTime": "09:00:00",
+                        "start_time": "17:00:00",
+                        "end_time": "09:00:00",
                     }],
                     "weeklies": [{
-                        "daysOfWeeks": [
+                        "days_of_weeks": [
                             "Saturday",
                             "Sunday",
                         ],
@@ -396,7 +396,7 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
             resource_group_name="example",
             scopes=[example.id],
             condition={
-                "targetResourceType": {
+                "target_resource_type": {
                     "operator": "Equals",
                     "values": ["Microsoft.Compute/VirtualMachines"],
                 },
@@ -410,16 +410,16 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
                 },
             },
             schedule={
-                "effectiveFrom": "2022-01-01T01:02:03",
-                "effectiveUntil": "2022-02-02T01:02:03",
-                "timeZone": "Pacific Standard Time",
+                "effective_from": "2022-01-01T01:02:03",
+                "effective_until": "2022-02-02T01:02:03",
+                "time_zone": "Pacific Standard Time",
                 "recurrence": {
                     "dailies": [{
-                        "startTime": "17:00:00",
-                        "endTime": "09:00:00",
+                        "start_time": "17:00:00",
+                        "end_time": "09:00:00",
                     }],
                     "weeklies": [{
-                        "daysOfWeeks": [
+                        "days_of_weeks": [
                             "Saturday",
                             "Sunday",
                         ],

@@ -387,7 +387,7 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
                 "granularity": "Monthly",
                 "aggregations": [{
                     "name": "totalCost",
-                    "columnName": "Cost",
+                    "column_name": "Cost",
                 }],
             })
         ```
@@ -443,7 +443,7 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
                 "granularity": "Monthly",
                 "aggregations": [{
                     "name": "totalCost",
-                    "columnName": "Cost",
+                    "column_name": "Cost",
                 }],
             })
         ```

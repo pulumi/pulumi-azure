@@ -299,9 +299,9 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             dns_prefix="dns",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
-                "enableHostEncryption": True,
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
+                "enable_host_encryption": True,
             },
             identity={
                 "type": "SystemAssigned",
@@ -370,21 +370,21 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             retention_rules=[{
                 "name": "Daily",
                 "priority": 25,
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P84D",
-                    "dataStoreType": "OperationalStore",
+                    "data_store_type": "OperationalStore",
                 }],
                 "criteria": {
-                    "daysOfWeeks": ["Thursday"],
-                    "monthsOfYears": ["November"],
-                    "weeksOfMonths": ["First"],
-                    "scheduledBackupTimes": ["2023-05-23T02:30:00Z"],
+                    "days_of_weeks": ["Thursday"],
+                    "months_of_years": ["November"],
+                    "weeks_of_months": ["First"],
+                    "scheduled_backup_times": ["2023-05-23T02:30:00Z"],
                 },
             }],
             default_retention_rule={
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P14D",
-                    "dataStoreType": "OperationalStore",
+                    "data_store_type": "OperationalStore",
                 }],
             })
         example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
@@ -395,13 +395,13 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             snapshot_resource_group_name=snap.name,
             backup_policy_id=example_backup_policy_kubernetes_cluster.id,
             backup_datasource_parameters={
-                "excludedNamespaces": ["test-excluded-namespaces"],
-                "excludedResourceTypes": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
-                "clusterScopedResourcesEnabled": True,
-                "includedNamespaces": ["test-included-namespaces"],
-                "includedResourceTypes": ["involumesnapshotcontents.snapshot.storage.k8s.io"],
-                "labelSelectors": ["kubernetes.io/metadata.name:test"],
-                "volumeSnapshotEnabled": True,
+                "excluded_namespaces": ["test-excluded-namespaces"],
+                "excluded_resource_types": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
+                "cluster_scoped_resources_enabled": True,
+                "included_namespaces": ["test-included-namespaces"],
+                "included_resource_types": ["involumesnapshotcontents.snapshot.storage.k8s.io"],
+                "label_selectors": ["kubernetes.io/metadata.name:test"],
+                "volume_snapshot_enabled": True,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,
@@ -470,9 +470,9 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             dns_prefix="dns",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
-                "enableHostEncryption": True,
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
+                "enable_host_encryption": True,
             },
             identity={
                 "type": "SystemAssigned",
@@ -541,21 +541,21 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             retention_rules=[{
                 "name": "Daily",
                 "priority": 25,
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P84D",
-                    "dataStoreType": "OperationalStore",
+                    "data_store_type": "OperationalStore",
                 }],
                 "criteria": {
-                    "daysOfWeeks": ["Thursday"],
-                    "monthsOfYears": ["November"],
-                    "weeksOfMonths": ["First"],
-                    "scheduledBackupTimes": ["2023-05-23T02:30:00Z"],
+                    "days_of_weeks": ["Thursday"],
+                    "months_of_years": ["November"],
+                    "weeks_of_months": ["First"],
+                    "scheduled_backup_times": ["2023-05-23T02:30:00Z"],
                 },
             }],
             default_retention_rule={
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P14D",
-                    "dataStoreType": "OperationalStore",
+                    "data_store_type": "OperationalStore",
                 }],
             })
         example_backup_instance_kubernetes_cluster = azure.dataprotection.BackupInstanceKubernetesCluster("example",
@@ -566,13 +566,13 @@ class BackupInstanceKubernetesCluster(pulumi.CustomResource):
             snapshot_resource_group_name=snap.name,
             backup_policy_id=example_backup_policy_kubernetes_cluster.id,
             backup_datasource_parameters={
-                "excludedNamespaces": ["test-excluded-namespaces"],
-                "excludedResourceTypes": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
-                "clusterScopedResourcesEnabled": True,
-                "includedNamespaces": ["test-included-namespaces"],
-                "includedResourceTypes": ["involumesnapshotcontents.snapshot.storage.k8s.io"],
-                "labelSelectors": ["kubernetes.io/metadata.name:test"],
-                "volumeSnapshotEnabled": True,
+                "excluded_namespaces": ["test-excluded-namespaces"],
+                "excluded_resource_types": ["exvolumesnapshotcontents.snapshot.storage.k8s.io"],
+                "cluster_scoped_resources_enabled": True,
+                "included_namespaces": ["test-included-namespaces"],
+                "included_resource_types": ["involumesnapshotcontents.snapshot.storage.k8s.io"],
+                "label_selectors": ["kubernetes.io/metadata.name:test"],
+                "volume_snapshot_enabled": True,
             },
             opts = pulumi.ResourceOptions(depends_on=[
                     test_extension_and_storage_account_permission,

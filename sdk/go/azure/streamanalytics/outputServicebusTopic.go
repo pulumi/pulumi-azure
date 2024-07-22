@@ -60,12 +60,12 @@ import (
 //			}
 //			_, err = streamanalytics.NewOutputServicebusTopic(ctx, "example", &streamanalytics.OutputServicebusTopicArgs{
 //				Name: pulumi.String("service-bus-topic-output"),
-//				StreamAnalyticsJobName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				TopicName:              exampleTopic.Name,
 //				ServicebusNamespace:    exampleNamespace.Name,
 //				SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,

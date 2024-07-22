@@ -182,9 +182,9 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				PrincipalId: exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (*string, error) {
 //					return &kubeletIdentity.ObjectId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				RoleDefinitionName:           pulumi.String("AcrPull"),
 //				Scope:                        exampleRegistry.ID(),
 //				SkipServicePrincipalAadCheck: pulumi.Bool(true),

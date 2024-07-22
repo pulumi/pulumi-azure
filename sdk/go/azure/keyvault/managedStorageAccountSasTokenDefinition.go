@@ -125,9 +125,9 @@ import (
 //				Name:                    pulumi.String("examplesasdefinition"),
 //				ValidityPeriod:          pulumi.String("P1D"),
 //				ManagedStorageAccountId: exampleManagedStorageAccount.ID(),
-//				SasTemplateUri: exampleGetAccountSAS.ApplyT(func(exampleGetAccountSAS storage.GetAccountSASResult) (*string, error) {
+//				SasTemplateUri: pulumi.String(exampleGetAccountSAS.ApplyT(func(exampleGetAccountSAS storage.GetAccountSASResult) (*string, error) {
 //					return &exampleGetAccountSAS.Sas, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				SasType: pulumi.String("account"),
 //			})
 //			if err != nil {

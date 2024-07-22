@@ -364,7 +364,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/27"],
             delegations=[{
                 "name": "integrationServiceEnvironments",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Logic/integrationServiceEnvironments",
                 },
             }])
@@ -452,7 +452,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/27"],
             delegations=[{
                 "name": "integrationServiceEnvironments",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Logic/integrationServiceEnvironments",
                 },
             }])

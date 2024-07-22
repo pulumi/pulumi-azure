@@ -67,12 +67,12 @@ import (
 //			}
 //			_, err = streamanalytics.NewOutputMssql(ctx, "example", &streamanalytics.OutputMssqlArgs{
 //				Name: pulumi.String("example-output-sql"),
-//				StreamAnalyticsJobName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Server:   exampleSqlServer.FullyQualifiedDomainName,
 //				User:     exampleSqlServer.AdministratorLogin,
 //				Password: exampleSqlServer.AdministratorLoginPassword,

@@ -335,9 +335,9 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
             }])
         example = azure.network.get_virtual_network_gateway_output(name=example_virtual_network_gateway.name,
             resource_group_name=example_virtual_network_gateway.resource_group_name)
@@ -349,12 +349,12 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             type="Dynamic",
             ip_configuration_id=example.ip_configurations[0].id,
             external_mappings=[{
-                "addressSpace": "10.2.0.0/26",
-                "portRange": "200",
+                "address_space": "10.2.0.0/26",
+                "port_range": "200",
             }],
             internal_mappings=[{
-                "addressSpace": "10.4.0.0/26",
-                "portRange": "400",
+                "address_space": "10.4.0.0/26",
+                "port_range": "400",
             }])
         ```
 
@@ -418,9 +418,9 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             vpn_type="RouteBased",
             sku="Basic",
             ip_configurations=[{
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
             }])
         example = azure.network.get_virtual_network_gateway_output(name=example_virtual_network_gateway.name,
             resource_group_name=example_virtual_network_gateway.resource_group_name)
@@ -432,12 +432,12 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             type="Dynamic",
             ip_configuration_id=example.ip_configurations[0].id,
             external_mappings=[{
-                "addressSpace": "10.2.0.0/26",
-                "portRange": "200",
+                "address_space": "10.2.0.0/26",
+                "port_range": "200",
             }],
             internal_mappings=[{
-                "addressSpace": "10.4.0.0/26",
-                "portRange": "400",
+                "address_space": "10.4.0.0/26",
+                "port_range": "400",
             }])
         ```
 

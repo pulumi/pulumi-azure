@@ -201,7 +201,7 @@ class Assessment(pulumi.CustomResource):
             admin_username="adminuser",
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             source_image_reference={
                 "publisher": "Canonical",
@@ -210,16 +210,16 @@ class Assessment(pulumi.CustomResource):
                 "version": "latest",
             },
             os_disk={
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
                 "name": "example",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
-                    "subnetId": internal.id,
+                    "subnet_id": internal.id,
                 }],
             }])
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",
@@ -287,7 +287,7 @@ class Assessment(pulumi.CustomResource):
             admin_username="adminuser",
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "publicKey": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
             }],
             source_image_reference={
                 "publisher": "Canonical",
@@ -296,16 +296,16 @@ class Assessment(pulumi.CustomResource):
                 "version": "latest",
             },
             os_disk={
-                "storageAccountType": "Standard_LRS",
+                "storage_account_type": "Standard_LRS",
                 "caching": "ReadWrite",
             },
             network_interfaces=[{
                 "name": "example",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "internal",
                     "primary": True,
-                    "subnetId": internal.id,
+                    "subnet_id": internal.id,
                 }],
             }])
         example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",

@@ -302,7 +302,7 @@ class NetworkManager(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current.id],
+                "subscription_ids": [current.id],
             },
             scope_accesses=[
                 "Connectivity",
@@ -356,7 +356,7 @@ class NetworkManager(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current.id],
+                "subscription_ids": [current.id],
             },
             scope_accesses=[
                 "Connectivity",

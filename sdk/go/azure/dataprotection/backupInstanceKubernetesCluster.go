@@ -130,9 +130,9 @@ import (
 //			testExtensionAndStorageAccountPermission, err := authorization.NewAssignment(ctx, "test_extension_and_storage_account_permission", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Contributor"),
-//				PrincipalId: exampleKubernetesClusterExtension.AksAssignedIdentities.ApplyT(func(aksAssignedIdentities []containerservice.KubernetesClusterExtensionAksAssignedIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleKubernetesClusterExtension.AksAssignedIdentities.ApplyT(func(aksAssignedIdentities []containerservice.KubernetesClusterExtensionAksAssignedIdentity) (*string, error) {
 //					return &aksAssignedIdentities[0].PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -140,9 +140,9 @@ import (
 //			testVaultMsiReadOnCluster, err := authorization.NewAssignment(ctx, "test_vault_msi_read_on_cluster", &authorization.AssignmentArgs{
 //				Scope:              exampleKubernetesCluster.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -150,9 +150,9 @@ import (
 //			testVaultMsiReadOnSnapRg, err := authorization.NewAssignment(ctx, "test_vault_msi_read_on_snap_rg", &authorization.AssignmentArgs{
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -160,9 +160,9 @@ import (
 //			testVaultMsiSnapshotContributorOnSnapRg, err := authorization.NewAssignment(ctx, "test_vault_msi_snapshot_contributor_on_snap_rg", &authorization.AssignmentArgs{
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -170,9 +170,9 @@ import (
 //			testVaultDataOperatorOnSnapRg, err := authorization.NewAssignment(ctx, "test_vault_data_operator_on_snap_rg", &authorization.AssignmentArgs{
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Data Operator for Managed Disks"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -180,9 +180,9 @@ import (
 //			testVaultDataContributorOnStorage, err := authorization.NewAssignment(ctx, "test_vault_data_contributor_on_storage", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -190,9 +190,9 @@ import (
 //			testClusterMsiContributorOnSnapRg, err := authorization.NewAssignment(ctx, "test_cluster_msi_contributor_on_snap_rg", &authorization.AssignmentArgs{
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
-//				PrincipalId: exampleKubernetesCluster.Identity.ApplyT(func(identity containerservice.KubernetesClusterIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleKubernetesCluster.Identity.ApplyT(func(identity containerservice.KubernetesClusterIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

@@ -272,7 +272,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             iothub_id=example_io_t_hub.id,
             diagnostic_enabled=True,
             diagnostic_storage_account={
-                "connectionString": example_account.primary_connection_string,
+                "connection_string": example_account.primary_connection_string,
                 "id": example_account.id,
             },
             tags={
@@ -339,7 +339,7 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
             iothub_id=example_io_t_hub.id,
             diagnostic_enabled=True,
             diagnostic_storage_account={
-                "connectionString": example_account.primary_connection_string,
+                "connection_string": example_account.primary_connection_string,
                 "id": example_account.id,
             },
             tags={

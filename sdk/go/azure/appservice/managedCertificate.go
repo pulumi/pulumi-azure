@@ -69,12 +69,12 @@ import (
 //			}
 //			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
 //				Name: pulumi.String("asuid.mycustomhost.contoso.com"),
-//				ZoneName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Ttl: pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
@@ -87,12 +87,12 @@ import (
 //			}
 //			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
 //				Name: pulumi.String("example-adcr"),
-//				ZoneName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Ttl:    pulumi.Int(300),
 //				Record: exampleAppService.DefaultSiteHostname,
 //			})
@@ -100,7 +100,7 @@ import (
 //				return err
 //			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname: std.JoinOutput(ctx, std.JoinOutputArgs{
+//				Hostname: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String("."),
 //					Input: pulumi.StringArray{
 //						exampleCNameRecord.Name,
@@ -108,7 +108,7 @@ import (
 //					},
 //				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
 //					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})

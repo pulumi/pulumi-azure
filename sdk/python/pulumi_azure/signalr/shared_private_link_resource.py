@@ -245,11 +245,11 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             sku_name="standard",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "certificatePermissions": ["ManageContacts"],
-                "keyPermissions": ["Create"],
-                "secretPermissions": ["Set"],
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "certificate_permissions": ["ManageContacts"],
+                "key_permissions": ["Create"],
+                "secret_permissions": ["Set"],
             }])
         test = azure.signalr.Service("test",
             name="tfex-signalr",
@@ -311,11 +311,11 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             sku_name="standard",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "certificatePermissions": ["ManageContacts"],
-                "keyPermissions": ["Create"],
-                "secretPermissions": ["Set"],
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "certificate_permissions": ["ManageContacts"],
+                "key_permissions": ["Create"],
+                "secret_permissions": ["Set"],
             }])
         test = azure.signalr.Service("test",
             name="tfex-signalr",

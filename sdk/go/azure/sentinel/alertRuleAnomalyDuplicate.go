@@ -60,9 +60,9 @@ import (
 //			_, err = sentinel.NewAlertRuleAnomalyDuplicate(ctx, "example", &sentinel.AlertRuleAnomalyDuplicateArgs{
 //				DisplayName:             pulumi.String("example duplicated UEBA Anomalous Sign In"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
-//				BuiltInRuleId: example.ApplyT(func(example sentinel.GetAlertRuleAnomalyResult) (*string, error) {
+//				BuiltInRuleId: pulumi.String(example.ApplyT(func(example sentinel.GetAlertRuleAnomalyResult) (*string, error) {
 //					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Enabled: pulumi.Bool(true),
 //				Mode:    pulumi.String("Flighting"),
 //				ThresholdObservations: sentinel.AlertRuleAnomalyDuplicateThresholdObservationArray{

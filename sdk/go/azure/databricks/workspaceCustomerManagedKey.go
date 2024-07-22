@@ -109,12 +109,12 @@ import (
 //			}
 //			databricks, err := keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
+//				TenantId: pulumi.String(exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
 //					return &storageAccountIdentities[0].TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				ObjectId: exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ObjectId: pulumi.String(exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
 //					return &storageAccountIdentities[0].PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
