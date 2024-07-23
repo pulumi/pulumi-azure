@@ -54,7 +54,7 @@ class EventHubNamespaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
                
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
@@ -82,6 +82,9 @@ class EventHubNamespaceArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundant is not None:
+            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -255,11 +258,12 @@ class EventHubNamespaceArgs:
 
     @property
     @pulumi.getter(name="zoneRedundant")
+    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 
-        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -316,7 +320,7 @@ class _EventHubNamespaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
                
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         if auto_inflate_enabled is not None:
             pulumi.set(__self__, "auto_inflate_enabled", auto_inflate_enabled)
@@ -358,6 +362,9 @@ class _EventHubNamespaceState:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundant is not None:
+            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -603,11 +610,12 @@ class _EventHubNamespaceState:
 
     @property
     @pulumi.getter(name="zoneRedundant")
+    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 
-        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         return pulumi.get(self, "zone_redundant")
 
@@ -686,7 +694,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
                
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         ...
     @overload
@@ -851,7 +859,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
                
-               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+               > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1042,11 +1050,12 @@ class EventHubNamespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
+    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
     def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
 
-        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+        > **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
         return pulumi.get(self, "zone_redundant")
 

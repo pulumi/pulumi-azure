@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eventhub.LookupNamespaceAuthorizationRule(ctx, &eventhub.LookupNamespaceAuthorizationRuleArgs{
+//			example, err := eventhub.LookupNamespaceAuthorizationRule(ctx, &eventhub.LookupNamespaceAuthorizationRuleArgs{
 //				Name:              "navi",
 //				ResourceGroupName: "example-resources",
 //				NamespaceName:     "example-ns",
@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.Id)
+//			ctx.Export("eventhubAuthorizationRuleId", example.Id)
 //			return nil
 //		})
 //	}

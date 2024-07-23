@@ -108,14 +108,14 @@ type Rule struct {
 	FrontendPort pulumi.IntOutput `pulumi:"frontendPort"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntOutput `pulumi:"idleTimeoutInMinutes"`
-	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
 	LoadDistribution pulumi.StringOutput `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringOutput `pulumi:"loadbalancerId"`
 	// Specifies the name of the LB Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A reference to a Probe used by this Load Balancing Rule.
-	ProbeId pulumi.StringOutput `pulumi:"probeId"`
+	ProbeId pulumi.StringPtrOutput `pulumi:"probeId"`
 	// The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 }
@@ -184,7 +184,7 @@ type ruleState struct {
 	FrontendPort *int `pulumi:"frontendPort"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
 	LoadDistribution *string `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId *string `pulumi:"loadbalancerId"`
@@ -216,7 +216,7 @@ type RuleState struct {
 	FrontendPort pulumi.IntPtrInput
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
-	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
 	LoadDistribution pulumi.StringPtrInput
 	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringPtrInput
@@ -251,7 +251,7 @@ type ruleArgs struct {
 	FrontendPort int `pulumi:"frontendPort"`
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
-	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
 	LoadDistribution *string `pulumi:"loadDistribution"`
 	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId string `pulumi:"loadbalancerId"`
@@ -283,7 +283,7 @@ type RuleArgs struct {
 	FrontendPort pulumi.IntInput
 	// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
 	IdleTimeoutInMinutes pulumi.IntPtrInput
-	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+	// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
 	LoadDistribution pulumi.StringPtrInput
 	// The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created.
 	LoadbalancerId pulumi.StringInput
@@ -428,7 +428,7 @@ func (o RuleOutput) IdleTimeoutInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v *Rule) pulumi.IntOutput { return v.IdleTimeoutInMinutes }).(pulumi.IntOutput)
 }
 
-// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively.
+// Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: `Default` – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. `SourceIP` – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. `SourceIPProtocol` – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where in the Azure portal the options are called `None`, `Client IP` and `Client IP and Protocol` respectively. Defaults to `Default`.
 func (o RuleOutput) LoadDistribution() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.LoadDistribution }).(pulumi.StringOutput)
 }
@@ -444,8 +444,8 @@ func (o RuleOutput) Name() pulumi.StringOutput {
 }
 
 // A reference to a Probe used by this Load Balancing Rule.
-func (o RuleOutput) ProbeId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.ProbeId }).(pulumi.StringOutput)
+func (o RuleOutput) ProbeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ProbeId }).(pulumi.StringPtrOutput)
 }
 
 // The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`.

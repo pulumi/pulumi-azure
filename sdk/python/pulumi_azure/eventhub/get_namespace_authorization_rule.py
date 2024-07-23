@@ -200,7 +200,7 @@ def get_namespace_authorization_rule(name: Optional[str] = None,
     example = azure.eventhub.get_namespace_authorization_rule(name="navi",
         resource_group_name="example-resources",
         namespace_name="example-ns")
-    pulumi.export("eventhubAuthorizationRuleId", example_azurem_eventhub_namespace_authorization_rule["id"])
+    pulumi.export("eventhubAuthorizationRuleId", example.id)
     ```
 
 
@@ -248,7 +248,7 @@ def get_namespace_authorization_rule_output(name: Optional[pulumi.Input[str]] = 
     example = azure.eventhub.get_namespace_authorization_rule(name="navi",
         resource_group_name="example-resources",
         namespace_name="example-ns")
-    pulumi.export("eventhubAuthorizationRuleId", example_azurem_eventhub_namespace_authorization_rule["id"])
+    pulumi.export("eventhubAuthorizationRuleId", example.id)
     ```
 
 

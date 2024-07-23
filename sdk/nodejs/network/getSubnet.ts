@@ -62,7 +62,13 @@ export interface GetSubnetResult {
      * Is the default outbound access enabled for the subnet.
      */
     readonly defaultOutboundAccessEnabled: boolean;
+    /**
+     * @deprecated This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
+     */
     readonly enforcePrivateLinkEndpointNetworkPolicies: boolean;
+    /**
+     * @deprecated This property has been superseded by `privateLinkServiceNetworkPoliciesEnabled` and will be removed in v4.0 of the AzureRM Provider.
+     */
     readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.

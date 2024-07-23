@@ -1156,7 +1156,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * }
@@ -1201,7 +1201,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * }
@@ -1246,7 +1246,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * }
@@ -1291,7 +1291,7 @@ public final class EventhubFunctions {
      *             .namespaceName("example-ns")
      *             .build());
      * 
-     *         ctx.export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.id());
+     *         ctx.export("eventhubAuthorizationRuleId", example.applyValue(getNamespaceAuthorizationRuleResult -> getNamespaceAuthorizationRuleResult.id()));
      *     }
      * }
      * }

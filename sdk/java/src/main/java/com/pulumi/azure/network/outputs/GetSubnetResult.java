@@ -23,7 +23,19 @@ public final class GetSubnetResult {
      * 
      */
     private Boolean defaultOutboundAccessEnabled;
+    /**
+     * @deprecated
+     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
     private Boolean enforcePrivateLinkEndpointNetworkPolicies;
+    /**
+     * @deprecated
+     * This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     private Boolean enforcePrivateLinkServiceNetworkPolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -84,9 +96,21 @@ public final class GetSubnetResult {
     public Boolean defaultOutboundAccessEnabled() {
         return this.defaultOutboundAccessEnabled;
     }
+    /**
+     * @deprecated
+     * This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider. */
     public Boolean enforcePrivateLinkEndpointNetworkPolicies() {
         return this.enforcePrivateLinkEndpointNetworkPolicies;
     }
+    /**
+     * @deprecated
+     * This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider. */
     public Boolean enforcePrivateLinkServiceNetworkPolicies() {
         return this.enforcePrivateLinkServiceNetworkPolicies;
     }

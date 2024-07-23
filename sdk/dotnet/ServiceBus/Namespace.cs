@@ -169,7 +169,7 @@ namespace Pulumi.Azure.ServiceBus
         /// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneRedundant")]
-        public Output<bool?> ZoneRedundant { get; private set; } = null!;
+        public Output<bool> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>

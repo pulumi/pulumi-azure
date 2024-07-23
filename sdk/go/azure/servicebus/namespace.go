@@ -104,7 +104,9 @@ type Namespace struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-	ZoneRedundant pulumi.BoolPtrOutput `pulumi:"zoneRedundant"`
+	//
+	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
+	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
 
 // NewNamespace registers a new resource with the given unique name, arguments, and options.
@@ -196,6 +198,8 @@ type namespaceState struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -240,6 +244,8 @@ type NamespaceState struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -278,6 +284,8 @@ type namespaceArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
 
@@ -313,6 +321,8 @@ type NamespaceArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant pulumi.BoolPtrInput
 }
 
@@ -497,8 +507,10 @@ func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
-func (o NamespaceOutput) ZoneRedundant() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ZoneRedundant }).(pulumi.BoolPtrOutput)
+//
+// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
+func (o NamespaceOutput) ZoneRedundant() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolOutput { return v.ZoneRedundant }).(pulumi.BoolOutput)
 }
 
 type NamespaceArrayOutput struct{ *pulumi.OutputState }

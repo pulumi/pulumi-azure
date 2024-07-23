@@ -179,11 +179,7 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
     /**
      * The ID of the Databricks Workspace..
      * 
-     * @deprecated
-     * this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
-     * 
      */
-    @Deprecated /* this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider. */
     @Export(name="workspaceId", refs={String.class}, tree="[0]")
     private Output<String> workspaceId;
 

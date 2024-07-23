@@ -15,6 +15,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKubernetesClusterAgentPoolProfile {
+    private Boolean autoScalingEnabled;
     /**
      * @return The number of Agents (VMs) in the Pool.
      * 
@@ -23,12 +24,20 @@ public final class GetKubernetesClusterAgentPoolProfile {
     /**
      * @return If the auto-scaler is enabled.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property. */
     private Boolean enableAutoScaling;
     /**
      * @return If the Public IPs for the nodes in this Agent Pool are enabled.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property. */
     private Boolean enableNodePublicIp;
     /**
      * @return Maximum number of nodes for auto-scaling
@@ -51,6 +60,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
      */
     private String name;
     private Map<String,String> nodeLabels;
+    private Boolean nodePublicIpEnabled;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
      * 
@@ -104,6 +114,9 @@ public final class GetKubernetesClusterAgentPoolProfile {
     private List<String> zones;
 
     private GetKubernetesClusterAgentPoolProfile() {}
+    public Boolean autoScalingEnabled() {
+        return this.autoScalingEnabled;
+    }
     /**
      * @return The number of Agents (VMs) in the Pool.
      * 
@@ -114,14 +127,22 @@ public final class GetKubernetesClusterAgentPoolProfile {
     /**
      * @return If the auto-scaler is enabled.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property. */
     public Boolean enableAutoScaling() {
         return this.enableAutoScaling;
     }
     /**
      * @return If the Public IPs for the nodes in this Agent Pool are enabled.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property. */
     public Boolean enableNodePublicIp() {
         return this.enableNodePublicIp;
     }
@@ -155,6 +176,9 @@ public final class GetKubernetesClusterAgentPoolProfile {
     }
     public Map<String,String> nodeLabels() {
         return this.nodeLabels;
+    }
+    public Boolean nodePublicIpEnabled() {
+        return this.nodePublicIpEnabled;
     }
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -239,6 +263,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean autoScalingEnabled;
         private Integer count;
         private Boolean enableAutoScaling;
         private Boolean enableNodePublicIp;
@@ -247,6 +272,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
         private Integer minCount;
         private String name;
         private Map<String,String> nodeLabels;
+        private Boolean nodePublicIpEnabled;
         private String nodePublicIpPrefixId;
         private List<String> nodeTaints;
         private String orchestratorVersion;
@@ -261,6 +287,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
         public Builder() {}
         public Builder(GetKubernetesClusterAgentPoolProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoScalingEnabled = defaults.autoScalingEnabled;
     	      this.count = defaults.count;
     	      this.enableAutoScaling = defaults.enableAutoScaling;
     	      this.enableNodePublicIp = defaults.enableNodePublicIp;
@@ -269,6 +296,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
     	      this.minCount = defaults.minCount;
     	      this.name = defaults.name;
     	      this.nodeLabels = defaults.nodeLabels;
+    	      this.nodePublicIpEnabled = defaults.nodePublicIpEnabled;
     	      this.nodePublicIpPrefixId = defaults.nodePublicIpPrefixId;
     	      this.nodeTaints = defaults.nodeTaints;
     	      this.orchestratorVersion = defaults.orchestratorVersion;
@@ -282,6 +310,14 @@ public final class GetKubernetesClusterAgentPoolProfile {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
+        public Builder autoScalingEnabled(Boolean autoScalingEnabled) {
+            if (autoScalingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "autoScalingEnabled");
+            }
+            this.autoScalingEnabled = autoScalingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder count(Integer count) {
             if (count == null) {
@@ -344,6 +380,14 @@ public final class GetKubernetesClusterAgentPoolProfile {
               throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "nodeLabels");
             }
             this.nodeLabels = nodeLabels;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nodePublicIpEnabled(Boolean nodePublicIpEnabled) {
+            if (nodePublicIpEnabled == null) {
+              throw new MissingRequiredPropertyException("GetKubernetesClusterAgentPoolProfile", "nodePublicIpEnabled");
+            }
+            this.nodePublicIpEnabled = nodePublicIpEnabled;
             return this;
         }
         @CustomType.Setter
@@ -445,6 +489,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
         }
         public GetKubernetesClusterAgentPoolProfile build() {
             final var _resultValue = new GetKubernetesClusterAgentPoolProfile();
+            _resultValue.autoScalingEnabled = autoScalingEnabled;
             _resultValue.count = count;
             _resultValue.enableAutoScaling = enableAutoScaling;
             _resultValue.enableNodePublicIp = enableNodePublicIp;
@@ -453,6 +498,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
             _resultValue.minCount = minCount;
             _resultValue.name = name;
             _resultValue.nodeLabels = nodeLabels;
+            _resultValue.nodePublicIpEnabled = nodePublicIpEnabled;
             _resultValue.nodePublicIpPrefixId = nodePublicIpPrefixId;
             _resultValue.nodeTaints = nodeTaints;
             _resultValue.orchestratorVersion = orchestratorVersion;

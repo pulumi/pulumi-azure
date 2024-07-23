@@ -21,14 +21,14 @@ public final class AccountBlobProperties {
     /**
      * @return Is the blob service properties for change feed events enabled? Default to `false`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     private @Nullable Boolean changeFeedEnabled;
     /**
      * @return The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     private @Nullable Integer changeFeedRetentionInDays;
@@ -55,23 +55,23 @@ public final class AccountBlobProperties {
     /**
      * @return Is the last access time based tracking enabled? Default to `false`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     private @Nullable Boolean lastAccessTimeEnabled;
     /**
      * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
-     * &gt; **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+     * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
      * 
      */
     private @Nullable AccountBlobPropertiesRestorePolicy restorePolicy;
     /**
      * @return Is versioning enabled? Default to `false`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     private @Nullable Boolean versioningEnabled;
@@ -80,7 +80,7 @@ public final class AccountBlobProperties {
     /**
      * @return Is the blob service properties for change feed events enabled? Default to `false`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Boolean> changeFeedEnabled() {
@@ -89,7 +89,7 @@ public final class AccountBlobProperties {
     /**
      * @return The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Integer> changeFeedRetentionInDays() {
@@ -126,7 +126,7 @@ public final class AccountBlobProperties {
     /**
      * @return Is the last access time based tracking enabled? Default to `false`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Boolean> lastAccessTimeEnabled() {
@@ -135,9 +135,9 @@ public final class AccountBlobProperties {
     /**
      * @return A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
-     * &gt; **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+     * &gt; **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
      * 
      */
     public Optional<AccountBlobPropertiesRestorePolicy> restorePolicy() {
@@ -146,7 +146,7 @@ public final class AccountBlobProperties {
     /**
      * @return Is versioning enabled? Default to `false`.
      * 
-     * &gt; **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+     * &gt; **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
      * 
      */
     public Optional<Boolean> versioningEnabled() {

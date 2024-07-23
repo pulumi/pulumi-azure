@@ -100,19 +100,19 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @deprecated
-     * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+     * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
+    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
      * @deprecated
-     * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+     * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
+    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
     public Optional<Output<String>> engine() {
         return Optional.ofNullable(this.engine);
     }
@@ -543,10 +543,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+         * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
+        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
         public Builder engine(@Nullable Output<String> engine) {
             $.engine = engine;
             return this;
@@ -556,10 +556,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+         * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
          * 
          */
-        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
+        @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
         public Builder engine(String engine) {
             return engine(Output.of(engine));
         }

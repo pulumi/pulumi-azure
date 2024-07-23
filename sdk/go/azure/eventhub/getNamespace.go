@@ -96,6 +96,8 @@ type LookupNamespaceResult struct {
 	// A mapping of tags to assign to the EventHub Namespace.
 	Tags map[string]string `pulumi:"tags"`
 	// Is this EventHub Namespace deployed across Availability Zones?
+	//
+	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }
 
@@ -226,6 +228,8 @@ func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Is this EventHub Namespace deployed across Availability Zones?
+//
+// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 func (o LookupNamespaceResultOutput) ZoneRedundant() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.ZoneRedundant }).(pulumi.BoolOutput)
 }

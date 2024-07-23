@@ -10232,6 +10232,7 @@ class GetKubernetesClusterAciConnectorLinuxResult(dict):
 @pulumi.output_type
 class GetKubernetesClusterAgentPoolProfileResult(dict):
     def __init__(__self__, *,
+                 auto_scaling_enabled: bool,
                  count: int,
                  enable_auto_scaling: bool,
                  enable_node_public_ip: bool,
@@ -10240,6 +10241,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
                  min_count: int,
                  name: str,
                  node_labels: Mapping[str, str],
+                 node_public_ip_enabled: bool,
                  node_public_ip_prefix_id: str,
                  node_taints: Sequence[str],
                  orchestrator_version: str,
@@ -10270,6 +10272,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         :param str vnet_subnet_id: The ID of the Subnet where the Agents in the Pool are provisioned.
         :param Sequence[str] zones: A list of Availability Zones in which this Kubernetes Cluster is located.
         """
+        pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
         pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
@@ -10278,6 +10281,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         pulumi.set(__self__, "min_count", min_count)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "node_labels", node_labels)
+        pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
         pulumi.set(__self__, "node_taints", node_taints)
         pulumi.set(__self__, "orchestrator_version", orchestrator_version)
@@ -10291,6 +10295,11 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         pulumi.set(__self__, "zones", zones)
 
     @property
+    @pulumi.getter(name="autoScalingEnabled")
+    def auto_scaling_enabled(self) -> bool:
+        return pulumi.get(self, "auto_scaling_enabled")
+
+    @property
     @pulumi.getter
     def count(self) -> int:
         """
@@ -10300,6 +10309,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
 
     @property
     @pulumi.getter(name="enableAutoScaling")
+    @_utilities.deprecated("""This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `auto_scaling_enabled` property.""")
     def enable_auto_scaling(self) -> bool:
         """
         If the auto-scaler is enabled.
@@ -10308,6 +10318,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
 
     @property
     @pulumi.getter(name="enableNodePublicIp")
+    @_utilities.deprecated("""This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `node_public_ip_enabled` property.""")
     def enable_node_public_ip(self) -> bool:
         """
         If the Public IPs for the nodes in this Agent Pool are enabled.
@@ -10350,6 +10361,11 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
     @pulumi.getter(name="nodeLabels")
     def node_labels(self) -> Mapping[str, str]:
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> bool:
+        return pulumi.get(self, "node_public_ip_enabled")
 
     @property
     @pulumi.getter(name="nodePublicIpPrefixId")
@@ -10519,6 +10535,7 @@ class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict)
 
     @property
     @pulumi.getter(name="clientAppId")
+    @_utilities.deprecated("""This property is deprecated and will be removed in v4.0 of the AzureRM Provider.""")
     def client_app_id(self) -> str:
         """
         The Client ID of an Azure Active Directory Application.
@@ -10527,6 +10544,7 @@ class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict)
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This property is deprecated and will be removed in v4.0 of the AzureRM Provider.""")
     def managed(self) -> bool:
         """
         Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
@@ -10535,6 +10553,7 @@ class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict)
 
     @property
     @pulumi.getter(name="serverAppId")
+    @_utilities.deprecated("""This property is deprecated and will be removed in v4.0 of the AzureRM Provider.""")
     def server_app_id(self) -> str:
         """
         The Server ID of an Azure Active Directory Application.

@@ -2495,7 +2495,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
         """
         scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgsDict']]]]
         """
@@ -2599,7 +2599,7 @@ class AppServiceSiteConfigArgs:
         :param pulumi.Input[str] php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
         :param pulumi.Input[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
@@ -2966,7 +2966,7 @@ class AppServiceSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -30877,7 +30877,7 @@ if not MYPY:
         """
         remote_debugging_version: NotRequired[pulumi.Input[str]]
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
         """
         scm_ip_restrictions: NotRequired[pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgsDict']]]]
         """
@@ -30983,7 +30983,7 @@ class SlotSiteConfigArgs:
         :param pulumi.Input[str] php_version: The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         :param pulumi.Input[str] python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param pulumi.Input[bool] remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        :param pulumi.Input[str] remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
         :param pulumi.Input[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
@@ -31352,7 +31352,7 @@ class SlotSiteConfigArgs:
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 

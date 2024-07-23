@@ -181,7 +181,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      * 
-     * &gt; **NOTE:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+     * &gt; **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
      * 
      */
     @Export(name="accountKind", refs={String.class}, tree="[0]")
@@ -190,7 +190,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
      * 
-     * &gt; **NOTE:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+     * &gt; **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
      * 
      */
     public Output<Optional<String>> accountKind() {
@@ -213,7 +213,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+     * &gt; **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
      * 
      */
     @Export(name="accountTier", refs={String.class}, tree="[0]")
@@ -222,7 +222,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+     * &gt; **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
      * 
      */
     public Output<String> accountTier() {
@@ -231,7 +231,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      * 
-     * &gt; **NOTE:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+     * &gt; **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
      */
     @Export(name="allowNestedItemsToBePublic", refs={Boolean.class}, tree="[0]")
@@ -240,7 +240,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
      * 
-     * &gt; **NOTE:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+     * &gt; **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
      */
     public Output<Optional<Boolean>> allowNestedItemsToBePublic() {
@@ -319,12 +319,16 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * A `customer_managed_key` block as documented below.
      * 
+     * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
+     * 
      */
     @Export(name="customerManagedKey", refs={AccountCustomerManagedKey.class}, tree="[0]")
     private Output</* @Nullable */ AccountCustomerManagedKey> customerManagedKey;
 
     /**
      * @return A `customer_managed_key` block as documented below.
+     * 
+     * &gt; **Note:** It&#39;s possible to define a Customer Managed Key both within either the `customer_managed_key` block or by using the `azure.storage.CustomerManagedKey` resource. However, it&#39;s not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `azure.storage.CustomerManagedKey` resource, you will need to use `ignore_changes` on the `customer_managed_key` block.
      * 
      */
     public Output<Optional<AccountCustomerManagedKey>> customerManagedKey() {
@@ -347,7 +351,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+     * &gt; **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
      * 
      */
     @Export(name="dnsEndpointType", refs={String.class}, tree="[0]")
@@ -356,7 +360,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
+     * &gt; **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace &#34;Microsoft.Storage&#34; --name &#34;PartitionedDns&#34;`.
      * 
      */
     public Output<Optional<String>> dnsEndpointType() {
@@ -421,7 +425,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      * 
-     * &gt; **NOTE:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
+     * &gt; **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
      * 
      */
     @Export(name="infrastructureEncryptionEnabled", refs={Boolean.class}, tree="[0]")
@@ -430,7 +434,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
      * 
-     * &gt; **NOTE:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
+     * &gt; **Note:** This can only be `true` when `account_kind` is `StorageV2` or when `account_tier` is `Premium` *and* `account_kind` is one of `BlockBlobStorage` or `FileStorage`.
      * 
      */
     public Output<Optional<Boolean>> infrastructureEncryptionEnabled() {
@@ -439,7 +443,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
+     * &gt; **Note:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
      * 
      */
     @Export(name="isHnsEnabled", refs={Boolean.class}, tree="[0]")
@@ -448,21 +452,25 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
+     * &gt; **Note:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
      * 
      */
     public Output<Optional<Boolean>> isHnsEnabled() {
         return Codegen.optional(this.isHnsEnabled);
     }
     /**
-     * Is Large File Share Enabled?
+     * Are Large File Shares Enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
      * 
      */
     @Export(name="largeFileShareEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> largeFileShareEnabled;
 
     /**
-     * @return Is Large File Share Enabled?
+     * @return Are Large File Shares Enabled? Defaults to `false`.
+     * 
+     * &gt; **Note:** Large File Shares are enabled by default when using an `account_kind` of `FileStorage`.
      * 
      */
     public Output<Boolean> largeFileShareEnabled() {
@@ -499,7 +507,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      * 
-     * &gt; **NOTE:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+     * &gt; **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
      */
     @Export(name="minTlsVersion", refs={String.class}, tree="[0]")
@@ -508,7 +516,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
      * 
-     * &gt; **NOTE:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+     * &gt; **Note:** At this time `min_tls_version` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
      * 
      */
     public Output<Optional<String>> minTlsVersion() {
@@ -545,7 +553,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      * 
-     * &gt; **NOTE:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
+     * &gt; **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
      * 
      */
     @Export(name="nfsv3Enabled", refs={Boolean.class}, tree="[0]")
@@ -554,7 +562,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      * 
-     * &gt; **NOTE:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
+     * &gt; **Note:** This can only be `true` when `account_tier` is `Standard` and `account_kind` is `StorageV2`, or `account_tier` is `Premium` and `account_kind` is `BlockBlobStorage`. Additionally, the `is_hns_enabled` is `true` and `account_replication_type` must be `LRS` or `RAGRS`.
      * 
      */
     public Output<Optional<Boolean>> nfsv3Enabled() {
@@ -1095,7 +1103,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * A `queue_properties` block as defined below.
      * 
-     * &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
+     * &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
      * 
      */
     @Export(name="queueProperties", refs={AccountQueueProperties.class}, tree="[0]")
@@ -1104,7 +1112,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return A `queue_properties` block as defined below.
      * 
-     * &gt; **NOTE:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
+     * &gt; **Note:** `queue_properties` can only be configured when `account_tier` is set to `Standard` and `account_kind` is set to either `Storage` or `StorageV2`.
      * 
      */
     public Output<AccountQueueProperties> queueProperties() {
@@ -1659,7 +1667,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * Boolean, enable SFTP for the storage account
      * 
-     * &gt; **NOTE:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+     * &gt; **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
      * 
      */
     @Export(name="sftpEnabled", refs={Boolean.class}, tree="[0]")
@@ -1668,7 +1676,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return Boolean, enable SFTP for the storage account
      * 
-     * &gt; **NOTE:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+     * &gt; **Note:** SFTP support requires `is_hns_enabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
      * 
      */
     public Output<Optional<Boolean>> sftpEnabled() {
@@ -1677,7 +1685,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * A `share_properties` block as defined below.
      * 
-     * &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
+     * &gt; **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
      * 
      */
     @Export(name="shareProperties", refs={AccountShareProperties.class}, tree="[0]")
@@ -1686,7 +1694,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return A `share_properties` block as defined below.
      * 
-     * &gt; **NOTE:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
+     * &gt; **Note:** `share_properties` can only be configured when either `account_tier` is `Standard` and `account_kind` is either `Storage` or `StorageV2` - or when `account_tier` is `Premium` and `account_kind` is `FileStorage`.
      * 
      */
     public Output<AccountShareProperties> shareProperties() {
@@ -1701,7 +1709,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * A `static_website` block as defined below.
      * 
-     * &gt; **NOTE:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+     * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
      * 
      */
     @Export(name="staticWebsite", refs={AccountStaticWebsite.class}, tree="[0]")
@@ -1710,7 +1718,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return A `static_website` block as defined below.
      * 
-     * &gt; **NOTE:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
+     * &gt; **Note:** `static_website` can only be set when the `account_kind` is set to `StorageV2` or `BlockBlobStorage`.
      * 
      */
     public Output<Optional<AccountStaticWebsite>> staticWebsite() {
@@ -1719,7 +1727,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
-     * &gt; **NOTE:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+     * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
      * 
      */
     @Export(name="tableEncryptionKeyType", refs={String.class}, tree="[0]")
@@ -1728,7 +1736,7 @@ public class Account extends com.pulumi.resources.CustomResource {
     /**
      * @return The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
-     * &gt; **NOTE:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
+     * &gt; **Note:** For the `queue_encryption_key_type` and `table_encryption_key_type`, the `Account` key type is only allowed when the `account_kind` is set to `StorageV2`
      * 
      */
     public Output<Optional<String>> tableEncryptionKeyType() {

@@ -129,6 +129,7 @@ namespace Pulumi.Azure.ContainerService
     [OutputType]
     public sealed class GetClusterNodePoolResult
     {
+        public readonly bool AutoScalingEnabled;
         /// <summary>
         /// Does this Node Pool have Auto-Scaling enabled?
         /// </summary>
@@ -171,6 +172,7 @@ namespace Pulumi.Azure.ContainerService
         /// A map of Kubernetes Labels applied to each Node in this Node Pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string> NodeLabels;
+        public readonly bool NodePublicIpEnabled;
         /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
         /// </summary>
@@ -231,6 +233,8 @@ namespace Pulumi.Azure.ContainerService
 
         [OutputConstructor]
         private GetClusterNodePoolResult(
+            bool autoScalingEnabled,
+
             bool enableAutoScaling,
 
             bool enableNodePublicIp,
@@ -254,6 +258,8 @@ namespace Pulumi.Azure.ContainerService
             int nodeCount,
 
             ImmutableDictionary<string, string> nodeLabels,
+
+            bool nodePublicIpEnabled,
 
             string nodePublicIpPrefixId,
 
@@ -285,6 +291,7 @@ namespace Pulumi.Azure.ContainerService
 
             ImmutableArray<string> zones)
         {
+            AutoScalingEnabled = autoScalingEnabled;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIp = enableNodePublicIp;
             EvictionPolicy = evictionPolicy;
@@ -297,6 +304,7 @@ namespace Pulumi.Azure.ContainerService
             Name = name;
             NodeCount = nodeCount;
             NodeLabels = nodeLabels;
+            NodePublicIpEnabled = nodePublicIpEnabled;
             NodePublicIpPrefixId = nodePublicIpPrefixId;
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;

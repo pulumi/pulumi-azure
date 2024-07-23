@@ -3506,7 +3506,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -9469,7 +9469,7 @@ export namespace appservice {
          */
         remoteDebuggingEnabled?: pulumi.Input<boolean>;
         /**
-         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+         * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
          */
         remoteDebuggingVersion?: pulumi.Input<string>;
         /**
@@ -52049,13 +52049,13 @@ export namespace storage {
         /**
          * Is the blob service properties for change feed events enabled? Default to `false`.
          *
-         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         changeFeedEnabled?: pulumi.Input<boolean>;
         /**
          * The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
          *
-         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         changeFeedRetentionInDays?: pulumi.Input<number>;
         /**
@@ -52077,21 +52077,21 @@ export namespace storage {
         /**
          * Is the last access time based tracking enabled? Default to `false`.
          *
-         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         lastAccessTimeEnabled?: pulumi.Input<boolean>;
         /**
          * A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
          *
-         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
          *
-         * > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
+         * > **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
          */
         restorePolicy?: pulumi.Input<inputs.storage.AccountBlobPropertiesRestorePolicy>;
         /**
          * Is versioning enabled? Default to `false`.
          *
-         * > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+         * > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
          */
         versioningEnabled?: pulumi.Input<boolean>;
     }
@@ -52135,7 +52135,7 @@ export namespace storage {
         /**
          * Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
          *
-         * > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+         * > **Note:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
          */
         permanentDeleteEnabled?: pulumi.Input<boolean>;
     }
@@ -52170,7 +52170,7 @@ export namespace storage {
         /**
          * The ID of a user assigned identity.
          *
-         * > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+         * > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
          */
         userAssignedIdentityId: pulumi.Input<string>;
     }
@@ -52179,7 +52179,7 @@ export namespace storage {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
          *
-         * > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+         * > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
          *
          * > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
          */
@@ -52231,7 +52231,7 @@ export namespace storage {
          *
          * > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
          *
-         * > **NOTE:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+         * > **Note:** Network Rules can be defined either directly on the `azure.storage.Account` resource, or using the `azure.storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
          *
          * > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
          *

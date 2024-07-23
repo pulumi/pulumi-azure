@@ -76,6 +76,8 @@ type LookupAccountResult struct {
 	AzureFilesAuthentications []GetAccountAzureFilesAuthentication `pulumi:"azureFilesAuthentications"`
 	// supports the following:
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
+	// Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
+	DnsEndpointType string `pulumi:"dnsEndpointType"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
 	// for more information.
 	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`
@@ -324,6 +326,11 @@ func (o LookupAccountResultOutput) AzureFilesAuthentications() GetAccountAzureFi
 // supports the following:
 func (o LookupAccountResultOutput) CustomDomains() GetAccountCustomDomainArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountCustomDomain { return v.CustomDomains }).(GetAccountCustomDomainArrayOutput)
+}
+
+// Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
+func (o LookupAccountResultOutput) DnsEndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.DnsEndpointType }).(pulumi.StringOutput)
 }
 
 // Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)

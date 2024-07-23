@@ -94,7 +94,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly doubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
@@ -276,7 +276,7 @@ export interface ClusterState {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -380,7 +380,7 @@ export interface ClusterArgs {
      */
     doubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+     * @deprecated This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
      */
     engine?: pulumi.Input<string>;
     /**

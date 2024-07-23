@@ -387,14 +387,14 @@ public final class SlotSiteConfigArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+     * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
      * 
      */
     @Import(name="remoteDebuggingVersion")
     private @Nullable Output<String> remoteDebuggingVersion;
 
     /**
-     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
      * 
      */
     public Optional<Output<String>> remoteDebuggingVersion() {
@@ -1094,7 +1094,7 @@ public final class SlotSiteConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
          * 
          * @return builder
          * 
@@ -1105,7 +1105,7 @@ public final class SlotSiteConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
          * 
          * @return builder
          * 

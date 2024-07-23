@@ -25,17 +25,29 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
     /**
      * @return The Client ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
     private String clientAppId;
     /**
      * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
     private Boolean managed;
     /**
      * @return The Server ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
     private String serverAppId;
     /**
      * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
@@ -61,21 +73,33 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
     /**
      * @return The Client ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
     public String clientAppId() {
         return this.clientAppId;
     }
     /**
      * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
     public Boolean managed() {
         return this.managed;
     }
     /**
      * @return The Server ID of an Azure Active Directory Application.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in v4.0 of the AzureRM Provider. */
     public String serverAppId() {
         return this.serverAppId;
     }

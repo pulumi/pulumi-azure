@@ -9,6 +9,28 @@ import * as utilities from "../utilities";
 /**
  * Manages an Email Communication Service Domain.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleEmailService = new azure.communication.EmailService("example", {
+ *     name: "example-emailcommunicationservice",
+ *     resourceGroupName: example.name,
+ *     dataLocation: "United States",
+ * });
+ * const exampleEmailServiceDomain = new azure.communication.EmailServiceDomain("example", {
+ *     name: "AzureManagedDomain",
+ *     emailServiceId: exampleEmailService.id,
+ *     domainManagement: "AzureManaged",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Communication Services can be imported using the `resource id`, e.g.

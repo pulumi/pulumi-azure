@@ -406,11 +406,11 @@ func (o AccountAzureFilesAuthenticationActiveDirectoryPtrOutput) StorageSid() pu
 type AccountBlobProperties struct {
 	// Is the blob service properties for change feed events enabled? Default to `false`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedEnabled *bool `pulumi:"changeFeedEnabled"`
 	// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedRetentionInDays *int `pulumi:"changeFeedRetentionInDays"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy *AccountBlobPropertiesContainerDeleteRetentionPolicy `pulumi:"containerDeleteRetentionPolicy"`
@@ -422,17 +422,17 @@ type AccountBlobProperties struct {
 	DeleteRetentionPolicy *AccountBlobPropertiesDeleteRetentionPolicy `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	LastAccessTimeEnabled *bool `pulumi:"lastAccessTimeEnabled"`
 	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	//
-	// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
+	// > **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 	RestorePolicy *AccountBlobPropertiesRestorePolicy `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	VersioningEnabled *bool `pulumi:"versioningEnabled"`
 }
 
@@ -450,11 +450,11 @@ type AccountBlobPropertiesInput interface {
 type AccountBlobPropertiesArgs struct {
 	// Is the blob service properties for change feed events enabled? Default to `false`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedEnabled pulumi.BoolPtrInput `pulumi:"changeFeedEnabled"`
 	// The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	ChangeFeedRetentionInDays pulumi.IntPtrInput `pulumi:"changeFeedRetentionInDays"`
 	// A `containerDeleteRetentionPolicy` block as defined below.
 	ContainerDeleteRetentionPolicy AccountBlobPropertiesContainerDeleteRetentionPolicyPtrInput `pulumi:"containerDeleteRetentionPolicy"`
@@ -466,17 +466,17 @@ type AccountBlobPropertiesArgs struct {
 	DeleteRetentionPolicy AccountBlobPropertiesDeleteRetentionPolicyPtrInput `pulumi:"deleteRetentionPolicy"`
 	// Is the last access time based tracking enabled? Default to `false`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	LastAccessTimeEnabled pulumi.BoolPtrInput `pulumi:"lastAccessTimeEnabled"`
 	// A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	//
-	// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
+	// > **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 	RestorePolicy AccountBlobPropertiesRestorePolicyPtrInput `pulumi:"restorePolicy"`
 	// Is versioning enabled? Default to `false`.
 	//
-	// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+	// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 	VersioningEnabled pulumi.BoolPtrInput `pulumi:"versioningEnabled"`
 }
 
@@ -559,14 +559,14 @@ func (o AccountBlobPropertiesOutput) ToAccountBlobPropertiesPtrOutputWithContext
 
 // Is the blob service properties for change feed events enabled? Default to `false`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.ChangeFeedEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) ChangeFeedRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *int { return v.ChangeFeedRetentionInDays }).(pulumi.IntPtrOutput)
 }
@@ -597,23 +597,23 @@ func (o AccountBlobPropertiesOutput) DeleteRetentionPolicy() AccountBlobProperti
 
 // Is the last access time based tracking enabled? Default to `false`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.LastAccessTimeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 //
-// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
+// > **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 func (o AccountBlobPropertiesOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *AccountBlobPropertiesRestorePolicy { return v.RestorePolicy }).(AccountBlobPropertiesRestorePolicyPtrOutput)
 }
 
 // Is versioning enabled? Default to `false`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesOutput) VersioningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobProperties) *bool { return v.VersioningEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -644,7 +644,7 @@ func (o AccountBlobPropertiesPtrOutput) Elem() AccountBlobPropertiesOutput {
 
 // Is the blob service properties for change feed events enabled? Default to `false`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *bool {
 		if v == nil {
@@ -656,7 +656,7 @@ func (o AccountBlobPropertiesPtrOutput) ChangeFeedEnabled() pulumi.BoolPtrOutput
 
 // The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) ChangeFeedRetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *int {
 		if v == nil {
@@ -708,7 +708,7 @@ func (o AccountBlobPropertiesPtrOutput) DeleteRetentionPolicy() AccountBlobPrope
 
 // Is the last access time based tracking enabled? Default to `false`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *bool {
 		if v == nil {
@@ -720,9 +720,9 @@ func (o AccountBlobPropertiesPtrOutput) LastAccessTimeEnabled() pulumi.BoolPtrOu
 
 // A `restorePolicy` block as defined below. This must be used together with `deleteRetentionPolicy` set, `versioningEnabled` and `changeFeedEnabled` set to `true`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 //
-// > **NOTE:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
+// > **Note:** `restorePolicy` can not be configured when `dnsEndpointType` is `AzureDnsZone`.
 func (o AccountBlobPropertiesPtrOutput) RestorePolicy() AccountBlobPropertiesRestorePolicyPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *AccountBlobPropertiesRestorePolicy {
 		if v == nil {
@@ -734,7 +734,7 @@ func (o AccountBlobPropertiesPtrOutput) RestorePolicy() AccountBlobPropertiesRes
 
 // Is versioning enabled? Default to `false`.
 //
-// > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+// > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 func (o AccountBlobPropertiesPtrOutput) VersioningEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountBlobProperties) *bool {
 		if v == nil {
@@ -1022,7 +1022,7 @@ type AccountBlobPropertiesDeleteRetentionPolicy struct {
 	Days *int `pulumi:"days"`
 	// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
 	//
-	// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+	// > **Note:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
 	PermanentDeleteEnabled *bool `pulumi:"permanentDeleteEnabled"`
 }
 
@@ -1042,7 +1042,7 @@ type AccountBlobPropertiesDeleteRetentionPolicyArgs struct {
 	Days pulumi.IntPtrInput `pulumi:"days"`
 	// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
 	//
-	// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+	// > **Note:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
 	PermanentDeleteEnabled pulumi.BoolPtrInput `pulumi:"permanentDeleteEnabled"`
 }
 
@@ -1130,7 +1130,7 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) Days() pulumi.IntPtrOu
 
 // Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
 //
-// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+// > **Note:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
 func (o AccountBlobPropertiesDeleteRetentionPolicyOutput) PermanentDeleteEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountBlobPropertiesDeleteRetentionPolicy) *bool { return v.PermanentDeleteEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -1171,7 +1171,7 @@ func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) Days() pulumi.IntPt
 
 // Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
 //
-// > **NOTE:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
+// > **Note:** `permanentDeleteEnabled` cannot be set to true if a `restorePolicy` block is defined.
 func (o AccountBlobPropertiesDeleteRetentionPolicyPtrOutput) PermanentDeleteEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AccountBlobPropertiesDeleteRetentionPolicy) *bool {
 		if v == nil {
@@ -1481,7 +1481,7 @@ type AccountCustomerManagedKey struct {
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The ID of a user assigned identity.
 	//
-	// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+	// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1503,7 +1503,7 @@ type AccountCustomerManagedKeyArgs struct {
 	ManagedHsmKeyId pulumi.StringPtrInput `pulumi:"managedHsmKeyId"`
 	// The ID of a user assigned identity.
 	//
-	// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+	// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
@@ -1596,7 +1596,7 @@ func (o AccountCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutpu
 
 // The ID of a user assigned identity.
 //
-// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 func (o AccountCustomerManagedKeyOutput) UserAssignedIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCustomerManagedKey) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
@@ -1647,7 +1647,7 @@ func (o AccountCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPtrOu
 
 // The ID of a user assigned identity.
 //
-// > **NOTE:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
+// > **Note:** `customerManagedKey` can only be set when the `accountKind` is set to `StorageV2` or `accountTier` set to `Premium`, and the identity type is `UserAssigned`.
 func (o AccountCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountCustomerManagedKey) *string {
 		if v == nil {
@@ -1660,7 +1660,7 @@ func (o AccountCustomerManagedKeyPtrOutput) UserAssignedIdentityId() pulumi.Stri
 type AccountIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
 	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -1686,7 +1686,7 @@ type AccountIdentityInput interface {
 type AccountIdentityArgs struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 	//
-	// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 	//
 	// > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
@@ -1777,7 +1777,7 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
 // > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 func (o AccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -1825,7 +1825,7 @@ func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 //
-// > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+// > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 //
 // > The assigned `principalId` and `tenantId` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
 func (o AccountIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -2053,7 +2053,7 @@ type AccountNetworkRulesType struct {
 	//
 	// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 	//
-	// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+	// > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 	//
 	// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
 	//
@@ -2085,7 +2085,7 @@ type AccountNetworkRulesTypeArgs struct {
 	//
 	// > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 	//
-	// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+	// > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 	//
 	// > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
 	//
@@ -2191,7 +2191,7 @@ func (o AccountNetworkRulesTypeOutput) IpRules() pulumi.StringArrayOutput {
 //
 // > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 //
-// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+// > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 //
 // > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
 //
@@ -2263,7 +2263,7 @@ func (o AccountNetworkRulesTypePtrOutput) IpRules() pulumi.StringArrayOutput {
 //
 // > **Note:** If specifying `networkRules`, one of either `ipRules` or `virtualNetworkSubnetIds` must be specified and `defaultAction` must be set to `Deny`.
 //
-// > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
+// > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `defaultAction` of `Deny` to `Allow` requires defining, rather than removing, the block.
 //
 // > **Note:** The prefix of `ipRules` must be between 0 and 30 and only supports public IP addresses.
 //

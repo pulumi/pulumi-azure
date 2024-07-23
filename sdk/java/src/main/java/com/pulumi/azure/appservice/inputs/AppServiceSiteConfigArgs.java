@@ -387,14 +387,14 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+     * Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
      * 
      */
     @Import(name="remoteDebuggingVersion")
     private @Nullable Output<String> remoteDebuggingVersion;
 
     /**
-     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+     * @return Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
      * 
      */
     public Optional<Output<String>> remoteDebuggingVersion() {
@@ -1090,7 +1090,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
          * 
          * @return builder
          * 
@@ -1101,7 +1101,7 @@ public final class AppServiceSiteConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+         * @param remoteDebuggingVersion Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
          * 
          * @return builder
          * 

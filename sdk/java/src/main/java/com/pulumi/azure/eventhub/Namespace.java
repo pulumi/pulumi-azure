@@ -346,16 +346,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+     * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     @Export(name="zoneRedundant", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> zoneRedundant;
+    private Output<Boolean> zoneRedundant;
 
     /**
      * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<Boolean>> zoneRedundant() {
-        return Codegen.optional(this.zoneRedundant);
+    public Output<Boolean> zoneRedundant() {
+        return this.zoneRedundant;
     }
 
     /**

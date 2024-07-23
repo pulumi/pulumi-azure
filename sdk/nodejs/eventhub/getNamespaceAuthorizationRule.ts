@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "example-resources",
  *     namespaceName: "example-ns",
  * });
- * export const eventhubAuthorizationRuleId = exampleAzuremEventhubNamespaceAuthorizationRule.id;
+ * export const eventhubAuthorizationRuleId = example.then(example => example.id);
  * ```
  */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
@@ -111,7 +111,7 @@ export interface GetNamespaceAuthorizationRuleResult {
  *     resourceGroupName: "example-resources",
  *     namespaceName: "example-ns",
  * });
- * export const eventhubAuthorizationRuleId = exampleAzuremEventhubNamespaceAuthorizationRule.id;
+ * export const eventhubAuthorizationRuleId = example.then(example => example.id);
  * ```
  */
 export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceAuthorizationRuleResult> {

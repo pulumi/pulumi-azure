@@ -323,18 +323,26 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     /**
      * Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
      * 
-     * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+     * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+     * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
      * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
      * @return Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
      * 
-     * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+     * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+     * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
      * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     public Optional<Output<Boolean>> zoneRedundant() {
         return Optional.ofNullable(this.zoneRedundant);
     }
@@ -806,11 +814,15 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         /**
          * @param zoneRedundant Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
          * 
-         * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+         * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
          * 
          * @return builder
          * 
+         * @deprecated
+         * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+         * 
          */
+        @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
         public Builder zoneRedundant(@Nullable Output<Boolean> zoneRedundant) {
             $.zoneRedundant = zoneRedundant;
             return this;
@@ -819,11 +831,15 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         /**
          * @param zoneRedundant Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
          * 
-         * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
+         * &gt; **Note:** For eventhub premium namespace, `zone_redundant` is computed by the api based on the availability zone feature in each region, user&#39;s input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
          * 
          * @return builder
          * 
+         * @deprecated
+         * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+         * 
          */
+        @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
         public Builder zoneRedundant(Boolean zoneRedundant) {
             return zoneRedundant(Output.of(zoneRedundant));
         }

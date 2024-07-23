@@ -146,17 +146,17 @@ type Account struct {
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
-	// > **NOTE:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind pulumi.StringPtrOutput `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType pulumi.StringOutput `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
 	AccountTier pulumi.StringOutput `pulumi:"accountTier"`
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	//
-	// > **NOTE:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic pulumi.BoolPtrOutput `pulumi:"allowNestedItemsToBePublic"`
 	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
 	AllowedCopyScope pulumi.StringPtrOutput `pulumi:"allowedCopyScope"`
@@ -169,12 +169,14 @@ type Account struct {
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
+	//
+	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey AccountCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication pulumi.BoolPtrOutput `pulumi:"defaultToOauthAuthentication"`
 	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	// > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
 	DnsEndpointType pulumi.StringPtrOutput `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
@@ -186,13 +188,15 @@ type Account struct {
 	ImmutabilityPolicy AccountImmutabilityPolicyPtrOutput `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
+	// > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
 	IsHnsEnabled pulumi.BoolPtrOutput `pulumi:"isHnsEnabled"`
-	// Is Large File Share Enabled?
+	// Are Large File Shares Enabled? Defaults to `false`.
+	//
+	// > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
 	LargeFileShareEnabled pulumi.BoolOutput `pulumi:"largeFileShareEnabled"`
 	// Is Local User Enabled? Defaults to `true`.
 	LocalUserEnabled pulumi.BoolPtrOutput `pulumi:"localUserEnabled"`
@@ -200,7 +204,7 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	//
-	// > **NOTE:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -208,7 +212,7 @@ type Account struct {
 	NetworkRules AccountNetworkRulesTypeOutput `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 	Nfsv3Enabled pulumi.BoolPtrOutput `pulumi:"nfsv3Enabled"`
 	// The primary access key for the storage account.
 	PrimaryAccessKey pulumi.StringOutput `pulumi:"primaryAccessKey"`
@@ -288,7 +292,7 @@ type Account struct {
 	QueueEncryptionKeyType pulumi.StringPtrOutput `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties AccountQueuePropertiesOutput `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -370,20 +374,20 @@ type Account struct {
 	SecondaryWebMicrosoftHost pulumi.StringOutput `pulumi:"secondaryWebMicrosoftHost"`
 	// Boolean, enable SFTP for the storage account
 	//
-	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+	// > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled pulumi.BoolPtrOutput `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
 	//
-	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
+	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        AccountSharePropertiesOutput `pulumi:"shareProperties"`
 	SharedAccessKeyEnabled pulumi.BoolPtrOutput         `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	//
-	// > **NOTE:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	StaticWebsite AccountStaticWebsitePtrOutput `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **NOTE:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
 	TableEncryptionKeyType pulumi.StringPtrOutput `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -441,17 +445,17 @@ type accountState struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
-	// > **NOTE:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind *string `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType *string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
 	AccountTier *string `pulumi:"accountTier"`
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	//
-	// > **NOTE:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
 	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
 	AllowedCopyScope *string `pulumi:"allowedCopyScope"`
@@ -464,12 +468,14 @@ type accountState struct {
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
+	//
+	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
 	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	// > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
 	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -481,13 +487,15 @@ type accountState struct {
 	ImmutabilityPolicy *AccountImmutabilityPolicy `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
+	// > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
-	// Is Large File Share Enabled?
+	// Are Large File Shares Enabled? Defaults to `false`.
+	//
+	// > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
 	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
 	// Is Local User Enabled? Defaults to `true`.
 	LocalUserEnabled *bool `pulumi:"localUserEnabled"`
@@ -495,7 +503,7 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	//
-	// > **NOTE:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
@@ -503,7 +511,7 @@ type accountState struct {
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
 	// The primary access key for the storage account.
 	PrimaryAccessKey *string `pulumi:"primaryAccessKey"`
@@ -583,7 +591,7 @@ type accountState struct {
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -665,20 +673,20 @@ type accountState struct {
 	SecondaryWebMicrosoftHost *string `pulumi:"secondaryWebMicrosoftHost"`
 	// Boolean, enable SFTP for the storage account
 	//
-	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+	// > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled *bool `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
 	//
-	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
+	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        *AccountShareProperties `pulumi:"shareProperties"`
 	SharedAccessKeyEnabled *bool                   `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	//
-	// > **NOTE:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **NOTE:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
 	TableEncryptionKeyType *string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -689,17 +697,17 @@ type AccountState struct {
 	AccessTier pulumi.StringPtrInput
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
-	// > **NOTE:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind pulumi.StringPtrInput
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType pulumi.StringPtrInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
 	AccountTier pulumi.StringPtrInput
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	//
-	// > **NOTE:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
 	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
 	AllowedCopyScope pulumi.StringPtrInput
@@ -712,12 +720,14 @@ type AccountState struct {
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
+	//
+	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication pulumi.BoolPtrInput
 	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	// > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
 	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -729,13 +739,15 @@ type AccountState struct {
 	ImmutabilityPolicy AccountImmutabilityPolicyPtrInput
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
+	// > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
 	IsHnsEnabled pulumi.BoolPtrInput
-	// Is Large File Share Enabled?
+	// Are Large File Shares Enabled? Defaults to `false`.
+	//
+	// > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
 	LargeFileShareEnabled pulumi.BoolPtrInput
 	// Is Local User Enabled? Defaults to `true`.
 	LocalUserEnabled pulumi.BoolPtrInput
@@ -743,7 +755,7 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	//
-	// > **NOTE:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
@@ -751,7 +763,7 @@ type AccountState struct {
 	NetworkRules AccountNetworkRulesTypePtrInput
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 	Nfsv3Enabled pulumi.BoolPtrInput
 	// The primary access key for the storage account.
 	PrimaryAccessKey pulumi.StringPtrInput
@@ -831,7 +843,7 @@ type AccountState struct {
 	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -913,20 +925,20 @@ type AccountState struct {
 	SecondaryWebMicrosoftHost pulumi.StringPtrInput
 	// Boolean, enable SFTP for the storage account
 	//
-	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+	// > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled pulumi.BoolPtrInput
 	// A `shareProperties` block as defined below.
 	//
-	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
+	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        AccountSharePropertiesPtrInput
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	//
-	// > **NOTE:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **NOTE:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
 	TableEncryptionKeyType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -941,17 +953,17 @@ type accountArgs struct {
 	AccessTier *string `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
-	// > **NOTE:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind *string `pulumi:"accountKind"`
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType string `pulumi:"accountReplicationType"`
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
 	AccountTier string `pulumi:"accountTier"`
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	//
-	// > **NOTE:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
 	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
 	AllowedCopyScope *string `pulumi:"allowedCopyScope"`
@@ -964,12 +976,14 @@ type accountArgs struct {
 	// A `customDomain` block as documented below.
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
+	//
+	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
 	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	// > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
 	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
@@ -981,13 +995,15 @@ type accountArgs struct {
 	ImmutabilityPolicy *AccountImmutabilityPolicy `pulumi:"immutabilityPolicy"`
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
+	// > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
 	InfrastructureEncryptionEnabled *bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
-	// Is Large File Share Enabled?
+	// Are Large File Shares Enabled? Defaults to `false`.
+	//
+	// > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
 	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
 	// Is Local User Enabled? Defaults to `true`.
 	LocalUserEnabled *bool `pulumi:"localUserEnabled"`
@@ -995,7 +1011,7 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	//
-	// > **NOTE:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
@@ -1003,7 +1019,7 @@ type accountArgs struct {
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -1011,7 +1027,7 @@ type accountArgs struct {
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties *AccountQueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -1021,20 +1037,20 @@ type accountArgs struct {
 	SasPolicy *AccountSasPolicy `pulumi:"sasPolicy"`
 	// Boolean, enable SFTP for the storage account
 	//
-	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+	// > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled *bool `pulumi:"sftpEnabled"`
 	// A `shareProperties` block as defined below.
 	//
-	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
+	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        *AccountShareProperties `pulumi:"shareProperties"`
 	SharedAccessKeyEnabled *bool                   `pulumi:"sharedAccessKeyEnabled"`
 	// A `staticWebsite` block as defined below.
 	//
-	// > **NOTE:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	StaticWebsite *AccountStaticWebsite `pulumi:"staticWebsite"`
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **NOTE:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
 	TableEncryptionKeyType *string `pulumi:"tableEncryptionKeyType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -1046,17 +1062,17 @@ type AccountArgs struct {
 	AccessTier pulumi.StringPtrInput
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
-	// > **NOTE:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+	// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 	AccountKind pulumi.StringPtrInput
 	// Defines the type of replication to use for this storage account. Valid options are `LRS`, `GRS`, `RAGRS`, `ZRS`, `GZRS` and `RAGZRS`. Changing this forces a new resource to be created when types `LRS`, `GRS` and `RAGRS` are changed to `ZRS`, `GZRS` or `RAGZRS` and vice versa.
 	AccountReplicationType pulumi.StringInput
 	// Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+	// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
 	AccountTier pulumi.StringInput
 	// Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 	//
-	// > **NOTE:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
 	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
 	AllowedCopyScope pulumi.StringPtrInput
@@ -1069,12 +1085,14 @@ type AccountArgs struct {
 	// A `customDomain` block as documented below.
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
+	//
+	// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
 	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
 	DefaultToOauthAuthentication pulumi.BoolPtrInput
 	// Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+	// > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
 	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
@@ -1086,13 +1104,15 @@ type AccountArgs struct {
 	ImmutabilityPolicy AccountImmutabilityPolicyPtrInput
 	// Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
+	// > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
 	InfrastructureEncryptionEnabled pulumi.BoolPtrInput
 	// Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
 	IsHnsEnabled pulumi.BoolPtrInput
-	// Is Large File Share Enabled?
+	// Are Large File Shares Enabled? Defaults to `false`.
+	//
+	// > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
 	LargeFileShareEnabled pulumi.BoolPtrInput
 	// Is Local User Enabled? Defaults to `true`.
 	LocalUserEnabled pulumi.BoolPtrInput
@@ -1100,7 +1120,7 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	//
-	// > **NOTE:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+	// > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	MinTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
@@ -1108,7 +1128,7 @@ type AccountArgs struct {
 	NetworkRules AccountNetworkRulesTypePtrInput
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	//
-	// > **NOTE:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
+	// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 	Nfsv3Enabled pulumi.BoolPtrInput
 	// Whether the public network access is enabled? Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -1116,7 +1136,7 @@ type AccountArgs struct {
 	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
 	//
-	// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+	// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 	QueueProperties AccountQueuePropertiesPtrInput
 	// The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -1126,20 +1146,20 @@ type AccountArgs struct {
 	SasPolicy AccountSasPolicyPtrInput
 	// Boolean, enable SFTP for the storage account
 	//
-	// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+	// > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 	SftpEnabled pulumi.BoolPtrInput
 	// A `shareProperties` block as defined below.
 	//
-	// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
+	// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 	ShareProperties        AccountSharePropertiesPtrInput
 	SharedAccessKeyEnabled pulumi.BoolPtrInput
 	// A `staticWebsite` block as defined below.
 	//
-	// > **NOTE:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+	// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 	StaticWebsite AccountStaticWebsitePtrInput
 	// The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	//
-	// > **NOTE:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+	// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
 	TableEncryptionKeyType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -1239,7 +1259,7 @@ func (o AccountOutput) AccessTier() pulumi.StringOutput {
 
 // Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 //
-// > **NOTE:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
+// > **Note:** Changing the `accountKind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
 func (o AccountOutput) AccountKind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AccountKind }).(pulumi.StringPtrOutput)
 }
@@ -1251,14 +1271,14 @@ func (o AccountOutput) AccountReplicationType() pulumi.StringOutput {
 
 // Defines the Tier to use for this storage account. Valid options are `Standard` and `Premium`. For `BlockBlobStorage` and `FileStorage` accounts only `Premium` is valid. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
+// > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
 func (o AccountOutput) AccountTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountTier }).(pulumi.StringOutput)
 }
 
 // Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
 //
-// > **NOTE:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 func (o AccountOutput) AllowNestedItemsToBePublic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AllowNestedItemsToBePublic }).(pulumi.BoolPtrOutput)
 }
@@ -1289,6 +1309,8 @@ func (o AccountOutput) CustomDomain() AccountCustomDomainPtrOutput {
 }
 
 // A `customerManagedKey` block as documented below.
+//
+// > **Note:** It's possible to define a Customer Managed Key both within either the `customerManagedKey` block or by using the `storage.CustomerManagedKey` resource. However, it's not possible to use both methods to manage a Customer Managed Key for a Storage Account, since these will conflict. When using the `storage.CustomerManagedKey` resource, you will need to use `ignoreChanges` on the `customerManagedKey` block.
 func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyPtrOutput {
 	return o.ApplyT(func(v *Account) AccountCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(AccountCustomerManagedKeyPtrOutput)
 }
@@ -1300,7 +1322,7 @@ func (o AccountOutput) DefaultToOauthAuthentication() pulumi.BoolPtrOutput {
 
 // Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
+// > **Note:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`.
 func (o AccountOutput) DnsEndpointType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.DnsEndpointType }).(pulumi.StringPtrOutput)
 }
@@ -1327,19 +1349,21 @@ func (o AccountOutput) ImmutabilityPolicy() AccountImmutabilityPolicyPtrOutput {
 
 // Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`.
 //
-// > **NOTE:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
+// > **Note:** This can only be `true` when `accountKind` is `StorageV2` or when `accountTier` is `Premium` *and* `accountKind` is one of `BlockBlobStorage` or `FileStorage`.
 func (o AccountOutput) InfrastructureEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created.
 //
-// > **NOTE:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
+// > **Note:** This can only be `true` when `accountTier` is `Standard` or when `accountTier` is `Premium` *and* `accountKind` is `BlockBlobStorage`
 func (o AccountOutput) IsHnsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.IsHnsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Is Large File Share Enabled?
+// Are Large File Shares Enabled? Defaults to `false`.
+//
+// > **Note:** Large File Shares are enabled by default when using an `accountKind` of `FileStorage`.
 func (o AccountOutput) LargeFileShareEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.LargeFileShareEnabled }).(pulumi.BoolOutput)
 }
@@ -1356,7 +1380,7 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 
 // The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 //
-// > **NOTE:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
+// > **Note:** At this time `minTlsVersion` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 func (o AccountOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
@@ -1373,7 +1397,7 @@ func (o AccountOutput) NetworkRules() AccountNetworkRulesTypeOutput {
 
 // Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 //
-// > **NOTE:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
+// > **Note:** This can only be `true` when `accountTier` is `Standard` and `accountKind` is `StorageV2`, or `accountTier` is `Premium` and `accountKind` is `BlockBlobStorage`. Additionally, the `isHnsEnabled` is `true` and `accountReplicationType` must be `LRS` or `RAGRS`.
 func (o AccountOutput) Nfsv3Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.Nfsv3Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1570,7 +1594,7 @@ func (o AccountOutput) QueueEncryptionKeyType() pulumi.StringPtrOutput {
 
 // A `queueProperties` block as defined below.
 //
-// > **NOTE:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
+// > **Note:** `queueProperties` can only be configured when `accountTier` is set to `Standard` and `accountKind` is set to either `Storage` or `StorageV2`.
 func (o AccountOutput) QueueProperties() AccountQueuePropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountQueuePropertiesOutput { return v.QueueProperties }).(AccountQueuePropertiesOutput)
 }
@@ -1772,14 +1796,14 @@ func (o AccountOutput) SecondaryWebMicrosoftHost() pulumi.StringOutput {
 
 // Boolean, enable SFTP for the storage account
 //
-// > **NOTE:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
+// > **Note:** SFTP support requires `isHnsEnabled` set to `true`. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to `false`
 func (o AccountOutput) SftpEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.SftpEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A `shareProperties` block as defined below.
 //
-// > **NOTE:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
+// > **Note:** `shareProperties` can only be configured when either `accountTier` is `Standard` and `accountKind` is either `Storage` or `StorageV2` - or when `accountTier` is `Premium` and `accountKind` is `FileStorage`.
 func (o AccountOutput) ShareProperties() AccountSharePropertiesOutput {
 	return o.ApplyT(func(v *Account) AccountSharePropertiesOutput { return v.ShareProperties }).(AccountSharePropertiesOutput)
 }
@@ -1790,14 +1814,14 @@ func (o AccountOutput) SharedAccessKeyEnabled() pulumi.BoolPtrOutput {
 
 // A `staticWebsite` block as defined below.
 //
-// > **NOTE:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
+// > **Note:** `staticWebsite` can only be set when the `accountKind` is set to `StorageV2` or `BlockBlobStorage`.
 func (o AccountOutput) StaticWebsite() AccountStaticWebsitePtrOutput {
 	return o.ApplyT(func(v *Account) AccountStaticWebsitePtrOutput { return v.StaticWebsite }).(AccountStaticWebsitePtrOutput)
 }
 
 // The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 //
-// > **NOTE:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
+// > **Note:** For the `queueEncryptionKeyType` and `tableEncryptionKeyType`, the `Account` key type is only allowed when the `accountKind` is set to `StorageV2`
 func (o AccountOutput) TableEncryptionKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.TableEncryptionKeyType }).(pulumi.StringPtrOutput)
 }
