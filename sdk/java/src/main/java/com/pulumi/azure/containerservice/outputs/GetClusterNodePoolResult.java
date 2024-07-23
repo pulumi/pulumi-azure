@@ -16,6 +16,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterNodePoolResult {
+    private Boolean autoScalingEnabled;
     /**
      * @return Does this Node Pool have Auto-Scaling enabled?
      * 
@@ -68,6 +69,7 @@ public final class GetClusterNodePoolResult {
      * 
      */
     private Map<String,String> nodeLabels;
+    private Boolean nodePublicIpEnabled;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
      * 
@@ -141,6 +143,9 @@ public final class GetClusterNodePoolResult {
     private List<String> zones;
 
     private GetClusterNodePoolResult() {}
+    public Boolean autoScalingEnabled() {
+        return this.autoScalingEnabled;
+    }
     /**
      * @return Does this Node Pool have Auto-Scaling enabled?
      * 
@@ -216,6 +221,9 @@ public final class GetClusterNodePoolResult {
      */
     public Map<String,String> nodeLabels() {
         return this.nodeLabels;
+    }
+    public Boolean nodePublicIpEnabled() {
+        return this.nodePublicIpEnabled;
     }
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -328,6 +336,7 @@ public final class GetClusterNodePoolResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean autoScalingEnabled;
         private Boolean enableAutoScaling;
         private Boolean enableNodePublicIp;
         private String evictionPolicy;
@@ -340,6 +349,7 @@ public final class GetClusterNodePoolResult {
         private String name;
         private Integer nodeCount;
         private Map<String,String> nodeLabels;
+        private Boolean nodePublicIpEnabled;
         private String nodePublicIpPrefixId;
         private List<String> nodeTaints;
         private String orchestratorVersion;
@@ -358,6 +368,7 @@ public final class GetClusterNodePoolResult {
         public Builder() {}
         public Builder(GetClusterNodePoolResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoScalingEnabled = defaults.autoScalingEnabled;
     	      this.enableAutoScaling = defaults.enableAutoScaling;
     	      this.enableNodePublicIp = defaults.enableNodePublicIp;
     	      this.evictionPolicy = defaults.evictionPolicy;
@@ -370,6 +381,7 @@ public final class GetClusterNodePoolResult {
     	      this.name = defaults.name;
     	      this.nodeCount = defaults.nodeCount;
     	      this.nodeLabels = defaults.nodeLabels;
+    	      this.nodePublicIpEnabled = defaults.nodePublicIpEnabled;
     	      this.nodePublicIpPrefixId = defaults.nodePublicIpPrefixId;
     	      this.nodeTaints = defaults.nodeTaints;
     	      this.orchestratorVersion = defaults.orchestratorVersion;
@@ -387,6 +399,14 @@ public final class GetClusterNodePoolResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
+        public Builder autoScalingEnabled(Boolean autoScalingEnabled) {
+            if (autoScalingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "autoScalingEnabled");
+            }
+            this.autoScalingEnabled = autoScalingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder enableAutoScaling(Boolean enableAutoScaling) {
             if (enableAutoScaling == null) {
@@ -481,6 +501,14 @@ public final class GetClusterNodePoolResult {
               throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodeLabels");
             }
             this.nodeLabels = nodeLabels;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nodePublicIpEnabled(Boolean nodePublicIpEnabled) {
+            if (nodePublicIpEnabled == null) {
+              throw new MissingRequiredPropertyException("GetClusterNodePoolResult", "nodePublicIpEnabled");
+            }
+            this.nodePublicIpEnabled = nodePublicIpEnabled;
             return this;
         }
         @CustomType.Setter
@@ -614,6 +642,7 @@ public final class GetClusterNodePoolResult {
         }
         public GetClusterNodePoolResult build() {
             final var _resultValue = new GetClusterNodePoolResult();
+            _resultValue.autoScalingEnabled = autoScalingEnabled;
             _resultValue.enableAutoScaling = enableAutoScaling;
             _resultValue.enableNodePublicIp = enableNodePublicIp;
             _resultValue.evictionPolicy = evictionPolicy;
@@ -626,6 +655,7 @@ public final class GetClusterNodePoolResult {
             _resultValue.name = name;
             _resultValue.nodeCount = nodeCount;
             _resultValue.nodeLabels = nodeLabels;
+            _resultValue.nodePublicIpEnabled = nodePublicIpEnabled;
             _resultValue.nodePublicIpPrefixId = nodePublicIpPrefixId;
             _resultValue.nodeTaints = nodeTaints;
             _resultValue.orchestratorVersion = orchestratorVersion;

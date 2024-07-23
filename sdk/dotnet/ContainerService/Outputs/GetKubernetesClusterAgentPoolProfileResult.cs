@@ -13,6 +13,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
     [OutputType]
     public sealed class GetKubernetesClusterAgentPoolProfileResult
     {
+        public readonly bool AutoScalingEnabled;
         /// <summary>
         /// The number of Agents (VMs) in the Pool.
         /// </summary>
@@ -42,6 +43,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Name;
         public readonly ImmutableDictionary<string, string> NodeLabels;
+        public readonly bool NodePublicIpEnabled;
         /// <summary>
         /// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
         /// </summary>
@@ -86,6 +88,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private GetKubernetesClusterAgentPoolProfileResult(
+            bool autoScalingEnabled,
+
             int count,
 
             bool enableAutoScaling,
@@ -101,6 +105,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
             string name,
 
             ImmutableDictionary<string, string> nodeLabels,
+
+            bool nodePublicIpEnabled,
 
             string nodePublicIpPrefixId,
 
@@ -124,6 +130,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             ImmutableArray<string> zones)
         {
+            AutoScalingEnabled = autoScalingEnabled;
             Count = count;
             EnableAutoScaling = enableAutoScaling;
             EnableNodePublicIp = enableNodePublicIp;
@@ -132,6 +139,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             MinCount = minCount;
             Name = name;
             NodeLabels = nodeLabels;
+            NodePublicIpEnabled = nodePublicIpEnabled;
             NodePublicIpPrefixId = nodePublicIpPrefixId;
             NodeTaints = nodeTaints;
             OrchestratorVersion = orchestratorVersion;

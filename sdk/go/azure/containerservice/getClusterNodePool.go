@@ -63,6 +63,7 @@ type GetClusterNodePoolArgs struct {
 
 // A collection of values returned by getClusterNodePool.
 type GetClusterNodePoolResult struct {
+	AutoScalingEnabled bool `pulumi:"autoScalingEnabled"`
 	// Does this Node Pool have Auto-Scaling enabled?
 	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
 	// Do nodes in this Node Pool have a Public IP Address?
@@ -84,7 +85,8 @@ type GetClusterNodePoolResult struct {
 	// The current number of Nodes in the Node Pool.
 	NodeCount int `pulumi:"nodeCount"`
 	// A map of Kubernetes Labels applied to each Node in this Node Pool.
-	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	NodeLabels          map[string]string `pulumi:"nodeLabels"`
+	NodePublicIpEnabled bool              `pulumi:"nodePublicIpEnabled"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
 	NodePublicIpPrefixId string `pulumi:"nodePublicIpPrefixId"`
 	// A map of Kubernetes Taints applied to each Node in this Node Pool.
@@ -158,6 +160,10 @@ func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutputWithCont
 	return o
 }
 
+func (o GetClusterNodePoolResultOutput) AutoScalingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.AutoScalingEnabled }).(pulumi.BoolOutput)
+}
+
 // Does this Node Pool have Auto-Scaling enabled?
 func (o GetClusterNodePoolResultOutput) EnableAutoScaling() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
@@ -214,6 +220,10 @@ func (o GetClusterNodePoolResultOutput) NodeCount() pulumi.IntOutput {
 // A map of Kubernetes Labels applied to each Node in this Node Pool.
 func (o GetClusterNodePoolResultOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetClusterNodePoolResult) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+func (o GetClusterNodePoolResultOutput) NodePublicIpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetClusterNodePoolResult) bool { return v.NodePublicIpEnabled }).(pulumi.BoolOutput)
 }
 
 // Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.

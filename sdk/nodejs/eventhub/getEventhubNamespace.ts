@@ -114,6 +114,8 @@ export interface GetEventhubNamespaceResult {
     readonly tags: {[key: string]: string};
     /**
      * Is this EventHub Namespace deployed across Availability Zones?
+     *
+     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */
     readonly zoneRedundant: boolean;
 }

@@ -93,7 +93,11 @@ public final class GetEventhubNamespaceResult {
     /**
      * @return Is this EventHub Namespace deployed across Availability Zones?
      * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+     * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     private Boolean zoneRedundant;
 
     private GetEventhubNamespaceResult() {}
@@ -211,7 +215,11 @@ public final class GetEventhubNamespaceResult {
     /**
      * @return Is this EventHub Namespace deployed across Availability Zones?
      * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+     * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     public Boolean zoneRedundant() {
         return this.zoneRedundant;
     }

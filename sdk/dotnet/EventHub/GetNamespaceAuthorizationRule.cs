@@ -33,7 +33,7 @@ namespace Pulumi.Azure.EventHub
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eventhubAuthorizationRuleId"] = exampleAzuremEventhubNamespaceAuthorizationRule.Id,
+        ///         ["eventhubAuthorizationRuleId"] = example.Apply(getNamespaceAuthorizationRuleResult =&gt; getNamespaceAuthorizationRuleResult.Id),
         ///     };
         /// });
         /// ```
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.EventHub
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["eventhubAuthorizationRuleId"] = exampleAzuremEventhubNamespaceAuthorizationRule.Id,
+        ///         ["eventhubAuthorizationRuleId"] = example.Apply(getNamespaceAuthorizationRuleResult =&gt; getNamespaceAuthorizationRuleResult.Id),
         ///     };
         /// });
         /// ```

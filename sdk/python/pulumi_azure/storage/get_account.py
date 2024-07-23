@@ -27,7 +27,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_blob_internet_endpoint=None, primary_blob_internet_host=None, primary_blob_microsoft_endpoint=None, primary_blob_microsoft_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_dfs_internet_endpoint=None, primary_dfs_internet_host=None, primary_dfs_microsoft_endpoint=None, primary_dfs_microsoft_host=None, primary_file_endpoint=None, primary_file_host=None, primary_file_internet_endpoint=None, primary_file_internet_host=None, primary_file_microsoft_endpoint=None, primary_file_microsoft_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_queue_microsoft_endpoint=None, primary_queue_microsoft_host=None, primary_table_endpoint=None, primary_table_host=None, primary_table_microsoft_endpoint=None, primary_table_microsoft_host=None, primary_web_endpoint=None, primary_web_host=None, primary_web_internet_endpoint=None, primary_web_internet_host=None, primary_web_microsoft_endpoint=None, primary_web_microsoft_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_blob_internet_endpoint=None, secondary_blob_internet_host=None, secondary_blob_microsoft_endpoint=None, secondary_blob_microsoft_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_dfs_internet_endpoint=None, secondary_dfs_internet_host=None, secondary_dfs_microsoft_endpoint=None, secondary_dfs_microsoft_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_file_internet_endpoint=None, secondary_file_internet_host=None, secondary_file_microsoft_endpoint=None, secondary_file_microsoft_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_queue_microsoft_endpoint=None, secondary_queue_microsoft_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_table_microsoft_endpoint=None, secondary_table_microsoft_host=None, secondary_web_endpoint=None, secondary_web_host=None, secondary_web_internet_endpoint=None, secondary_web_internet_host=None, secondary_web_microsoft_endpoint=None, secondary_web_microsoft_host=None, table_encryption_key_type=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, dns_endpoint_type=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_blob_internet_endpoint=None, primary_blob_internet_host=None, primary_blob_microsoft_endpoint=None, primary_blob_microsoft_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_dfs_internet_endpoint=None, primary_dfs_internet_host=None, primary_dfs_microsoft_endpoint=None, primary_dfs_microsoft_host=None, primary_file_endpoint=None, primary_file_host=None, primary_file_internet_endpoint=None, primary_file_internet_host=None, primary_file_microsoft_endpoint=None, primary_file_microsoft_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_queue_microsoft_endpoint=None, primary_queue_microsoft_host=None, primary_table_endpoint=None, primary_table_host=None, primary_table_microsoft_endpoint=None, primary_table_microsoft_host=None, primary_web_endpoint=None, primary_web_host=None, primary_web_internet_endpoint=None, primary_web_internet_host=None, primary_web_microsoft_endpoint=None, primary_web_microsoft_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_blob_internet_endpoint=None, secondary_blob_internet_host=None, secondary_blob_microsoft_endpoint=None, secondary_blob_microsoft_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_dfs_internet_endpoint=None, secondary_dfs_internet_host=None, secondary_dfs_microsoft_endpoint=None, secondary_dfs_microsoft_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_file_internet_endpoint=None, secondary_file_internet_host=None, secondary_file_microsoft_endpoint=None, secondary_file_microsoft_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_queue_microsoft_endpoint=None, secondary_queue_microsoft_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_table_microsoft_endpoint=None, secondary_table_microsoft_host=None, secondary_web_endpoint=None, secondary_web_host=None, secondary_web_internet_endpoint=None, secondary_web_internet_host=None, secondary_web_microsoft_endpoint=None, secondary_web_microsoft_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -49,6 +49,9 @@ class GetAccountResult:
         if custom_domains and not isinstance(custom_domains, list):
             raise TypeError("Expected argument 'custom_domains' to be a list")
         pulumi.set(__self__, "custom_domains", custom_domains)
+        if dns_endpoint_type and not isinstance(dns_endpoint_type, str):
+            raise TypeError("Expected argument 'dns_endpoint_type' to be a str")
+        pulumi.set(__self__, "dns_endpoint_type", dns_endpoint_type)
         if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
             raise TypeError("Expected argument 'enable_https_traffic_only' to be a bool")
         pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
@@ -360,6 +363,14 @@ class GetAccountResult:
         supports the following:
         """
         return pulumi.get(self, "custom_domains")
+
+    @property
+    @pulumi.getter(name="dnsEndpointType")
+    def dns_endpoint_type(self) -> str:
+        """
+        Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
+        """
+        return pulumi.get(self, "dns_endpoint_type")
 
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
@@ -1054,6 +1065,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             allow_nested_items_to_be_public=self.allow_nested_items_to_be_public,
             azure_files_authentications=self.azure_files_authentications,
             custom_domains=self.custom_domains,
+            dns_endpoint_type=self.dns_endpoint_type,
             enable_https_traffic_only=self.enable_https_traffic_only,
             id=self.id,
             identities=self.identities,
@@ -1179,6 +1191,7 @@ def get_account(min_tls_version: Optional[str] = None,
         allow_nested_items_to_be_public=pulumi.get(__ret__, 'allow_nested_items_to_be_public'),
         azure_files_authentications=pulumi.get(__ret__, 'azure_files_authentications'),
         custom_domains=pulumi.get(__ret__, 'custom_domains'),
+        dns_endpoint_type=pulumi.get(__ret__, 'dns_endpoint_type'),
         enable_https_traffic_only=pulumi.get(__ret__, 'enable_https_traffic_only'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),

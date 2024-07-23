@@ -75,7 +75,11 @@ public final class GetServiceBusNamespaceResult {
     /**
      * @return Whether or not this ServiceBus Namespace is zone redundant.
      * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+     * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     private Boolean zoneRedundant;
 
     private GetServiceBusNamespaceResult() {}
@@ -167,7 +171,11 @@ public final class GetServiceBusNamespaceResult {
     /**
      * @return Whether or not this ServiceBus Namespace is zone redundant.
      * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+     * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     public Boolean zoneRedundant() {
         return this.zoneRedundant;
     }

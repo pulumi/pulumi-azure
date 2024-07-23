@@ -226,14 +226,22 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+     * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     @Import(name="zoneRedundant")
     private @Nullable Output<Boolean> zoneRedundant;
 
     /**
      * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+     * 
      */
+    @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
     public Optional<Output<Boolean>> zoneRedundant() {
         return Optional.ofNullable(this.zoneRedundant);
     }
@@ -559,7 +567,11 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+         * 
          */
+        @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
         public Builder zoneRedundant(@Nullable Output<Boolean> zoneRedundant) {
             $.zoneRedundant = zoneRedundant;
             return this;
@@ -570,7 +582,11 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
+         * 
          */
+        @Deprecated /* The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider. */
         public Builder zoneRedundant(Boolean zoneRedundant) {
             return zoneRedundant(Output.of(zoneRedundant));
         }

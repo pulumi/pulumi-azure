@@ -27,7 +27,7 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// The ID of a user assigned identity.
         /// 
-        /// &gt; **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+        /// &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         /// </summary>
         [Input("userAssignedIdentityId", required: true)]
         public Input<string> UserAssignedIdentityId { get; set; } = null!;

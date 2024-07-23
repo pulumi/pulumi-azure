@@ -80,6 +80,9 @@ class NamespaceArgs:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
+            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
+        if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
@@ -243,6 +246,7 @@ class NamespaceArgs:
 
     @property
     @pulumi.getter(name="zoneRedundant")
+    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
@@ -337,6 +341,9 @@ class _NamespaceState:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundant is not None:
+            warnings.warn("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""zone_redundant is deprecated: The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
 
@@ -561,6 +568,7 @@ class _NamespaceState:
 
     @property
     @pulumi.getter(name="zoneRedundant")
+    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
     def zone_redundant(self) -> Optional[pulumi.Input[bool]]:
         """
         Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
@@ -980,7 +988,8 @@ class Namespace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="zoneRedundant")
-    def zone_redundant(self) -> pulumi.Output[Optional[bool]]:
+    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
+    def zone_redundant(self) -> pulumi.Output[bool]:
         """
         Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
         """

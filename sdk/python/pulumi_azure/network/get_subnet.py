@@ -96,11 +96,13 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter(name="enforcePrivateLinkEndpointNetworkPolicies")
+    @_utilities.deprecated("""This property has been superseded by `private_endpoint_network_policies` and will be removed in v4.0 of the AzureRM Provider.""")
     def enforce_private_link_endpoint_network_policies(self) -> bool:
         return pulumi.get(self, "enforce_private_link_endpoint_network_policies")
 
     @property
     @pulumi.getter(name="enforcePrivateLinkServiceNetworkPolicies")
+    @_utilities.deprecated("""This property has been superseded by `private_link_service_network_policies_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
     def enforce_private_link_service_network_policies(self) -> bool:
         return pulumi.get(self, "enforce_private_link_service_network_policies")
 

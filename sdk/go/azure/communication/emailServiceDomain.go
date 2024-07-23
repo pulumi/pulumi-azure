@@ -14,6 +14,50 @@ import (
 
 // Manages an Email Communication Service Domain.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/communication"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEmailService, err := communication.NewEmailService(ctx, "example", &communication.EmailServiceArgs{
+//				Name:              pulumi.String("example-emailcommunicationservice"),
+//				ResourceGroupName: example.Name,
+//				DataLocation:      pulumi.String("United States"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = communication.NewEmailServiceDomain(ctx, "example", &communication.EmailServiceDomainArgs{
+//				Name:             pulumi.String("AzureManagedDomain"),
+//				EmailServiceId:   exampleEmailService.ID(),
+//				DomainManagement: pulumi.String("AzureManaged"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Communication Services can be imported using the `resource id`, e.g.

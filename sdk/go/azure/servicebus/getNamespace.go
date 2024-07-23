@@ -87,6 +87,8 @@ type LookupNamespaceResult struct {
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this ServiceBus Namespace is zone redundant.
+	//
+	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant bool `pulumi:"zoneRedundant"`
 }
 
@@ -196,6 +198,8 @@ func (o LookupNamespaceResultOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Whether or not this ServiceBus Namespace is zone redundant.
+//
+// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 func (o LookupNamespaceResultOutput) ZoneRedundant() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) bool { return v.ZoneRedundant }).(pulumi.BoolOutput)
 }

@@ -112,7 +112,6 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
-        [Obsolete(@"the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value")]
         public InputList<string> CdnFrontdoorCustomDomainIds
         {
             get => _cdnFrontdoorCustomDomainIds ?? (_cdnFrontdoorCustomDomainIds = new InputList<string>());
@@ -139,7 +138,6 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
         /// </summary>
-        [Obsolete(@"the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value")]
         public InputList<string> CdnFrontdoorCustomDomainIds
         {
             get => _cdnFrontdoorCustomDomainIds ?? (_cdnFrontdoorCustomDomainIds = new InputList<string>());

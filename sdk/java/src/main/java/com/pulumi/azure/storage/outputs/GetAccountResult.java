@@ -54,6 +54,11 @@ public final class GetAccountResult {
      */
     private List<GetAccountCustomDomain> customDomains;
     /**
+     * @return Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
+     * 
+     */
+    private String dnsEndpointType;
+    /**
      * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information.
      * 
@@ -526,6 +531,13 @@ public final class GetAccountResult {
      */
     public List<GetAccountCustomDomain> customDomains() {
         return this.customDomains;
+    }
+    /**
+     * @return Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
+     * 
+     */
+    public String dnsEndpointType() {
+        return this.dnsEndpointType;
     }
     /**
      * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
@@ -1137,6 +1149,7 @@ public final class GetAccountResult {
         private Boolean allowNestedItemsToBePublic;
         private List<GetAccountAzureFilesAuthentication> azureFilesAuthentications;
         private List<GetAccountCustomDomain> customDomains;
+        private String dnsEndpointType;
         private Boolean enableHttpsTrafficOnly;
         private String id;
         private List<GetAccountIdentity> identities;
@@ -1232,6 +1245,7 @@ public final class GetAccountResult {
     	      this.allowNestedItemsToBePublic = defaults.allowNestedItemsToBePublic;
     	      this.azureFilesAuthentications = defaults.azureFilesAuthentications;
     	      this.customDomains = defaults.customDomains;
+    	      this.dnsEndpointType = defaults.dnsEndpointType;
     	      this.enableHttpsTrafficOnly = defaults.enableHttpsTrafficOnly;
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
@@ -1380,6 +1394,14 @@ public final class GetAccountResult {
         }
         public Builder customDomains(GetAccountCustomDomain... customDomains) {
             return customDomains(List.of(customDomains));
+        }
+        @CustomType.Setter
+        public Builder dnsEndpointType(String dnsEndpointType) {
+            if (dnsEndpointType == null) {
+              throw new MissingRequiredPropertyException("GetAccountResult", "dnsEndpointType");
+            }
+            this.dnsEndpointType = dnsEndpointType;
+            return this;
         }
         @CustomType.Setter
         public Builder enableHttpsTrafficOnly(Boolean enableHttpsTrafficOnly) {
@@ -2069,6 +2091,7 @@ public final class GetAccountResult {
             _resultValue.allowNestedItemsToBePublic = allowNestedItemsToBePublic;
             _resultValue.azureFilesAuthentications = azureFilesAuthentications;
             _resultValue.customDomains = customDomains;
+            _resultValue.dnsEndpointType = dnsEndpointType;
             _resultValue.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
             _resultValue.id = id;
             _resultValue.identities = identities;

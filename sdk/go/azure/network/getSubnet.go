@@ -67,9 +67,11 @@ type LookupSubnetResult struct {
 	// The address prefixes for the subnet.
 	AddressPrefixes []string `pulumi:"addressPrefixes"`
 	// Is the default outbound access enabled for the subnet.
-	DefaultOutboundAccessEnabled              bool `pulumi:"defaultOutboundAccessEnabled"`
+	DefaultOutboundAccessEnabled bool `pulumi:"defaultOutboundAccessEnabled"`
+	// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
 	EnforcePrivateLinkEndpointNetworkPolicies bool `pulumi:"enforcePrivateLinkEndpointNetworkPolicies"`
-	EnforcePrivateLinkServiceNetworkPolicies  bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
+	// Deprecated: This property has been superseded by `privateLinkServiceNetworkPoliciesEnabled` and will be removed in v4.0 of the AzureRM Provider.
+	EnforcePrivateLinkServiceNetworkPolicies bool `pulumi:"enforcePrivateLinkServiceNetworkPolicies"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
@@ -145,10 +147,12 @@ func (o LookupSubnetResultOutput) DefaultOutboundAccessEnabled() pulumi.BoolOutp
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.DefaultOutboundAccessEnabled }).(pulumi.BoolOutput)
 }
 
+// Deprecated: This property has been superseded by `privateEndpointNetworkPolicies` and will be removed in v4.0 of the AzureRM Provider.
 func (o LookupSubnetResultOutput) EnforcePrivateLinkEndpointNetworkPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkEndpointNetworkPolicies }).(pulumi.BoolOutput)
 }
 
+// Deprecated: This property has been superseded by `privateLinkServiceNetworkPoliciesEnabled` and will be removed in v4.0 of the AzureRM Provider.
 func (o LookupSubnetResultOutput) EnforcePrivateLinkServiceNetworkPolicies() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSubnetResult) bool { return v.EnforcePrivateLinkServiceNetworkPolicies }).(pulumi.BoolOutput)
 }

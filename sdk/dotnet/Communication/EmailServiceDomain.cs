@@ -12,6 +12,39 @@ namespace Pulumi.Azure.Communication
     /// <summary>
     /// Manages an Email Communication Service Domain.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleEmailService = new Azure.Communication.EmailService("example", new()
+    ///     {
+    ///         Name = "example-emailcommunicationservice",
+    ///         ResourceGroupName = example.Name,
+    ///         DataLocation = "United States",
+    ///     });
+    /// 
+    ///     var exampleEmailServiceDomain = new Azure.Communication.EmailServiceDomain("example", new()
+    ///     {
+    ///         Name = "AzureManagedDomain",
+    ///         EmailServiceId = exampleEmailService.Id,
+    ///         DomainManagement = "AzureManaged",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Communication Services can be imported using the `resource id`, e.g.

@@ -156,6 +156,10 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCustomDomainResult> CustomDomains;
         /// <summary>
+        /// Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
+        /// </summary>
+        public readonly string DnsEndpointType;
+        /// <summary>
         /// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         /// for more information.
         /// </summary>
@@ -511,6 +515,8 @@ namespace Pulumi.Azure.Storage
 
             ImmutableArray<Outputs.GetAccountCustomDomainResult> customDomains,
 
+            string dnsEndpointType,
+
             bool enableHttpsTrafficOnly,
 
             string id,
@@ -688,6 +694,7 @@ namespace Pulumi.Azure.Storage
             AllowNestedItemsToBePublic = allowNestedItemsToBePublic;
             AzureFilesAuthentications = azureFilesAuthentications;
             CustomDomains = customDomains;
+            DnsEndpointType = dnsEndpointType;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Id = id;
             Identities = identities;

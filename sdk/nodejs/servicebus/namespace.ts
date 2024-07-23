@@ -143,8 +143,10 @@ export class Namespace extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+     *
+     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    public readonly zoneRedundant!: pulumi.Output<boolean>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -296,6 +298,8 @@ export interface NamespaceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+     *
+     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }
@@ -361,6 +365,8 @@ export interface NamespaceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+     *
+     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */
     zoneRedundant?: pulumi.Input<boolean>;
 }

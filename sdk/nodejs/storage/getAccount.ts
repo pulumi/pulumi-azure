@@ -83,6 +83,10 @@ export interface GetAccountResult {
      */
     readonly customDomains: outputs.storage.GetAccountCustomDomain[];
     /**
+     * Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
+     */
+    readonly dnsEndpointType: string;
+    /**
      * Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information.
      */

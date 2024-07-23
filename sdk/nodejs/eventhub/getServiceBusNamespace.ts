@@ -99,6 +99,8 @@ export interface GetServiceBusNamespaceResult {
     readonly tags: {[key: string]: string};
     /**
      * Whether or not this ServiceBus Namespace is zone redundant.
+     *
+     * @deprecated The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
      */
     readonly zoneRedundant: boolean;
 }

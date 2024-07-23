@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Storage.Inputs
         /// <summary>
         /// Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+        /// &gt; **Note:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
         /// </summary>
         [Input("permanentDeleteEnabled")]
         public Input<bool>? PermanentDeleteEnabled { get; set; }

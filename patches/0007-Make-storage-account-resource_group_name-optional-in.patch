@@ -7,10 +7,10 @@ Subject: [PATCH] Make storage account resource_group_name optional in data
 Look up resource_group_name by using `storageClient.FindAccount` as storage account names should be unique, and resolve back to the resource group it belongs to.
 
 diff --git a/internal/services/storage/storage_account_data_source.go b/internal/services/storage/storage_account_data_source.go
-index b215edff58..4381151544 100644
+index 482972243e..f49dc817f7 100644
 --- a/internal/services/storage/storage_account_data_source.go
 +++ b/internal/services/storage/storage_account_data_source.go
-@@ -37,7 +37,8 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
+@@ -38,7 +38,8 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validate.StorageAccountName,
  			},
  
@@ -20,12 +20,11 @@ index b215edff58..4381151544 100644
  
  			"location": commonschema.LocationComputed(),
  
-@@ -534,11 +535,28 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
- }
+@@ -541,10 +542,27 @@ func dataSourceStorageAccount() *pluginsdk.Resource {
  
  func dataSourceStorageAccountRead(d *pluginsdk.ResourceData, meta interface{}) error {
+ 	client := meta.(*clients.Client).Storage.ResourceManager.StorageAccounts
 +	storageClient := meta.(*clients.Client).Storage
- 	client := meta.(*clients.Client).Storage.AccountsClient
  	subscriptionId := meta.(*clients.Client).Account.SubscriptionId
  	ctx, cancel := timeouts.ForRead(meta.(*clients.Client).StopContext, d)
  	defer cancel()

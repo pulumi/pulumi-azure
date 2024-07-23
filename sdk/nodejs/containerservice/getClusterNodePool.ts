@@ -55,6 +55,7 @@ export interface GetClusterNodePoolArgs {
  * A collection of values returned by getClusterNodePool.
  */
 export interface GetClusterNodePoolResult {
+    readonly autoScalingEnabled: boolean;
     /**
      * Does this Node Pool have Auto-Scaling enabled?
      */
@@ -97,6 +98,7 @@ export interface GetClusterNodePoolResult {
      * A map of Kubernetes Labels applied to each Node in this Node Pool.
      */
     readonly nodeLabels: {[key: string]: string};
+    readonly nodePublicIpEnabled: boolean;
     /**
      * Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
      */

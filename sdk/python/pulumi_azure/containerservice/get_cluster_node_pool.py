@@ -27,7 +27,10 @@ class GetClusterNodePoolResult:
     """
     A collection of values returned by getClusterNodePool.
     """
-    def __init__(__self__, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
+    def __init__(__self__, auto_scaling_enabled=None, enable_auto_scaling=None, enable_node_public_ip=None, eviction_policy=None, id=None, kubernetes_cluster_name=None, max_count=None, max_pods=None, min_count=None, mode=None, name=None, node_count=None, node_labels=None, node_public_ip_enabled=None, node_public_ip_prefix_id=None, node_taints=None, orchestrator_version=None, os_disk_size_gb=None, os_disk_type=None, os_type=None, priority=None, proximity_placement_group_id=None, resource_group_name=None, spot_max_price=None, tags=None, upgrade_settings=None, vm_size=None, vnet_subnet_id=None, zones=None):
+        if auto_scaling_enabled and not isinstance(auto_scaling_enabled, bool):
+            raise TypeError("Expected argument 'auto_scaling_enabled' to be a bool")
+        pulumi.set(__self__, "auto_scaling_enabled", auto_scaling_enabled)
         if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
             raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
         pulumi.set(__self__, "enable_auto_scaling", enable_auto_scaling)
@@ -64,6 +67,9 @@ class GetClusterNodePoolResult:
         if node_labels and not isinstance(node_labels, dict):
             raise TypeError("Expected argument 'node_labels' to be a dict")
         pulumi.set(__self__, "node_labels", node_labels)
+        if node_public_ip_enabled and not isinstance(node_public_ip_enabled, bool):
+            raise TypeError("Expected argument 'node_public_ip_enabled' to be a bool")
+        pulumi.set(__self__, "node_public_ip_enabled", node_public_ip_enabled)
         if node_public_ip_prefix_id and not isinstance(node_public_ip_prefix_id, str):
             raise TypeError("Expected argument 'node_public_ip_prefix_id' to be a str")
         pulumi.set(__self__, "node_public_ip_prefix_id", node_public_ip_prefix_id)
@@ -109,6 +115,11 @@ class GetClusterNodePoolResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="autoScalingEnabled")
+    def auto_scaling_enabled(self) -> bool:
+        return pulumi.get(self, "auto_scaling_enabled")
 
     @property
     @pulumi.getter(name="enableAutoScaling")
@@ -199,6 +210,11 @@ class GetClusterNodePoolResult:
         A map of Kubernetes Labels applied to each Node in this Node Pool.
         """
         return pulumi.get(self, "node_labels")
+
+    @property
+    @pulumi.getter(name="nodePublicIpEnabled")
+    def node_public_ip_enabled(self) -> bool:
+        return pulumi.get(self, "node_public_ip_enabled")
 
     @property
     @pulumi.getter(name="nodePublicIpPrefixId")
@@ -324,6 +340,7 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
         if False:
             yield self
         return GetClusterNodePoolResult(
+            auto_scaling_enabled=self.auto_scaling_enabled,
             enable_auto_scaling=self.enable_auto_scaling,
             enable_node_public_ip=self.enable_node_public_ip,
             eviction_policy=self.eviction_policy,
@@ -336,6 +353,7 @@ class AwaitableGetClusterNodePoolResult(GetClusterNodePoolResult):
             name=self.name,
             node_count=self.node_count,
             node_labels=self.node_labels,
+            node_public_ip_enabled=self.node_public_ip_enabled,
             node_public_ip_prefix_id=self.node_public_ip_prefix_id,
             node_taints=self.node_taints,
             orchestrator_version=self.orchestrator_version,
@@ -385,6 +403,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:containerservice/getClusterNodePool:getClusterNodePool', __args__, opts=opts, typ=GetClusterNodePoolResult).value
 
     return AwaitableGetClusterNodePoolResult(
+        auto_scaling_enabled=pulumi.get(__ret__, 'auto_scaling_enabled'),
         enable_auto_scaling=pulumi.get(__ret__, 'enable_auto_scaling'),
         enable_node_public_ip=pulumi.get(__ret__, 'enable_node_public_ip'),
         eviction_policy=pulumi.get(__ret__, 'eviction_policy'),
@@ -397,6 +416,7 @@ def get_cluster_node_pool(kubernetes_cluster_name: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         node_count=pulumi.get(__ret__, 'node_count'),
         node_labels=pulumi.get(__ret__, 'node_labels'),
+        node_public_ip_enabled=pulumi.get(__ret__, 'node_public_ip_enabled'),
         node_public_ip_prefix_id=pulumi.get(__ret__, 'node_public_ip_prefix_id'),
         node_taints=pulumi.get(__ret__, 'node_taints'),
         orchestrator_version=pulumi.get(__ret__, 'orchestrator_version'),

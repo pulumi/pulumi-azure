@@ -171,10 +171,10 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+     * This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
      * 
      */
-    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider. */
+    @Deprecated /* This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider. */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 

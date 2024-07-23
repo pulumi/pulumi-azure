@@ -254,6 +254,25 @@ class EmailServiceDomain(pulumi.CustomResource):
         """
         Manages an Email Communication Service Domain.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_email_service = azure.communication.EmailService("example",
+            name="example-emailcommunicationservice",
+            resource_group_name=example.name,
+            data_location="United States")
+        example_email_service_domain = azure.communication.EmailServiceDomain("example",
+            name="AzureManagedDomain",
+            email_service_id=example_email_service.id,
+            domain_management="AzureManaged")
+        ```
+
         ## Import
 
         Communication Services can be imported using the `resource id`, e.g.
@@ -278,6 +297,25 @@ class EmailServiceDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Email Communication Service Domain.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_email_service = azure.communication.EmailService("example",
+            name="example-emailcommunicationservice",
+            resource_group_name=example.name,
+            data_location="United States")
+        example_email_service_domain = azure.communication.EmailServiceDomain("example",
+            name="AzureManagedDomain",
+            email_service_id=example_email_service.id,
+            domain_management="AzureManaged")
+        ```
 
         ## Import
 

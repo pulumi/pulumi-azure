@@ -22939,11 +22939,16 @@ func (o GetKubernetesClusterAciConnectorLinuxArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetKubernetesClusterAgentPoolProfile struct {
+	AutoScalingEnabled bool `pulumi:"autoScalingEnabled"`
 	// The number of Agents (VMs) in the Pool.
 	Count int `pulumi:"count"`
 	// If the auto-scaler is enabled.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `autoScalingEnabled` property.
 	EnableAutoScaling bool `pulumi:"enableAutoScaling"`
 	// If the Public IPs for the nodes in this Agent Pool are enabled.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `nodePublicIpEnabled` property.
 	EnableNodePublicIp bool `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount int `pulumi:"maxCount"`
@@ -22952,8 +22957,9 @@ type GetKubernetesClusterAgentPoolProfile struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount int `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name       string            `pulumi:"name"`
-	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	Name                string            `pulumi:"name"`
+	NodeLabels          map[string]string `pulumi:"nodeLabels"`
+	NodePublicIpEnabled bool              `pulumi:"nodePublicIpEnabled"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
 	NodePublicIpPrefixId string   `pulumi:"nodePublicIpPrefixId"`
 	NodeTaints           []string `pulumi:"nodeTaints"`
@@ -22989,11 +22995,16 @@ type GetKubernetesClusterAgentPoolProfileInput interface {
 }
 
 type GetKubernetesClusterAgentPoolProfileArgs struct {
+	AutoScalingEnabled pulumi.BoolInput `pulumi:"autoScalingEnabled"`
 	// The number of Agents (VMs) in the Pool.
 	Count pulumi.IntInput `pulumi:"count"`
 	// If the auto-scaler is enabled.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `autoScalingEnabled` property.
 	EnableAutoScaling pulumi.BoolInput `pulumi:"enableAutoScaling"`
 	// If the Public IPs for the nodes in this Agent Pool are enabled.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `nodePublicIpEnabled` property.
 	EnableNodePublicIp pulumi.BoolInput `pulumi:"enableNodePublicIp"`
 	// Maximum number of nodes for auto-scaling
 	MaxCount pulumi.IntInput `pulumi:"maxCount"`
@@ -23002,8 +23013,9 @@ type GetKubernetesClusterAgentPoolProfileArgs struct {
 	// Minimum number of nodes for auto-scaling
 	MinCount pulumi.IntInput `pulumi:"minCount"`
 	// The name of the managed Kubernetes Cluster.
-	Name       pulumi.StringInput    `pulumi:"name"`
-	NodeLabels pulumi.StringMapInput `pulumi:"nodeLabels"`
+	Name                pulumi.StringInput    `pulumi:"name"`
+	NodeLabels          pulumi.StringMapInput `pulumi:"nodeLabels"`
+	NodePublicIpEnabled pulumi.BoolInput      `pulumi:"nodePublicIpEnabled"`
 	// Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
 	NodePublicIpPrefixId pulumi.StringInput      `pulumi:"nodePublicIpPrefixId"`
 	NodeTaints           pulumi.StringArrayInput `pulumi:"nodeTaints"`
@@ -23078,17 +23090,25 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) ToGetKubernetesClusterAgentP
 	return o
 }
 
+func (o GetKubernetesClusterAgentPoolProfileOutput) AutoScalingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.AutoScalingEnabled }).(pulumi.BoolOutput)
+}
+
 // The number of Agents (VMs) in the Pool.
 func (o GetKubernetesClusterAgentPoolProfileOutput) Count() pulumi.IntOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) int { return v.Count }).(pulumi.IntOutput)
 }
 
 // If the auto-scaler is enabled.
+//
+// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `autoScalingEnabled` property.
 func (o GetKubernetesClusterAgentPoolProfileOutput) EnableAutoScaling() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableAutoScaling }).(pulumi.BoolOutput)
 }
 
 // If the Public IPs for the nodes in this Agent Pool are enabled.
+//
+// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider in favour of the `nodePublicIpEnabled` property.
 func (o GetKubernetesClusterAgentPoolProfileOutput) EnableNodePublicIp() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.EnableNodePublicIp }).(pulumi.BoolOutput)
 }
@@ -23115,6 +23135,10 @@ func (o GetKubernetesClusterAgentPoolProfileOutput) Name() pulumi.StringOutput {
 
 func (o GetKubernetesClusterAgentPoolProfileOutput) NodeLabels() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) map[string]string { return v.NodeLabels }).(pulumi.StringMapOutput)
+}
+
+func (o GetKubernetesClusterAgentPoolProfileOutput) NodePublicIpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterAgentPoolProfile) bool { return v.NodePublicIpEnabled }).(pulumi.BoolOutput)
 }
 
 // Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
@@ -23314,10 +23338,16 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl struct {
 	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled bool `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId string `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 	Managed bool `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId string `pulumi:"serverAppId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId string `pulumi:"tenantId"`
@@ -23340,10 +23370,16 @@ type GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs struct {
 	// Is Role Based Access Control based on Azure AD enabled?
 	AzureRbacEnabled pulumi.BoolInput `pulumi:"azureRbacEnabled"`
 	// The Client ID of an Azure Active Directory Application.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 	ClientAppId pulumi.StringInput `pulumi:"clientAppId"`
 	// Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 	Managed pulumi.BoolInput `pulumi:"managed"`
 	// The Server ID of an Azure Active Directory Application.
+	//
+	// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 	ServerAppId pulumi.StringInput `pulumi:"serverAppId"`
 	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
@@ -23413,16 +23449,22 @@ func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Az
 }
 
 // The Client ID of an Azure Active Directory Application.
+//
+// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ClientAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) string { return v.ClientAppId }).(pulumi.StringOutput)
 }
 
 // Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration?
+//
+// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) Managed() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) bool { return v.Managed }).(pulumi.BoolOutput)
 }
 
 // The Server ID of an Azure Active Directory Application.
+//
+// Deprecated: This property is deprecated and will be removed in v4.0 of the AzureRM Provider.
 func (o GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlOutput) ServerAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl) string { return v.ServerAppId }).(pulumi.StringOutput)
 }

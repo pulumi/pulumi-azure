@@ -2024,7 +2024,7 @@ class AppServiceSiteConfig(dict):
         :param str php_version: The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
         :param str python_version: The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
         :param Sequence['AppServiceSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
@@ -2299,7 +2299,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 
@@ -23933,7 +23933,7 @@ class SlotSiteConfig(dict):
         :param str php_version: The version of PHP to use in this App Service Slot. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, and `7.4`.
         :param str python_version: The version of Python to use in this App Service Slot. Possible values are `2.7` and `3.4`.
         :param bool remote_debugging_enabled: Is Remote Debugging Enabled? Defaults to `false`.
-        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        :param str remote_debugging_version: Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
         :param Sequence['SlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
@@ -24210,7 +24210,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="remoteDebuggingVersion")
     def remote_debugging_version(self) -> Optional[str]:
         """
-        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017` and `VS2019`.
+        Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2017`, `VS2019`, and `VS2022`.
         """
         return pulumi.get(self, "remote_debugging_version")
 

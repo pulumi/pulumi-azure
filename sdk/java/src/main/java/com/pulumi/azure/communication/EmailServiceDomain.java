@@ -24,6 +24,53 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.communication.EmailService;
+ * import com.pulumi.azure.communication.EmailServiceArgs;
+ * import com.pulumi.azure.communication.EmailServiceDomain;
+ * import com.pulumi.azure.communication.EmailServiceDomainArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleEmailService = new EmailService("exampleEmailService", EmailServiceArgs.builder()
+ *             .name("example-emailcommunicationservice")
+ *             .resourceGroupName(example.name())
+ *             .dataLocation("United States")
+ *             .build());
+ * 
+ *         var exampleEmailServiceDomain = new EmailServiceDomain("exampleEmailServiceDomain", EmailServiceDomainArgs.builder()
+ *             .name("AzureManagedDomain")
+ *             .emailServiceId(exampleEmailService.id())
+ *             .domainManagement("AzureManaged")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import

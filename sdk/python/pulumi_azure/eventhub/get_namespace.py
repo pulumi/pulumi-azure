@@ -215,6 +215,7 @@ class GetNamespaceResult:
 
     @property
     @pulumi.getter(name="zoneRedundant")
+    @_utilities.deprecated("""The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.""")
     def zone_redundant(self) -> bool:
         """
         Is this EventHub Namespace deployed across Availability Zones?

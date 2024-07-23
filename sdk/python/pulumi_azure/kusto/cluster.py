@@ -86,8 +86,8 @@ class ClusterArgs:
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if engine is not None:
-            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
+            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if identity is not None:
@@ -205,7 +205,7 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
+    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
     def engine(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "engine")
 
@@ -460,8 +460,8 @@ class _ClusterState:
         if double_encryption_enabled is not None:
             pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
         if engine is not None:
-            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
+            warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if identity is not None:
@@ -573,7 +573,7 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
+    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
     def engine(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "engine")
 
@@ -1147,7 +1147,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
+    @_utilities.deprecated("""This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.""")
     def engine(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "engine")
 

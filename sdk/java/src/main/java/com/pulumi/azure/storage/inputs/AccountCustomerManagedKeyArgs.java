@@ -49,7 +49,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     /**
      * The ID of a user assigned identity.
      * 
-     * &gt; **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     @Import(name="userAssignedIdentityId", required=true)
@@ -58,7 +58,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
     /**
      * @return The ID of a user assigned identity.
      * 
-     * &gt; **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+     * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
      * 
      */
     public Output<String> userAssignedIdentityId() {
@@ -136,7 +136,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId The ID of a user assigned identity.
          * 
-         * &gt; **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+         * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         /**
          * @param userAssignedIdentityId The ID of a user assigned identity.
          * 
-         * &gt; **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+         * &gt; **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
          * 
          * @return builder
          * 

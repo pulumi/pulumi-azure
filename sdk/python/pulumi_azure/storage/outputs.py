@@ -285,25 +285,25 @@ class AccountBlobProperties(dict):
         """
         :param bool change_feed_enabled: Is the blob service properties for change feed events enabled? Default to `false`.
                
-               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+               > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param int change_feed_retention_in_days: The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
                
-               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+               > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param 'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs' container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
         :param Sequence['AccountBlobPropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
         :param str default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
         :param 'AccountBlobPropertiesDeleteRetentionPolicyArgs' delete_retention_policy: A `delete_retention_policy` block as defined below.
         :param bool last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
                
-               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+               > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param 'AccountBlobPropertiesRestorePolicyArgs' restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
                
-               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+               > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
                
-               > **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+               > **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
         :param bool versioning_enabled: Is versioning enabled? Default to `false`.
                
-               > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+               > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         if change_feed_enabled is not None:
             pulumi.set(__self__, "change_feed_enabled", change_feed_enabled)
@@ -330,7 +330,7 @@ class AccountBlobProperties(dict):
         """
         Is the blob service properties for change feed events enabled? Default to `false`.
 
-        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "change_feed_enabled")
 
@@ -340,7 +340,7 @@ class AccountBlobProperties(dict):
         """
         The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 
-        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "change_feed_retention_in_days")
 
@@ -382,7 +382,7 @@ class AccountBlobProperties(dict):
         """
         Is the last access time based tracking enabled? Default to `false`.
 
-        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "last_access_time_enabled")
 
@@ -392,9 +392,9 @@ class AccountBlobProperties(dict):
         """
         A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
 
-        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
 
-        > **NOTE:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
+        > **Note:** `restore_policy` can not be configured when `dns_endpoint_type` is `AzureDnsZone`.
         """
         return pulumi.get(self, "restore_policy")
 
@@ -404,7 +404,7 @@ class AccountBlobProperties(dict):
         """
         Is versioning enabled? Default to `false`.
 
-        > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
+        > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
         """
         return pulumi.get(self, "versioning_enabled")
 
@@ -543,7 +543,7 @@ class AccountBlobPropertiesDeleteRetentionPolicy(dict):
         :param int days: Specifies the number of days that the blob should be retained, between `1` and `365` days. Defaults to `7`.
         :param bool permanent_delete_enabled: Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
                
-               > **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+               > **Note:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
@@ -564,7 +564,7 @@ class AccountBlobPropertiesDeleteRetentionPolicy(dict):
         """
         Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to `false`.
 
-        > **NOTE:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
+        > **Note:** `permanent_delete_enabled` cannot be set to true if a `restore_policy` block is defined.
         """
         return pulumi.get(self, "permanent_delete_enabled")
 
@@ -664,7 +664,7 @@ class AccountCustomerManagedKey(dict):
         """
         :param str user_assigned_identity_id: The ID of a user assigned identity.
                
-               > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+               > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         :param str key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
         :param str managed_hsm_key_id: The ID of the managed HSM Key. Exactly one of `key_vault_key_id` and `managed_hsm_key_id` may be specified.
         """
@@ -680,7 +680,7 @@ class AccountCustomerManagedKey(dict):
         """
         The ID of a user assigned identity.
 
-        > **NOTE:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
+        > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -733,7 +733,7 @@ class AccountIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
                
                > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this Storage Account.
@@ -761,7 +761,7 @@ class AccountIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
 
         > The assigned `principal_id` and `tenant_id` can be retrieved after the identity `type` has been set to `SystemAssigned`  and Storage Account has been created. More details are available below.
         """
@@ -882,7 +882,7 @@ class AccountNetworkRules(dict):
                
                > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
                
-               > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+               > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
                
                > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
                
@@ -931,7 +931,7 @@ class AccountNetworkRules(dict):
 
         > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
 
-        > **NOTE:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
+        > **Note:** Network Rules can be defined either directly on the `storage.Account` resource, or using the `storage.AccountNetworkRules` resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a `default_action` of `Deny` to `Allow` requires defining, rather than removing, the block.
 
         > **Note:** The prefix of `ip_rules` must be between 0 and 30 and only supports public IP addresses.
 

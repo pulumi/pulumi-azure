@@ -146,8 +146,6 @@ export class WorkspaceCustomerManagedKey extends pulumi.CustomResource {
     public readonly keyVaultKeyId!: pulumi.Output<string>;
     /**
      * The ID of the Databricks Workspace..
-     *
-     * @deprecated this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      */
     public readonly workspaceId!: pulumi.Output<string>;
 
@@ -192,8 +190,6 @@ export interface WorkspaceCustomerManagedKeyState {
     keyVaultKeyId?: pulumi.Input<string>;
     /**
      * The ID of the Databricks Workspace..
-     *
-     * @deprecated this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      */
     workspaceId?: pulumi.Input<string>;
 }
@@ -208,8 +204,6 @@ export interface WorkspaceCustomerManagedKeyArgs {
     keyVaultKeyId: pulumi.Input<string>;
     /**
      * The ID of the Databricks Workspace..
-     *
-     * @deprecated this resource has been deprecated in favour of the `azure.databricks.WorkspaceRootDbfsCustomerManagedKey` resource and will be removed from the v4.0 azurerm provider.
      */
     workspaceId: pulumi.Input<string>;
 }

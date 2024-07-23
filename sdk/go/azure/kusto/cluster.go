@@ -79,7 +79,7 @@ type Cluster struct {
 	DiskEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
@@ -171,7 +171,7 @@ type clusterState struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -228,7 +228,7 @@ type ClusterState struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -287,7 +287,7 @@ type clusterArgs struct {
 	DiskEncryptionEnabled *bool `pulumi:"diskEncryptionEnabled"`
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled *bool `pulumi:"doubleEncryptionEnabled"`
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
 	Engine *string `pulumi:"engine"`
 	// An `identity` block as defined below.
 	Identity *ClusterIdentity `pulumi:"identity"`
@@ -341,7 +341,7 @@ type ClusterArgs struct {
 	DiskEncryptionEnabled pulumi.BoolPtrInput
 	// Is the cluster's double encryption enabled? Changing this forces a new resource to be created.
 	DoubleEncryptionEnabled pulumi.BoolPtrInput
-	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+	// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
 	Engine pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ClusterIdentityPtrInput
@@ -500,7 +500,7 @@ func (o ClusterOutput) DoubleEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.DoubleEncryptionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.
+// Deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in v4.0 of the AzureRM Provider.
 func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
