@@ -327,12 +327,12 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
             export_data_storage_location={
-                "containerId": example_container.resource_manager_id,
-                "rootFolderPath": "/root/updated",
+                "container_id": example_container.resource_manager_id,
+                "root_folder_path": "/root/updated",
             },
             export_data_options={
                 "type": "Usage",
-                "timeFrame": "WeekToDate",
+                "time_frame": "WeekToDate",
             })
         ```
 
@@ -390,12 +390,12 @@ class SubscriptionCostManagementExport(pulumi.CustomResource):
             recurrence_period_start_date="2020-08-18T00:00:00Z",
             recurrence_period_end_date="2020-09-18T00:00:00Z",
             export_data_storage_location={
-                "containerId": example_container.resource_manager_id,
-                "rootFolderPath": "/root/updated",
+                "container_id": example_container.resource_manager_id,
+                "root_folder_path": "/root/updated",
             },
             export_data_options={
                 "type": "Usage",
-                "timeFrame": "WeekToDate",
+                "time_frame": "WeekToDate",
             })
         ```
 

@@ -489,13 +489,13 @@ class GremlinGraph(pulumi.CustomResource):
             throughput=400,
             index_policy={
                 "automatic": True,
-                "indexingMode": "consistent",
-                "includedPaths": ["/*"],
-                "excludedPaths": ["/\\"_etag\\"/?"],
+                "indexing_mode": "consistent",
+                "included_paths": ["/*"],
+                "excluded_paths": ["/\\"_etag\\"/?"],
             },
             conflict_resolution_policy={
                 "mode": "LastWriterWins",
-                "conflictResolutionPath": "/_ts",
+                "conflict_resolution_path": "/_ts",
             },
             unique_keys=[{
                 "paths": [
@@ -562,13 +562,13 @@ class GremlinGraph(pulumi.CustomResource):
             throughput=400,
             index_policy={
                 "automatic": True,
-                "indexingMode": "consistent",
-                "includedPaths": ["/*"],
-                "excludedPaths": ["/\\"_etag\\"/?"],
+                "indexing_mode": "consistent",
+                "included_paths": ["/*"],
+                "excluded_paths": ["/\\"_etag\\"/?"],
             },
             conflict_resolution_policy={
                 "mode": "LastWriterWins",
-                "conflictResolutionPath": "/_ts",
+                "conflict_resolution_path": "/_ts",
             },
             unique_keys=[{
                 "paths": [

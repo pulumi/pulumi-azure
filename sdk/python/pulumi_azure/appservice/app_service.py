@@ -842,8 +842,8 @@ class AppService(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "dotnetFrameworkVersion": "v4.0",
-                "scmType": "LocalGit",
+                "dotnet_framework_version": "v4.0",
+                "scm_type": "LocalGit",
             },
             app_settings={
                 "SOME_KEY": "some-value",
@@ -924,8 +924,8 @@ class AppService(pulumi.CustomResource):
             resource_group_name=example.name,
             app_service_plan_id=example_plan.id,
             site_config={
-                "dotnetFrameworkVersion": "v4.0",
-                "scmType": "LocalGit",
+                "dotnet_framework_version": "v4.0",
+                "scm_type": "LocalGit",
             },
             app_settings={
                 "SOME_KEY": "some-value",

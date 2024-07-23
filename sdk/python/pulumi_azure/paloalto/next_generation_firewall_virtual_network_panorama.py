@@ -354,7 +354,7 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "trusted",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -369,7 +369,7 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "untrusted",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -383,11 +383,11 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             location=example.location,
             panorama_base64_config="e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
             network_profile={
-                "publicIpAddressIds": [example_public_ip.id],
-                "vnetConfiguration": {
-                    "virtualNetworkId": example_virtual_network.id,
-                    "trustedSubnetId": trust.id,
-                    "untrustedSubnetId": untrust.id,
+                "public_ip_address_ids": [example_public_ip.id],
+                "vnet_configuration": {
+                    "virtual_network_id": example_virtual_network.id,
+                    "trusted_subnet_id": trust.id,
+                    "untrusted_subnet_id": untrust.id,
                 },
             })
         ```
@@ -454,7 +454,7 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             address_prefixes=["10.0.1.0/24"],
             delegations=[{
                 "name": "trusted",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -469,7 +469,7 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             address_prefixes=["10.0.2.0/24"],
             delegations=[{
                 "name": "untrusted",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "PaloAltoNetworks.Cloudngfw/firewalls",
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 },
@@ -483,11 +483,11 @@ class NextGenerationFirewallVirtualNetworkPanorama(pulumi.CustomResource):
             location=example.location,
             panorama_base64_config="e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
             network_profile={
-                "publicIpAddressIds": [example_public_ip.id],
-                "vnetConfiguration": {
-                    "virtualNetworkId": example_virtual_network.id,
-                    "trustedSubnetId": trust.id,
-                    "untrustedSubnetId": untrust.id,
+                "public_ip_address_ids": [example_public_ip.id],
+                "vnet_configuration": {
+                    "virtual_network_id": example_virtual_network.id,
+                    "trusted_subnet_id": trust.id,
+                    "untrusted_subnet_id": untrust.id,
                 },
             })
         ```

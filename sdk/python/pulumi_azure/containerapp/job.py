@@ -669,17 +669,17 @@ class Job(pulumi.CustomResource):
             replica_retry_limit=10,
             manual_trigger_config={
                 "parallelism": 4,
-                "replicaCompletionCount": 1,
+                "replica_completion_count": 1,
             },
             template={
                 "containers": [{
                     "image": "repo/testcontainerAppsJob0:v1",
                     "name": "testcontainerappsjob0",
-                    "readinessProbes": [{
+                    "readiness_probes": [{
                         "transport": "HTTP",
                         "port": 5000,
                     }],
-                    "livenessProbes": [{
+                    "liveness_probes": [{
                         "transport": "HTTP",
                         "port": 5000,
                         "path": "/health",
@@ -687,12 +687,12 @@ class Job(pulumi.CustomResource):
                             "name": "Cache-Control",
                             "value": "no-cache",
                         }],
-                        "initialDelay": 5,
-                        "intervalSeconds": 20,
+                        "initial_delay": 5,
+                        "interval_seconds": 20,
                         "timeout": 2,
-                        "failureCountThreshold": 1,
+                        "failure_count_threshold": 1,
                     }],
-                    "startupProbes": [{
+                    "startup_probes": [{
                         "transport": "TCP",
                         "port": 5000,
                     }],
@@ -768,17 +768,17 @@ class Job(pulumi.CustomResource):
             replica_retry_limit=10,
             manual_trigger_config={
                 "parallelism": 4,
-                "replicaCompletionCount": 1,
+                "replica_completion_count": 1,
             },
             template={
                 "containers": [{
                     "image": "repo/testcontainerAppsJob0:v1",
                     "name": "testcontainerappsjob0",
-                    "readinessProbes": [{
+                    "readiness_probes": [{
                         "transport": "HTTP",
                         "port": 5000,
                     }],
-                    "livenessProbes": [{
+                    "liveness_probes": [{
                         "transport": "HTTP",
                         "port": 5000,
                         "path": "/health",
@@ -786,12 +786,12 @@ class Job(pulumi.CustomResource):
                             "name": "Cache-Control",
                             "value": "no-cache",
                         }],
-                        "initialDelay": 5,
-                        "intervalSeconds": 20,
+                        "initial_delay": 5,
+                        "interval_seconds": 20,
                         "timeout": 2,
-                        "failureCountThreshold": 1,
+                        "failure_count_threshold": 1,
                     }],
-                    "startupProbes": [{
+                    "startup_probes": [{
                         "transport": "TCP",
                         "port": 5000,
                     }],

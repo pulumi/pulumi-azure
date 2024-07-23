@@ -681,7 +681,7 @@ class Endpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             origins=[{
                 "name": "example",
-                "hostName": "www.contoso.com",
+                "host_name": "www.contoso.com",
             }])
         ```
 
@@ -748,7 +748,7 @@ class Endpoint(pulumi.CustomResource):
             resource_group_name=example.name,
             origins=[{
                 "name": "example",
-                "hostName": "www.contoso.com",
+                "host_name": "www.contoso.com",
             }])
         ```
 

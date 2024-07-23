@@ -424,7 +424,7 @@ class ApiOperation(pulumi.CustomResource):
                 "required": True,
             }],
             responses=[{
-                "statusCode": 200,
+                "status_code": 200,
             }])
         ```
 
@@ -484,7 +484,7 @@ class ApiOperation(pulumi.CustomResource):
                 "required": True,
             }],
             responses=[{
-                "statusCode": 200,
+                "status_code": 200,
             }])
         ```
 

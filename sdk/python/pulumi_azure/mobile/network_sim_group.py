@@ -276,7 +276,7 @@ class NetworkSimGroup(pulumi.CustomResource):
             encryption_key_url=example_get_key.id,
             identity={
                 "type": "SystemAssigned, UserAssigned",
-                "identityIds": [example.id],
+                "identity_ids": [example.id],
             },
             tags={
                 "key": "value",
@@ -339,7 +339,7 @@ class NetworkSimGroup(pulumi.CustomResource):
             encryption_key_url=example_get_key.id,
             identity={
                 "type": "SystemAssigned, UserAssigned",
-                "identityIds": [example.id],
+                "identity_ids": [example.id],
             },
             tags={
                 "key": "value",
