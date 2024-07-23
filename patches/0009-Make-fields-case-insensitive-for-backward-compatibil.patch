@@ -8,12 +8,12 @@ Try to make diffs as robust and mergable as possible:
 - Put added import lines in own block to avoid conflicts.
 
 diff --git a/internal/features/four_point_oh.go b/internal/features/four_point_oh.go
-index d3723a3480..4953bff3b7 100644
+index 1921cf3887..cb10ba1bbe 100644
 --- a/internal/features/four_point_oh.go
 +++ b/internal/features/four_point_oh.go
-@@ -40,3 +40,9 @@ func FourPointOh() bool {
+@@ -47,3 +47,9 @@ func FourPointOh() bool {
  func FourPointOhBeta() bool {
- 	return FourPointOh() || false
+ 	return FourPointOh() || strings.EqualFold(os.Getenv("ARM_FOURPOINTZERO_BETA"), "true")
  }
 +
 +// FORK: Small function to help us not make a breaking change in the Pulumi
@@ -323,7 +323,7 @@ index 5d1d4cfe1c..72cb85465c 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index a6ecd0eab3..fd859b3158 100644
+index ab367080f4..cd100fdc4c 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
 @@ -1087,7 +1087,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
@@ -441,7 +441,7 @@ index 24f5734126..f20b2cd035 100644
  
  						"value": {
 diff --git a/internal/services/eventhub/eventhub_namespace_resource.go b/internal/services/eventhub/eventhub_namespace_resource.go
-index c4c5093737..74ddb07a33 100644
+index da4956270e..f6ff2056d1 100644
 --- a/internal/services/eventhub/eventhub_namespace_resource.go
 +++ b/internal/services/eventhub/eventhub_namespace_resource.go
 @@ -80,7 +80,7 @@ func resourceEventHubNamespace() *pluginsdk.Resource {
@@ -815,19 +815,10 @@ index 5b4376f28d..440c5c209a 100644
  
  			"port": {
 diff --git a/internal/services/loadbalancer/rule_resource.go b/internal/services/loadbalancer/rule_resource.go
-index 1ae1e82215..1699fba1b7 100644
+index 856e2dea39..d69cf17717 100644
 --- a/internal/services/loadbalancer/rule_resource.go
 +++ b/internal/services/loadbalancer/rule_resource.go
-@@ -8,6 +8,8 @@ import (
- 	"log"
- 	"time"
- 
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+
- 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
- 	"github.com/hashicorp/go-azure-helpers/lang/response"
- 	"github.com/hashicorp/go-azure-sdk/resource-manager/network/2023-09-01/loadbalancers"
-@@ -371,7 +373,7 @@ func resourceArmLoadBalancerRuleSchema() map[string]*pluginsdk.Schema {
+@@ -372,7 +372,7 @@ func resourceArmLoadBalancerRuleSchema() map[string]*pluginsdk.Schema {
  				string(loadbalancers.TransportProtocolAll),
  				string(loadbalancers.TransportProtocolTcp),
  				string(loadbalancers.TransportProtocolUdp),
@@ -1868,7 +1859,7 @@ index 80b56994a3..b8954de4ac 100644
  											},
  										},
 diff --git a/internal/services/servicebus/servicebus_namespace_resource.go b/internal/services/servicebus/servicebus_namespace_resource.go
-index 3447f732a9..7a01563b25 100644
+index 8405a07c91..2d9ca4d9a8 100644
 --- a/internal/services/servicebus/servicebus_namespace_resource.go
 +++ b/internal/services/servicebus/servicebus_namespace_resource.go
 @@ -87,7 +87,8 @@ func resourceServiceBusNamespace() *pluginsdk.Resource {
@@ -2068,42 +2059,47 @@ index 16797800a2..6d74e94b4f 100644
  
  						"storage_account_access_key": {
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index 8e4d3eae4a..351df0b49a 100644
+index 04dbb3fd34..f94262e32e 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
-@@ -13,6 +13,9 @@ import (
+@@ -11,6 +11,8 @@ import (
  	"strings"
  	"time"
  
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
 +
- 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2021-09-01/storage" // nolint: staticcheck
- 	azautorest "github.com/Azure/go-autorest/autorest"
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-@@ -150,8 +153,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
- 					string(storage.KindBlockBlobStorage),
- 					string(storage.KindFileStorage),
- 					string(storage.KindStorageV2),
--				}, false),
--				Default: string(storage.KindStorageV2),
-+				}, features.CaseInsensitive()),
+ 	"github.com/hashicorp/go-azure-helpers/lang/response"
+ 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+@@ -103,17 +105,19 @@ func resourceStorageAccount() *pluginsdk.Resource {
+ 			"location": commonschema.Location(),
+ 
+ 			"account_kind": {
+-				Type:         pluginsdk.TypeString,
+-				Optional:     true,
+-				ValidateFunc: validation.StringInSlice(storageaccounts.PossibleValuesForKind(), false),
+-				Default:      string(storageaccounts.KindStorageVTwo),
++				Type:             pluginsdk.TypeString,
++				Optional:         true,
++				ValidateFunc:     validation.StringInSlice(storageaccounts.PossibleValuesForKind(), features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
-+				Default:          string(storage.KindStorageV2),
++				Default:          string(storageaccounts.KindStorageVTwo),
  			},
  
  			"account_tier": {
-@@ -161,7 +165,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
- 				ValidateFunc: validation.StringInSlice([]string{
- 					string(storage.SkuTierStandard),
- 					string(storage.SkuTierPremium),
--				}, false),
-+				}, features.CaseInsensitive()),
+-				Type:         pluginsdk.TypeString,
+-				Required:     true,
+-				ForceNew:     true,
+-				ValidateFunc: validation.StringInSlice(storageaccounts.PossibleValuesForSkuTier(), false),
++				Type:             pluginsdk.TypeString,
++				Required:         true,
++				ForceNew:         true,
++				ValidateFunc:     validation.StringInSlice(storageaccounts.PossibleValuesForSkuTier(), features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
  			"account_replication_type": {
-@@ -174,7 +179,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -126,15 +130,20 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					"RAGRS",
  					"GZRS",
  					"RAGZRS",
@@ -2113,22 +2109,30 @@ index 8e4d3eae4a..351df0b49a 100644
  			},
  
  			// Only valid for FileStorage, BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
-@@ -185,7 +191,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
- 				ValidateFunc: validation.StringInSlice([]string{
- 					string(storage.AccessTierCool),
- 					string(storage.AccessTierHot),
--				}, false),
+ 			"access_tier": {
+-				Type:         pluginsdk.TypeString,
+-				Optional:     true,
+-				Computed:     true,
+-				ValidateFunc: validation.StringInSlice(storageaccounts.PossibleValuesForAccessTier(), false), // TODO: docs for `Premium`
++				Type:     pluginsdk.TypeString,
++				Optional: true,
++				Computed: true,
++				ValidateFunc: validation.StringInSlice([]string{
++					string(storageaccounts.AccessTierCool),
++					string(storageaccounts.AccessTierHot),
 +				}, features.CaseInsensitive()),
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
  			"azure_files_authentication": {
-@@ -422,7 +429,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
- 									string(storage.BypassLogging),
- 									string(storage.BypassMetrics),
- 									string(storage.BypassNone),
--								}, false),
-+								}, features.CaseInsensitive()),
+@@ -358,8 +367,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
+ 							Optional: true,
+ 							Computed: true,
+ 							Elem: &pluginsdk.Schema{
+-								Type:         pluginsdk.TypeString,
+-								ValidateFunc: validation.StringInSlice(storageaccounts.PossibleValuesForBypass(), false),
++								Type:             pluginsdk.TypeString,
++								ValidateFunc:     validation.StringInSlice(storageaccounts.PossibleValuesForBypass(), features.CaseInsensitive()),
 +								DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  							},
  							Set: pluginsdk.HashString,
@@ -2213,7 +2217,7 @@ index a76a72520f..3d400d4fc0 100644
  
  			"max_return": {
 diff --git a/internal/services/web/app_service.go b/internal/services/web/app_service.go
-index f5dac4de88..c60cc1d850 100644
+index 9a965e035a..01b69c1c1f 100644
 --- a/internal/services/web/app_service.go
 +++ b/internal/services/web/app_service.go
 @@ -8,6 +8,9 @@ import (
@@ -2256,9 +2260,9 @@ index f5dac4de88..c60cc1d850 100644
  				},
  
  				"php_version": {
-@@ -354,6 +360,7 @@ func schemaAppServiceSiteConfig() *pluginsdk.Schema {
- 						"VS2017",
+@@ -355,6 +361,7 @@ func schemaAppServiceSiteConfig() *pluginsdk.Schema {
  						"VS2019",
+ 						"VS2022",
  					}, false),
 +					DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  				},

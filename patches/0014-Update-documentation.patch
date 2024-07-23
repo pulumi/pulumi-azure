@@ -532,7 +532,7 @@ index 95dac2d863..22f89d3199 100644
  }
  ```
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index e22526a383..feff83d72e 100644
+index 14336e59d1..af730081cd 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
@@ -603,7 +603,7 @@ index 53e3926433..cfbf80a9a4 100644
  ```hcl
  data "azuread_service_principal" "MicrosoftWebApp" {
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index cbda06e6a6..54c68c9c9c 100644
+index 5a60509251..410fbbc966 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -235,7 +235,7 @@ A `site_config` block supports the following:
