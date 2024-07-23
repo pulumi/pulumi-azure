@@ -63,12 +63,12 @@ import (
 //			}
 //			_, err = streamanalytics.NewOutputEventHub(ctx, "example", &streamanalytics.OutputEventHubArgs{
 //				Name: pulumi.String("output-to-eventhub"),
-//				StreamAnalyticsJobName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.Name, nil
-//				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				EventhubName:           exampleEventHub.Name,
 //				ServicebusNamespace:    exampleEventHubNamespace.Name,
 //				SharedAccessPolicyKey:  exampleEventHubNamespace.DefaultPrimaryKey,

@@ -241,7 +241,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             origins=[{
                 "name": "example",
-                "hostName": example_account.primary_blob_host,
+                "host_name": example_account.primary_blob_host,
             }])
         example = azure.dns.get_zone(name="example-domain.com",
             resource_group_name="domain-rg")
@@ -311,7 +311,7 @@ class EndpointCustomDomain(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             origins=[{
                 "name": "example",
-                "hostName": example_account.primary_blob_host,
+                "host_name": example_account.primary_blob_host,
             }])
         example = azure.dns.get_zone(name="example-domain.com",
             resource_group_name="domain-rg")

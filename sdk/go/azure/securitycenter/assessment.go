@@ -77,7 +77,7 @@ import (
 //				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: invokeFile.Result,
+//						PublicKey: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{

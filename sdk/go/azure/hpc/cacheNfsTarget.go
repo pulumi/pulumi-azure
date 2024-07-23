@@ -139,7 +139,7 @@ import (
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: invokeFile.Result,
+//						PublicKey: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
@@ -152,7 +152,7 @@ import (
 //					Sku:       pulumi.String("22_04-lts"),
 //					Version:   pulumi.String("latest"),
 //				},
-//				CustomData: invokeBase64encode1.Result,
+//				CustomData: pulumi.String(invokeBase64encode1.Result),
 //			})
 //			if err != nil {
 //				return err

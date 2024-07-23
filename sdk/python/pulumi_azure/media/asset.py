@@ -291,7 +291,7 @@ class Asset(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_asset = azure.media.Asset("example",
             name="Asset1",
@@ -348,7 +348,7 @@ class Asset(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_asset = azure.media.Asset("example",
             name="Asset1",

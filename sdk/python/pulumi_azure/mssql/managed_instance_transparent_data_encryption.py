@@ -166,7 +166,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "managedinstancedelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -214,7 +214,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "managedinstancedelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -249,9 +249,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Get",
                         "List",
                         "Create",
@@ -263,9 +263,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_managed_instance.identity.tenant_id,
-                    "objectId": example_managed_instance.identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_managed_instance.identity.tenant_id,
+                    "object_id": example_managed_instance.identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",
@@ -337,7 +337,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "managedinstancedelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -385,7 +385,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "managedinstancedelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -420,9 +420,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 {
-                    "tenantId": current.tenant_id,
-                    "objectId": current.object_id,
-                    "keyPermissions": [
+                    "tenant_id": current.tenant_id,
+                    "object_id": current.object_id,
+                    "key_permissions": [
                         "Get",
                         "List",
                         "Create",
@@ -434,9 +434,9 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                     ],
                 },
                 {
-                    "tenantId": example_managed_instance.identity.tenant_id,
-                    "objectId": example_managed_instance.identity.principal_id,
-                    "keyPermissions": [
+                    "tenant_id": example_managed_instance.identity.tenant_id,
+                    "object_id": example_managed_instance.identity.principal_id,
+                    "key_permissions": [
                         "Get",
                         "WrapKey",
                         "UnwrapKey",

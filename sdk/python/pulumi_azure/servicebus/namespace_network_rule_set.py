@@ -287,8 +287,8 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             default_action="Deny",
             public_network_access_enabled=True,
             network_rules=[{
-                "subnetId": example_subnet.id,
-                "ignoreMissingVnetServiceEndpoint": False,
+                "subnet_id": example_subnet.id,
+                "ignore_missing_vnet_service_endpoint": False,
             }],
             ip_rules=["1.1.1.1"])
         ```
@@ -360,8 +360,8 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             default_action="Deny",
             public_network_access_enabled=True,
             network_rules=[{
-                "subnetId": example_subnet.id,
-                "ignoreMissingVnetServiceEndpoint": False,
+                "subnet_id": example_subnet.id,
+                "ignore_missing_vnet_service_endpoint": False,
             }],
             ip_rules=["1.1.1.1"])
         ```

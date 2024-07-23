@@ -60,7 +60,7 @@ import (
 //				Name:              pulumi.String("example-cert"),
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
-//				Data:              invokeFilebase64.Result,
+//				Data:              pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err
@@ -125,12 +125,12 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
+//				TenantId: pulumi.String(exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
 //					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				ObjectId: exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ObjectId: pulumi.String(exampleService.Identity.ApplyT(func(identity apimanagement.ServiceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				SecretPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //				},
@@ -151,7 +151,7 @@ import (
 //				Name:       pulumi.String("example-cert"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: invokeFilebase64.Result,
+//					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String("terraform"),
 //				},
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{

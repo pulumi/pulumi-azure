@@ -366,20 +366,20 @@ class AutoscaleSetting(pulumi.CustomResource):
             admin_username="myadmin",
             admin_ssh_keys=[{
                 "username": "myadmin",
-                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
             }],
             network_interfaces=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "StandardSSD_LRS",
+                "storage_account_type": "StandardSSD_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -401,23 +401,23 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
                 "rules": [
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "GreaterThan",
                             "threshold": 75,
-                            "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                            "metric_namespace": "microsoft.compute/virtualmachinescalesets",
                             "dimensions": [{
                                 "name": "AppName",
                                 "operator": "Equals",
                                 "values": ["App1"],
                             }],
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Increase",
                             "type": "ChangeCount",
                             "value": 1,
@@ -425,17 +425,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "LessThan",
                             "threshold": 25,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Decrease",
                             "type": "ChangeCount",
                             "value": 1,
@@ -445,14 +445,14 @@ class AutoscaleSetting(pulumi.CustomResource):
                 ],
             }],
             predictive={
-                "scaleMode": "Enabled",
-                "lookAheadTime": "PT5M",
+                "scale_mode": "Enabled",
+                "look_ahead_time": "PT5M",
             },
             notification={
                 "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
+                    "send_to_subscription_administrator": True,
+                    "send_to_subscription_co_administrator": True,
+                    "custom_emails": ["admin@contoso.com"],
                 },
             })
         ```
@@ -486,20 +486,20 @@ class AutoscaleSetting(pulumi.CustomResource):
             admin_username="myadmin",
             admin_ssh_keys=[{
                 "username": "myadmin",
-                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
             }],
             network_interfaces=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "StandardSSD_LRS",
+                "storage_account_type": "StandardSSD_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -521,17 +521,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
                 "rules": [
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "GreaterThan",
                             "threshold": 90,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Increase",
                             "type": "ChangeCount",
                             "value": 2,
@@ -539,17 +539,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "LessThan",
                             "threshold": 10,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Decrease",
                             "type": "ChangeCount",
                             "value": 2,
@@ -569,9 +569,9 @@ class AutoscaleSetting(pulumi.CustomResource):
             }],
             notification={
                 "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
+                    "send_to_subscription_administrator": True,
+                    "send_to_subscription_co_administrator": True,
+                    "custom_emails": ["admin@contoso.com"],
                 },
             })
         ```
@@ -605,20 +605,20 @@ class AutoscaleSetting(pulumi.CustomResource):
             admin_username="myadmin",
             admin_ssh_keys=[{
                 "username": "myadmin",
-                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
             }],
             network_interfaces=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "StandardSSD_LRS",
+                "storage_account_type": "StandardSSD_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -641,17 +641,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
                 "rules": [
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "GreaterThan",
                             "threshold": 90,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Increase",
                             "type": "ChangeCount",
                             "value": 2,
@@ -659,17 +659,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "LessThan",
                             "threshold": 10,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Decrease",
                             "type": "ChangeCount",
                             "value": 2,
@@ -677,7 +677,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                 ],
-                "fixedDate": {
+                "fixed_date": {
                     "timezone": "Pacific Standard Time",
                     "start": "2020-07-01T00:00:00Z",
                     "end": "2020-07-31T23:59:59Z",
@@ -685,9 +685,9 @@ class AutoscaleSetting(pulumi.CustomResource):
             }],
             notification={
                 "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
+                    "send_to_subscription_administrator": True,
+                    "send_to_subscription_co_administrator": True,
+                    "custom_emails": ["admin@contoso.com"],
                 },
             })
         ```
@@ -750,20 +750,20 @@ class AutoscaleSetting(pulumi.CustomResource):
             admin_username="myadmin",
             admin_ssh_keys=[{
                 "username": "myadmin",
-                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
             }],
             network_interfaces=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "StandardSSD_LRS",
+                "storage_account_type": "StandardSSD_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -785,23 +785,23 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
                 "rules": [
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "GreaterThan",
                             "threshold": 75,
-                            "metricNamespace": "microsoft.compute/virtualmachinescalesets",
+                            "metric_namespace": "microsoft.compute/virtualmachinescalesets",
                             "dimensions": [{
                                 "name": "AppName",
                                 "operator": "Equals",
                                 "values": ["App1"],
                             }],
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Increase",
                             "type": "ChangeCount",
                             "value": 1,
@@ -809,17 +809,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "LessThan",
                             "threshold": 25,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Decrease",
                             "type": "ChangeCount",
                             "value": 1,
@@ -829,14 +829,14 @@ class AutoscaleSetting(pulumi.CustomResource):
                 ],
             }],
             predictive={
-                "scaleMode": "Enabled",
-                "lookAheadTime": "PT5M",
+                "scale_mode": "Enabled",
+                "look_ahead_time": "PT5M",
             },
             notification={
                 "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
+                    "send_to_subscription_administrator": True,
+                    "send_to_subscription_co_administrator": True,
+                    "custom_emails": ["admin@contoso.com"],
                 },
             })
         ```
@@ -870,20 +870,20 @@ class AutoscaleSetting(pulumi.CustomResource):
             admin_username="myadmin",
             admin_ssh_keys=[{
                 "username": "myadmin",
-                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
             }],
             network_interfaces=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "StandardSSD_LRS",
+                "storage_account_type": "StandardSSD_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -905,17 +905,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
                 "rules": [
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "GreaterThan",
                             "threshold": 90,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Increase",
                             "type": "ChangeCount",
                             "value": 2,
@@ -923,17 +923,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "LessThan",
                             "threshold": 10,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Decrease",
                             "type": "ChangeCount",
                             "value": 2,
@@ -953,9 +953,9 @@ class AutoscaleSetting(pulumi.CustomResource):
             }],
             notification={
                 "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
+                    "send_to_subscription_administrator": True,
+                    "send_to_subscription_co_administrator": True,
+                    "custom_emails": ["admin@contoso.com"],
                 },
             })
         ```
@@ -989,20 +989,20 @@ class AutoscaleSetting(pulumi.CustomResource):
             admin_username="myadmin",
             admin_ssh_keys=[{
                 "username": "myadmin",
-                "publicKey": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
             }],
             network_interfaces=[{
                 "name": "TestNetworkProfile",
                 "primary": True,
-                "ipConfigurations": [{
+                "ip_configurations": [{
                     "name": "TestIPConfiguration",
                     "primary": True,
-                    "subnetId": example_subnet.id,
+                    "subnet_id": example_subnet.id,
                 }],
             }],
             os_disk={
                 "caching": "ReadWrite",
-                "storageAccountType": "StandardSSD_LRS",
+                "storage_account_type": "StandardSSD_LRS",
             },
             source_image_reference={
                 "publisher": "Canonical",
@@ -1025,17 +1025,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                 },
                 "rules": [
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "GreaterThan",
                             "threshold": 90,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Increase",
                             "type": "ChangeCount",
                             "value": 2,
@@ -1043,17 +1043,17 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                     {
-                        "metricTrigger": {
-                            "metricName": "Percentage CPU",
-                            "metricResourceId": example_linux_virtual_machine_scale_set.id,
-                            "timeGrain": "PT1M",
+                        "metric_trigger": {
+                            "metric_name": "Percentage CPU",
+                            "metric_resource_id": example_linux_virtual_machine_scale_set.id,
+                            "time_grain": "PT1M",
                             "statistic": "Average",
-                            "timeWindow": "PT5M",
-                            "timeAggregation": "Average",
+                            "time_window": "PT5M",
+                            "time_aggregation": "Average",
                             "operator": "LessThan",
                             "threshold": 10,
                         },
-                        "scaleAction": {
+                        "scale_action": {
                             "direction": "Decrease",
                             "type": "ChangeCount",
                             "value": 2,
@@ -1061,7 +1061,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                         },
                     },
                 ],
-                "fixedDate": {
+                "fixed_date": {
                     "timezone": "Pacific Standard Time",
                     "start": "2020-07-01T00:00:00Z",
                     "end": "2020-07-31T23:59:59Z",
@@ -1069,9 +1069,9 @@ class AutoscaleSetting(pulumi.CustomResource):
             }],
             notification={
                 "email": {
-                    "sendToSubscriptionAdministrator": True,
-                    "sendToSubscriptionCoAdministrator": True,
-                    "customEmails": ["admin@contoso.com"],
+                    "send_to_subscription_administrator": True,
+                    "send_to_subscription_co_administrator": True,
+                    "custom_emails": ["admin@contoso.com"],
                 },
             })
         ```

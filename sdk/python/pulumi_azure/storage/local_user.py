@@ -347,7 +347,7 @@ class LocalUser(pulumi.CustomResource):
                     "create": True,
                 },
                 "service": "blob",
-                "resourceName": example_container.name,
+                "resource_name": example_container.name,
             }])
         ```
 
@@ -420,7 +420,7 @@ class LocalUser(pulumi.CustomResource):
                     "create": True,
                 },
                 "service": "blob",
-                "resourceName": example_container.name,
+                "resource_name": example_container.name,
             }])
         ```
 

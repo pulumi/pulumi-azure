@@ -273,8 +273,8 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         ```
 
@@ -370,8 +370,8 @@ class FrontdoorCustomDomain(pulumi.CustomResource):
             dns_zone_id=example_zone.id,
             host_name="contoso.fabrikam.com",
             tls={
-                "certificateType": "ManagedCertificate",
-                "minimumTlsVersion": "TLS12",
+                "certificate_type": "ManagedCertificate",
+                "minimum_tls_version": "TLS12",
             })
         ```
 

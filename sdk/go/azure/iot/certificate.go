@@ -60,7 +60,7 @@ import (
 //				ResourceGroupName:  example.Name,
 //				IothubName:         exampleIoTHub.Name,
 //				IsVerified:         pulumi.Bool(true),
-//				CertificateContent: invokeFilebase64.Result,
+//				CertificateContent: pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err
