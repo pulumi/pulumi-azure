@@ -134,12 +134,12 @@ import (
 //				VirtualNetworkName:     example_1.Name,
 //				RemoteVirtualNetworkId: example_2.ID(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
+//					"remote_address_space": pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
 //						Separator: pulumi.String(","),
 //						Input:     example_2.AddressSpaces,
 //					}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
 //						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
 //			})
 //			if err != nil {
@@ -151,12 +151,12 @@ import (
 //				VirtualNetworkName:     example_2.Name,
 //				RemoteVirtualNetworkId: example_1.ID(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
+//					"remote_address_space": pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
 //						Separator: pulumi.String(","),
 //						Input:     example_1.AddressSpaces,
 //					}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
 //						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
 //			})
 //			if err != nil {

@@ -167,7 +167,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "primary",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,
@@ -178,8 +178,8 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("example",
             network_interface_id=example_network_interface.id,
@@ -240,7 +240,7 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             frontend_ip_configurations=[{
                 "name": "primary",
-                "publicIpAddressId": example_public_ip.id,
+                "public_ip_address_id": example_public_ip.id,
             }])
         example_backend_address_pool = azure.lb.BackendAddressPool("example",
             loadbalancer_id=example_load_balancer.id,
@@ -251,8 +251,8 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
             resource_group_name=example.name,
             ip_configurations=[{
                 "name": "testconfiguration1",
-                "subnetId": example_subnet.id,
-                "privateIpAddressAllocation": "Dynamic",
+                "subnet_id": example_subnet.id,
+                "private_ip_address_allocation": "Dynamic",
             }])
         example_network_interface_backend_address_pool_association = azure.network.NetworkInterfaceBackendAddressPoolAssociation("example",
             network_interface_id=example_network_interface.id,

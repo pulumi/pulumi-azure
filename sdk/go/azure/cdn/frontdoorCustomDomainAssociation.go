@@ -106,7 +106,7 @@ import (
 //				Name:                  pulumi.String("example-customDomain"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //				DnsZoneId:             exampleZone.ID(),
-//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
+//				HostName: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String("."),
 //					Input: pulumi.StringArray{
 //						pulumi.String("contoso"),
@@ -114,7 +114,7 @@ import (
 //					},
 //				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
 //					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: pulumi.String("TLS12"),

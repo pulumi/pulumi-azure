@@ -87,7 +87,7 @@ import (
 //				AgreementType:          pulumi.String("AS2"),
 //				HostPartnerName:        host.Name,
 //				GuestPartnerName:       guest.Name,
-//				Content:                invokeFile.Result,
+//				Content:                pulumi.String(invokeFile.Result),
 //				HostIdentity: &logicapps.IntegrationAccountAgreementHostIdentityArgs{
 //					Qualifier: pulumi.String("AS2Identity"),
 //					Value:     pulumi.String("FabrikamNY"),

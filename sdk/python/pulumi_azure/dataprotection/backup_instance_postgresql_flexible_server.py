@@ -247,9 +247,9 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             default_retention_rule={
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P4M",
-                    "dataStoreType": "VaultStore",
+                    "data_store_type": "VaultStore",
                 }],
             },
             opts = pulumi.ResourceOptions(depends_on=[
@@ -333,9 +333,9 @@ class BackupInstancePostgresqlFlexibleServer(pulumi.CustomResource):
             vault_id=example_backup_vault.id,
             backup_repeating_time_intervals=["R/2021-05-23T02:30:00+00:00/P1W"],
             default_retention_rule={
-                "lifeCycles": [{
+                "life_cycles": [{
                     "duration": "P4M",
-                    "dataStoreType": "VaultStore",
+                    "data_store_type": "VaultStore",
                 }],
             },
             opts = pulumi.ResourceOptions(depends_on=[

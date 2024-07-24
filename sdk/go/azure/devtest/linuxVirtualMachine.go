@@ -73,11 +73,11 @@ import (
 //				Location:            example.Location,
 //				Size:                pulumi.String("Standard_DS2"),
 //				Username:            pulumi.String("exampleuser99"),
-//				SshKey:              invokeFile.Result,
+//				SshKey:              pulumi.String(invokeFile.Result),
 //				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
-//				LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (*string, error) {
+//				LabSubnetName: pulumi.String(exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (*string, error) {
 //					return &subnet.Name, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				StorageType: pulumi.String("Premium"),
 //				Notes:       pulumi.String("Some notes about this Virtual Machine."),
 //				GalleryImageReference: &devtest.LinuxVirtualMachineGalleryImageReferenceArgs{

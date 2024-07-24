@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = containerapp.NewEnvironmentCustomDomain(ctx, "example", &containerapp.EnvironmentCustomDomainArgs{
 //				ContainerAppEnvironmentId: exampleEnvironment.ID(),
-//				CertificateBlobBase64:     invokeFilebase64.Result,
+//				CertificateBlobBase64:     pulumi.String(invokeFilebase64.Result),
 //				CertificatePassword:       pulumi.String("TestAcc"),
 //				DnsSuffix:                 pulumi.String("acceptancetest.contoso.com"),
 //			})

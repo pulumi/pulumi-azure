@@ -445,10 +445,10 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             },
             traffic_analytics={
                 "enabled": True,
-                "workspaceId": test_analytics_workspace.workspace_id,
-                "workspaceRegion": test_analytics_workspace.location,
-                "workspaceResourceId": test_analytics_workspace.id,
-                "intervalInMinutes": 10,
+                "workspace_id": test_analytics_workspace.workspace_id,
+                "workspace_region": test_analytics_workspace.location,
+                "workspace_resource_id": test_analytics_workspace.id,
+                "interval_in_minutes": 10,
             })
         ```
 
@@ -528,10 +528,10 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
             },
             traffic_analytics={
                 "enabled": True,
-                "workspaceId": test_analytics_workspace.workspace_id,
-                "workspaceRegion": test_analytics_workspace.location,
-                "workspaceResourceId": test_analytics_workspace.id,
-                "intervalInMinutes": 10,
+                "workspace_id": test_analytics_workspace.workspace_id,
+                "workspace_region": test_analytics_workspace.location,
+                "workspace_resource_id": test_analytics_workspace.id,
+                "interval_in_minutes": 10,
             })
         ```
 

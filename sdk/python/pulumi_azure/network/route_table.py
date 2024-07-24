@@ -316,8 +316,8 @@ class RouteTable(pulumi.CustomResource):
             disable_bgp_route_propagation=False,
             routes=[{
                 "name": "route1",
-                "addressPrefix": "10.1.0.0/16",
-                "nextHopType": "VnetLocal",
+                "address_prefix": "10.1.0.0/16",
+                "next_hop_type": "VnetLocal",
             }],
             tags={
                 "environment": "Production",
@@ -371,8 +371,8 @@ class RouteTable(pulumi.CustomResource):
             disable_bgp_route_propagation=False,
             routes=[{
                 "name": "route1",
-                "addressPrefix": "10.1.0.0/16",
-                "nextHopType": "VnetLocal",
+                "address_prefix": "10.1.0.0/16",
+                "next_hop_type": "VnetLocal",
             }],
             tags={
                 "environment": "Production",

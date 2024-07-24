@@ -75,9 +75,9 @@ import (
 //			server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId: exampleServer.Identity.ApplyT(func(identity mysql.ServerIdentity) (*string, error) {
+//				ObjectId: pulumi.String(exampleServer.Identity.ApplyT(func(identity mysql.ServerIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("UnwrapKey"),

@@ -92,14 +92,14 @@ import (
 //			_, err = network.NewVirtualNetworkGatewayNatRule(ctx, "example", &network.VirtualNetworkGatewayNatRuleArgs{
 //				Name:              pulumi.String("example-vnetgwnatrule"),
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				VirtualNetworkGatewayId: example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
+//				VirtualNetworkGatewayId: pulumi.String(example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
 //					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Mode: pulumi.String("EgressSnat"),
 //				Type: pulumi.String("Dynamic"),
-//				IpConfigurationId: example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
+//				IpConfigurationId: pulumi.String(example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
 //					return &example.IpConfigurations[0].Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				ExternalMappings: network.VirtualNetworkGatewayNatRuleExternalMappingArray{
 //					&network.VirtualNetworkGatewayNatRuleExternalMappingArgs{
 //						AddressSpace: pulumi.String("10.2.0.0/26"),
