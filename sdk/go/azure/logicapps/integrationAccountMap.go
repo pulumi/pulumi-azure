@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				MapType:                pulumi.String("Xslt"),
-//				Content:                invokeFile.Result,
+//				Content:                pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

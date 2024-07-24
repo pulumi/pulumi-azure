@@ -233,14 +233,14 @@ import (
 //					exampleNetworkManagerSecurityAdminConfiguration.ID(),
 //				},
 //				Triggers: pulumi.StringMap{
-//					"source_port_ranges": exampleNetworkManagerAdminRule.SourcePortRanges.ApplyT(func(sourcePortRanges interface{}) (std.JoinResult, error) {
-//						return std.JoinOutput(ctx, std.JoinOutputArgs{
+//					"source_port_ranges": pulumi.String(exampleNetworkManagerAdminRule.SourcePortRanges.ApplyT(func(sourcePortRanges interface{}) (std.JoinResult, error) {
+//						return std.JoinResult(interface{}(std.JoinOutput(ctx, std.JoinOutputArgs{
 //							Separator: ",",
 //							Input:     sourcePortRanges,
-//						}, nil), nil
+//						}, nil))), nil
 //					}).(std.JoinResultOutput).ApplyT(func(invoke std.JoinResult) (*string, error) {
 //						return invoke.Result, nil
-//					}).(pulumi.StringPtrOutput),
+//					}).(pulumi.StringPtrOutput)),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleNetworkManagerAdminRule,

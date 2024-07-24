@@ -71,7 +71,7 @@ import (
 //			_, err = batch.NewCertificate(ctx, "example", &batch.CertificateArgs{
 //				ResourceGroupName:   example.Name,
 //				AccountName:         exampleAccount2.Name,
-//				Certificate:         invokeFilebase64.Result,
+//				Certificate:         pulumi.String(invokeFilebase64.Result),
 //				Format:              pulumi.String("Pfx"),
 //				Password:            pulumi.String("password"),
 //				Thumbprint:          pulumi.String("42C107874FD0E4A9583292A2F1098E8FE4B2EDDA"),

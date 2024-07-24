@@ -293,13 +293,13 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": [
                     "Create",
                     "Get",
                 ],
-                "secretPermissions": [
+                "secret_permissions": [
                     "Set",
                     "Get",
                     "Delete",
@@ -322,9 +322,9 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             service_principal_id=current.client_id,
             service_principal_key={
-                "linkedServiceName": example_linked_service_key_vault.name,
-                "secretName": example_secret.name,
-                "secretVersion": example_secret.version,
+                "linked_service_name": example_linked_service_key_vault.name,
+                "secret_name": example_secret.name,
+                "secret_version": example_secret.version,
             },
             annotations=[
                 "1",
@@ -381,13 +381,13 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[{
-                "tenantId": current.tenant_id,
-                "objectId": current.object_id,
-                "keyPermissions": [
+                "tenant_id": current.tenant_id,
+                "object_id": current.object_id,
+                "key_permissions": [
                     "Create",
                     "Get",
                 ],
-                "secretPermissions": [
+                "secret_permissions": [
                     "Set",
                     "Get",
                     "Delete",
@@ -410,9 +410,9 @@ class CredentialServicePrincipal(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             service_principal_id=current.client_id,
             service_principal_key={
-                "linkedServiceName": example_linked_service_key_vault.name,
-                "secretName": example_secret.name,
-                "secretVersion": example_secret.version,
+                "linked_service_name": example_linked_service_key_vault.name,
+                "secret_name": example_secret.name,
+                "secret_version": example_secret.version,
             },
             annotations=[
                 "1",

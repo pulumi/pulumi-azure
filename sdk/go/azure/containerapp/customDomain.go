@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
-//				Name:           invokeTrimprefix.Result,
+//				Name:           pulumi.String(invokeTrimprefix.Result),
 //				ContainerAppId: pulumi.Any(exampleAzurermContainerApp.Id),
 //			})
 //			if err != nil {

@@ -84,12 +84,12 @@ import (
 //				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
-//				TenantId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
+//				TenantId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
 //					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				PrincipalId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				PrincipalType: pulumi.String("App"),
 //				Role:          pulumi.String("Viewer"),
 //			})

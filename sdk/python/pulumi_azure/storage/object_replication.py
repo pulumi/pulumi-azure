@@ -187,8 +187,8 @@ class ObjectReplication(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS",
             blob_properties={
-                "versioningEnabled": True,
-                "changeFeedEnabled": True,
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
             })
         src_container = azure.storage.Container("src",
             name="srcstrcontainer",
@@ -204,8 +204,8 @@ class ObjectReplication(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS",
             blob_properties={
-                "versioningEnabled": True,
-                "changeFeedEnabled": True,
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
             })
         dst_container = azure.storage.Container("dst",
             name="dststrcontainer",
@@ -215,8 +215,8 @@ class ObjectReplication(pulumi.CustomResource):
             source_storage_account_id=src_account.id,
             destination_storage_account_id=dst_account.id,
             rules=[{
-                "sourceContainerName": src_container.name,
-                "destinationContainerName": dst_container.name,
+                "source_container_name": src_container.name,
+                "destination_container_name": dst_container.name,
             }])
         ```
 
@@ -259,8 +259,8 @@ class ObjectReplication(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS",
             blob_properties={
-                "versioningEnabled": True,
-                "changeFeedEnabled": True,
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
             })
         src_container = azure.storage.Container("src",
             name="srcstrcontainer",
@@ -276,8 +276,8 @@ class ObjectReplication(pulumi.CustomResource):
             account_tier="Standard",
             account_replication_type="LRS",
             blob_properties={
-                "versioningEnabled": True,
-                "changeFeedEnabled": True,
+                "versioning_enabled": True,
+                "change_feed_enabled": True,
             })
         dst_container = azure.storage.Container("dst",
             name="dststrcontainer",
@@ -287,8 +287,8 @@ class ObjectReplication(pulumi.CustomResource):
             source_storage_account_id=src_account.id,
             destination_storage_account_id=dst_account.id,
             rules=[{
-                "sourceContainerName": src_container.name,
-                "destinationContainerName": dst_container.name,
+                "source_container_name": src_container.name,
+                "destination_container_name": dst_container.name,
             }])
         ```
 

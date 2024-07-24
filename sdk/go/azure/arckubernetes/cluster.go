@@ -49,7 +49,7 @@ import (
 //				Name:                      pulumi.String("example-akcc"),
 //				ResourceGroupName:         example.Name,
 //				Location:                  pulumi.String("West Europe"),
-//				AgentPublicKeyCertificate: invokeFilebase64.Result,
+//				AgentPublicKeyCertificate: pulumi.String(invokeFilebase64.Result),
 //				Identity: &arckubernetes.ClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

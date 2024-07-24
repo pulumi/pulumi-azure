@@ -56,7 +56,7 @@ import (
 //				Name:                   pulumi.String("example-ias"),
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
-//				Content:                invokeFile.Result,
+//				Content:                pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

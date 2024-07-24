@@ -356,7 +356,7 @@ class LiveEventOutput(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_asset = azure.media.Asset("example",
             name="inputAsset",
@@ -369,12 +369,12 @@ class LiveEventOutput(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My Event Description",
             input={
-                "streamingProtocol": "RTMP",
-                "keyFrameIntervalDuration": "PT6S",
-                "ipAccessControlAllows": [{
+                "streaming_protocol": "RTMP",
+                "key_frame_interval_duration": "PT6S",
+                "ip_access_control_allows": [{
                     "name": "AllowAll",
                     "address": "0.0.0.0",
-                    "subnetPrefixLength": 0,
+                    "subnet_prefix_length": 0,
                 }],
             })
         example_live_event_output = azure.media.LiveEventOutput("example",
@@ -439,7 +439,7 @@ class LiveEventOutput(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_asset = azure.media.Asset("example",
             name="inputAsset",
@@ -452,12 +452,12 @@ class LiveEventOutput(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             description="My Event Description",
             input={
-                "streamingProtocol": "RTMP",
-                "keyFrameIntervalDuration": "PT6S",
-                "ipAccessControlAllows": [{
+                "streaming_protocol": "RTMP",
+                "key_frame_interval_duration": "PT6S",
+                "ip_access_control_allows": [{
                     "name": "AllowAll",
                     "address": "0.0.0.0",
-                    "subnetPrefixLength": 0,
+                    "subnet_prefix_length": 0,
                 }],
             })
         example_live_event_output = azure.media.LiveEventOutput("example",

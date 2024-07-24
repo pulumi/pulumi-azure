@@ -353,8 +353,8 @@ class FluxConfiguration(pulumi.CustomResource):
             dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
             },
             identity={
                 "type": "SystemAssigned",
@@ -369,8 +369,8 @@ class FluxConfiguration(pulumi.CustomResource):
             namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
-                "referenceType": "branch",
-                "referenceValue": "main",
+                "reference_type": "branch",
+                "reference_value": "main",
             },
             kustomizations=[{
                 "name": "kustomization-1",
@@ -423,8 +423,8 @@ class FluxConfiguration(pulumi.CustomResource):
             dns_prefix="example-aks",
             default_node_pool={
                 "name": "default",
-                "nodeCount": 1,
-                "vmSize": "Standard_DS2_v2",
+                "node_count": 1,
+                "vm_size": "Standard_DS2_v2",
             },
             identity={
                 "type": "SystemAssigned",
@@ -439,8 +439,8 @@ class FluxConfiguration(pulumi.CustomResource):
             namespace="flux",
             git_repository={
                 "url": "https://github.com/Azure/arc-k8s-demo",
-                "referenceType": "branch",
-                "referenceValue": "main",
+                "reference_type": "branch",
+                "reference_value": "main",
             },
             kustomizations=[{
                 "name": "kustomization-1",

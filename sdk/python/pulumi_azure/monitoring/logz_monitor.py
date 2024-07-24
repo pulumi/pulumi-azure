@@ -393,15 +393,15 @@ class LogzMonitor(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             plan={
-                "billingCycle": "MONTHLY",
-                "effectiveDate": "2022-06-06T00:00:00Z",
-                "usageType": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "effective_date": "2022-06-06T00:00:00Z",
+                "usage_type": "COMMITTED",
             },
             user={
                 "email": "user@example.com",
-                "firstName": "Example",
-                "lastName": "User",
-                "phoneNumber": "+12313803556",
+                "first_name": "Example",
+                "last_name": "User",
+                "phone_number": "+12313803556",
             })
         ```
 
@@ -452,15 +452,15 @@ class LogzMonitor(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             plan={
-                "billingCycle": "MONTHLY",
-                "effectiveDate": "2022-06-06T00:00:00Z",
-                "usageType": "COMMITTED",
+                "billing_cycle": "MONTHLY",
+                "effective_date": "2022-06-06T00:00:00Z",
+                "usage_type": "COMMITTED",
             },
             user={
                 "email": "user@example.com",
-                "firstName": "Example",
-                "lastName": "User",
-                "phoneNumber": "+12313803556",
+                "first_name": "Example",
+                "last_name": "User",
+                "phone_number": "+12313803556",
             })
         ```
 

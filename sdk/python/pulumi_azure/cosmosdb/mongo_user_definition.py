@@ -202,11 +202,11 @@ class MongoUserDefinition(pulumi.CustomResource):
                 },
             ],
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_mongo_database = azure.cosmosdb.MongoDatabase("example",
             name="example-mongodb",
@@ -268,11 +268,11 @@ class MongoUserDefinition(pulumi.CustomResource):
                 },
             ],
             consistency_policy={
-                "consistencyLevel": "Strong",
+                "consistency_level": "Strong",
             },
             geo_locations=[{
                 "location": example.location,
-                "failoverPriority": 0,
+                "failover_priority": 0,
             }])
         example_mongo_database = azure.cosmosdb.MongoDatabase("example",
             name="example-mongodb",

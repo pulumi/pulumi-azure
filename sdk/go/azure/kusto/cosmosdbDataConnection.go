@@ -66,9 +66,9 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleResourceGroup.ID(),
 //				RoleDefinitionName: pulumi.String(builtin.Name),
-//				PrincipalId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -121,12 +121,12 @@ import (
 //			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "example", &cosmosdb.SqlRoleAssignmentArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AccountName:       exampleAccount.Name,
-//				RoleDefinitionId: example.ApplyT(func(example cosmosdb.GetSqlRoleDefinitionResult) (*string, error) {
+//				RoleDefinitionId: pulumi.String(example.ApplyT(func(example cosmosdb.GetSqlRoleDefinitionResult) (*string, error) {
 //					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput),
-//				PrincipalId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId: pulumi.String(exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Scope: exampleAccount.ID(),
 //			})
 //			if err != nil {

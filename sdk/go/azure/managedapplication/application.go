@@ -75,7 +75,7 @@ import (
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
 //						ServicePrincipalId: pulumi.String(current.ObjectId),
-//						RoleDefinitionId:   invokeSplit.Result[len(invokeSplit1.Result)-1],
+//						RoleDefinitionId:   pulumi.String(invokeSplit.Result[float64(pulumi.Float64(len(invokeSplit1.Result))-1)]),
 //					},
 //				},
 //			})

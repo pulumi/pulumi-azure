@@ -871,15 +871,15 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             sku="Basic",
             ip_configurations=[{
                 "name": "vnetGatewayConfig",
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
             }],
             vpn_client_configuration={
-                "addressSpaces": ["10.2.0.0/24"],
-                "rootCertificates": [{
+                "address_spaces": ["10.2.0.0/24"],
+                "root_certificates": [{
                     "name": "DigiCert-Federated-ID-Root-CA",
-                    "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+                    "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -901,7 +901,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
                 }],
-                "revokedCertificates": [{
+                "revoked_certificates": [{
                     "name": "Verizon-Global-Root-CA",
                     "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
                 }],
@@ -997,15 +997,15 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             sku="Basic",
             ip_configurations=[{
                 "name": "vnetGatewayConfig",
-                "publicIpAddressId": example_public_ip.id,
-                "privateIpAddressAllocation": "Dynamic",
-                "subnetId": example_subnet.id,
+                "public_ip_address_id": example_public_ip.id,
+                "private_ip_address_allocation": "Dynamic",
+                "subnet_id": example_subnet.id,
             }],
             vpn_client_configuration={
-                "addressSpaces": ["10.2.0.0/24"],
-                "rootCertificates": [{
+                "address_spaces": ["10.2.0.0/24"],
+                "root_certificates": [{
                     "name": "DigiCert-Federated-ID-Root-CA",
-                    "publicCertData": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+                    "public_cert_data": \"\"\"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
         MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
         d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
         Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -1027,7 +1027,7 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
                 }],
-                "revokedCertificates": [{
+                "revoked_certificates": [{
                     "name": "Verizon-Global-Root-CA",
                     "thumbprint": "912198EEF23DCAC40939312FEE97DD560BAE49B1",
                 }],

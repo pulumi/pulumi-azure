@@ -89,12 +89,12 @@ import (
 //				Location:      example.Location,
 //				EnvironmentId: exampleTimeSeriesInsightsGen2Environment.ID(),
 //				IothubName:    exampleIoTHub.Name,
-//				SharedAccessKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
+//				SharedAccessKey: pulumi.String(exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
 //					return &sharedAccessPolicies[0].PrimaryKey, nil
-//				}).(pulumi.StringPtrOutput),
-//				SharedAccessKeyName: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				SharedAccessKeyName: pulumi.String(exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
 //					return &sharedAccessPolicies[0].KeyName, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				ConsumerGroupName:     exampleConsumerGroup.Name,
 //				EventSourceResourceId: exampleIoTHub.ID(),
 //			})

@@ -109,7 +109,7 @@ import (
 //				Name:       pulumi.String("example-cert"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: invokeFilebase64.Result,
+//					Contents: pulumi.String(invokeFilebase64.Result),
 //				},
 //			})
 //			if err != nil {

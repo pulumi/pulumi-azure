@@ -456,7 +456,7 @@ class StreamingLocator(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",
@@ -529,7 +529,7 @@ class StreamingLocator(pulumi.CustomResource):
             resource_group_name=example.name,
             storage_accounts=[{
                 "id": example_account.id,
-                "isPrimary": True,
+                "is_primary": True,
             }])
         example_account_filter = azure.media.AccountFilter("example",
             name="Filter1",
