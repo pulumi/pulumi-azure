@@ -303,11 +303,11 @@ class VpnGatewayConnection(pulumi.CustomResource):
             links=[
                 {
                     "name": "link1",
-                    "ipAddress": "10.1.0.0",
+                    "ip_address": "10.1.0.0",
                 },
                 {
                     "name": "link2",
-                    "ipAddress": "10.2.0.0",
+                    "ip_address": "10.2.0.0",
                 },
             ])
         example_vpn_gateway_connection = azure.network.VpnGatewayConnection("example",
@@ -317,11 +317,11 @@ class VpnGatewayConnection(pulumi.CustomResource):
             vpn_links=[
                 {
                     "name": "link1",
-                    "vpnSiteLinkId": example_vpn_site.links[0].id,
+                    "vpn_site_link_id": example_vpn_site.links[0].id,
                 },
                 {
                     "name": "link2",
-                    "vpnSiteLinkId": example_vpn_site.links[1].id,
+                    "vpn_site_link_id": example_vpn_site.links[1].id,
                 },
             ])
         ```
@@ -385,11 +385,11 @@ class VpnGatewayConnection(pulumi.CustomResource):
             links=[
                 {
                     "name": "link1",
-                    "ipAddress": "10.1.0.0",
+                    "ip_address": "10.1.0.0",
                 },
                 {
                     "name": "link2",
-                    "ipAddress": "10.2.0.0",
+                    "ip_address": "10.2.0.0",
                 },
             ])
         example_vpn_gateway_connection = azure.network.VpnGatewayConnection("example",
@@ -399,11 +399,11 @@ class VpnGatewayConnection(pulumi.CustomResource):
             vpn_links=[
                 {
                     "name": "link1",
-                    "vpnSiteLinkId": example_vpn_site.links[0].id,
+                    "vpn_site_link_id": example_vpn_site.links[0].id,
                 },
                 {
                     "name": "link2",
-                    "vpnSiteLinkId": example_vpn_site.links[1].id,
+                    "vpn_site_link_id": example_vpn_site.links[1].id,
                 },
             ])
         ```

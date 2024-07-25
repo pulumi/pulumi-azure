@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				AssemblyName:           pulumi.String("TestAssembly"),
-//				Content:                invokeFilebase64.Result,
+//				Content:                pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err

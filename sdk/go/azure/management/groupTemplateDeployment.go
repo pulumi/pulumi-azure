@@ -132,8 +132,8 @@ import (
 //				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
 //				ManagementGroupId: pulumi.String(example.Id),
-//				TemplateContent:   invokeFile.Result,
-//				ParametersContent: invokeFile1.Result,
+//				TemplateContent:   pulumi.String(invokeFile.Result),
+//				ParametersContent: pulumi.String(invokeFile1.Result),
 //			})
 //			if err != nil {
 //				return err

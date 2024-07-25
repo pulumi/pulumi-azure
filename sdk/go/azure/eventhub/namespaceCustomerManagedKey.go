@@ -80,12 +80,12 @@ import (
 //			}
 //			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleEventHubNamespace.Identity.ApplyT(func(identity eventhub.EventHubNamespaceIdentity) (*string, error) {
+//				TenantId: pulumi.String(exampleEventHubNamespace.Identity.ApplyT(func(identity eventhub.EventHubNamespaceIdentity) (*string, error) {
 //					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				ObjectId: exampleEventHubNamespace.Identity.ApplyT(func(identity eventhub.EventHubNamespaceIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ObjectId: pulumi.String(exampleEventHubNamespace.Identity.ApplyT(func(identity eventhub.EventHubNamespaceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("UnwrapKey"),

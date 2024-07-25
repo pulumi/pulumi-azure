@@ -101,15 +101,15 @@ import (
 //				Location:               pulumi.Any(test.Location),
 //				ResourceGroupName:      pulumi.Any(test.Name),
 //				ParentCustomIpPrefixId: global.ID(),
-//				Cidr: global.Cidr.ApplyT(func(cidr string) (std.CidrsubnetResult, error) {
-//					return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//				Cidr: pulumi.String(global.Cidr.ApplyT(func(cidr string) (std.CidrsubnetResult, error) {
+//					return std.CidrsubnetResult(interface{}(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //						Input:   cidr,
 //						Newbits: 16,
 //						Netnum:  1,
-//					}, nil), nil
+//					}, nil))), nil
 //				}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
 //					return invoke.Result, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				Zones: pulumi.StringArray{
 //					pulumi.String("1"),
 //				},

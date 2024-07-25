@@ -407,7 +407,7 @@ class NetworkSim(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example.location,
             single_network_slice_selection_assistance_information={
-                "sliceServiceType": 1,
+                "slice_service_type": 1,
             })
         example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("example",
             mobile_network_data_network_name=example_azurerm_mobile_network_data_network["name"],
@@ -428,9 +428,9 @@ class NetworkSim(pulumi.CustomResource):
             international_mobile_subscriber_identity="000000000000000",
             operator_key_code="00000000000000000000000000000000",
             static_ip_configurations=[{
-                "attachedDataNetworkId": test["id"],
-                "sliceId": test_azurerm_mobile_network_slice["id"],
-                "staticIpv4Address": "2.4.0.1",
+                "attached_data_network_id": test["id"],
+                "slice_id": test_azurerm_mobile_network_slice["id"],
+                "static_ipv4_address": "2.4.0.1",
             }])
         ```
 
@@ -487,7 +487,7 @@ class NetworkSim(pulumi.CustomResource):
             mobile_network_id=example_network.id,
             location=example.location,
             single_network_slice_selection_assistance_information={
-                "sliceServiceType": 1,
+                "slice_service_type": 1,
             })
         example_network_attached_data_network = azure.mobile.NetworkAttachedDataNetwork("example",
             mobile_network_data_network_name=example_azurerm_mobile_network_data_network["name"],
@@ -508,9 +508,9 @@ class NetworkSim(pulumi.CustomResource):
             international_mobile_subscriber_identity="000000000000000",
             operator_key_code="00000000000000000000000000000000",
             static_ip_configurations=[{
-                "attachedDataNetworkId": test["id"],
-                "sliceId": test_azurerm_mobile_network_slice["id"],
-                "staticIpv4Address": "2.4.0.1",
+                "attached_data_network_id": test["id"],
+                "slice_id": test_azurerm_mobile_network_slice["id"],
+                "static_ipv4_address": "2.4.0.1",
             }])
         ```
 

@@ -103,9 +103,9 @@ import (
 //			}
 //			databaseContributor, err := authorization.NewAssignment(ctx, "database_contributor", &authorization.AssignmentArgs{
 //				Scope: exampleDatabase.ID(),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //			})
 //			if err != nil {
@@ -113,9 +113,9 @@ import (
 //			}
 //			eventhubDataOwner, err := authorization.NewAssignment(ctx, "eventhub_data_owner", &authorization.AssignmentArgs{
 //				Scope: exampleEventHub.ID(),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				RoleDefinitionName: pulumi.String("Azure Event Hubs Data Owner"),
 //			})
 //			if err != nil {
@@ -126,12 +126,12 @@ import (
 //				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
-//				TenantId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//				TenantId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
 //					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				PrincipalId: exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				PrincipalType: pulumi.String("App"),
 //				Role:          pulumi.String("Admin"),
 //			})

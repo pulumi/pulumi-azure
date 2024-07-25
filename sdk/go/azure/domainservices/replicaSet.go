@@ -307,9 +307,9 @@ import (
 // }
 // _, err = network.NewVirtualNetworkDnsServers(ctx, "replica", &network.VirtualNetworkDnsServersArgs{
 // VirtualNetworkId: replicaVirtualNetwork.ID(),
-// DnsServers: exampleService.InitialReplicaSet.ApplyT(func(initialReplicaSet domainservices.ServiceInitialReplicaSet) (interface{}, error) {
+// DnsServers: pulumi.StringArray(exampleService.InitialReplicaSet.ApplyT(func(initialReplicaSet domainservices.ServiceInitialReplicaSet) (interface{}, error) {
 // return initialReplicaSet.DomainControllerIpAddresses, nil
-// }).(pulumi.Interface{}Output),
+// }).(pulumi.Interface{}Output)),
 // })
 // if err != nil {
 // return err

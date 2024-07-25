@@ -74,9 +74,9 @@ import (
 //			}
 //			_, err = streamanalytics.NewStreamInputEventHubV2(ctx, "example", &streamanalytics.StreamInputEventHubV2Args{
 //				Name: pulumi.String("eventhub-stream-input"),
-//				StreamAnalyticsJobId: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//				StreamAnalyticsJobId: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
 //					return &example.Id, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
 //				EventhubName:              exampleEventHub.Name,
 //				ServicebusNamespace:       exampleEventHubNamespace.Name,

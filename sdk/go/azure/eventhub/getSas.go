@@ -73,10 +73,10 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			_ = example.ApplyT(func(example eventhub.GetAuthorizationRuleResult) (eventhub.GetSasResult, error) {
-//				return eventhub.GetSasOutput(ctx, eventhub.GetSasOutputArgs{
+//				return eventhub.GetSasResult(interface{}(eventhub.GetSasOutput(ctx, eventhub.GetSasOutputArgs{
 //					ConnectionString: example.PrimaryConnectionString,
 //					Expiry:           "2023-06-23T00:00:00Z",
-//				}, nil), nil
+//				}, nil))), nil
 //			}).(eventhub.GetSasResultOutput)
 //			return nil
 //		})

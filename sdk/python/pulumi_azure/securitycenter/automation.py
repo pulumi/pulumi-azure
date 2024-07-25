@@ -380,17 +380,17 @@ class Automation(pulumi.CustomResource):
             resource_group_name=example.name,
             actions=[{
                 "type": "eventhub",
-                "resourceId": example_event_hub.id,
-                "connectionString": example_authorization_rule.primary_connection_string,
+                "resource_id": example_event_hub.id,
+                "connection_string": example_authorization_rule.primary_connection_string,
             }],
             sources=[{
-                "eventSource": "Alerts",
-                "ruleSets": [{
+                "event_source": "Alerts",
+                "rule_sets": [{
                     "rules": [{
-                        "propertyPath": "properties.metadata.severity",
+                        "property_path": "properties.metadata.severity",
                         "operator": "Equals",
-                        "expectedValue": "High",
-                        "propertyType": "String",
+                        "expected_value": "High",
+                        "property_type": "String",
                     }],
                 }],
             }],
@@ -464,17 +464,17 @@ class Automation(pulumi.CustomResource):
             resource_group_name=example.name,
             actions=[{
                 "type": "eventhub",
-                "resourceId": example_event_hub.id,
-                "connectionString": example_authorization_rule.primary_connection_string,
+                "resource_id": example_event_hub.id,
+                "connection_string": example_authorization_rule.primary_connection_string,
             }],
             sources=[{
-                "eventSource": "Alerts",
-                "ruleSets": [{
+                "event_source": "Alerts",
+                "rule_sets": [{
                     "rules": [{
-                        "propertyPath": "properties.metadata.severity",
+                        "property_path": "properties.metadata.severity",
                         "operator": "Equals",
-                        "expectedValue": "High",
-                        "propertyType": "String",
+                        "expected_value": "High",
+                        "property_type": "String",
                     }],
                 }],
             }],
