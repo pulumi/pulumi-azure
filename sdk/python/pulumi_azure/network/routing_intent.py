@@ -166,8 +166,8 @@ class RoutingIntent(pulumi.CustomResource):
             sku_name="AZFW_Hub",
             sku_tier="Standard",
             virtual_hub={
-                "virtualHubId": example_virtual_hub.id,
-                "publicIpCount": 1,
+                "virtual_hub_id": example_virtual_hub.id,
+                "public_ip_count": 1,
             })
         example_routing_intent = azure.network.RoutingIntent("example",
             name="example-routingintent",
@@ -175,7 +175,7 @@ class RoutingIntent(pulumi.CustomResource):
             routing_policies=[{
                 "name": "InternetTrafficPolicy",
                 "destinations": ["Internet"],
-                "nextHop": example_firewall.id,
+                "next_hop": example_firewall.id,
             }])
         ```
 
@@ -228,8 +228,8 @@ class RoutingIntent(pulumi.CustomResource):
             sku_name="AZFW_Hub",
             sku_tier="Standard",
             virtual_hub={
-                "virtualHubId": example_virtual_hub.id,
-                "publicIpCount": 1,
+                "virtual_hub_id": example_virtual_hub.id,
+                "public_ip_count": 1,
             })
         example_routing_intent = azure.network.RoutingIntent("example",
             name="example-routingintent",
@@ -237,7 +237,7 @@ class RoutingIntent(pulumi.CustomResource):
             routing_policies=[{
                 "name": "InternetTrafficPolicy",
                 "destinations": ["Internet"],
-                "nextHop": example_firewall.id,
+                "next_hop": example_firewall.id,
             }])
         ```
 

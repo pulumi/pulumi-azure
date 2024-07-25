@@ -262,9 +262,9 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             spring_cloud_service_id=example_spring_cloud_service.id,
             public_network_access_enabled=True,
             sso={
-                "clientId": "example id",
-                "clientSecret": "example secret",
-                "metadataUrl": f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
+                "client_id": "example id",
+                "client_secret": "example secret",
+                "metadata_url": f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
                 "scopes": [
                     "openid",
                     "profile",
@@ -323,9 +323,9 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
             spring_cloud_service_id=example_spring_cloud_service.id,
             public_network_access_enabled=True,
             sso={
-                "clientId": "example id",
-                "clientSecret": "example secret",
-                "metadataUrl": f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
+                "client_id": "example id",
+                "client_secret": "example secret",
+                "metadata_url": f"https://login.microsoftonline.com/{current.tenant_id}/v2.0/.well-known/openid-configuration",
                 "scopes": [
                     "openid",
                     "profile",

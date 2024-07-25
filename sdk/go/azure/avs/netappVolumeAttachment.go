@@ -196,9 +196,9 @@ import (
 //				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
 //				Type:                    pulumi.String("ExpressRoute"),
 //				VirtualNetworkGatewayId: testVirtualNetworkGateway.ID(),
-//				ExpressRouteCircuitId: testPrivateCloud.Circuits.ApplyT(func(circuits []avs.PrivateCloudCircuit) (*string, error) {
+//				ExpressRouteCircuitId: pulumi.String(testPrivateCloud.Circuits.ApplyT(func(circuits []avs.PrivateCloudCircuit) (*string, error) {
 //					return &circuits[0].ExpressRouteId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				AuthorizationKey: testExpressRouteAuthorization.ExpressRouteAuthorizationKey,
 //			})
 //			if err != nil {

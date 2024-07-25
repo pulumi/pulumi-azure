@@ -368,8 +368,8 @@ class Monitor(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             datadog_organization={
-                "apiKey": "XXXX",
-                "applicationKey": "XXXX",
+                "api_key": "XXXX",
+                "application_key": "XXXX",
             },
             user={
                 "name": "Example",
@@ -444,8 +444,8 @@ class Monitor(pulumi.CustomResource):
             resource_group_name=example.name,
             location=example.location,
             datadog_organization={
-                "apiKey": "XXXX",
-                "applicationKey": "XXXX",
+                "api_key": "XXXX",
+                "application_key": "XXXX",
             },
             user={
                 "name": "Example",

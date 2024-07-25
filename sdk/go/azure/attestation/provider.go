@@ -47,7 +47,7 @@ import (
 //				Name:                         pulumi.String("exampleprovider"),
 //				ResourceGroupName:            example.Name,
 //				Location:                     example.Location,
-//				PolicySigningCertificateData: invokeFile.Result,
+//				PolicySigningCertificateData: pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

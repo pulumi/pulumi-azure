@@ -107,7 +107,7 @@ import (
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: invokeFile.Result,
+//						PublicKey: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{

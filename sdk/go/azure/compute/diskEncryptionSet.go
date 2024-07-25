@@ -109,12 +109,12 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-disk", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//				TenantId: pulumi.String(exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
 //					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				ObjectId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ObjectId: pulumi.String(exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
@@ -133,9 +133,9 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example-disk", &authorization.AssignmentArgs{
 //				Scope:              exampleKeyVault.ID(),
 //				RoleDefinitionName: pulumi.String("Key Vault Crypto Service Encryption User"),
-//				PrincipalId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -240,12 +240,12 @@ import (
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-disk", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//				TenantId: pulumi.String(exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
 //					return &identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput),
-//				ObjectId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput)),
+//				ObjectId: pulumi.String(exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
@@ -264,9 +264,9 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example-disk", &authorization.AssignmentArgs{
 //				Scope:              exampleKeyVault.ID(),
 //				RoleDefinitionName: pulumi.String("Key Vault Crypto Service Encryption User"),
-//				PrincipalId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
+//				PrincipalId: pulumi.String(exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err

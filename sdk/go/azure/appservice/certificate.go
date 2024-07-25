@@ -49,7 +49,7 @@ import (
 //				Name:              pulumi.String("example-cert"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				PfxBlob:           invokeFilebase64.Result,
+//				PfxBlob:           pulumi.String(invokeFilebase64.Result),
 //				Password:          pulumi.String("password123!"),
 //			})
 //			if err != nil {
