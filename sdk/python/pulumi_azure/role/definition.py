@@ -282,7 +282,7 @@ class Definition(pulumi.CustomResource):
             description="This is a custom role created",
             permissions=[{
                 "actions": ["*"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         ```
@@ -328,7 +328,7 @@ class Definition(pulumi.CustomResource):
             description="This is a custom role created",
             permissions=[{
                 "actions": ["*"],
-                "notActions": [],
+                "not_actions": [],
             }],
             assignable_scopes=[primary.id])
         ```

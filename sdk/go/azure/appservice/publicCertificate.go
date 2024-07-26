@@ -69,7 +69,7 @@ import (
 //				AppServiceName:      exampleAppService.Name,
 //				CertificateName:     pulumi.String("example-public-certificate"),
 //				CertificateLocation: pulumi.String("Unknown"),
-//				Blob:                invokeFilebase64.Result,
+//				Blob:                pulumi.String(invokeFilebase64.Result),
 //			})
 //			if err != nil {
 //				return err

@@ -310,8 +310,8 @@ class Volume(pulumi.CustomResource):
             volume_group_id=example_volume_group.id,
             size_in_gib=2,
             create_source={
-                "sourceType": "DiskSnapshot",
-                "sourceId": example_snapshot.id,
+                "source_type": "DiskSnapshot",
+                "source_id": example_snapshot.id,
             })
         ```
 
@@ -406,8 +406,8 @@ class Volume(pulumi.CustomResource):
             volume_group_id=example_volume_group.id,
             size_in_gib=2,
             create_source={
-                "sourceType": "DiskSnapshot",
-                "sourceId": example_snapshot.id,
+                "source_type": "DiskSnapshot",
+                "source_id": example_snapshot.id,
             })
         ```
 

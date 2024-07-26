@@ -105,9 +105,9 @@ import (
 //				Name:       pulumi.String("example"),
 //				DatabaseId: exampleDatabase.ID(),
 //				Url:        exampleBlob.ID(),
-//				SasToken: example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (*string, error) {
+//				SasToken: pulumi.String(example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (*string, error) {
 //					return &example.Sas, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				ContinueOnErrorsEnabled:       pulumi.Bool(true),
 //				ForceAnUpdateWhenValueChanged: pulumi.String("first"),
 //			})

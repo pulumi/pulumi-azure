@@ -321,7 +321,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current.id],
+                "subscription_ids": [current.id],
             },
             scope_accesses=[
                 "Connectivity",
@@ -346,17 +346,17 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[
                 {
-                    "groupConnectivity": "DirectlyConnected",
-                    "networkGroupId": example_network_manager_network_group.id,
+                    "group_connectivity": "DirectlyConnected",
+                    "network_group_id": example_network_manager_network_group.id,
                 },
                 {
-                    "groupConnectivity": "DirectlyConnected",
-                    "networkGroupId": example2.id,
+                    "group_connectivity": "DirectlyConnected",
+                    "network_group_id": example2.id,
                 },
             ],
             hub={
-                "resourceId": example_virtual_network.id,
-                "resourceType": "Microsoft.Network/virtualNetworks",
+                "resource_id": example_virtual_network.id,
+                "resource_type": "Microsoft.Network/virtualNetworks",
             })
         ```
 
@@ -405,7 +405,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             scope={
-                "subscriptionIds": [current.id],
+                "subscription_ids": [current.id],
             },
             scope_accesses=[
                 "Connectivity",
@@ -430,17 +430,17 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[
                 {
-                    "groupConnectivity": "DirectlyConnected",
-                    "networkGroupId": example_network_manager_network_group.id,
+                    "group_connectivity": "DirectlyConnected",
+                    "network_group_id": example_network_manager_network_group.id,
                 },
                 {
-                    "groupConnectivity": "DirectlyConnected",
-                    "networkGroupId": example2.id,
+                    "group_connectivity": "DirectlyConnected",
+                    "network_group_id": example2.id,
                 },
             ],
             hub={
-                "resourceId": example_virtual_network.id,
-                "resourceType": "Microsoft.Network/virtualNetworks",
+                "resource_id": example_virtual_network.id,
+                "resource_type": "Microsoft.Network/virtualNetworks",
             })
         ```
 

@@ -50,7 +50,7 @@ import (
 //				ResourceGroupName: pulumi.String(example.ResourceGroupName),
 //				SchemaId:          pulumi.String("example-schema"),
 //				ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
-//				Value:             invokeFile.Result,
+//				Value:             pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

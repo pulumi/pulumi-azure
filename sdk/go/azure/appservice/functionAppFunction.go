@@ -228,7 +228,7 @@ import (
 //				Files: appservice.FunctionAppFunctionFileArray{
 //					&appservice.FunctionAppFunctionFileArgs{
 //						Name:    pulumi.String("run.csx"),
-//						Content: invokeFile.Result,
+//						Content: pulumi.String(invokeFile.Result),
 //					},
 //				},
 //				TestData:   pulumi.String(json0),

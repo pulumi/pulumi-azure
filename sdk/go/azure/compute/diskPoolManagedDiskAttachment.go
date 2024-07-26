@@ -124,7 +124,7 @@ import (
 //				val0 := index
 //				__res, err := authorization.NewAssignment(ctx, fmt.Sprintf("example-%v", key0), &authorization.AssignmentArgs{
 //					PrincipalId:        pulumi.String(example.Id),
-//					RoleDefinitionName: roles[val0],
+//					RoleDefinitionName: pulumi.String(roles[val0]),
 //					Scope:              exampleManagedDisk.ID(),
 //				})
 //				if err != nil {

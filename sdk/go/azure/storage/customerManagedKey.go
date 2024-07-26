@@ -70,9 +70,9 @@ import (
 //			storage, err := keyvault.NewAccessPolicy(ctx, "storage", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId: exampleAccount.Identity.ApplyT(func(identity storage.AccountIdentity) (*string, error) {
+//				ObjectId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity storage.AccountIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput),
+//				}).(pulumi.StringPtrOutput)),
 //				SecretPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //				},

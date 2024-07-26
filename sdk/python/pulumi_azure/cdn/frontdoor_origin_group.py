@@ -266,15 +266,15 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
-                "intervalInSeconds": 240,
+                "interval_in_seconds": 240,
                 "path": "/healthProbe",
                 "protocol": "Https",
-                "requestType": "HEAD",
+                "request_type": "HEAD",
             },
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         ```
 
@@ -325,15 +325,15 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
             health_probe={
-                "intervalInSeconds": 240,
+                "interval_in_seconds": 240,
                 "path": "/healthProbe",
                 "protocol": "Https",
-                "requestType": "HEAD",
+                "request_type": "HEAD",
             },
             load_balancing={
-                "additionalLatencyInMilliseconds": 0,
-                "sampleSize": 16,
-                "successfulSamplesRequired": 3,
+                "additional_latency_in_milliseconds": 0,
+                "sample_size": 16,
+                "successful_samples_required": 3,
             })
         ```
 

@@ -893,7 +893,7 @@ class ManagedInstance(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "managedinstancedelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -1105,7 +1105,7 @@ class ManagedInstance(pulumi.CustomResource):
             address_prefixes=["10.0.0.0/24"],
             delegations=[{
                 "name": "managedinstancedelegation",
-                "serviceDelegation": {
+                "service_delegation": {
                     "name": "Microsoft.Sql/managedInstances",
                     "actions": [
                         "Microsoft.Network/virtualNetworks/subnets/join/action",

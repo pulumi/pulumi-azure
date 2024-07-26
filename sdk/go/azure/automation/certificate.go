@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				Description:           pulumi.String("This is an example certificate"),
-//				Base64:                invokeFilebase64.Result,
+//				Base64:                pulumi.String(invokeFilebase64.Result),
 //				Exportable:            pulumi.Bool(true),
 //			})
 //			if err != nil {

@@ -289,13 +289,13 @@ class Order(pulumi.CustomResource):
             contact={
                 "name": "TerraForm Test",
                 "emails": ["creator4983@FlynnsArcade.com"],
-                "companyName": "Flynn's Arcade",
-                "phoneNumber": "(800) 555-1234",
+                "company_name": "Flynn's Arcade",
+                "phone_number": "(800) 555-1234",
             },
             shipment_address={
                 "addresses": ["One Microsoft Way"],
                 "city": "Redmond",
-                "postalCode": "98052",
+                "postal_code": "98052",
                 "state": "WA",
                 "country": "United States",
             })
@@ -347,13 +347,13 @@ class Order(pulumi.CustomResource):
             contact={
                 "name": "TerraForm Test",
                 "emails": ["creator4983@FlynnsArcade.com"],
-                "companyName": "Flynn's Arcade",
-                "phoneNumber": "(800) 555-1234",
+                "company_name": "Flynn's Arcade",
+                "phone_number": "(800) 555-1234",
             },
             shipment_address={
                 "addresses": ["One Microsoft Way"],
                 "city": "Redmond",
-                "postalCode": "98052",
+                "postal_code": "98052",
                 "state": "WA",
                 "country": "United States",
             })
