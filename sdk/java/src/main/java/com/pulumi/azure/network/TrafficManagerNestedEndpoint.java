@@ -337,11 +337,18 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public TrafficManagerNestedEndpoint(String name, TrafficManagerNestedEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, args == null ? TrafficManagerNestedEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrafficManagerNestedEndpoint(String name, Output<String> id, @Nullable TrafficManagerNestedEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrafficManagerNestedEndpointArgs makeArgs(TrafficManagerNestedEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficManagerNestedEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

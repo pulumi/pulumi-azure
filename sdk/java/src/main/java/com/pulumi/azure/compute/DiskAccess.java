@@ -145,11 +145,18 @@ public class DiskAccess extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DiskAccess(String name, DiskAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/diskAccess:DiskAccess", name, args == null ? DiskAccessArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/diskAccess:DiskAccess", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DiskAccess(String name, Output<String> id, @Nullable DiskAccessState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/diskAccess:DiskAccess", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DiskAccessArgs makeArgs(DiskAccessArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiskAccessArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

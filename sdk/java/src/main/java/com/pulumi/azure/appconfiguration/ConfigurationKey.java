@@ -383,11 +383,18 @@ public class ConfigurationKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConfigurationKey(String name, ConfigurationKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/configurationKey:ConfigurationKey", name, args == null ? ConfigurationKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appconfiguration/configurationKey:ConfigurationKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConfigurationKey(String name, Output<String> id, @Nullable ConfigurationKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appconfiguration/configurationKey:ConfigurationKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConfigurationKeyArgs makeArgs(ConfigurationKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConfigurationKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

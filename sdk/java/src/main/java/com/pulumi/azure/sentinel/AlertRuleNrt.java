@@ -399,11 +399,18 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AlertRuleNrt(String name, AlertRuleNrtArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleNrt:AlertRuleNrt", name, args == null ? AlertRuleNrtArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/alertRuleNrt:AlertRuleNrt", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlertRuleNrt(String name, Output<String> id, @Nullable AlertRuleNrtState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/alertRuleNrt:AlertRuleNrt", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlertRuleNrtArgs makeArgs(AlertRuleNrtArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlertRuleNrtArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

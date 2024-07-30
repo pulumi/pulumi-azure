@@ -272,11 +272,18 @@ public class ContentKeyPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ContentKeyPolicy(String name, ContentKeyPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/contentKeyPolicy:ContentKeyPolicy", name, args == null ? ContentKeyPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:media/contentKeyPolicy:ContentKeyPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContentKeyPolicy(String name, Output<String> id, @Nullable ContentKeyPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:media/contentKeyPolicy:ContentKeyPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContentKeyPolicyArgs makeArgs(ContentKeyPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContentKeyPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

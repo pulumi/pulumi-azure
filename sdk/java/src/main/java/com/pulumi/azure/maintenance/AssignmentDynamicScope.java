@@ -99,11 +99,18 @@ public class AssignmentDynamicScope extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public AssignmentDynamicScope(String name, AssignmentDynamicScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope", name, args == null ? AssignmentDynamicScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AssignmentDynamicScope(String name, Output<String> id, @Nullable AssignmentDynamicScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:maintenance/assignmentDynamicScope:AssignmentDynamicScope", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AssignmentDynamicScopeArgs makeArgs(AssignmentDynamicScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssignmentDynamicScopeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

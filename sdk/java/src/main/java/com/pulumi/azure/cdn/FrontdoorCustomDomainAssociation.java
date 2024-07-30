@@ -225,11 +225,18 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public FrontdoorCustomDomainAssociation(String name, FrontdoorCustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", name, args == null ? FrontdoorCustomDomainAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FrontdoorCustomDomainAssociation(String name, Output<String> id, @Nullable FrontdoorCustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FrontdoorCustomDomainAssociationArgs makeArgs(FrontdoorCustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorCustomDomainAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

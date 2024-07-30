@@ -252,11 +252,18 @@ public class StreamInputIotHub extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StreamInputIotHub(String name, StreamInputIotHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, args == null ? StreamInputIotHubArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StreamInputIotHub(String name, Output<String> id, @Nullable StreamInputIotHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:streamanalytics/streamInputIotHub:StreamInputIotHub", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StreamInputIotHubArgs makeArgs(StreamInputIotHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamInputIotHubArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

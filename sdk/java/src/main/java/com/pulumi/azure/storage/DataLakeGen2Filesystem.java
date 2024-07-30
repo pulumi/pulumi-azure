@@ -214,11 +214,18 @@ public class DataLakeGen2Filesystem extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public DataLakeGen2Filesystem(String name, DataLakeGen2FilesystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, args == null ? DataLakeGen2FilesystemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataLakeGen2Filesystem(String name, Output<String> id, @Nullable DataLakeGen2FilesystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataLakeGen2FilesystemArgs makeArgs(DataLakeGen2FilesystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataLakeGen2FilesystemArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

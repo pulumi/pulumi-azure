@@ -169,11 +169,18 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public DataConnectorThreatIntelligence(String name, DataConnectorThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence", name, args == null ? DataConnectorThreatIntelligenceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataConnectorThreatIntelligence(String name, Output<String> id, @Nullable DataConnectorThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataConnectorThreatIntelligenceArgs makeArgs(DataConnectorThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorThreatIntelligenceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

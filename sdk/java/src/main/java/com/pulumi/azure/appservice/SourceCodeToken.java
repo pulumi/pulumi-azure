@@ -134,11 +134,18 @@ public class SourceCodeToken extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SourceCodeToken(String name, SourceCodeTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/sourceCodeToken:SourceCodeToken", name, args == null ? SourceCodeTokenArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/sourceCodeToken:SourceCodeToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SourceCodeToken(String name, Output<String> id, @Nullable SourceCodeTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/sourceCodeToken:SourceCodeToken", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SourceCodeTokenArgs makeArgs(SourceCodeTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SourceCodeTokenArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

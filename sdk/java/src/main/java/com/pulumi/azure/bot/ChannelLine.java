@@ -172,11 +172,18 @@ public class ChannelLine extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ChannelLine(String name, ChannelLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelLine:ChannelLine", name, args == null ? ChannelLineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/channelLine:ChannelLine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ChannelLine(String name, Output<String> id, @Nullable ChannelLineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/channelLine:ChannelLine", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ChannelLineArgs makeArgs(ChannelLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelLineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

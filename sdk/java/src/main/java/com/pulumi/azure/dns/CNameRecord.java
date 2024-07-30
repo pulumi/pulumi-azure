@@ -281,11 +281,18 @@ public class CNameRecord extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CNameRecord(String name, CNameRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dns/cNameRecord:CNameRecord", name, args == null ? CNameRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dns/cNameRecord:CNameRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CNameRecord(String name, Output<String> id, @Nullable CNameRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dns/cNameRecord:CNameRecord", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CNameRecordArgs makeArgs(CNameRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CNameRecordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -161,11 +161,18 @@ public class ApiOperationTag extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiOperationTag(String name, ApiOperationTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiOperationTag:ApiOperationTag", name, args == null ? ApiOperationTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/apiOperationTag:ApiOperationTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiOperationTag(String name, Output<String> id, @Nullable ApiOperationTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/apiOperationTag:ApiOperationTag", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiOperationTagArgs makeArgs(ApiOperationTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiOperationTagArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

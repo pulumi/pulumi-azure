@@ -267,11 +267,18 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public DataCollectionRuleAssociation(String name, DataCollectionRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", name, args == null ? DataCollectionRuleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataCollectionRuleAssociation(String name, Output<String> id, @Nullable DataCollectionRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataCollectionRuleAssociationArgs makeArgs(DataCollectionRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataCollectionRuleAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

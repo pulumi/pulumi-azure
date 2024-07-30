@@ -277,11 +277,18 @@ public class SmartDetectorAlertRule extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public SmartDetectorAlertRule(String name, SmartDetectorAlertRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule", name, args == null ? SmartDetectorAlertRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SmartDetectorAlertRule(String name, Output<String> id, @Nullable SmartDetectorAlertRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SmartDetectorAlertRuleArgs makeArgs(SmartDetectorAlertRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SmartDetectorAlertRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

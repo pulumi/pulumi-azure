@@ -191,11 +191,18 @@ public class ChannelWebChat extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ChannelWebChat(String name, ChannelWebChatArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelWebChat:ChannelWebChat", name, args == null ? ChannelWebChatArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/channelWebChat:ChannelWebChat", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ChannelWebChat(String name, Output<String> id, @Nullable ChannelWebChatState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/channelWebChat:ChannelWebChat", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ChannelWebChatArgs makeArgs(ChannelWebChatArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelWebChatArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

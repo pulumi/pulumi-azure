@@ -181,11 +181,18 @@ public class Healthbot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Healthbot(String name, HealthbotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/healthbot:Healthbot", name, args == null ? HealthbotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/healthbot:Healthbot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Healthbot(String name, Output<String> id, @Nullable HealthbotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/healthbot:Healthbot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HealthbotArgs makeArgs(HealthbotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HealthbotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

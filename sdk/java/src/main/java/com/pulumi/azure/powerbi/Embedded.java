@@ -197,11 +197,18 @@ public class Embedded extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Embedded(String name, EmbeddedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:powerbi/embedded:Embedded", name, args == null ? EmbeddedArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:powerbi/embedded:Embedded", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Embedded(String name, Output<String> id, @Nullable EmbeddedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:powerbi/embedded:Embedded", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EmbeddedArgs makeArgs(EmbeddedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmbeddedArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -147,11 +147,18 @@ public class NotificationRecipientEmail extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public NotificationRecipientEmail(String name, NotificationRecipientEmailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail", name, args == null ? NotificationRecipientEmailArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotificationRecipientEmail(String name, Output<String> id, @Nullable NotificationRecipientEmailState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotificationRecipientEmailArgs makeArgs(NotificationRecipientEmailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotificationRecipientEmailArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

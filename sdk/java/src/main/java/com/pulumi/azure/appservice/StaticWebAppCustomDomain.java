@@ -230,11 +230,18 @@ public class StaticWebAppCustomDomain extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public StaticWebAppCustomDomain(String name, StaticWebAppCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain", name, args == null ? StaticWebAppCustomDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StaticWebAppCustomDomain(String name, Output<String> id, @Nullable StaticWebAppCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/staticWebAppCustomDomain:StaticWebAppCustomDomain", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StaticWebAppCustomDomainArgs makeArgs(StaticWebAppCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StaticWebAppCustomDomainArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

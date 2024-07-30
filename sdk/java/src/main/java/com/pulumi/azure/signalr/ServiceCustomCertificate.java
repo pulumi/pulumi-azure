@@ -229,11 +229,18 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceCustomCertificate(String name, ServiceCustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", name, args == null ? ServiceCustomCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceCustomCertificate(String name, Output<String> id, @Nullable ServiceCustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceCustomCertificateArgs makeArgs(ServiceCustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceCustomCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -436,11 +436,18 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public ExpressRouteCircuitPeering(String name, ExpressRouteCircuitPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, args == null ? ExpressRouteCircuitPeeringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExpressRouteCircuitPeering(String name, Output<String> id, @Nullable ExpressRouteCircuitPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExpressRouteCircuitPeeringArgs makeArgs(ExpressRouteCircuitPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExpressRouteCircuitPeeringArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

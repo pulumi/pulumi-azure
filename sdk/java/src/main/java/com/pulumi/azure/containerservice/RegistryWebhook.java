@@ -254,11 +254,18 @@ public class RegistryWebhook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegistryWebhook(String name, RegistryWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/registryWebhook:RegistryWebhook", name, args == null ? RegistryWebhookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/registryWebhook:RegistryWebhook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegistryWebhook(String name, Output<String> id, @Nullable RegistryWebhookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/registryWebhook:RegistryWebhook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryWebhookArgs makeArgs(RegistryWebhookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryWebhookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

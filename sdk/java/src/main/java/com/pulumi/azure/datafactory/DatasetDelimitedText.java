@@ -434,11 +434,18 @@ public class DatasetDelimitedText extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DatasetDelimitedText(String name, DatasetDelimitedTextArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetDelimitedText:DatasetDelimitedText", name, args == null ? DatasetDelimitedTextArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/datasetDelimitedText:DatasetDelimitedText", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatasetDelimitedText(String name, Output<String> id, @Nullable DatasetDelimitedTextState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/datasetDelimitedText:DatasetDelimitedText", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatasetDelimitedTextArgs makeArgs(DatasetDelimitedTextArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetDelimitedTextArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

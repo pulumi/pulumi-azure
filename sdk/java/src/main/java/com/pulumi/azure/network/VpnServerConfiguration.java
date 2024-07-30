@@ -251,11 +251,18 @@ public class VpnServerConfiguration extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public VpnServerConfiguration(String name, VpnServerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vpnServerConfiguration:VpnServerConfiguration", name, args == null ? VpnServerConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/vpnServerConfiguration:VpnServerConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpnServerConfiguration(String name, Output<String> id, @Nullable VpnServerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/vpnServerConfiguration:VpnServerConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpnServerConfigurationArgs makeArgs(VpnServerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpnServerConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -294,11 +294,18 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SubscriptionRule(String name, SubscriptionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/subscriptionRule:SubscriptionRule", name, args == null ? SubscriptionRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:servicebus/subscriptionRule:SubscriptionRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SubscriptionRule(String name, Output<String> id, @Nullable SubscriptionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:servicebus/subscriptionRule:SubscriptionRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubscriptionRuleArgs makeArgs(SubscriptionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

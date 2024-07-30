@@ -144,11 +144,18 @@ public class ApiTag extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiTag(String name, ApiTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiTag:ApiTag", name, args == null ? ApiTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/apiTag:ApiTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiTag(String name, Output<String> id, @Nullable ApiTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/apiTag:ApiTag", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiTagArgs makeArgs(ApiTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiTagArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

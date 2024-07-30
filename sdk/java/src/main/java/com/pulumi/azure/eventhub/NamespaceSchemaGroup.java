@@ -158,11 +158,18 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NamespaceSchemaGroup(String name, NamespaceSchemaGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, args == null ? NamespaceSchemaGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NamespaceSchemaGroup(String name, Output<String> id, @Nullable NamespaceSchemaGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NamespaceSchemaGroupArgs makeArgs(NamespaceSchemaGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceSchemaGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

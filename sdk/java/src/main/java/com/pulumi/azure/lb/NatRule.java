@@ -256,11 +256,18 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NatRule(String name, NatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lb/natRule:NatRule", name, args == null ? NatRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:lb/natRule:NatRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NatRule(String name, Output<String> id, @Nullable NatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:lb/natRule:NatRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NatRuleArgs makeArgs(NatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NatRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

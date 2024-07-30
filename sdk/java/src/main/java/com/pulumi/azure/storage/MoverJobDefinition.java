@@ -287,11 +287,18 @@ public class MoverJobDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MoverJobDefinition(String name, MoverJobDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/moverJobDefinition:MoverJobDefinition", name, args == null ? MoverJobDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/moverJobDefinition:MoverJobDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MoverJobDefinition(String name, Output<String> id, @Nullable MoverJobDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/moverJobDefinition:MoverJobDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MoverJobDefinitionArgs makeArgs(MoverJobDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MoverJobDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

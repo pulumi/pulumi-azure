@@ -226,11 +226,18 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CaaRecord(String name, CaaRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dns/caaRecord:CaaRecord", name, args == null ? CaaRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dns/caaRecord:CaaRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CaaRecord(String name, Output<String> id, @Nullable CaaRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dns/caaRecord:CaaRecord", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CaaRecordArgs makeArgs(CaaRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CaaRecordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

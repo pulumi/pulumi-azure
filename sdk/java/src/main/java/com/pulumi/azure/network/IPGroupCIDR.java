@@ -129,11 +129,18 @@ public class IPGroupCIDR extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IPGroupCIDR(String name, IPGroupCIDRArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/iPGroupCIDR:IPGroupCIDR", name, args == null ? IPGroupCIDRArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/iPGroupCIDR:IPGroupCIDR", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IPGroupCIDR(String name, Output<String> id, @Nullable IPGroupCIDRState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/iPGroupCIDR:IPGroupCIDR", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IPGroupCIDRArgs makeArgs(IPGroupCIDRArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IPGroupCIDRArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

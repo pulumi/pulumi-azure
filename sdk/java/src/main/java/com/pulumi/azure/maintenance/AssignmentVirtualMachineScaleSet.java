@@ -304,11 +304,18 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public AssignmentVirtualMachineScaleSet(String name, AssignmentVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, args == null ? AssignmentVirtualMachineScaleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AssignmentVirtualMachineScaleSet(String name, Output<String> id, @Nullable AssignmentVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AssignmentVirtualMachineScaleSetArgs makeArgs(AssignmentVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssignmentVirtualMachineScaleSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

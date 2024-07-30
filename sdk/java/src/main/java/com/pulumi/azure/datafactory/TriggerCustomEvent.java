@@ -295,11 +295,18 @@ public class TriggerCustomEvent extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TriggerCustomEvent(String name, TriggerCustomEventArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/triggerCustomEvent:TriggerCustomEvent", name, args == null ? TriggerCustomEventArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/triggerCustomEvent:TriggerCustomEvent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TriggerCustomEvent(String name, Output<String> id, @Nullable TriggerCustomEventState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/triggerCustomEvent:TriggerCustomEvent", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TriggerCustomEventArgs makeArgs(TriggerCustomEventArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TriggerCustomEventArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

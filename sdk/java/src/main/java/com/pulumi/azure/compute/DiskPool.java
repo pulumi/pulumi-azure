@@ -227,11 +227,18 @@ public class DiskPool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DiskPool(String name, DiskPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/diskPool:DiskPool", name, args == null ? DiskPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/diskPool:DiskPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DiskPool(String name, Output<String> id, @Nullable DiskPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/diskPool:DiskPool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DiskPoolArgs makeArgs(DiskPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiskPoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

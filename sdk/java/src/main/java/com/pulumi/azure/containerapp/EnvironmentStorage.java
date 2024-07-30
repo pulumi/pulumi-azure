@@ -219,11 +219,18 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EnvironmentStorage(String name, EnvironmentStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerapp/environmentStorage:EnvironmentStorage", name, args == null ? EnvironmentStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerapp/environmentStorage:EnvironmentStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EnvironmentStorage(String name, Output<String> id, @Nullable EnvironmentStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerapp/environmentStorage:EnvironmentStorage", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EnvironmentStorageArgs makeArgs(EnvironmentStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentStorageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
