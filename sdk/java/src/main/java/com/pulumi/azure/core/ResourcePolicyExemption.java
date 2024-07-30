@@ -251,11 +251,18 @@ public class ResourcePolicyExemption extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourcePolicyExemption(String name, ResourcePolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, args == null ? ResourcePolicyExemptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourcePolicyExemption(String name, Output<String> id, @Nullable ResourcePolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/resourcePolicyExemption:ResourcePolicyExemption", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourcePolicyExemptionArgs makeArgs(ResourcePolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourcePolicyExemptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

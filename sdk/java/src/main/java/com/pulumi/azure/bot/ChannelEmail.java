@@ -197,11 +197,18 @@ public class ChannelEmail extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ChannelEmail(String name, ChannelEmailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelEmail:ChannelEmail", name, args == null ? ChannelEmailArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/channelEmail:ChannelEmail", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ChannelEmail(String name, Output<String> id, @Nullable ChannelEmailState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/channelEmail:ChannelEmail", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ChannelEmailArgs makeArgs(ChannelEmailArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelEmailArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

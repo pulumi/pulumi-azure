@@ -172,11 +172,18 @@ public class StaticWebAppFunctionAppRegistration extends com.pulumi.resources.Cu
      * @param options A bag of options that control this resource's behavior.
      */
     public StaticWebAppFunctionAppRegistration(String name, StaticWebAppFunctionAppRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration", name, args == null ? StaticWebAppFunctionAppRegistrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StaticWebAppFunctionAppRegistration(String name, Output<String> id, @Nullable StaticWebAppFunctionAppRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/staticWebAppFunctionAppRegistration:StaticWebAppFunctionAppRegistration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StaticWebAppFunctionAppRegistrationArgs makeArgs(StaticWebAppFunctionAppRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StaticWebAppFunctionAppRegistrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

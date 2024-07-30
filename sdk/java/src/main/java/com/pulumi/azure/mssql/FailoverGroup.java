@@ -241,11 +241,18 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FailoverGroup(String name, FailoverGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/failoverGroup:FailoverGroup", name, args == null ? FailoverGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/failoverGroup:FailoverGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FailoverGroup(String name, Output<String> id, @Nullable FailoverGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/failoverGroup:FailoverGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FailoverGroupArgs makeArgs(FailoverGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FailoverGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

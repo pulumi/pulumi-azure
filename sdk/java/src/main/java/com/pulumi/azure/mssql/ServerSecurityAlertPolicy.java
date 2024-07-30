@@ -257,11 +257,18 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerSecurityAlertPolicy(String name, ServerSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, args == null ? ServerSecurityAlertPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerSecurityAlertPolicy(String name, Output<String> id, @Nullable ServerSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerSecurityAlertPolicyArgs makeArgs(ServerSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerSecurityAlertPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

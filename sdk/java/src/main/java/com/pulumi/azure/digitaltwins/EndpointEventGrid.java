@@ -197,11 +197,18 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EndpointEventGrid(String name, EndpointEventGridArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, args == null ? EndpointEventGridArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EndpointEventGrid(String name, Output<String> id, @Nullable EndpointEventGridState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EndpointEventGridArgs makeArgs(EndpointEventGridArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointEventGridArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

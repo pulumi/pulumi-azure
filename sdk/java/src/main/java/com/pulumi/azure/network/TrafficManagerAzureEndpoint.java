@@ -275,11 +275,18 @@ public class TrafficManagerAzureEndpoint extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public TrafficManagerAzureEndpoint(String name, TrafficManagerAzureEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint", name, args == null ? TrafficManagerAzureEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrafficManagerAzureEndpoint(String name, Output<String> id, @Nullable TrafficManagerAzureEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrafficManagerAzureEndpointArgs makeArgs(TrafficManagerAzureEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficManagerAzureEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -233,11 +233,18 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public ChannelDirectLineSpeech(String name, ChannelDirectLineSpeechArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech", name, args == null ? ChannelDirectLineSpeechArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ChannelDirectLineSpeech(String name, Output<String> id, @Nullable ChannelDirectLineSpeechState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ChannelDirectLineSpeechArgs makeArgs(ChannelDirectLineSpeechArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelDirectLineSpeechArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

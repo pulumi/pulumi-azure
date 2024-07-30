@@ -207,11 +207,18 @@ public class ManagedInstanceActiveDirectoryAdministrator extends com.pulumi.reso
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedInstanceActiveDirectoryAdministrator(String name, ManagedInstanceActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", name, args == null ? ManagedInstanceActiveDirectoryAdministratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedInstanceActiveDirectoryAdministrator(String name, Output<String> id, @Nullable ManagedInstanceActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedInstanceActiveDirectoryAdministratorArgs makeArgs(ManagedInstanceActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedInstanceActiveDirectoryAdministratorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

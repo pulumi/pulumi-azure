@@ -240,11 +240,18 @@ public class SpringCloudBuildDeployment extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudBuildDeployment(String name, SpringCloudBuildDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", name, args == null ? SpringCloudBuildDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudBuildDeployment(String name, Output<String> id, @Nullable SpringCloudBuildDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudBuildDeployment:SpringCloudBuildDeployment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudBuildDeploymentArgs makeArgs(SpringCloudBuildDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudBuildDeploymentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

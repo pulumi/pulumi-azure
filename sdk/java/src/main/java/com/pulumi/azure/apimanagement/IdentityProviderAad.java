@@ -207,11 +207,18 @@ public class IdentityProviderAad extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityProviderAad(String name, IdentityProviderAadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/identityProviderAad:IdentityProviderAad", name, args == null ? IdentityProviderAadArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/identityProviderAad:IdentityProviderAad", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityProviderAad(String name, Output<String> id, @Nullable IdentityProviderAadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/identityProviderAad:IdentityProviderAad", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityProviderAadArgs makeArgs(IdentityProviderAadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityProviderAadArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

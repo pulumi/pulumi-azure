@@ -92,11 +92,18 @@ public class NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation ext
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(String name, NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, args == null ? NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(String name, Output<String> id, @Nullable NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs makeArgs(NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

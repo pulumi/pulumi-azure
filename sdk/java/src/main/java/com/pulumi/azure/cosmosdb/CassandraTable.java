@@ -229,11 +229,18 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CassandraTable(String name, CassandraTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/cassandraTable:CassandraTable", name, args == null ? CassandraTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/cassandraTable:CassandraTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CassandraTable(String name, Output<String> id, @Nullable CassandraTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/cassandraTable:CassandraTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CassandraTableArgs makeArgs(CassandraTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CassandraTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

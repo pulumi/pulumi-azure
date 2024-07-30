@@ -244,11 +244,18 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationRuntimeAzure(String name, IntegrationRuntimeAzureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", name, args == null ? IntegrationRuntimeAzureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationRuntimeAzure(String name, Output<String> id, @Nullable IntegrationRuntimeAzureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationRuntimeAzureArgs makeArgs(IntegrationRuntimeAzureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationRuntimeAzureArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

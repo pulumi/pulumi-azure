@@ -430,11 +430,18 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EnvironmentV3(String name, EnvironmentV3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/environmentV3:EnvironmentV3", name, args == null ? EnvironmentV3Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/environmentV3:EnvironmentV3", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EnvironmentV3(String name, Output<String> id, @Nullable EnvironmentV3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/environmentV3:EnvironmentV3", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EnvironmentV3Args makeArgs(EnvironmentV3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentV3Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

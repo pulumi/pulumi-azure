@@ -119,11 +119,18 @@ public class Setting extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Setting(String name, SettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/setting:Setting", name, args == null ? SettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:securitycenter/setting:Setting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Setting(String name, Output<String> id, @Nullable SettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:securitycenter/setting:Setting", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SettingArgs makeArgs(SettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SettingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -282,11 +282,18 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedStorageAccountSasTokenDefinition(String name, ManagedStorageAccountSasTokenDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", name, args == null ? ManagedStorageAccountSasTokenDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedStorageAccountSasTokenDefinition(String name, Output<String> id, @Nullable ManagedStorageAccountSasTokenDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedStorageAccountSasTokenDefinitionArgs makeArgs(ManagedStorageAccountSasTokenDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedStorageAccountSasTokenDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

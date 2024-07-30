@@ -246,11 +246,18 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PolicySetDefinition(String name, PolicySetDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:policy/policySetDefinition:PolicySetDefinition", name, args == null ? PolicySetDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:policy/policySetDefinition:PolicySetDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PolicySetDefinition(String name, Output<String> id, @Nullable PolicySetDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:policy/policySetDefinition:PolicySetDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PolicySetDefinitionArgs makeArgs(PolicySetDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicySetDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

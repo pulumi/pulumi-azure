@@ -310,11 +310,18 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GremlinGraph(String name, GremlinGraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/gremlinGraph:GremlinGraph", name, args == null ? GremlinGraphArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/gremlinGraph:GremlinGraph", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GremlinGraph(String name, Output<String> id, @Nullable GremlinGraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/gremlinGraph:GremlinGraph", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GremlinGraphArgs makeArgs(GremlinGraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GremlinGraphArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
