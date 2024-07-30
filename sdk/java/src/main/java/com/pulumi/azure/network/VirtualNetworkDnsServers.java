@@ -138,11 +138,18 @@ public class VirtualNetworkDnsServers extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualNetworkDnsServers(String name, VirtualNetworkDnsServersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers", name, args == null ? VirtualNetworkDnsServersArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualNetworkDnsServers(String name, Output<String> id, @Nullable VirtualNetworkDnsServersState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualNetworkDnsServersArgs makeArgs(VirtualNetworkDnsServersArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkDnsServersArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

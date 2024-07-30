@@ -215,11 +215,18 @@ public class IotHubDeviceUpdateAccount extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public IotHubDeviceUpdateAccount(String name, IotHubDeviceUpdateAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount", name, args == null ? IotHubDeviceUpdateAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IotHubDeviceUpdateAccount(String name, Output<String> id, @Nullable IotHubDeviceUpdateAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:iot/iotHubDeviceUpdateAccount:IotHubDeviceUpdateAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IotHubDeviceUpdateAccountArgs makeArgs(IotHubDeviceUpdateAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IotHubDeviceUpdateAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

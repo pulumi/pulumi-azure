@@ -245,11 +245,18 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
      * @param options A bag of options that control this resource's behavior.
      */
     public BackupPolicyPostgresqlFlexibleServer(String name, BackupPolicyPostgresqlFlexibleServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", name, args == null ? BackupPolicyPostgresqlFlexibleServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BackupPolicyPostgresqlFlexibleServer(String name, Output<String> id, @Nullable BackupPolicyPostgresqlFlexibleServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BackupPolicyPostgresqlFlexibleServerArgs makeArgs(BackupPolicyPostgresqlFlexibleServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupPolicyPostgresqlFlexibleServerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

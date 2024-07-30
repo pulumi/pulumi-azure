@@ -219,11 +219,18 @@ public class RegistryAgentPool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegistryAgentPool(String name, RegistryAgentPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/registryAgentPool:RegistryAgentPool", name, args == null ? RegistryAgentPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/registryAgentPool:RegistryAgentPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegistryAgentPool(String name, Output<String> id, @Nullable RegistryAgentPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/registryAgentPool:RegistryAgentPool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryAgentPoolArgs makeArgs(RegistryAgentPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryAgentPoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

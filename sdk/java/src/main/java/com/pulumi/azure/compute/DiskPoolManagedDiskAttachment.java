@@ -207,11 +207,18 @@ public class DiskPoolManagedDiskAttachment extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public DiskPoolManagedDiskAttachment(String name, DiskPoolManagedDiskAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment", name, args == null ? DiskPoolManagedDiskAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DiskPoolManagedDiskAttachment(String name, Output<String> id, @Nullable DiskPoolManagedDiskAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DiskPoolManagedDiskAttachmentArgs makeArgs(DiskPoolManagedDiskAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiskPoolManagedDiskAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

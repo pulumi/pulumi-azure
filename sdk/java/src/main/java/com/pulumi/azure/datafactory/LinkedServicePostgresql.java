@@ -217,11 +217,18 @@ public class LinkedServicePostgresql extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServicePostgresql(String name, LinkedServicePostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, args == null ? LinkedServicePostgresqlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServicePostgresql(String name, Output<String> id, @Nullable LinkedServicePostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServicePostgresql:LinkedServicePostgresql", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServicePostgresqlArgs makeArgs(LinkedServicePostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServicePostgresqlArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

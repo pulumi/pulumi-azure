@@ -111,11 +111,18 @@ public class PortalTenantConfiguration extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public PortalTenantConfiguration(String name, PortalTenantConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/portalTenantConfiguration:PortalTenantConfiguration", name, args == null ? PortalTenantConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/portalTenantConfiguration:PortalTenantConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PortalTenantConfiguration(String name, Output<String> id, @Nullable PortalTenantConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/portalTenantConfiguration:PortalTenantConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PortalTenantConfigurationArgs makeArgs(PortalTenantConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PortalTenantConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

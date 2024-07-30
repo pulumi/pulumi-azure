@@ -188,11 +188,18 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public MonitorSsoConfiguration(String name, MonitorSsoConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", name, args == null ? MonitorSsoConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MonitorSsoConfiguration(String name, Output<String> id, @Nullable MonitorSsoConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MonitorSsoConfigurationArgs makeArgs(MonitorSsoConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MonitorSsoConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

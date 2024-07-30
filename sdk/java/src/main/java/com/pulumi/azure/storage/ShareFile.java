@@ -257,11 +257,18 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ShareFile(String name, ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/shareFile:ShareFile", name, args == null ? ShareFileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/shareFile:ShareFile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ShareFile(String name, Output<String> id, @Nullable ShareFileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/shareFile:ShareFile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ShareFileArgs makeArgs(ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ShareFileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

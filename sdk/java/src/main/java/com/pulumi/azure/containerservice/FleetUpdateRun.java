@@ -223,11 +223,18 @@ public class FleetUpdateRun extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FleetUpdateRun(String name, FleetUpdateRunArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/fleetUpdateRun:FleetUpdateRun", name, args == null ? FleetUpdateRunArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/fleetUpdateRun:FleetUpdateRun", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FleetUpdateRun(String name, Output<String> id, @Nullable FleetUpdateRunState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/fleetUpdateRun:FleetUpdateRun", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FleetUpdateRunArgs makeArgs(FleetUpdateRunArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FleetUpdateRunArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

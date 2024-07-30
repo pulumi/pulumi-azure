@@ -180,11 +180,18 @@ public class SpatialAnchorsAccount extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SpatialAnchorsAccount(String name, SpatialAnchorsAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount", name, args == null ? SpatialAnchorsAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpatialAnchorsAccount(String name, Output<String> id, @Nullable SpatialAnchorsAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpatialAnchorsAccountArgs makeArgs(SpatialAnchorsAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpatialAnchorsAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

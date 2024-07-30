@@ -347,11 +347,18 @@ public class Grafana extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Grafana(String name, GrafanaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dashboard/grafana:Grafana", name, args == null ? GrafanaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dashboard/grafana:Grafana", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Grafana(String name, Output<String> id, @Nullable GrafanaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dashboard/grafana:Grafana", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GrafanaArgs makeArgs(GrafanaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GrafanaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

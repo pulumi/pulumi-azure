@@ -243,11 +243,18 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AssetFilter(String name, AssetFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/assetFilter:AssetFilter", name, args == null ? AssetFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:media/assetFilter:AssetFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AssetFilter(String name, Output<String> id, @Nullable AssetFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:media/assetFilter:AssetFilter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AssetFilterArgs makeArgs(AssetFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssetFilterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

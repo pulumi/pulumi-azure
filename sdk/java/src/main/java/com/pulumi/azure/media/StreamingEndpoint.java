@@ -457,11 +457,18 @@ public class StreamingEndpoint extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StreamingEndpoint(String name, StreamingEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/streamingEndpoint:StreamingEndpoint", name, args == null ? StreamingEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:media/streamingEndpoint:StreamingEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StreamingEndpoint(String name, Output<String> id, @Nullable StreamingEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:media/streamingEndpoint:StreamingEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StreamingEndpointArgs makeArgs(StreamingEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamingEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

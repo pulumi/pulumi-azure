@@ -211,11 +211,18 @@ public class SrvRecord extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SrvRecord(String name, SrvRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dns/srvRecord:SrvRecord", name, args == null ? SrvRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dns/srvRecord:SrvRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SrvRecord(String name, Output<String> id, @Nullable SrvRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dns/srvRecord:SrvRecord", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SrvRecordArgs makeArgs(SrvRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SrvRecordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

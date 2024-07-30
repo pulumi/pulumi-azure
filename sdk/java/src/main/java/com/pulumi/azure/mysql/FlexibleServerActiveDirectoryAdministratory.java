@@ -70,11 +70,18 @@ public class FlexibleServerActiveDirectoryAdministratory extends com.pulumi.reso
      * @param options A bag of options that control this resource's behavior.
      */
     public FlexibleServerActiveDirectoryAdministratory(String name, FlexibleServerActiveDirectoryAdministratoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", name, args == null ? FlexibleServerActiveDirectoryAdministratoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FlexibleServerActiveDirectoryAdministratory(String name, Output<String> id, @Nullable FlexibleServerActiveDirectoryAdministratoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mysql/flexibleServerActiveDirectoryAdministratory:FlexibleServerActiveDirectoryAdministratory", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FlexibleServerActiveDirectoryAdministratoryArgs makeArgs(FlexibleServerActiveDirectoryAdministratoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FlexibleServerActiveDirectoryAdministratoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

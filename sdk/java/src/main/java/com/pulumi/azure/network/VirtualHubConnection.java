@@ -194,11 +194,18 @@ public class VirtualHubConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualHubConnection(String name, VirtualHubConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualHubConnection:VirtualHubConnection", name, args == null ? VirtualHubConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/virtualHubConnection:VirtualHubConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualHubConnection(String name, Output<String> id, @Nullable VirtualHubConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/virtualHubConnection:VirtualHubConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualHubConnectionArgs makeArgs(VirtualHubConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualHubConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

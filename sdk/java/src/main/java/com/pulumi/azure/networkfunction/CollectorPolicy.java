@@ -244,11 +244,18 @@ public class CollectorPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CollectorPolicy(String name, CollectorPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:networkfunction/collectorPolicy:CollectorPolicy", name, args == null ? CollectorPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:networkfunction/collectorPolicy:CollectorPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CollectorPolicy(String name, Output<String> id, @Nullable CollectorPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:networkfunction/collectorPolicy:CollectorPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CollectorPolicyArgs makeArgs(CollectorPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CollectorPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

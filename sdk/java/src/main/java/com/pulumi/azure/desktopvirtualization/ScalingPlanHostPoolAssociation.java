@@ -204,11 +204,18 @@ public class ScalingPlanHostPoolAssociation extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public ScalingPlanHostPoolAssociation(String name, ScalingPlanHostPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation", name, args == null ? ScalingPlanHostPoolAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ScalingPlanHostPoolAssociation(String name, Output<String> id, @Nullable ScalingPlanHostPoolAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:desktopvirtualization/scalingPlanHostPoolAssociation:ScalingPlanHostPoolAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScalingPlanHostPoolAssociationArgs makeArgs(ScalingPlanHostPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScalingPlanHostPoolAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -413,11 +413,18 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceAzureDatabricks(String name, LinkedServiceAzureDatabricksArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, args == null ? LinkedServiceAzureDatabricksArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceAzureDatabricks(String name, Output<String> id, @Nullable LinkedServiceAzureDatabricksState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceAzureDatabricksArgs makeArgs(LinkedServiceAzureDatabricksArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceAzureDatabricksArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

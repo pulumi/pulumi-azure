@@ -245,11 +245,18 @@ public class LinkedServiceOdbc extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceOdbc(String name, LinkedServiceOdbcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", name, args == null ? LinkedServiceOdbcArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceOdbc(String name, Output<String> id, @Nullable LinkedServiceOdbcState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceOdbcArgs makeArgs(LinkedServiceOdbcArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceOdbcArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

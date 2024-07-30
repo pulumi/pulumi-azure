@@ -132,11 +132,18 @@ public class SpringCloudAccelerator extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudAccelerator(String name, SpringCloudAcceleratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudAccelerator:SpringCloudAccelerator", name, args == null ? SpringCloudAcceleratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudAccelerator:SpringCloudAccelerator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudAccelerator(String name, Output<String> id, @Nullable SpringCloudAcceleratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudAccelerator:SpringCloudAccelerator", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudAcceleratorArgs makeArgs(SpringCloudAcceleratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudAcceleratorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

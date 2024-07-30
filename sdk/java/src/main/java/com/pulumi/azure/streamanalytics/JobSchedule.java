@@ -248,11 +248,18 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public JobSchedule(String name, JobScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/jobSchedule:JobSchedule", name, args == null ? JobScheduleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:streamanalytics/jobSchedule:JobSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private JobSchedule(String name, Output<String> id, @Nullable JobScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:streamanalytics/jobSchedule:JobSchedule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static JobScheduleArgs makeArgs(JobScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobScheduleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

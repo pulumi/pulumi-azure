@@ -253,11 +253,18 @@ public class CacheBlobTarget extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CacheBlobTarget(String name, CacheBlobTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hpc/cacheBlobTarget:CacheBlobTarget", name, args == null ? CacheBlobTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:hpc/cacheBlobTarget:CacheBlobTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CacheBlobTarget(String name, Output<String> id, @Nullable CacheBlobTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:hpc/cacheBlobTarget:CacheBlobTarget", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CacheBlobTargetArgs makeArgs(CacheBlobTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CacheBlobTargetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

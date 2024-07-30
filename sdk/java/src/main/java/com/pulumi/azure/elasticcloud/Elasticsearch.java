@@ -304,11 +304,18 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Elasticsearch(String name, ElasticsearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:elasticcloud/elasticsearch:Elasticsearch", name, args == null ? ElasticsearchArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:elasticcloud/elasticsearch:Elasticsearch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Elasticsearch(String name, Output<String> id, @Nullable ElasticsearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:elasticcloud/elasticsearch:Elasticsearch", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ElasticsearchArgs makeArgs(ElasticsearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ElasticsearchArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

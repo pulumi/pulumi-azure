@@ -259,11 +259,18 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Lab(String name, LabArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/lab:Lab", name, args == null ? LabArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:devtest/lab:Lab", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Lab(String name, Output<String> id, @Nullable LabState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:devtest/lab:Lab", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LabArgs makeArgs(LabArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LabArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -203,11 +203,18 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedHardwareSecurityModuleKey(String name, ManagedHardwareSecurityModuleKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", name, args == null ? ManagedHardwareSecurityModuleKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedHardwareSecurityModuleKey(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedHardwareSecurityModuleKeyArgs makeArgs(ManagedHardwareSecurityModuleKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedHardwareSecurityModuleKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

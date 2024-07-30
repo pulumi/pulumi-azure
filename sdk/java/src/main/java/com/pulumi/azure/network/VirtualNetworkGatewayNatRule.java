@@ -274,11 +274,18 @@ public class VirtualNetworkGatewayNatRule extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualNetworkGatewayNatRule(String name, VirtualNetworkGatewayNatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule", name, args == null ? VirtualNetworkGatewayNatRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualNetworkGatewayNatRule(String name, Output<String> id, @Nullable VirtualNetworkGatewayNatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualNetworkGatewayNatRuleArgs makeArgs(VirtualNetworkGatewayNatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkGatewayNatRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

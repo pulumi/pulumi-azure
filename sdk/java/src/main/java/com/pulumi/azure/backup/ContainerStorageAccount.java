@@ -161,11 +161,18 @@ public class ContainerStorageAccount extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public ContainerStorageAccount(String name, ContainerStorageAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/containerStorageAccount:ContainerStorageAccount", name, args == null ? ContainerStorageAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:backup/containerStorageAccount:ContainerStorageAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ContainerStorageAccount(String name, Output<String> id, @Nullable ContainerStorageAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:backup/containerStorageAccount:ContainerStorageAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ContainerStorageAccountArgs makeArgs(ContainerStorageAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ContainerStorageAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -242,11 +242,18 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StaticSite(String name, StaticSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/staticSite:StaticSite", name, args == null ? StaticSiteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/staticSite:StaticSite", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StaticSite(String name, Output<String> id, @Nullable StaticSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/staticSite:StaticSite", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StaticSiteArgs makeArgs(StaticSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StaticSiteArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -286,11 +286,18 @@ public class Experiment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Experiment(String name, ExperimentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:chaosstudio/experiment:Experiment", name, args == null ? ExperimentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:chaosstudio/experiment:Experiment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Experiment(String name, Output<String> id, @Nullable ExperimentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:chaosstudio/experiment:Experiment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExperimentArgs makeArgs(ExperimentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExperimentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

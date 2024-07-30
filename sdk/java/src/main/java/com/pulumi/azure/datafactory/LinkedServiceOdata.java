@@ -245,11 +245,18 @@ public class LinkedServiceOdata extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceOdata(String name, LinkedServiceOdataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceOdata:LinkedServiceOdata", name, args == null ? LinkedServiceOdataArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceOdata:LinkedServiceOdata", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceOdata(String name, Output<String> id, @Nullable LinkedServiceOdataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceOdata:LinkedServiceOdata", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceOdataArgs makeArgs(LinkedServiceOdataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceOdataArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

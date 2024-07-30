@@ -162,11 +162,18 @@ public class ManagedHardwareSecurityModuleRoleDefinition extends com.pulumi.reso
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedHardwareSecurityModuleRoleDefinition(String name, @Nullable ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, args == null ? ManagedHardwareSecurityModuleRoleDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedHardwareSecurityModuleRoleDefinition(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleRoleDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedHardwareSecurityModuleRoleDefinitionArgs makeArgs(@Nullable ManagedHardwareSecurityModuleRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedHardwareSecurityModuleRoleDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -291,11 +291,18 @@ public class Watcher extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Watcher(String name, WatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/watcher:Watcher", name, args == null ? WatcherArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/watcher:Watcher", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Watcher(String name, Output<String> id, @Nullable WatcherState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/watcher:Watcher", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WatcherArgs makeArgs(WatcherArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WatcherArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

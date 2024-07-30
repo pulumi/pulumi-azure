@@ -267,11 +267,18 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterExtension(String name, ClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:arckubernetes/clusterExtension:ClusterExtension", name, args == null ? ClusterExtensionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:arckubernetes/clusterExtension:ClusterExtension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterExtension(String name, Output<String> id, @Nullable ClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:arckubernetes/clusterExtension:ClusterExtension", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterExtensionArgs makeArgs(ClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterExtensionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

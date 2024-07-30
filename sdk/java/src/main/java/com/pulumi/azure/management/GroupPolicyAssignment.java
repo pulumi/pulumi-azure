@@ -323,11 +323,18 @@ public class GroupPolicyAssignment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GroupPolicyAssignment(String name, GroupPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/groupPolicyAssignment:GroupPolicyAssignment", name, args == null ? GroupPolicyAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:management/groupPolicyAssignment:GroupPolicyAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GroupPolicyAssignment(String name, Output<String> id, @Nullable GroupPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:management/groupPolicyAssignment:GroupPolicyAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GroupPolicyAssignmentArgs makeArgs(GroupPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupPolicyAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
