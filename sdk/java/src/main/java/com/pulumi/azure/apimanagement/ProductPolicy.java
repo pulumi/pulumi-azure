@@ -173,11 +173,18 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProductPolicy(String name, ProductPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productPolicy:ProductPolicy", name, args == null ? ProductPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/productPolicy:ProductPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProductPolicy(String name, Output<String> id, @Nullable ProductPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/productPolicy:ProductPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProductPolicyArgs makeArgs(ProductPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

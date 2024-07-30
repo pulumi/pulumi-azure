@@ -247,11 +247,18 @@ public class ServicePlan extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServicePlan(String name, ServicePlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lab/servicePlan:ServicePlan", name, args == null ? ServicePlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:lab/servicePlan:ServicePlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServicePlan(String name, Output<String> id, @Nullable ServicePlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:lab/servicePlan:ServicePlan", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServicePlanArgs makeArgs(ServicePlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServicePlanArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

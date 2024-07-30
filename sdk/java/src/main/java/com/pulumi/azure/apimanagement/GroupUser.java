@@ -152,11 +152,18 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GroupUser(String name, GroupUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/groupUser:GroupUser", name, args == null ? GroupUserArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/groupUser:GroupUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GroupUser(String name, Output<String> id, @Nullable GroupUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/groupUser:GroupUser", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GroupUserArgs makeArgs(GroupUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupUserArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

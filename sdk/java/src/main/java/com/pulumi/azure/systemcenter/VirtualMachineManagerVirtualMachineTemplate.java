@@ -201,11 +201,18 @@ public class VirtualMachineManagerVirtualMachineTemplate extends com.pulumi.reso
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualMachineManagerVirtualMachineTemplate(String name, VirtualMachineManagerVirtualMachineTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", name, args == null ? VirtualMachineManagerVirtualMachineTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualMachineManagerVirtualMachineTemplate(String name, Output<String> id, @Nullable VirtualMachineManagerVirtualMachineTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualMachineManagerVirtualMachineTemplateArgs makeArgs(VirtualMachineManagerVirtualMachineTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualMachineManagerVirtualMachineTemplateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

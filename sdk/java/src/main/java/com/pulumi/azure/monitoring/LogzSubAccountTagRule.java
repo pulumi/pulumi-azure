@@ -218,11 +218,18 @@ public class LogzSubAccountTagRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LogzSubAccountTagRule(String name, LogzSubAccountTagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule", name, args == null ? LogzSubAccountTagRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LogzSubAccountTagRule(String name, Output<String> id, @Nullable LogzSubAccountTagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LogzSubAccountTagRuleArgs makeArgs(LogzSubAccountTagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogzSubAccountTagRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

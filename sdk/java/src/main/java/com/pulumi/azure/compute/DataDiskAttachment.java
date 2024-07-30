@@ -267,11 +267,18 @@ public class DataDiskAttachment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DataDiskAttachment(String name, DataDiskAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/dataDiskAttachment:DataDiskAttachment", name, args == null ? DataDiskAttachmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/dataDiskAttachment:DataDiskAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataDiskAttachment(String name, Output<String> id, @Nullable DataDiskAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/dataDiskAttachment:DataDiskAttachment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataDiskAttachmentArgs makeArgs(DataDiskAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataDiskAttachmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

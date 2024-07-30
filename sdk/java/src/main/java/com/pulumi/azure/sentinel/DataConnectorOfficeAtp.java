@@ -154,11 +154,18 @@ public class DataConnectorOfficeAtp extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public DataConnectorOfficeAtp(String name, DataConnectorOfficeAtpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp", name, args == null ? DataConnectorOfficeAtpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataConnectorOfficeAtp(String name, Output<String> id, @Nullable DataConnectorOfficeAtpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/dataConnectorOfficeAtp:DataConnectorOfficeAtp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataConnectorOfficeAtpArgs makeArgs(DataConnectorOfficeAtpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorOfficeAtpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

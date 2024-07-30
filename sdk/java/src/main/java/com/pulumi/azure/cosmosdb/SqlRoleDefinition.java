@@ -227,11 +227,18 @@ public class SqlRoleDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlRoleDefinition(String name, SqlRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition", name, args == null ? SqlRoleDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlRoleDefinition(String name, Output<String> id, @Nullable SqlRoleDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/sqlRoleDefinition:SqlRoleDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlRoleDefinitionArgs makeArgs(SqlRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlRoleDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

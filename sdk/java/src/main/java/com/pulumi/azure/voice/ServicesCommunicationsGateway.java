@@ -333,11 +333,18 @@ public class ServicesCommunicationsGateway extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public ServicesCommunicationsGateway(String name, ServicesCommunicationsGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway", name, args == null ? ServicesCommunicationsGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServicesCommunicationsGateway(String name, Output<String> id, @Nullable ServicesCommunicationsGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServicesCommunicationsGatewayArgs makeArgs(ServicesCommunicationsGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServicesCommunicationsGatewayArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

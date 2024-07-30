@@ -190,11 +190,18 @@ public class ServicesCommunicationsGatewayTestLine extends com.pulumi.resources.
      * @param options A bag of options that control this resource's behavior.
      */
     public ServicesCommunicationsGatewayTestLine(String name, ServicesCommunicationsGatewayTestLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine", name, args == null ? ServicesCommunicationsGatewayTestLineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServicesCommunicationsGatewayTestLine(String name, Output<String> id, @Nullable ServicesCommunicationsGatewayTestLineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServicesCommunicationsGatewayTestLineArgs makeArgs(ServicesCommunicationsGatewayTestLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServicesCommunicationsGatewayTestLineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

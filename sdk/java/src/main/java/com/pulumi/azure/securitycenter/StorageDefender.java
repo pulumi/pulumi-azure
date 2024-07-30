@@ -175,11 +175,18 @@ public class StorageDefender extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StorageDefender(String name, StorageDefenderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/storageDefender:StorageDefender", name, args == null ? StorageDefenderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:securitycenter/storageDefender:StorageDefender", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StorageDefender(String name, Output<String> id, @Nullable StorageDefenderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:securitycenter/storageDefender:StorageDefender", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StorageDefenderArgs makeArgs(StorageDefenderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StorageDefenderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

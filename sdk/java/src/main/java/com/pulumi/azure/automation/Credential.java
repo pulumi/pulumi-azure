@@ -192,11 +192,18 @@ public class Credential extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Credential(String name, CredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/credential:Credential", name, args == null ? CredentialArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/credential:Credential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Credential(String name, Output<String> id, @Nullable CredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/credential:Credential", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CredentialArgs makeArgs(CredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CredentialArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

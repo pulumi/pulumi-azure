@@ -435,11 +435,18 @@ public class Metadata extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Metadata(String name, MetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/metadata:Metadata", name, args == null ? MetadataArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/metadata:Metadata", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Metadata(String name, Output<String> id, @Nullable MetadataState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/metadata:Metadata", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MetadataArgs makeArgs(MetadataArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MetadataArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -215,11 +215,18 @@ public class AssessmentPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AssessmentPolicy(String name, AssessmentPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/assessmentPolicy:AssessmentPolicy", name, args == null ? AssessmentPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:securitycenter/assessmentPolicy:AssessmentPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AssessmentPolicy(String name, Output<String> id, @Nullable AssessmentPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:securitycenter/assessmentPolicy:AssessmentPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AssessmentPolicyArgs makeArgs(AssessmentPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssessmentPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

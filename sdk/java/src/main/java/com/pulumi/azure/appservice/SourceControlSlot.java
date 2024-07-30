@@ -271,11 +271,18 @@ public class SourceControlSlot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SourceControlSlot(String name, SourceControlSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/sourceControlSlot:SourceControlSlot", name, args == null ? SourceControlSlotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/sourceControlSlot:SourceControlSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SourceControlSlot(String name, Output<String> id, @Nullable SourceControlSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/sourceControlSlot:SourceControlSlot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SourceControlSlotArgs makeArgs(SourceControlSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SourceControlSlotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

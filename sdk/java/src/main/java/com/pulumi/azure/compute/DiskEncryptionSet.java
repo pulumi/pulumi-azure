@@ -465,11 +465,18 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DiskEncryptionSet(String name, DiskEncryptionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/diskEncryptionSet:DiskEncryptionSet", name, args == null ? DiskEncryptionSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/diskEncryptionSet:DiskEncryptionSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DiskEncryptionSet(String name, Output<String> id, @Nullable DiskEncryptionSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/diskEncryptionSet:DiskEncryptionSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DiskEncryptionSetArgs makeArgs(DiskEncryptionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DiskEncryptionSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

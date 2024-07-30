@@ -217,11 +217,18 @@ public class SubscriptionTemplateDeployment extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public SubscriptionTemplateDeployment(String name, @Nullable SubscriptionTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, args == null ? SubscriptionTemplateDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SubscriptionTemplateDeployment(String name, Output<String> id, @Nullable SubscriptionTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubscriptionTemplateDeploymentArgs makeArgs(@Nullable SubscriptionTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionTemplateDeploymentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

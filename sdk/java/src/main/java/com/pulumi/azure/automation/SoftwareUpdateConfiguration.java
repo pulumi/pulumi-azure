@@ -350,11 +350,18 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public SoftwareUpdateConfiguration(String name, SoftwareUpdateConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration", name, args == null ? SoftwareUpdateConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SoftwareUpdateConfiguration(String name, Output<String> id, @Nullable SoftwareUpdateConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SoftwareUpdateConfigurationArgs makeArgs(SoftwareUpdateConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SoftwareUpdateConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

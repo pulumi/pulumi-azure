@@ -191,11 +191,18 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiConnection(String name, ApiConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:connections/apiConnection:ApiConnection", name, args == null ? ApiConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:connections/apiConnection:ApiConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiConnection(String name, Output<String> id, @Nullable ApiConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:connections/apiConnection:ApiConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiConnectionArgs makeArgs(ApiConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

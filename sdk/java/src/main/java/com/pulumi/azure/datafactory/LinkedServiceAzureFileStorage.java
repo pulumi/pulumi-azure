@@ -299,11 +299,18 @@ public class LinkedServiceAzureFileStorage extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceAzureFileStorage(String name, LinkedServiceAzureFileStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage", name, args == null ? LinkedServiceAzureFileStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceAzureFileStorage(String name, Output<String> id, @Nullable LinkedServiceAzureFileStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceAzureFileStorage:LinkedServiceAzureFileStorage", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceAzureFileStorageArgs makeArgs(LinkedServiceAzureFileStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceAzureFileStorageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

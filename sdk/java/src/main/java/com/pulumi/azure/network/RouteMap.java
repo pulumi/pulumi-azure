@@ -171,11 +171,18 @@ public class RouteMap extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RouteMap(String name, RouteMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/routeMap:RouteMap", name, args == null ? RouteMapArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/routeMap:RouteMap", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RouteMap(String name, Output<String> id, @Nullable RouteMapState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/routeMap:RouteMap", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RouteMapArgs makeArgs(RouteMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteMapArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

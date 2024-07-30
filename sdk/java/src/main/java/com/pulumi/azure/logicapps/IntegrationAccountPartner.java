@@ -181,11 +181,18 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationAccountPartner(String name, IntegrationAccountPartnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", name, args == null ? IntegrationAccountPartnerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationAccountPartner(String name, Output<String> id, @Nullable IntegrationAccountPartnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationAccountPartnerArgs makeArgs(IntegrationAccountPartnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountPartnerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

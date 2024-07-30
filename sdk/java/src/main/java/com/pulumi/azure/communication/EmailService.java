@@ -152,11 +152,18 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EmailService(String name, EmailServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:communication/emailService:EmailService", name, args == null ? EmailServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:communication/emailService:EmailService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EmailService(String name, Output<String> id, @Nullable EmailServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:communication/emailService:EmailService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EmailServiceArgs makeArgs(EmailServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

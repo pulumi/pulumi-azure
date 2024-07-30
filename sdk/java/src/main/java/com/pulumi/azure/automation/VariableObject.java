@@ -195,11 +195,18 @@ public class VariableObject extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VariableObject(String name, VariableObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/variableObject:VariableObject", name, args == null ? VariableObjectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/variableObject:VariableObject", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VariableObject(String name, Output<String> id, @Nullable VariableObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/variableObject:VariableObject", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VariableObjectArgs makeArgs(VariableObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VariableObjectArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

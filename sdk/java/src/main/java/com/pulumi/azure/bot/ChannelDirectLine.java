@@ -170,11 +170,18 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ChannelDirectLine(String name, ChannelDirectLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelDirectLine:ChannelDirectLine", name, args == null ? ChannelDirectLineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/channelDirectLine:ChannelDirectLine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ChannelDirectLine(String name, Output<String> id, @Nullable ChannelDirectLineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/channelDirectLine:ChannelDirectLine", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ChannelDirectLineArgs makeArgs(ChannelDirectLineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelDirectLineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -173,11 +173,18 @@ public class SpringCloudBuilder extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudBuilder(String name, SpringCloudBuilderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudBuilder:SpringCloudBuilder", name, args == null ? SpringCloudBuilderArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudBuilder:SpringCloudBuilder", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudBuilder(String name, Output<String> id, @Nullable SpringCloudBuilderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudBuilder:SpringCloudBuilder", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudBuilderArgs makeArgs(SpringCloudBuilderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudBuilderArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
