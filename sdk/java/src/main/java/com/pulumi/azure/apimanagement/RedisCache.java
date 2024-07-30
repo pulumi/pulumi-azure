@@ -209,11 +209,18 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RedisCache(String name, RedisCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/redisCache:RedisCache", name, args == null ? RedisCacheArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/redisCache:RedisCache", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RedisCache(String name, Output<String> id, @Nullable RedisCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/redisCache:RedisCache", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RedisCacheArgs makeArgs(RedisCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RedisCacheArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

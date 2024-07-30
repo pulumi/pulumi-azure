@@ -349,11 +349,18 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SharedImageVersion(String name, SharedImageVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/sharedImageVersion:SharedImageVersion", name, args == null ? SharedImageVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/sharedImageVersion:SharedImageVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SharedImageVersion(String name, Output<String> id, @Nullable SharedImageVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/sharedImageVersion:SharedImageVersion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SharedImageVersionArgs makeArgs(SharedImageVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SharedImageVersionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

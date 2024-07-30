@@ -324,11 +324,18 @@ public class RunBook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RunBook(String name, RunBookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/runBook:RunBook", name, args == null ? RunBookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/runBook:RunBook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RunBook(String name, Output<String> id, @Nullable RunBookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/runBook:RunBook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RunBookArgs makeArgs(RunBookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RunBookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

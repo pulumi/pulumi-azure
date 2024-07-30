@@ -257,11 +257,18 @@ public class RegistryWebook extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegistryWebook(String name, RegistryWebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/registryWebook:RegistryWebook", name, args == null ? RegistryWebookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/registryWebook:RegistryWebook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegistryWebook(String name, Output<String> id, @Nullable RegistryWebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/registryWebook:RegistryWebook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryWebookArgs makeArgs(RegistryWebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryWebookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

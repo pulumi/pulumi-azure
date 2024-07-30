@@ -190,11 +190,18 @@ public class GatewayCertificateAuthority extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public GatewayCertificateAuthority(String name, GatewayCertificateAuthorityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, args == null ? GatewayCertificateAuthorityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GatewayCertificateAuthority(String name, Output<String> id, @Nullable GatewayCertificateAuthorityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GatewayCertificateAuthorityArgs makeArgs(GatewayCertificateAuthorityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GatewayCertificateAuthorityArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

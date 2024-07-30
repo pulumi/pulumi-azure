@@ -338,11 +338,18 @@ public class ManagedInstanceTransparentDataEncryption extends com.pulumi.resourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedInstanceTransparentDataEncryption(String name, ManagedInstanceTransparentDataEncryptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption", name, args == null ? ManagedInstanceTransparentDataEncryptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedInstanceTransparentDataEncryption(String name, Output<String> id, @Nullable ManagedInstanceTransparentDataEncryptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedInstanceTransparentDataEncryptionArgs makeArgs(ManagedInstanceTransparentDataEncryptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedInstanceTransparentDataEncryptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

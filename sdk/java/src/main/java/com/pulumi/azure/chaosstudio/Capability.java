@@ -168,11 +168,18 @@ public class Capability extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Capability(String name, CapabilityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:chaosstudio/capability:Capability", name, args == null ? CapabilityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:chaosstudio/capability:Capability", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Capability(String name, Output<String> id, @Nullable CapabilityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:chaosstudio/capability:Capability", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CapabilityArgs makeArgs(CapabilityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CapabilityArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

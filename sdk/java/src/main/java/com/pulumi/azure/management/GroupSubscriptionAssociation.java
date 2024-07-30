@@ -128,11 +128,18 @@ public class GroupSubscriptionAssociation extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public GroupSubscriptionAssociation(String name, GroupSubscriptionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, args == null ? GroupSubscriptionAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GroupSubscriptionAssociation(String name, Output<String> id, @Nullable GroupSubscriptionAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GroupSubscriptionAssociationArgs makeArgs(GroupSubscriptionAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GroupSubscriptionAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

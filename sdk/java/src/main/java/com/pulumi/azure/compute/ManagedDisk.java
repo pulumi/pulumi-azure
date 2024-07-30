@@ -720,11 +720,18 @@ public class ManagedDisk extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedDisk(String name, ManagedDiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/managedDisk:ManagedDisk", name, args == null ? ManagedDiskArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/managedDisk:ManagedDisk", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedDisk(String name, Output<String> id, @Nullable ManagedDiskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/managedDisk:ManagedDisk", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedDiskArgs makeArgs(ManagedDiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedDiskArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

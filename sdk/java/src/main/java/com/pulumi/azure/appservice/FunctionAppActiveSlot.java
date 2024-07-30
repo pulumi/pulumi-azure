@@ -264,11 +264,18 @@ public class FunctionAppActiveSlot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FunctionAppActiveSlot(String name, FunctionAppActiveSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot", name, args == null ? FunctionAppActiveSlotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FunctionAppActiveSlot(String name, Output<String> id, @Nullable FunctionAppActiveSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/functionAppActiveSlot:FunctionAppActiveSlot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FunctionAppActiveSlotArgs makeArgs(FunctionAppActiveSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionAppActiveSlotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

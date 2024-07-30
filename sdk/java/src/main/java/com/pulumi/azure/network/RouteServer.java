@@ -266,11 +266,18 @@ public class RouteServer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RouteServer(String name, RouteServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/routeServer:RouteServer", name, args == null ? RouteServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/routeServer:RouteServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RouteServer(String name, Output<String> id, @Nullable RouteServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/routeServer:RouteServer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RouteServerArgs makeArgs(RouteServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteServerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

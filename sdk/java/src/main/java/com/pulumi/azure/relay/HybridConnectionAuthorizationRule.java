@@ -275,11 +275,18 @@ public class HybridConnectionAuthorizationRule extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public HybridConnectionAuthorizationRule(String name, HybridConnectionAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule", name, args == null ? HybridConnectionAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HybridConnectionAuthorizationRule(String name, Output<String> id, @Nullable HybridConnectionAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HybridConnectionAuthorizationRuleArgs makeArgs(HybridConnectionAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HybridConnectionAuthorizationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

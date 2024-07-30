@@ -259,11 +259,18 @@ public class TemplateDeployment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TemplateDeployment(String name, TemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/templateDeployment:TemplateDeployment", name, args == null ? TemplateDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/templateDeployment:TemplateDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TemplateDeployment(String name, Output<String> id, @Nullable TemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/templateDeployment:TemplateDeployment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TemplateDeploymentArgs makeArgs(TemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TemplateDeploymentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

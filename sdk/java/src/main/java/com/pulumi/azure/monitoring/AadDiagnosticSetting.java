@@ -259,11 +259,18 @@ public class AadDiagnosticSetting extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AadDiagnosticSetting(String name, @Nullable AadDiagnosticSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting", name, args == null ? AadDiagnosticSettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AadDiagnosticSetting(String name, Output<String> id, @Nullable AadDiagnosticSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AadDiagnosticSettingArgs makeArgs(@Nullable AadDiagnosticSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AadDiagnosticSettingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

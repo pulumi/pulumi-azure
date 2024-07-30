@@ -535,11 +535,18 @@ public class Transform extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Transform(String name, TransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/transform:Transform", name, args == null ? TransformArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:media/transform:Transform", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Transform(String name, Output<String> id, @Nullable TransformState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:media/transform:Transform", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TransformArgs makeArgs(TransformArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TransformArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

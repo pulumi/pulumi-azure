@@ -165,11 +165,18 @@ public class Powershell72Module extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Powershell72Module(String name, Powershell72ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/powershell72Module:Powershell72Module", name, args == null ? Powershell72ModuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/powershell72Module:Powershell72Module", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Powershell72Module(String name, Output<String> id, @Nullable Powershell72ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/powershell72Module:Powershell72Module", name, state, makeResourceOptions(options, id));
+    }
+
+    private static Powershell72ModuleArgs makeArgs(Powershell72ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? Powershell72ModuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

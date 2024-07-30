@@ -356,11 +356,18 @@ public class RegistryTask extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegistryTask(String name, RegistryTaskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/registryTask:RegistryTask", name, args == null ? RegistryTaskArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/registryTask:RegistryTask", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegistryTask(String name, Output<String> id, @Nullable RegistryTaskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/registryTask:RegistryTask", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryTaskArgs makeArgs(RegistryTaskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryTaskArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

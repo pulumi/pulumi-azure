@@ -185,11 +185,18 @@ public class SqlTrigger extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlTrigger(String name, SqlTriggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlTrigger:SqlTrigger", name, args == null ? SqlTriggerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/sqlTrigger:SqlTrigger", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlTrigger(String name, Output<String> id, @Nullable SqlTriggerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/sqlTrigger:SqlTrigger", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlTriggerArgs makeArgs(SqlTriggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlTriggerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

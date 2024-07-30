@@ -204,11 +204,18 @@ public class UserAssignedIdentity extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public UserAssignedIdentity(String name, UserAssignedIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:authorization/userAssignedIdentity:UserAssignedIdentity", name, args == null ? UserAssignedIdentityArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:authorization/userAssignedIdentity:UserAssignedIdentity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private UserAssignedIdentity(String name, Output<String> id, @Nullable UserAssignedIdentityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:authorization/userAssignedIdentity:UserAssignedIdentity", name, state, makeResourceOptions(options, id));
+    }
+
+    private static UserAssignedIdentityArgs makeArgs(UserAssignedIdentityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? UserAssignedIdentityArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

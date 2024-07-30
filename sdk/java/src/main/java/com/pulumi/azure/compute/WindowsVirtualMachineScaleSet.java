@@ -1049,11 +1049,18 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public WindowsVirtualMachineScaleSet(String name, WindowsVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet", name, args == null ? WindowsVirtualMachineScaleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WindowsVirtualMachineScaleSet(String name, Output<String> id, @Nullable WindowsVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WindowsVirtualMachineScaleSetArgs makeArgs(WindowsVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WindowsVirtualMachineScaleSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

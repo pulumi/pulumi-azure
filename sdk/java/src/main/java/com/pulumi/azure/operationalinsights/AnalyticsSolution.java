@@ -218,11 +218,18 @@ public class AnalyticsSolution extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AnalyticsSolution(String name, AnalyticsSolutionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, args == null ? AnalyticsSolutionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AnalyticsSolution(String name, Output<String> id, @Nullable AnalyticsSolutionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:operationalinsights/analyticsSolution:AnalyticsSolution", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AnalyticsSolutionArgs makeArgs(AnalyticsSolutionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnalyticsSolutionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

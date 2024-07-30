@@ -198,11 +198,18 @@ public class ZoneVirtualNetworkLink extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ZoneVirtualNetworkLink(String name, ZoneVirtualNetworkLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, args == null ? ZoneVirtualNetworkLinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ZoneVirtualNetworkLink(String name, Output<String> id, @Nullable ZoneVirtualNetworkLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ZoneVirtualNetworkLinkArgs makeArgs(ZoneVirtualNetworkLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ZoneVirtualNetworkLinkArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

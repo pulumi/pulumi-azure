@@ -154,11 +154,18 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceProviderRegistration(String name, @Nullable ResourceProviderRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, args == null ? ResourceProviderRegistrationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceProviderRegistration(String name, Output<String> id, @Nullable ResourceProviderRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceProviderRegistrationArgs makeArgs(@Nullable ResourceProviderRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceProviderRegistrationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

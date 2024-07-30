@@ -494,11 +494,18 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SharedImage(String name, SharedImageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/sharedImage:SharedImage", name, args == null ? SharedImageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/sharedImage:SharedImage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SharedImage(String name, Output<String> id, @Nullable SharedImageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/sharedImage:SharedImage", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SharedImageArgs makeArgs(SharedImageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SharedImageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

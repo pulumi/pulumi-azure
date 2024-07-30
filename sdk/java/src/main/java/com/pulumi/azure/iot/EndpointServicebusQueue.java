@@ -258,11 +258,18 @@ public class EndpointServicebusQueue extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public EndpointServicebusQueue(String name, EndpointServicebusQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/endpointServicebusQueue:EndpointServicebusQueue", name, args == null ? EndpointServicebusQueueArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:iot/endpointServicebusQueue:EndpointServicebusQueue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EndpointServicebusQueue(String name, Output<String> id, @Nullable EndpointServicebusQueueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:iot/endpointServicebusQueue:EndpointServicebusQueue", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EndpointServicebusQueueArgs makeArgs(EndpointServicebusQueueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointServicebusQueueArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -239,11 +239,18 @@ public class FirewallNatRuleCollection extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public FirewallNatRuleCollection(String name, FirewallNatRuleCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection", name, args == null ? FirewallNatRuleCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FirewallNatRuleCollection(String name, Output<String> id, @Nullable FirewallNatRuleCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/firewallNatRuleCollection:FirewallNatRuleCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FirewallNatRuleCollectionArgs makeArgs(FirewallNatRuleCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FirewallNatRuleCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -279,11 +279,18 @@ public class LiveEventOutput extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LiveEventOutput(String name, LiveEventOutputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/liveEventOutput:LiveEventOutput", name, args == null ? LiveEventOutputArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:media/liveEventOutput:LiveEventOutput", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LiveEventOutput(String name, Output<String> id, @Nullable LiveEventOutputState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:media/liveEventOutput:LiveEventOutput", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LiveEventOutputArgs makeArgs(LiveEventOutputArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LiveEventOutputArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

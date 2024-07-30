@@ -427,11 +427,18 @@ public class ServiceAzureBot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServiceAzureBot(String name, ServiceAzureBotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/serviceAzureBot:ServiceAzureBot", name, args == null ? ServiceAzureBotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/serviceAzureBot:ServiceAzureBot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServiceAzureBot(String name, Output<String> id, @Nullable ServiceAzureBotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/serviceAzureBot:ServiceAzureBot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServiceAzureBotArgs makeArgs(ServiceAzureBotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServiceAzureBotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

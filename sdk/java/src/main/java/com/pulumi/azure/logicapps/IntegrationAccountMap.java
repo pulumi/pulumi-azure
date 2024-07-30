@@ -193,11 +193,18 @@ public class IntegrationAccountMap extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationAccountMap(String name, IntegrationAccountMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountMap:IntegrationAccountMap", name, args == null ? IntegrationAccountMapArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:logicapps/integrationAccountMap:IntegrationAccountMap", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationAccountMap(String name, Output<String> id, @Nullable IntegrationAccountMapState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:logicapps/integrationAccountMap:IntegrationAccountMap", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationAccountMapArgs makeArgs(IntegrationAccountMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountMapArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

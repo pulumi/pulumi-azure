@@ -283,11 +283,18 @@ public class EventHubNamespaceAuthorizationRule extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public EventHubNamespaceAuthorizationRule(String name, EventHubNamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, args == null ? EventHubNamespaceAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventHubNamespaceAuthorizationRule(String name, Output<String> id, @Nullable EventHubNamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventHubNamespaceAuthorizationRuleArgs makeArgs(EventHubNamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventHubNamespaceAuthorizationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -331,11 +331,18 @@ public class CosmosdbDataConnection extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public CosmosdbDataConnection(String name, CosmosdbDataConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection", name, args == null ? CosmosdbDataConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CosmosdbDataConnection(String name, Output<String> id, @Nullable CosmosdbDataConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:kusto/cosmosdbDataConnection:CosmosdbDataConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CosmosdbDataConnectionArgs makeArgs(CosmosdbDataConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CosmosdbDataConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

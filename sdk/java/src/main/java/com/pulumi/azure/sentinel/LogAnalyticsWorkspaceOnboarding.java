@@ -164,11 +164,18 @@ public class LogAnalyticsWorkspaceOnboarding extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public LogAnalyticsWorkspaceOnboarding(String name, @Nullable LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, args == null ? LogAnalyticsWorkspaceOnboardingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LogAnalyticsWorkspaceOnboarding(String name, Output<String> id, @Nullable LogAnalyticsWorkspaceOnboardingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/logAnalyticsWorkspaceOnboarding:LogAnalyticsWorkspaceOnboarding", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LogAnalyticsWorkspaceOnboardingArgs makeArgs(@Nullable LogAnalyticsWorkspaceOnboardingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogAnalyticsWorkspaceOnboardingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
