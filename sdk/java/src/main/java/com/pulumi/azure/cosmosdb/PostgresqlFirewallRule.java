@@ -163,11 +163,18 @@ public class PostgresqlFirewallRule extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public PostgresqlFirewallRule(String name, PostgresqlFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", name, args == null ? PostgresqlFirewallRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PostgresqlFirewallRule(String name, Output<String> id, @Nullable PostgresqlFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/postgresqlFirewallRule:PostgresqlFirewallRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PostgresqlFirewallRuleArgs makeArgs(PostgresqlFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PostgresqlFirewallRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

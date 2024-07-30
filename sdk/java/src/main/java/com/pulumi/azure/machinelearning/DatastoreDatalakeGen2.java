@@ -307,11 +307,18 @@ public class DatastoreDatalakeGen2 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DatastoreDatalakeGen2(String name, DatastoreDatalakeGen2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2", name, args == null ? DatastoreDatalakeGen2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatastoreDatalakeGen2(String name, Output<String> id, @Nullable DatastoreDatalakeGen2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:machinelearning/datastoreDatalakeGen2:DatastoreDatalakeGen2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatastoreDatalakeGen2Args makeArgs(DatastoreDatalakeGen2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatastoreDatalakeGen2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

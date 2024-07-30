@@ -225,11 +225,18 @@ public class DicomService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DicomService(String name, DicomServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/dicomService:DicomService", name, args == null ? DicomServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:healthcare/dicomService:DicomService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DicomService(String name, Output<String> id, @Nullable DicomServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:healthcare/dicomService:DicomService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DicomServiceArgs makeArgs(DicomServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DicomServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

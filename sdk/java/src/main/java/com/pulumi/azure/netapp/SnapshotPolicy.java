@@ -282,11 +282,18 @@ public class SnapshotPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SnapshotPolicy(String name, SnapshotPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/snapshotPolicy:SnapshotPolicy", name, args == null ? SnapshotPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:netapp/snapshotPolicy:SnapshotPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SnapshotPolicy(String name, Output<String> id, @Nullable SnapshotPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:netapp/snapshotPolicy:SnapshotPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SnapshotPolicyArgs makeArgs(SnapshotPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SnapshotPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -328,11 +328,18 @@ public class GalleryApplicationVersion extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public GalleryApplicationVersion(String name, GalleryApplicationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/galleryApplicationVersion:GalleryApplicationVersion", name, args == null ? GalleryApplicationVersionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/galleryApplicationVersion:GalleryApplicationVersion", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GalleryApplicationVersion(String name, Output<String> id, @Nullable GalleryApplicationVersionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/galleryApplicationVersion:GalleryApplicationVersion", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GalleryApplicationVersionArgs makeArgs(GalleryApplicationVersionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GalleryApplicationVersionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

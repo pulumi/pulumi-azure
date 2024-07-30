@@ -133,11 +133,18 @@ public class AdvancedThreatProtection extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public AdvancedThreatProtection(String name, AdvancedThreatProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection", name, args == null ? AdvancedThreatProtectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AdvancedThreatProtection(String name, Output<String> id, @Nullable AdvancedThreatProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AdvancedThreatProtectionArgs makeArgs(AdvancedThreatProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AdvancedThreatProtectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

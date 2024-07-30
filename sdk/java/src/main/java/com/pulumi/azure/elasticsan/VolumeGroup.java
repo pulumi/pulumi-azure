@@ -328,11 +328,18 @@ public class VolumeGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VolumeGroup(String name, VolumeGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:elasticsan/volumeGroup:VolumeGroup", name, args == null ? VolumeGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:elasticsan/volumeGroup:VolumeGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VolumeGroup(String name, Output<String> id, @Nullable VolumeGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:elasticsan/volumeGroup:VolumeGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VolumeGroupArgs makeArgs(VolumeGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VolumeGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

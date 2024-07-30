@@ -210,11 +210,18 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EnterpriseCluster(String name, EnterpriseClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/enterpriseCluster:EnterpriseCluster", name, args == null ? EnterpriseClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:redis/enterpriseCluster:EnterpriseCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EnterpriseCluster(String name, Output<String> id, @Nullable EnterpriseClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:redis/enterpriseCluster:EnterpriseCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EnterpriseClusterArgs makeArgs(EnterpriseClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnterpriseClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

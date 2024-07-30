@@ -346,11 +346,18 @@ public class ManagedStorageAccount extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedStorageAccount(String name, ManagedStorageAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedStorageAccount:ManagedStorageAccount", name, args == null ? ManagedStorageAccountArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/managedStorageAccount:ManagedStorageAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedStorageAccount(String name, Output<String> id, @Nullable ManagedStorageAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/managedStorageAccount:ManagedStorageAccount", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedStorageAccountArgs makeArgs(ManagedStorageAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedStorageAccountArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

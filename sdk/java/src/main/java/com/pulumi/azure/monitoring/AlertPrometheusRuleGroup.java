@@ -310,11 +310,18 @@ public class AlertPrometheusRuleGroup extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public AlertPrometheusRuleGroup(String name, AlertPrometheusRuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup", name, args == null ? AlertPrometheusRuleGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlertPrometheusRuleGroup(String name, Output<String> id, @Nullable AlertPrometheusRuleGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlertPrometheusRuleGroupArgs makeArgs(AlertPrometheusRuleGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlertPrometheusRuleGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

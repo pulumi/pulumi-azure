@@ -532,11 +532,18 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Certifiate(String name, CertifiateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/certifiate:Certifiate", name, args == null ? CertifiateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/certifiate:Certifiate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Certifiate(String name, Output<String> id, @Nullable CertifiateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/certifiate:Certifiate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CertifiateArgs makeArgs(CertifiateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertifiateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

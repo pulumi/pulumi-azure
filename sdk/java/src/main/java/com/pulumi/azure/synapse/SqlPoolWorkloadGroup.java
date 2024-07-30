@@ -256,11 +256,18 @@ public class SqlPoolWorkloadGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlPoolWorkloadGroup(String name, SqlPoolWorkloadGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup", name, args == null ? SqlPoolWorkloadGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlPoolWorkloadGroup(String name, Output<String> id, @Nullable SqlPoolWorkloadGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:synapse/sqlPoolWorkloadGroup:SqlPoolWorkloadGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlPoolWorkloadGroupArgs makeArgs(SqlPoolWorkloadGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlPoolWorkloadGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

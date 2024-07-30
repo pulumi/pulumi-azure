@@ -259,11 +259,18 @@ public class LinkedServiceAzureSearch extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceAzureSearch(String name, LinkedServiceAzureSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch", name, args == null ? LinkedServiceAzureSearchArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceAzureSearch(String name, Output<String> id, @Nullable LinkedServiceAzureSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceAzureSearchArgs makeArgs(LinkedServiceAzureSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceAzureSearchArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

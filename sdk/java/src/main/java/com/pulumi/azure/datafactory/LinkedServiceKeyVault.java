@@ -230,11 +230,18 @@ public class LinkedServiceKeyVault extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceKeyVault(String name, LinkedServiceKeyVaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault", name, args == null ? LinkedServiceKeyVaultArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceKeyVault(String name, Output<String> id, @Nullable LinkedServiceKeyVaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceKeyVault:LinkedServiceKeyVault", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceKeyVaultArgs makeArgs(LinkedServiceKeyVaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceKeyVaultArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

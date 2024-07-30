@@ -157,11 +157,18 @@ public class BackupPolicyKubernetesCluster extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public BackupPolicyKubernetesCluster(String name, BackupPolicyKubernetesClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster", name, args == null ? BackupPolicyKubernetesClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BackupPolicyKubernetesCluster(String name, Output<String> id, @Nullable BackupPolicyKubernetesClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BackupPolicyKubernetesClusterArgs makeArgs(BackupPolicyKubernetesClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupPolicyKubernetesClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

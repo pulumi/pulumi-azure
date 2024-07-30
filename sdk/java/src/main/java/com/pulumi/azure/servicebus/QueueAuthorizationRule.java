@@ -276,11 +276,18 @@ public class QueueAuthorizationRule extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public QueueAuthorizationRule(String name, QueueAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, args == null ? QueueAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private QueueAuthorizationRule(String name, Output<String> id, @Nullable QueueAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static QueueAuthorizationRuleArgs makeArgs(QueueAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? QueueAuthorizationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

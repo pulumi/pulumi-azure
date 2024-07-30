@@ -456,11 +456,18 @@ public class SystemTopicEventSubscription extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public SystemTopicEventSubscription(String name, SystemTopicEventSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription", name, args == null ? SystemTopicEventSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SystemTopicEventSubscription(String name, Output<String> id, @Nullable SystemTopicEventSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SystemTopicEventSubscriptionArgs makeArgs(SystemTopicEventSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SystemTopicEventSubscriptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

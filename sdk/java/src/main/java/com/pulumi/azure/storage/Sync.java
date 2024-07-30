@@ -182,11 +182,18 @@ public class Sync extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Sync(String name, SyncArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/sync:Sync", name, args == null ? SyncArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/sync:Sync", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Sync(String name, Output<String> id, @Nullable SyncState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/sync:Sync", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SyncArgs makeArgs(SyncArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SyncArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

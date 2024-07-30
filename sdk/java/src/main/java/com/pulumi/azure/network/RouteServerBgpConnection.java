@@ -193,11 +193,18 @@ public class RouteServerBgpConnection extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public RouteServerBgpConnection(String name, RouteServerBgpConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/routeServerBgpConnection:RouteServerBgpConnection", name, args == null ? RouteServerBgpConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/routeServerBgpConnection:RouteServerBgpConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RouteServerBgpConnection(String name, Output<String> id, @Nullable RouteServerBgpConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/routeServerBgpConnection:RouteServerBgpConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RouteServerBgpConnectionArgs makeArgs(RouteServerBgpConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RouteServerBgpConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

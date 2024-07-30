@@ -329,11 +329,18 @@ public class Prefix extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Prefix(String name, PrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:customip/prefix:Prefix", name, args == null ? PrefixArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:customip/prefix:Prefix", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Prefix(String name, Output<String> id, @Nullable PrefixState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:customip/prefix:Prefix", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PrefixArgs makeArgs(PrefixArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrefixArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

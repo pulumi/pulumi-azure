@@ -208,11 +208,18 @@ public class TriggerRecurrence extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TriggerRecurrence(String name, TriggerRecurrenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, args == null ? TriggerRecurrenceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TriggerRecurrence(String name, Output<String> id, @Nullable TriggerRecurrenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:logicapps/triggerRecurrence:TriggerRecurrence", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TriggerRecurrenceArgs makeArgs(TriggerRecurrenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TriggerRecurrenceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -228,11 +228,18 @@ public class ApiVersionSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiVersionSet(String name, ApiVersionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiVersionSet:ApiVersionSet", name, args == null ? ApiVersionSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/apiVersionSet:ApiVersionSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiVersionSet(String name, Output<String> id, @Nullable ApiVersionSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/apiVersionSet:ApiVersionSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiVersionSetArgs makeArgs(ApiVersionSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiVersionSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

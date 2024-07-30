@@ -195,11 +195,18 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EdgeModule(String name, EdgeModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:videoanalyzer/edgeModule:EdgeModule", name, args == null ? EdgeModuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:videoanalyzer/edgeModule:EdgeModule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EdgeModule(String name, Output<String> id, @Nullable EdgeModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:videoanalyzer/edgeModule:EdgeModule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EdgeModuleArgs makeArgs(EdgeModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EdgeModuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

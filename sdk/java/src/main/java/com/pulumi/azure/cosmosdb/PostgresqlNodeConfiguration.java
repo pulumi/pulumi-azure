@@ -150,11 +150,18 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public PostgresqlNodeConfiguration(String name, PostgresqlNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", name, args == null ? PostgresqlNodeConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PostgresqlNodeConfiguration(String name, Output<String> id, @Nullable PostgresqlNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PostgresqlNodeConfigurationArgs makeArgs(PostgresqlNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PostgresqlNodeConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
