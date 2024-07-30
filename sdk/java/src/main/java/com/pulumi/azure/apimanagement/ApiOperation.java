@@ -270,11 +270,18 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApiOperation(String name, ApiOperationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiOperation:ApiOperation", name, args == null ? ApiOperationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/apiOperation:ApiOperation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApiOperation(String name, Output<String> id, @Nullable ApiOperationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/apiOperation:ApiOperation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApiOperationArgs makeArgs(ApiOperationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApiOperationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

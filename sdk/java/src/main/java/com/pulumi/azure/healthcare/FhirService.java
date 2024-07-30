@@ -336,11 +336,18 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FhirService(String name, FhirServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/fhirService:FhirService", name, args == null ? FhirServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:healthcare/fhirService:FhirService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FhirService(String name, Output<String> id, @Nullable FhirServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:healthcare/fhirService:FhirService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FhirServiceArgs makeArgs(FhirServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FhirServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

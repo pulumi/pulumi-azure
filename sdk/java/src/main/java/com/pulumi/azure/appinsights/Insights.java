@@ -417,11 +417,18 @@ public class Insights extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Insights(String name, InsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/insights:Insights", name, args == null ? InsightsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appinsights/insights:Insights", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Insights(String name, Output<String> id, @Nullable InsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appinsights/insights:Insights", name, state, makeResourceOptions(options, id));
+    }
+
+    private static InsightsArgs makeArgs(InsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? InsightsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

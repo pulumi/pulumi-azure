@@ -154,11 +154,18 @@ public class DataConnectorMicrosoftThreatProtection extends com.pulumi.resources
      * @param options A bag of options that control this resource's behavior.
      */
     public DataConnectorMicrosoftThreatProtection(String name, DataConnectorMicrosoftThreatProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection", name, args == null ? DataConnectorMicrosoftThreatProtectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataConnectorMicrosoftThreatProtection(String name, Output<String> id, @Nullable DataConnectorMicrosoftThreatProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/dataConnectorMicrosoftThreatProtection:DataConnectorMicrosoftThreatProtection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataConnectorMicrosoftThreatProtectionArgs makeArgs(DataConnectorMicrosoftThreatProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorMicrosoftThreatProtectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -162,11 +162,18 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public VaultResourceGuardAssociation(String name, VaultResourceGuardAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", name, args == null ? VaultResourceGuardAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VaultResourceGuardAssociation(String name, Output<String> id, @Nullable VaultResourceGuardAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VaultResourceGuardAssociationArgs makeArgs(VaultResourceGuardAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VaultResourceGuardAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

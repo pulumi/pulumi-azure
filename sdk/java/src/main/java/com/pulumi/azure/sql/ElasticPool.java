@@ -272,11 +272,18 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ElasticPool(String name, ElasticPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sql/elasticPool:ElasticPool", name, args == null ? ElasticPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sql/elasticPool:ElasticPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ElasticPool(String name, Output<String> id, @Nullable ElasticPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sql/elasticPool:ElasticPool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ElasticPoolArgs makeArgs(ElasticPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ElasticPoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

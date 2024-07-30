@@ -480,11 +480,18 @@ public class ReplicationRecoveryPlan extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public ReplicationRecoveryPlan(String name, ReplicationRecoveryPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", name, args == null ? ReplicationRecoveryPlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReplicationRecoveryPlan(String name, Output<String> id, @Nullable ReplicationRecoveryPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicationRecoveryPlanArgs makeArgs(ReplicationRecoveryPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationRecoveryPlanArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -223,11 +223,18 @@ public class ActionHttp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ActionHttp(String name, ActionHttpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/actionHttp:ActionHttp", name, args == null ? ActionHttpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:logicapps/actionHttp:ActionHttp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ActionHttp(String name, Output<String> id, @Nullable ActionHttpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:logicapps/actionHttp:ActionHttp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ActionHttpArgs makeArgs(ActionHttpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActionHttpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

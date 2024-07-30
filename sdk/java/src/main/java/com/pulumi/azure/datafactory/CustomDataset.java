@@ -347,11 +347,18 @@ public class CustomDataset extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomDataset(String name, CustomDatasetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/customDataset:CustomDataset", name, args == null ? CustomDatasetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/customDataset:CustomDataset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomDataset(String name, Output<String> id, @Nullable CustomDatasetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/customDataset:CustomDataset", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomDatasetArgs makeArgs(CustomDatasetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomDatasetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

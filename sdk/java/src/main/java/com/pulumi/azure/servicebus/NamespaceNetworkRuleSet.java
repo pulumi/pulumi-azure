@@ -228,11 +228,18 @@ public class NamespaceNetworkRuleSet extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public NamespaceNetworkRuleSet(String name, NamespaceNetworkRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet", name, args == null ? NamespaceNetworkRuleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NamespaceNetworkRuleSet(String name, Output<String> id, @Nullable NamespaceNetworkRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:servicebus/namespaceNetworkRuleSet:NamespaceNetworkRuleSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NamespaceNetworkRuleSetArgs makeArgs(NamespaceNetworkRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceNetworkRuleSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

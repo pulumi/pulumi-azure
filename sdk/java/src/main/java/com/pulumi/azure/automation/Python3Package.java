@@ -222,11 +222,18 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Python3Package(String name, Python3PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/python3Package:Python3Package", name, args == null ? Python3PackageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/python3Package:Python3Package", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Python3Package(String name, Output<String> id, @Nullable Python3PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/python3Package:Python3Package", name, state, makeResourceOptions(options, id));
+    }
+
+    private static Python3PackageArgs makeArgs(Python3PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? Python3PackageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

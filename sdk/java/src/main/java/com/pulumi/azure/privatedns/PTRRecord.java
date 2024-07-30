@@ -205,11 +205,18 @@ public class PTRRecord extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PTRRecord(String name, PTRRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/pTRRecord:PTRRecord", name, args == null ? PTRRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:privatedns/pTRRecord:PTRRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PTRRecord(String name, Output<String> id, @Nullable PTRRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:privatedns/pTRRecord:PTRRecord", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PTRRecordArgs makeArgs(PTRRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PTRRecordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

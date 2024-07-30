@@ -185,11 +185,18 @@ public class RegistryScopeMap extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RegistryScopeMap(String name, RegistryScopeMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/registryScopeMap:RegistryScopeMap", name, args == null ? RegistryScopeMapArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/registryScopeMap:RegistryScopeMap", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RegistryScopeMap(String name, Output<String> id, @Nullable RegistryScopeMapState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/registryScopeMap:RegistryScopeMap", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryScopeMapArgs makeArgs(RegistryScopeMapArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryScopeMapArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

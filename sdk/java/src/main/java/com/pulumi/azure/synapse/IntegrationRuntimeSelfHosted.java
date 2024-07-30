@@ -214,11 +214,18 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationRuntimeSelfHosted(String name, IntegrationRuntimeSelfHostedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, args == null ? IntegrationRuntimeSelfHostedArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationRuntimeSelfHosted(String name, Output<String> id, @Nullable IntegrationRuntimeSelfHostedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationRuntimeSelfHostedArgs makeArgs(IntegrationRuntimeSelfHostedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationRuntimeSelfHostedArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -176,11 +176,18 @@ public class RoutingIntent extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RoutingIntent(String name, RoutingIntentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/routingIntent:RoutingIntent", name, args == null ? RoutingIntentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/routingIntent:RoutingIntent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RoutingIntent(String name, Output<String> id, @Nullable RoutingIntentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/routingIntent:RoutingIntent", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoutingIntentArgs makeArgs(RoutingIntentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoutingIntentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

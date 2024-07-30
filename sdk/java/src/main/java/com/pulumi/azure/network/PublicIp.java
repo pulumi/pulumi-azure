@@ -396,11 +396,18 @@ public class PublicIp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PublicIp(String name, PublicIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/publicIp:PublicIp", name, args == null ? PublicIpArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/publicIp:PublicIp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PublicIp(String name, Output<String> id, @Nullable PublicIpState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/publicIp:PublicIp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PublicIpArgs makeArgs(PublicIpArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PublicIpArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

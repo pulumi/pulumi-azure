@@ -239,11 +239,18 @@ public class AccountCostManagementExport extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountCostManagementExport(String name, AccountCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:billing/accountCostManagementExport:AccountCostManagementExport", name, args == null ? AccountCostManagementExportArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:billing/accountCostManagementExport:AccountCostManagementExport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountCostManagementExport(String name, Output<String> id, @Nullable AccountCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:billing/accountCostManagementExport:AccountCostManagementExport", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountCostManagementExportArgs makeArgs(AccountCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountCostManagementExportArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

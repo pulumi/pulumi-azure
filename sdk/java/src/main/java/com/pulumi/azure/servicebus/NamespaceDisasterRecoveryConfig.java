@@ -239,11 +239,18 @@ public class NamespaceDisasterRecoveryConfig extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public NamespaceDisasterRecoveryConfig(String name, NamespaceDisasterRecoveryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig", name, args == null ? NamespaceDisasterRecoveryConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NamespaceDisasterRecoveryConfig(String name, Output<String> id, @Nullable NamespaceDisasterRecoveryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NamespaceDisasterRecoveryConfigArgs makeArgs(NamespaceDisasterRecoveryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceDisasterRecoveryConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

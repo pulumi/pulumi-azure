@@ -167,11 +167,18 @@ public class PrivateLinkScope extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PrivateLinkScope(String name, PrivateLinkScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:arc/privateLinkScope:PrivateLinkScope", name, args == null ? PrivateLinkScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:arc/privateLinkScope:PrivateLinkScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PrivateLinkScope(String name, Output<String> id, @Nullable PrivateLinkScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:arc/privateLinkScope:PrivateLinkScope", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PrivateLinkScopeArgs makeArgs(PrivateLinkScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PrivateLinkScopeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
