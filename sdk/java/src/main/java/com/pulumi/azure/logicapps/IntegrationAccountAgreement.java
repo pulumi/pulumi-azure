@@ -286,11 +286,18 @@ public class IntegrationAccountAgreement extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationAccountAgreement(String name, IntegrationAccountAgreementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", name, args == null ? IntegrationAccountAgreementArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationAccountAgreement(String name, Output<String> id, @Nullable IntegrationAccountAgreementState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationAccountAgreementArgs makeArgs(IntegrationAccountAgreementArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountAgreementArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

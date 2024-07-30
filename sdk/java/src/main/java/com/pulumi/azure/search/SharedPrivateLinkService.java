@@ -204,11 +204,18 @@ public class SharedPrivateLinkService extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public SharedPrivateLinkService(String name, SharedPrivateLinkServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:search/sharedPrivateLinkService:SharedPrivateLinkService", name, args == null ? SharedPrivateLinkServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:search/sharedPrivateLinkService:SharedPrivateLinkService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SharedPrivateLinkService(String name, Output<String> id, @Nullable SharedPrivateLinkServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:search/sharedPrivateLinkService:SharedPrivateLinkService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SharedPrivateLinkServiceArgs makeArgs(SharedPrivateLinkServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SharedPrivateLinkServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

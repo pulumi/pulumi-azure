@@ -134,11 +134,18 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudApplicationLiveView(String name, SpringCloudApplicationLiveViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", name, args == null ? SpringCloudApplicationLiveViewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudApplicationLiveView(String name, Output<String> id, @Nullable SpringCloudApplicationLiveViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudApplicationLiveViewArgs makeArgs(SpringCloudApplicationLiveViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudApplicationLiveViewArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -528,11 +528,18 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KafkaCluster(String name, KafkaClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/kafkaCluster:KafkaCluster", name, args == null ? KafkaClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:hdinsight/kafkaCluster:KafkaCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KafkaCluster(String name, Output<String> id, @Nullable KafkaClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:hdinsight/kafkaCluster:KafkaCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KafkaClusterArgs makeArgs(KafkaClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KafkaClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

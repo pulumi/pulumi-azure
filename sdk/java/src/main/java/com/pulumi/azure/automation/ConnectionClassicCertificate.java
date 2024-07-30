@@ -208,11 +208,18 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public ConnectionClassicCertificate(String name, ConnectionClassicCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", name, args == null ? ConnectionClassicCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConnectionClassicCertificate(String name, Output<String> id, @Nullable ConnectionClassicCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConnectionClassicCertificateArgs makeArgs(ConnectionClassicCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionClassicCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -517,11 +517,18 @@ public class AppService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AppService(String name, AppServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/appService:AppService", name, args == null ? AppServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/appService:AppService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AppService(String name, Output<String> id, @Nullable AppServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/appService:AppService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AppServiceArgs makeArgs(AppServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AppServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

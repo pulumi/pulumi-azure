@@ -230,11 +230,18 @@ public class TagRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TagRule(String name, TagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:newrelic/tagRule:TagRule", name, args == null ? TagRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:newrelic/tagRule:TagRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TagRule(String name, Output<String> id, @Nullable TagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:newrelic/tagRule:TagRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TagRuleArgs makeArgs(TagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TagRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

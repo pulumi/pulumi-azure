@@ -154,11 +154,18 @@ public class CacheAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CacheAccessPolicy(String name, CacheAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/cacheAccessPolicy:CacheAccessPolicy", name, args == null ? CacheAccessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:redis/cacheAccessPolicy:CacheAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CacheAccessPolicy(String name, Output<String> id, @Nullable CacheAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:redis/cacheAccessPolicy:CacheAccessPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CacheAccessPolicyArgs makeArgs(CacheAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CacheAccessPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

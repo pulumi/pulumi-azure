@@ -373,11 +373,18 @@ public class BastionHost extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BastionHost(String name, BastionHostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/bastionHost:BastionHost", name, args == null ? BastionHostArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/bastionHost:BastionHost", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BastionHost(String name, Output<String> id, @Nullable BastionHostState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/bastionHost:BastionHost", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BastionHostArgs makeArgs(BastionHostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BastionHostArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

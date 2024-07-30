@@ -236,11 +236,18 @@ public class DatabaseExtendedAuditingPolicy extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public DatabaseExtendedAuditingPolicy(String name, DatabaseExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy", name, args == null ? DatabaseExtendedAuditingPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatabaseExtendedAuditingPolicy(String name, Output<String> id, @Nullable DatabaseExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/databaseExtendedAuditingPolicy:DatabaseExtendedAuditingPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatabaseExtendedAuditingPolicyArgs makeArgs(DatabaseExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatabaseExtendedAuditingPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

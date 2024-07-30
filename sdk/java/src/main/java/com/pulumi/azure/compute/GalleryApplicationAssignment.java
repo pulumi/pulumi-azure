@@ -240,11 +240,18 @@ public class GalleryApplicationAssignment extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public GalleryApplicationAssignment(String name, GalleryApplicationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", name, args == null ? GalleryApplicationAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GalleryApplicationAssignment(String name, Output<String> id, @Nullable GalleryApplicationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/galleryApplicationAssignment:GalleryApplicationAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GalleryApplicationAssignmentArgs makeArgs(GalleryApplicationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GalleryApplicationAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -1321,11 +1321,18 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KubernetesCluster(String name, KubernetesClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, args == null ? KubernetesClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KubernetesCluster(String name, Output<String> id, @Nullable KubernetesClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KubernetesClusterArgs makeArgs(KubernetesClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KubernetesClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

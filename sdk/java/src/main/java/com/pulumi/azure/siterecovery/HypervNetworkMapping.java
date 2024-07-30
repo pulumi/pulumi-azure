@@ -184,11 +184,18 @@ public class HypervNetworkMapping extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HypervNetworkMapping(String name, HypervNetworkMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping", name, args == null ? HypervNetworkMappingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HypervNetworkMapping(String name, Output<String> id, @Nullable HypervNetworkMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/hypervNetworkMapping:HypervNetworkMapping", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HypervNetworkMappingArgs makeArgs(HypervNetworkMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HypervNetworkMappingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

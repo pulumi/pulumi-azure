@@ -197,11 +197,18 @@ public class ChannelSms extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ChannelSms(String name, ChannelSmsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelSms:ChannelSms", name, args == null ? ChannelSmsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/channelSms:ChannelSms", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ChannelSms(String name, Output<String> id, @Nullable ChannelSmsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/channelSms:ChannelSms", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ChannelSmsArgs makeArgs(ChannelSmsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelSmsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

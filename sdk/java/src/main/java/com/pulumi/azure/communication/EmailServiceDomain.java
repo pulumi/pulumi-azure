@@ -219,11 +219,18 @@ public class EmailServiceDomain extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EmailServiceDomain(String name, EmailServiceDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:communication/emailServiceDomain:EmailServiceDomain", name, args == null ? EmailServiceDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:communication/emailServiceDomain:EmailServiceDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EmailServiceDomain(String name, Output<String> id, @Nullable EmailServiceDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:communication/emailServiceDomain:EmailServiceDomain", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EmailServiceDomainArgs makeArgs(EmailServiceDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EmailServiceDomainArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

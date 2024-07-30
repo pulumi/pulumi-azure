@@ -152,11 +152,18 @@ public class LicationLoadBalancerFrontend extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public LicationLoadBalancerFrontend(String name, LicationLoadBalancerFrontendArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend", name, args == null ? LicationLoadBalancerFrontendArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LicationLoadBalancerFrontend(String name, Output<String> id, @Nullable LicationLoadBalancerFrontendState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appconfiguration/licationLoadBalancerFrontend:LicationLoadBalancerFrontend", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LicationLoadBalancerFrontendArgs makeArgs(LicationLoadBalancerFrontendArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LicationLoadBalancerFrontendArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

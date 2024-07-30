@@ -390,11 +390,18 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public KeyVault(String name, KeyVaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/keyVault:KeyVault", name, args == null ? KeyVaultArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/keyVault:KeyVault", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KeyVault(String name, Output<String> id, @Nullable KeyVaultState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/keyVault:KeyVault", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KeyVaultArgs makeArgs(KeyVaultArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KeyVaultArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

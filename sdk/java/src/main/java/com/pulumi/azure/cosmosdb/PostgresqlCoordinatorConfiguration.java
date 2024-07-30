@@ -150,11 +150,18 @@ public class PostgresqlCoordinatorConfiguration extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public PostgresqlCoordinatorConfiguration(String name, PostgresqlCoordinatorConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, args == null ? PostgresqlCoordinatorConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PostgresqlCoordinatorConfiguration(String name, Output<String> id, @Nullable PostgresqlCoordinatorConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PostgresqlCoordinatorConfigurationArgs makeArgs(PostgresqlCoordinatorConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PostgresqlCoordinatorConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

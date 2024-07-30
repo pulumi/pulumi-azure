@@ -345,11 +345,18 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlContainer(String name, SqlContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlContainer:SqlContainer", name, args == null ? SqlContainerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/sqlContainer:SqlContainer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlContainer(String name, Output<String> id, @Nullable SqlContainerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/sqlContainer:SqlContainer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlContainerArgs makeArgs(SqlContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlContainerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

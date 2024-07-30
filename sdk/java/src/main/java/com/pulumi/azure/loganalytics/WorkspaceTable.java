@@ -183,11 +183,18 @@ public class WorkspaceTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WorkspaceTable(String name, WorkspaceTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/workspaceTable:WorkspaceTable", name, args == null ? WorkspaceTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:loganalytics/workspaceTable:WorkspaceTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WorkspaceTable(String name, Output<String> id, @Nullable WorkspaceTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:loganalytics/workspaceTable:WorkspaceTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkspaceTableArgs makeArgs(WorkspaceTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -229,11 +229,18 @@ public class BackupInstanceDisk extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BackupInstanceDisk(String name, BackupInstanceDiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", name, args == null ? BackupInstanceDiskArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BackupInstanceDisk(String name, Output<String> id, @Nullable BackupInstanceDiskState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dataprotection/backupInstanceDisk:BackupInstanceDisk", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BackupInstanceDiskArgs makeArgs(BackupInstanceDiskArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupInstanceDiskArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

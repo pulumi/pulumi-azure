@@ -255,11 +255,18 @@ public class RulesEngine extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RulesEngine(String name, RulesEngineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:frontdoor/rulesEngine:RulesEngine", name, args == null ? RulesEngineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:frontdoor/rulesEngine:RulesEngine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RulesEngine(String name, Output<String> id, @Nullable RulesEngineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:frontdoor/rulesEngine:RulesEngine", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RulesEngineArgs makeArgs(RulesEngineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RulesEngineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

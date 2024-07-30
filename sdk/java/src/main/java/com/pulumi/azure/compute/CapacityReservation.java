@@ -179,11 +179,18 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CapacityReservation(String name, CapacityReservationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/capacityReservation:CapacityReservation", name, args == null ? CapacityReservationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/capacityReservation:CapacityReservation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CapacityReservation(String name, Output<String> id, @Nullable CapacityReservationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/capacityReservation:CapacityReservation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CapacityReservationArgs makeArgs(CapacityReservationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CapacityReservationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

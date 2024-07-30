@@ -245,11 +245,18 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public SubscriptionCostManagementView(String name, SubscriptionCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", name, args == null ? SubscriptionCostManagementViewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SubscriptionCostManagementView(String name, Output<String> id, @Nullable SubscriptionCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubscriptionCostManagementViewArgs makeArgs(SubscriptionCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionCostManagementViewArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

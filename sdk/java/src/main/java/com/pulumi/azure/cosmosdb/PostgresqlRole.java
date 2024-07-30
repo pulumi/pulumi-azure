@@ -149,11 +149,18 @@ public class PostgresqlRole extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PostgresqlRole(String name, PostgresqlRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlRole:PostgresqlRole", name, args == null ? PostgresqlRoleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/postgresqlRole:PostgresqlRole", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PostgresqlRole(String name, Output<String> id, @Nullable PostgresqlRoleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/postgresqlRole:PostgresqlRole", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PostgresqlRoleArgs makeArgs(PostgresqlRoleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PostgresqlRoleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

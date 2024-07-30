@@ -166,11 +166,18 @@ public class FlexibleServerConfiguration extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public FlexibleServerConfiguration(String name, FlexibleServerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration", name, args == null ? FlexibleServerConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FlexibleServerConfiguration(String name, Output<String> id, @Nullable FlexibleServerConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FlexibleServerConfigurationArgs makeArgs(FlexibleServerConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FlexibleServerConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

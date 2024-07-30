@@ -203,11 +203,18 @@ public class RoleDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RoleDefinition(String name, RoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:authorization/roleDefinition:RoleDefinition", name, args == null ? RoleDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:authorization/roleDefinition:RoleDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RoleDefinition(String name, Output<String> id, @Nullable RoleDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:authorization/roleDefinition:RoleDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoleDefinitionArgs makeArgs(RoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

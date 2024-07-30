@@ -274,11 +274,18 @@ public class SharedAccessPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SharedAccessPolicy(String name, SharedAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, args == null ? SharedAccessPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SharedAccessPolicy(String name, Output<String> id, @Nullable SharedAccessPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:iot/sharedAccessPolicy:SharedAccessPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SharedAccessPolicyArgs makeArgs(SharedAccessPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SharedAccessPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
