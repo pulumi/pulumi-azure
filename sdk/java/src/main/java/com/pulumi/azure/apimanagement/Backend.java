@@ -280,11 +280,18 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Backend(String name, BackendArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/backend:Backend", name, args == null ? BackendArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/backend:Backend", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Backend(String name, Output<String> id, @Nullable BackendState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/backend:Backend", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BackendArgs makeArgs(BackendArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackendArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

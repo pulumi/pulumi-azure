@@ -207,11 +207,18 @@ public class TenantTemplateDeployment extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public TenantTemplateDeployment(String name, @Nullable TenantTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/tenantTemplateDeployment:TenantTemplateDeployment", name, args == null ? TenantTemplateDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/tenantTemplateDeployment:TenantTemplateDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TenantTemplateDeployment(String name, Output<String> id, @Nullable TenantTemplateDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/tenantTemplateDeployment:TenantTemplateDeployment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TenantTemplateDeploymentArgs makeArgs(@Nullable TenantTemplateDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TenantTemplateDeploymentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -315,11 +315,18 @@ public class ScaleSetPacketCapture extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ScaleSetPacketCapture(String name, ScaleSetPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, args == null ? ScaleSetPacketCaptureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ScaleSetPacketCapture(String name, Output<String> id, @Nullable ScaleSetPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScaleSetPacketCaptureArgs makeArgs(ScaleSetPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScaleSetPacketCaptureArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

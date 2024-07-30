@@ -180,11 +180,18 @@ public class ReplicationPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReplicationPolicy(String name, ReplicationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, args == null ? ReplicationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReplicationPolicy(String name, Output<String> id, @Nullable ReplicationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/replicationPolicy:ReplicationPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicationPolicyArgs makeArgs(ReplicationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicationPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

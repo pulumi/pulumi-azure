@@ -267,11 +267,18 @@ public class SqlServer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlServer(String name, SqlServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sql/sqlServer:SqlServer", name, args == null ? SqlServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sql/sqlServer:SqlServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlServer(String name, Output<String> id, @Nullable SqlServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sql/sqlServer:SqlServer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlServerArgs makeArgs(SqlServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlServerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

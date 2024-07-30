@@ -310,11 +310,18 @@ public class HybridRunbookWorker extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HybridRunbookWorker(String name, HybridRunbookWorkerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/hybridRunbookWorker:HybridRunbookWorker", name, args == null ? HybridRunbookWorkerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/hybridRunbookWorker:HybridRunbookWorker", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HybridRunbookWorker(String name, Output<String> id, @Nullable HybridRunbookWorkerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/hybridRunbookWorker:HybridRunbookWorker", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HybridRunbookWorkerArgs makeArgs(HybridRunbookWorkerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HybridRunbookWorkerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -201,11 +201,18 @@ public class EndpointServicebus extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EndpointServicebus(String name, EndpointServicebusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, args == null ? EndpointServicebusArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EndpointServicebus(String name, Output<String> id, @Nullable EndpointServicebusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EndpointServicebusArgs makeArgs(EndpointServicebusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointServicebusArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

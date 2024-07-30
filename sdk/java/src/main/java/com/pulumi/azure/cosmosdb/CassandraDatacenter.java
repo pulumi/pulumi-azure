@@ -336,11 +336,18 @@ public class CassandraDatacenter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CassandraDatacenter(String name, CassandraDatacenterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/cassandraDatacenter:CassandraDatacenter", name, args == null ? CassandraDatacenterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/cassandraDatacenter:CassandraDatacenter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CassandraDatacenter(String name, Output<String> id, @Nullable CassandraDatacenterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/cassandraDatacenter:CassandraDatacenter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CassandraDatacenterArgs makeArgs(CassandraDatacenterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CassandraDatacenterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

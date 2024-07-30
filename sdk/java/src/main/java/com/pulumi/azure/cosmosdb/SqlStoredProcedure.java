@@ -202,11 +202,18 @@ public class SqlStoredProcedure extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlStoredProcedure(String name, SqlStoredProcedureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure", name, args == null ? SqlStoredProcedureArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlStoredProcedure(String name, Output<String> id, @Nullable SqlStoredProcedureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/sqlStoredProcedure:SqlStoredProcedure", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlStoredProcedureArgs makeArgs(SqlStoredProcedureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlStoredProcedureArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

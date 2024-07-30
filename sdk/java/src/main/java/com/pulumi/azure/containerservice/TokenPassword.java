@@ -100,11 +100,18 @@ public class TokenPassword extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TokenPassword(String name, TokenPasswordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/tokenPassword:TokenPassword", name, args == null ? TokenPasswordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/tokenPassword:TokenPassword", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TokenPassword(String name, Output<String> id, @Nullable TokenPasswordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/tokenPassword:TokenPassword", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TokenPasswordArgs makeArgs(TokenPasswordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TokenPasswordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

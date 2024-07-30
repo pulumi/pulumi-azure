@@ -306,11 +306,18 @@ public class NextGenerationFirewallVirtualNetworkLocalRulestack extends com.pulu
      * @param options A bag of options that control this resource's behavior.
      */
     public NextGenerationFirewallVirtualNetworkLocalRulestack(String name, NextGenerationFirewallVirtualNetworkLocalRulestackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack", name, args == null ? NextGenerationFirewallVirtualNetworkLocalRulestackArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NextGenerationFirewallVirtualNetworkLocalRulestack(String name, Output<String> id, @Nullable NextGenerationFirewallVirtualNetworkLocalRulestackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:paloalto/nextGenerationFirewallVirtualNetworkLocalRulestack:NextGenerationFirewallVirtualNetworkLocalRulestack", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NextGenerationFirewallVirtualNetworkLocalRulestackArgs makeArgs(NextGenerationFirewallVirtualNetworkLocalRulestackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NextGenerationFirewallVirtualNetworkLocalRulestackArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

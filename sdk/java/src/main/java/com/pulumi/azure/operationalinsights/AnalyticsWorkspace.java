@@ -393,11 +393,18 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AnalyticsWorkspace(String name, AnalyticsWorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, args == null ? AnalyticsWorkspaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AnalyticsWorkspace(String name, Output<String> id, @Nullable AnalyticsWorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AnalyticsWorkspaceArgs makeArgs(AnalyticsWorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnalyticsWorkspaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

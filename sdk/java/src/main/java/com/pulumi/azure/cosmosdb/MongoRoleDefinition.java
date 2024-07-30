@@ -191,11 +191,18 @@ public class MongoRoleDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MongoRoleDefinition(String name, MongoRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition", name, args == null ? MongoRoleDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MongoRoleDefinition(String name, Output<String> id, @Nullable MongoRoleDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MongoRoleDefinitionArgs makeArgs(MongoRoleDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MongoRoleDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

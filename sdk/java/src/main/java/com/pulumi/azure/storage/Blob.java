@@ -351,11 +351,18 @@ public class Blob extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Blob(String name, BlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/blob:Blob", name, args == null ? BlobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/blob:Blob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Blob(String name, Output<String> id, @Nullable BlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/blob:Blob", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BlobArgs makeArgs(BlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BlobArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

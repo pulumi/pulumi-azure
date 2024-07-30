@@ -233,11 +233,18 @@ public class VirtualMachineRestorePointCollection extends com.pulumi.resources.C
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualMachineRestorePointCollection(String name, VirtualMachineRestorePointCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection", name, args == null ? VirtualMachineRestorePointCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualMachineRestorePointCollection(String name, Output<String> id, @Nullable VirtualMachineRestorePointCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/virtualMachineRestorePointCollection:VirtualMachineRestorePointCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualMachineRestorePointCollectionArgs makeArgs(VirtualMachineRestorePointCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualMachineRestorePointCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

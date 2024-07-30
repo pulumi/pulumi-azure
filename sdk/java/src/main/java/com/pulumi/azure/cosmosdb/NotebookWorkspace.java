@@ -175,11 +175,18 @@ public class NotebookWorkspace extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NotebookWorkspace(String name, NotebookWorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/notebookWorkspace:NotebookWorkspace", name, args == null ? NotebookWorkspaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/notebookWorkspace:NotebookWorkspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NotebookWorkspace(String name, Output<String> id, @Nullable NotebookWorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/notebookWorkspace:NotebookWorkspace", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NotebookWorkspaceArgs makeArgs(NotebookWorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NotebookWorkspaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

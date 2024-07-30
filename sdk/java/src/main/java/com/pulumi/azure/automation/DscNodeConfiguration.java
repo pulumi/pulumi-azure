@@ -201,11 +201,18 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DscNodeConfiguration(String name, DscNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, args == null ? DscNodeConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DscNodeConfiguration(String name, Output<String> id, @Nullable DscNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DscNodeConfigurationArgs makeArgs(DscNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DscNodeConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

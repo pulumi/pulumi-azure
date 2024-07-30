@@ -190,11 +190,18 @@ public class BoolVariable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BoolVariable(String name, BoolVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/boolVariable:BoolVariable", name, args == null ? BoolVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/boolVariable:BoolVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BoolVariable(String name, Output<String> id, @Nullable BoolVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/boolVariable:BoolVariable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BoolVariableArgs makeArgs(BoolVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BoolVariableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

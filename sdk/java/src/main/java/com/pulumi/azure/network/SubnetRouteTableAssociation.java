@@ -154,11 +154,18 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public SubnetRouteTableAssociation(String name, SubnetRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, args == null ? SubnetRouteTableAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SubnetRouteTableAssociation(String name, Output<String> id, @Nullable SubnetRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubnetRouteTableAssociationArgs makeArgs(SubnetRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubnetRouteTableAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

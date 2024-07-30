@@ -286,11 +286,18 @@ public class KubernetesClusterExtension extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public KubernetesClusterExtension(String name, KubernetesClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, args == null ? KubernetesClusterExtensionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KubernetesClusterExtension(String name, Output<String> id, @Nullable KubernetesClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/kubernetesClusterExtension:KubernetesClusterExtension", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KubernetesClusterExtensionArgs makeArgs(KubernetesClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KubernetesClusterExtensionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

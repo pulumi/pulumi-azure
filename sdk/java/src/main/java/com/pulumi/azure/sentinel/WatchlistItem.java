@@ -164,11 +164,18 @@ public class WatchlistItem extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WatchlistItem(String name, WatchlistItemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/watchlistItem:WatchlistItem", name, args == null ? WatchlistItemArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/watchlistItem:WatchlistItem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WatchlistItem(String name, Output<String> id, @Nullable WatchlistItemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/watchlistItem:WatchlistItem", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WatchlistItemArgs makeArgs(WatchlistItemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WatchlistItemArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -240,11 +240,18 @@ public class Hub extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Hub(String name, HubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:webpubsub/hub:Hub", name, args == null ? HubArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:webpubsub/hub:Hub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Hub(String name, Output<String> id, @Nullable HubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:webpubsub/hub:Hub", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HubArgs makeArgs(HubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HubArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

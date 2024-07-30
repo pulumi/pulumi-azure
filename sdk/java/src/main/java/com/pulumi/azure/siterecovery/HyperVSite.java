@@ -131,11 +131,18 @@ public class HyperVSite extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HyperVSite(String name, HyperVSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/hyperVSite:HyperVSite", name, args == null ? HyperVSiteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/hyperVSite:HyperVSite", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HyperVSite(String name, Output<String> id, @Nullable HyperVSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/hyperVSite:HyperVSite", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HyperVSiteArgs makeArgs(HyperVSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HyperVSiteArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

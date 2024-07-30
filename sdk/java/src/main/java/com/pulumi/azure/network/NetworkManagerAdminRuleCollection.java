@@ -186,11 +186,18 @@ public class NetworkManagerAdminRuleCollection extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkManagerAdminRuleCollection(String name, NetworkManagerAdminRuleCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection", name, args == null ? NetworkManagerAdminRuleCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkManagerAdminRuleCollection(String name, Output<String> id, @Nullable NetworkManagerAdminRuleCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkManagerAdminRuleCollectionArgs makeArgs(NetworkManagerAdminRuleCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerAdminRuleCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

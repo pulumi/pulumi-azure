@@ -175,11 +175,18 @@ public class FrontdoorEndpoint extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FrontdoorEndpoint(String name, FrontdoorEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorEndpoint:FrontdoorEndpoint", name, args == null ? FrontdoorEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cdn/frontdoorEndpoint:FrontdoorEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FrontdoorEndpoint(String name, Output<String> id, @Nullable FrontdoorEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cdn/frontdoorEndpoint:FrontdoorEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FrontdoorEndpointArgs makeArgs(FrontdoorEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

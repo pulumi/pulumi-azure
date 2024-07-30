@@ -181,11 +181,18 @@ public class ProductTag extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProductTag(String name, ProductTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productTag:ProductTag", name, args == null ? ProductTagArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/productTag:ProductTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProductTag(String name, Output<String> id, @Nullable ProductTagState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/productTag:ProductTag", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProductTagArgs makeArgs(ProductTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProductTagArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -156,11 +156,18 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlDedicatedGateway(String name, SqlDedicatedGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, args == null ? SqlDedicatedGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlDedicatedGateway(String name, Output<String> id, @Nullable SqlDedicatedGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlDedicatedGatewayArgs makeArgs(SqlDedicatedGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlDedicatedGatewayArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

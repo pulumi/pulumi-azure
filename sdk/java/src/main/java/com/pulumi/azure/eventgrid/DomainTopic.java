@@ -145,11 +145,18 @@ public class DomainTopic extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DomainTopic(String name, DomainTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventgrid/domainTopic:DomainTopic", name, args == null ? DomainTopicArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventgrid/domainTopic:DomainTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DomainTopic(String name, Output<String> id, @Nullable DomainTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventgrid/domainTopic:DomainTopic", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DomainTopicArgs makeArgs(DomainTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DomainTopicArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

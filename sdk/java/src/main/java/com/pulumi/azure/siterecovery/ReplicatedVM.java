@@ -637,11 +637,18 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReplicatedVM(String name, ReplicatedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicatedVM:ReplicatedVM", name, args == null ? ReplicatedVMArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/replicatedVM:ReplicatedVM", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReplicatedVM(String name, Output<String> id, @Nullable ReplicatedVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/replicatedVM:ReplicatedVM", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicatedVMArgs makeArgs(ReplicatedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicatedVMArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
