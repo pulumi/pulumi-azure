@@ -377,11 +377,18 @@ public class ComputeCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ComputeCluster(String name, ComputeClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/computeCluster:ComputeCluster", name, args == null ? ComputeClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:machinelearning/computeCluster:ComputeCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ComputeCluster(String name, Output<String> id, @Nullable ComputeClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:machinelearning/computeCluster:ComputeCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ComputeClusterArgs makeArgs(ComputeClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ComputeClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

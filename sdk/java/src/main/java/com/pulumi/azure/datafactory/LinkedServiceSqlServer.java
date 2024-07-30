@@ -339,11 +339,18 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceSqlServer(String name, LinkedServiceSqlServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, args == null ? LinkedServiceSqlServerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceSqlServer(String name, Output<String> id, @Nullable LinkedServiceSqlServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceSqlServerArgs makeArgs(LinkedServiceSqlServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceSqlServerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

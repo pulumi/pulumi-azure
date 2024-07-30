@@ -183,11 +183,18 @@ public class AlertRuleThreatIntelligence extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public AlertRuleThreatIntelligence(String name, AlertRuleThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence", name, args == null ? AlertRuleThreatIntelligenceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlertRuleThreatIntelligence(String name, Output<String> id, @Nullable AlertRuleThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/alertRuleThreatIntelligence:AlertRuleThreatIntelligence", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlertRuleThreatIntelligenceArgs makeArgs(AlertRuleThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlertRuleThreatIntelligenceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

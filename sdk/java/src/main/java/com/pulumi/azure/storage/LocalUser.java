@@ -266,11 +266,18 @@ public class LocalUser extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalUser(String name, LocalUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/localUser:LocalUser", name, args == null ? LocalUserArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/localUser:LocalUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalUser(String name, Output<String> id, @Nullable LocalUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/localUser:LocalUser", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalUserArgs makeArgs(LocalUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalUserArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

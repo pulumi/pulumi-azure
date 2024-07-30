@@ -297,11 +297,18 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualNetworkSwiftConnection(String name, VirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, args == null ? VirtualNetworkSwiftConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualNetworkSwiftConnection(String name, Output<String> id, @Nullable VirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualNetworkSwiftConnectionArgs makeArgs(VirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkSwiftConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

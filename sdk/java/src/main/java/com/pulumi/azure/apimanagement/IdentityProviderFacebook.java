@@ -163,11 +163,18 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityProviderFacebook(String name, IdentityProviderFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, args == null ? IdentityProviderFacebookArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityProviderFacebook(String name, Output<String> id, @Nullable IdentityProviderFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityProviderFacebookArgs makeArgs(IdentityProviderFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityProviderFacebookArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

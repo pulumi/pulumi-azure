@@ -135,11 +135,18 @@ public class GatewayApi extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public GatewayApi(String name, GatewayApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/gatewayApi:GatewayApi", name, args == null ? GatewayApiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/gatewayApi:GatewayApi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private GatewayApi(String name, Output<String> id, @Nullable GatewayApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/gatewayApi:GatewayApi", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GatewayApiArgs makeArgs(GatewayApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GatewayApiArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -253,11 +253,18 @@ public class LinkedServiceCosmosDbMongoApi extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceCosmosDbMongoApi(String name, LinkedServiceCosmosDbMongoApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, args == null ? LinkedServiceCosmosDbMongoApiArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceCosmosDbMongoApi(String name, Output<String> id, @Nullable LinkedServiceCosmosDbMongoApiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceCosmosDbMongoApiArgs makeArgs(LinkedServiceCosmosDbMongoApiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceCosmosDbMongoApiArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -250,11 +250,18 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualMachineConfigurationAssignment(String name, VirtualMachineConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", name, args == null ? VirtualMachineConfigurationAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualMachineConfigurationAssignment(String name, Output<String> id, @Nullable VirtualMachineConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualMachineConfigurationAssignmentArgs makeArgs(VirtualMachineConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualMachineConfigurationAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -180,11 +180,18 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public JobCredential(String name, JobCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/jobCredential:JobCredential", name, args == null ? JobCredentialArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/jobCredential:JobCredential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private JobCredential(String name, Output<String> id, @Nullable JobCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/jobCredential:JobCredential", name, state, makeResourceOptions(options, id));
+    }
+
+    private static JobCredentialArgs makeArgs(JobCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? JobCredentialArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

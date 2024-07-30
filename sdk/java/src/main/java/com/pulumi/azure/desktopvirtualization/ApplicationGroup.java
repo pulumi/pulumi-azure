@@ -255,11 +255,18 @@ public class ApplicationGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ApplicationGroup(String name, ApplicationGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:desktopvirtualization/applicationGroup:ApplicationGroup", name, args == null ? ApplicationGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:desktopvirtualization/applicationGroup:ApplicationGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApplicationGroup(String name, Output<String> id, @Nullable ApplicationGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:desktopvirtualization/applicationGroup:ApplicationGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApplicationGroupArgs makeArgs(ApplicationGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApplicationGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

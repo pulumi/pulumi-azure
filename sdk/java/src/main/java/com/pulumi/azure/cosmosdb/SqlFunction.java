@@ -155,11 +155,18 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlFunction(String name, SqlFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlFunction:SqlFunction", name, args == null ? SqlFunctionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/sqlFunction:SqlFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlFunction(String name, Output<String> id, @Nullable SqlFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/sqlFunction:SqlFunction", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlFunctionArgs makeArgs(SqlFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlFunctionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

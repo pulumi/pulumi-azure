@@ -150,11 +150,18 @@ public class EnvironmentType extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EnvironmentType(String name, EnvironmentTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devcenter/environmentType:EnvironmentType", name, args == null ? EnvironmentTypeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:devcenter/environmentType:EnvironmentType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EnvironmentType(String name, Output<String> id, @Nullable EnvironmentTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:devcenter/environmentType:EnvironmentType", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EnvironmentTypeArgs makeArgs(EnvironmentTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EnvironmentTypeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

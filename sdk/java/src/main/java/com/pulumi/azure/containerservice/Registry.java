@@ -587,11 +587,18 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Registry(String name, RegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/registry:Registry", name, args == null ? RegistryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/registry:Registry", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Registry(String name, Output<String> id, @Nullable RegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/registry:Registry", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RegistryArgs makeArgs(RegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RegistryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

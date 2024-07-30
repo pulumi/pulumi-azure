@@ -280,11 +280,18 @@ public class TrafficManagerProfile extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TrafficManagerProfile(String name, TrafficManagerProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/trafficManagerProfile:TrafficManagerProfile", name, args == null ? TrafficManagerProfileArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/trafficManagerProfile:TrafficManagerProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TrafficManagerProfile(String name, Output<String> id, @Nullable TrafficManagerProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/trafficManagerProfile:TrafficManagerProfile", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TrafficManagerProfileArgs makeArgs(TrafficManagerProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TrafficManagerProfileArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

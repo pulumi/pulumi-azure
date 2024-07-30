@@ -310,11 +310,18 @@ public class DatasetAzureBlob extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DatasetAzureBlob(String name, DatasetAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", name, args == null ? DatasetAzureBlobArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatasetAzureBlob(String name, Output<String> id, @Nullable DatasetAzureBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/datasetAzureBlob:DatasetAzureBlob", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatasetAzureBlobArgs makeArgs(DatasetAzureBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetAzureBlobArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

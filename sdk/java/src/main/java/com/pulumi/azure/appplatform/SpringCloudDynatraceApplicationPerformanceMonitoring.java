@@ -240,11 +240,18 @@ public class SpringCloudDynatraceApplicationPerformanceMonitoring extends com.pu
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudDynatraceApplicationPerformanceMonitoring(String name, SpringCloudDynatraceApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring", name, args == null ? SpringCloudDynatraceApplicationPerformanceMonitoringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudDynatraceApplicationPerformanceMonitoring(String name, Output<String> id, @Nullable SpringCloudDynatraceApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudDynatraceApplicationPerformanceMonitoringArgs makeArgs(SpringCloudDynatraceApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudDynatraceApplicationPerformanceMonitoringArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

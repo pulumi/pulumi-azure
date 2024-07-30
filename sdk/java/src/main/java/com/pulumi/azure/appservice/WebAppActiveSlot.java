@@ -173,11 +173,18 @@ public class WebAppActiveSlot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WebAppActiveSlot(String name, WebAppActiveSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/webAppActiveSlot:WebAppActiveSlot", name, args == null ? WebAppActiveSlotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/webAppActiveSlot:WebAppActiveSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WebAppActiveSlot(String name, Output<String> id, @Nullable WebAppActiveSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/webAppActiveSlot:WebAppActiveSlot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WebAppActiveSlotArgs makeArgs(WebAppActiveSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WebAppActiveSlotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

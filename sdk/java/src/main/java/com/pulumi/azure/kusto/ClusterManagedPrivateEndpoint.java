@@ -223,11 +223,18 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public ClusterManagedPrivateEndpoint(String name, ClusterManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", name, args == null ? ClusterManagedPrivateEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ClusterManagedPrivateEndpoint(String name, Output<String> id, @Nullable ClusterManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterManagedPrivateEndpointArgs makeArgs(ClusterManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterManagedPrivateEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -186,11 +186,18 @@ public class VirtualNetworkRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualNetworkRule(String name, VirtualNetworkRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/virtualNetworkRule:VirtualNetworkRule", name, args == null ? VirtualNetworkRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/virtualNetworkRule:VirtualNetworkRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualNetworkRule(String name, Output<String> id, @Nullable VirtualNetworkRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/virtualNetworkRule:VirtualNetworkRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualNetworkRuleArgs makeArgs(VirtualNetworkRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

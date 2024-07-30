@@ -229,11 +229,18 @@ public class AccountEncryption extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountEncryption(String name, AccountEncryptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/accountEncryption:AccountEncryption", name, args == null ? AccountEncryptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:netapp/accountEncryption:AccountEncryption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountEncryption(String name, Output<String> id, @Nullable AccountEncryptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:netapp/accountEncryption:AccountEncryption", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountEncryptionArgs makeArgs(AccountEncryptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountEncryptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

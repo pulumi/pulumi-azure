@@ -176,11 +176,18 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public ExpressRoutePortAuthorization(String name, ExpressRoutePortAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", name, args == null ? ExpressRoutePortAuthorizationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExpressRoutePortAuthorization(String name, Output<String> id, @Nullable ExpressRoutePortAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExpressRoutePortAuthorizationArgs makeArgs(ExpressRoutePortAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExpressRoutePortAuthorizationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

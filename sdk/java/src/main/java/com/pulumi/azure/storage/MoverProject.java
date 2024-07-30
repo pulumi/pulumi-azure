@@ -145,11 +145,18 @@ public class MoverProject extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MoverProject(String name, MoverProjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/moverProject:MoverProject", name, args == null ? MoverProjectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/moverProject:MoverProject", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MoverProject(String name, Output<String> id, @Nullable MoverProjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/moverProject:MoverProject", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MoverProjectArgs makeArgs(MoverProjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MoverProjectArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

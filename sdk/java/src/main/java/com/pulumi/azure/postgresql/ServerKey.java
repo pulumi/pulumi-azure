@@ -209,11 +209,18 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerKey(String name, ServerKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/serverKey:ServerKey", name, args == null ? ServerKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:postgresql/serverKey:ServerKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerKey(String name, Output<String> id, @Nullable ServerKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:postgresql/serverKey:ServerKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerKeyArgs makeArgs(ServerKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

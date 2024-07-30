@@ -477,11 +477,18 @@ public class FunctionAppFunction extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FunctionAppFunction(String name, FunctionAppFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/functionAppFunction:FunctionAppFunction", name, args == null ? FunctionAppFunctionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/functionAppFunction:FunctionAppFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FunctionAppFunction(String name, Output<String> id, @Nullable FunctionAppFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/functionAppFunction:FunctionAppFunction", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FunctionAppFunctionArgs makeArgs(FunctionAppFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionAppFunctionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

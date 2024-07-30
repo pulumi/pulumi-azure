@@ -257,11 +257,18 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public ExpressRouteCircuitConnection(String name, ExpressRouteCircuitConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, args == null ? ExpressRouteCircuitConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExpressRouteCircuitConnection(String name, Output<String> id, @Nullable ExpressRouteCircuitConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExpressRouteCircuitConnectionArgs makeArgs(ExpressRouteCircuitConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExpressRouteCircuitConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

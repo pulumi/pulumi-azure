@@ -272,11 +272,18 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudGatewayRouteConfig(String name, SpringCloudGatewayRouteConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", name, args == null ? SpringCloudGatewayRouteConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudGatewayRouteConfig(String name, Output<String> id, @Nullable SpringCloudGatewayRouteConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudGatewayRouteConfigArgs makeArgs(SpringCloudGatewayRouteConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudGatewayRouteConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

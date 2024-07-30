@@ -268,11 +268,18 @@ public class NamespaceAuthorizationRule extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public NamespaceAuthorizationRule(String name, NamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, args == null ? NamespaceAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NamespaceAuthorizationRule(String name, Output<String> id, @Nullable NamespaceAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:servicebus/namespaceAuthorizationRule:NamespaceAuthorizationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NamespaceAuthorizationRuleArgs makeArgs(NamespaceAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceAuthorizationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
