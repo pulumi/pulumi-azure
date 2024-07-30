@@ -229,11 +229,18 @@ public class WorkspaceAadAdmin extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WorkspaceAadAdmin(String name, WorkspaceAadAdminArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin", name, args == null ? WorkspaceAadAdminArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WorkspaceAadAdmin(String name, Output<String> id, @Nullable WorkspaceAadAdminState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkspaceAadAdminArgs makeArgs(WorkspaceAadAdminArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceAadAdminArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

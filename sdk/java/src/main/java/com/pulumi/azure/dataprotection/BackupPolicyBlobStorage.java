@@ -235,11 +235,18 @@ public class BackupPolicyBlobStorage extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public BackupPolicyBlobStorage(String name, BackupPolicyBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage", name, args == null ? BackupPolicyBlobStorageArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BackupPolicyBlobStorage(String name, Output<String> id, @Nullable BackupPolicyBlobStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BackupPolicyBlobStorageArgs makeArgs(BackupPolicyBlobStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupPolicyBlobStorageArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

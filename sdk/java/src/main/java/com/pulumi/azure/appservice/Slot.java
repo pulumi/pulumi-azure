@@ -517,11 +517,18 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Slot(String name, SlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/slot:Slot", name, args == null ? SlotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/slot:Slot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Slot(String name, Output<String> id, @Nullable SlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/slot:Slot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SlotArgs makeArgs(SlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SlotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

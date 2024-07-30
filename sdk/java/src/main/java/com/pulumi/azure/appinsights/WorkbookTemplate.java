@@ -286,11 +286,18 @@ public class WorkbookTemplate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WorkbookTemplate(String name, WorkbookTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/workbookTemplate:WorkbookTemplate", name, args == null ? WorkbookTemplateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appinsights/workbookTemplate:WorkbookTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WorkbookTemplate(String name, Output<String> id, @Nullable WorkbookTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appinsights/workbookTemplate:WorkbookTemplate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkbookTemplateArgs makeArgs(WorkbookTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkbookTemplateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

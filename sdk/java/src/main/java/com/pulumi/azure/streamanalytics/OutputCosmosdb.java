@@ -244,11 +244,18 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OutputCosmosdb(String name, OutputCosmosdbArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputCosmosdb:OutputCosmosdb", name, args == null ? OutputCosmosdbArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:streamanalytics/outputCosmosdb:OutputCosmosdb", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OutputCosmosdb(String name, Output<String> id, @Nullable OutputCosmosdbState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:streamanalytics/outputCosmosdb:OutputCosmosdb", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OutputCosmosdbArgs makeArgs(OutputCosmosdbArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutputCosmosdbArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

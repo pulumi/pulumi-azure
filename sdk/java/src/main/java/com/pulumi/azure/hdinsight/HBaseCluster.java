@@ -479,11 +479,18 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HBaseCluster(String name, HBaseClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/hBaseCluster:HBaseCluster", name, args == null ? HBaseClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:hdinsight/hBaseCluster:HBaseCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HBaseCluster(String name, Output<String> id, @Nullable HBaseClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:hdinsight/hBaseCluster:HBaseCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HBaseClusterArgs makeArgs(HBaseClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HBaseClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -200,11 +200,18 @@ public class FunctionJavaScriptUDF extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FunctionJavaScriptUDF(String name, FunctionJavaScriptUDFArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, args == null ? FunctionJavaScriptUDFArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FunctionJavaScriptUDF(String name, Output<String> id, @Nullable FunctionJavaScriptUDFState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FunctionJavaScriptUDFArgs makeArgs(FunctionJavaScriptUDFArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionJavaScriptUDFArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

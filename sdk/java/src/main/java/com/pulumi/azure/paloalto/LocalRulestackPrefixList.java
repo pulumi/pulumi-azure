@@ -174,11 +174,18 @@ public class LocalRulestackPrefixList extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalRulestackPrefixList(String name, LocalRulestackPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", name, args == null ? LocalRulestackPrefixListArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalRulestackPrefixList(String name, Output<String> id, @Nullable LocalRulestackPrefixListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalRulestackPrefixListArgs makeArgs(LocalRulestackPrefixListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalRulestackPrefixListArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

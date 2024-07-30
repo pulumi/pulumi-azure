@@ -306,11 +306,18 @@ public class LinkedServiceDataLakeStorageGen2 extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceDataLakeStorageGen2(String name, LinkedServiceDataLakeStorageGen2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, args == null ? LinkedServiceDataLakeStorageGen2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceDataLakeStorageGen2(String name, Output<String> id, @Nullable LinkedServiceDataLakeStorageGen2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceDataLakeStorageGen2Args makeArgs(LinkedServiceDataLakeStorageGen2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceDataLakeStorageGen2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -163,11 +163,18 @@ public class IdentityProviderTwitter extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public IdentityProviderTwitter(String name, IdentityProviderTwitterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter", name, args == null ? IdentityProviderTwitterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IdentityProviderTwitter(String name, Output<String> id, @Nullable IdentityProviderTwitterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IdentityProviderTwitterArgs makeArgs(IdentityProviderTwitterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IdentityProviderTwitterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

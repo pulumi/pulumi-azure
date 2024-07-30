@@ -257,11 +257,18 @@ public class Lock extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Lock(String name, LockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/lock:Lock", name, args == null ? LockArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:management/lock:Lock", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Lock(String name, Output<String> id, @Nullable LockState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:management/lock:Lock", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LockArgs makeArgs(LockArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LockArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

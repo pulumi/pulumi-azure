@@ -252,11 +252,18 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceGroupCostManagementView(String name, ResourceGroupCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, args == null ? ResourceGroupCostManagementViewArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceGroupCostManagementView(String name, Output<String> id, @Nullable ResourceGroupCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceGroupCostManagementViewArgs makeArgs(ResourceGroupCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceGroupCostManagementViewArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

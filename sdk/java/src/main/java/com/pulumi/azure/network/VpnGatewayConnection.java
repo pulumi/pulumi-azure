@@ -254,11 +254,18 @@ public class VpnGatewayConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VpnGatewayConnection(String name, VpnGatewayConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vpnGatewayConnection:VpnGatewayConnection", name, args == null ? VpnGatewayConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/vpnGatewayConnection:VpnGatewayConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpnGatewayConnection(String name, Output<String> id, @Nullable VpnGatewayConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/vpnGatewayConnection:VpnGatewayConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpnGatewayConnectionArgs makeArgs(VpnGatewayConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpnGatewayConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

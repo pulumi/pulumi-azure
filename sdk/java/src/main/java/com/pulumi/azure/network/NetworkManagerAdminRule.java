@@ -318,11 +318,18 @@ public class NetworkManagerAdminRule extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkManagerAdminRule(String name, NetworkManagerAdminRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerAdminRule:NetworkManagerAdminRule", name, args == null ? NetworkManagerAdminRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/networkManagerAdminRule:NetworkManagerAdminRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkManagerAdminRule(String name, Output<String> id, @Nullable NetworkManagerAdminRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/networkManagerAdminRule:NetworkManagerAdminRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkManagerAdminRuleArgs makeArgs(NetworkManagerAdminRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerAdminRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

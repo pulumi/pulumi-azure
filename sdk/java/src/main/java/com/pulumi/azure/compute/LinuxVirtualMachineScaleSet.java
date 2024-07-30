@@ -1027,11 +1027,18 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public LinuxVirtualMachineScaleSet(String name, LinuxVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet", name, args == null ? LinuxVirtualMachineScaleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinuxVirtualMachineScaleSet(String name, Output<String> id, @Nullable LinuxVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinuxVirtualMachineScaleSetArgs makeArgs(LinuxVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinuxVirtualMachineScaleSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -195,11 +195,18 @@ public class ChannelTeams extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ChannelTeams(String name, ChannelTeamsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelTeams:ChannelTeams", name, args == null ? ChannelTeamsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:bot/channelTeams:ChannelTeams", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ChannelTeams(String name, Output<String> id, @Nullable ChannelTeamsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:bot/channelTeams:ChannelTeams", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ChannelTeamsArgs makeArgs(ChannelTeamsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ChannelTeamsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

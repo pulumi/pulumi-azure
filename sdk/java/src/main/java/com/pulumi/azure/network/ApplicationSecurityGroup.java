@@ -153,11 +153,18 @@ public class ApplicationSecurityGroup extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ApplicationSecurityGroup(String name, ApplicationSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", name, args == null ? ApplicationSecurityGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ApplicationSecurityGroup(String name, Output<String> id, @Nullable ApplicationSecurityGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/applicationSecurityGroup:ApplicationSecurityGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ApplicationSecurityGroupArgs makeArgs(ApplicationSecurityGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ApplicationSecurityGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -187,11 +187,18 @@ public class NetworkSite extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkSite(String name, NetworkSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkSite:NetworkSite", name, args == null ? NetworkSiteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mobile/networkSite:NetworkSite", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkSite(String name, Output<String> id, @Nullable NetworkSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mobile/networkSite:NetworkSite", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkSiteArgs makeArgs(NetworkSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkSiteArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

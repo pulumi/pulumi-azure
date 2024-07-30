@@ -388,11 +388,18 @@ public class MetricAlert extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MetricAlert(String name, MetricAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/metricAlert:MetricAlert", name, args == null ? MetricAlertArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/metricAlert:MetricAlert", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MetricAlert(String name, Output<String> id, @Nullable MetricAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/metricAlert:MetricAlert", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MetricAlertArgs makeArgs(MetricAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MetricAlertArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

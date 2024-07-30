@@ -307,11 +307,18 @@ public class ManagedCertificate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedCertificate(String name, ManagedCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/managedCertificate:ManagedCertificate", name, args == null ? ManagedCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/managedCertificate:ManagedCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedCertificate(String name, Output<String> id, @Nullable ManagedCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/managedCertificate:ManagedCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedCertificateArgs makeArgs(ManagedCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

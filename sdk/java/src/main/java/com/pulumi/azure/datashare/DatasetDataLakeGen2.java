@@ -250,11 +250,18 @@ public class DatasetDataLakeGen2 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DatasetDataLakeGen2(String name, DatasetDataLakeGen2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2", name, args == null ? DatasetDataLakeGen2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatasetDataLakeGen2(String name, Output<String> id, @Nullable DatasetDataLakeGen2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datashare/datasetDataLakeGen2:DatasetDataLakeGen2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatasetDataLakeGen2Args makeArgs(DatasetDataLakeGen2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetDataLakeGen2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
