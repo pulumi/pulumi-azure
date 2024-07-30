@@ -290,11 +290,18 @@ public class ResourcePolicyRemediation extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourcePolicyRemediation(String name, ResourcePolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourcePolicyRemediation:ResourcePolicyRemediation", name, args == null ? ResourcePolicyRemediationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/resourcePolicyRemediation:ResourcePolicyRemediation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourcePolicyRemediation(String name, Output<String> id, @Nullable ResourcePolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/resourcePolicyRemediation:ResourcePolicyRemediation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourcePolicyRemediationArgs makeArgs(ResourcePolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourcePolicyRemediationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

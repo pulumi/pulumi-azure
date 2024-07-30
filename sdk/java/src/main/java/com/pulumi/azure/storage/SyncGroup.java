@@ -129,11 +129,18 @@ public class SyncGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SyncGroup(String name, SyncGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/syncGroup:SyncGroup", name, args == null ? SyncGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/syncGroup:SyncGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SyncGroup(String name, Output<String> id, @Nullable SyncGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/syncGroup:SyncGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SyncGroupArgs makeArgs(SyncGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SyncGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -425,11 +425,18 @@ public class FrontdoorRoute extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FrontdoorRoute(String name, FrontdoorRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorRoute:FrontdoorRoute", name, args == null ? FrontdoorRouteArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cdn/frontdoorRoute:FrontdoorRoute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FrontdoorRoute(String name, Output<String> id, @Nullable FrontdoorRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cdn/frontdoorRoute:FrontdoorRoute", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FrontdoorRouteArgs makeArgs(FrontdoorRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorRouteArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

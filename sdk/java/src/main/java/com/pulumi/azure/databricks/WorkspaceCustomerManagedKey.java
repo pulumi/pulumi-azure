@@ -213,11 +213,18 @@ public class WorkspaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public WorkspaceCustomerManagedKey(String name, WorkspaceCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", name, args == null ? WorkspaceCustomerManagedKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WorkspaceCustomerManagedKey(String name, Output<String> id, @Nullable WorkspaceCustomerManagedKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkspaceCustomerManagedKeyArgs makeArgs(WorkspaceCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceCustomerManagedKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

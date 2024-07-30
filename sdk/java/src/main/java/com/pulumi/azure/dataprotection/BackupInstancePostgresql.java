@@ -308,11 +308,18 @@ public class BackupInstancePostgresql extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public BackupInstancePostgresql(String name, BackupInstancePostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", name, args == null ? BackupInstancePostgresqlArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BackupInstancePostgresql(String name, Output<String> id, @Nullable BackupInstancePostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BackupInstancePostgresqlArgs makeArgs(BackupInstancePostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BackupInstancePostgresqlArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

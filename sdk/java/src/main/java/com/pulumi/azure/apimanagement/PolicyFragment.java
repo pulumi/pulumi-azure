@@ -187,11 +187,18 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PolicyFragment(String name, PolicyFragmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/policyFragment:PolicyFragment", name, args == null ? PolicyFragmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:apimanagement/policyFragment:PolicyFragment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PolicyFragment(String name, Output<String> id, @Nullable PolicyFragmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:apimanagement/policyFragment:PolicyFragment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PolicyFragmentArgs makeArgs(PolicyFragmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyFragmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

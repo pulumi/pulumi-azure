@@ -393,11 +393,18 @@ public class FlowletDataFlow extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FlowletDataFlow(String name, FlowletDataFlowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/flowletDataFlow:FlowletDataFlow", name, args == null ? FlowletDataFlowArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/flowletDataFlow:FlowletDataFlow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FlowletDataFlow(String name, Output<String> id, @Nullable FlowletDataFlowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/flowletDataFlow:FlowletDataFlow", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FlowletDataFlowArgs makeArgs(FlowletDataFlowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FlowletDataFlowArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

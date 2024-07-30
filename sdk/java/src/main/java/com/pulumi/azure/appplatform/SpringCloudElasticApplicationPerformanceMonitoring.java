@@ -197,11 +197,18 @@ public class SpringCloudElasticApplicationPerformanceMonitoring extends com.pulu
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudElasticApplicationPerformanceMonitoring(String name, SpringCloudElasticApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring", name, args == null ? SpringCloudElasticApplicationPerformanceMonitoringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudElasticApplicationPerformanceMonitoring(String name, Output<String> id, @Nullable SpringCloudElasticApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudElasticApplicationPerformanceMonitoringArgs makeArgs(SpringCloudElasticApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudElasticApplicationPerformanceMonitoringArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

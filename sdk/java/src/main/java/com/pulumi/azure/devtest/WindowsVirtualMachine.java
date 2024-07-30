@@ -397,11 +397,18 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WindowsVirtualMachine(String name, WindowsVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, args == null ? WindowsVirtualMachineArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WindowsVirtualMachine(String name, Output<String> id, @Nullable WindowsVirtualMachineState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:devtest/windowsVirtualMachine:WindowsVirtualMachine", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WindowsVirtualMachineArgs makeArgs(WindowsVirtualMachineArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WindowsVirtualMachineArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

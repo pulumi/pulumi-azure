@@ -294,11 +294,18 @@ public class VirtualNetworkPeering extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualNetworkPeering(String name, VirtualNetworkPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:databricks/virtualNetworkPeering:VirtualNetworkPeering", name, args == null ? VirtualNetworkPeeringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:databricks/virtualNetworkPeering:VirtualNetworkPeering", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualNetworkPeering(String name, Output<String> id, @Nullable VirtualNetworkPeeringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:databricks/virtualNetworkPeering:VirtualNetworkPeering", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualNetworkPeeringArgs makeArgs(VirtualNetworkPeeringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualNetworkPeeringArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

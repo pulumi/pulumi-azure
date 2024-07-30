@@ -194,11 +194,18 @@ public class VirtualMachineManagerAvailabilitySet extends com.pulumi.resources.C
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualMachineManagerAvailabilitySet(String name, VirtualMachineManagerAvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", name, args == null ? VirtualMachineManagerAvailabilitySetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualMachineManagerAvailabilitySet(String name, Output<String> id, @Nullable VirtualMachineManagerAvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualMachineManagerAvailabilitySetArgs makeArgs(VirtualMachineManagerAvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualMachineManagerAvailabilitySetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

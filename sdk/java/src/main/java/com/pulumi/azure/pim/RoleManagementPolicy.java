@@ -339,11 +339,18 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RoleManagementPolicy(String name, RoleManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:pim/roleManagementPolicy:RoleManagementPolicy", name, args == null ? RoleManagementPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:pim/roleManagementPolicy:RoleManagementPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RoleManagementPolicy(String name, Output<String> id, @Nullable RoleManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:pim/roleManagementPolicy:RoleManagementPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoleManagementPolicyArgs makeArgs(RoleManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleManagementPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

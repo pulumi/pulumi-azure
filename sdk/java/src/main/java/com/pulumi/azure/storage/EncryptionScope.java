@@ -182,11 +182,18 @@ public class EncryptionScope extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EncryptionScope(String name, EncryptionScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/encryptionScope:EncryptionScope", name, args == null ? EncryptionScopeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/encryptionScope:EncryptionScope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EncryptionScope(String name, Output<String> id, @Nullable EncryptionScopeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/encryptionScope:EncryptionScope", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EncryptionScopeArgs makeArgs(EncryptionScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EncryptionScopeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

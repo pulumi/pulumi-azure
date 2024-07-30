@@ -185,11 +185,18 @@ public class ActiveDirectoryAdministrator extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public ActiveDirectoryAdministrator(String name, ActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, args == null ? ActiveDirectoryAdministratorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ActiveDirectoryAdministrator(String name, Output<String> id, @Nullable ActiveDirectoryAdministratorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ActiveDirectoryAdministratorArgs makeArgs(ActiveDirectoryAdministratorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ActiveDirectoryAdministratorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

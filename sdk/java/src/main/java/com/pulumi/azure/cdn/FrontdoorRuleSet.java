@@ -129,11 +129,18 @@ public class FrontdoorRuleSet extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FrontdoorRuleSet(String name, FrontdoorRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorRuleSet:FrontdoorRuleSet", name, args == null ? FrontdoorRuleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cdn/frontdoorRuleSet:FrontdoorRuleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FrontdoorRuleSet(String name, Output<String> id, @Nullable FrontdoorRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cdn/frontdoorRuleSet:FrontdoorRuleSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FrontdoorRuleSetArgs makeArgs(FrontdoorRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorRuleSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

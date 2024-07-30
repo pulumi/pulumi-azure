@@ -318,11 +318,18 @@ public class ExpressRouteCircuit extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ExpressRouteCircuit(String name, ExpressRouteCircuitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, args == null ? ExpressRouteCircuitArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ExpressRouteCircuit(String name, Output<String> id, @Nullable ExpressRouteCircuitState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/expressRouteCircuit:ExpressRouteCircuit", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ExpressRouteCircuitArgs makeArgs(ExpressRouteCircuitArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ExpressRouteCircuitArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

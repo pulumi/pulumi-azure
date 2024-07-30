@@ -222,11 +222,18 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomCertificate(String name, CustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:webpubsub/customCertificate:CustomCertificate", name, args == null ? CustomCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:webpubsub/customCertificate:CustomCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomCertificate(String name, Output<String> id, @Nullable CustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:webpubsub/customCertificate:CustomCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomCertificateArgs makeArgs(CustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

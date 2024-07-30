@@ -239,11 +239,18 @@ public class AccountNetworkRules extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountNetworkRules(String name, AccountNetworkRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/accountNetworkRules:AccountNetworkRules", name, args == null ? AccountNetworkRulesArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/accountNetworkRules:AccountNetworkRules", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountNetworkRules(String name, Output<String> id, @Nullable AccountNetworkRulesState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/accountNetworkRules:AccountNetworkRules", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountNetworkRulesArgs makeArgs(AccountNetworkRulesArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountNetworkRulesArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

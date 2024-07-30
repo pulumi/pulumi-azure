@@ -191,11 +191,18 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public VpnServerConfigurationPolicyGroup(String name, VpnServerConfigurationPolicyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", name, args == null ? VpnServerConfigurationPolicyGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VpnServerConfigurationPolicyGroup(String name, Output<String> id, @Nullable VpnServerConfigurationPolicyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VpnServerConfigurationPolicyGroupArgs makeArgs(VpnServerConfigurationPolicyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VpnServerConfigurationPolicyGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

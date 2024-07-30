@@ -278,11 +278,18 @@ public class TopicAuthorizationRule extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public TopicAuthorizationRule(String name, TopicAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, args == null ? TopicAuthorizationRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TopicAuthorizationRule(String name, Output<String> id, @Nullable TopicAuthorizationRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TopicAuthorizationRuleArgs makeArgs(TopicAuthorizationRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TopicAuthorizationRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

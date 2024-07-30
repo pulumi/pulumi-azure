@@ -211,11 +211,18 @@ public class CertificateIssuer extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CertificateIssuer(String name, CertificateIssuerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/certificateIssuer:CertificateIssuer", name, args == null ? CertificateIssuerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/certificateIssuer:CertificateIssuer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CertificateIssuer(String name, Output<String> id, @Nullable CertificateIssuerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/certificateIssuer:CertificateIssuer", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CertificateIssuerArgs makeArgs(CertificateIssuerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertificateIssuerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

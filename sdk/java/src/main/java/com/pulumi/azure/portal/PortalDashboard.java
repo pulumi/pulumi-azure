@@ -126,11 +126,18 @@ public class PortalDashboard extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PortalDashboard(String name, PortalDashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:portal/portalDashboard:PortalDashboard", name, args == null ? PortalDashboardArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:portal/portalDashboard:PortalDashboard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PortalDashboard(String name, Output<String> id, @Nullable PortalDashboardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:portal/portalDashboard:PortalDashboard", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PortalDashboardArgs makeArgs(PortalDashboardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PortalDashboardArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

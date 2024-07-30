@@ -154,11 +154,18 @@ public class DataConnectorMicrosoftDefenderAdvancedThreatProtection extends com.
      * @param options A bag of options that control this resource's behavior.
      */
     public DataConnectorMicrosoftDefenderAdvancedThreatProtection(String name, DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection", name, args == null ? DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataConnectorMicrosoftDefenderAdvancedThreatProtection(String name, Output<String> id, @Nullable DataConnectorMicrosoftDefenderAdvancedThreatProtectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs makeArgs(DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

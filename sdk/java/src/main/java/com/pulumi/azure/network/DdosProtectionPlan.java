@@ -171,11 +171,18 @@ public class DdosProtectionPlan extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DdosProtectionPlan(String name, DdosProtectionPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/ddosProtectionPlan:DdosProtectionPlan", name, args == null ? DdosProtectionPlanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/ddosProtectionPlan:DdosProtectionPlan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DdosProtectionPlan(String name, Output<String> id, @Nullable DdosProtectionPlanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/ddosProtectionPlan:DdosProtectionPlan", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DdosProtectionPlanArgs makeArgs(DdosProtectionPlanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DdosProtectionPlanArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -244,11 +244,18 @@ public class ResourceGroupPolicyExemption extends com.pulumi.resources.CustomRes
      * @param options A bag of options that control this resource's behavior.
      */
     public ResourceGroupPolicyExemption(String name, ResourceGroupPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption", name, args == null ? ResourceGroupPolicyExemptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResourceGroupPolicyExemption(String name, Output<String> id, @Nullable ResourceGroupPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResourceGroupPolicyExemptionArgs makeArgs(ResourceGroupPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResourceGroupPolicyExemptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

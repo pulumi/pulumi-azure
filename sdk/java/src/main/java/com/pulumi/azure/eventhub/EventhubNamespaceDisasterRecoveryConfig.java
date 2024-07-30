@@ -167,11 +167,18 @@ public class EventhubNamespaceDisasterRecoveryConfig extends com.pulumi.resource
      * @param options A bag of options that control this resource's behavior.
      */
     public EventhubNamespaceDisasterRecoveryConfig(String name, EventhubNamespaceDisasterRecoveryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, args == null ? EventhubNamespaceDisasterRecoveryConfigArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventhubNamespaceDisasterRecoveryConfig(String name, Output<String> id, @Nullable EventhubNamespaceDisasterRecoveryConfigState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventhubNamespaceDisasterRecoveryConfigArgs makeArgs(EventhubNamespaceDisasterRecoveryConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventhubNamespaceDisasterRecoveryConfigArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

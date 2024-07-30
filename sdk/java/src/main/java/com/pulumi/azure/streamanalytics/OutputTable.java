@@ -267,11 +267,18 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public OutputTable(String name, OutputTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputTable:OutputTable", name, args == null ? OutputTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:streamanalytics/outputTable:OutputTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OutputTable(String name, Output<String> id, @Nullable OutputTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:streamanalytics/outputTable:OutputTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OutputTableArgs makeArgs(OutputTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OutputTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

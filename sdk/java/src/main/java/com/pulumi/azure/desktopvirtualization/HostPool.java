@@ -365,11 +365,18 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HostPool(String name, HostPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:desktopvirtualization/hostPool:HostPool", name, args == null ? HostPoolArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:desktopvirtualization/hostPool:HostPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HostPool(String name, Output<String> id, @Nullable HostPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:desktopvirtualization/hostPool:HostPool", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HostPoolArgs makeArgs(HostPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HostPoolArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

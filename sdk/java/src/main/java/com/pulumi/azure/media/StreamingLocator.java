@@ -308,11 +308,18 @@ public class StreamingLocator extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StreamingLocator(String name, StreamingLocatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/streamingLocator:StreamingLocator", name, args == null ? StreamingLocatorArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:media/streamingLocator:StreamingLocator", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StreamingLocator(String name, Output<String> id, @Nullable StreamingLocatorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:media/streamingLocator:StreamingLocator", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StreamingLocatorArgs makeArgs(StreamingLocatorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamingLocatorArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

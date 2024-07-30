@@ -268,11 +268,18 @@ public class BudgetSubscription extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BudgetSubscription(String name, BudgetSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:consumption/budgetSubscription:BudgetSubscription", name, args == null ? BudgetSubscriptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:consumption/budgetSubscription:BudgetSubscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BudgetSubscription(String name, Output<String> id, @Nullable BudgetSubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:consumption/budgetSubscription:BudgetSubscription", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BudgetSubscriptionArgs makeArgs(BudgetSubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BudgetSubscriptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

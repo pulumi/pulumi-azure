@@ -260,11 +260,18 @@ public class EndpointEventhub extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EndpointEventhub(String name, EndpointEventhubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/endpointEventhub:EndpointEventhub", name, args == null ? EndpointEventhubArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:iot/endpointEventhub:EndpointEventhub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EndpointEventhub(String name, Output<String> id, @Nullable EndpointEventhubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:iot/endpointEventhub:EndpointEventhub", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EndpointEventhubArgs makeArgs(EndpointEventhubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EndpointEventhubArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
