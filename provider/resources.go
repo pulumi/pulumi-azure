@@ -502,9 +502,9 @@ var metadata []byte
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(shim.NewProvider(), shimv2.WithPlanResourceChange(func(tfResourceType string) bool {
-		return tfResourceType == "azurerm_storage_account"
-	}))
+	p := shimv2.NewProvider(shim.NewProvider(),
+		shimv2.WithPlanResourceChange(func(_ string) bool { return true }),
+	)
 
 	// Adjust the defaults if running in Azure Cloud Shell.
 	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
