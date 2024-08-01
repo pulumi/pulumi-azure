@@ -177,11 +177,18 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AnomalyAlert(String name, AnomalyAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:costmanagement/anomalyAlert:AnomalyAlert", name, args == null ? AnomalyAlertArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:costmanagement/anomalyAlert:AnomalyAlert", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AnomalyAlert(String name, Output<String> id, @Nullable AnomalyAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:costmanagement/anomalyAlert:AnomalyAlert", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AnomalyAlertArgs makeArgs(AnomalyAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AnomalyAlertArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

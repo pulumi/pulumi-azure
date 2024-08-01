@@ -268,11 +268,18 @@ public class DatasetAzureSqlTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public DatasetAzureSqlTable(String name, DatasetAzureSqlTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable", name, args == null ? DatasetAzureSqlTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DatasetAzureSqlTable(String name, Output<String> id, @Nullable DatasetAzureSqlTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/datasetAzureSqlTable:DatasetAzureSqlTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DatasetAzureSqlTableArgs makeArgs(DatasetAzureSqlTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DatasetAzureSqlTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -173,11 +173,18 @@ public class Gallery extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Gallery(String name, GalleryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devcenter/gallery:Gallery", name, args == null ? GalleryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:devcenter/gallery:Gallery", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Gallery(String name, Output<String> id, @Nullable GalleryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:devcenter/gallery:Gallery", name, state, makeResourceOptions(options, id));
+    }
+
+    private static GalleryArgs makeArgs(GalleryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? GalleryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

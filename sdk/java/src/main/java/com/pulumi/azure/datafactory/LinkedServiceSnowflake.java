@@ -310,11 +310,18 @@ public class LinkedServiceSnowflake extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedServiceSnowflake(String name, LinkedServiceSnowflakeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake", name, args == null ? LinkedServiceSnowflakeArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedServiceSnowflake(String name, Output<String> id, @Nullable LinkedServiceSnowflakeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/linkedServiceSnowflake:LinkedServiceSnowflake", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceSnowflakeArgs makeArgs(LinkedServiceSnowflakeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceSnowflakeArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

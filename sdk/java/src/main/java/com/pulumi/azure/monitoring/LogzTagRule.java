@@ -204,11 +204,18 @@ public class LogzTagRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LogzTagRule(String name, LogzTagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/logzTagRule:LogzTagRule", name, args == null ? LogzTagRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/logzTagRule:LogzTagRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LogzTagRule(String name, Output<String> id, @Nullable LogzTagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/logzTagRule:LogzTagRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LogzTagRuleArgs makeArgs(LogzTagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LogzTagRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

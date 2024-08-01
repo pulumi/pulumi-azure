@@ -220,11 +220,18 @@ public class VirtualHubRouteTable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualHubRouteTable(String name, VirtualHubRouteTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualHubRouteTable:VirtualHubRouteTable", name, args == null ? VirtualHubRouteTableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/virtualHubRouteTable:VirtualHubRouteTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualHubRouteTable(String name, Output<String> id, @Nullable VirtualHubRouteTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/virtualHubRouteTable:VirtualHubRouteTable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualHubRouteTableArgs makeArgs(VirtualHubRouteTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualHubRouteTableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

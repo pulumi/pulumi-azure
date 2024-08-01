@@ -252,11 +252,18 @@ public class AccountCustomerManagedKey extends com.pulumi.resources.CustomResour
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountCustomerManagedKey(String name, AccountCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey", name, args == null ? AccountCustomerManagedKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountCustomerManagedKey(String name, Output<String> id, @Nullable AccountCustomerManagedKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountCustomerManagedKeyArgs makeArgs(AccountCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountCustomerManagedKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

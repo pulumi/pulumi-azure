@@ -191,11 +191,18 @@ public class IntVariable extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public IntVariable(String name, IntVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/intVariable:IntVariable", name, args == null ? IntVariableArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/intVariable:IntVariable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntVariable(String name, Output<String> id, @Nullable IntVariableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/intVariable:IntVariable", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntVariableArgs makeArgs(IntVariableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntVariableArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

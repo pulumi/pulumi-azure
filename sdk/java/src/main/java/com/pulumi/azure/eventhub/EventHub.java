@@ -235,11 +235,18 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public EventHub(String name, EventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHub:EventHub", name, args == null ? EventHubArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventhub/eventHub:EventHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EventHub(String name, Output<String> id, @Nullable EventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventhub/eventHub:EventHub", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EventHubArgs makeArgs(EventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EventHubArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

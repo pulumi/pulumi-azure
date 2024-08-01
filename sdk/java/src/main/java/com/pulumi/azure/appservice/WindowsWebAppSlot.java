@@ -601,11 +601,18 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public WindowsWebAppSlot(String name, WindowsWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, args == null ? WindowsWebAppSlotArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private WindowsWebAppSlot(String name, Output<String> id, @Nullable WindowsWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WindowsWebAppSlotArgs makeArgs(WindowsWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WindowsWebAppSlotArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

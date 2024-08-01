@@ -164,11 +164,18 @@ public class AssignmentDedicatedHost extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public AssignmentDedicatedHost(String name, AssignmentDedicatedHostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost", name, args == null ? AssignmentDedicatedHostArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AssignmentDedicatedHost(String name, Output<String> id, @Nullable AssignmentDedicatedHostState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AssignmentDedicatedHostArgs makeArgs(AssignmentDedicatedHostArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AssignmentDedicatedHostArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

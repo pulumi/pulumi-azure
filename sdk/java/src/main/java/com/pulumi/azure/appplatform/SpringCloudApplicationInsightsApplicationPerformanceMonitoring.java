@@ -234,11 +234,18 @@ public class SpringCloudApplicationInsightsApplicationPerformanceMonitoring exte
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudApplicationInsightsApplicationPerformanceMonitoring(String name, SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring", name, args == null ? SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudApplicationInsightsApplicationPerformanceMonitoring(String name, Output<String> id, @Nullable SpringCloudApplicationInsightsApplicationPerformanceMonitoringState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring:SpringCloudApplicationInsightsApplicationPerformanceMonitoring", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs makeArgs(SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudApplicationInsightsApplicationPerformanceMonitoringArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

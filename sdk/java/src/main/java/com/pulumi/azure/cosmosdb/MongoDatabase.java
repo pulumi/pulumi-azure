@@ -176,11 +176,18 @@ public class MongoDatabase extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MongoDatabase(String name, MongoDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/mongoDatabase:MongoDatabase", name, args == null ? MongoDatabaseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/mongoDatabase:MongoDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MongoDatabase(String name, Output<String> id, @Nullable MongoDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/mongoDatabase:MongoDatabase", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MongoDatabaseArgs makeArgs(MongoDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MongoDatabaseArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -225,11 +225,18 @@ public class ConnectionServicePrincipal extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public ConnectionServicePrincipal(String name, ConnectionServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, args == null ? ConnectionServicePrincipalArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConnectionServicePrincipal(String name, Output<String> id, @Nullable ConnectionServicePrincipalState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConnectionServicePrincipalArgs makeArgs(ConnectionServicePrincipalArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConnectionServicePrincipalArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

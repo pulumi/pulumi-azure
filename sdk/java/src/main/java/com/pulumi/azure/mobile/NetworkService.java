@@ -252,11 +252,18 @@ public class NetworkService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkService(String name, NetworkServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkService:NetworkService", name, args == null ? NetworkServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mobile/networkService:NetworkService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkService(String name, Output<String> id, @Nullable NetworkServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mobile/networkService:NetworkService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkServiceArgs makeArgs(NetworkServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

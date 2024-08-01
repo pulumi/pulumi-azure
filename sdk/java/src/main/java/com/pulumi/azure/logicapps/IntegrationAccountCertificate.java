@@ -190,11 +190,18 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public IntegrationAccountCertificate(String name, IntegrationAccountCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", name, args == null ? IntegrationAccountCertificateArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private IntegrationAccountCertificate(String name, Output<String> id, @Nullable IntegrationAccountCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", name, state, makeResourceOptions(options, id));
+    }
+
+    private static IntegrationAccountCertificateArgs makeArgs(IntegrationAccountCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? IntegrationAccountCertificateArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

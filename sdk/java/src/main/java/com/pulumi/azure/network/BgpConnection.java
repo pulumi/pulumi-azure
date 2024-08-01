@@ -218,11 +218,18 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public BgpConnection(String name, BgpConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/bgpConnection:BgpConnection", name, args == null ? BgpConnectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/bgpConnection:BgpConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private BgpConnection(String name, Output<String> id, @Nullable BgpConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/bgpConnection:BgpConnection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static BgpConnectionArgs makeArgs(BgpConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? BgpConnectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

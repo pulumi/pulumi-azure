@@ -242,11 +242,18 @@ public class TimeSeriesInsightsGen2Environment extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public TimeSeriesInsightsGen2Environment(String name, TimeSeriesInsightsGen2EnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment", name, args == null ? TimeSeriesInsightsGen2EnvironmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TimeSeriesInsightsGen2Environment(String name, Output<String> id, @Nullable TimeSeriesInsightsGen2EnvironmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TimeSeriesInsightsGen2EnvironmentArgs makeArgs(TimeSeriesInsightsGen2EnvironmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TimeSeriesInsightsGen2EnvironmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

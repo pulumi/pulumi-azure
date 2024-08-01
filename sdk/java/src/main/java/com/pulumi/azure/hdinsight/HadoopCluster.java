@@ -479,11 +479,18 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public HadoopCluster(String name, HadoopClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/hadoopCluster:HadoopCluster", name, args == null ? HadoopClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:hdinsight/hadoopCluster:HadoopCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HadoopCluster(String name, Output<String> id, @Nullable HadoopClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:hdinsight/hadoopCluster:HadoopCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HadoopClusterArgs makeArgs(HadoopClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HadoopClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -186,11 +186,18 @@ public class AutomanageConfigurationAssignment extends com.pulumi.resources.Cust
      * @param options A bag of options that control this resource's behavior.
      */
     public AutomanageConfigurationAssignment(String name, AutomanageConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", name, args == null ? AutomanageConfigurationAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AutomanageConfigurationAssignment(String name, Output<String> id, @Nullable AutomanageConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/automanageConfigurationAssignment:AutomanageConfigurationAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AutomanageConfigurationAssignmentArgs makeArgs(AutomanageConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AutomanageConfigurationAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

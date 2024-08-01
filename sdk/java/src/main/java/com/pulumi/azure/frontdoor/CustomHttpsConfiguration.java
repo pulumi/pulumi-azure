@@ -215,11 +215,18 @@ public class CustomHttpsConfiguration extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public CustomHttpsConfiguration(String name, CustomHttpsConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration", name, args == null ? CustomHttpsConfigurationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CustomHttpsConfiguration(String name, Output<String> id, @Nullable CustomHttpsConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CustomHttpsConfigurationArgs makeArgs(CustomHttpsConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CustomHttpsConfigurationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -99,11 +99,18 @@ public class NextGenerationFirewallVirtualHubPanorama extends com.pulumi.resourc
      * @param options A bag of options that control this resource's behavior.
      */
     public NextGenerationFirewallVirtualHubPanorama(String name, NextGenerationFirewallVirtualHubPanoramaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama", name, args == null ? NextGenerationFirewallVirtualHubPanoramaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NextGenerationFirewallVirtualHubPanorama(String name, Output<String> id, @Nullable NextGenerationFirewallVirtualHubPanoramaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:paloalto/nextGenerationFirewallVirtualHubPanorama:NextGenerationFirewallVirtualHubPanorama", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NextGenerationFirewallVirtualHubPanoramaArgs makeArgs(NextGenerationFirewallVirtualHubPanoramaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NextGenerationFirewallVirtualHubPanoramaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

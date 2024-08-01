@@ -209,11 +209,18 @@ public class VirtualWan extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualWan(String name, VirtualWanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/virtualWan:VirtualWan", name, args == null ? VirtualWanArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/virtualWan:VirtualWan", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualWan(String name, Output<String> id, @Nullable VirtualWanState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/virtualWan:VirtualWan", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualWanArgs makeArgs(VirtualWanArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualWanArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

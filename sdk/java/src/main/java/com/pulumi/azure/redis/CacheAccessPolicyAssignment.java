@@ -187,11 +187,18 @@ public class CacheAccessPolicyAssignment extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public CacheAccessPolicyAssignment(String name, CacheAccessPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment", name, args == null ? CacheAccessPolicyAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CacheAccessPolicyAssignment(String name, Output<String> id, @Nullable CacheAccessPolicyAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:redis/cacheAccessPolicyAssignment:CacheAccessPolicyAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CacheAccessPolicyAssignmentArgs makeArgs(CacheAccessPolicyAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CacheAccessPolicyAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

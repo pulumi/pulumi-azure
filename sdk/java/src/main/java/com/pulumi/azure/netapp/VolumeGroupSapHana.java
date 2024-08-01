@@ -402,11 +402,18 @@ public class VolumeGroupSapHana extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public VolumeGroupSapHana(String name, VolumeGroupSapHanaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/volumeGroupSapHana:VolumeGroupSapHana", name, args == null ? VolumeGroupSapHanaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:netapp/volumeGroupSapHana:VolumeGroupSapHana", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VolumeGroupSapHana(String name, Output<String> id, @Nullable VolumeGroupSapHanaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:netapp/volumeGroupSapHana:VolumeGroupSapHana", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VolumeGroupSapHanaArgs makeArgs(VolumeGroupSapHanaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VolumeGroupSapHanaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

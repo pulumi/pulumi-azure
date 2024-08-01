@@ -202,11 +202,18 @@ public class NetworkInterfaceNatRuleAssociation extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkInterfaceNatRuleAssociation(String name, NetworkInterfaceNatRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, args == null ? NetworkInterfaceNatRuleAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkInterfaceNatRuleAssociation(String name, Output<String> id, @Nullable NetworkInterfaceNatRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkInterfaceNatRuleAssociationArgs makeArgs(NetworkInterfaceNatRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceNatRuleAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

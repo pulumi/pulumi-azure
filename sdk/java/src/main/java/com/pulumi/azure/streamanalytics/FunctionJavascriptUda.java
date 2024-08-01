@@ -195,11 +195,18 @@ public class FunctionJavascriptUda extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FunctionJavascriptUda(String name, FunctionJavascriptUdaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", name, args == null ? FunctionJavascriptUdaArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FunctionJavascriptUda(String name, Output<String> id, @Nullable FunctionJavascriptUdaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:streamanalytics/functionJavascriptUda:FunctionJavascriptUda", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FunctionJavascriptUdaArgs makeArgs(FunctionJavascriptUdaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FunctionJavascriptUdaArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

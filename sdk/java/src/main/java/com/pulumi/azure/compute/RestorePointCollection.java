@@ -231,11 +231,18 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public RestorePointCollection(String name, RestorePointCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/restorePointCollection:RestorePointCollection", name, args == null ? RestorePointCollectionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/restorePointCollection:RestorePointCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RestorePointCollection(String name, Output<String> id, @Nullable RestorePointCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/restorePointCollection:RestorePointCollection", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RestorePointCollectionArgs makeArgs(RestorePointCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RestorePointCollectionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

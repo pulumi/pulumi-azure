@@ -282,7 +282,7 @@ import (
 //				PrincipalType:      pulumi.String("ServicePrincipal"),
 //				Description:        pulumi.String("Role Based Access Control Administrator role assignment with ABAC Condition."),
 //				ConditionVersion:   pulumi.String("2.0"),
-//				Condition: pulumi.String(fmt.Sprintf(`(
+//				Condition: pulumi.Sprintf(`(
 //	 (
 //	  !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
 //	 )
@@ -304,7 +304,7 @@ import (
 //	)
 //
 // )
-// `, invokeBasename.Result, invokeBasename1.Result)),
+// `, invokeBasename.Result, invokeBasename1.Result),
 //
 //			})
 //			if err != nil {

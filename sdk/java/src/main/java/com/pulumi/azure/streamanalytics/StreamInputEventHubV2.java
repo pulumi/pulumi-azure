@@ -284,11 +284,18 @@ public class StreamInputEventHubV2 extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StreamInputEventHubV2(String name, StreamInputEventHubV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2", name, args == null ? StreamInputEventHubV2Args.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StreamInputEventHubV2(String name, Output<String> id, @Nullable StreamInputEventHubV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:streamanalytics/streamInputEventHubV2:StreamInputEventHubV2", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StreamInputEventHubV2Args makeArgs(StreamInputEventHubV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StreamInputEventHubV2Args.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

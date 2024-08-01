@@ -169,11 +169,18 @@ public class NetworkPacketCoreDataPlane extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkPacketCoreDataPlane(String name, NetworkPacketCoreDataPlaneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane", name, args == null ? NetworkPacketCoreDataPlaneArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkPacketCoreDataPlane(String name, Output<String> id, @Nullable NetworkPacketCoreDataPlaneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkPacketCoreDataPlaneArgs makeArgs(NetworkPacketCoreDataPlaneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkPacketCoreDataPlaneArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
