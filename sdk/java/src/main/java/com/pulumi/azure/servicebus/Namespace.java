@@ -343,6 +343,8 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     /**
      * Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
+     * 
      * @deprecated
      * The `zone_redundant` property has been deprecated and will be removed in v4.0 of the provider.
      * 
@@ -353,6 +355,8 @@ public class Namespace extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zone_redundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zone_redundant` is being deprecated. The property `zone_redundant` might still show as false, even when availability zones has been enabled.
      * 
      */
     public Output<Boolean> zoneRedundant() {
@@ -381,11 +385,18 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Namespace(String name, NamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:servicebus/namespace:Namespace", name, args == null ? NamespaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:servicebus/namespace:Namespace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Namespace(String name, Output<String> id, @Nullable NamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:servicebus/namespace:Namespace", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NamespaceArgs makeArgs(NamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string>? DayOfWeek { get; set; }
 
         /// <summary>
-        /// The duration of the window for maintenance to run in hours.
+        /// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         /// </summary>
         [Input("duration", required: true)]
         public Input<int> Duration { get; set; } = null!;

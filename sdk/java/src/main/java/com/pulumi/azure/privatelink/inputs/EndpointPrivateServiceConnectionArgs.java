@@ -121,6 +121,8 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
      * 
      * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
      * 
+     * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+     * 
      */
     @Import(name="subresourceNames")
     private @Nullable Output<List<String>> subresourceNames;
@@ -129,6 +131,8 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
      * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+     * 
+     * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
      * 
      */
     public Optional<Output<List<String>>> subresourceNames() {
@@ -304,6 +308,8 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
          * 
          * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
+         * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * 
          * @return builder
          * 
          */
@@ -317,6 +323,8 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
          * 
          * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          * 
+         * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
+         * 
          * @return builder
          * 
          */
@@ -328,6 +336,8 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
          * @param subresourceNames A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          * 
          * &gt; **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+         * 
+         * &gt; **NOTE:** For most Private Links one or more `subresource_names` will need to be specified, please see the linked documentation for details.
          * 
          * @return builder
          * 

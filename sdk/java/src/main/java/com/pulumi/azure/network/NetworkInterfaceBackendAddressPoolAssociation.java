@@ -197,11 +197,18 @@ public class NetworkInterfaceBackendAddressPoolAssociation extends com.pulumi.re
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkInterfaceBackendAddressPoolAssociation(String name, NetworkInterfaceBackendAddressPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, args == null ? NetworkInterfaceBackendAddressPoolAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkInterfaceBackendAddressPoolAssociation(String name, Output<String> id, @Nullable NetworkInterfaceBackendAddressPoolAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/networkInterfaceBackendAddressPoolAssociation:NetworkInterfaceBackendAddressPoolAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkInterfaceBackendAddressPoolAssociationArgs makeArgs(NetworkInterfaceBackendAddressPoolAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceBackendAddressPoolAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

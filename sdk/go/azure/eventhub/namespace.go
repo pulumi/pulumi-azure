@@ -107,6 +107,8 @@ type Namespace struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	//
+	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
+	//
 	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant pulumi.BoolOutput `pulumi:"zoneRedundant"`
 }
@@ -195,6 +197,8 @@ type namespaceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	//
+	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
+	//
 	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -241,6 +245,8 @@ type NamespaceState struct {
 	Tags pulumi.StringMapInput
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	//
+	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
+	//
 	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant pulumi.BoolPtrInput
 }
@@ -281,6 +287,8 @@ type namespaceArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
 	//
+	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
+	//
 	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant *bool `pulumi:"zoneRedundant"`
 }
@@ -317,6 +325,8 @@ type NamespaceArgs struct {
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
 	//
 	// Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 	ZoneRedundant pulumi.BoolPtrInput
@@ -503,6 +513,8 @@ func (o NamespaceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
+//
+// > **Note:** In Azure Regions where availability zones are present, the availability zone feature is enabled by default now, which diffs from the previous behavior that need to set the `zoneRedundant` to `true` manually. Existing namespaces are being migrated to availability zones as well, and the property `zoneRedundant` is being deprecated. The property `zoneRedundant` might still show as false, even when availability zones has been enabled.
 //
 // Deprecated: The `zoneRedundant` property has been deprecated and will be removed in v4.0 of the provider.
 func (o NamespaceOutput) ZoneRedundant() pulumi.BoolOutput {

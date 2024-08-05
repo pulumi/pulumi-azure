@@ -807,6 +807,8 @@ type EndpointPrivateServiceConnection struct {
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+	//
+	// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 	SubresourceNames []string `pulumi:"subresourceNames"`
 }
 
@@ -841,6 +843,8 @@ type EndpointPrivateServiceConnectionArgs struct {
 	// A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+	//
+	// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 	SubresourceNames pulumi.StringArrayInput `pulumi:"subresourceNames"`
 }
 
@@ -958,6 +962,8 @@ func (o EndpointPrivateServiceConnectionOutput) RequestMessage() pulumi.StringPt
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 //
 // > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+//
+// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 func (o EndpointPrivateServiceConnectionOutput) SubresourceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) []string { return v.SubresourceNames }).(pulumi.StringArrayOutput)
 }
@@ -1053,6 +1059,8 @@ func (o EndpointPrivateServiceConnectionPtrOutput) RequestMessage() pulumi.Strin
 // A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 //
 // > **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
+//
+// > **NOTE:** For most Private Links one or more `subresourceNames` will need to be specified, please see the linked documentation for details.
 func (o EndpointPrivateServiceConnectionPtrOutput) SubresourceNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) []string {
 		if v == nil {

@@ -50,11 +50,11 @@ import (
 //				Name: ri.Result.ApplyT(func(result int) (string, error) {
 //					return fmt.Sprintf("tfex-cosmos-db-%v", result), nil
 //				}).(pulumi.StringOutput),
-//				Location:                pulumi.Any(example.Location),
-//				ResourceGroupName:       pulumi.Any(example.Name),
-//				OfferType:               pulumi.String("Standard"),
-//				Kind:                    pulumi.String("MongoDB"),
-//				EnableAutomaticFailover: pulumi.Bool(true),
+//				Location:                 pulumi.Any(example.Location),
+//				ResourceGroupName:        pulumi.Any(example.Name),
+//				OfferType:                pulumi.String("Standard"),
+//				Kind:                     pulumi.String("MongoDB"),
+//				AutomaticFailoverEnabled: pulumi.Bool(true),
 //				Capabilities: cosmosdb.AccountCapabilityArray{
 //					&cosmosdb.AccountCapabilityArgs{
 //						Name: pulumi.String("EnableAggregationPipeline"),

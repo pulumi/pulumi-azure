@@ -27,7 +27,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, dns_endpoint_type=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_blob_internet_endpoint=None, primary_blob_internet_host=None, primary_blob_microsoft_endpoint=None, primary_blob_microsoft_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_dfs_internet_endpoint=None, primary_dfs_internet_host=None, primary_dfs_microsoft_endpoint=None, primary_dfs_microsoft_host=None, primary_file_endpoint=None, primary_file_host=None, primary_file_internet_endpoint=None, primary_file_internet_host=None, primary_file_microsoft_endpoint=None, primary_file_microsoft_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_queue_microsoft_endpoint=None, primary_queue_microsoft_host=None, primary_table_endpoint=None, primary_table_host=None, primary_table_microsoft_endpoint=None, primary_table_microsoft_host=None, primary_web_endpoint=None, primary_web_host=None, primary_web_internet_endpoint=None, primary_web_internet_host=None, primary_web_microsoft_endpoint=None, primary_web_microsoft_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_blob_internet_endpoint=None, secondary_blob_internet_host=None, secondary_blob_microsoft_endpoint=None, secondary_blob_microsoft_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_dfs_internet_endpoint=None, secondary_dfs_internet_host=None, secondary_dfs_microsoft_endpoint=None, secondary_dfs_microsoft_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_file_internet_endpoint=None, secondary_file_internet_host=None, secondary_file_microsoft_endpoint=None, secondary_file_microsoft_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_queue_microsoft_endpoint=None, secondary_queue_microsoft_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_table_microsoft_endpoint=None, secondary_table_microsoft_host=None, secondary_web_endpoint=None, secondary_web_host=None, secondary_web_internet_endpoint=None, secondary_web_internet_host=None, secondary_web_microsoft_endpoint=None, secondary_web_microsoft_host=None, table_encryption_key_type=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, dns_endpoint_type=None, enable_https_traffic_only=None, https_traffic_only_enabled=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_blob_internet_endpoint=None, primary_blob_internet_host=None, primary_blob_microsoft_endpoint=None, primary_blob_microsoft_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_dfs_internet_endpoint=None, primary_dfs_internet_host=None, primary_dfs_microsoft_endpoint=None, primary_dfs_microsoft_host=None, primary_file_endpoint=None, primary_file_host=None, primary_file_internet_endpoint=None, primary_file_internet_host=None, primary_file_microsoft_endpoint=None, primary_file_microsoft_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_queue_microsoft_endpoint=None, primary_queue_microsoft_host=None, primary_table_endpoint=None, primary_table_host=None, primary_table_microsoft_endpoint=None, primary_table_microsoft_host=None, primary_web_endpoint=None, primary_web_host=None, primary_web_internet_endpoint=None, primary_web_internet_host=None, primary_web_microsoft_endpoint=None, primary_web_microsoft_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_blob_internet_endpoint=None, secondary_blob_internet_host=None, secondary_blob_microsoft_endpoint=None, secondary_blob_microsoft_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_dfs_internet_endpoint=None, secondary_dfs_internet_host=None, secondary_dfs_microsoft_endpoint=None, secondary_dfs_microsoft_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_file_internet_endpoint=None, secondary_file_internet_host=None, secondary_file_microsoft_endpoint=None, secondary_file_microsoft_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_queue_microsoft_endpoint=None, secondary_queue_microsoft_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_table_microsoft_endpoint=None, secondary_table_microsoft_host=None, secondary_web_endpoint=None, secondary_web_host=None, secondary_web_internet_endpoint=None, secondary_web_internet_host=None, secondary_web_microsoft_endpoint=None, secondary_web_microsoft_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -55,6 +55,9 @@ class GetAccountResult:
         if enable_https_traffic_only and not isinstance(enable_https_traffic_only, bool):
             raise TypeError("Expected argument 'enable_https_traffic_only' to be a bool")
         pulumi.set(__self__, "enable_https_traffic_only", enable_https_traffic_only)
+        if https_traffic_only_enabled and not isinstance(https_traffic_only_enabled, bool):
+            raise TypeError("Expected argument 'https_traffic_only_enabled' to be a bool")
+        pulumi.set(__self__, "https_traffic_only_enabled", https_traffic_only_enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -375,11 +378,16 @@ class GetAccountResult:
     @property
     @pulumi.getter(name="enableHttpsTrafficOnly")
     def enable_https_traffic_only(self) -> bool:
+        return pulumi.get(self, "enable_https_traffic_only")
+
+    @property
+    @pulumi.getter(name="httpsTrafficOnlyEnabled")
+    def https_traffic_only_enabled(self) -> bool:
         """
         Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
         for more information.
         """
-        return pulumi.get(self, "enable_https_traffic_only")
+        return pulumi.get(self, "https_traffic_only_enabled")
 
     @property
     @pulumi.getter
@@ -1067,6 +1075,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             custom_domains=self.custom_domains,
             dns_endpoint_type=self.dns_endpoint_type,
             enable_https_traffic_only=self.enable_https_traffic_only,
+            https_traffic_only_enabled=self.https_traffic_only_enabled,
             id=self.id,
             identities=self.identities,
             infrastructure_encryption_enabled=self.infrastructure_encryption_enabled,
@@ -1193,6 +1202,7 @@ def get_account(min_tls_version: Optional[str] = None,
         custom_domains=pulumi.get(__ret__, 'custom_domains'),
         dns_endpoint_type=pulumi.get(__ret__, 'dns_endpoint_type'),
         enable_https_traffic_only=pulumi.get(__ret__, 'enable_https_traffic_only'),
+        https_traffic_only_enabled=pulumi.get(__ret__, 'https_traffic_only_enabled'),
         id=pulumi.get(__ret__, 'id'),
         identities=pulumi.get(__ret__, 'identities'),
         infrastructure_encryption_enabled=pulumi.get(__ret__, 'infrastructure_encryption_enabled'),

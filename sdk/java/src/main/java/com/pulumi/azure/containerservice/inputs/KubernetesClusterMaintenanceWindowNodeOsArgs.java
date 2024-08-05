@@ -50,14 +50,14 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
     }
 
     /**
-     * The duration of the window for maintenance to run in hours.
+     * The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
      * 
      */
     @Import(name="duration", required=true)
     private Output<Integer> duration;
 
     /**
-     * @return The duration of the window for maintenance to run in hours.
+     * @return The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
      * 
      */
     public Output<Integer> duration() {
@@ -245,7 +245,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param duration The duration of the window for maintenance to run in hours.
+         * @param duration The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class KubernetesClusterMaintenanceWindowNodeOsArgs extends com.pulu
         }
 
         /**
-         * @param duration The duration of the window for maintenance to run in hours.
+         * @param duration The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
          * 
          * @return builder
          * 

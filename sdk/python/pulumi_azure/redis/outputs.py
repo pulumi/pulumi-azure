@@ -174,6 +174,8 @@ class CacheRedisConfiguration(dict):
             suggest = "aof_storage_connection_string0"
         elif key == "aofStorageConnectionString1":
             suggest = "aof_storage_connection_string1"
+        elif key == "authenticationEnabled":
+            suggest = "authentication_enabled"
         elif key == "dataPersistenceAuthenticationMethod":
             suggest = "data_persistence_authentication_method"
         elif key == "enableAuthentication":
@@ -215,6 +217,7 @@ class CacheRedisConfiguration(dict):
                  aof_backup_enabled: Optional[bool] = None,
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
+                 authentication_enabled: Optional[bool] = None,
                  data_persistence_authentication_method: Optional[str] = None,
                  enable_authentication: Optional[bool] = None,
                  maxclients: Optional[int] = None,
@@ -265,6 +268,8 @@ class CacheRedisConfiguration(dict):
             pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
             pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        if authentication_enabled is not None:
+            pulumi.set(__self__, "authentication_enabled", authentication_enabled)
         if data_persistence_authentication_method is not None:
             pulumi.set(__self__, "data_persistence_authentication_method", data_persistence_authentication_method)
         if enable_authentication is not None:
@@ -329,6 +334,11 @@ class CacheRedisConfiguration(dict):
         return pulumi.get(self, "aof_storage_connection_string1")
 
     @property
+    @pulumi.getter(name="authenticationEnabled")
+    def authentication_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "authentication_enabled")
+
+    @property
     @pulumi.getter(name="dataPersistenceAuthenticationMethod")
     def data_persistence_authentication_method(self) -> Optional[str]:
         """
@@ -338,6 +348,7 @@ class CacheRedisConfiguration(dict):
 
     @property
     @pulumi.getter(name="enableAuthentication")
+    @_utilities.deprecated("""`enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.""")
     def enable_authentication(self) -> Optional[bool]:
         """
         If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
@@ -524,8 +535,8 @@ class GetCacheRedisConfigurationResult(dict):
                  aof_backup_enabled: bool,
                  aof_storage_connection_string0: str,
                  aof_storage_connection_string1: str,
+                 authentication_enabled: bool,
                  data_persistence_authentication_method: str,
-                 enable_authentication: bool,
                  maxclients: int,
                  maxfragmentationmemory_reserved: int,
                  maxmemory_delta: int,
@@ -536,10 +547,10 @@ class GetCacheRedisConfigurationResult(dict):
                  rdb_backup_frequency: int,
                  rdb_backup_max_snapshot_count: int,
                  rdb_storage_connection_string: str,
-                 storage_account_subscription_id: str):
+                 storage_account_subscription_id: str,
+                 enable_authentication: Optional[bool] = None):
         """
         :param bool active_directory_authentication_enabled: Specifies if Microsoft Entra (AAD) authentication is enabled.
-        :param bool enable_authentication: Specifies if authentication is enabled
         :param int maxfragmentationmemory_reserved: Value in megabytes reserved to accommodate for memory fragmentation.
         :param int maxmemory_delta: The max-memory delta for this Redis instance.
         :param str maxmemory_policy: How Redis will select what to remove when `maxmemory` is reached.
@@ -549,13 +560,14 @@ class GetCacheRedisConfigurationResult(dict):
         :param int rdb_backup_max_snapshot_count: The maximum number of snapshots that can be created as a backup.
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs.
         :param str storage_account_subscription_id: The ID of the Subscription containing the Storage Account.
+        :param bool enable_authentication: Specifies if authentication is enabled
         """
         pulumi.set(__self__, "active_directory_authentication_enabled", active_directory_authentication_enabled)
         pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        pulumi.set(__self__, "authentication_enabled", authentication_enabled)
         pulumi.set(__self__, "data_persistence_authentication_method", data_persistence_authentication_method)
-        pulumi.set(__self__, "enable_authentication", enable_authentication)
         pulumi.set(__self__, "maxclients", maxclients)
         pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         pulumi.set(__self__, "maxmemory_delta", maxmemory_delta)
@@ -567,6 +579,8 @@ class GetCacheRedisConfigurationResult(dict):
         pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
         pulumi.set(__self__, "storage_account_subscription_id", storage_account_subscription_id)
+        if enable_authentication is not None:
+            pulumi.set(__self__, "enable_authentication", enable_authentication)
 
     @property
     @pulumi.getter(name="activeDirectoryAuthenticationEnabled")
@@ -592,17 +606,14 @@ class GetCacheRedisConfigurationResult(dict):
         return pulumi.get(self, "aof_storage_connection_string1")
 
     @property
+    @pulumi.getter(name="authenticationEnabled")
+    def authentication_enabled(self) -> bool:
+        return pulumi.get(self, "authentication_enabled")
+
+    @property
     @pulumi.getter(name="dataPersistenceAuthenticationMethod")
     def data_persistence_authentication_method(self) -> str:
         return pulumi.get(self, "data_persistence_authentication_method")
-
-    @property
-    @pulumi.getter(name="enableAuthentication")
-    def enable_authentication(self) -> bool:
-        """
-        Specifies if authentication is enabled
-        """
-        return pulumi.get(self, "enable_authentication")
 
     @property
     @pulumi.getter
@@ -685,5 +696,14 @@ class GetCacheRedisConfigurationResult(dict):
         The ID of the Subscription containing the Storage Account.
         """
         return pulumi.get(self, "storage_account_subscription_id")
+
+    @property
+    @pulumi.getter(name="enableAuthentication")
+    @_utilities.deprecated("""`enable_authentication` will be removed in favour of the property `authentication_enabled` in version 4.0 of the AzureRM Provider.""")
+    def enable_authentication(self) -> Optional[bool]:
+        """
+        Specifies if authentication is enabled
+        """
+        return pulumi.get(self, "enable_authentication")
 
 

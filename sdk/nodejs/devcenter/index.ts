@@ -30,6 +30,11 @@ export type Gallery = import("./gallery").Gallery;
 export const Gallery: typeof import("./gallery").Gallery = null as any;
 utilities.lazyLoad(exports, ["Gallery"], () => require("./gallery"));
 
+export { NetworkConnectionArgs, NetworkConnectionState } from "./networkConnection";
+export type NetworkConnection = import("./networkConnection").NetworkConnection;
+export const NetworkConnection: typeof import("./networkConnection").NetworkConnection = null as any;
+utilities.lazyLoad(exports, ["NetworkConnection"], () => require("./networkConnection"));
+
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -50,6 +55,8 @@ const _module = {
                 return new EnvironmentType(name, <any>undefined, { urn })
             case "azure:devcenter/gallery:Gallery":
                 return new Gallery(name, <any>undefined, { urn })
+            case "azure:devcenter/networkConnection:NetworkConnection":
+                return new NetworkConnection(name, <any>undefined, { urn })
             case "azure:devcenter/project:Project":
                 return new Project(name, <any>undefined, { urn })
             default:
@@ -62,4 +69,5 @@ pulumi.runtime.registerResourceModule("azure", "devcenter/devBoxDefinition", _mo
 pulumi.runtime.registerResourceModule("azure", "devcenter/devCenter", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/environmentType", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/gallery", _module)
+pulumi.runtime.registerResourceModule("azure", "devcenter/networkConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/project", _module)

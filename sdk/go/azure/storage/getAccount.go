@@ -77,10 +77,11 @@ type LookupAccountResult struct {
 	// supports the following:
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Which DNS endpoint type is used - either `Standard` or `AzureDnsZone`.
-	DnsEndpointType string `pulumi:"dnsEndpointType"`
+	DnsEndpointType        string `pulumi:"dnsEndpointType"`
+	EnableHttpsTrafficOnly bool   `pulumi:"enableHttpsTrafficOnly"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
 	// for more information.
-	EnableHttpsTrafficOnly bool `pulumi:"enableHttpsTrafficOnly"`
+	HttpsTrafficOnlyEnabled bool `pulumi:"httpsTrafficOnlyEnabled"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as documented below.
@@ -333,10 +334,14 @@ func (o LookupAccountResultOutput) DnsEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.DnsEndpointType }).(pulumi.StringOutput)
 }
 
-// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
-// for more information.
 func (o LookupAccountResultOutput) EnableHttpsTrafficOnly() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.EnableHttpsTrafficOnly }).(pulumi.BoolOutput)
+}
+
+// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
+// for more information.
+func (o LookupAccountResultOutput) HttpsTrafficOnlyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupAccountResult) bool { return v.HttpsTrafficOnlyEnabled }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

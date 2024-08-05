@@ -113,7 +113,7 @@ import (
 type AccountNetworkRules struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 	//
 	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses pulumi.StringArrayOutput `pulumi:"bypasses"`
@@ -173,7 +173,7 @@ func GetAccountNetworkRules(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountNetworkRules resources.
 type accountNetworkRulesState struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 	//
 	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses []string `pulumi:"bypasses"`
@@ -198,7 +198,7 @@ type accountNetworkRulesState struct {
 }
 
 type AccountNetworkRulesState struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 	//
 	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses pulumi.StringArrayInput
@@ -227,7 +227,7 @@ func (AccountNetworkRulesState) ElementType() reflect.Type {
 }
 
 type accountNetworkRulesArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 	//
 	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses []string `pulumi:"bypasses"`
@@ -253,7 +253,7 @@ type accountNetworkRulesArgs struct {
 
 // The set of arguments for constructing a AccountNetworkRules resource.
 type AccountNetworkRulesArgs struct {
-	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+	// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 	//
 	// > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 	Bypasses pulumi.StringArrayInput
@@ -364,7 +364,7 @@ func (o AccountNetworkRulesOutput) ToAccountNetworkRulesOutputWithContext(ctx co
 	return o
 }
 
-// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
 //
 // > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
 func (o AccountNetworkRulesOutput) Bypasses() pulumi.StringArrayOutput {

@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .get_hci_cluster import *
 from .hci_cluster import *
+from .hci_logical_network import *
 from ._inputs import *
 from . import outputs

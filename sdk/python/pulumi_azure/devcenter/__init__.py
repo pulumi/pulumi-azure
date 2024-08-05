@@ -10,6 +10,7 @@ from .dev_box_definition import *
 from .dev_center import *
 from .environment_type import *
 from .gallery import *
+from .network_connection import *
 from .project import *
 from ._inputs import *
 from . import outputs

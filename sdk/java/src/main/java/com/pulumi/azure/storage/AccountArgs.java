@@ -261,18 +261,37 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * @deprecated
+     * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
+    @Import(name="enableHttpsTrafficOnly")
+    private @Nullable Output<Boolean> enableHttpsTrafficOnly;
+
+    /**
+     * @deprecated
+     * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
+    public Optional<Output<Boolean>> enableHttpsTrafficOnly() {
+        return Optional.ofNullable(this.enableHttpsTrafficOnly);
+    }
+
+    /**
      * Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
-    @Import(name="enableHttpsTrafficOnly")
-    private @Nullable Output<Boolean> enableHttpsTrafficOnly;
+    @Import(name="httpsTrafficOnlyEnabled")
+    private @Nullable Output<Boolean> httpsTrafficOnlyEnabled;
 
     /**
      * @return Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
      * 
      */
-    public Optional<Output<Boolean>> enableHttpsTrafficOnly() {
-        return Optional.ofNullable(this.enableHttpsTrafficOnly);
+    public Optional<Output<Boolean>> httpsTrafficOnlyEnabled() {
+        return Optional.ofNullable(this.httpsTrafficOnlyEnabled);
     }
 
     /**
@@ -670,6 +689,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.dnsEndpointType = $.dnsEndpointType;
         this.edgeZone = $.edgeZone;
         this.enableHttpsTrafficOnly = $.enableHttpsTrafficOnly;
+        this.httpsTrafficOnlyEnabled = $.httpsTrafficOnlyEnabled;
         this.identity = $.identity;
         this.immutabilityPolicy = $.immutabilityPolicy;
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
@@ -1028,24 +1048,49 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableHttpsTrafficOnly Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
         public Builder enableHttpsTrafficOnly(@Nullable Output<Boolean> enableHttpsTrafficOnly) {
             $.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
             return this;
         }
 
         /**
-         * @param enableHttpsTrafficOnly Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+         * @return builder
+         * 
+         * @deprecated
+         * The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* The property `enable_https_traffic_only` has been superseded by `https_traffic_only_enabled` and will be removed in v4.0 of the AzureRM Provider. */
+        public Builder enableHttpsTrafficOnly(Boolean enableHttpsTrafficOnly) {
+            return enableHttpsTrafficOnly(Output.of(enableHttpsTrafficOnly));
+        }
+
+        /**
+         * @param httpsTrafficOnlyEnabled Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
          * 
          * @return builder
          * 
          */
-        public Builder enableHttpsTrafficOnly(Boolean enableHttpsTrafficOnly) {
-            return enableHttpsTrafficOnly(Output.of(enableHttpsTrafficOnly));
+        public Builder httpsTrafficOnlyEnabled(@Nullable Output<Boolean> httpsTrafficOnlyEnabled) {
+            $.httpsTrafficOnlyEnabled = httpsTrafficOnlyEnabled;
+            return this;
+        }
+
+        /**
+         * @param httpsTrafficOnlyEnabled Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpsTrafficOnlyEnabled(Boolean httpsTrafficOnlyEnabled) {
+            return httpsTrafficOnlyEnabled(Output.of(httpsTrafficOnlyEnabled));
         }
 
         /**

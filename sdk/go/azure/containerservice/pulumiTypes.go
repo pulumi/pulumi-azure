@@ -7357,8 +7357,6 @@ type KubernetesClusterDefaultNodePool struct {
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType *string `pulumi:"osDiskType"`
 	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
-	//
-	// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 	OsSku *string `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId *string `pulumi:"podSubnetId"`
@@ -7468,8 +7466,6 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporaryNameForRotation` must be specified when attempting a change.
 	OsDiskType pulumi.StringPtrInput `pulumi:"osDiskType"`
 	// Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
-	//
-	// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 	OsSku pulumi.StringPtrInput `pulumi:"osSku"`
 	// The ID of the Subnet where the pods in the default Node Pool should exist.
 	PodSubnetId pulumi.StringPtrInput `pulumi:"podSubnetId"`
@@ -7725,8 +7721,6 @@ func (o KubernetesClusterDefaultNodePoolOutput) OsDiskType() pulumi.StringPtrOut
 }
 
 // Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
-//
-// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 func (o KubernetesClusterDefaultNodePoolOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.OsSku }).(pulumi.StringPtrOutput)
 }
@@ -8090,8 +8084,6 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) OsDiskType() pulumi.StringPtr
 }
 
 // Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporaryNameForRotation` must be specified when attempting a change.
-//
-// > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) OsSku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -12509,7 +12501,7 @@ type KubernetesClusterMaintenanceWindowAutoUpgrade struct {
 	DayOfMonth *int `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
-	// The duration of the window for maintenance to run in hours.
+	// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 	Duration int `pulumi:"duration"`
 	// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 	Frequency string `pulumi:"frequency"`
@@ -12544,7 +12536,7 @@ type KubernetesClusterMaintenanceWindowAutoUpgradeArgs struct {
 	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
-	// The duration of the window for maintenance to run in hours.
+	// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 	Duration pulumi.IntInput `pulumi:"duration"`
 	// Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
@@ -12650,7 +12642,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) DayOfWeek() pulumi.
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
 
-// The duration of the window for maintenance to run in hours.
+// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradeOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAutoUpgrade) int { return v.Duration }).(pulumi.IntOutput)
 }
@@ -12737,7 +12729,7 @@ func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) DayOfWeek() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The duration of the window for maintenance to run in hours.
+// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 func (o KubernetesClusterMaintenanceWindowAutoUpgradePtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowAutoUpgrade) *int {
 		if v == nil {
@@ -12929,7 +12921,7 @@ type KubernetesClusterMaintenanceWindowNodeOs struct {
 	DayOfMonth *int `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek *string `pulumi:"dayOfWeek"`
-	// The duration of the window for maintenance to run in hours.
+	// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 	Duration int `pulumi:"duration"`
 	// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 	Frequency string `pulumi:"frequency"`
@@ -12963,7 +12955,7 @@ type KubernetesClusterMaintenanceWindowNodeOsArgs struct {
 	DayOfMonth pulumi.IntPtrInput `pulumi:"dayOfMonth"`
 	// The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
 	DayOfWeek pulumi.StringPtrInput `pulumi:"dayOfWeek"`
-	// The duration of the window for maintenance to run in hours.
+	// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 	Duration pulumi.IntInput `pulumi:"duration"`
 	// Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
 	Frequency pulumi.StringInput `pulumi:"frequency"`
@@ -13068,7 +13060,7 @@ func (o KubernetesClusterMaintenanceWindowNodeOsOutput) DayOfWeek() pulumi.Strin
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
 
-// The duration of the window for maintenance to run in hours.
+// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 func (o KubernetesClusterMaintenanceWindowNodeOsOutput) Duration() pulumi.IntOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowNodeOs) int { return v.Duration }).(pulumi.IntOutput)
 }
@@ -13154,7 +13146,7 @@ func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) DayOfWeek() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The duration of the window for maintenance to run in hours.
+// The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
 func (o KubernetesClusterMaintenanceWindowNodeOsPtrOutput) Duration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMaintenanceWindowNodeOs) *int {
 		if v == nil {

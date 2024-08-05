@@ -286,11 +286,18 @@ public class ScheduledQueryRulesLog extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public ScheduledQueryRulesLog(String name, ScheduledQueryRulesLogArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog", name, args == null ? ScheduledQueryRulesLogArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ScheduledQueryRulesLog(String name, Output<String> id, @Nullable ScheduledQueryRulesLogState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ScheduledQueryRulesLogArgs makeArgs(ScheduledQueryRulesLogArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ScheduledQueryRulesLogArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

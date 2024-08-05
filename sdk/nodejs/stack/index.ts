@@ -15,6 +15,11 @@ export type HciCluster = import("./hciCluster").HciCluster;
 export const HciCluster: typeof import("./hciCluster").HciCluster = null as any;
 utilities.lazyLoad(exports, ["HciCluster"], () => require("./hciCluster"));
 
+export { HciLogicalNetworkArgs, HciLogicalNetworkState } from "./hciLogicalNetwork";
+export type HciLogicalNetwork = import("./hciLogicalNetwork").HciLogicalNetwork;
+export const HciLogicalNetwork: typeof import("./hciLogicalNetwork").HciLogicalNetwork = null as any;
+utilities.lazyLoad(exports, ["HciLogicalNetwork"], () => require("./hciLogicalNetwork"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,9 +27,12 @@ const _module = {
         switch (type) {
             case "azure:stack/hciCluster:HciCluster":
                 return new HciCluster(name, <any>undefined, { urn })
+            case "azure:stack/hciLogicalNetwork:HciLogicalNetwork":
+                return new HciLogicalNetwork(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "stack/hciCluster", _module)
+pulumi.runtime.registerResourceModule("azure", "stack/hciLogicalNetwork", _module)

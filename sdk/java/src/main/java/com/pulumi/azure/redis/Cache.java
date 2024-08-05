@@ -113,7 +113,11 @@ public class Cache extends com.pulumi.resources.CustomResource {
     /**
      * Enable the non-SSL port (6379) - disabled by default.
      * 
+     * @deprecated
+     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
     @Export(name="enableNonSslPort", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableNonSslPort;
 
@@ -207,6 +211,12 @@ public class Cache extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    @Export(name="nonSslPortEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> nonSslPortEnabled;
+
+    public Output<Boolean> nonSslPortEnabled() {
+        return this.nonSslPortEnabled;
     }
     /**
      * A list of `patch_schedule` blocks as defined below.
@@ -523,11 +533,18 @@ public class Cache extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Cache(String name, CacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/cache:Cache", name, args == null ? CacheArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:redis/cache:Cache", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Cache(String name, Output<String> id, @Nullable CacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:redis/cache:Cache", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CacheArgs makeArgs(CacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CacheArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

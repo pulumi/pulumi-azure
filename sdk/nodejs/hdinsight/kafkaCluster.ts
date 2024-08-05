@@ -179,8 +179,6 @@ export class KafkaCluster extends pulumi.CustomResource {
     public readonly restProxy!: pulumi.Output<outputs.hdinsight.KafkaClusterRestProxy | undefined>;
     /**
      * A `roles` block as defined below.
-     *
-     * @deprecated `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
      */
     public readonly roles!: pulumi.Output<outputs.hdinsight.KafkaClusterRoles>;
     /**
@@ -377,8 +375,6 @@ export interface KafkaClusterState {
     restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
     /**
      * A `roles` block as defined below.
-     *
-     * @deprecated `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
      */
     roles?: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
     /**
@@ -479,8 +475,6 @@ export interface KafkaClusterArgs {
     restProxy?: pulumi.Input<inputs.hdinsight.KafkaClusterRestProxy>;
     /**
      * A `roles` block as defined below.
-     *
-     * @deprecated `kafkaManagementNode` will be removed in version 4.0 of the AzureRM Provider since it no longer support configurations from the user
      */
     roles: pulumi.Input<inputs.hdinsight.KafkaClusterRoles>;
     /**

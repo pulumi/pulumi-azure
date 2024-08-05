@@ -97,9 +97,11 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly serviceLevel!: pulumi.Output<string>;
     /**
-     * Provisioned size of the pool in TB. Value must be between `2` and `500`.
+     * Provisioned size of the pool in TB. Value must be between `2` and `2048`.
      *
      * > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+     *
+     * > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      */
     public readonly sizeInTb!: pulumi.Output<number>;
     /**
@@ -191,9 +193,11 @@ export interface PoolState {
      */
     serviceLevel?: pulumi.Input<string>;
     /**
-     * Provisioned size of the pool in TB. Value must be between `2` and `500`.
+     * Provisioned size of the pool in TB. Value must be between `2` and `2048`.
      *
      * > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+     *
+     * > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      */
     sizeInTb?: pulumi.Input<number>;
     /**
@@ -235,9 +239,11 @@ export interface PoolArgs {
      */
     serviceLevel: pulumi.Input<string>;
     /**
-     * Provisioned size of the pool in TB. Value must be between `2` and `500`.
+     * Provisioned size of the pool in TB. Value must be between `2` and `2048`.
      *
      * > **NOTE** `2` TB capacity pool sizing is currently in preview. You can only take advantage of the `2` TB minimum if all the volumes in the capacity pool are using `Standard` network features. If any volume is using `Basic` network features, the minimum size is `4` TB. Please see the product [documentation](https://learn.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool) for more information.
+     *
+     * > **NOTE** The maximum `sizeInTb` is goverened by regional quotas. You may request additional capacity from Azure, currently up to `2048`.
      */
     sizeInTb: pulumi.Input<number>;
     /**

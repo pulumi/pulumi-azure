@@ -866,7 +866,7 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableBatchedOperations")
     @_utilities.deprecated("""The property `enable_batched_operations` has been superseded by `batched_operations_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_batched_operations(self) -> pulumi.Output[Optional[bool]]:
+    def enable_batched_operations(self) -> pulumi.Output[bool]:
         """
         Boolean flag which controls if server-side batched operations are enabled.
         """
@@ -875,7 +875,7 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enableExpress")
     @_utilities.deprecated("""The property `enable_express` has been superseded by `express_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_express(self) -> pulumi.Output[Optional[bool]]:
+    def enable_express(self) -> pulumi.Output[bool]:
         """
         Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         """
@@ -884,7 +884,7 @@ class Topic(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enablePartitioning")
     @_utilities.deprecated("""The property `enable_partitioning` has been superseded by `partitioning_enabled` and will be removed in v4.0 of the AzureRM Provider.""")
-    def enable_partitioning(self) -> pulumi.Output[Optional[bool]]:
+    def enable_partitioning(self) -> pulumi.Output[bool]:
         """
         Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
 

@@ -60,7 +60,7 @@ namespace Pulumi.Azure.DataBricks
         public Output<bool?> InfrastructureEncryptionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        /// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Output("loadBalancerBackendAddressPoolId")]
         public Output<string?> LoadBalancerBackendAddressPoolId { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        /// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadBalancerBackendAddressPoolId")]
         public Input<string>? LoadBalancerBackendAddressPoolId { get; set; }
@@ -384,7 +384,7 @@ namespace Pulumi.Azure.DataBricks
         public Input<bool>? InfrastructureEncryptionEnabled { get; set; }
 
         /// <summary>
-        /// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        /// Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         /// </summary>
         [Input("loadBalancerBackendAddressPoolId")]
         public Input<string>? LoadBalancerBackendAddressPoolId { get; set; }

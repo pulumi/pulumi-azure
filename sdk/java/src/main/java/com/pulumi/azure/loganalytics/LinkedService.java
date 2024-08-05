@@ -189,11 +189,18 @@ public class LinkedService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LinkedService(String name, LinkedServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/linkedService:LinkedService", name, args == null ? LinkedServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:loganalytics/linkedService:LinkedService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinkedService(String name, Output<String> id, @Nullable LinkedServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:loganalytics/linkedService:LinkedService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinkedServiceArgs makeArgs(LinkedServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinkedServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

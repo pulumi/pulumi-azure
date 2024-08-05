@@ -1326,7 +1326,7 @@ class Account(pulumi.CustomResource):
             resource_group_name=example["name"],
             offer_type="Standard",
             kind="MongoDB",
-            enable_automatic_failover=True,
+            automatic_failover_enabled=True,
             capabilities=[
                 {
                     "name": "EnableAggregationPipeline",
@@ -1447,7 +1447,7 @@ class Account(pulumi.CustomResource):
             resource_group_name=example["name"],
             offer_type="Standard",
             kind="MongoDB",
-            enable_automatic_failover=True,
+            automatic_failover_enabled=True,
             capabilities=[
                 {
                     "name": "EnableAggregationPipeline",

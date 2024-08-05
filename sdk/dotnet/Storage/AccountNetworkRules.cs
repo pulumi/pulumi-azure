@@ -106,7 +106,7 @@ namespace Pulumi.Azure.Storage
     public partial class AccountNetworkRules : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
         /// 
         /// &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         /// </summary>
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _bypasses;
 
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
         /// 
         /// &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         /// </summary>
@@ -279,7 +279,7 @@ namespace Pulumi.Azure.Storage
         private InputList<string>? _bypasses;
 
         /// <summary>
-        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+        /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
         /// 
         /// &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
         /// </summary>

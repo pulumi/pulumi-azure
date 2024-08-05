@@ -158,11 +158,18 @@ public class VirtualMachineAvailabilityGroupListener extends com.pulumi.resource
      * @param options A bag of options that control this resource's behavior.
      */
     public VirtualMachineAvailabilityGroupListener(String name, VirtualMachineAvailabilityGroupListenerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener", name, args == null ? VirtualMachineAvailabilityGroupListenerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private VirtualMachineAvailabilityGroupListener(String name, Output<String> id, @Nullable VirtualMachineAvailabilityGroupListenerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/virtualMachineAvailabilityGroupListener:VirtualMachineAvailabilityGroupListener", name, state, makeResourceOptions(options, id));
+    }
+
+    private static VirtualMachineAvailabilityGroupListenerArgs makeArgs(VirtualMachineAvailabilityGroupListenerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? VirtualMachineAvailabilityGroupListenerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

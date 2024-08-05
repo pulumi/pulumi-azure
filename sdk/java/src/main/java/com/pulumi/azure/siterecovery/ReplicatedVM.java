@@ -297,14 +297,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="managedDisks", refs={List.class,ReplicatedVMManagedDisk.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ReplicatedVMManagedDisk>> managedDisks;
+    private Output<List<ReplicatedVMManagedDisk>> managedDisks;
 
     /**
      * @return One or more `managed_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<List<ReplicatedVMManagedDisk>>> managedDisks() {
-        return Codegen.optional(this.managedDisks);
+    public Output<List<ReplicatedVMManagedDisk>> managedDisks() {
+        return this.managedDisks;
     }
     /**
      * Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over.
@@ -605,14 +605,14 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="unmanagedDisks", refs={List.class,ReplicatedVMUnmanagedDisk.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ReplicatedVMUnmanagedDisk>> unmanagedDisks;
+    private Output<List<ReplicatedVMUnmanagedDisk>> unmanagedDisks;
 
     /**
      * @return One or more `unmanaged_disk` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<List<ReplicatedVMUnmanagedDisk>>> unmanagedDisks() {
-        return Codegen.optional(this.unmanagedDisks);
+    public Output<List<ReplicatedVMUnmanagedDisk>> unmanagedDisks() {
+        return this.unmanagedDisks;
     }
 
     /**
@@ -637,11 +637,18 @@ public class ReplicatedVM extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ReplicatedVM(String name, ReplicatedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/replicatedVM:ReplicatedVM", name, args == null ? ReplicatedVMArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/replicatedVM:ReplicatedVM", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ReplicatedVM(String name, Output<String> id, @Nullable ReplicatedVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/replicatedVM:ReplicatedVM", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ReplicatedVMArgs makeArgs(ReplicatedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ReplicatedVMArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

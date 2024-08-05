@@ -275,11 +275,18 @@ public class PolicyFileShare extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public PolicyFileShare(String name, PolicyFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/policyFileShare:PolicyFileShare", name, args == null ? PolicyFileShareArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:backup/policyFileShare:PolicyFileShare", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PolicyFileShare(String name, Output<String> id, @Nullable PolicyFileShareState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:backup/policyFileShare:PolicyFileShare", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PolicyFileShareArgs makeArgs(PolicyFileShareArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PolicyFileShareArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

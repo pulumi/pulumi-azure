@@ -84,6 +84,8 @@ export class Cache extends pulumi.CustomResource {
     public readonly capacity!: pulumi.Output<number>;
     /**
      * Enable the non-SSL port (6379) - disabled by default.
+     *
+     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
      */
     public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
     /**
@@ -110,6 +112,7 @@ export class Cache extends pulumi.CustomResource {
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly nonSslPortEnabled!: pulumi.Output<boolean>;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */
@@ -218,6 +221,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nonSslPortEnabled"] = state ? state.nonSslPortEnabled : undefined;
             resourceInputs["patchSchedules"] = state ? state.patchSchedules : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["primaryAccessKey"] = state ? state.primaryAccessKey : undefined;
@@ -259,6 +263,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nonSslPortEnabled"] = args ? args.nonSslPortEnabled : undefined;
             resourceInputs["patchSchedules"] = args ? args.patchSchedules : undefined;
             resourceInputs["privateStaticIpAddress"] = args ? args.privateStaticIpAddress : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
@@ -298,6 +303,8 @@ export interface CacheState {
     capacity?: pulumi.Input<number>;
     /**
      * Enable the non-SSL port (6379) - disabled by default.
+     *
+     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
      */
     enableNonSslPort?: pulumi.Input<boolean>;
     /**
@@ -324,6 +331,7 @@ export interface CacheState {
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    nonSslPortEnabled?: pulumi.Input<boolean>;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */
@@ -422,6 +430,8 @@ export interface CacheArgs {
     capacity: pulumi.Input<number>;
     /**
      * Enable the non-SSL port (6379) - disabled by default.
+     *
+     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
      */
     enableNonSslPort?: pulumi.Input<boolean>;
     /**
@@ -444,6 +454,7 @@ export interface CacheArgs {
      * The name of the Redis instance. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    nonSslPortEnabled?: pulumi.Input<boolean>;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */

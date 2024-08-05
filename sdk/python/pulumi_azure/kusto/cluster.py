@@ -1259,7 +1259,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trustedExternalTenants")
-    def trusted_external_tenants(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def trusted_external_tenants(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants.
 

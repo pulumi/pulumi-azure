@@ -86,9 +86,9 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+        /// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         /// 
-        /// &gt; **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
+        /// &gt; **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
         /// </summary>
         [Output("sizeGb")]
         public Output<int?> SizeGb { get; private set; } = null!;
@@ -170,9 +170,9 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+        /// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         /// 
-        /// &gt; **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
+        /// &gt; **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
         /// </summary>
         [Input("sizeGb")]
         public Input<int>? SizeGb { get; set; }
@@ -228,9 +228,9 @@ namespace Pulumi.Azure.LogAnalytics
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+        /// The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
         /// 
-        /// &gt; **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
+        /// &gt; **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
         /// </summary>
         [Input("sizeGb")]
         public Input<int>? SizeGb { get; set; }

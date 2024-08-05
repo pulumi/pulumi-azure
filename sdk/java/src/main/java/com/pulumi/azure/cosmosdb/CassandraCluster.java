@@ -339,11 +339,18 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CassandraCluster(String name, CassandraClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/cassandraCluster:CassandraCluster", name, args == null ? CassandraClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/cassandraCluster:CassandraCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CassandraCluster(String name, Output<String> id, @Nullable CassandraClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/cassandraCluster:CassandraCluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CassandraClusterArgs makeArgs(CassandraClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CassandraClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -137,7 +137,7 @@ export class LocalRulestackRule extends pulumi.CustomResource {
     /**
      * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
      *
-     * > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+     * > **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -299,7 +299,7 @@ export interface LocalRulestackRuleState {
     /**
      * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
      *
-     * > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+     * > **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
     protocol?: pulumi.Input<string>;
     /**
@@ -385,7 +385,7 @@ export interface LocalRulestackRuleArgs {
     /**
      * The Protocol and port to use in the form `[protocol]:[portNumber]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocolPorts`. Defaults to `application-default`.
      *
-     * > **NOTE**: In 4.0 or later versions of the provider, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
+     * > **NOTE** In 4.0 or later versions, the default of `protocol` will no longer be set by provider, exactly one of `protocol` and `protocolPorts` must be specified. You need to explicitly specify `protocol="application-default"` to keep the the current default of the `protocol`.
      */
     protocol?: pulumi.Input<string>;
     /**

@@ -1011,7 +1011,7 @@ index c824ba842e..4e2de96ed0 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index e15f6badcf..84b98f43a1 100644
+index f1473d717c..8892c94822 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1602,7 +1602,7 @@ index 0bcd622fd0..cacb16e835 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_kafka_cluster.html.markdown b/website/docs/r/hdinsight_kafka_cluster.html.markdown
-index e2a425211a..cfcb898069 100644
+index 189fddda45..e5d60aebe9 100644
 --- a/website/docs/r/hdinsight_kafka_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_kafka_cluster.html.markdown
 @@ -45,7 +45,7 @@ resource "azurerm_hdinsight_kafka_cluster" "example" {
@@ -1794,7 +1794,7 @@ index c6387f8e37..ab11365777 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index d16432661f..d175e90df6 100644
+index 891137999d..4576e73562 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,15 +10,9 @@ description: |-
@@ -1823,7 +1823,7 @@ index d16432661f..d175e90df6 100644
  
  * `enable_host_encryption` - (Optional) Should the nodes in the Default Node Pool have host encryption enabled? `temporary_name_for_rotation` must be specified when changing this property.
  
-@@ -440,7 +434,7 @@ A `default_node_pool` block supports the following:
+@@ -438,7 +432,7 @@ A `default_node_pool` block supports the following:
  
  * `tags` - (Optional) A mapping of tags to assign to the Node Pool.
  
@@ -1832,7 +1832,7 @@ index d16432661f..d175e90df6 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -466,7 +460,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -464,7 +458,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -1841,7 +1841,7 @@ index d16432661f..d175e90df6 100644
  
  -> **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -705,8 +699,6 @@ A `network_profile` block supports the following:
+@@ -703,8 +697,6 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -1850,7 +1850,7 @@ index d16432661f..d175e90df6 100644
  * `ip_versions` - (Optional) Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
  
  ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
-@@ -1071,19 +1063,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1069,19 +1061,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -1871,7 +1871,7 @@ index d16432661f..d175e90df6 100644
  
  The `ingress_application_gateway` block exports the following:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 9de996dfc3..2e5d73ca6c 100644
+index 333a64b4c3..7c7c5d0124 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,13 +10,11 @@ description: |-
@@ -1889,7 +1889,7 @@ index 9de996dfc3..2e5d73ca6c 100644
  
  ```hcl
  resource "azurerm_resource_group" "example" {
-@@ -146,7 +144,7 @@ The following arguments are supported:
+@@ -144,7 +142,7 @@ The following arguments are supported:
  
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
@@ -1898,7 +1898,7 @@ index 9de996dfc3..2e5d73ca6c 100644
  
  * `scale_down_mode` - (Optional) Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
  
-@@ -178,7 +176,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
+@@ -176,7 +174,7 @@ If `enable_auto_scaling` is set to `true`, then the following fields can also be
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
@@ -2364,10 +2364,10 @@ index 06e3f57418..0ac142e857 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 0bfe6592c9..55518f9c85 100644
+index dc6b71544f..424dbbc59a 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
-@@ -342,7 +342,7 @@ A `record_sets` block exports:
+@@ -344,7 +344,7 @@ A `record_sets` block exports:
  
  ## Example HCL Configurations
  
@@ -2540,7 +2540,7 @@ index 2536411881..dd2916c58c 100644
  -> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
-index 434956c562..e1bc546188 100644
+index cd295476d9..7e927dfd93 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
 +++ b/website/docs/r/servicebus_namespace.html.markdown
 @@ -18,7 +18,7 @@ provider "azurerm" {

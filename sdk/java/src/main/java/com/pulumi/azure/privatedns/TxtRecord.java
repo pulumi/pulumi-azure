@@ -209,11 +209,18 @@ public class TxtRecord extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public TxtRecord(String name, TxtRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/txtRecord:TxtRecord", name, args == null ? TxtRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:privatedns/txtRecord:TxtRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TxtRecord(String name, Output<String> id, @Nullable TxtRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:privatedns/txtRecord:TxtRecord", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TxtRecordArgs makeArgs(TxtRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TxtRecordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

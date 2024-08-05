@@ -735,11 +735,18 @@ public class LinuxFunctionApp extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public LinuxFunctionApp(String name, LinuxFunctionAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/linuxFunctionApp:LinuxFunctionApp", name, args == null ? LinuxFunctionAppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appservice/linuxFunctionApp:LinuxFunctionApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LinuxFunctionApp(String name, Output<String> id, @Nullable LinuxFunctionAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appservice/linuxFunctionApp:LinuxFunctionApp", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LinuxFunctionAppArgs makeArgs(LinuxFunctionAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LinuxFunctionAppArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

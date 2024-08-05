@@ -391,11 +391,18 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public FrontdoorFirewallPolicy(String name, FrontdoorFirewallPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", name, args == null ? FrontdoorFirewallPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FrontdoorFirewallPolicy(String name, Output<String> id, @Nullable FrontdoorFirewallPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FrontdoorFirewallPolicyArgs makeArgs(FrontdoorFirewallPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorFirewallPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -209,11 +209,18 @@ public class ResolverVirtualNetworkLink extends com.pulumi.resources.CustomResou
      * @param options A bag of options that control this resource's behavior.
      */
     public ResolverVirtualNetworkLink(String name, ResolverVirtualNetworkLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink", name, args == null ? ResolverVirtualNetworkLinkArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResolverVirtualNetworkLink(String name, Output<String> id, @Nullable ResolverVirtualNetworkLinkState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverVirtualNetworkLinkArgs makeArgs(ResolverVirtualNetworkLinkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverVirtualNetworkLinkArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -366,11 +366,18 @@ public class AlertRuleAnomalyBuiltIn extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public AlertRuleAnomalyBuiltIn(String name, AlertRuleAnomalyBuiltInArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn", name, args == null ? AlertRuleAnomalyBuiltInArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlertRuleAnomalyBuiltIn(String name, Output<String> id, @Nullable AlertRuleAnomalyBuiltInState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/alertRuleAnomalyBuiltIn:AlertRuleAnomalyBuiltIn", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlertRuleAnomalyBuiltInArgs makeArgs(AlertRuleAnomalyBuiltInArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlertRuleAnomalyBuiltInArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

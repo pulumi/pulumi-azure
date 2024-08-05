@@ -154,11 +154,18 @@ public class DataConnectorOffice365Project extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public DataConnectorOffice365Project(String name, DataConnectorOffice365ProjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", name, args == null ? DataConnectorOffice365ProjectArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private DataConnectorOffice365Project(String name, Output<String> id, @Nullable DataConnectorOffice365ProjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", name, state, makeResourceOptions(options, id));
+    }
+
+    private static DataConnectorOffice365ProjectArgs makeArgs(DataConnectorOffice365ProjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? DataConnectorOffice365ProjectArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

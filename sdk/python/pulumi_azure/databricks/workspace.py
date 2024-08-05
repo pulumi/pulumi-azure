@@ -53,7 +53,7 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
         :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
@@ -195,7 +195,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
     def load_balancer_backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 
@@ -370,7 +370,7 @@ class _WorkspaceState:
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
         :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
@@ -521,7 +521,7 @@ class _WorkspaceState:
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
     def load_balancer_backend_address_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 
@@ -787,7 +787,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] customer_managed_key_enabled: Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`.
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
         :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
@@ -941,7 +941,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[bool] default_storage_firewall_enabled: Disallow public access to default storage account. Defaults to `false`.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of Managed Disk Encryption Set created by the Databricks Workspace.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] load_balancer_backend_address_pool_id: Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] managed_disk_cmk_key_vault_key_id: Customer managed encryption properties for the Databricks Workspace managed disks.
         :param pulumi.Input[bool] managed_disk_cmk_rotation_to_latest_version_enabled: Whether customer managed keys for disk encryption will automatically be rotated to the latest version.
@@ -1048,7 +1048,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancerBackendAddressPoolId")
     def load_balancer_backend_address_pool_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+        Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_id")
 

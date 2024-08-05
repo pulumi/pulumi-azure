@@ -18,7 +18,7 @@ public final class WorkspaceCustomParameters {
      */
     private @Nullable String machineLearningWorkspaceId;
     /**
-     * @return Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+     * @return Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String natGatewayName;
@@ -42,7 +42,7 @@ public final class WorkspaceCustomParameters {
      */
     private @Nullable String privateSubnetNetworkSecurityGroupAssociationId;
     /**
-     * @return Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+     * @return Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String publicIpName;
@@ -88,7 +88,7 @@ public final class WorkspaceCustomParameters {
         return Optional.ofNullable(this.machineLearningWorkspaceId);
     }
     /**
-     * @return Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+     * @return Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> natGatewayName() {
@@ -120,7 +120,7 @@ public final class WorkspaceCustomParameters {
         return Optional.ofNullable(this.privateSubnetNetworkSecurityGroupAssociationId);
     }
     /**
-     * @return Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+     * @return Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> publicIpName() {

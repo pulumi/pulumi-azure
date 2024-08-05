@@ -287,11 +287,18 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public EligibleRoleAssignment(String name, EligibleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, args == null ? EligibleRoleAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private EligibleRoleAssignment(String name, Output<String> id, @Nullable EligibleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static EligibleRoleAssignmentArgs makeArgs(EligibleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? EligibleRoleAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

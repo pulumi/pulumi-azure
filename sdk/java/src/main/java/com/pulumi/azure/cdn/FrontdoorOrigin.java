@@ -545,11 +545,18 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public FrontdoorOrigin(String name, FrontdoorOriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorOrigin:FrontdoorOrigin", name, args == null ? FrontdoorOriginArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cdn/frontdoorOrigin:FrontdoorOrigin", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private FrontdoorOrigin(String name, Output<String> id, @Nullable FrontdoorOriginState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cdn/frontdoorOrigin:FrontdoorOrigin", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FrontdoorOriginArgs makeArgs(FrontdoorOriginArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FrontdoorOriginArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

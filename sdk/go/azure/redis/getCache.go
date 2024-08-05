@@ -64,6 +64,8 @@ type LookupCacheResult struct {
 	// The size of the Redis Cache deployed.
 	Capacity int `pulumi:"capacity"`
 	// Whether the SSL port is enabled.
+	//
+	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 	EnableNonSslPort bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family string `pulumi:"family"`
@@ -76,6 +78,7 @@ type LookupCacheResult struct {
 	// The minimum TLS version.
 	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
 	Name              string `pulumi:"name"`
+	NonSslPortEnabled bool   `pulumi:"nonSslPortEnabled"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []GetCachePatchSchedule `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
@@ -150,6 +153,8 @@ func (o LookupCacheResultOutput) Capacity() pulumi.IntOutput {
 }
 
 // Whether the SSL port is enabled.
+//
+// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 func (o LookupCacheResultOutput) EnableNonSslPort() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupCacheResult) bool { return v.EnableNonSslPort }).(pulumi.BoolOutput)
 }
@@ -181,6 +186,10 @@ func (o LookupCacheResultOutput) MinimumTlsVersion() pulumi.StringOutput {
 
 func (o LookupCacheResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCacheResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupCacheResultOutput) NonSslPortEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupCacheResult) bool { return v.NonSslPortEnabled }).(pulumi.BoolOutput)
 }
 
 // A list of `patchSchedule` blocks as defined below.

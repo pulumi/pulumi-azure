@@ -188,11 +188,18 @@ public class MonitorTagRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MonitorTagRule(String name, MonitorTagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datadog/monitorTagRule:MonitorTagRule", name, args == null ? MonitorTagRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datadog/monitorTagRule:MonitorTagRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MonitorTagRule(String name, Output<String> id, @Nullable MonitorTagRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datadog/monitorTagRule:MonitorTagRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MonitorTagRuleArgs makeArgs(MonitorTagRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MonitorTagRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -41,14 +41,22 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable the non-SSL port (6379) - disabled by default.
      * 
+     * @deprecated
+     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
     @Import(name="enableNonSslPort")
     private @Nullable Output<Boolean> enableNonSslPort;
 
     /**
      * @return Enable the non-SSL port (6379) - disabled by default.
      * 
+     * @deprecated
+     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> enableNonSslPort() {
         return Optional.ofNullable(this.enableNonSslPort);
     }
@@ -126,6 +134,13 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    @Import(name="nonSslPortEnabled")
+    private @Nullable Output<Boolean> nonSslPortEnabled;
+
+    public Optional<Output<Boolean>> nonSslPortEnabled() {
+        return Optional.ofNullable(this.nonSslPortEnabled);
     }
 
     /**
@@ -360,6 +375,7 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.minimumTlsVersion = $.minimumTlsVersion;
         this.name = $.name;
+        this.nonSslPortEnabled = $.nonSslPortEnabled;
         this.patchSchedules = $.patchSchedules;
         this.privateStaticIpAddress = $.privateStaticIpAddress;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
@@ -420,7 +436,11 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder enableNonSslPort(@Nullable Output<Boolean> enableNonSslPort) {
             $.enableNonSslPort = enableNonSslPort;
             return this;
@@ -431,7 +451,11 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder enableNonSslPort(Boolean enableNonSslPort) {
             return enableNonSslPort(Output.of(enableNonSslPort));
         }
@@ -539,6 +563,15 @@ public final class CacheArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder nonSslPortEnabled(@Nullable Output<Boolean> nonSslPortEnabled) {
+            $.nonSslPortEnabled = nonSslPortEnabled;
+            return this;
+        }
+
+        public Builder nonSslPortEnabled(Boolean nonSslPortEnabled) {
+            return nonSslPortEnabled(Output.of(nonSslPortEnabled));
         }
 
         /**

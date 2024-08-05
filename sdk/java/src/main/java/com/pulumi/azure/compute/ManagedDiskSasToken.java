@@ -175,11 +175,18 @@ public class ManagedDiskSasToken extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ManagedDiskSasToken(String name, ManagedDiskSasTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/managedDiskSasToken:ManagedDiskSasToken", name, args == null ? ManagedDiskSasTokenArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/managedDiskSasToken:ManagedDiskSasToken", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ManagedDiskSasToken(String name, Output<String> id, @Nullable ManagedDiskSasTokenState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/managedDiskSasToken:ManagedDiskSasToken", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ManagedDiskSasTokenArgs makeArgs(ManagedDiskSasTokenArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ManagedDiskSasTokenArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

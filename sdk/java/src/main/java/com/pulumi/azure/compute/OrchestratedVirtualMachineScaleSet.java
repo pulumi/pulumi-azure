@@ -643,11 +643,18 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public OrchestratedVirtualMachineScaleSet(String name, OrchestratedVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet", name, args == null ? OrchestratedVirtualMachineScaleSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private OrchestratedVirtualMachineScaleSet(String name, Output<String> id, @Nullable OrchestratedVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static OrchestratedVirtualMachineScaleSetArgs makeArgs(OrchestratedVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? OrchestratedVirtualMachineScaleSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

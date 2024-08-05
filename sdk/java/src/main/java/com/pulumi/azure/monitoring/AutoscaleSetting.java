@@ -684,11 +684,18 @@ public class AutoscaleSetting extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AutoscaleSetting(String name, AutoscaleSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, args == null ? AutoscaleSettingArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AutoscaleSetting(String name, Output<String> id, @Nullable AutoscaleSettingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/autoscaleSetting:AutoscaleSetting", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AutoscaleSettingArgs makeArgs(AutoscaleSettingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AutoscaleSettingArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

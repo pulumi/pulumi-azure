@@ -243,11 +243,18 @@ public class SubscriptionCostManagementExport extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public SubscriptionCostManagementExport(String name, SubscriptionCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", name, args == null ? SubscriptionCostManagementExportArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SubscriptionCostManagementExport(String name, Output<String> id, @Nullable SubscriptionCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SubscriptionCostManagementExportArgs makeArgs(SubscriptionCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SubscriptionCostManagementExportArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

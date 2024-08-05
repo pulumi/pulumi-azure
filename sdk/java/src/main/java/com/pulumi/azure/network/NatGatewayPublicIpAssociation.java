@@ -140,11 +140,18 @@ public class NatGatewayPublicIpAssociation extends com.pulumi.resources.CustomRe
      * @param options A bag of options that control this resource's behavior.
      */
     public NatGatewayPublicIpAssociation(String name, NatGatewayPublicIpAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation", name, args == null ? NatGatewayPublicIpAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NatGatewayPublicIpAssociation(String name, Output<String> id, @Nullable NatGatewayPublicIpAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NatGatewayPublicIpAssociationArgs makeArgs(NatGatewayPublicIpAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NatGatewayPublicIpAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

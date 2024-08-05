@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Network
         public Output<bool?> AllowGatewayTransit { get; private set; } = null!;
 
         /// <summary>
-        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         /// </summary>
         [Output("allowVirtualNetworkAccess")]
         public Output<bool?> AllowVirtualNetworkAccess { get; private set; } = null!;
@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? AllowGatewayTransit { get; set; }
 
         /// <summary>
-        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         /// </summary>
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Network
         public Input<bool>? AllowGatewayTransit { get; set; }
 
         /// <summary>
-        /// Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+        /// Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
         /// </summary>
         [Input("allowVirtualNetworkAccess")]
         public Input<bool>? AllowVirtualNetworkAccess { get; set; }

@@ -121,14 +121,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.infrastructureEncryptionEnabled);
     }
     /**
-     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="loadBalancerBackendAddressPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> loadBalancerBackendAddressPoolId;
 
     /**
-     * @return Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     * @return Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> loadBalancerBackendAddressPoolId() {
@@ -401,11 +401,18 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Workspace(String name, WorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:databricks/workspace:Workspace", name, args == null ? WorkspaceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:databricks/workspace:Workspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Workspace(String name, Output<String> id, @Nullable WorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:databricks/workspace:Workspace", name, state, makeResourceOptions(options, id));
+    }
+
+    private static WorkspaceArgs makeArgs(WorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? WorkspaceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

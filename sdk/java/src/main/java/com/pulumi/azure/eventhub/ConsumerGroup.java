@@ -190,11 +190,18 @@ public class ConsumerGroup extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ConsumerGroup(String name, ConsumerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/consumerGroup:ConsumerGroup", name, args == null ? ConsumerGroupArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventhub/consumerGroup:ConsumerGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ConsumerGroup(String name, Output<String> id, @Nullable ConsumerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventhub/consumerGroup:ConsumerGroup", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ConsumerGroupArgs makeArgs(ConsumerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ConsumerGroupArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
