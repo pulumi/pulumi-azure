@@ -6,22 +6,14 @@ Subject: [PATCH] Set user agent in client options
 Use Pulumi-specific user agent which includes the current provider version number.
 
 diff --git a/internal/common/client_options.go b/internal/common/client_options.go
-index a6c84174b9..d27416056d 100644
+index 2495f52a4e..d27416056d 100644
 --- a/internal/common/client_options.go
 +++ b/internal/common/client_options.go
-@@ -13,7 +13,6 @@ import (
- 	"github.com/hashicorp/go-azure-sdk/sdk/auth"
- 	"github.com/hashicorp/go-azure-sdk/sdk/client"
- 	"github.com/hashicorp/go-azure-sdk/sdk/environments"
--	"github.com/hashicorp/terraform-plugin-sdk/v2/meta"
- 	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
- 	"github.com/hashicorp/terraform-provider-azurerm/version"
- )
-@@ -96,12 +95,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A
+@@ -95,12 +95,8 @@ func (o ClientOptions) ConfigureClient(c *autorest.Client, authorizer autorest.A
  }
  
  func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID bool) string {
--	tfUserAgent := fmt.Sprintf("HashiCorp Terraform/%s (+https://www.terraform.io) Terraform Plugin SDK/%s", tfVersion, meta.SDKVersionString())
+-	tfUserAgent := fmt.Sprintf("HashiCorp Terraform/%s (+https://www.terraform.io)", tfVersion)
 -
 -	providerUserAgent := fmt.Sprintf("%s terraform-provider-azurerm/%s", tfUserAgent, version.ProviderVersion)
 -	if features.FourPointOhBeta() {
@@ -32,7 +24,7 @@ index a6c84174b9..d27416056d 100644
  	userAgent = strings.TrimSpace(fmt.Sprintf("%s %s", userAgent, providerUserAgent))
  
  	// append the CloudShell version to the user agent if it exists
-@@ -110,11 +105,11 @@ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID
+@@ -109,11 +105,11 @@ func userAgent(userAgent, tfVersion, partnerID string, disableTerraformPartnerID
  	}
  
  	// only one pid can be interpreted currently
