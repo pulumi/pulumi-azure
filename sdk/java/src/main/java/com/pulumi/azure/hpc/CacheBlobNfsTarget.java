@@ -186,11 +186,18 @@ public class CacheBlobNfsTarget extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CacheBlobNfsTarget(String name, CacheBlobNfsTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget", name, args == null ? CacheBlobNfsTargetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CacheBlobNfsTarget(String name, Output<String> id, @Nullable CacheBlobNfsTargetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CacheBlobNfsTargetArgs makeArgs(CacheBlobNfsTargetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CacheBlobNfsTargetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

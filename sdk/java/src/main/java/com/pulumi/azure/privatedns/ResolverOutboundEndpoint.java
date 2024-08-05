@@ -204,11 +204,18 @@ public class ResolverOutboundEndpoint extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public ResolverOutboundEndpoint(String name, ResolverOutboundEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint", name, args == null ? ResolverOutboundEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ResolverOutboundEndpoint(String name, Output<String> id, @Nullable ResolverOutboundEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ResolverOutboundEndpointArgs makeArgs(ResolverOutboundEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ResolverOutboundEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -4655,8 +4655,6 @@ if not MYPY:
         os_sku: NotRequired[pulumi.Input[str]]
         """
         Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
-
-        > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
         """
         pod_subnet_id: NotRequired[pulumi.Input[str]]
         """
@@ -4795,8 +4793,6 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[int] os_disk_size_gb: The size of the OS Disk which should be used for each agent in the Node Pool. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input[str] os_disk_type: The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. `temporary_name_for_rotation` must be specified when attempting a change.
         :param pulumi.Input[str] os_sku: Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
-               
-               > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
         :param pulumi.Input[str] pod_subnet_id: The ID of the Subnet where the pods in the default Node Pool should exist.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scale_down_mode: Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`.
@@ -5216,8 +5212,6 @@ class KubernetesClusterDefaultNodePoolArgs:
     def os_sku(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise `temporary_name_for_rotation` must be specified when attempting a change.
-
-        > **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
         """
         return pulumi.get(self, "os_sku")
 
@@ -7812,7 +7806,7 @@ if not MYPY:
     class KubernetesClusterMaintenanceWindowAutoUpgradeArgsDict(TypedDict):
         duration: pulumi.Input[int]
         """
-        The duration of the window for maintenance to run in hours.
+        The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         """
         frequency: pulumi.Input[str]
         """
@@ -7868,7 +7862,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
                  utc_offset: Optional[pulumi.Input[str]] = None,
                  week_index: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] duration: The duration of the window for maintenance to run in hours.
+        :param pulumi.Input[int] duration: The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         :param pulumi.Input[str] frequency: Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param pulumi.Input[int] interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
         :param pulumi.Input[int] day_of_month: The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
@@ -7902,7 +7896,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
         """
-        The duration of the window for maintenance to run in hours.
+        The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         """
         return pulumi.get(self, "duration")
 
@@ -8074,7 +8068,7 @@ if not MYPY:
     class KubernetesClusterMaintenanceWindowNodeOsArgsDict(TypedDict):
         duration: pulumi.Input[int]
         """
-        The duration of the window for maintenance to run in hours.
+        The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         """
         frequency: pulumi.Input[str]
         """
@@ -8129,7 +8123,7 @@ class KubernetesClusterMaintenanceWindowNodeOsArgs:
                  utc_offset: Optional[pulumi.Input[str]] = None,
                  week_index: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] duration: The duration of the window for maintenance to run in hours.
+        :param pulumi.Input[int] duration: The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         :param pulumi.Input[str] frequency: Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param pulumi.Input[int] interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
         :param pulumi.Input[int] day_of_month: The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
@@ -8162,7 +8156,7 @@ class KubernetesClusterMaintenanceWindowNodeOsArgs:
     @pulumi.getter
     def duration(self) -> pulumi.Input[int]:
         """
-        The duration of the window for maintenance to run in hours.
+        The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
         """
         return pulumi.get(self, "duration")
 

@@ -409,11 +409,18 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudService(String name, SpringCloudServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudService:SpringCloudService", name, args == null ? SpringCloudServiceArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudService:SpringCloudService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudService(String name, Output<String> id, @Nullable SpringCloudServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudService:SpringCloudService", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudServiceArgs makeArgs(SpringCloudServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudServiceArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

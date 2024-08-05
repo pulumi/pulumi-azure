@@ -304,11 +304,18 @@ public class PointToPointVpnGateway extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public PointToPointVpnGateway(String name, PointToPointVpnGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/pointToPointVpnGateway:PointToPointVpnGateway", name, args == null ? PointToPointVpnGatewayArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/pointToPointVpnGateway:PointToPointVpnGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private PointToPointVpnGateway(String name, Output<String> id, @Nullable PointToPointVpnGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/pointToPointVpnGateway:PointToPointVpnGateway", name, state, makeResourceOptions(options, id));
+    }
+
+    private static PointToPointVpnGatewayArgs makeArgs(PointToPointVpnGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? PointToPointVpnGatewayArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -186,11 +186,18 @@ public class KubernetesFleetManager extends com.pulumi.resources.CustomResource 
      * @param options A bag of options that control this resource's behavior.
      */
     public KubernetesFleetManager(String name, KubernetesFleetManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesFleetManager:KubernetesFleetManager", name, args == null ? KubernetesFleetManagerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:containerservice/kubernetesFleetManager:KubernetesFleetManager", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private KubernetesFleetManager(String name, Output<String> id, @Nullable KubernetesFleetManagerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:containerservice/kubernetesFleetManager:KubernetesFleetManager", name, state, makeResourceOptions(options, id));
+    }
+
+    private static KubernetesFleetManagerArgs makeArgs(KubernetesFleetManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? KubernetesFleetManagerArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

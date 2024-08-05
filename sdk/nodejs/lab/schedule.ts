@@ -9,6 +9,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Lab Service Schedule.
  *
+ * !> **Note:** This resource is being [deprecated by Azure](https://learn.microsoft.com/en-us/azure/lab-services/retirement-guide). This resource will be removed in version 4.0 of the provider.
+ *
  * ## Example Usage
  *
  * ```typescript

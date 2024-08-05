@@ -142,7 +142,7 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
      */
     public readonly allowGatewayTransit!: pulumi.Output<boolean | undefined>;
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+     * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      */
     public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
     /**
@@ -257,7 +257,7 @@ export interface VirtualNetworkPeeringState {
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+     * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**
@@ -317,7 +317,7 @@ export interface VirtualNetworkPeeringArgs {
      */
     allowGatewayTransit?: pulumi.Input<boolean>;
     /**
-     * Controls if the VMs in the remote virtual network can access VMs in the local virtual network. Defaults to `true`.
+     * Controls if the traffic from the local virtual network can reach the remote virtual network. Defaults to `true`.
      */
     allowVirtualNetworkAccess?: pulumi.Input<boolean>;
     /**

@@ -162,11 +162,18 @@ public class SpringCloudApiPortalCustomDomain extends com.pulumi.resources.Custo
      * @param options A bag of options that control this resource's behavior.
      */
     public SpringCloudApiPortalCustomDomain(String name, SpringCloudApiPortalCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, args == null ? SpringCloudApiPortalCustomDomainArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SpringCloudApiPortalCustomDomain(String name, Output<String> id, @Nullable SpringCloudApiPortalCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SpringCloudApiPortalCustomDomainArgs makeArgs(SpringCloudApiPortalCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SpringCloudApiPortalCustomDomainArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

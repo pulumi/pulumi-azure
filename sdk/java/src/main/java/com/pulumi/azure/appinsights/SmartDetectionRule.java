@@ -180,11 +180,18 @@ public class SmartDetectionRule extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SmartDetectionRule(String name, SmartDetectionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/smartDetectionRule:SmartDetectionRule", name, args == null ? SmartDetectionRuleArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appinsights/smartDetectionRule:SmartDetectionRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SmartDetectionRule(String name, Output<String> id, @Nullable SmartDetectionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appinsights/smartDetectionRule:SmartDetectionRule", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SmartDetectionRuleArgs makeArgs(SmartDetectionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SmartDetectionRuleArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

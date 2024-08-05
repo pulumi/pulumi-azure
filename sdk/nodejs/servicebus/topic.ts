@@ -89,13 +89,13 @@ export class Topic extends pulumi.CustomResource {
      *
      * @deprecated The property `enableBatchedOperations` has been superseded by `batchedOperationsEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
-    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
+    public readonly enableBatchedOperations!: pulumi.Output<boolean>;
     /**
      * Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      *
      * @deprecated The property `enableExpress` has been superseded by `expressEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
-    public readonly enableExpress!: pulumi.Output<boolean | undefined>;
+    public readonly enableExpress!: pulumi.Output<boolean>;
     /**
      * Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created.
      *
@@ -103,7 +103,7 @@ export class Topic extends pulumi.CustomResource {
      *
      * @deprecated The property `enablePartitioning` has been superseded by `partitioningEnabled` and will be removed in v4.0 of the AzureRM Provider.
      */
-    public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
+    public readonly enablePartitioning!: pulumi.Output<boolean>;
     public readonly expressEnabled!: pulumi.Output<boolean>;
     /**
      * Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview).

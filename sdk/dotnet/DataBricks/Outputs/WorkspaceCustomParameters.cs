@@ -18,7 +18,7 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// </summary>
         public readonly string? MachineLearningWorkspaceId;
         /// <summary>
-        /// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
+        /// Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets (only for workspace with managed virtual network). Defaults to `nat-gateway`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? NatGatewayName;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// </summary>
         public readonly string? PrivateSubnetNetworkSecurityGroupAssociationId;
         /// <summary>
-        /// Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
+        /// Name of the Public IP for No Public IP workspace with managed virtual network. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PublicIpName;
         /// <summary>

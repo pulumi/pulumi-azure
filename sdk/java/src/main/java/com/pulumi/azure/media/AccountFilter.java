@@ -249,11 +249,18 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public AccountFilter(String name, AccountFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/accountFilter:AccountFilter", name, args == null ? AccountFilterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:media/accountFilter:AccountFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AccountFilter(String name, Output<String> id, @Nullable AccountFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:media/accountFilter:AccountFilter", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AccountFilterArgs makeArgs(AccountFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AccountFilterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

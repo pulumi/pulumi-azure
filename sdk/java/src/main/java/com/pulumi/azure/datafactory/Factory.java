@@ -284,11 +284,18 @@ public class Factory extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Factory(String name, FactoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/factory:Factory", name, args == null ? FactoryArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:datafactory/factory:Factory", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Factory(String name, Output<String> id, @Nullable FactoryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:datafactory/factory:Factory", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FactoryArgs makeArgs(FactoryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FactoryArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

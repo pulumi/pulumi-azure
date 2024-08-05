@@ -437,16 +437,12 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
     /**
      * Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise it forces a new resource to be created.
      * 
-     * &gt; **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
-     * 
      */
     @Import(name="osSku")
     private @Nullable Output<String> osSku;
 
     /**
      * @return Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise it forces a new resource to be created.
-     * 
-     * &gt; **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
      * 
      */
     public Optional<Output<String>> osSku() {
@@ -1340,8 +1336,6 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
         /**
          * @param osSku Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise it forces a new resource to be created.
          * 
-         * &gt; **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
-         * 
          * @return builder
          * 
          */
@@ -1352,8 +1346,6 @@ public final class KubernetesClusterNodePoolState extends com.pulumi.resources.R
 
         /**
          * @param osSku Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this from `AzureLinux` or `Ubuntu` to `AzureLinux` or `Ubuntu` will not replace the resource, otherwise it forces a new resource to be created.
-         * 
-         * &gt; **Note:**  This requires that the Preview Feature `Microsoft.ContainerService/OSSKUMigrationPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-linux/tutorial-azure-linux-migration) for more information.
          * 
          * @return builder
          * 

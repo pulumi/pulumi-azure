@@ -42,7 +42,7 @@ namespace Pulumi.Azure.CosmosDB
     ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "MongoDB",
-    ///         EnableAutomaticFailover = true,
+    ///         AutomaticFailoverEnabled = true,
     ///         Capabilities = new[]
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountCapabilityArgs

@@ -197,11 +197,18 @@ public class TimeSeriesInsightsReferenceDataSet extends com.pulumi.resources.Cus
      * @param options A bag of options that control this resource's behavior.
      */
     public TimeSeriesInsightsReferenceDataSet(String name, TimeSeriesInsightsReferenceDataSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet", name, args == null ? TimeSeriesInsightsReferenceDataSetArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private TimeSeriesInsightsReferenceDataSet(String name, Output<String> id, @Nullable TimeSeriesInsightsReferenceDataSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet", name, state, makeResourceOptions(options, id));
+    }
+
+    private static TimeSeriesInsightsReferenceDataSetArgs makeArgs(TimeSeriesInsightsReferenceDataSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? TimeSeriesInsightsReferenceDataSetArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

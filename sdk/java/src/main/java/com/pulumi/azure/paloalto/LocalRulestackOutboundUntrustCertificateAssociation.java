@@ -114,11 +114,18 @@ public class LocalRulestackOutboundUntrustCertificateAssociation extends com.pul
      * @param options A bag of options that control this resource's behavior.
      */
     public LocalRulestackOutboundUntrustCertificateAssociation(String name, LocalRulestackOutboundUntrustCertificateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation", name, args == null ? LocalRulestackOutboundUntrustCertificateAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private LocalRulestackOutboundUntrustCertificateAssociation(String name, Output<String> id, @Nullable LocalRulestackOutboundUntrustCertificateAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:paloalto/localRulestackOutboundUntrustCertificateAssociation:LocalRulestackOutboundUntrustCertificateAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static LocalRulestackOutboundUntrustCertificateAssociationArgs makeArgs(LocalRulestackOutboundUntrustCertificateAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? LocalRulestackOutboundUntrustCertificateAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

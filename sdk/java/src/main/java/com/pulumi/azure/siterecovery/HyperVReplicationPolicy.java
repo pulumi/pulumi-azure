@@ -176,11 +176,18 @@ public class HyperVReplicationPolicy extends com.pulumi.resources.CustomResource
      * @param options A bag of options that control this resource's behavior.
      */
     public HyperVReplicationPolicy(String name, HyperVReplicationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy", name, args == null ? HyperVReplicationPolicyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private HyperVReplicationPolicy(String name, Output<String> id, @Nullable HyperVReplicationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/hyperVReplicationPolicy:HyperVReplicationPolicy", name, state, makeResourceOptions(options, id));
+    }
+
+    private static HyperVReplicationPolicyArgs makeArgs(HyperVReplicationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? HyperVReplicationPolicyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -116,14 +116,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="loadBalancerBackendAddressPoolId")
     private @Nullable Output<String> loadBalancerBackendAddressPoolId;
 
     /**
-     * @return Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     * @return Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> loadBalancerBackendAddressPoolId() {
@@ -571,7 +571,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerBackendAddressPoolId Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+         * @param loadBalancerBackendAddressPoolId Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -582,7 +582,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loadBalancerBackendAddressPoolId Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+         * @param loadBalancerBackendAddressPoolId Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -237,11 +237,18 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public ProtectedVM(String name, ProtectedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/protectedVM:ProtectedVM", name, args == null ? ProtectedVMArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:backup/protectedVM:ProtectedVM", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ProtectedVM(String name, Output<String> id, @Nullable ProtectedVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:backup/protectedVM:ProtectedVM", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ProtectedVMArgs makeArgs(ProtectedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ProtectedVMArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

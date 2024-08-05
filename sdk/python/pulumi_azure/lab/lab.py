@@ -467,6 +467,8 @@ class Lab(pulumi.CustomResource):
         """
         Manages a Lab Service Lab.
 
+        !> **Note:** This resource is being [deprecated by Azure](https://learn.microsoft.com/en-us/azure/lab-services/retirement-guide). This resource will be removed in version 4.0 of the provider.
+
         ## Example Usage
 
         ```python
@@ -534,6 +536,8 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Lab Service Lab.
+
+        !> **Note:** This resource is being [deprecated by Azure](https://learn.microsoft.com/en-us/azure/lab-services/retirement-guide). This resource will be removed in version 4.0 of the provider.
 
         ## Example Usage
 

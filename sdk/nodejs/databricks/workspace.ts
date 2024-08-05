@@ -70,7 +70,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly infrastructureEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      */
     public readonly loadBalancerBackendAddressPoolId!: pulumi.Output<string | undefined>;
     /**
@@ -252,7 +252,7 @@ export interface WorkspaceState {
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      */
     loadBalancerBackendAddressPoolId?: pulumi.Input<string>;
     /**
@@ -354,7 +354,7 @@ export interface WorkspaceArgs {
      */
     infrastructureEncryptionEnabled?: pulumi.Input<boolean>;
     /**
-     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created.
+     * Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace with managed virtual network. Changing this forces a new resource to be created.
      */
     loadBalancerBackendAddressPoolId?: pulumi.Input<string>;
     /**

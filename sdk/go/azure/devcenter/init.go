@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnvironmentType{}
 	case "azure:devcenter/gallery:Gallery":
 		r = &Gallery{}
+	case "azure:devcenter/networkConnection:NetworkConnection":
+		r = &NetworkConnection{}
 	case "azure:devcenter/project:Project":
 		r = &Project{}
 	default:
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"devcenter/gallery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"devcenter/networkConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

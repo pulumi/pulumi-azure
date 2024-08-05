@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     offerType: "Standard",
  *     kind: "MongoDB",
- *     enableAutomaticFailover: true,
+ *     automaticFailoverEnabled: true,
  *     capabilities: [
  *         {
  *             name: "EnableAggregationPipeline",

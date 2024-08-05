@@ -196,6 +196,440 @@ func (o HciClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HciLogicalNetworkSubnet struct {
+	// The address prefix in CIDR notation. Changing this forces a new resource to be created.
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
+	IpAllocationMethod string `pulumi:"ipAllocationMethod"`
+	// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+	IpPools []HciLogicalNetworkSubnetIpPool `pulumi:"ipPools"`
+	// One or more `route` block as defined above. Changing this forces a new resource to be created.
+	Routes []HciLogicalNetworkSubnetRoute `pulumi:"routes"`
+	// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
+	VlanId *int `pulumi:"vlanId"`
+}
+
+// HciLogicalNetworkSubnetInput is an input type that accepts HciLogicalNetworkSubnetArgs and HciLogicalNetworkSubnetOutput values.
+// You can construct a concrete instance of `HciLogicalNetworkSubnetInput` via:
+//
+//	HciLogicalNetworkSubnetArgs{...}
+type HciLogicalNetworkSubnetInput interface {
+	pulumi.Input
+
+	ToHciLogicalNetworkSubnetOutput() HciLogicalNetworkSubnetOutput
+	ToHciLogicalNetworkSubnetOutputWithContext(context.Context) HciLogicalNetworkSubnetOutput
+}
+
+type HciLogicalNetworkSubnetArgs struct {
+	// The address prefix in CIDR notation. Changing this forces a new resource to be created.
+	AddressPrefix pulumi.StringPtrInput `pulumi:"addressPrefix"`
+	// The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
+	IpAllocationMethod pulumi.StringInput `pulumi:"ipAllocationMethod"`
+	// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+	IpPools HciLogicalNetworkSubnetIpPoolArrayInput `pulumi:"ipPools"`
+	// One or more `route` block as defined above. Changing this forces a new resource to be created.
+	Routes HciLogicalNetworkSubnetRouteArrayInput `pulumi:"routes"`
+	// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
+	VlanId pulumi.IntPtrInput `pulumi:"vlanId"`
+}
+
+func (HciLogicalNetworkSubnetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciLogicalNetworkSubnet)(nil)).Elem()
+}
+
+func (i HciLogicalNetworkSubnetArgs) ToHciLogicalNetworkSubnetOutput() HciLogicalNetworkSubnetOutput {
+	return i.ToHciLogicalNetworkSubnetOutputWithContext(context.Background())
+}
+
+func (i HciLogicalNetworkSubnetArgs) ToHciLogicalNetworkSubnetOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetOutput)
+}
+
+func (i HciLogicalNetworkSubnetArgs) ToHciLogicalNetworkSubnetPtrOutput() HciLogicalNetworkSubnetPtrOutput {
+	return i.ToHciLogicalNetworkSubnetPtrOutputWithContext(context.Background())
+}
+
+func (i HciLogicalNetworkSubnetArgs) ToHciLogicalNetworkSubnetPtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetOutput).ToHciLogicalNetworkSubnetPtrOutputWithContext(ctx)
+}
+
+// HciLogicalNetworkSubnetPtrInput is an input type that accepts HciLogicalNetworkSubnetArgs, HciLogicalNetworkSubnetPtr and HciLogicalNetworkSubnetPtrOutput values.
+// You can construct a concrete instance of `HciLogicalNetworkSubnetPtrInput` via:
+//
+//	        HciLogicalNetworkSubnetArgs{...}
+//
+//	or:
+//
+//	        nil
+type HciLogicalNetworkSubnetPtrInput interface {
+	pulumi.Input
+
+	ToHciLogicalNetworkSubnetPtrOutput() HciLogicalNetworkSubnetPtrOutput
+	ToHciLogicalNetworkSubnetPtrOutputWithContext(context.Context) HciLogicalNetworkSubnetPtrOutput
+}
+
+type hciLogicalNetworkSubnetPtrType HciLogicalNetworkSubnetArgs
+
+func HciLogicalNetworkSubnetPtr(v *HciLogicalNetworkSubnetArgs) HciLogicalNetworkSubnetPtrInput {
+	return (*hciLogicalNetworkSubnetPtrType)(v)
+}
+
+func (*hciLogicalNetworkSubnetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciLogicalNetworkSubnet)(nil)).Elem()
+}
+
+func (i *hciLogicalNetworkSubnetPtrType) ToHciLogicalNetworkSubnetPtrOutput() HciLogicalNetworkSubnetPtrOutput {
+	return i.ToHciLogicalNetworkSubnetPtrOutputWithContext(context.Background())
+}
+
+func (i *hciLogicalNetworkSubnetPtrType) ToHciLogicalNetworkSubnetPtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetPtrOutput)
+}
+
+type HciLogicalNetworkSubnetOutput struct{ *pulumi.OutputState }
+
+func (HciLogicalNetworkSubnetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciLogicalNetworkSubnet)(nil)).Elem()
+}
+
+func (o HciLogicalNetworkSubnetOutput) ToHciLogicalNetworkSubnetOutput() HciLogicalNetworkSubnetOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetOutput) ToHciLogicalNetworkSubnetOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetOutput) ToHciLogicalNetworkSubnetPtrOutput() HciLogicalNetworkSubnetPtrOutput {
+	return o.ToHciLogicalNetworkSubnetPtrOutputWithContext(context.Background())
+}
+
+func (o HciLogicalNetworkSubnetOutput) ToHciLogicalNetworkSubnetPtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HciLogicalNetworkSubnet) *HciLogicalNetworkSubnet {
+		return &v
+	}).(HciLogicalNetworkSubnetPtrOutput)
+}
+
+// The address prefix in CIDR notation. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnet) *string { return v.AddressPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetOutput) IpAllocationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnet) string { return v.IpAllocationMethod }).(pulumi.StringOutput)
+}
+
+// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetOutput) IpPools() HciLogicalNetworkSubnetIpPoolArrayOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetIpPool { return v.IpPools }).(HciLogicalNetworkSubnetIpPoolArrayOutput)
+}
+
+// One or more `route` block as defined above. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetOutput) Routes() HciLogicalNetworkSubnetRouteArrayOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetRoute { return v.Routes }).(HciLogicalNetworkSubnetRouteArrayOutput)
+}
+
+// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetOutput) VlanId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnet) *int { return v.VlanId }).(pulumi.IntPtrOutput)
+}
+
+type HciLogicalNetworkSubnetPtrOutput struct{ *pulumi.OutputState }
+
+func (HciLogicalNetworkSubnetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HciLogicalNetworkSubnet)(nil)).Elem()
+}
+
+func (o HciLogicalNetworkSubnetPtrOutput) ToHciLogicalNetworkSubnetPtrOutput() HciLogicalNetworkSubnetPtrOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetPtrOutput) ToHciLogicalNetworkSubnetPtrOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetPtrOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetPtrOutput) Elem() HciLogicalNetworkSubnetOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnet) HciLogicalNetworkSubnet {
+		if v != nil {
+			return *v
+		}
+		var ret HciLogicalNetworkSubnet
+		return ret
+	}).(HciLogicalNetworkSubnetOutput)
+}
+
+// The address prefix in CIDR notation. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetPtrOutput) AddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetPtrOutput) IpAllocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpAllocationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// One or more `ipPool` block as defined above. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetPtrOutput) IpPools() HciLogicalNetworkSubnetIpPoolArrayOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetIpPool {
+		if v == nil {
+			return nil
+		}
+		return v.IpPools
+	}).(HciLogicalNetworkSubnetIpPoolArrayOutput)
+}
+
+// One or more `route` block as defined above. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetPtrOutput) Routes() HciLogicalNetworkSubnetRouteArrayOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnet) []HciLogicalNetworkSubnetRoute {
+		if v == nil {
+			return nil
+		}
+		return v.Routes
+	}).(HciLogicalNetworkSubnetRouteArrayOutput)
+}
+
+// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetPtrOutput) VlanId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *HciLogicalNetworkSubnet) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VlanId
+	}).(pulumi.IntPtrOutput)
+}
+
+type HciLogicalNetworkSubnetIpPool struct {
+	// The IPv4 address of the end of the IP address pool. Changing this forces a new resource to be created.
+	End string `pulumi:"end"`
+	// The IPv4 address of the start of the IP address pool. Changing this forces a new resource to be created.
+	Start string `pulumi:"start"`
+}
+
+// HciLogicalNetworkSubnetIpPoolInput is an input type that accepts HciLogicalNetworkSubnetIpPoolArgs and HciLogicalNetworkSubnetIpPoolOutput values.
+// You can construct a concrete instance of `HciLogicalNetworkSubnetIpPoolInput` via:
+//
+//	HciLogicalNetworkSubnetIpPoolArgs{...}
+type HciLogicalNetworkSubnetIpPoolInput interface {
+	pulumi.Input
+
+	ToHciLogicalNetworkSubnetIpPoolOutput() HciLogicalNetworkSubnetIpPoolOutput
+	ToHciLogicalNetworkSubnetIpPoolOutputWithContext(context.Context) HciLogicalNetworkSubnetIpPoolOutput
+}
+
+type HciLogicalNetworkSubnetIpPoolArgs struct {
+	// The IPv4 address of the end of the IP address pool. Changing this forces a new resource to be created.
+	End pulumi.StringInput `pulumi:"end"`
+	// The IPv4 address of the start of the IP address pool. Changing this forces a new resource to be created.
+	Start pulumi.StringInput `pulumi:"start"`
+}
+
+func (HciLogicalNetworkSubnetIpPoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciLogicalNetworkSubnetIpPool)(nil)).Elem()
+}
+
+func (i HciLogicalNetworkSubnetIpPoolArgs) ToHciLogicalNetworkSubnetIpPoolOutput() HciLogicalNetworkSubnetIpPoolOutput {
+	return i.ToHciLogicalNetworkSubnetIpPoolOutputWithContext(context.Background())
+}
+
+func (i HciLogicalNetworkSubnetIpPoolArgs) ToHciLogicalNetworkSubnetIpPoolOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetIpPoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetIpPoolOutput)
+}
+
+// HciLogicalNetworkSubnetIpPoolArrayInput is an input type that accepts HciLogicalNetworkSubnetIpPoolArray and HciLogicalNetworkSubnetIpPoolArrayOutput values.
+// You can construct a concrete instance of `HciLogicalNetworkSubnetIpPoolArrayInput` via:
+//
+//	HciLogicalNetworkSubnetIpPoolArray{ HciLogicalNetworkSubnetIpPoolArgs{...} }
+type HciLogicalNetworkSubnetIpPoolArrayInput interface {
+	pulumi.Input
+
+	ToHciLogicalNetworkSubnetIpPoolArrayOutput() HciLogicalNetworkSubnetIpPoolArrayOutput
+	ToHciLogicalNetworkSubnetIpPoolArrayOutputWithContext(context.Context) HciLogicalNetworkSubnetIpPoolArrayOutput
+}
+
+type HciLogicalNetworkSubnetIpPoolArray []HciLogicalNetworkSubnetIpPoolInput
+
+func (HciLogicalNetworkSubnetIpPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciLogicalNetworkSubnetIpPool)(nil)).Elem()
+}
+
+func (i HciLogicalNetworkSubnetIpPoolArray) ToHciLogicalNetworkSubnetIpPoolArrayOutput() HciLogicalNetworkSubnetIpPoolArrayOutput {
+	return i.ToHciLogicalNetworkSubnetIpPoolArrayOutputWithContext(context.Background())
+}
+
+func (i HciLogicalNetworkSubnetIpPoolArray) ToHciLogicalNetworkSubnetIpPoolArrayOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetIpPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetIpPoolArrayOutput)
+}
+
+type HciLogicalNetworkSubnetIpPoolOutput struct{ *pulumi.OutputState }
+
+func (HciLogicalNetworkSubnetIpPoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciLogicalNetworkSubnetIpPool)(nil)).Elem()
+}
+
+func (o HciLogicalNetworkSubnetIpPoolOutput) ToHciLogicalNetworkSubnetIpPoolOutput() HciLogicalNetworkSubnetIpPoolOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetIpPoolOutput) ToHciLogicalNetworkSubnetIpPoolOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetIpPoolOutput {
+	return o
+}
+
+// The IPv4 address of the end of the IP address pool. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetIpPoolOutput) End() pulumi.StringOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnetIpPool) string { return v.End }).(pulumi.StringOutput)
+}
+
+// The IPv4 address of the start of the IP address pool. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetIpPoolOutput) Start() pulumi.StringOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnetIpPool) string { return v.Start }).(pulumi.StringOutput)
+}
+
+type HciLogicalNetworkSubnetIpPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (HciLogicalNetworkSubnetIpPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciLogicalNetworkSubnetIpPool)(nil)).Elem()
+}
+
+func (o HciLogicalNetworkSubnetIpPoolArrayOutput) ToHciLogicalNetworkSubnetIpPoolArrayOutput() HciLogicalNetworkSubnetIpPoolArrayOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetIpPoolArrayOutput) ToHciLogicalNetworkSubnetIpPoolArrayOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetIpPoolArrayOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetIpPoolArrayOutput) Index(i pulumi.IntInput) HciLogicalNetworkSubnetIpPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciLogicalNetworkSubnetIpPool {
+		return vs[0].([]HciLogicalNetworkSubnetIpPool)[vs[1].(int)]
+	}).(HciLogicalNetworkSubnetIpPoolOutput)
+}
+
+type HciLogicalNetworkSubnetRoute struct {
+	// The Address in CIDR notation. Changing this forces a new resource to be created.
+	AddressPrefix string `pulumi:"addressPrefix"`
+	// The name of the route. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// The IPv4 address of the next hop. Changing this forces a new resource to be created.
+	NextHopIpAddress string `pulumi:"nextHopIpAddress"`
+}
+
+// HciLogicalNetworkSubnetRouteInput is an input type that accepts HciLogicalNetworkSubnetRouteArgs and HciLogicalNetworkSubnetRouteOutput values.
+// You can construct a concrete instance of `HciLogicalNetworkSubnetRouteInput` via:
+//
+//	HciLogicalNetworkSubnetRouteArgs{...}
+type HciLogicalNetworkSubnetRouteInput interface {
+	pulumi.Input
+
+	ToHciLogicalNetworkSubnetRouteOutput() HciLogicalNetworkSubnetRouteOutput
+	ToHciLogicalNetworkSubnetRouteOutputWithContext(context.Context) HciLogicalNetworkSubnetRouteOutput
+}
+
+type HciLogicalNetworkSubnetRouteArgs struct {
+	// The Address in CIDR notation. Changing this forces a new resource to be created.
+	AddressPrefix pulumi.StringInput `pulumi:"addressPrefix"`
+	// The name of the route. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The IPv4 address of the next hop. Changing this forces a new resource to be created.
+	NextHopIpAddress pulumi.StringInput `pulumi:"nextHopIpAddress"`
+}
+
+func (HciLogicalNetworkSubnetRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciLogicalNetworkSubnetRoute)(nil)).Elem()
+}
+
+func (i HciLogicalNetworkSubnetRouteArgs) ToHciLogicalNetworkSubnetRouteOutput() HciLogicalNetworkSubnetRouteOutput {
+	return i.ToHciLogicalNetworkSubnetRouteOutputWithContext(context.Background())
+}
+
+func (i HciLogicalNetworkSubnetRouteArgs) ToHciLogicalNetworkSubnetRouteOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetRouteOutput)
+}
+
+// HciLogicalNetworkSubnetRouteArrayInput is an input type that accepts HciLogicalNetworkSubnetRouteArray and HciLogicalNetworkSubnetRouteArrayOutput values.
+// You can construct a concrete instance of `HciLogicalNetworkSubnetRouteArrayInput` via:
+//
+//	HciLogicalNetworkSubnetRouteArray{ HciLogicalNetworkSubnetRouteArgs{...} }
+type HciLogicalNetworkSubnetRouteArrayInput interface {
+	pulumi.Input
+
+	ToHciLogicalNetworkSubnetRouteArrayOutput() HciLogicalNetworkSubnetRouteArrayOutput
+	ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(context.Context) HciLogicalNetworkSubnetRouteArrayOutput
+}
+
+type HciLogicalNetworkSubnetRouteArray []HciLogicalNetworkSubnetRouteInput
+
+func (HciLogicalNetworkSubnetRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciLogicalNetworkSubnetRoute)(nil)).Elem()
+}
+
+func (i HciLogicalNetworkSubnetRouteArray) ToHciLogicalNetworkSubnetRouteArrayOutput() HciLogicalNetworkSubnetRouteArrayOutput {
+	return i.ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(context.Background())
+}
+
+func (i HciLogicalNetworkSubnetRouteArray) ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HciLogicalNetworkSubnetRouteArrayOutput)
+}
+
+type HciLogicalNetworkSubnetRouteOutput struct{ *pulumi.OutputState }
+
+func (HciLogicalNetworkSubnetRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HciLogicalNetworkSubnetRoute)(nil)).Elem()
+}
+
+func (o HciLogicalNetworkSubnetRouteOutput) ToHciLogicalNetworkSubnetRouteOutput() HciLogicalNetworkSubnetRouteOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetRouteOutput) ToHciLogicalNetworkSubnetRouteOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRouteOutput {
+	return o
+}
+
+// The Address in CIDR notation. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetRouteOutput) AddressPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnetRoute) string { return v.AddressPrefix }).(pulumi.StringOutput)
+}
+
+// The name of the route. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetRouteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnetRoute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The IPv4 address of the next hop. Changing this forces a new resource to be created.
+func (o HciLogicalNetworkSubnetRouteOutput) NextHopIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v HciLogicalNetworkSubnetRoute) string { return v.NextHopIpAddress }).(pulumi.StringOutput)
+}
+
+type HciLogicalNetworkSubnetRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (HciLogicalNetworkSubnetRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HciLogicalNetworkSubnetRoute)(nil)).Elem()
+}
+
+func (o HciLogicalNetworkSubnetRouteArrayOutput) ToHciLogicalNetworkSubnetRouteArrayOutput() HciLogicalNetworkSubnetRouteArrayOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetRouteArrayOutput) ToHciLogicalNetworkSubnetRouteArrayOutputWithContext(ctx context.Context) HciLogicalNetworkSubnetRouteArrayOutput {
+	return o
+}
+
+func (o HciLogicalNetworkSubnetRouteArrayOutput) Index(i pulumi.IntInput) HciLogicalNetworkSubnetRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HciLogicalNetworkSubnetRoute {
+		return vs[0].([]HciLogicalNetworkSubnetRoute)[vs[1].(int)]
+	}).(HciLogicalNetworkSubnetRouteOutput)
+}
+
 type GetHciClusterIdentity struct {
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId string `pulumi:"principalId"`
@@ -314,10 +748,22 @@ func (o GetHciClusterIdentityArrayOutput) Index(i pulumi.IntInput) GetHciCluster
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterIdentityInput)(nil)).Elem(), HciClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HciClusterIdentityPtrInput)(nil)).Elem(), HciClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetInput)(nil)).Elem(), HciLogicalNetworkSubnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetPtrInput)(nil)).Elem(), HciLogicalNetworkSubnetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetIpPoolInput)(nil)).Elem(), HciLogicalNetworkSubnetIpPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetIpPoolArrayInput)(nil)).Elem(), HciLogicalNetworkSubnetIpPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRouteInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HciLogicalNetworkSubnetRouteArrayInput)(nil)).Elem(), HciLogicalNetworkSubnetRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHciClusterIdentityInput)(nil)).Elem(), GetHciClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetHciClusterIdentityArrayInput)(nil)).Elem(), GetHciClusterIdentityArray{})
 	pulumi.RegisterOutputType(HciClusterIdentityOutput{})
 	pulumi.RegisterOutputType(HciClusterIdentityPtrOutput{})
+	pulumi.RegisterOutputType(HciLogicalNetworkSubnetOutput{})
+	pulumi.RegisterOutputType(HciLogicalNetworkSubnetPtrOutput{})
+	pulumi.RegisterOutputType(HciLogicalNetworkSubnetIpPoolOutput{})
+	pulumi.RegisterOutputType(HciLogicalNetworkSubnetIpPoolArrayOutput{})
+	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRouteOutput{})
+	pulumi.RegisterOutputType(HciLogicalNetworkSubnetRouteArrayOutput{})
 	pulumi.RegisterOutputType(GetHciClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetHciClusterIdentityArrayOutput{})
 }

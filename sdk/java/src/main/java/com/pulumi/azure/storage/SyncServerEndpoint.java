@@ -281,11 +281,18 @@ public class SyncServerEndpoint extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SyncServerEndpoint(String name, SyncServerEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/syncServerEndpoint:SyncServerEndpoint", name, args == null ? SyncServerEndpointArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:storage/syncServerEndpoint:SyncServerEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SyncServerEndpoint(String name, Output<String> id, @Nullable SyncServerEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/syncServerEndpoint:SyncServerEndpoint", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SyncServerEndpointArgs makeArgs(SyncServerEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SyncServerEndpointArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

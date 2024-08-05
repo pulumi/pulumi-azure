@@ -191,11 +191,18 @@ public class MongoUserDefinition extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MongoUserDefinition(String name, MongoUserDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/mongoUserDefinition:MongoUserDefinition", name, args == null ? MongoUserDefinitionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/mongoUserDefinition:MongoUserDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MongoUserDefinition(String name, Output<String> id, @Nullable MongoUserDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/mongoUserDefinition:MongoUserDefinition", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MongoUserDefinitionArgs makeArgs(MongoUserDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MongoUserDefinitionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

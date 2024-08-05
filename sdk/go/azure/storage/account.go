@@ -180,8 +180,10 @@ type Account struct {
 	DnsEndpointType pulumi.StringPtrOutput `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
+	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
+	EnableHttpsTrafficOnly pulumi.BoolOutput `pulumi:"enableHttpsTrafficOnly"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-	EnableHttpsTrafficOnly pulumi.BoolPtrOutput `pulumi:"enableHttpsTrafficOnly"`
+	HttpsTrafficOnlyEnabled pulumi.BoolOutput `pulumi:"httpsTrafficOnlyEnabled"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
@@ -479,8 +481,10 @@ type accountState struct {
 	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	HttpsTrafficOnlyEnabled *bool `pulumi:"httpsTrafficOnlyEnabled"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
@@ -731,8 +735,10 @@ type AccountState struct {
 	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	HttpsTrafficOnlyEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
@@ -987,8 +993,10 @@ type accountArgs struct {
 	DnsEndpointType *string `pulumi:"dnsEndpointType"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	HttpsTrafficOnlyEnabled *bool `pulumi:"httpsTrafficOnlyEnabled"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
@@ -1096,8 +1104,10 @@ type AccountArgs struct {
 	DnsEndpointType pulumi.StringPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
 	EnableHttpsTrafficOnly pulumi.BoolPtrInput
+	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
+	HttpsTrafficOnlyEnabled pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// An `immutabilityPolicy` block as defined below. Changing this forces a new resource to be created.
@@ -1332,9 +1342,14 @@ func (o AccountOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: The property `enableHttpsTrafficOnly` has been superseded by `httpsTrafficOnlyEnabled` and will be removed in v4.0 of the AzureRM Provider.
+func (o AccountOutput) EnableHttpsTrafficOnly() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.EnableHttpsTrafficOnly }).(pulumi.BoolOutput)
+}
+
 // Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/) for more information. Defaults to `true`.
-func (o AccountOutput) EnableHttpsTrafficOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.EnableHttpsTrafficOnly }).(pulumi.BoolPtrOutput)
+func (o AccountOutput) HttpsTrafficOnlyEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.HttpsTrafficOnlyEnabled }).(pulumi.BoolOutput)
 }
 
 // An `identity` block as defined below.

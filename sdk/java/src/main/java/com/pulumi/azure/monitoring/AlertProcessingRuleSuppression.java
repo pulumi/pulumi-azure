@@ -247,11 +247,18 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * @param options A bag of options that control this resource's behavior.
      */
     public AlertProcessingRuleSuppression(String name, AlertProcessingRuleSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, args == null ? AlertProcessingRuleSuppressionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private AlertProcessingRuleSuppression(String name, Output<String> id, @Nullable AlertProcessingRuleSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, state, makeResourceOptions(options, id));
+    }
+
+    private static AlertProcessingRuleSuppressionArgs makeArgs(AlertProcessingRuleSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? AlertProcessingRuleSuppressionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -56,6 +56,8 @@ export interface GetCacheResult {
     readonly capacity: number;
     /**
      * Whether the SSL port is enabled.
+     *
+     * @deprecated `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
      */
     readonly enableNonSslPort: boolean;
     /**
@@ -79,6 +81,7 @@ export interface GetCacheResult {
      */
     readonly minimumTlsVersion: string;
     readonly name: string;
+    readonly nonSslPortEnabled: boolean;
     /**
      * A list of `patchSchedule` blocks as defined below.
      */

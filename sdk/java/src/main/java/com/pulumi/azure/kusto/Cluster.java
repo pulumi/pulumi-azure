@@ -374,7 +374,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trustedExternalTenants", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> trustedExternalTenants;
+    private Output<List<String>> trustedExternalTenants;
 
     /**
      * @return Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = [&#34;*&#34;]` to explicitly allow all other tenants, `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` for only your tenant or `trusted_external_tenants = [&#34;&lt;tenantId1&gt;&#34;, &#34;&lt;tenantIdx&gt;&#34;]` to allow specific other tenants.
@@ -382,8 +382,8 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** In v3.0 of `azurerm` a new or updated Kusto Cluster will only allow your own tenant by default. Explicit configuration of this setting will change from `trusted_external_tenants = [&#34;MyTenantOnly&#34;]` to `trusted_external_tenants = []`.
      * 
      */
-    public Output<Optional<List<String>>> trustedExternalTenants() {
-        return Codegen.optional(this.trustedExternalTenants);
+    public Output<List<String>> trustedExternalTenants() {
+        return this.trustedExternalTenants;
     }
     /**
      * The FQDN of the Azure Kusto Cluster.
@@ -454,11 +454,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Cluster(String name, ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/cluster:Cluster", name, args == null ? ClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:kusto/cluster:Cluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Cluster(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:kusto/cluster:Cluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterArgs makeArgs(ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

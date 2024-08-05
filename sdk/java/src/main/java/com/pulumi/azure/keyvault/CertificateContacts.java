@@ -166,11 +166,18 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public CertificateContacts(String name, CertificateContactsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/certificateContacts:CertificateContacts", name, args == null ? CertificateContactsArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:keyvault/certificateContacts:CertificateContacts", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private CertificateContacts(String name, Output<String> id, @Nullable CertificateContactsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:keyvault/certificateContacts:CertificateContacts", name, state, makeResourceOptions(options, id));
+    }
+
+    private static CertificateContactsArgs makeArgs(CertificateContactsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertificateContactsArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

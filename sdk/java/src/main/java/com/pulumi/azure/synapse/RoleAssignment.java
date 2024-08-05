@@ -230,11 +230,18 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public RoleAssignment(String name, RoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/roleAssignment:RoleAssignment", name, args == null ? RoleAssignmentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:synapse/roleAssignment:RoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private RoleAssignment(String name, Output<String> id, @Nullable RoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:synapse/roleAssignment:RoleAssignment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static RoleAssignmentArgs makeArgs(RoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? RoleAssignmentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

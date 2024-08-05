@@ -161,11 +161,18 @@ public class NetworkInterfaceSecurityGroupAssociation extends com.pulumi.resourc
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkInterfaceSecurityGroupAssociation(String name, NetworkInterfaceSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation", name, args == null ? NetworkInterfaceSecurityGroupAssociationArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkInterfaceSecurityGroupAssociation(String name, Output<String> id, @Nullable NetworkInterfaceSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/networkInterfaceSecurityGroupAssociation:NetworkInterfaceSecurityGroupAssociation", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkInterfaceSecurityGroupAssociationArgs makeArgs(NetworkInterfaceSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkInterfaceSecurityGroupAssociationArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

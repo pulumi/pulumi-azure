@@ -164,11 +164,18 @@ public class SqlDatabase extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public SqlDatabase(String name, SqlDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlDatabase:SqlDatabase", name, args == null ? SqlDatabaseArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:cosmosdb/sqlDatabase:SqlDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private SqlDatabase(String name, Output<String> id, @Nullable SqlDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:cosmosdb/sqlDatabase:SqlDatabase", name, state, makeResourceOptions(options, id));
+    }
+
+    private static SqlDatabaseArgs makeArgs(SqlDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? SqlDatabaseArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -94,7 +94,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
      *
      * > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      */
@@ -112,7 +112,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      *
      * > **NOTE** User has to explicitly set `ipRules` to empty slice (`[]`) to remove it.
      */
-    public readonly ipRules!: pulumi.Output<string[]>;
+    public readonly ipRules!: pulumi.Output<string[] | undefined>;
     /**
      * One or more `privateLinkAccess` block as defined below.
      */
@@ -126,7 +126,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
      *
      * > **NOTE** User has to explicitly set `virtualNetworkSubnetIds` to empty slice (`[]`) to remove it.
      */
-    public readonly virtualNetworkSubnetIds!: pulumi.Output<string[]>;
+    public readonly virtualNetworkSubnetIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AccountNetworkRules resource with the given unique name, arguments, and options.
@@ -172,7 +172,7 @@ export class AccountNetworkRules extends pulumi.CustomResource {
  */
 export interface AccountNetworkRulesState {
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
      *
      * > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      */
@@ -212,7 +212,7 @@ export interface AccountNetworkRulesState {
  */
 export interface AccountNetworkRulesArgs {
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `["AzureServices"]`.
      *
      * > **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      */

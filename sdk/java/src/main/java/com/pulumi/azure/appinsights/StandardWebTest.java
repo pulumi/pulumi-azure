@@ -316,11 +316,18 @@ public class StandardWebTest extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public StandardWebTest(String name, StandardWebTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/standardWebTest:StandardWebTest", name, args == null ? StandardWebTestArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:appinsights/standardWebTest:StandardWebTest", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private StandardWebTest(String name, Output<String> id, @Nullable StandardWebTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:appinsights/standardWebTest:StandardWebTest", name, state, makeResourceOptions(options, id));
+    }
+
+    private static StandardWebTestArgs makeArgs(StandardWebTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? StandardWebTestArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -24,7 +24,11 @@ public final class GetCacheResult {
     /**
      * @return Whether the SSL port is enabled.
      * 
+     * @deprecated
+     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
     private Boolean enableNonSslPort;
     /**
      * @return The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
@@ -52,6 +56,7 @@ public final class GetCacheResult {
      */
     private String minimumTlsVersion;
     private String name;
+    private Boolean nonSslPortEnabled;
     /**
      * @return A list of `patch_schedule` blocks as defined below.
      * 
@@ -123,7 +128,11 @@ public final class GetCacheResult {
     /**
      * @return Whether the SSL port is enabled.
      * 
+     * @deprecated
+     * `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `enable_non_ssl_port` will be removed in favour of the property `non_ssl_port_enabled` in version 4.0 of the AzureRM Provider. */
     public Boolean enableNonSslPort() {
         return this.enableNonSslPort;
     }
@@ -164,6 +173,9 @@ public final class GetCacheResult {
     }
     public String name() {
         return this.name;
+    }
+    public Boolean nonSslPortEnabled() {
+        return this.nonSslPortEnabled;
     }
     /**
      * @return A list of `patch_schedule` blocks as defined below.
@@ -272,6 +284,7 @@ public final class GetCacheResult {
         private String location;
         private String minimumTlsVersion;
         private String name;
+        private Boolean nonSslPortEnabled;
         private List<GetCachePatchSchedule> patchSchedules;
         private Integer port;
         private String primaryAccessKey;
@@ -298,6 +311,7 @@ public final class GetCacheResult {
     	      this.location = defaults.location;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.name = defaults.name;
+    	      this.nonSslPortEnabled = defaults.nonSslPortEnabled;
     	      this.patchSchedules = defaults.patchSchedules;
     	      this.port = defaults.port;
     	      this.primaryAccessKey = defaults.primaryAccessKey;
@@ -377,6 +391,14 @@ public final class GetCacheResult {
               throw new MissingRequiredPropertyException("GetCacheResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder nonSslPortEnabled(Boolean nonSslPortEnabled) {
+            if (nonSslPortEnabled == null) {
+              throw new MissingRequiredPropertyException("GetCacheResult", "nonSslPortEnabled");
+            }
+            this.nonSslPortEnabled = nonSslPortEnabled;
             return this;
         }
         @CustomType.Setter
@@ -518,6 +540,7 @@ public final class GetCacheResult {
             _resultValue.location = location;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.name = name;
+            _resultValue.nonSslPortEnabled = nonSslPortEnabled;
             _resultValue.patchSchedules = patchSchedules;
             _resultValue.port = port;
             _resultValue.primaryAccessKey = primaryAccessKey;

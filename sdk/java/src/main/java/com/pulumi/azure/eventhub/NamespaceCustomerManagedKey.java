@@ -385,11 +385,18 @@ public class NamespaceCustomerManagedKey extends com.pulumi.resources.CustomReso
      * @param options A bag of options that control this resource's behavior.
      */
     public NamespaceCustomerManagedKey(String name, NamespaceCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey", name, args == null ? NamespaceCustomerManagedKeyArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NamespaceCustomerManagedKey(String name, Output<String> id, @Nullable NamespaceCustomerManagedKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NamespaceCustomerManagedKeyArgs makeArgs(NamespaceCustomerManagedKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NamespaceCustomerManagedKeyArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

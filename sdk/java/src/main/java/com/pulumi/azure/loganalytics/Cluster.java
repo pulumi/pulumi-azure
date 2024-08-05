@@ -152,18 +152,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+     * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      * 
-     * &gt; **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
+     * &gt; **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
      * 
      */
     @Export(name="sizeGb", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> sizeGb;
 
     /**
-     * @return The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
+     * @return The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `100`, `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      * 
-     * &gt; **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB.
+     * &gt; **NOTE:** The cluster capacity must start at 100 GB and can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `100` GB.
      * 
      */
     public Output<Optional<Integer>> sizeGb() {
@@ -206,11 +206,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Cluster(String name, ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/cluster:Cluster", name, args == null ? ClusterArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:loganalytics/cluster:Cluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Cluster(String name, Output<String> id, @Nullable ClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:loganalytics/cluster:Cluster", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ClusterArgs makeArgs(ClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ClusterArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

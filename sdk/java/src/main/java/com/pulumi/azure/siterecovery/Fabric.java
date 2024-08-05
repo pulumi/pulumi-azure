@@ -165,11 +165,18 @@ public class Fabric extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public Fabric(String name, FabricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/fabric:Fabric", name, args == null ? FabricArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:siterecovery/fabric:Fabric", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private Fabric(String name, Output<String> id, @Nullable FabricState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:siterecovery/fabric:Fabric", name, state, makeResourceOptions(options, id));
+    }
+
+    private static FabricArgs makeArgs(FabricArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? FabricArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

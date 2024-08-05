@@ -350,11 +350,18 @@ public class NetworkManagerDeployment extends com.pulumi.resources.CustomResourc
      * @param options A bag of options that control this resource's behavior.
      */
     public NetworkManagerDeployment(String name, NetworkManagerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, args == null ? NetworkManagerDeploymentArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private NetworkManagerDeployment(String name, Output<String> id, @Nullable NetworkManagerDeploymentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:network/networkManagerDeployment:NetworkManagerDeployment", name, state, makeResourceOptions(options, id));
+    }
+
+    private static NetworkManagerDeploymentArgs makeArgs(NetworkManagerDeploymentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? NetworkManagerDeploymentArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

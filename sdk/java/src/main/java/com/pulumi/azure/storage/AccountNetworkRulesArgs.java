@@ -19,7 +19,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     public static final AccountNetworkRulesArgs Empty = new AccountNetworkRulesArgs();
 
     /**
-     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `[&#34;AzureServices&#34;]`.
      * 
      * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      * 
@@ -28,7 +28,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
     private @Nullable Output<List<String>> bypasses;
 
     /**
-     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+     * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `[&#34;AzureServices&#34;]`.
      * 
      * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
      * 
@@ -158,7 +158,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bypasses Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+         * @param bypasses Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `[&#34;AzureServices&#34;]`.
          * 
          * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
          * 
@@ -171,7 +171,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bypasses Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+         * @param bypasses Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `[&#34;AzureServices&#34;]`.
          * 
          * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
          * 
@@ -183,7 +183,7 @@ public final class AccountNetworkRulesArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param bypasses Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
+         * @param bypasses Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. Defaults to `[&#34;AzureServices&#34;]`.
          * 
          * &gt; **NOTE** User has to explicitly set `bypass` to empty slice (`[]`) to remove it.
          * 

@@ -216,11 +216,18 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
      * @param options A bag of options that control this resource's behavior.
      */
     public MxRecord(String name, MxRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/mxRecord:MxRecord", name, args == null ? MxRecordArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:privatedns/mxRecord:MxRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private MxRecord(String name, Output<String> id, @Nullable MxRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:privatedns/mxRecord:MxRecord", name, state, makeResourceOptions(options, id));
+    }
+
+    private static MxRecordArgs makeArgs(MxRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? MxRecordArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

@@ -296,11 +296,18 @@ public class ServerTransparentDataEncryption extends com.pulumi.resources.Custom
      * @param options A bag of options that control this resource's behavior.
      */
     public ServerTransparentDataEncryption(String name, ServerTransparentDataEncryptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption", name, args == null ? ServerTransparentDataEncryptionArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
+        super("azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
     }
 
     private ServerTransparentDataEncryption(String name, Output<String> id, @Nullable ServerTransparentDataEncryptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption", name, state, makeResourceOptions(options, id));
+    }
+
+    private static ServerTransparentDataEncryptionArgs makeArgs(ServerTransparentDataEncryptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? ServerTransparentDataEncryptionArgs.Empty : args;
     }
 
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {

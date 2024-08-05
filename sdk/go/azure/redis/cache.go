@@ -79,6 +79,8 @@ type Cache struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
+	//
+	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 	EnableNonSslPort pulumi.BoolPtrOutput `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family pulumi.StringOutput `pulumi:"family"`
@@ -91,7 +93,8 @@ type Cache struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name              pulumi.StringOutput `pulumi:"name"`
+	NonSslPortEnabled pulumi.BoolOutput   `pulumi:"nonSslPortEnabled"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayOutput `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
@@ -192,6 +195,8 @@ type cacheState struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity *int `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
+	//
+	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family *string `pulumi:"family"`
@@ -204,7 +209,8 @@ type cacheState struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name              *string `pulumi:"name"`
+	NonSslPortEnabled *bool   `pulumi:"nonSslPortEnabled"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
 	// The non-SSL Port of the Redis Instance
@@ -257,6 +263,8 @@ type CacheState struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntPtrInput
 	// Enable the non-SSL port (6379) - disabled by default.
+	//
+	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 	EnableNonSslPort pulumi.BoolPtrInput
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family pulumi.StringPtrInput
@@ -269,7 +277,8 @@ type CacheState struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	NonSslPortEnabled pulumi.BoolPtrInput
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
 	// The non-SSL Port of the Redis Instance
@@ -326,6 +335,8 @@ type cacheArgs struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity int `pulumi:"capacity"`
 	// Enable the non-SSL port (6379) - disabled by default.
+	//
+	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 	EnableNonSslPort *bool `pulumi:"enableNonSslPort"`
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family string `pulumi:"family"`
@@ -336,7 +347,8 @@ type cacheArgs struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name              *string `pulumi:"name"`
+	NonSslPortEnabled *bool   `pulumi:"nonSslPortEnabled"`
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules []CachePatchSchedule `pulumi:"patchSchedules"`
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
@@ -378,6 +390,8 @@ type CacheArgs struct {
 	// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
 	Capacity pulumi.IntInput
 	// Enable the non-SSL port (6379) - disabled by default.
+	//
+	// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 	EnableNonSslPort pulumi.BoolPtrInput
 	// The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
 	Family pulumi.StringInput
@@ -388,7 +402,8 @@ type CacheArgs struct {
 	// The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
 	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the Redis instance. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	NonSslPortEnabled pulumi.BoolPtrInput
 	// A list of `patchSchedule` blocks as defined below.
 	PatchSchedules CachePatchScheduleArrayInput
 	// The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnetId`. Changing this forces a new resource to be created.
@@ -518,6 +533,8 @@ func (o CacheOutput) Capacity() pulumi.IntOutput {
 }
 
 // Enable the non-SSL port (6379) - disabled by default.
+//
+// Deprecated: `enableNonSslPort` will be removed in favour of the property `nonSslPortEnabled` in version 4.0 of the AzureRM Provider.
 func (o CacheOutput) EnableNonSslPort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cache) pulumi.BoolPtrOutput { return v.EnableNonSslPort }).(pulumi.BoolPtrOutput)
 }
@@ -550,6 +567,10 @@ func (o CacheOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 // The name of the Redis instance. Changing this forces a new resource to be created.
 func (o CacheOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CacheOutput) NonSslPortEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cache) pulumi.BoolOutput { return v.NonSslPortEnabled }).(pulumi.BoolOutput)
 }
 
 // A list of `patchSchedule` blocks as defined below.

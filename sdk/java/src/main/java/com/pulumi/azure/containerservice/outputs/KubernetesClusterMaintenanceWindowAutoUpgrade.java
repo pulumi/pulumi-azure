@@ -26,7 +26,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
      */
     private @Nullable String dayOfWeek;
     /**
-     * @return The duration of the window for maintenance to run in hours.
+     * @return The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
      * 
      */
     private Integer duration;
@@ -83,7 +83,7 @@ public final class KubernetesClusterMaintenanceWindowAutoUpgrade {
         return Optional.ofNullable(this.dayOfWeek);
     }
     /**
-     * @return The duration of the window for maintenance to run in hours.
+     * @return The duration of the window for maintenance to run in hours. Possible options are between `4` to `24`.
      * 
      */
     public Integer duration() {
