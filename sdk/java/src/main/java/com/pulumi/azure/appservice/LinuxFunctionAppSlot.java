@@ -673,7 +673,7 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinuxFunctionAppSlot(String name) {
+    public LinuxFunctionAppSlot(java.lang.String name) {
         this(name, LinuxFunctionAppSlotArgs.Empty);
     }
     /**
@@ -681,7 +681,7 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinuxFunctionAppSlot(String name, LinuxFunctionAppSlotArgs args) {
+    public LinuxFunctionAppSlot(java.lang.String name, LinuxFunctionAppSlotArgs args) {
         this(name, args, null);
     }
     /**
@@ -690,12 +690,12 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinuxFunctionAppSlot(String name, LinuxFunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinuxFunctionAppSlot(java.lang.String name, LinuxFunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinuxFunctionAppSlot(String name, Output<String> id, @Nullable LinuxFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot", name, state, makeResourceOptions(options, id));
+    private LinuxFunctionAppSlot(java.lang.String name, Output<java.lang.String> id, @Nullable LinuxFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/linuxFunctionAppSlot:LinuxFunctionAppSlot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinuxFunctionAppSlotArgs makeArgs(LinuxFunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -705,7 +705,7 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
         return args == null ? LinuxFunctionAppSlotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -726,7 +726,7 @@ public class LinuxFunctionAppSlot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinuxFunctionAppSlot get(String name, Output<String> id, @Nullable LinuxFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinuxFunctionAppSlot get(java.lang.String name, Output<java.lang.String> id, @Nullable LinuxFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinuxFunctionAppSlot(name, id, state, options);
     }
 }

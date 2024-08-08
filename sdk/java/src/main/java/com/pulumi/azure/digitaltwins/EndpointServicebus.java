@@ -183,7 +183,7 @@ public class EndpointServicebus extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EndpointServicebus(String name) {
+    public EndpointServicebus(java.lang.String name) {
         this(name, EndpointServicebusArgs.Empty);
     }
     /**
@@ -191,7 +191,7 @@ public class EndpointServicebus extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EndpointServicebus(String name, EndpointServicebusArgs args) {
+    public EndpointServicebus(java.lang.String name, EndpointServicebusArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,12 +200,12 @@ public class EndpointServicebus extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EndpointServicebus(String name, EndpointServicebusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EndpointServicebus(java.lang.String name, EndpointServicebusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EndpointServicebus(String name, Output<String> id, @Nullable EndpointServicebusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, state, makeResourceOptions(options, id));
+    private EndpointServicebus(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointServicebusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/endpointServicebus:EndpointServicebus", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EndpointServicebusArgs makeArgs(EndpointServicebusArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -215,7 +215,7 @@ public class EndpointServicebus extends com.pulumi.resources.CustomResource {
         return args == null ? EndpointServicebusArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -236,7 +236,7 @@ public class EndpointServicebus extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EndpointServicebus get(String name, Output<String> id, @Nullable EndpointServicebusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EndpointServicebus get(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointServicebusState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EndpointServicebus(name, id, state, options);
     }
 }

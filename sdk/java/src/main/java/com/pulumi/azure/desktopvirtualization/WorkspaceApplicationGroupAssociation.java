@@ -131,7 +131,7 @@ public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.C
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WorkspaceApplicationGroupAssociation(String name) {
+    public WorkspaceApplicationGroupAssociation(java.lang.String name) {
         this(name, WorkspaceApplicationGroupAssociationArgs.Empty);
     }
     /**
@@ -139,7 +139,7 @@ public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.C
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WorkspaceApplicationGroupAssociation(String name, WorkspaceApplicationGroupAssociationArgs args) {
+    public WorkspaceApplicationGroupAssociation(java.lang.String name, WorkspaceApplicationGroupAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -148,12 +148,12 @@ public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.C
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WorkspaceApplicationGroupAssociation(String name, WorkspaceApplicationGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public WorkspaceApplicationGroupAssociation(java.lang.String name, WorkspaceApplicationGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WorkspaceApplicationGroupAssociation(String name, Output<String> id, @Nullable WorkspaceApplicationGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation", name, state, makeResourceOptions(options, id));
+    private WorkspaceApplicationGroupAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceApplicationGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static WorkspaceApplicationGroupAssociationArgs makeArgs(WorkspaceApplicationGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -163,7 +163,7 @@ public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.C
         return args == null ? WorkspaceApplicationGroupAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -179,7 +179,7 @@ public class WorkspaceApplicationGroupAssociation extends com.pulumi.resources.C
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WorkspaceApplicationGroupAssociation get(String name, Output<String> id, @Nullable WorkspaceApplicationGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WorkspaceApplicationGroupAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable WorkspaceApplicationGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WorkspaceApplicationGroupAssociation(name, id, state, options);
     }
 }

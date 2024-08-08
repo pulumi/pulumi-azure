@@ -508,7 +508,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ScheduledQueryRulesAlertV2(String name) {
+    public ScheduledQueryRulesAlertV2(java.lang.String name) {
         this(name, ScheduledQueryRulesAlertV2Args.Empty);
     }
     /**
@@ -516,7 +516,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ScheduledQueryRulesAlertV2(String name, ScheduledQueryRulesAlertV2Args args) {
+    public ScheduledQueryRulesAlertV2(java.lang.String name, ScheduledQueryRulesAlertV2Args args) {
         this(name, args, null);
     }
     /**
@@ -525,12 +525,12 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ScheduledQueryRulesAlertV2(String name, ScheduledQueryRulesAlertV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ScheduledQueryRulesAlertV2(java.lang.String name, ScheduledQueryRulesAlertV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ScheduledQueryRulesAlertV2(String name, Output<String> id, @Nullable ScheduledQueryRulesAlertV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2", name, state, makeResourceOptions(options, id));
+    private ScheduledQueryRulesAlertV2(java.lang.String name, Output<java.lang.String> id, @Nullable ScheduledQueryRulesAlertV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ScheduledQueryRulesAlertV2Args makeArgs(ScheduledQueryRulesAlertV2Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -540,7 +540,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
         return args == null ? ScheduledQueryRulesAlertV2Args.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -556,7 +556,7 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ScheduledQueryRulesAlertV2 get(String name, Output<String> id, @Nullable ScheduledQueryRulesAlertV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ScheduledQueryRulesAlertV2 get(java.lang.String name, Output<java.lang.String> id, @Nullable ScheduledQueryRulesAlertV2State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ScheduledQueryRulesAlertV2(name, id, state, options);
     }
 }

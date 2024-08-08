@@ -55,12 +55,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-gca")
  *             .location("West Europe")
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .size("Standard_F2")
  *             .adminUsername("adminuser")
- *             .adminPassword("P{@literal @}$$w0rd1234!")
+ *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .identity(WindowsVirtualMachineIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -154,8 +154,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -232,7 +232,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualMachineConfigurationAssignment(String name) {
+    public VirtualMachineConfigurationAssignment(java.lang.String name) {
         this(name, VirtualMachineConfigurationAssignmentArgs.Empty);
     }
     /**
@@ -240,7 +240,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualMachineConfigurationAssignment(String name, VirtualMachineConfigurationAssignmentArgs args) {
+    public VirtualMachineConfigurationAssignment(java.lang.String name, VirtualMachineConfigurationAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,12 +249,12 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualMachineConfigurationAssignment(String name, VirtualMachineConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualMachineConfigurationAssignment(java.lang.String name, VirtualMachineConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualMachineConfigurationAssignment(String name, Output<String> id, @Nullable VirtualMachineConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", name, state, makeResourceOptions(options, id));
+    private VirtualMachineConfigurationAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualMachineConfigurationAssignmentArgs makeArgs(VirtualMachineConfigurationAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -264,7 +264,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
         return args == null ? VirtualMachineConfigurationAssignmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -280,7 +280,7 @@ public class VirtualMachineConfigurationAssignment extends com.pulumi.resources.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualMachineConfigurationAssignment get(String name, Output<String> id, @Nullable VirtualMachineConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualMachineConfigurationAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineConfigurationAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualMachineConfigurationAssignment(name, id, state, options);
     }
 }

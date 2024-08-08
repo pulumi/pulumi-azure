@@ -673,7 +673,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WindowsFunctionAppSlot(String name) {
+    public WindowsFunctionAppSlot(java.lang.String name) {
         this(name, WindowsFunctionAppSlotArgs.Empty);
     }
     /**
@@ -681,7 +681,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WindowsFunctionAppSlot(String name, WindowsFunctionAppSlotArgs args) {
+    public WindowsFunctionAppSlot(java.lang.String name, WindowsFunctionAppSlotArgs args) {
         this(name, args, null);
     }
     /**
@@ -690,12 +690,12 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WindowsFunctionAppSlot(String name, WindowsFunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public WindowsFunctionAppSlot(java.lang.String name, WindowsFunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WindowsFunctionAppSlot(String name, Output<String> id, @Nullable WindowsFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot", name, state, makeResourceOptions(options, id));
+    private WindowsFunctionAppSlot(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static WindowsFunctionAppSlotArgs makeArgs(WindowsFunctionAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -705,7 +705,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
         return args == null ? WindowsFunctionAppSlotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -726,7 +726,7 @@ public class WindowsFunctionAppSlot extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WindowsFunctionAppSlot get(String name, Output<String> id, @Nullable WindowsFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WindowsFunctionAppSlot get(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsFunctionAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WindowsFunctionAppSlot(name, id, state, options);
     }
 }

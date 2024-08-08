@@ -198,7 +198,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutputPowerbi(String name) {
+    public OutputPowerbi(java.lang.String name) {
         this(name, OutputPowerbiArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutputPowerbi(String name, OutputPowerbiArgs args) {
+    public OutputPowerbi(java.lang.String name, OutputPowerbiArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,12 +215,12 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutputPowerbi(String name, OutputPowerbiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputPowerbi:OutputPowerbi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OutputPowerbi(java.lang.String name, OutputPowerbiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputPowerbi:OutputPowerbi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutputPowerbi(String name, Output<String> id, @Nullable OutputPowerbiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputPowerbi:OutputPowerbi", name, state, makeResourceOptions(options, id));
+    private OutputPowerbi(java.lang.String name, Output<java.lang.String> id, @Nullable OutputPowerbiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputPowerbi:OutputPowerbi", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OutputPowerbiArgs makeArgs(OutputPowerbiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -230,7 +230,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
         return args == null ? OutputPowerbiArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -246,7 +246,7 @@ public class OutputPowerbi extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutputPowerbi get(String name, Output<String> id, @Nullable OutputPowerbiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutputPowerbi get(java.lang.String name, Output<java.lang.String> id, @Nullable OutputPowerbiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutputPowerbi(name, id, state, options);
     }
 }

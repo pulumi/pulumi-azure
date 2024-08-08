@@ -134,7 +134,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailService(String name) {
+    public EmailService(java.lang.String name) {
         this(name, EmailServiceArgs.Empty);
     }
     /**
@@ -142,7 +142,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailService(String name, EmailServiceArgs args) {
+    public EmailService(java.lang.String name, EmailServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -151,12 +151,12 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailService(String name, EmailServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:communication/emailService:EmailService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EmailService(java.lang.String name, EmailServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:communication/emailService:EmailService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailService(String name, Output<String> id, @Nullable EmailServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:communication/emailService:EmailService", name, state, makeResourceOptions(options, id));
+    private EmailService(java.lang.String name, Output<java.lang.String> id, @Nullable EmailServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:communication/emailService:EmailService", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EmailServiceArgs makeArgs(EmailServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -166,7 +166,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
         return args == null ? EmailServiceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -182,7 +182,7 @@ public class EmailService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailService get(String name, Output<String> id, @Nullable EmailServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailService get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailService(name, id, state, options);
     }
 }

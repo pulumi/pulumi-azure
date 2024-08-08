@@ -218,7 +218,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AnalyticsItem(String name) {
+    public AnalyticsItem(java.lang.String name) {
         this(name, AnalyticsItemArgs.Empty);
     }
     /**
@@ -226,7 +226,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AnalyticsItem(String name, AnalyticsItemArgs args) {
+    public AnalyticsItem(java.lang.String name, AnalyticsItemArgs args) {
         this(name, args, null);
     }
     /**
@@ -235,12 +235,12 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AnalyticsItem(String name, AnalyticsItemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/analyticsItem:AnalyticsItem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AnalyticsItem(java.lang.String name, AnalyticsItemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appinsights/analyticsItem:AnalyticsItem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AnalyticsItem(String name, Output<String> id, @Nullable AnalyticsItemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appinsights/analyticsItem:AnalyticsItem", name, state, makeResourceOptions(options, id));
+    private AnalyticsItem(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsItemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appinsights/analyticsItem:AnalyticsItem", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AnalyticsItemArgs makeArgs(AnalyticsItemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -250,7 +250,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
         return args == null ? AnalyticsItemArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -266,7 +266,7 @@ public class AnalyticsItem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AnalyticsItem get(String name, Output<String> id, @Nullable AnalyticsItemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AnalyticsItem get(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsItemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AnalyticsItem(name, id, state, options);
     }
 }

@@ -392,7 +392,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerExtendedAuditingPolicy(String name) {
+    public ServerExtendedAuditingPolicy(java.lang.String name) {
         this(name, ServerExtendedAuditingPolicyArgs.Empty);
     }
     /**
@@ -400,7 +400,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerExtendedAuditingPolicy(String name, ServerExtendedAuditingPolicyArgs args) {
+    public ServerExtendedAuditingPolicy(java.lang.String name, ServerExtendedAuditingPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -409,12 +409,12 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerExtendedAuditingPolicy(String name, ServerExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServerExtendedAuditingPolicy(java.lang.String name, ServerExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerExtendedAuditingPolicy(String name, Output<String> id, @Nullable ServerExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy", name, state, makeResourceOptions(options, id));
+    private ServerExtendedAuditingPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ServerExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerExtendedAuditingPolicyArgs makeArgs(ServerExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -424,7 +424,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
         return args == null ? ServerExtendedAuditingPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -444,7 +444,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerExtendedAuditingPolicy get(String name, Output<String> id, @Nullable ServerExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerExtendedAuditingPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerExtendedAuditingPolicy(name, id, state, options);
     }
 }

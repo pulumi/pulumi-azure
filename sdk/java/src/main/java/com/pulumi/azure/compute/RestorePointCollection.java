@@ -213,7 +213,7 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RestorePointCollection(String name) {
+    public RestorePointCollection(java.lang.String name) {
         this(name, RestorePointCollectionArgs.Empty);
     }
     /**
@@ -221,7 +221,7 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RestorePointCollection(String name, RestorePointCollectionArgs args) {
+    public RestorePointCollection(java.lang.String name, RestorePointCollectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -230,12 +230,12 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RestorePointCollection(String name, RestorePointCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/restorePointCollection:RestorePointCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RestorePointCollection(java.lang.String name, RestorePointCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/restorePointCollection:RestorePointCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RestorePointCollection(String name, Output<String> id, @Nullable RestorePointCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/restorePointCollection:RestorePointCollection", name, state, makeResourceOptions(options, id));
+    private RestorePointCollection(java.lang.String name, Output<java.lang.String> id, @Nullable RestorePointCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/restorePointCollection:RestorePointCollection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RestorePointCollectionArgs makeArgs(RestorePointCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -245,7 +245,7 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
         return args == null ? RestorePointCollectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -264,7 +264,7 @@ public class RestorePointCollection extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RestorePointCollection get(String name, Output<String> id, @Nullable RestorePointCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RestorePointCollection get(java.lang.String name, Output<java.lang.String> id, @Nullable RestorePointCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RestorePointCollection(name, id, state, options);
     }
 }

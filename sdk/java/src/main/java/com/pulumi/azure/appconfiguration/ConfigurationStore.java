@@ -488,7 +488,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConfigurationStore(String name) {
+    public ConfigurationStore(java.lang.String name) {
         this(name, ConfigurationStoreArgs.Empty);
     }
     /**
@@ -496,7 +496,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConfigurationStore(String name, ConfigurationStoreArgs args) {
+    public ConfigurationStore(java.lang.String name, ConfigurationStoreArgs args) {
         this(name, args, null);
     }
     /**
@@ -505,12 +505,12 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConfigurationStore(String name, ConfigurationStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/configurationStore:ConfigurationStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ConfigurationStore(java.lang.String name, ConfigurationStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appconfiguration/configurationStore:ConfigurationStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConfigurationStore(String name, Output<String> id, @Nullable ConfigurationStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appconfiguration/configurationStore:ConfigurationStore", name, state, makeResourceOptions(options, id));
+    private ConfigurationStore(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appconfiguration/configurationStore:ConfigurationStore", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ConfigurationStoreArgs makeArgs(ConfigurationStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -520,7 +520,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return args == null ? ConfigurationStoreArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -536,7 +536,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConfigurationStore get(String name, Output<String> id, @Nullable ConfigurationStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConfigurationStore get(java.lang.String name, Output<java.lang.String> id, @Nullable ConfigurationStoreState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConfigurationStore(name, id, state, options);
     }
 }

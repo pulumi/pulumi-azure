@@ -156,7 +156,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MoverAgent(String name) {
+    public MoverAgent(java.lang.String name) {
         this(name, MoverAgentArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MoverAgent(String name, MoverAgentArgs args) {
+    public MoverAgent(java.lang.String name, MoverAgentArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,12 +173,12 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MoverAgent(String name, MoverAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/moverAgent:MoverAgent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public MoverAgent(java.lang.String name, MoverAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/moverAgent:MoverAgent", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MoverAgent(String name, Output<String> id, @Nullable MoverAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/moverAgent:MoverAgent", name, state, makeResourceOptions(options, id));
+    private MoverAgent(java.lang.String name, Output<java.lang.String> id, @Nullable MoverAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/moverAgent:MoverAgent", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MoverAgentArgs makeArgs(MoverAgentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -188,7 +188,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
         return args == null ? MoverAgentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -204,7 +204,7 @@ public class MoverAgent extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MoverAgent get(String name, Output<String> id, @Nullable MoverAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MoverAgent get(java.lang.String name, Output<java.lang.String> id, @Nullable MoverAgentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MoverAgent(name, id, state, options);
     }
 }

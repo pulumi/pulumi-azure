@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  *             .customLocationId("/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.ExtendedLocation/customLocations/customLocation1")
  *             .fqdn("example.labtest")
  *             .username("testUser")
- *             .password("H{@literal @}Sh1CoR3!")
+ *             .password("H}{@literal @}{@code Sh1CoR3!")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -214,7 +214,7 @@ public class VirtualMachineManagerServer extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualMachineManagerServer(String name) {
+    public VirtualMachineManagerServer(java.lang.String name) {
         this(name, VirtualMachineManagerServerArgs.Empty);
     }
     /**
@@ -222,7 +222,7 @@ public class VirtualMachineManagerServer extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualMachineManagerServer(String name, VirtualMachineManagerServerArgs args) {
+    public VirtualMachineManagerServer(java.lang.String name, VirtualMachineManagerServerArgs args) {
         this(name, args, null);
     }
     /**
@@ -231,12 +231,12 @@ public class VirtualMachineManagerServer extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualMachineManagerServer(String name, VirtualMachineManagerServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualMachineManagerServer(java.lang.String name, VirtualMachineManagerServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualMachineManagerServer(String name, Output<String> id, @Nullable VirtualMachineManagerServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer", name, state, makeResourceOptions(options, id));
+    private VirtualMachineManagerServer(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineManagerServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:systemcenter/virtualMachineManagerServer:VirtualMachineManagerServer", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualMachineManagerServerArgs makeArgs(VirtualMachineManagerServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -246,7 +246,7 @@ public class VirtualMachineManagerServer extends com.pulumi.resources.CustomReso
         return args == null ? VirtualMachineManagerServerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -265,7 +265,7 @@ public class VirtualMachineManagerServer extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualMachineManagerServer get(String name, Output<String> id, @Nullable VirtualMachineManagerServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualMachineManagerServer get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineManagerServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualMachineManagerServer(name, id, state, options);
     }
 }

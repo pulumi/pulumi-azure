@@ -397,7 +397,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Frontdoor(String name) {
+    public Frontdoor(java.lang.String name) {
         this(name, FrontdoorArgs.Empty);
     }
     /**
@@ -405,7 +405,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Frontdoor(String name, FrontdoorArgs args) {
+    public Frontdoor(java.lang.String name, FrontdoorArgs args) {
         this(name, args, null);
     }
     /**
@@ -414,12 +414,12 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Frontdoor(String name, FrontdoorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:frontdoor/frontdoor:Frontdoor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Frontdoor(java.lang.String name, FrontdoorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:frontdoor/frontdoor:Frontdoor", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Frontdoor(String name, Output<String> id, @Nullable FrontdoorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:frontdoor/frontdoor:Frontdoor", name, state, makeResourceOptions(options, id));
+    private Frontdoor(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:frontdoor/frontdoor:Frontdoor", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FrontdoorArgs makeArgs(FrontdoorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -429,7 +429,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
         return args == null ? FrontdoorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -445,7 +445,7 @@ public class Frontdoor extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Frontdoor get(String name, Output<String> id, @Nullable FrontdoorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Frontdoor get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Frontdoor(name, id, state, options);
     }
 }

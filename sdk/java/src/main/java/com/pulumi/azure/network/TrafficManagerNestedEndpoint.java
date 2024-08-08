@@ -319,7 +319,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TrafficManagerNestedEndpoint(String name) {
+    public TrafficManagerNestedEndpoint(java.lang.String name) {
         this(name, TrafficManagerNestedEndpointArgs.Empty);
     }
     /**
@@ -327,7 +327,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrafficManagerNestedEndpoint(String name, TrafficManagerNestedEndpointArgs args) {
+    public TrafficManagerNestedEndpoint(java.lang.String name, TrafficManagerNestedEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -336,12 +336,12 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrafficManagerNestedEndpoint(String name, TrafficManagerNestedEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TrafficManagerNestedEndpoint(java.lang.String name, TrafficManagerNestedEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TrafficManagerNestedEndpoint(String name, Output<String> id, @Nullable TrafficManagerNestedEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, state, makeResourceOptions(options, id));
+    private TrafficManagerNestedEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficManagerNestedEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TrafficManagerNestedEndpointArgs makeArgs(TrafficManagerNestedEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -351,7 +351,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
         return args == null ? TrafficManagerNestedEndpointArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -367,7 +367,7 @@ public class TrafficManagerNestedEndpoint extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TrafficManagerNestedEndpoint get(String name, Output<String> id, @Nullable TrafficManagerNestedEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TrafficManagerNestedEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable TrafficManagerNestedEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TrafficManagerNestedEndpoint(name, id, state, options);
     }
 }

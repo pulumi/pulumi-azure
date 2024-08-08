@@ -206,7 +206,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkManager(String name) {
+    public NetworkManager(java.lang.String name) {
         this(name, NetworkManagerArgs.Empty);
     }
     /**
@@ -214,7 +214,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkManager(String name, NetworkManagerArgs args) {
+    public NetworkManager(java.lang.String name, NetworkManagerArgs args) {
         this(name, args, null);
     }
     /**
@@ -223,12 +223,12 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkManager(String name, NetworkManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManager:NetworkManager", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkManager(java.lang.String name, NetworkManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManager:NetworkManager", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkManager(String name, Output<String> id, @Nullable NetworkManagerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkManager:NetworkManager", name, state, makeResourceOptions(options, id));
+    private NetworkManager(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkManager:NetworkManager", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkManagerArgs makeArgs(NetworkManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -238,7 +238,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
         return args == null ? NetworkManagerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -254,7 +254,7 @@ public class NetworkManager extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkManager get(String name, Output<String> id, @Nullable NetworkManagerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkManager get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkManagerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkManager(name, id, state, options);
     }
 }

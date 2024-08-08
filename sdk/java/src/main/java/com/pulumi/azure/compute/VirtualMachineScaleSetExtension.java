@@ -325,7 +325,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualMachineScaleSetExtension(String name) {
+    public VirtualMachineScaleSetExtension(java.lang.String name) {
         this(name, VirtualMachineScaleSetExtensionArgs.Empty);
     }
     /**
@@ -333,7 +333,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualMachineScaleSetExtension(String name, VirtualMachineScaleSetExtensionArgs args) {
+    public VirtualMachineScaleSetExtension(java.lang.String name, VirtualMachineScaleSetExtensionArgs args) {
         this(name, args, null);
     }
     /**
@@ -342,12 +342,12 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualMachineScaleSetExtension(String name, VirtualMachineScaleSetExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualMachineScaleSetExtension(java.lang.String name, VirtualMachineScaleSetExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualMachineScaleSetExtension(String name, Output<String> id, @Nullable VirtualMachineScaleSetExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, state, makeResourceOptions(options, id));
+    private VirtualMachineScaleSetExtension(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineScaleSetExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/virtualMachineScaleSetExtension:VirtualMachineScaleSetExtension", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualMachineScaleSetExtensionArgs makeArgs(VirtualMachineScaleSetExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -357,7 +357,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
         return args == null ? VirtualMachineScaleSetExtensionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -376,7 +376,7 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualMachineScaleSetExtension get(String name, Output<String> id, @Nullable VirtualMachineScaleSetExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualMachineScaleSetExtension get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineScaleSetExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualMachineScaleSetExtension(name, id, state, options);
     }
 }

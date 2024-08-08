@@ -229,7 +229,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertProcessingRuleSuppression(String name) {
+    public AlertProcessingRuleSuppression(java.lang.String name) {
         this(name, AlertProcessingRuleSuppressionArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertProcessingRuleSuppression(String name, AlertProcessingRuleSuppressionArgs args) {
+    public AlertProcessingRuleSuppression(java.lang.String name, AlertProcessingRuleSuppressionArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,12 +246,12 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertProcessingRuleSuppression(String name, AlertProcessingRuleSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertProcessingRuleSuppression(java.lang.String name, AlertProcessingRuleSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertProcessingRuleSuppression(String name, Output<String> id, @Nullable AlertProcessingRuleSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, state, makeResourceOptions(options, id));
+    private AlertProcessingRuleSuppression(java.lang.String name, Output<java.lang.String> id, @Nullable AlertProcessingRuleSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertProcessingRuleSuppressionArgs makeArgs(AlertProcessingRuleSuppressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -261,7 +261,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
         return args == null ? AlertProcessingRuleSuppressionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -277,7 +277,7 @@ public class AlertProcessingRuleSuppression extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertProcessingRuleSuppression get(String name, Output<String> id, @Nullable AlertProcessingRuleSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertProcessingRuleSuppression get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertProcessingRuleSuppressionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertProcessingRuleSuppression(name, id, state, options);
     }
 }

@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new ResourceGroup("test", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(test.name())
  *             .location(test.location())
  *             .skuName("ess-consumption-2024_Monthly")
- *             .elasticCloudEmailAddress("user{@literal @}example.com")
+ *             .elasticCloudEmailAddress("user}{@literal @}{@code example.com")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -286,7 +286,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Elasticsearch(String name) {
+    public Elasticsearch(java.lang.String name) {
         this(name, ElasticsearchArgs.Empty);
     }
     /**
@@ -294,7 +294,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Elasticsearch(String name, ElasticsearchArgs args) {
+    public Elasticsearch(java.lang.String name, ElasticsearchArgs args) {
         this(name, args, null);
     }
     /**
@@ -303,12 +303,12 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Elasticsearch(String name, ElasticsearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:elasticcloud/elasticsearch:Elasticsearch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Elasticsearch(java.lang.String name, ElasticsearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:elasticcloud/elasticsearch:Elasticsearch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Elasticsearch(String name, Output<String> id, @Nullable ElasticsearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:elasticcloud/elasticsearch:Elasticsearch", name, state, makeResourceOptions(options, id));
+    private Elasticsearch(java.lang.String name, Output<java.lang.String> id, @Nullable ElasticsearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:elasticcloud/elasticsearch:Elasticsearch", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ElasticsearchArgs makeArgs(ElasticsearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -318,7 +318,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
         return args == null ? ElasticsearchArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -334,7 +334,7 @@ public class Elasticsearch extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Elasticsearch get(String name, Output<String> id, @Nullable ElasticsearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Elasticsearch get(java.lang.String name, Output<java.lang.String> id, @Nullable ElasticsearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Elasticsearch(name, id, state, options);
     }
 }

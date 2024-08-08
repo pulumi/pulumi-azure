@@ -266,7 +266,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Automation(String name) {
+    public Automation(java.lang.String name) {
         this(name, AutomationArgs.Empty);
     }
     /**
@@ -274,7 +274,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Automation(String name, AutomationArgs args) {
+    public Automation(java.lang.String name, AutomationArgs args) {
         this(name, args, null);
     }
     /**
@@ -283,12 +283,12 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Automation(String name, AutomationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/automation:Automation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Automation(java.lang.String name, AutomationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:securitycenter/automation:Automation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Automation(String name, Output<String> id, @Nullable AutomationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/automation:Automation", name, state, makeResourceOptions(options, id));
+    private Automation(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:securitycenter/automation:Automation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AutomationArgs makeArgs(AutomationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -298,7 +298,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
         return args == null ? AutomationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -314,7 +314,7 @@ public class Automation extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Automation get(String name, Output<String> id, @Nullable AutomationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Automation get(java.lang.String name, Output<java.lang.String> id, @Nullable AutomationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Automation(name, id, state, options);
     }
 }

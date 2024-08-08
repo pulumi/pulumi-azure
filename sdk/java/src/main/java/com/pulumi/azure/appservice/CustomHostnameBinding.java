@@ -197,7 +197,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomHostnameBinding(String name) {
+    public CustomHostnameBinding(java.lang.String name) {
         this(name, CustomHostnameBindingArgs.Empty);
     }
     /**
@@ -205,7 +205,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomHostnameBinding(String name, CustomHostnameBindingArgs args) {
+    public CustomHostnameBinding(java.lang.String name, CustomHostnameBindingArgs args) {
         this(name, args, null);
     }
     /**
@@ -214,12 +214,12 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomHostnameBinding(String name, CustomHostnameBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CustomHostnameBinding(java.lang.String name, CustomHostnameBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomHostnameBinding(String name, Output<String> id, @Nullable CustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, state, makeResourceOptions(options, id));
+    private CustomHostnameBinding(java.lang.String name, Output<java.lang.String> id, @Nullable CustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/customHostnameBinding:CustomHostnameBinding", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CustomHostnameBindingArgs makeArgs(CustomHostnameBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -229,7 +229,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
         return args == null ? CustomHostnameBindingArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -245,7 +245,7 @@ public class CustomHostnameBinding extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomHostnameBinding get(String name, Output<String> id, @Nullable CustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomHostnameBinding get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomHostnameBinding(name, id, state, options);
     }
 }

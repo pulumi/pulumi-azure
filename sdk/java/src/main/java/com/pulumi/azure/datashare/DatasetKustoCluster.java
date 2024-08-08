@@ -190,7 +190,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetKustoCluster(String name) {
+    public DatasetKustoCluster(java.lang.String name) {
         this(name, DatasetKustoClusterArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetKustoCluster(String name, DatasetKustoClusterArgs args) {
+    public DatasetKustoCluster(java.lang.String name, DatasetKustoClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,12 +207,12 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetKustoCluster(String name, DatasetKustoClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datashare/datasetKustoCluster:DatasetKustoCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DatasetKustoCluster(java.lang.String name, DatasetKustoClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datashare/datasetKustoCluster:DatasetKustoCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetKustoCluster(String name, Output<String> id, @Nullable DatasetKustoClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datashare/datasetKustoCluster:DatasetKustoCluster", name, state, makeResourceOptions(options, id));
+    private DatasetKustoCluster(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetKustoClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datashare/datasetKustoCluster:DatasetKustoCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DatasetKustoClusterArgs makeArgs(DatasetKustoClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -222,7 +222,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
         return args == null ? DatasetKustoClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -238,7 +238,7 @@ public class DatasetKustoCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetKustoCluster get(String name, Output<String> id, @Nullable DatasetKustoClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetKustoCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetKustoClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetKustoCluster(name, id, state, options);
     }
 }

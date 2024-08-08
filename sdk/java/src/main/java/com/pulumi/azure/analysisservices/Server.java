@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("analysis-services-server-test")
  *             .location("West Europe")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku("S0")
- *             .adminUsers("myuser{@literal @}domain.tld")
+ *             .adminUsers("myuser}{@literal @}{@code domain.tld")
  *             .enablePowerBiService(true)
  *             .ipv4FirewallRules(ServerIpv4FirewallRuleArgs.builder()
  *                 .name("myRule1")
@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("abc", 123))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -257,7 +257,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Server(String name) {
+    public Server(java.lang.String name) {
         this(name, ServerArgs.Empty);
     }
     /**
@@ -265,7 +265,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Server(String name, ServerArgs args) {
+    public Server(java.lang.String name, ServerArgs args) {
         this(name, args, null);
     }
     /**
@@ -274,12 +274,12 @@ public class Server extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Server(String name, ServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:analysisservices/server:Server", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Server(java.lang.String name, ServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:analysisservices/server:Server", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Server(String name, Output<String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:analysisservices/server:Server", name, state, makeResourceOptions(options, id));
+    private Server(java.lang.String name, Output<java.lang.String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:analysisservices/server:Server", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerArgs makeArgs(ServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -289,7 +289,7 @@ public class Server extends com.pulumi.resources.CustomResource {
         return args == null ? ServerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -308,7 +308,7 @@ public class Server extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Server get(String name, Output<String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Server get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Server(name, id, state, options);
     }
 }

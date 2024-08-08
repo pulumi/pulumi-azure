@@ -158,7 +158,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExpressRoutePortAuthorization(String name) {
+    public ExpressRoutePortAuthorization(java.lang.String name) {
         this(name, ExpressRoutePortAuthorizationArgs.Empty);
     }
     /**
@@ -166,7 +166,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExpressRoutePortAuthorization(String name, ExpressRoutePortAuthorizationArgs args) {
+    public ExpressRoutePortAuthorization(java.lang.String name, ExpressRoutePortAuthorizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -175,12 +175,12 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExpressRoutePortAuthorization(String name, ExpressRoutePortAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ExpressRoutePortAuthorization(java.lang.String name, ExpressRoutePortAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExpressRoutePortAuthorization(String name, Output<String> id, @Nullable ExpressRoutePortAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", name, state, makeResourceOptions(options, id));
+    private ExpressRoutePortAuthorization(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRoutePortAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExpressRoutePortAuthorizationArgs makeArgs(ExpressRoutePortAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -190,7 +190,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
         return args == null ? ExpressRoutePortAuthorizationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -209,7 +209,7 @@ public class ExpressRoutePortAuthorization extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExpressRoutePortAuthorization get(String name, Output<String> id, @Nullable ExpressRoutePortAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExpressRoutePortAuthorization get(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRoutePortAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExpressRoutePortAuthorization(name, id, state, options);
     }
 }

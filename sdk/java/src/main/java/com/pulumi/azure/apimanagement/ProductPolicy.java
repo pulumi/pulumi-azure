@@ -155,7 +155,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProductPolicy(String name) {
+    public ProductPolicy(java.lang.String name) {
         this(name, ProductPolicyArgs.Empty);
     }
     /**
@@ -163,7 +163,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProductPolicy(String name, ProductPolicyArgs args) {
+    public ProductPolicy(java.lang.String name, ProductPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -172,12 +172,12 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProductPolicy(String name, ProductPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productPolicy:ProductPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProductPolicy(java.lang.String name, ProductPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/productPolicy:ProductPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProductPolicy(String name, Output<String> id, @Nullable ProductPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productPolicy:ProductPolicy", name, state, makeResourceOptions(options, id));
+    private ProductPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ProductPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/productPolicy:ProductPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProductPolicyArgs makeArgs(ProductPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -187,7 +187,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? ProductPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -203,7 +203,7 @@ public class ProductPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProductPolicy get(String name, Output<String> id, @Nullable ProductPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProductPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ProductPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProductPolicy(name, id, state, options);
     }
 }

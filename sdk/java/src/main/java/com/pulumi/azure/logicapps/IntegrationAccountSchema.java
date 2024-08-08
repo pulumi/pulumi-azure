@@ -173,7 +173,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccountSchema(String name) {
+    public IntegrationAccountSchema(java.lang.String name) {
         this(name, IntegrationAccountSchemaArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccountSchema(String name, IntegrationAccountSchemaArgs args) {
+    public IntegrationAccountSchema(java.lang.String name, IntegrationAccountSchemaArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,12 +190,12 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccountSchema(String name, IntegrationAccountSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountSchema:IntegrationAccountSchema", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccountSchema(java.lang.String name, IntegrationAccountSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountSchema:IntegrationAccountSchema", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccountSchema(String name, Output<String> id, @Nullable IntegrationAccountSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountSchema:IntegrationAccountSchema", name, state, makeResourceOptions(options, id));
+    private IntegrationAccountSchema(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountSchema:IntegrationAccountSchema", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationAccountSchemaArgs makeArgs(IntegrationAccountSchemaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -205,7 +205,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
         return args == null ? IntegrationAccountSchemaArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -221,7 +221,7 @@ public class IntegrationAccountSchema extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccountSchema get(String name, Output<String> id, @Nullable IntegrationAccountSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccountSchema get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountSchemaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccountSchema(name, id, state, options);
     }
 }

@@ -499,7 +499,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Slot(String name) {
+    public Slot(java.lang.String name) {
         this(name, SlotArgs.Empty);
     }
     /**
@@ -507,7 +507,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Slot(String name, SlotArgs args) {
+    public Slot(java.lang.String name, SlotArgs args) {
         this(name, args, null);
     }
     /**
@@ -516,12 +516,12 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Slot(String name, SlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/slot:Slot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Slot(java.lang.String name, SlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/slot:Slot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Slot(String name, Output<String> id, @Nullable SlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/slot:Slot", name, state, makeResourceOptions(options, id));
+    private Slot(java.lang.String name, Output<java.lang.String> id, @Nullable SlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/slot:Slot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SlotArgs makeArgs(SlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -531,7 +531,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
         return args == null ? SlotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -547,7 +547,7 @@ public class Slot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Slot get(String name, Output<String> id, @Nullable SlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Slot get(java.lang.String name, Output<java.lang.String> id, @Nullable SlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Slot(name, id, state, options);
     }
 }

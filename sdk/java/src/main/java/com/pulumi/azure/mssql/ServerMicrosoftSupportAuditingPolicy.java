@@ -331,7 +331,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerMicrosoftSupportAuditingPolicy(String name) {
+    public ServerMicrosoftSupportAuditingPolicy(java.lang.String name) {
         this(name, ServerMicrosoftSupportAuditingPolicyArgs.Empty);
     }
     /**
@@ -339,7 +339,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerMicrosoftSupportAuditingPolicy(String name, ServerMicrosoftSupportAuditingPolicyArgs args) {
+    public ServerMicrosoftSupportAuditingPolicy(java.lang.String name, ServerMicrosoftSupportAuditingPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -348,12 +348,12 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerMicrosoftSupportAuditingPolicy(String name, ServerMicrosoftSupportAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServerMicrosoftSupportAuditingPolicy(java.lang.String name, ServerMicrosoftSupportAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerMicrosoftSupportAuditingPolicy(String name, Output<String> id, @Nullable ServerMicrosoftSupportAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy", name, state, makeResourceOptions(options, id));
+    private ServerMicrosoftSupportAuditingPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ServerMicrosoftSupportAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverMicrosoftSupportAuditingPolicy:ServerMicrosoftSupportAuditingPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerMicrosoftSupportAuditingPolicyArgs makeArgs(ServerMicrosoftSupportAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -363,7 +363,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
         return args == null ? ServerMicrosoftSupportAuditingPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -383,7 +383,7 @@ public class ServerMicrosoftSupportAuditingPolicy extends com.pulumi.resources.C
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerMicrosoftSupportAuditingPolicy get(String name, Output<String> id, @Nullable ServerMicrosoftSupportAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerMicrosoftSupportAuditingPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerMicrosoftSupportAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerMicrosoftSupportAuditingPolicy(name, id, state, options);
     }
 }

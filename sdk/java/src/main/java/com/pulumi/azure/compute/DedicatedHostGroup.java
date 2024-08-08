@@ -179,7 +179,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DedicatedHostGroup(String name) {
+    public DedicatedHostGroup(java.lang.String name) {
         this(name, DedicatedHostGroupArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DedicatedHostGroup(String name, DedicatedHostGroupArgs args) {
+    public DedicatedHostGroup(java.lang.String name, DedicatedHostGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,12 +196,12 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DedicatedHostGroup(String name, DedicatedHostGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/dedicatedHostGroup:DedicatedHostGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DedicatedHostGroup(java.lang.String name, DedicatedHostGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/dedicatedHostGroup:DedicatedHostGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DedicatedHostGroup(String name, Output<String> id, @Nullable DedicatedHostGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/dedicatedHostGroup:DedicatedHostGroup", name, state, makeResourceOptions(options, id));
+    private DedicatedHostGroup(java.lang.String name, Output<java.lang.String> id, @Nullable DedicatedHostGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/dedicatedHostGroup:DedicatedHostGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DedicatedHostGroupArgs makeArgs(DedicatedHostGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -211,7 +211,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
         return args == null ? DedicatedHostGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +227,7 @@ public class DedicatedHostGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DedicatedHostGroup get(String name, Output<String> id, @Nullable DedicatedHostGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DedicatedHostGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable DedicatedHostGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DedicatedHostGroup(name, id, state, options);
     }
 }

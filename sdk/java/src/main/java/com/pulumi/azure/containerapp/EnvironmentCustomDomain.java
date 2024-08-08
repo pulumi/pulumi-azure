@@ -155,7 +155,7 @@ public class EnvironmentCustomDomain extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnvironmentCustomDomain(String name) {
+    public EnvironmentCustomDomain(java.lang.String name) {
         this(name, EnvironmentCustomDomainArgs.Empty);
     }
     /**
@@ -163,7 +163,7 @@ public class EnvironmentCustomDomain extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnvironmentCustomDomain(String name, EnvironmentCustomDomainArgs args) {
+    public EnvironmentCustomDomain(java.lang.String name, EnvironmentCustomDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -172,12 +172,12 @@ public class EnvironmentCustomDomain extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnvironmentCustomDomain(String name, EnvironmentCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EnvironmentCustomDomain(java.lang.String name, EnvironmentCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnvironmentCustomDomain(String name, Output<String> id, @Nullable EnvironmentCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain", name, state, makeResourceOptions(options, id));
+    private EnvironmentCustomDomain(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerapp/environmentCustomDomain:EnvironmentCustomDomain", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EnvironmentCustomDomainArgs makeArgs(EnvironmentCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -187,7 +187,7 @@ public class EnvironmentCustomDomain extends com.pulumi.resources.CustomResource
         return args == null ? EnvironmentCustomDomainArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -206,7 +206,7 @@ public class EnvironmentCustomDomain extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnvironmentCustomDomain get(String name, Output<String> id, @Nullable EnvironmentCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnvironmentCustomDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnvironmentCustomDomain(name, id, state, options);
     }
 }

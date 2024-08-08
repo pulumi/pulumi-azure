@@ -173,7 +173,7 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagementPolicy(String name) {
+    public ManagementPolicy(java.lang.String name) {
         this(name, ManagementPolicyArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagementPolicy(String name, ManagementPolicyArgs args) {
+    public ManagementPolicy(java.lang.String name, ManagementPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,12 +190,12 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagementPolicy(String name, ManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/managementPolicy:ManagementPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagementPolicy(java.lang.String name, ManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/managementPolicy:ManagementPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagementPolicy(String name, Output<String> id, @Nullable ManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/managementPolicy:ManagementPolicy", name, state, makeResourceOptions(options, id));
+    private ManagementPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/managementPolicy:ManagementPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagementPolicyArgs makeArgs(ManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -205,7 +205,7 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? ManagementPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -221,7 +221,7 @@ public class ManagementPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagementPolicy get(String name, Output<String> id, @Nullable ManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagementPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagementPolicy(name, id, state, options);
     }
 }

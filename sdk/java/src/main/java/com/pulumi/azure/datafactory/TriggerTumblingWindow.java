@@ -337,7 +337,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TriggerTumblingWindow(String name) {
+    public TriggerTumblingWindow(java.lang.String name) {
         this(name, TriggerTumblingWindowArgs.Empty);
     }
     /**
@@ -345,7 +345,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TriggerTumblingWindow(String name, TriggerTumblingWindowArgs args) {
+    public TriggerTumblingWindow(java.lang.String name, TriggerTumblingWindowArgs args) {
         this(name, args, null);
     }
     /**
@@ -354,12 +354,12 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TriggerTumblingWindow(String name, TriggerTumblingWindowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TriggerTumblingWindow(java.lang.String name, TriggerTumblingWindowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TriggerTumblingWindow(String name, Output<String> id, @Nullable TriggerTumblingWindowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow", name, state, makeResourceOptions(options, id));
+    private TriggerTumblingWindow(java.lang.String name, Output<java.lang.String> id, @Nullable TriggerTumblingWindowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TriggerTumblingWindowArgs makeArgs(TriggerTumblingWindowArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -369,7 +369,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
         return args == null ? TriggerTumblingWindowArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -385,7 +385,7 @@ public class TriggerTumblingWindow extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TriggerTumblingWindow get(String name, Output<String> id, @Nullable TriggerTumblingWindowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TriggerTumblingWindow get(java.lang.String name, Output<java.lang.String> id, @Nullable TriggerTumblingWindowState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TriggerTumblingWindow(name, id, state, options);
     }
 }

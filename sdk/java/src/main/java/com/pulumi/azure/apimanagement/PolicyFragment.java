@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("pub1")
- *             .publisherEmail("pub1{@literal @}email.com")
+ *             .publisherEmail("pub1}{@literal @}{@code email.com")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -169,7 +169,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PolicyFragment(String name) {
+    public PolicyFragment(java.lang.String name) {
         this(name, PolicyFragmentArgs.Empty);
     }
     /**
@@ -177,7 +177,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyFragment(String name, PolicyFragmentArgs args) {
+    public PolicyFragment(java.lang.String name, PolicyFragmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -186,12 +186,12 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyFragment(String name, PolicyFragmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/policyFragment:PolicyFragment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PolicyFragment(java.lang.String name, PolicyFragmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/policyFragment:PolicyFragment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PolicyFragment(String name, Output<String> id, @Nullable PolicyFragmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/policyFragment:PolicyFragment", name, state, makeResourceOptions(options, id));
+    private PolicyFragment(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyFragmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/policyFragment:PolicyFragment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PolicyFragmentArgs makeArgs(PolicyFragmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -201,7 +201,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
         return args == null ? PolicyFragmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -217,7 +217,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PolicyFragment get(String name, Output<String> id, @Nullable PolicyFragmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PolicyFragment get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyFragmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PolicyFragment(name, id, state, options);
     }
 }

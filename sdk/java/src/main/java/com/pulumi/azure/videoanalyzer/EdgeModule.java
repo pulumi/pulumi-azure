@@ -177,7 +177,7 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EdgeModule(String name) {
+    public EdgeModule(java.lang.String name) {
         this(name, EdgeModuleArgs.Empty);
     }
     /**
@@ -185,7 +185,7 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EdgeModule(String name, EdgeModuleArgs args) {
+    public EdgeModule(java.lang.String name, EdgeModuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,12 +194,12 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EdgeModule(String name, EdgeModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:videoanalyzer/edgeModule:EdgeModule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EdgeModule(java.lang.String name, EdgeModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:videoanalyzer/edgeModule:EdgeModule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EdgeModule(String name, Output<String> id, @Nullable EdgeModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:videoanalyzer/edgeModule:EdgeModule", name, state, makeResourceOptions(options, id));
+    private EdgeModule(java.lang.String name, Output<java.lang.String> id, @Nullable EdgeModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:videoanalyzer/edgeModule:EdgeModule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EdgeModuleArgs makeArgs(EdgeModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -209,7 +209,7 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
         return args == null ? EdgeModuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -225,7 +225,7 @@ public class EdgeModule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EdgeModule get(String name, Output<String> id, @Nullable EdgeModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EdgeModule get(java.lang.String name, Output<java.lang.String> id, @Nullable EdgeModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EdgeModule(name, id, state, options);
     }
 }

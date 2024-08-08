@@ -68,7 +68,7 @@ public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.r
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NextGenerationFirewallVirtualHubLocalRulestack(String name) {
+    public NextGenerationFirewallVirtualHubLocalRulestack(java.lang.String name) {
         this(name, NextGenerationFirewallVirtualHubLocalRulestackArgs.Empty);
     }
     /**
@@ -76,7 +76,7 @@ public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.r
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NextGenerationFirewallVirtualHubLocalRulestack(String name, NextGenerationFirewallVirtualHubLocalRulestackArgs args) {
+    public NextGenerationFirewallVirtualHubLocalRulestack(java.lang.String name, NextGenerationFirewallVirtualHubLocalRulestackArgs args) {
         this(name, args, null);
     }
     /**
@@ -85,12 +85,12 @@ public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.r
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NextGenerationFirewallVirtualHubLocalRulestack(String name, NextGenerationFirewallVirtualHubLocalRulestackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NextGenerationFirewallVirtualHubLocalRulestack(java.lang.String name, NextGenerationFirewallVirtualHubLocalRulestackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NextGenerationFirewallVirtualHubLocalRulestack(String name, Output<String> id, @Nullable NextGenerationFirewallVirtualHubLocalRulestackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack", name, state, makeResourceOptions(options, id));
+    private NextGenerationFirewallVirtualHubLocalRulestack(java.lang.String name, Output<java.lang.String> id, @Nullable NextGenerationFirewallVirtualHubLocalRulestackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/nextGenerationFirewallVirtualHubLocalRulestack:NextGenerationFirewallVirtualHubLocalRulestack", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NextGenerationFirewallVirtualHubLocalRulestackArgs makeArgs(NextGenerationFirewallVirtualHubLocalRulestackArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -100,7 +100,7 @@ public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.r
         return args == null ? NextGenerationFirewallVirtualHubLocalRulestackArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -116,7 +116,7 @@ public class NextGenerationFirewallVirtualHubLocalRulestack extends com.pulumi.r
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NextGenerationFirewallVirtualHubLocalRulestack get(String name, Output<String> id, @Nullable NextGenerationFirewallVirtualHubLocalRulestackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NextGenerationFirewallVirtualHubLocalRulestack get(java.lang.String name, Output<java.lang.String> id, @Nullable NextGenerationFirewallVirtualHubLocalRulestackState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NextGenerationFirewallVirtualHubLocalRulestack(name, id, state, options);
     }
 }

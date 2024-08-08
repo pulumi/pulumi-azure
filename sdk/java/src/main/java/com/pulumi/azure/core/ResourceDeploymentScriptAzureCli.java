@@ -358,7 +358,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceDeploymentScriptAzureCli(String name) {
+    public ResourceDeploymentScriptAzureCli(java.lang.String name) {
         this(name, ResourceDeploymentScriptAzureCliArgs.Empty);
     }
     /**
@@ -366,7 +366,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceDeploymentScriptAzureCli(String name, ResourceDeploymentScriptAzureCliArgs args) {
+    public ResourceDeploymentScriptAzureCli(java.lang.String name, ResourceDeploymentScriptAzureCliArgs args) {
         this(name, args, null);
     }
     /**
@@ -375,12 +375,12 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceDeploymentScriptAzureCli(String name, ResourceDeploymentScriptAzureCliArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResourceDeploymentScriptAzureCli(java.lang.String name, ResourceDeploymentScriptAzureCliArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceDeploymentScriptAzureCli(String name, Output<String> id, @Nullable ResourceDeploymentScriptAzureCliState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli", name, state, makeResourceOptions(options, id));
+    private ResourceDeploymentScriptAzureCli(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceDeploymentScriptAzureCliState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResourceDeploymentScriptAzureCliArgs makeArgs(ResourceDeploymentScriptAzureCliArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -390,7 +390,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
         return args == null ? ResourceDeploymentScriptAzureCliArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -406,7 +406,7 @@ public class ResourceDeploymentScriptAzureCli extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceDeploymentScriptAzureCli get(String name, Output<String> id, @Nullable ResourceDeploymentScriptAzureCliState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceDeploymentScriptAzureCli get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceDeploymentScriptAzureCliState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceDeploymentScriptAzureCli(name, id, state, options);
     }
 }
