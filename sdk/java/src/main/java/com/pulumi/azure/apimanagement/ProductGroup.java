@@ -147,7 +147,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProductGroup(String name) {
+    public ProductGroup(java.lang.String name) {
         this(name, ProductGroupArgs.Empty);
     }
     /**
@@ -155,7 +155,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProductGroup(String name, ProductGroupArgs args) {
+    public ProductGroup(java.lang.String name, ProductGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -164,12 +164,12 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProductGroup(String name, ProductGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productGroup:ProductGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProductGroup(java.lang.String name, ProductGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/productGroup:ProductGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProductGroup(String name, Output<String> id, @Nullable ProductGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/productGroup:ProductGroup", name, state, makeResourceOptions(options, id));
+    private ProductGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ProductGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/productGroup:ProductGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProductGroupArgs makeArgs(ProductGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -179,7 +179,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
         return args == null ? ProductGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +195,7 @@ public class ProductGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProductGroup get(String name, Output<String> id, @Nullable ProductGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProductGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ProductGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProductGroup(name, id, state, options);
     }
 }

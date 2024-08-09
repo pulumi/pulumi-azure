@@ -455,7 +455,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertRuleScheduled(String name) {
+    public AlertRuleScheduled(java.lang.String name) {
         this(name, AlertRuleScheduledArgs.Empty);
     }
     /**
@@ -463,7 +463,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertRuleScheduled(String name, AlertRuleScheduledArgs args) {
+    public AlertRuleScheduled(java.lang.String name, AlertRuleScheduledArgs args) {
         this(name, args, null);
     }
     /**
@@ -472,12 +472,12 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertRuleScheduled(String name, AlertRuleScheduledArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleScheduled:AlertRuleScheduled", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertRuleScheduled(java.lang.String name, AlertRuleScheduledArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/alertRuleScheduled:AlertRuleScheduled", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertRuleScheduled(String name, Output<String> id, @Nullable AlertRuleScheduledState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleScheduled:AlertRuleScheduled", name, state, makeResourceOptions(options, id));
+    private AlertRuleScheduled(java.lang.String name, Output<java.lang.String> id, @Nullable AlertRuleScheduledState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/alertRuleScheduled:AlertRuleScheduled", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertRuleScheduledArgs makeArgs(AlertRuleScheduledArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -487,7 +487,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return args == null ? AlertRuleScheduledArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -503,7 +503,7 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertRuleScheduled get(String name, Output<String> id, @Nullable AlertRuleScheduledState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertRuleScheduled get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertRuleScheduledState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertRuleScheduled(name, id, state, options);
     }
 }

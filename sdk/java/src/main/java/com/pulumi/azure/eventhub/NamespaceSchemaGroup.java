@@ -140,7 +140,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NamespaceSchemaGroup(String name) {
+    public NamespaceSchemaGroup(java.lang.String name) {
         this(name, NamespaceSchemaGroupArgs.Empty);
     }
     /**
@@ -148,7 +148,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NamespaceSchemaGroup(String name, NamespaceSchemaGroupArgs args) {
+    public NamespaceSchemaGroup(java.lang.String name, NamespaceSchemaGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -157,12 +157,12 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NamespaceSchemaGroup(String name, NamespaceSchemaGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NamespaceSchemaGroup(java.lang.String name, NamespaceSchemaGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NamespaceSchemaGroup(String name, Output<String> id, @Nullable NamespaceSchemaGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, state, makeResourceOptions(options, id));
+    private NamespaceSchemaGroup(java.lang.String name, Output<java.lang.String> id, @Nullable NamespaceSchemaGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NamespaceSchemaGroupArgs makeArgs(NamespaceSchemaGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -172,7 +172,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
         return args == null ? NamespaceSchemaGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -188,7 +188,7 @@ public class NamespaceSchemaGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NamespaceSchemaGroup get(String name, Output<String> id, @Nullable NamespaceSchemaGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NamespaceSchemaGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable NamespaceSchemaGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NamespaceSchemaGroup(name, id, state, options);
     }
 }

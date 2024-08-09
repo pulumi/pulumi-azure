@@ -225,7 +225,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AssetFilter(String name) {
+    public AssetFilter(java.lang.String name) {
         this(name, AssetFilterArgs.Empty);
     }
     /**
@@ -233,7 +233,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AssetFilter(String name, AssetFilterArgs args) {
+    public AssetFilter(java.lang.String name, AssetFilterArgs args) {
         this(name, args, null);
     }
     /**
@@ -242,12 +242,12 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AssetFilter(String name, AssetFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/assetFilter:AssetFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AssetFilter(java.lang.String name, AssetFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/assetFilter:AssetFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AssetFilter(String name, Output<String> id, @Nullable AssetFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/assetFilter:AssetFilter", name, state, makeResourceOptions(options, id));
+    private AssetFilter(java.lang.String name, Output<java.lang.String> id, @Nullable AssetFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/assetFilter:AssetFilter", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AssetFilterArgs makeArgs(AssetFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -257,7 +257,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
         return args == null ? AssetFilterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -273,7 +273,7 @@ public class AssetFilter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AssetFilter get(String name, Output<String> id, @Nullable AssetFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AssetFilter get(java.lang.String name, Output<java.lang.String> id, @Nullable AssetFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AssetFilter(name, id, state, options);
     }
 }

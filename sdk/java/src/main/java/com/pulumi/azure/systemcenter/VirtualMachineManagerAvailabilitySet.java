@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .customLocationId("/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.ExtendedLocation/customLocations/customLocation1")
  *             .fqdn("example.labtest")
  *             .username("testUser")
- *             .password("H{@literal @}Sh1CoR3!")
+ *             .password("H}{@literal @}{@code Sh1CoR3!")
  *             .build());
  * 
  *         var exampleVirtualMachineManagerAvailabilitySet = new VirtualMachineManagerAvailabilitySet("exampleVirtualMachineManagerAvailabilitySet", VirtualMachineManagerAvailabilitySetArgs.builder()
@@ -70,8 +70,8 @@ import javax.annotation.Nullable;
  *             .systemCenterVirtualMachineManagerServerId(exampleVirtualMachineManagerServer.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -176,7 +176,7 @@ public class VirtualMachineManagerAvailabilitySet extends com.pulumi.resources.C
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualMachineManagerAvailabilitySet(String name) {
+    public VirtualMachineManagerAvailabilitySet(java.lang.String name) {
         this(name, VirtualMachineManagerAvailabilitySetArgs.Empty);
     }
     /**
@@ -184,7 +184,7 @@ public class VirtualMachineManagerAvailabilitySet extends com.pulumi.resources.C
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualMachineManagerAvailabilitySet(String name, VirtualMachineManagerAvailabilitySetArgs args) {
+    public VirtualMachineManagerAvailabilitySet(java.lang.String name, VirtualMachineManagerAvailabilitySetArgs args) {
         this(name, args, null);
     }
     /**
@@ -193,12 +193,12 @@ public class VirtualMachineManagerAvailabilitySet extends com.pulumi.resources.C
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualMachineManagerAvailabilitySet(String name, VirtualMachineManagerAvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualMachineManagerAvailabilitySet(java.lang.String name, VirtualMachineManagerAvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualMachineManagerAvailabilitySet(String name, Output<String> id, @Nullable VirtualMachineManagerAvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", name, state, makeResourceOptions(options, id));
+    private VirtualMachineManagerAvailabilitySet(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineManagerAvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:systemcenter/virtualMachineManagerAvailabilitySet:VirtualMachineManagerAvailabilitySet", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualMachineManagerAvailabilitySetArgs makeArgs(VirtualMachineManagerAvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -208,7 +208,7 @@ public class VirtualMachineManagerAvailabilitySet extends com.pulumi.resources.C
         return args == null ? VirtualMachineManagerAvailabilitySetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -224,7 +224,7 @@ public class VirtualMachineManagerAvailabilitySet extends com.pulumi.resources.C
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualMachineManagerAvailabilitySet get(String name, Output<String> id, @Nullable VirtualMachineManagerAvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualMachineManagerAvailabilitySet get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineManagerAvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualMachineManagerAvailabilitySet(name, id, state, options);
     }
 }

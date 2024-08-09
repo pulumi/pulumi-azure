@@ -180,7 +180,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedDatabase(String name) {
+    public ManagedDatabase(java.lang.String name) {
         this(name, ManagedDatabaseArgs.Empty);
     }
     /**
@@ -188,7 +188,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedDatabase(String name, ManagedDatabaseArgs args) {
+    public ManagedDatabase(java.lang.String name, ManagedDatabaseArgs args) {
         this(name, args, null);
     }
     /**
@@ -197,12 +197,12 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedDatabase(String name, ManagedDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedDatabase:ManagedDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedDatabase(java.lang.String name, ManagedDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedDatabase:ManagedDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedDatabase(String name, Output<String> id, @Nullable ManagedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedDatabase:ManagedDatabase", name, state, makeResourceOptions(options, id));
+    private ManagedDatabase(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedDatabase:ManagedDatabase", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedDatabaseArgs makeArgs(ManagedDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -212,7 +212,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
         return args == null ? ManagedDatabaseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -228,7 +228,7 @@ public class ManagedDatabase extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedDatabase get(String name, Output<String> id, @Nullable ManagedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedDatabase get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedDatabase(name, id, state, options);
     }
 }

@@ -279,7 +279,7 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualNetworkSwiftConnection(String name) {
+    public VirtualNetworkSwiftConnection(java.lang.String name) {
         this(name, VirtualNetworkSwiftConnectionArgs.Empty);
     }
     /**
@@ -287,7 +287,7 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualNetworkSwiftConnection(String name, VirtualNetworkSwiftConnectionArgs args) {
+    public VirtualNetworkSwiftConnection(java.lang.String name, VirtualNetworkSwiftConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -296,12 +296,12 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualNetworkSwiftConnection(String name, VirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualNetworkSwiftConnection(java.lang.String name, VirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualNetworkSwiftConnection(String name, Output<String> id, @Nullable VirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, state, makeResourceOptions(options, id));
+    private VirtualNetworkSwiftConnection(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualNetworkSwiftConnectionArgs makeArgs(VirtualNetworkSwiftConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -311,7 +311,7 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
         return args == null ? VirtualNetworkSwiftConnectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -327,7 +327,7 @@ public class VirtualNetworkSwiftConnection extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualNetworkSwiftConnection get(String name, Output<String> id, @Nullable VirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualNetworkSwiftConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualNetworkSwiftConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualNetworkSwiftConnection(name, id, state, options);
     }
 }

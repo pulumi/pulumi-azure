@@ -156,7 +156,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApplicationNetworkRuleSet(String name) {
+    public ApplicationNetworkRuleSet(java.lang.String name) {
         this(name, ApplicationNetworkRuleSetArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApplicationNetworkRuleSet(String name, ApplicationNetworkRuleSetArgs args) {
+    public ApplicationNetworkRuleSet(java.lang.String name, ApplicationNetworkRuleSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,12 +173,12 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApplicationNetworkRuleSet(String name, ApplicationNetworkRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApplicationNetworkRuleSet(java.lang.String name, ApplicationNetworkRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApplicationNetworkRuleSet(String name, Output<String> id, @Nullable ApplicationNetworkRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet", name, state, makeResourceOptions(options, id));
+    private ApplicationNetworkRuleSet(java.lang.String name, Output<java.lang.String> id, @Nullable ApplicationNetworkRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApplicationNetworkRuleSetArgs makeArgs(ApplicationNetworkRuleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -188,7 +188,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
         return args == null ? ApplicationNetworkRuleSetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -204,7 +204,7 @@ public class ApplicationNetworkRuleSet extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApplicationNetworkRuleSet get(String name, Output<String> id, @Nullable ApplicationNetworkRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApplicationNetworkRuleSet get(java.lang.String name, Output<java.lang.String> id, @Nullable ApplicationNetworkRuleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApplicationNetworkRuleSet(name, id, state, options);
     }
 }

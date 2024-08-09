@@ -249,7 +249,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterExtension(String name) {
+    public ClusterExtension(java.lang.String name) {
         this(name, ClusterExtensionArgs.Empty);
     }
     /**
@@ -257,7 +257,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterExtension(String name, ClusterExtensionArgs args) {
+    public ClusterExtension(java.lang.String name, ClusterExtensionArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,12 +266,12 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterExtension(String name, ClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:arckubernetes/clusterExtension:ClusterExtension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ClusterExtension(java.lang.String name, ClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:arckubernetes/clusterExtension:ClusterExtension", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterExtension(String name, Output<String> id, @Nullable ClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:arckubernetes/clusterExtension:ClusterExtension", name, state, makeResourceOptions(options, id));
+    private ClusterExtension(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:arckubernetes/clusterExtension:ClusterExtension", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ClusterExtensionArgs makeArgs(ClusterExtensionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -281,7 +281,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
         return args == null ? ClusterExtensionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -297,7 +297,7 @@ public class ClusterExtension extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterExtension get(String name, Output<String> id, @Nullable ClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterExtension get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterExtensionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterExtension(name, id, state, options);
     }
 }

@@ -132,7 +132,7 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorIot(String name) {
+    public DataConnectorIot(java.lang.String name) {
         this(name, DataConnectorIotArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorIot(String name, DataConnectorIotArgs args) {
+    public DataConnectorIot(java.lang.String name, DataConnectorIotArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,12 +149,12 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorIot(String name, DataConnectorIotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorIot:DataConnectorIot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorIot(java.lang.String name, DataConnectorIotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorIot:DataConnectorIot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorIot(String name, Output<String> id, @Nullable DataConnectorIotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorIot:DataConnectorIot", name, state, makeResourceOptions(options, id));
+    private DataConnectorIot(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorIotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorIot:DataConnectorIot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorIotArgs makeArgs(DataConnectorIotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -164,7 +164,7 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
         return args == null ? DataConnectorIotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -180,7 +180,7 @@ public class DataConnectorIot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorIot get(String name, Output<String> id, @Nullable DataConnectorIotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorIot get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorIotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorIot(name, id, state, options);
     }
 }

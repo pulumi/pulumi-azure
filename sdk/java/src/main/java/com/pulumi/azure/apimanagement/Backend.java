@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}exmaple.com")
+ *             .publisherEmail("company}{@literal @}{@code exmaple.com")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  *             .url("https://backend")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -262,7 +262,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Backend(String name) {
+    public Backend(java.lang.String name) {
         this(name, BackendArgs.Empty);
     }
     /**
@@ -270,7 +270,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Backend(String name, BackendArgs args) {
+    public Backend(java.lang.String name, BackendArgs args) {
         this(name, args, null);
     }
     /**
@@ -279,12 +279,12 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Backend(String name, BackendArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/backend:Backend", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Backend(java.lang.String name, BackendArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/backend:Backend", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Backend(String name, Output<String> id, @Nullable BackendState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/backend:Backend", name, state, makeResourceOptions(options, id));
+    private Backend(java.lang.String name, Output<java.lang.String> id, @Nullable BackendState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/backend:Backend", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BackendArgs makeArgs(BackendArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -294,7 +294,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
         return args == null ? BackendArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -310,7 +310,7 @@ public class Backend extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Backend get(String name, Output<String> id, @Nullable BackendState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Backend get(java.lang.String name, Output<java.lang.String> id, @Nullable BackendState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Backend(name, id, state, options);
     }
 }

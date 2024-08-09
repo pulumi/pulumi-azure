@@ -205,7 +205,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterManagedPrivateEndpoint(String name) {
+    public ClusterManagedPrivateEndpoint(java.lang.String name) {
         this(name, ClusterManagedPrivateEndpointArgs.Empty);
     }
     /**
@@ -213,7 +213,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterManagedPrivateEndpoint(String name, ClusterManagedPrivateEndpointArgs args) {
+    public ClusterManagedPrivateEndpoint(java.lang.String name, ClusterManagedPrivateEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -222,12 +222,12 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterManagedPrivateEndpoint(String name, ClusterManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ClusterManagedPrivateEndpoint(java.lang.String name, ClusterManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterManagedPrivateEndpoint(String name, Output<String> id, @Nullable ClusterManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", name, state, makeResourceOptions(options, id));
+    private ClusterManagedPrivateEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ClusterManagedPrivateEndpointArgs makeArgs(ClusterManagedPrivateEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -237,7 +237,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
         return args == null ? ClusterManagedPrivateEndpointArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -253,7 +253,7 @@ public class ClusterManagedPrivateEndpoint extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterManagedPrivateEndpoint get(String name, Output<String> id, @Nullable ClusterManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterManagedPrivateEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterManagedPrivateEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterManagedPrivateEndpoint(name, id, state, options);
     }
 }

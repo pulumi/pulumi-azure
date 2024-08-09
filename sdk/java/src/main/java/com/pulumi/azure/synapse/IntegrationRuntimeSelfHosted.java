@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
@@ -85,7 +85,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .managedVirtualNetworkEnabled(true)
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -104,8 +104,8 @@ import javax.annotation.Nullable;
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -196,7 +196,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationRuntimeSelfHosted(String name) {
+    public IntegrationRuntimeSelfHosted(java.lang.String name) {
         this(name, IntegrationRuntimeSelfHostedArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationRuntimeSelfHosted(String name, IntegrationRuntimeSelfHostedArgs args) {
+    public IntegrationRuntimeSelfHosted(java.lang.String name, IntegrationRuntimeSelfHostedArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,12 +213,12 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationRuntimeSelfHosted(String name, IntegrationRuntimeSelfHostedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationRuntimeSelfHosted(java.lang.String name, IntegrationRuntimeSelfHostedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationRuntimeSelfHosted(String name, Output<String> id, @Nullable IntegrationRuntimeSelfHostedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, state, makeResourceOptions(options, id));
+    private IntegrationRuntimeSelfHosted(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeSelfHostedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationRuntimeSelfHostedArgs makeArgs(IntegrationRuntimeSelfHostedArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -228,7 +228,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
         return args == null ? IntegrationRuntimeSelfHostedArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +244,7 @@ public class IntegrationRuntimeSelfHosted extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationRuntimeSelfHosted get(String name, Output<String> id, @Nullable IntegrationRuntimeSelfHostedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationRuntimeSelfHosted get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeSelfHostedState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationRuntimeSelfHosted(name, id, state, options);
     }
 }

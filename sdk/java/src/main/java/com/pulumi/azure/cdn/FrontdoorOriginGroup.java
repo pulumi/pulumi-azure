@@ -191,7 +191,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorOriginGroup(String name) {
+    public FrontdoorOriginGroup(java.lang.String name) {
         this(name, FrontdoorOriginGroupArgs.Empty);
     }
     /**
@@ -199,7 +199,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorOriginGroup(String name, FrontdoorOriginGroupArgs args) {
+    public FrontdoorOriginGroup(java.lang.String name, FrontdoorOriginGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -208,12 +208,12 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorOriginGroup(String name, FrontdoorOriginGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorOriginGroup(java.lang.String name, FrontdoorOriginGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FrontdoorOriginGroup(String name, Output<String> id, @Nullable FrontdoorOriginGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup", name, state, makeResourceOptions(options, id));
+    private FrontdoorOriginGroup(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorOriginGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FrontdoorOriginGroupArgs makeArgs(FrontdoorOriginGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -223,7 +223,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
         return args == null ? FrontdoorOriginGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +239,7 @@ public class FrontdoorOriginGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorOriginGroup get(String name, Output<String> id, @Nullable FrontdoorOriginGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FrontdoorOriginGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorOriginGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FrontdoorOriginGroup(name, id, state, options);
     }
 }

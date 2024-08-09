@@ -514,7 +514,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Certifiate(String name) {
+    public Certifiate(java.lang.String name) {
         this(name, CertifiateArgs.Empty);
     }
     /**
@@ -522,7 +522,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Certifiate(String name, CertifiateArgs args) {
+    public Certifiate(java.lang.String name, CertifiateArgs args) {
         this(name, args, null);
     }
     /**
@@ -531,12 +531,12 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Certifiate(String name, CertifiateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/certifiate:Certifiate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Certifiate(java.lang.String name, CertifiateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/certifiate:Certifiate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Certifiate(String name, Output<String> id, @Nullable CertifiateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/certifiate:Certifiate", name, state, makeResourceOptions(options, id));
+    private Certifiate(java.lang.String name, Output<java.lang.String> id, @Nullable CertifiateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/certifiate:Certifiate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CertifiateArgs makeArgs(CertifiateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -546,7 +546,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
         return args == null ? CertifiateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -562,7 +562,7 @@ public class Certifiate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Certifiate get(String name, Output<String> id, @Nullable CertifiateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Certifiate get(java.lang.String name, Output<java.lang.String> id, @Nullable CertifiateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Certifiate(name, id, state, options);
     }
 }

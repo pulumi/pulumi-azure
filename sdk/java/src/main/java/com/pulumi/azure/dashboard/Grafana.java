@@ -329,7 +329,7 @@ public class Grafana extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Grafana(String name) {
+    public Grafana(java.lang.String name) {
         this(name, GrafanaArgs.Empty);
     }
     /**
@@ -337,7 +337,7 @@ public class Grafana extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Grafana(String name, GrafanaArgs args) {
+    public Grafana(java.lang.String name, GrafanaArgs args) {
         this(name, args, null);
     }
     /**
@@ -346,12 +346,12 @@ public class Grafana extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Grafana(String name, GrafanaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dashboard/grafana:Grafana", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Grafana(java.lang.String name, GrafanaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dashboard/grafana:Grafana", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Grafana(String name, Output<String> id, @Nullable GrafanaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dashboard/grafana:Grafana", name, state, makeResourceOptions(options, id));
+    private Grafana(java.lang.String name, Output<java.lang.String> id, @Nullable GrafanaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dashboard/grafana:Grafana", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GrafanaArgs makeArgs(GrafanaArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -361,7 +361,7 @@ public class Grafana extends com.pulumi.resources.CustomResource {
         return args == null ? GrafanaArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -377,7 +377,7 @@ public class Grafana extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Grafana get(String name, Output<String> id, @Nullable GrafanaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Grafana get(java.lang.String name, Output<java.lang.String> id, @Nullable GrafanaState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Grafana(name, id, state, options);
     }
 }

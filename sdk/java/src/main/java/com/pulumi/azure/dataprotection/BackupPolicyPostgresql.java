@@ -222,7 +222,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BackupPolicyPostgresql(String name) {
+    public BackupPolicyPostgresql(java.lang.String name) {
         this(name, BackupPolicyPostgresqlArgs.Empty);
     }
     /**
@@ -230,7 +230,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BackupPolicyPostgresql(String name, BackupPolicyPostgresqlArgs args) {
+    public BackupPolicyPostgresql(java.lang.String name, BackupPolicyPostgresqlArgs args) {
         this(name, args, null);
     }
     /**
@@ -239,12 +239,12 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BackupPolicyPostgresql(String name, BackupPolicyPostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BackupPolicyPostgresql(java.lang.String name, BackupPolicyPostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BackupPolicyPostgresql(String name, Output<String> id, @Nullable BackupPolicyPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql", name, state, makeResourceOptions(options, id));
+    private BackupPolicyPostgresql(java.lang.String name, Output<java.lang.String> id, @Nullable BackupPolicyPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BackupPolicyPostgresqlArgs makeArgs(BackupPolicyPostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -254,7 +254,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
         return args == null ? BackupPolicyPostgresqlArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -270,7 +270,7 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BackupPolicyPostgresql get(String name, Output<String> id, @Nullable BackupPolicyPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BackupPolicyPostgresql get(java.lang.String name, Output<java.lang.String> id, @Nullable BackupPolicyPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BackupPolicyPostgresql(name, id, state, options);
     }
 }

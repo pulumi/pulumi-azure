@@ -229,7 +229,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DiskPoolIscsiTargetLun(String name) {
+    public DiskPoolIscsiTargetLun(java.lang.String name) {
         this(name, DiskPoolIscsiTargetLunArgs.Empty);
     }
     /**
@@ -237,7 +237,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DiskPoolIscsiTargetLun(String name, DiskPoolIscsiTargetLunArgs args) {
+    public DiskPoolIscsiTargetLun(java.lang.String name, DiskPoolIscsiTargetLunArgs args) {
         this(name, args, null);
     }
     /**
@@ -246,12 +246,12 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DiskPoolIscsiTargetLun(String name, DiskPoolIscsiTargetLunArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DiskPoolIscsiTargetLun(java.lang.String name, DiskPoolIscsiTargetLunArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DiskPoolIscsiTargetLun(String name, Output<String> id, @Nullable DiskPoolIscsiTargetLunState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun", name, state, makeResourceOptions(options, id));
+    private DiskPoolIscsiTargetLun(java.lang.String name, Output<java.lang.String> id, @Nullable DiskPoolIscsiTargetLunState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DiskPoolIscsiTargetLunArgs makeArgs(DiskPoolIscsiTargetLunArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -261,7 +261,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
         return args == null ? DiskPoolIscsiTargetLunArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -277,7 +277,7 @@ public class DiskPoolIscsiTargetLun extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DiskPoolIscsiTargetLun get(String name, Output<String> id, @Nullable DiskPoolIscsiTargetLunState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DiskPoolIscsiTargetLun get(java.lang.String name, Output<java.lang.String> id, @Nullable DiskPoolIscsiTargetLunState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DiskPoolIscsiTargetLun(name, id, state, options);
     }
 }

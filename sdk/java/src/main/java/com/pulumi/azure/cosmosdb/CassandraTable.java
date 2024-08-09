@@ -211,7 +211,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CassandraTable(String name) {
+    public CassandraTable(java.lang.String name) {
         this(name, CassandraTableArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CassandraTable(String name, CassandraTableArgs args) {
+    public CassandraTable(java.lang.String name, CassandraTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,12 +228,12 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CassandraTable(String name, CassandraTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/cassandraTable:CassandraTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CassandraTable(java.lang.String name, CassandraTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/cassandraTable:CassandraTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CassandraTable(String name, Output<String> id, @Nullable CassandraTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/cassandraTable:CassandraTable", name, state, makeResourceOptions(options, id));
+    private CassandraTable(java.lang.String name, Output<java.lang.String> id, @Nullable CassandraTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/cassandraTable:CassandraTable", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CassandraTableArgs makeArgs(CassandraTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -243,7 +243,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
         return args == null ? CassandraTableArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -259,7 +259,7 @@ public class CassandraTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CassandraTable get(String name, Output<String> id, @Nullable CassandraTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CassandraTable get(java.lang.String name, Output<java.lang.String> id, @Nullable CassandraTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CassandraTable(name, id, state, options);
     }
 }

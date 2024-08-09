@@ -151,7 +151,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceTrust(String name) {
+    public ServiceTrust(java.lang.String name) {
         this(name, ServiceTrustArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceTrust(String name, ServiceTrustArgs args) {
+    public ServiceTrust(java.lang.String name, ServiceTrustArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,12 +168,12 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceTrust(String name, ServiceTrustArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:domainservices/serviceTrust:ServiceTrust", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServiceTrust(java.lang.String name, ServiceTrustArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:domainservices/serviceTrust:ServiceTrust", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceTrust(String name, Output<String> id, @Nullable ServiceTrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:domainservices/serviceTrust:ServiceTrust", name, state, makeResourceOptions(options, id));
+    private ServiceTrust(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceTrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:domainservices/serviceTrust:ServiceTrust", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServiceTrustArgs makeArgs(ServiceTrustArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -183,7 +183,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
         return args == null ? ServiceTrustArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -202,7 +202,7 @@ public class ServiceTrust extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceTrust get(String name, Output<String> id, @Nullable ServiceTrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceTrust get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceTrustState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceTrust(name, id, state, options);
     }
 }

@@ -231,7 +231,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccountFilter(String name) {
+    public AccountFilter(java.lang.String name) {
         this(name, AccountFilterArgs.Empty);
     }
     /**
@@ -239,7 +239,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccountFilter(String name, AccountFilterArgs args) {
+    public AccountFilter(java.lang.String name, AccountFilterArgs args) {
         this(name, args, null);
     }
     /**
@@ -248,12 +248,12 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccountFilter(String name, AccountFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/accountFilter:AccountFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AccountFilter(java.lang.String name, AccountFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/accountFilter:AccountFilter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccountFilter(String name, Output<String> id, @Nullable AccountFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/accountFilter:AccountFilter", name, state, makeResourceOptions(options, id));
+    private AccountFilter(java.lang.String name, Output<java.lang.String> id, @Nullable AccountFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/accountFilter:AccountFilter", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AccountFilterArgs makeArgs(AccountFilterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -263,7 +263,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
         return args == null ? AccountFilterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -279,7 +279,7 @@ public class AccountFilter extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccountFilter get(String name, Output<String> id, @Nullable AccountFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccountFilter get(java.lang.String name, Output<java.lang.String> id, @Nullable AccountFilterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccountFilter(name, id, state, options);
     }
 }

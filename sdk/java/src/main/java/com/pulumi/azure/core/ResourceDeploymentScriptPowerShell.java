@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -76,9 +76,9 @@ import javax.annotation.Nullable;
  *             .timeout("PT30M")
  *             .scriptContent("""
  *           param([string] $name)
- *             $output = 'Hello {0}.' -f $name
+ *             $output = 'Hello }{{@code 0}}{@code .' -f $name
  *             Write-Output $output
- *             $DeploymentScriptOutputs ={@literal @}{}
+ *             $DeploymentScriptOutputs = }{@literal @}{}{@code
  *             $DeploymentScriptOutputs['text'] = $output
  *             """)
  *             .identity(ResourceDeploymentScriptPowerShellIdentityArgs.builder()
@@ -88,8 +88,8 @@ import javax.annotation.Nullable;
  *             .tags(Map.of("key", "value"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -362,7 +362,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceDeploymentScriptPowerShell(String name) {
+    public ResourceDeploymentScriptPowerShell(java.lang.String name) {
         this(name, ResourceDeploymentScriptPowerShellArgs.Empty);
     }
     /**
@@ -370,7 +370,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceDeploymentScriptPowerShell(String name, ResourceDeploymentScriptPowerShellArgs args) {
+    public ResourceDeploymentScriptPowerShell(java.lang.String name, ResourceDeploymentScriptPowerShellArgs args) {
         this(name, args, null);
     }
     /**
@@ -379,12 +379,12 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceDeploymentScriptPowerShell(String name, ResourceDeploymentScriptPowerShellArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResourceDeploymentScriptPowerShell(java.lang.String name, ResourceDeploymentScriptPowerShellArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceDeploymentScriptPowerShell(String name, Output<String> id, @Nullable ResourceDeploymentScriptPowerShellState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell", name, state, makeResourceOptions(options, id));
+    private ResourceDeploymentScriptPowerShell(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceDeploymentScriptPowerShellState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceDeploymentScriptPowerShell:ResourceDeploymentScriptPowerShell", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResourceDeploymentScriptPowerShellArgs makeArgs(ResourceDeploymentScriptPowerShellArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -394,7 +394,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
         return args == null ? ResourceDeploymentScriptPowerShellArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -410,7 +410,7 @@ public class ResourceDeploymentScriptPowerShell extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceDeploymentScriptPowerShell get(String name, Output<String> id, @Nullable ResourceDeploymentScriptPowerShellState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceDeploymentScriptPowerShell get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceDeploymentScriptPowerShellState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceDeploymentScriptPowerShell(name, id, state, options);
     }
 }

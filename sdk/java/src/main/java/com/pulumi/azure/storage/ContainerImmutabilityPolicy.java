@@ -173,7 +173,7 @@ public class ContainerImmutabilityPolicy extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ContainerImmutabilityPolicy(String name) {
+    public ContainerImmutabilityPolicy(java.lang.String name) {
         this(name, ContainerImmutabilityPolicyArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class ContainerImmutabilityPolicy extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ContainerImmutabilityPolicy(String name, ContainerImmutabilityPolicyArgs args) {
+    public ContainerImmutabilityPolicy(java.lang.String name, ContainerImmutabilityPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,12 +190,12 @@ public class ContainerImmutabilityPolicy extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ContainerImmutabilityPolicy(String name, ContainerImmutabilityPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ContainerImmutabilityPolicy(java.lang.String name, ContainerImmutabilityPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ContainerImmutabilityPolicy(String name, Output<String> id, @Nullable ContainerImmutabilityPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy", name, state, makeResourceOptions(options, id));
+    private ContainerImmutabilityPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ContainerImmutabilityPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/containerImmutabilityPolicy:ContainerImmutabilityPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ContainerImmutabilityPolicyArgs makeArgs(ContainerImmutabilityPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -205,7 +205,7 @@ public class ContainerImmutabilityPolicy extends com.pulumi.resources.CustomReso
         return args == null ? ContainerImmutabilityPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -221,7 +221,7 @@ public class ContainerImmutabilityPolicy extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ContainerImmutabilityPolicy get(String name, Output<String> id, @Nullable ContainerImmutabilityPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ContainerImmutabilityPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ContainerImmutabilityPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ContainerImmutabilityPolicy(name, id, state, options);
     }
 }

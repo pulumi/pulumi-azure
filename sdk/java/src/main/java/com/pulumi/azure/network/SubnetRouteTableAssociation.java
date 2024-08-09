@@ -136,7 +136,7 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubnetRouteTableAssociation(String name) {
+    public SubnetRouteTableAssociation(java.lang.String name) {
         this(name, SubnetRouteTableAssociationArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubnetRouteTableAssociation(String name, SubnetRouteTableAssociationArgs args) {
+    public SubnetRouteTableAssociation(java.lang.String name, SubnetRouteTableAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,12 +153,12 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubnetRouteTableAssociation(String name, SubnetRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SubnetRouteTableAssociation(java.lang.String name, SubnetRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubnetRouteTableAssociation(String name, Output<String> id, @Nullable SubnetRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, state, makeResourceOptions(options, id));
+    private SubnetRouteTableAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubnetRouteTableAssociationArgs makeArgs(SubnetRouteTableAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -168,7 +168,7 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
         return args == null ? SubnetRouteTableAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -184,7 +184,7 @@ public class SubnetRouteTableAssociation extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubnetRouteTableAssociation get(String name, Output<String> id, @Nullable SubnetRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubnetRouteTableAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetRouteTableAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubnetRouteTableAssociation(name, id, state, options);
     }
 }

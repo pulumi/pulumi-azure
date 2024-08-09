@@ -173,7 +173,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VpnServerConfigurationPolicyGroup(String name) {
+    public VpnServerConfigurationPolicyGroup(java.lang.String name) {
         this(name, VpnServerConfigurationPolicyGroupArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VpnServerConfigurationPolicyGroup(String name, VpnServerConfigurationPolicyGroupArgs args) {
+    public VpnServerConfigurationPolicyGroup(java.lang.String name, VpnServerConfigurationPolicyGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,12 +190,12 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VpnServerConfigurationPolicyGroup(String name, VpnServerConfigurationPolicyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VpnServerConfigurationPolicyGroup(java.lang.String name, VpnServerConfigurationPolicyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VpnServerConfigurationPolicyGroup(String name, Output<String> id, @Nullable VpnServerConfigurationPolicyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", name, state, makeResourceOptions(options, id));
+    private VpnServerConfigurationPolicyGroup(java.lang.String name, Output<java.lang.String> id, @Nullable VpnServerConfigurationPolicyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VpnServerConfigurationPolicyGroupArgs makeArgs(VpnServerConfigurationPolicyGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -205,7 +205,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
         return args == null ? VpnServerConfigurationPolicyGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -221,7 +221,7 @@ public class VpnServerConfigurationPolicyGroup extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VpnServerConfigurationPolicyGroup get(String name, Output<String> id, @Nullable VpnServerConfigurationPolicyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VpnServerConfigurationPolicyGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable VpnServerConfigurationPolicyGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VpnServerConfigurationPolicyGroup(name, id, state, options);
     }
 }

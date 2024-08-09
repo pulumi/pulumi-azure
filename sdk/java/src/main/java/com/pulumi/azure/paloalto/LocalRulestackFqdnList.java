@@ -156,7 +156,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocalRulestackFqdnList(String name) {
+    public LocalRulestackFqdnList(java.lang.String name) {
         this(name, LocalRulestackFqdnListArgs.Empty);
     }
     /**
@@ -164,7 +164,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocalRulestackFqdnList(String name, LocalRulestackFqdnListArgs args) {
+    public LocalRulestackFqdnList(java.lang.String name, LocalRulestackFqdnListArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,12 +173,12 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocalRulestackFqdnList(String name, LocalRulestackFqdnListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LocalRulestackFqdnList(java.lang.String name, LocalRulestackFqdnListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocalRulestackFqdnList(String name, Output<String> id, @Nullable LocalRulestackFqdnListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList", name, state, makeResourceOptions(options, id));
+    private LocalRulestackFqdnList(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRulestackFqdnListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LocalRulestackFqdnListArgs makeArgs(LocalRulestackFqdnListArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -188,7 +188,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
         return args == null ? LocalRulestackFqdnListArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -204,7 +204,7 @@ public class LocalRulestackFqdnList extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocalRulestackFqdnList get(String name, Output<String> id, @Nullable LocalRulestackFqdnListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocalRulestackFqdnList get(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRulestackFqdnListState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocalRulestackFqdnList(name, id, state, options);
     }
 }

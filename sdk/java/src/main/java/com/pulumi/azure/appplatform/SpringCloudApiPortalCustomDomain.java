@@ -144,7 +144,7 @@ public class SpringCloudApiPortalCustomDomain extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudApiPortalCustomDomain(String name) {
+    public SpringCloudApiPortalCustomDomain(java.lang.String name) {
         this(name, SpringCloudApiPortalCustomDomainArgs.Empty);
     }
     /**
@@ -152,7 +152,7 @@ public class SpringCloudApiPortalCustomDomain extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudApiPortalCustomDomain(String name, SpringCloudApiPortalCustomDomainArgs args) {
+    public SpringCloudApiPortalCustomDomain(java.lang.String name, SpringCloudApiPortalCustomDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,12 +161,12 @@ public class SpringCloudApiPortalCustomDomain extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudApiPortalCustomDomain(String name, SpringCloudApiPortalCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudApiPortalCustomDomain(java.lang.String name, SpringCloudApiPortalCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudApiPortalCustomDomain(String name, Output<String> id, @Nullable SpringCloudApiPortalCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, state, makeResourceOptions(options, id));
+    private SpringCloudApiPortalCustomDomain(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudApiPortalCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SpringCloudApiPortalCustomDomainArgs makeArgs(SpringCloudApiPortalCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -176,7 +176,7 @@ public class SpringCloudApiPortalCustomDomain extends com.pulumi.resources.Custo
         return args == null ? SpringCloudApiPortalCustomDomainArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +192,7 @@ public class SpringCloudApiPortalCustomDomain extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudApiPortalCustomDomain get(String name, Output<String> id, @Nullable SpringCloudApiPortalCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudApiPortalCustomDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudApiPortalCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudApiPortalCustomDomain(name, id, state, options);
     }
 }

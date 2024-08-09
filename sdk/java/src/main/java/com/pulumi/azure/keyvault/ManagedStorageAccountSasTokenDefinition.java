@@ -264,7 +264,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedStorageAccountSasTokenDefinition(String name) {
+    public ManagedStorageAccountSasTokenDefinition(java.lang.String name) {
         this(name, ManagedStorageAccountSasTokenDefinitionArgs.Empty);
     }
     /**
@@ -272,7 +272,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedStorageAccountSasTokenDefinition(String name, ManagedStorageAccountSasTokenDefinitionArgs args) {
+    public ManagedStorageAccountSasTokenDefinition(java.lang.String name, ManagedStorageAccountSasTokenDefinitionArgs args) {
         this(name, args, null);
     }
     /**
@@ -281,12 +281,12 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedStorageAccountSasTokenDefinition(String name, ManagedStorageAccountSasTokenDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedStorageAccountSasTokenDefinition(java.lang.String name, ManagedStorageAccountSasTokenDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedStorageAccountSasTokenDefinition(String name, Output<String> id, @Nullable ManagedStorageAccountSasTokenDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", name, state, makeResourceOptions(options, id));
+    private ManagedStorageAccountSasTokenDefinition(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedStorageAccountSasTokenDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedStorageAccountSasTokenDefinitionArgs makeArgs(ManagedStorageAccountSasTokenDefinitionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -296,7 +296,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
         return args == null ? ManagedStorageAccountSasTokenDefinitionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -312,7 +312,7 @@ public class ManagedStorageAccountSasTokenDefinition extends com.pulumi.resource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedStorageAccountSasTokenDefinition get(String name, Output<String> id, @Nullable ManagedStorageAccountSasTokenDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedStorageAccountSasTokenDefinition get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedStorageAccountSasTokenDefinitionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedStorageAccountSasTokenDefinition(name, id, state, options);
     }
 }

@@ -177,7 +177,7 @@ public class VariableObject extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VariableObject(String name) {
+    public VariableObject(java.lang.String name) {
         this(name, VariableObjectArgs.Empty);
     }
     /**
@@ -185,7 +185,7 @@ public class VariableObject extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VariableObject(String name, VariableObjectArgs args) {
+    public VariableObject(java.lang.String name, VariableObjectArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,12 +194,12 @@ public class VariableObject extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VariableObject(String name, VariableObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/variableObject:VariableObject", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VariableObject(java.lang.String name, VariableObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/variableObject:VariableObject", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VariableObject(String name, Output<String> id, @Nullable VariableObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/variableObject:VariableObject", name, state, makeResourceOptions(options, id));
+    private VariableObject(java.lang.String name, Output<java.lang.String> id, @Nullable VariableObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/variableObject:VariableObject", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VariableObjectArgs makeArgs(VariableObjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -209,7 +209,7 @@ public class VariableObject extends com.pulumi.resources.CustomResource {
         return args == null ? VariableObjectArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -225,7 +225,7 @@ public class VariableObject extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VariableObject get(String name, Output<String> id, @Nullable VariableObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VariableObject get(java.lang.String name, Output<java.lang.String> id, @Nullable VariableObjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VariableObject(name, id, state, options);
     }
 }

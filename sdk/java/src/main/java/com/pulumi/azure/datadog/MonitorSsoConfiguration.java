@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-datadog")
  *             .location("West US 2")
@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .user(MonitorUserArgs.builder()
  *                 .name("Example")
- *                 .email("abc{@literal @}xyz.com")
+ *                 .email("abc}{@literal @}{@code xyz.com")
  *                 .build())
  *             .skuName("Linked")
  *             .identity(MonitorIdentityArgs.builder()
@@ -78,8 +78,8 @@ import javax.annotation.Nullable;
  *             .enterpriseApplicationId("XXXX")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -170,7 +170,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MonitorSsoConfiguration(String name) {
+    public MonitorSsoConfiguration(java.lang.String name) {
         this(name, MonitorSsoConfigurationArgs.Empty);
     }
     /**
@@ -178,7 +178,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MonitorSsoConfiguration(String name, MonitorSsoConfigurationArgs args) {
+    public MonitorSsoConfiguration(java.lang.String name, MonitorSsoConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -187,12 +187,12 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MonitorSsoConfiguration(String name, MonitorSsoConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public MonitorSsoConfiguration(java.lang.String name, MonitorSsoConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MonitorSsoConfiguration(String name, Output<String> id, @Nullable MonitorSsoConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", name, state, makeResourceOptions(options, id));
+    private MonitorSsoConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable MonitorSsoConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MonitorSsoConfigurationArgs makeArgs(MonitorSsoConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -202,7 +202,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
         return args == null ? MonitorSsoConfigurationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -218,7 +218,7 @@ public class MonitorSsoConfiguration extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MonitorSsoConfiguration get(String name, Output<String> id, @Nullable MonitorSsoConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MonitorSsoConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable MonitorSsoConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MonitorSsoConfiguration(name, id, state, options);
     }
 }

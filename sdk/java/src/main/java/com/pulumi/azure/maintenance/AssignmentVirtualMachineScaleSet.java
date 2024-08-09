@@ -69,12 +69,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -178,7 +178,7 @@ import javax.annotation.Nullable;
  *             .sku("Standard_F2")
  *             .instances(1)
  *             .adminUsername("adminuser")
- *             .adminPassword("P{@literal @}ssword1234!")
+ *             .adminPassword("P}{@literal @}{@code ssword1234!")
  *             .upgradeMode("Automatic")
  *             .healthProbeId(exampleProbe.id())
  *             .disablePasswordAuthentication(false)
@@ -222,8 +222,8 @@ import javax.annotation.Nullable;
  *             .virtualMachineScaleSetId(exampleLinuxVirtualMachine.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -286,7 +286,7 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AssignmentVirtualMachineScaleSet(String name) {
+    public AssignmentVirtualMachineScaleSet(java.lang.String name) {
         this(name, AssignmentVirtualMachineScaleSetArgs.Empty);
     }
     /**
@@ -294,7 +294,7 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AssignmentVirtualMachineScaleSet(String name, AssignmentVirtualMachineScaleSetArgs args) {
+    public AssignmentVirtualMachineScaleSet(java.lang.String name, AssignmentVirtualMachineScaleSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -303,12 +303,12 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AssignmentVirtualMachineScaleSet(String name, AssignmentVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AssignmentVirtualMachineScaleSet(java.lang.String name, AssignmentVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AssignmentVirtualMachineScaleSet(String name, Output<String> id, @Nullable AssignmentVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, state, makeResourceOptions(options, id));
+    private AssignmentVirtualMachineScaleSet(java.lang.String name, Output<java.lang.String> id, @Nullable AssignmentVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:maintenance/assignmentVirtualMachineScaleSet:AssignmentVirtualMachineScaleSet", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AssignmentVirtualMachineScaleSetArgs makeArgs(AssignmentVirtualMachineScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -318,7 +318,7 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
         return args == null ? AssignmentVirtualMachineScaleSetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -334,7 +334,7 @@ public class AssignmentVirtualMachineScaleSet extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AssignmentVirtualMachineScaleSet get(String name, Output<String> id, @Nullable AssignmentVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AssignmentVirtualMachineScaleSet get(java.lang.String name, Output<java.lang.String> id, @Nullable AssignmentVirtualMachineScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AssignmentVirtualMachineScaleSet(name, id, state, options);
     }
 }

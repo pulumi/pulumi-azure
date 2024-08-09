@@ -164,7 +164,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorAwsS3(String name) {
+    public DataConnectorAwsS3(java.lang.String name) {
         this(name, DataConnectorAwsS3Args.Empty);
     }
     /**
@@ -172,7 +172,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorAwsS3(String name, DataConnectorAwsS3Args args) {
+    public DataConnectorAwsS3(java.lang.String name, DataConnectorAwsS3Args args) {
         this(name, args, null);
     }
     /**
@@ -181,12 +181,12 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorAwsS3(String name, DataConnectorAwsS3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorAwsS3(java.lang.String name, DataConnectorAwsS3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorAwsS3(String name, Output<String> id, @Nullable DataConnectorAwsS3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3", name, state, makeResourceOptions(options, id));
+    private DataConnectorAwsS3(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAwsS3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorAwsS3Args makeArgs(DataConnectorAwsS3Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -196,7 +196,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
         return args == null ? DataConnectorAwsS3Args.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -212,7 +212,7 @@ public class DataConnectorAwsS3 extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorAwsS3 get(String name, Output<String> id, @Nullable DataConnectorAwsS3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorAwsS3 get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorAwsS3State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorAwsS3(name, id, state, options);
     }
 }

@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
@@ -85,19 +85,19 @@ import javax.annotation.Nullable;
  *             .keyVaultId(exampleKeyVault.id())
  *             .contacts(            
  *                 CertificateContactsContactArgs.builder()
- *                     .email("example{@literal @}example.com")
+ *                     .email("example}{@literal @}{@code example.com")
  *                     .name("example")
  *                     .phone("01234567890")
  *                     .build(),
  *                 CertificateContactsContactArgs.builder()
- *                     .email("example2{@literal @}example.com")
+ *                     .email("example2}{@literal @}{@code example.com")
  *                     .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccessPolicy)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -148,7 +148,7 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CertificateContacts(String name) {
+    public CertificateContacts(java.lang.String name) {
         this(name, CertificateContactsArgs.Empty);
     }
     /**
@@ -156,7 +156,7 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CertificateContacts(String name, CertificateContactsArgs args) {
+    public CertificateContacts(java.lang.String name, CertificateContactsArgs args) {
         this(name, args, null);
     }
     /**
@@ -165,12 +165,12 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CertificateContacts(String name, CertificateContactsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/certificateContacts:CertificateContacts", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CertificateContacts(java.lang.String name, CertificateContactsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/certificateContacts:CertificateContacts", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CertificateContacts(String name, Output<String> id, @Nullable CertificateContactsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/certificateContacts:CertificateContacts", name, state, makeResourceOptions(options, id));
+    private CertificateContacts(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateContactsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/certificateContacts:CertificateContacts", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CertificateContactsArgs makeArgs(CertificateContactsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -180,7 +180,7 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
         return args == null ? CertificateContactsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -196,7 +196,7 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CertificateContacts get(String name, Output<String> id, @Nullable CertificateContactsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CertificateContacts get(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateContactsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CertificateContacts(name, id, state, options);
     }
 }

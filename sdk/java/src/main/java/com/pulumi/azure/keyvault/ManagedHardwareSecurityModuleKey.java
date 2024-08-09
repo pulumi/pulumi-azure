@@ -185,7 +185,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedHardwareSecurityModuleKey(String name) {
+    public ManagedHardwareSecurityModuleKey(java.lang.String name) {
         this(name, ManagedHardwareSecurityModuleKeyArgs.Empty);
     }
     /**
@@ -193,7 +193,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedHardwareSecurityModuleKey(String name, ManagedHardwareSecurityModuleKeyArgs args) {
+    public ManagedHardwareSecurityModuleKey(java.lang.String name, ManagedHardwareSecurityModuleKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -202,12 +202,12 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedHardwareSecurityModuleKey(String name, ManagedHardwareSecurityModuleKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedHardwareSecurityModuleKey(java.lang.String name, ManagedHardwareSecurityModuleKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedHardwareSecurityModuleKey(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", name, state, makeResourceOptions(options, id));
+    private ManagedHardwareSecurityModuleKey(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedHardwareSecurityModuleKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedHardwareSecurityModuleKey:ManagedHardwareSecurityModuleKey", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedHardwareSecurityModuleKeyArgs makeArgs(ManagedHardwareSecurityModuleKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -217,7 +217,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
         return args == null ? ManagedHardwareSecurityModuleKeyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +233,7 @@ public class ManagedHardwareSecurityModuleKey extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedHardwareSecurityModuleKey get(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedHardwareSecurityModuleKey get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedHardwareSecurityModuleKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedHardwareSecurityModuleKey(name, id, state, options);
     }
 }

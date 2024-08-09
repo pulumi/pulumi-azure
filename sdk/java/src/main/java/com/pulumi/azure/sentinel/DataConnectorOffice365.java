@@ -184,7 +184,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorOffice365(String name) {
+    public DataConnectorOffice365(java.lang.String name) {
         this(name, DataConnectorOffice365Args.Empty);
     }
     /**
@@ -192,7 +192,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorOffice365(String name, DataConnectorOffice365Args args) {
+    public DataConnectorOffice365(java.lang.String name, DataConnectorOffice365Args args) {
         this(name, args, null);
     }
     /**
@@ -201,12 +201,12 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorOffice365(String name, DataConnectorOffice365Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOffice365:DataConnectorOffice365", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorOffice365(java.lang.String name, DataConnectorOffice365Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOffice365:DataConnectorOffice365", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorOffice365(String name, Output<String> id, @Nullable DataConnectorOffice365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOffice365:DataConnectorOffice365", name, state, makeResourceOptions(options, id));
+    private DataConnectorOffice365(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOffice365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOffice365:DataConnectorOffice365", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorOffice365Args makeArgs(DataConnectorOffice365Args args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -216,7 +216,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
         return args == null ? DataConnectorOffice365Args.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -232,7 +232,7 @@ public class DataConnectorOffice365 extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorOffice365 get(String name, Output<String> id, @Nullable DataConnectorOffice365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorOffice365 get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOffice365State state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorOffice365(name, id, state, options);
     }
 }

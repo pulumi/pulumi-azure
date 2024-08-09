@@ -367,7 +367,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationRuntimeSsis(String name) {
+    public IntegrationRuntimeSsis(java.lang.String name) {
         this(name, IntegrationRuntimeSsisArgs.Empty);
     }
     /**
@@ -375,7 +375,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationRuntimeSsis(String name, IntegrationRuntimeSsisArgs args) {
+    public IntegrationRuntimeSsis(java.lang.String name, IntegrationRuntimeSsisArgs args) {
         this(name, args, null);
     }
     /**
@@ -384,12 +384,12 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationRuntimeSsis(String name, IntegrationRuntimeSsisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationRuntimeSsis(java.lang.String name, IntegrationRuntimeSsisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationRuntimeSsis(String name, Output<String> id, @Nullable IntegrationRuntimeSsisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis", name, state, makeResourceOptions(options, id));
+    private IntegrationRuntimeSsis(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeSsisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationRuntimeSsisArgs makeArgs(IntegrationRuntimeSsisArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -399,7 +399,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
         return args == null ? IntegrationRuntimeSsisArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -415,7 +415,7 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationRuntimeSsis get(String name, Output<String> id, @Nullable IntegrationRuntimeSsisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationRuntimeSsis get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeSsisState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationRuntimeSsis(name, id, state, options);
     }
 }

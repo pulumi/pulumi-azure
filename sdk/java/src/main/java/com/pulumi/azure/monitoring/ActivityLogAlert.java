@@ -243,7 +243,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActivityLogAlert(String name) {
+    public ActivityLogAlert(java.lang.String name) {
         this(name, ActivityLogAlertArgs.Empty);
     }
     /**
@@ -251,7 +251,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActivityLogAlert(String name, ActivityLogAlertArgs args) {
+    public ActivityLogAlert(java.lang.String name, ActivityLogAlertArgs args) {
         this(name, args, null);
     }
     /**
@@ -260,12 +260,12 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActivityLogAlert(String name, ActivityLogAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/activityLogAlert:ActivityLogAlert", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ActivityLogAlert(java.lang.String name, ActivityLogAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/activityLogAlert:ActivityLogAlert", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActivityLogAlert(String name, Output<String> id, @Nullable ActivityLogAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/activityLogAlert:ActivityLogAlert", name, state, makeResourceOptions(options, id));
+    private ActivityLogAlert(java.lang.String name, Output<java.lang.String> id, @Nullable ActivityLogAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/activityLogAlert:ActivityLogAlert", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ActivityLogAlertArgs makeArgs(ActivityLogAlertArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -275,7 +275,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
         return args == null ? ActivityLogAlertArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -291,7 +291,7 @@ public class ActivityLogAlert extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActivityLogAlert get(String name, Output<String> id, @Nullable ActivityLogAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActivityLogAlert get(java.lang.String name, Output<java.lang.String> id, @Nullable ActivityLogAlertState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActivityLogAlert(name, id, state, options);
     }
 }

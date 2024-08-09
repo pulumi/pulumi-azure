@@ -237,7 +237,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MongoCollection(String name) {
+    public MongoCollection(java.lang.String name) {
         this(name, MongoCollectionArgs.Empty);
     }
     /**
@@ -245,7 +245,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MongoCollection(String name, MongoCollectionArgs args) {
+    public MongoCollection(java.lang.String name, MongoCollectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -254,12 +254,12 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MongoCollection(String name, MongoCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/mongoCollection:MongoCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public MongoCollection(java.lang.String name, MongoCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/mongoCollection:MongoCollection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MongoCollection(String name, Output<String> id, @Nullable MongoCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/mongoCollection:MongoCollection", name, state, makeResourceOptions(options, id));
+    private MongoCollection(java.lang.String name, Output<java.lang.String> id, @Nullable MongoCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/mongoCollection:MongoCollection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MongoCollectionArgs makeArgs(MongoCollectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -269,7 +269,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
         return args == null ? MongoCollectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -285,7 +285,7 @@ public class MongoCollection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MongoCollection get(String name, Output<String> id, @Nullable MongoCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MongoCollection get(java.lang.String name, Output<java.lang.String> id, @Nullable MongoCollectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MongoCollection(name, id, state, options);
     }
 }

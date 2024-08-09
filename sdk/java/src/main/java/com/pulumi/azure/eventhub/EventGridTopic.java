@@ -287,7 +287,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventGridTopic(String name) {
+    public EventGridTopic(java.lang.String name) {
         this(name, EventGridTopicArgs.Empty);
     }
     /**
@@ -295,7 +295,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventGridTopic(String name, EventGridTopicArgs args) {
+    public EventGridTopic(java.lang.String name, EventGridTopicArgs args) {
         this(name, args, null);
     }
     /**
@@ -304,12 +304,12 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventGridTopic(String name, EventGridTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventGridTopic:EventGridTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventGridTopic(java.lang.String name, EventGridTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventGridTopic:EventGridTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventGridTopic(String name, Output<String> id, @Nullable EventGridTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventGridTopic:EventGridTopic", name, state, makeResourceOptions(options, id));
+    private EventGridTopic(java.lang.String name, Output<java.lang.String> id, @Nullable EventGridTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventGridTopic:EventGridTopic", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventGridTopicArgs makeArgs(EventGridTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -319,7 +319,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
         return args == null ? EventGridTopicArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -339,7 +339,7 @@ public class EventGridTopic extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventGridTopic get(String name, Output<String> id, @Nullable EventGridTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventGridTopic get(java.lang.String name, Output<java.lang.String> id, @Nullable EventGridTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventGridTopic(name, id, state, options);
     }
 }

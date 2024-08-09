@@ -196,7 +196,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public JobSchedule(String name) {
+    public JobSchedule(java.lang.String name) {
         this(name, JobScheduleArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public JobSchedule(String name, JobScheduleArgs args) {
+    public JobSchedule(java.lang.String name, JobScheduleArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,12 +213,12 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public JobSchedule(String name, JobScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/jobSchedule:JobSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public JobSchedule(java.lang.String name, JobScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/jobSchedule:JobSchedule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private JobSchedule(String name, Output<String> id, @Nullable JobScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/jobSchedule:JobSchedule", name, state, makeResourceOptions(options, id));
+    private JobSchedule(java.lang.String name, Output<java.lang.String> id, @Nullable JobScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/jobSchedule:JobSchedule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static JobScheduleArgs makeArgs(JobScheduleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -228,7 +228,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
         return args == null ? JobScheduleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +244,7 @@ public class JobSchedule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static JobSchedule get(String name, Output<String> id, @Nullable JobScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static JobSchedule get(java.lang.String name, Output<java.lang.String> id, @Nullable JobScheduleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new JobSchedule(name, id, state, options);
     }
 }

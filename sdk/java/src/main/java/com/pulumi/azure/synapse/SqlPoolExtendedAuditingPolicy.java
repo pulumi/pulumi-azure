@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -110,8 +110,8 @@ import javax.annotation.Nullable;
  *             .retentionInDays(6)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -216,7 +216,7 @@ public class SqlPoolExtendedAuditingPolicy extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SqlPoolExtendedAuditingPolicy(String name) {
+    public SqlPoolExtendedAuditingPolicy(java.lang.String name) {
         this(name, SqlPoolExtendedAuditingPolicyArgs.Empty);
     }
     /**
@@ -224,7 +224,7 @@ public class SqlPoolExtendedAuditingPolicy extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SqlPoolExtendedAuditingPolicy(String name, SqlPoolExtendedAuditingPolicyArgs args) {
+    public SqlPoolExtendedAuditingPolicy(java.lang.String name, SqlPoolExtendedAuditingPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -233,12 +233,12 @@ public class SqlPoolExtendedAuditingPolicy extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SqlPoolExtendedAuditingPolicy(String name, SqlPoolExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SqlPoolExtendedAuditingPolicy(java.lang.String name, SqlPoolExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SqlPoolExtendedAuditingPolicy(String name, Output<String> id, @Nullable SqlPoolExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy", name, state, makeResourceOptions(options, id));
+    private SqlPoolExtendedAuditingPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable SqlPoolExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/sqlPoolExtendedAuditingPolicy:SqlPoolExtendedAuditingPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SqlPoolExtendedAuditingPolicyArgs makeArgs(SqlPoolExtendedAuditingPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -248,7 +248,7 @@ public class SqlPoolExtendedAuditingPolicy extends com.pulumi.resources.CustomRe
         return args == null ? SqlPoolExtendedAuditingPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -267,7 +267,7 @@ public class SqlPoolExtendedAuditingPolicy extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SqlPoolExtendedAuditingPolicy get(String name, Output<String> id, @Nullable SqlPoolExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SqlPoolExtendedAuditingPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable SqlPoolExtendedAuditingPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SqlPoolExtendedAuditingPolicy(name, id, state, options);
     }
 }

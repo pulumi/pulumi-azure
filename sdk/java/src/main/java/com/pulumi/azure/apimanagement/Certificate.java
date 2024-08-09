@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}exmaple.com")
+ *             .publisherEmail("company}{@literal @}{@code exmaple.com")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -72,8 +72,8 @@ import javax.annotation.Nullable;
  *                 .build()).result())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -114,12 +114,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
@@ -132,7 +132,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}terraform.io")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .identity(ServiceIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -187,8 +187,8 @@ import javax.annotation.Nullable;
  *             .keyVaultSecretId(exampleCertificate.secretId())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -361,7 +361,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Certificate(String name) {
+    public Certificate(java.lang.String name) {
         this(name, CertificateArgs.Empty);
     }
     /**
@@ -369,7 +369,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Certificate(String name, CertificateArgs args) {
+    public Certificate(java.lang.String name, CertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -378,12 +378,12 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Certificate(String name, CertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/certificate:Certificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Certificate(java.lang.String name, CertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/certificate:Certificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Certificate(String name, Output<String> id, @Nullable CertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/certificate:Certificate", name, state, makeResourceOptions(options, id));
+    private Certificate(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/certificate:Certificate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CertificateArgs makeArgs(CertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -393,7 +393,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return args == null ? CertificateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -413,7 +413,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Certificate get(String name, Output<String> id, @Nullable CertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Certificate get(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Certificate(name, id, state, options);
     }
 }

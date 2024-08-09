@@ -207,7 +207,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorCustomDomainAssociation(String name) {
+    public FrontdoorCustomDomainAssociation(java.lang.String name) {
         this(name, FrontdoorCustomDomainAssociationArgs.Empty);
     }
     /**
@@ -215,7 +215,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorCustomDomainAssociation(String name, FrontdoorCustomDomainAssociationArgs args) {
+    public FrontdoorCustomDomainAssociation(java.lang.String name, FrontdoorCustomDomainAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -224,12 +224,12 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorCustomDomainAssociation(String name, FrontdoorCustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorCustomDomainAssociation(java.lang.String name, FrontdoorCustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FrontdoorCustomDomainAssociation(String name, Output<String> id, @Nullable FrontdoorCustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", name, state, makeResourceOptions(options, id));
+    private FrontdoorCustomDomainAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorCustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FrontdoorCustomDomainAssociationArgs makeArgs(FrontdoorCustomDomainAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -239,7 +239,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
         return args == null ? FrontdoorCustomDomainAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -255,7 +255,7 @@ public class FrontdoorCustomDomainAssociation extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorCustomDomainAssociation get(String name, Output<String> id, @Nullable FrontdoorCustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FrontdoorCustomDomainAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorCustomDomainAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FrontdoorCustomDomainAssociation(name, id, state, options);
     }
 }

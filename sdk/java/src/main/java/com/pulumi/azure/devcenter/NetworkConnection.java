@@ -239,7 +239,7 @@ public class NetworkConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkConnection(String name) {
+    public NetworkConnection(java.lang.String name) {
         this(name, NetworkConnectionArgs.Empty);
     }
     /**
@@ -247,7 +247,7 @@ public class NetworkConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkConnection(String name, NetworkConnectionArgs args) {
+    public NetworkConnection(java.lang.String name, NetworkConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -256,12 +256,12 @@ public class NetworkConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkConnection(String name, NetworkConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devcenter/networkConnection:NetworkConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkConnection(java.lang.String name, NetworkConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devcenter/networkConnection:NetworkConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkConnection(String name, Output<String> id, @Nullable NetworkConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devcenter/networkConnection:NetworkConnection", name, state, makeResourceOptions(options, id));
+    private NetworkConnection(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devcenter/networkConnection:NetworkConnection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkConnectionArgs makeArgs(NetworkConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -271,7 +271,7 @@ public class NetworkConnection extends com.pulumi.resources.CustomResource {
         return args == null ? NetworkConnectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -290,7 +290,7 @@ public class NetworkConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkConnection get(String name, Output<String> id, @Nullable NetworkConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkConnection(name, id, state, options);
     }
 }

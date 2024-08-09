@@ -104,7 +104,7 @@ import (
 //					},
 //				},
 //				Scopes: pulumi.StringArray{
-//					pulumi.String(fmt.Sprintf("/subscriptions/%v", current.SubscriptionId)),
+//					pulumi.Sprintf("/subscriptions/%v", current.SubscriptionId),
 //				},
 //			})
 //			if err != nil {

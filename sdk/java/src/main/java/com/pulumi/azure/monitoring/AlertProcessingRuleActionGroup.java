@@ -252,7 +252,7 @@ public class AlertProcessingRuleActionGroup extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertProcessingRuleActionGroup(String name) {
+    public AlertProcessingRuleActionGroup(java.lang.String name) {
         this(name, AlertProcessingRuleActionGroupArgs.Empty);
     }
     /**
@@ -260,7 +260,7 @@ public class AlertProcessingRuleActionGroup extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertProcessingRuleActionGroup(String name, AlertProcessingRuleActionGroupArgs args) {
+    public AlertProcessingRuleActionGroup(java.lang.String name, AlertProcessingRuleActionGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -269,12 +269,12 @@ public class AlertProcessingRuleActionGroup extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertProcessingRuleActionGroup(String name, AlertProcessingRuleActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertProcessingRuleActionGroup(java.lang.String name, AlertProcessingRuleActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertProcessingRuleActionGroup(String name, Output<String> id, @Nullable AlertProcessingRuleActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup", name, state, makeResourceOptions(options, id));
+    private AlertProcessingRuleActionGroup(java.lang.String name, Output<java.lang.String> id, @Nullable AlertProcessingRuleActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertProcessingRuleActionGroupArgs makeArgs(AlertProcessingRuleActionGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -284,7 +284,7 @@ public class AlertProcessingRuleActionGroup extends com.pulumi.resources.CustomR
         return args == null ? AlertProcessingRuleActionGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -300,7 +300,7 @@ public class AlertProcessingRuleActionGroup extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertProcessingRuleActionGroup get(String name, Output<String> id, @Nullable AlertProcessingRuleActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertProcessingRuleActionGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertProcessingRuleActionGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertProcessingRuleActionGroup(name, id, state, options);
     }
 }

@@ -137,7 +137,7 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SqlFunction(String name) {
+    public SqlFunction(java.lang.String name) {
         this(name, SqlFunctionArgs.Empty);
     }
     /**
@@ -145,7 +145,7 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SqlFunction(String name, SqlFunctionArgs args) {
+    public SqlFunction(java.lang.String name, SqlFunctionArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,12 +154,12 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SqlFunction(String name, SqlFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlFunction:SqlFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SqlFunction(java.lang.String name, SqlFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlFunction:SqlFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SqlFunction(String name, Output<String> id, @Nullable SqlFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlFunction:SqlFunction", name, state, makeResourceOptions(options, id));
+    private SqlFunction(java.lang.String name, Output<java.lang.String> id, @Nullable SqlFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlFunction:SqlFunction", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SqlFunctionArgs makeArgs(SqlFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -169,7 +169,7 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
         return args == null ? SqlFunctionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -185,7 +185,7 @@ public class SqlFunction extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SqlFunction get(String name, Output<String> id, @Nullable SqlFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SqlFunction get(java.lang.String name, Output<java.lang.String> id, @Nullable SqlFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SqlFunction(name, id, state, options);
     }
 }

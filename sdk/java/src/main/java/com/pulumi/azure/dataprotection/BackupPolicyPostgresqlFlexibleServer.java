@@ -227,7 +227,7 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BackupPolicyPostgresqlFlexibleServer(String name) {
+    public BackupPolicyPostgresqlFlexibleServer(java.lang.String name) {
         this(name, BackupPolicyPostgresqlFlexibleServerArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BackupPolicyPostgresqlFlexibleServer(String name, BackupPolicyPostgresqlFlexibleServerArgs args) {
+    public BackupPolicyPostgresqlFlexibleServer(java.lang.String name, BackupPolicyPostgresqlFlexibleServerArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,12 +244,12 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BackupPolicyPostgresqlFlexibleServer(String name, BackupPolicyPostgresqlFlexibleServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BackupPolicyPostgresqlFlexibleServer(java.lang.String name, BackupPolicyPostgresqlFlexibleServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BackupPolicyPostgresqlFlexibleServer(String name, Output<String> id, @Nullable BackupPolicyPostgresqlFlexibleServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", name, state, makeResourceOptions(options, id));
+    private BackupPolicyPostgresqlFlexibleServer(java.lang.String name, Output<java.lang.String> id, @Nullable BackupPolicyPostgresqlFlexibleServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BackupPolicyPostgresqlFlexibleServerArgs makeArgs(BackupPolicyPostgresqlFlexibleServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -259,7 +259,7 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
         return args == null ? BackupPolicyPostgresqlFlexibleServerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -275,7 +275,7 @@ public class BackupPolicyPostgresqlFlexibleServer extends com.pulumi.resources.C
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BackupPolicyPostgresqlFlexibleServer get(String name, Output<String> id, @Nullable BackupPolicyPostgresqlFlexibleServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BackupPolicyPostgresqlFlexibleServer get(java.lang.String name, Output<java.lang.String> id, @Nullable BackupPolicyPostgresqlFlexibleServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BackupPolicyPostgresqlFlexibleServer(name, id, state, options);
     }
 }

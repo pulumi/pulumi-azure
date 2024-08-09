@@ -172,7 +172,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorMicrosoftCloudAppSecurity(String name) {
+    public DataConnectorMicrosoftCloudAppSecurity(java.lang.String name) {
         this(name, DataConnectorMicrosoftCloudAppSecurityArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorMicrosoftCloudAppSecurity(String name, DataConnectorMicrosoftCloudAppSecurityArgs args) {
+    public DataConnectorMicrosoftCloudAppSecurity(java.lang.String name, DataConnectorMicrosoftCloudAppSecurityArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,12 +189,12 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorMicrosoftCloudAppSecurity(String name, DataConnectorMicrosoftCloudAppSecurityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorMicrosoftCloudAppSecurity(java.lang.String name, DataConnectorMicrosoftCloudAppSecurityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorMicrosoftCloudAppSecurity(String name, Output<String> id, @Nullable DataConnectorMicrosoftCloudAppSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity", name, state, makeResourceOptions(options, id));
+    private DataConnectorMicrosoftCloudAppSecurity(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorMicrosoftCloudAppSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorMicrosoftCloudAppSecurity:DataConnectorMicrosoftCloudAppSecurity", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorMicrosoftCloudAppSecurityArgs makeArgs(DataConnectorMicrosoftCloudAppSecurityArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -204,7 +204,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
         return args == null ? DataConnectorMicrosoftCloudAppSecurityArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +220,7 @@ public class DataConnectorMicrosoftCloudAppSecurity extends com.pulumi.resources
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorMicrosoftCloudAppSecurity get(String name, Output<String> id, @Nullable DataConnectorMicrosoftCloudAppSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorMicrosoftCloudAppSecurity get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorMicrosoftCloudAppSecurityState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorMicrosoftCloudAppSecurity(name, id, state, options);
     }
 }

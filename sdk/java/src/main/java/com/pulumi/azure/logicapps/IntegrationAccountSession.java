@@ -146,7 +146,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccountSession(String name) {
+    public IntegrationAccountSession(java.lang.String name) {
         this(name, IntegrationAccountSessionArgs.Empty);
     }
     /**
@@ -154,7 +154,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccountSession(String name, IntegrationAccountSessionArgs args) {
+    public IntegrationAccountSession(java.lang.String name, IntegrationAccountSessionArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,12 +163,12 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccountSession(String name, IntegrationAccountSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountSession:IntegrationAccountSession", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccountSession(java.lang.String name, IntegrationAccountSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountSession:IntegrationAccountSession", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccountSession(String name, Output<String> id, @Nullable IntegrationAccountSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountSession:IntegrationAccountSession", name, state, makeResourceOptions(options, id));
+    private IntegrationAccountSession(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountSession:IntegrationAccountSession", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationAccountSessionArgs makeArgs(IntegrationAccountSessionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -178,7 +178,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
         return args == null ? IntegrationAccountSessionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -194,7 +194,7 @@ public class IntegrationAccountSession extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccountSession get(String name, Output<String> id, @Nullable IntegrationAccountSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccountSession get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountSessionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccountSession(name, id, state, options);
     }
 }

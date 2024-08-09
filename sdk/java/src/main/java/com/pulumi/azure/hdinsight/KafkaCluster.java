@@ -506,7 +506,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KafkaCluster(String name) {
+    public KafkaCluster(java.lang.String name) {
         this(name, KafkaClusterArgs.Empty);
     }
     /**
@@ -514,7 +514,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KafkaCluster(String name, KafkaClusterArgs args) {
+    public KafkaCluster(java.lang.String name, KafkaClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -523,12 +523,12 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KafkaCluster(String name, KafkaClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/kafkaCluster:KafkaCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public KafkaCluster(java.lang.String name, KafkaClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/kafkaCluster:KafkaCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KafkaCluster(String name, Output<String> id, @Nullable KafkaClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/kafkaCluster:KafkaCluster", name, state, makeResourceOptions(options, id));
+    private KafkaCluster(java.lang.String name, Output<java.lang.String> id, @Nullable KafkaClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/kafkaCluster:KafkaCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static KafkaClusterArgs makeArgs(KafkaClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -538,7 +538,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
         return args == null ? KafkaClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -554,7 +554,7 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KafkaCluster get(String name, Output<String> id, @Nullable KafkaClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KafkaCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable KafkaClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KafkaCluster(name, id, state, options);
     }
 }

@@ -64,12 +64,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var deploy = new ResourceGroup("deploy", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -151,7 +151,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var admin = new User("admin", UserArgs.builder()
- *             .userPrincipalName("dc-admin{@literal @}hashicorp-example.com")
+ *             .userPrincipalName("dc-admin}{@literal @}{@code hashicorp-example.com")
  *             .displayName("DC Administrator")
  *             .password("Pa55w0Rd!!1")
  *             .build());
@@ -182,8 +182,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .notifications(ServiceNotificationsArgs.builder()
  *                 .additionalRecipients(                
- *                     "notifyA{@literal @}example.net",
- *                     "notifyB{@literal @}example.org")
+ *                     "notifyA}{@literal @}{@code example.net",
+ *                     "notifyB}{@literal @}{@code example.org")
  *                 .notifyDcAdmins(true)
  *                 .notifyGlobalAdmins(true)
  *                 .build())
@@ -199,8 +199,8 @@ import javax.annotation.Nullable;
  *                     deploySubnetNetworkSecurityGroupAssociation)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -435,7 +435,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Service(String name) {
+    public Service(java.lang.String name) {
         this(name, ServiceArgs.Empty);
     }
     /**
@@ -443,7 +443,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Service(String name, ServiceArgs args) {
+    public Service(java.lang.String name, ServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -452,12 +452,12 @@ public class Service extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Service(String name, ServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:domainservices/service:Service", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Service(java.lang.String name, ServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:domainservices/service:Service", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Service(String name, Output<String> id, @Nullable ServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:domainservices/service:Service", name, state, makeResourceOptions(options, id));
+    private Service(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:domainservices/service:Service", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServiceArgs makeArgs(ServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -467,7 +467,7 @@ public class Service extends com.pulumi.resources.CustomResource {
         return args == null ? ServiceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -483,7 +483,7 @@ public class Service extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Service get(String name, Output<String> id, @Nullable ServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Service get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Service(name, id, state, options);
     }
 }

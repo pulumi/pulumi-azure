@@ -122,7 +122,7 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NatGatewayPublicIpPrefixAssociation(String name) {
+    public NatGatewayPublicIpPrefixAssociation(java.lang.String name) {
         this(name, NatGatewayPublicIpPrefixAssociationArgs.Empty);
     }
     /**
@@ -130,7 +130,7 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NatGatewayPublicIpPrefixAssociation(String name, NatGatewayPublicIpPrefixAssociationArgs args) {
+    public NatGatewayPublicIpPrefixAssociation(java.lang.String name, NatGatewayPublicIpPrefixAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -139,12 +139,12 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NatGatewayPublicIpPrefixAssociation(String name, NatGatewayPublicIpPrefixAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NatGatewayPublicIpPrefixAssociation(java.lang.String name, NatGatewayPublicIpPrefixAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NatGatewayPublicIpPrefixAssociation(String name, Output<String> id, @Nullable NatGatewayPublicIpPrefixAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation", name, state, makeResourceOptions(options, id));
+    private NatGatewayPublicIpPrefixAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable NatGatewayPublicIpPrefixAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NatGatewayPublicIpPrefixAssociationArgs makeArgs(NatGatewayPublicIpPrefixAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -154,7 +154,7 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
         return args == null ? NatGatewayPublicIpPrefixAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -170,7 +170,7 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NatGatewayPublicIpPrefixAssociation get(String name, Output<String> id, @Nullable NatGatewayPublicIpPrefixAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NatGatewayPublicIpPrefixAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable NatGatewayPublicIpPrefixAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NatGatewayPublicIpPrefixAssociation(name, id, state, options);
     }
 }

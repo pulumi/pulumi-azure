@@ -254,7 +254,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MedtechServiceFhirDestination(String name) {
+    public MedtechServiceFhirDestination(java.lang.String name) {
         this(name, MedtechServiceFhirDestinationArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MedtechServiceFhirDestination(String name, MedtechServiceFhirDestinationArgs args) {
+    public MedtechServiceFhirDestination(java.lang.String name, MedtechServiceFhirDestinationArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,12 +271,12 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MedtechServiceFhirDestination(String name, MedtechServiceFhirDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public MedtechServiceFhirDestination(java.lang.String name, MedtechServiceFhirDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MedtechServiceFhirDestination(String name, Output<String> id, @Nullable MedtechServiceFhirDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination", name, state, makeResourceOptions(options, id));
+    private MedtechServiceFhirDestination(java.lang.String name, Output<java.lang.String> id, @Nullable MedtechServiceFhirDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MedtechServiceFhirDestinationArgs makeArgs(MedtechServiceFhirDestinationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -286,7 +286,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
         return args == null ? MedtechServiceFhirDestinationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -302,7 +302,7 @@ public class MedtechServiceFhirDestination extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MedtechServiceFhirDestination get(String name, Output<String> id, @Nullable MedtechServiceFhirDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MedtechServiceFhirDestination get(java.lang.String name, Output<java.lang.String> id, @Nullable MedtechServiceFhirDestinationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MedtechServiceFhirDestination(name, id, state, options);
     }
 }

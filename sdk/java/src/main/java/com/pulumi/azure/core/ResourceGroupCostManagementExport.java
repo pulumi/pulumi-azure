@@ -221,7 +221,7 @@ public class ResourceGroupCostManagementExport extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceGroupCostManagementExport(String name) {
+    public ResourceGroupCostManagementExport(java.lang.String name) {
         this(name, ResourceGroupCostManagementExportArgs.Empty);
     }
     /**
@@ -229,7 +229,7 @@ public class ResourceGroupCostManagementExport extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceGroupCostManagementExport(String name, ResourceGroupCostManagementExportArgs args) {
+    public ResourceGroupCostManagementExport(java.lang.String name, ResourceGroupCostManagementExportArgs args) {
         this(name, args, null);
     }
     /**
@@ -238,12 +238,12 @@ public class ResourceGroupCostManagementExport extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceGroupCostManagementExport(String name, ResourceGroupCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResourceGroupCostManagementExport(java.lang.String name, ResourceGroupCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceGroupCostManagementExport(String name, Output<String> id, @Nullable ResourceGroupCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport", name, state, makeResourceOptions(options, id));
+    private ResourceGroupCostManagementExport(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResourceGroupCostManagementExportArgs makeArgs(ResourceGroupCostManagementExportArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -253,7 +253,7 @@ public class ResourceGroupCostManagementExport extends com.pulumi.resources.Cust
         return args == null ? ResourceGroupCostManagementExportArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -269,7 +269,7 @@ public class ResourceGroupCostManagementExport extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceGroupCostManagementExport get(String name, Output<String> id, @Nullable ResourceGroupCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceGroupCostManagementExport get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupCostManagementExportState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceGroupCostManagementExport(name, id, state, options);
     }
 }

@@ -184,7 +184,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ChannelFacebook(String name) {
+    public ChannelFacebook(java.lang.String name) {
         this(name, ChannelFacebookArgs.Empty);
     }
     /**
@@ -192,7 +192,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ChannelFacebook(String name, ChannelFacebookArgs args) {
+    public ChannelFacebook(java.lang.String name, ChannelFacebookArgs args) {
         this(name, args, null);
     }
     /**
@@ -201,12 +201,12 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ChannelFacebook(String name, ChannelFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelFacebook:ChannelFacebook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ChannelFacebook(java.lang.String name, ChannelFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelFacebook:ChannelFacebook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ChannelFacebook(String name, Output<String> id, @Nullable ChannelFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:bot/channelFacebook:ChannelFacebook", name, state, makeResourceOptions(options, id));
+    private ChannelFacebook(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:bot/channelFacebook:ChannelFacebook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ChannelFacebookArgs makeArgs(ChannelFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -216,7 +216,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
         return args == null ? ChannelFacebookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -235,7 +235,7 @@ public class ChannelFacebook extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ChannelFacebook get(String name, Output<String> id, @Nullable ChannelFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ChannelFacebook get(java.lang.String name, Output<java.lang.String> id, @Nullable ChannelFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ChannelFacebook(name, id, state, options);
     }
 }

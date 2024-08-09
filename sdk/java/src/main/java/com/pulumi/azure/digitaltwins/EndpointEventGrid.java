@@ -179,7 +179,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EndpointEventGrid(String name) {
+    public EndpointEventGrid(java.lang.String name) {
         this(name, EndpointEventGridArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EndpointEventGrid(String name, EndpointEventGridArgs args) {
+    public EndpointEventGrid(java.lang.String name, EndpointEventGridArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,12 +196,12 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EndpointEventGrid(String name, EndpointEventGridArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EndpointEventGrid(java.lang.String name, EndpointEventGridArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EndpointEventGrid(String name, Output<String> id, @Nullable EndpointEventGridState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, state, makeResourceOptions(options, id));
+    private EndpointEventGrid(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointEventGridState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/endpointEventGrid:EndpointEventGrid", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EndpointEventGridArgs makeArgs(EndpointEventGridArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -211,7 +211,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
         return args == null ? EndpointEventGridArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +227,7 @@ public class EndpointEventGrid extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EndpointEventGrid get(String name, Output<String> id, @Nullable EndpointEventGridState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EndpointEventGrid get(java.lang.String name, Output<java.lang.String> id, @Nullable EndpointEventGridState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EndpointEventGrid(name, id, state, options);
     }
 }

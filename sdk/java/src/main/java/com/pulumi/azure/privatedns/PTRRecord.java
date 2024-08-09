@@ -187,7 +187,7 @@ public class PTRRecord extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PTRRecord(String name) {
+    public PTRRecord(java.lang.String name) {
         this(name, PTRRecordArgs.Empty);
     }
     /**
@@ -195,7 +195,7 @@ public class PTRRecord extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PTRRecord(String name, PTRRecordArgs args) {
+    public PTRRecord(java.lang.String name, PTRRecordArgs args) {
         this(name, args, null);
     }
     /**
@@ -204,12 +204,12 @@ public class PTRRecord extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PTRRecord(String name, PTRRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/pTRRecord:PTRRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PTRRecord(java.lang.String name, PTRRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/pTRRecord:PTRRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PTRRecord(String name, Output<String> id, @Nullable PTRRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/pTRRecord:PTRRecord", name, state, makeResourceOptions(options, id));
+    private PTRRecord(java.lang.String name, Output<java.lang.String> id, @Nullable PTRRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/pTRRecord:PTRRecord", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PTRRecordArgs makeArgs(PTRRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -219,7 +219,7 @@ public class PTRRecord extends com.pulumi.resources.CustomResource {
         return args == null ? PTRRecordArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -235,7 +235,7 @@ public class PTRRecord extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PTRRecord get(String name, Output<String> id, @Nullable PTRRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PTRRecord get(java.lang.String name, Output<java.lang.String> id, @Nullable PTRRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PTRRecord(name, id, state, options);
     }
 }

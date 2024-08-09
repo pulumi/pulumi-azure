@@ -246,7 +246,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutputFunction(String name) {
+    public OutputFunction(java.lang.String name) {
         this(name, OutputFunctionArgs.Empty);
     }
     /**
@@ -254,7 +254,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutputFunction(String name, OutputFunctionArgs args) {
+    public OutputFunction(java.lang.String name, OutputFunctionArgs args) {
         this(name, args, null);
     }
     /**
@@ -263,12 +263,12 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutputFunction(String name, OutputFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputFunction:OutputFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OutputFunction(java.lang.String name, OutputFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputFunction:OutputFunction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutputFunction(String name, Output<String> id, @Nullable OutputFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputFunction:OutputFunction", name, state, makeResourceOptions(options, id));
+    private OutputFunction(java.lang.String name, Output<java.lang.String> id, @Nullable OutputFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputFunction:OutputFunction", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OutputFunctionArgs makeArgs(OutputFunctionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -278,7 +278,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
         return args == null ? OutputFunctionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -297,7 +297,7 @@ public class OutputFunction extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutputFunction get(String name, Output<String> id, @Nullable OutputFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutputFunction get(java.lang.String name, Output<java.lang.String> id, @Nullable OutputFunctionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutputFunction(name, id, state, options);
     }
 }

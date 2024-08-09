@@ -172,7 +172,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccountCertificate(String name) {
+    public IntegrationAccountCertificate(java.lang.String name) {
         this(name, IntegrationAccountCertificateArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccountCertificate(String name, IntegrationAccountCertificateArgs args) {
+    public IntegrationAccountCertificate(java.lang.String name, IntegrationAccountCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,12 +189,12 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccountCertificate(String name, IntegrationAccountCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccountCertificate(java.lang.String name, IntegrationAccountCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccountCertificate(String name, Output<String> id, @Nullable IntegrationAccountCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", name, state, makeResourceOptions(options, id));
+    private IntegrationAccountCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationAccountCertificateArgs makeArgs(IntegrationAccountCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -204,7 +204,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
         return args == null ? IntegrationAccountCertificateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +220,7 @@ public class IntegrationAccountCertificate extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccountCertificate get(String name, Output<String> id, @Nullable IntegrationAccountCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccountCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccountCertificate(name, id, state, options);
     }
 }

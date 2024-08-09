@@ -40,12 +40,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}mycompany.io")
+ *             .publisherEmail("company}{@literal @}{@code mycompany.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  *             .appSecret("00000000000000000000000000000000")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -145,7 +145,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IdentityProviderFacebook(String name) {
+    public IdentityProviderFacebook(java.lang.String name) {
         this(name, IdentityProviderFacebookArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IdentityProviderFacebook(String name, IdentityProviderFacebookArgs args) {
+    public IdentityProviderFacebook(java.lang.String name, IdentityProviderFacebookArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,12 +162,12 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IdentityProviderFacebook(String name, IdentityProviderFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IdentityProviderFacebook(java.lang.String name, IdentityProviderFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IdentityProviderFacebook(String name, Output<String> id, @Nullable IdentityProviderFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, state, makeResourceOptions(options, id));
+    private IdentityProviderFacebook(java.lang.String name, Output<java.lang.String> id, @Nullable IdentityProviderFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IdentityProviderFacebookArgs makeArgs(IdentityProviderFacebookArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -177,7 +177,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
         return args == null ? IdentityProviderFacebookArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -196,7 +196,7 @@ public class IdentityProviderFacebook extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IdentityProviderFacebook get(String name, Output<String> id, @Nullable IdentityProviderFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IdentityProviderFacebook get(java.lang.String name, Output<java.lang.String> id, @Nullable IdentityProviderFacebookState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IdentityProviderFacebook(name, id, state, options);
     }
 }

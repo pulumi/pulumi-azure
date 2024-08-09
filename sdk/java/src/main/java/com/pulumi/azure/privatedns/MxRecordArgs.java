@@ -21,14 +21,14 @@ public final class MxRecordArgs extends com.pulumi.resources.ResourceArgs {
     public static final MxRecordArgs Empty = new MxRecordArgs();
 
     /**
-     * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
+     * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}' for root zone entry.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
+     * @return The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}' for root zone entry.
      * 
      */
     public Optional<Output<String>> name() {
@@ -140,7 +140,7 @@ public final class MxRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
+         * @param name The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}' for root zone entry.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class MxRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
+         * @param name The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}' for root zone entry.
          * 
          * @return builder
          * 

@@ -249,7 +249,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProtectionContainerMapping(String name) {
+    public ProtectionContainerMapping(java.lang.String name) {
         this(name, ProtectionContainerMappingArgs.Empty);
     }
     /**
@@ -257,7 +257,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProtectionContainerMapping(String name, ProtectionContainerMappingArgs args) {
+    public ProtectionContainerMapping(java.lang.String name, ProtectionContainerMappingArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,12 +266,12 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProtectionContainerMapping(String name, ProtectionContainerMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProtectionContainerMapping(java.lang.String name, ProtectionContainerMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProtectionContainerMapping(String name, Output<String> id, @Nullable ProtectionContainerMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping", name, state, makeResourceOptions(options, id));
+    private ProtectionContainerMapping(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectionContainerMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProtectionContainerMappingArgs makeArgs(ProtectionContainerMappingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -281,7 +281,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
         return args == null ? ProtectionContainerMappingArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -297,7 +297,7 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProtectionContainerMapping get(String name, Output<String> id, @Nullable ProtectionContainerMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProtectionContainerMapping get(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectionContainerMappingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProtectionContainerMapping(name, id, state, options);
     }
 }

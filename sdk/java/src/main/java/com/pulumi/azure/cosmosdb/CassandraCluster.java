@@ -321,7 +321,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CassandraCluster(String name) {
+    public CassandraCluster(java.lang.String name) {
         this(name, CassandraClusterArgs.Empty);
     }
     /**
@@ -329,7 +329,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CassandraCluster(String name, CassandraClusterArgs args) {
+    public CassandraCluster(java.lang.String name, CassandraClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -338,12 +338,12 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CassandraCluster(String name, CassandraClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/cassandraCluster:CassandraCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CassandraCluster(java.lang.String name, CassandraClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/cassandraCluster:CassandraCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CassandraCluster(String name, Output<String> id, @Nullable CassandraClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/cassandraCluster:CassandraCluster", name, state, makeResourceOptions(options, id));
+    private CassandraCluster(java.lang.String name, Output<java.lang.String> id, @Nullable CassandraClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/cassandraCluster:CassandraCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CassandraClusterArgs makeArgs(CassandraClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -353,7 +353,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
         return args == null ? CassandraClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -372,7 +372,7 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CassandraCluster get(String name, Output<String> id, @Nullable CassandraClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CassandraCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable CassandraClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CassandraCluster(name, id, state, options);
     }
 }

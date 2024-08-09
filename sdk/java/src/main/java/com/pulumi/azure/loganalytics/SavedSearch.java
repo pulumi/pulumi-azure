@@ -203,7 +203,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SavedSearch(String name) {
+    public SavedSearch(java.lang.String name) {
         this(name, SavedSearchArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SavedSearch(String name, SavedSearchArgs args) {
+    public SavedSearch(java.lang.String name, SavedSearchArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,12 +220,12 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SavedSearch(String name, SavedSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/savedSearch:SavedSearch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SavedSearch(java.lang.String name, SavedSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/savedSearch:SavedSearch", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SavedSearch(String name, Output<String> id, @Nullable SavedSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/savedSearch:SavedSearch", name, state, makeResourceOptions(options, id));
+    private SavedSearch(java.lang.String name, Output<java.lang.String> id, @Nullable SavedSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/savedSearch:SavedSearch", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SavedSearchArgs makeArgs(SavedSearchArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -235,7 +235,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
         return args == null ? SavedSearchArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -251,7 +251,7 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SavedSearch get(String name, Output<String> id, @Nullable SavedSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SavedSearch get(java.lang.String name, Output<java.lang.String> id, @Nullable SavedSearchState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SavedSearch(name, id, state, options);
     }
 }

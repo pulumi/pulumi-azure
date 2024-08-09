@@ -221,7 +221,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriptionPolicyExemption(String name) {
+    public SubscriptionPolicyExemption(java.lang.String name) {
         this(name, SubscriptionPolicyExemptionArgs.Empty);
     }
     /**
@@ -229,7 +229,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriptionPolicyExemption(String name, SubscriptionPolicyExemptionArgs args) {
+    public SubscriptionPolicyExemption(java.lang.String name, SubscriptionPolicyExemptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -238,12 +238,12 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriptionPolicyExemption(String name, SubscriptionPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SubscriptionPolicyExemption(java.lang.String name, SubscriptionPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriptionPolicyExemption(String name, Output<String> id, @Nullable SubscriptionPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption", name, state, makeResourceOptions(options, id));
+    private SubscriptionPolicyExemption(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubscriptionPolicyExemptionArgs makeArgs(SubscriptionPolicyExemptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -253,7 +253,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
         return args == null ? SubscriptionPolicyExemptionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -269,7 +269,7 @@ public class SubscriptionPolicyExemption extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriptionPolicyExemption get(String name, Output<String> id, @Nullable SubscriptionPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriptionPolicyExemption get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionPolicyExemptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriptionPolicyExemption(name, id, state, options);
     }
 }

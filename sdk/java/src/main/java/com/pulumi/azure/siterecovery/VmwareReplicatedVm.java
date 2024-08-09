@@ -507,7 +507,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VmwareReplicatedVm(String name) {
+    public VmwareReplicatedVm(java.lang.String name) {
         this(name, VmwareReplicatedVmArgs.Empty);
     }
     /**
@@ -515,7 +515,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VmwareReplicatedVm(String name, VmwareReplicatedVmArgs args) {
+    public VmwareReplicatedVm(java.lang.String name, VmwareReplicatedVmArgs args) {
         this(name, args, null);
     }
     /**
@@ -524,12 +524,12 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VmwareReplicatedVm(String name, VmwareReplicatedVmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VmwareReplicatedVm(java.lang.String name, VmwareReplicatedVmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VmwareReplicatedVm(String name, Output<String> id, @Nullable VmwareReplicatedVmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm", name, state, makeResourceOptions(options, id));
+    private VmwareReplicatedVm(java.lang.String name, Output<java.lang.String> id, @Nullable VmwareReplicatedVmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VmwareReplicatedVmArgs makeArgs(VmwareReplicatedVmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -539,7 +539,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
         return args == null ? VmwareReplicatedVmArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -555,7 +555,7 @@ public class VmwareReplicatedVm extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VmwareReplicatedVm get(String name, Output<String> id, @Nullable VmwareReplicatedVmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VmwareReplicatedVm get(java.lang.String name, Output<java.lang.String> id, @Nullable VmwareReplicatedVmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VmwareReplicatedVm(name, id, state, options);
     }
 }

@@ -226,7 +226,7 @@ public class CollectorPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CollectorPolicy(String name) {
+    public CollectorPolicy(java.lang.String name) {
         this(name, CollectorPolicyArgs.Empty);
     }
     /**
@@ -234,7 +234,7 @@ public class CollectorPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CollectorPolicy(String name, CollectorPolicyArgs args) {
+    public CollectorPolicy(java.lang.String name, CollectorPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -243,12 +243,12 @@ public class CollectorPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CollectorPolicy(String name, CollectorPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:networkfunction/collectorPolicy:CollectorPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CollectorPolicy(java.lang.String name, CollectorPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:networkfunction/collectorPolicy:CollectorPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CollectorPolicy(String name, Output<String> id, @Nullable CollectorPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:networkfunction/collectorPolicy:CollectorPolicy", name, state, makeResourceOptions(options, id));
+    private CollectorPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable CollectorPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:networkfunction/collectorPolicy:CollectorPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CollectorPolicyArgs makeArgs(CollectorPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -258,7 +258,7 @@ public class CollectorPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? CollectorPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -274,7 +274,7 @@ public class CollectorPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CollectorPolicy get(String name, Output<String> id, @Nullable CollectorPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CollectorPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable CollectorPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CollectorPolicy(name, id, state, options);
     }
 }

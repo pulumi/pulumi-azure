@@ -256,7 +256,7 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupPolicyRemediation(String name) {
+    public GroupPolicyRemediation(java.lang.String name) {
         this(name, GroupPolicyRemediationArgs.Empty);
     }
     /**
@@ -264,7 +264,7 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupPolicyRemediation(String name, GroupPolicyRemediationArgs args) {
+    public GroupPolicyRemediation(java.lang.String name, GroupPolicyRemediationArgs args) {
         this(name, args, null);
     }
     /**
@@ -273,12 +273,12 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupPolicyRemediation(String name, GroupPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/groupPolicyRemediation:GroupPolicyRemediation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GroupPolicyRemediation(java.lang.String name, GroupPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:management/groupPolicyRemediation:GroupPolicyRemediation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupPolicyRemediation(String name, Output<String> id, @Nullable GroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:management/groupPolicyRemediation:GroupPolicyRemediation", name, state, makeResourceOptions(options, id));
+    private GroupPolicyRemediation(java.lang.String name, Output<java.lang.String> id, @Nullable GroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:management/groupPolicyRemediation:GroupPolicyRemediation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GroupPolicyRemediationArgs makeArgs(GroupPolicyRemediationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -288,7 +288,7 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
         return args == null ? GroupPolicyRemediationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -304,7 +304,7 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupPolicyRemediation get(String name, Output<String> id, @Nullable GroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupPolicyRemediation get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupPolicyRemediationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupPolicyRemediation(name, id, state, options);
     }
 }

@@ -151,7 +151,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorThreatIntelligence(String name) {
+    public DataConnectorThreatIntelligence(java.lang.String name) {
         this(name, DataConnectorThreatIntelligenceArgs.Empty);
     }
     /**
@@ -159,7 +159,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorThreatIntelligence(String name, DataConnectorThreatIntelligenceArgs args) {
+    public DataConnectorThreatIntelligence(java.lang.String name, DataConnectorThreatIntelligenceArgs args) {
         this(name, args, null);
     }
     /**
@@ -168,12 +168,12 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorThreatIntelligence(String name, DataConnectorThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorThreatIntelligence(java.lang.String name, DataConnectorThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorThreatIntelligence(String name, Output<String> id, @Nullable DataConnectorThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence", name, state, makeResourceOptions(options, id));
+    private DataConnectorThreatIntelligence(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorThreatIntelligence:DataConnectorThreatIntelligence", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorThreatIntelligenceArgs makeArgs(DataConnectorThreatIntelligenceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -183,7 +183,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
         return args == null ? DataConnectorThreatIntelligenceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -199,7 +199,7 @@ public class DataConnectorThreatIntelligence extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorThreatIntelligence get(String name, Output<String> id, @Nullable DataConnectorThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorThreatIntelligence get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorThreatIntelligenceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorThreatIntelligence(name, id, state, options);
     }
 }

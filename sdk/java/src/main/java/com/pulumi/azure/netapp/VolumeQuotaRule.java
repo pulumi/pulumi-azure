@@ -265,7 +265,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VolumeQuotaRule(String name) {
+    public VolumeQuotaRule(java.lang.String name) {
         this(name, VolumeQuotaRuleArgs.Empty);
     }
     /**
@@ -273,7 +273,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VolumeQuotaRule(String name, VolumeQuotaRuleArgs args) {
+    public VolumeQuotaRule(java.lang.String name, VolumeQuotaRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -282,12 +282,12 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VolumeQuotaRule(String name, VolumeQuotaRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/volumeQuotaRule:VolumeQuotaRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VolumeQuotaRule(java.lang.String name, VolumeQuotaRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:netapp/volumeQuotaRule:VolumeQuotaRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VolumeQuotaRule(String name, Output<String> id, @Nullable VolumeQuotaRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:netapp/volumeQuotaRule:VolumeQuotaRule", name, state, makeResourceOptions(options, id));
+    private VolumeQuotaRule(java.lang.String name, Output<java.lang.String> id, @Nullable VolumeQuotaRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:netapp/volumeQuotaRule:VolumeQuotaRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VolumeQuotaRuleArgs makeArgs(VolumeQuotaRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -297,7 +297,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
         return args == null ? VolumeQuotaRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -313,7 +313,7 @@ public class VolumeQuotaRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VolumeQuotaRule get(String name, Output<String> id, @Nullable VolumeQuotaRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VolumeQuotaRule get(java.lang.String name, Output<java.lang.String> id, @Nullable VolumeQuotaRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VolumeQuotaRule(name, id, state, options);
     }
 }

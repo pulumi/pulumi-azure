@@ -216,7 +216,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceCustomDomain(String name) {
+    public ServiceCustomDomain(java.lang.String name) {
         this(name, ServiceCustomDomainArgs.Empty);
     }
     /**
@@ -224,7 +224,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceCustomDomain(String name, ServiceCustomDomainArgs args) {
+    public ServiceCustomDomain(java.lang.String name, ServiceCustomDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -233,12 +233,12 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceCustomDomain(String name, ServiceCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/serviceCustomDomain:ServiceCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServiceCustomDomain(java.lang.String name, ServiceCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/serviceCustomDomain:ServiceCustomDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceCustomDomain(String name, Output<String> id, @Nullable ServiceCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/serviceCustomDomain:ServiceCustomDomain", name, state, makeResourceOptions(options, id));
+    private ServiceCustomDomain(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/serviceCustomDomain:ServiceCustomDomain", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServiceCustomDomainArgs makeArgs(ServiceCustomDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -248,7 +248,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
         return args == null ? ServiceCustomDomainArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -264,7 +264,7 @@ public class ServiceCustomDomain extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceCustomDomain get(String name, Output<String> id, @Nullable ServiceCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceCustomDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceCustomDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceCustomDomain(name, id, state, options);
     }
 }

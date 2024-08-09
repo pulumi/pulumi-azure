@@ -196,7 +196,7 @@ public class DataLakeGen2Filesystem extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataLakeGen2Filesystem(String name) {
+    public DataLakeGen2Filesystem(java.lang.String name) {
         this(name, DataLakeGen2FilesystemArgs.Empty);
     }
     /**
@@ -204,7 +204,7 @@ public class DataLakeGen2Filesystem extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataLakeGen2Filesystem(String name, DataLakeGen2FilesystemArgs args) {
+    public DataLakeGen2Filesystem(java.lang.String name, DataLakeGen2FilesystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -213,12 +213,12 @@ public class DataLakeGen2Filesystem extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataLakeGen2Filesystem(String name, DataLakeGen2FilesystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataLakeGen2Filesystem(java.lang.String name, DataLakeGen2FilesystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataLakeGen2Filesystem(String name, Output<String> id, @Nullable DataLakeGen2FilesystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, state, makeResourceOptions(options, id));
+    private DataLakeGen2Filesystem(java.lang.String name, Output<java.lang.String> id, @Nullable DataLakeGen2FilesystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataLakeGen2FilesystemArgs makeArgs(DataLakeGen2FilesystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -228,7 +228,7 @@ public class DataLakeGen2Filesystem extends com.pulumi.resources.CustomResource 
         return args == null ? DataLakeGen2FilesystemArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -244,7 +244,7 @@ public class DataLakeGen2Filesystem extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataLakeGen2Filesystem get(String name, Output<String> id, @Nullable DataLakeGen2FilesystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataLakeGen2Filesystem get(java.lang.String name, Output<java.lang.String> id, @Nullable DataLakeGen2FilesystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataLakeGen2Filesystem(name, id, state, options);
     }
 }

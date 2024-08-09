@@ -297,7 +297,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FileSystem(String name) {
+    public FileSystem(java.lang.String name) {
         this(name, FileSystemArgs.Empty);
     }
     /**
@@ -305,7 +305,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FileSystem(String name, FileSystemArgs args) {
+    public FileSystem(java.lang.String name, FileSystemArgs args) {
         this(name, args, null);
     }
     /**
@@ -314,12 +314,12 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FileSystem(String name, FileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:managedlustre/fileSystem:FileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FileSystem(java.lang.String name, FileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:managedlustre/fileSystem:FileSystem", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FileSystem(String name, Output<String> id, @Nullable FileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:managedlustre/fileSystem:FileSystem", name, state, makeResourceOptions(options, id));
+    private FileSystem(java.lang.String name, Output<java.lang.String> id, @Nullable FileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:managedlustre/fileSystem:FileSystem", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FileSystemArgs makeArgs(FileSystemArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -329,7 +329,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
         return args == null ? FileSystemArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -345,7 +345,7 @@ public class FileSystem extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FileSystem get(String name, Output<String> id, @Nullable FileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FileSystem get(java.lang.String name, Output<java.lang.String> id, @Nullable FileSystemState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FileSystem(name, id, state, options);
     }
 }

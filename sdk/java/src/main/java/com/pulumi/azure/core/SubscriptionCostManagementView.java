@@ -227,7 +227,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriptionCostManagementView(String name) {
+    public SubscriptionCostManagementView(java.lang.String name) {
         this(name, SubscriptionCostManagementViewArgs.Empty);
     }
     /**
@@ -235,7 +235,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriptionCostManagementView(String name, SubscriptionCostManagementViewArgs args) {
+    public SubscriptionCostManagementView(java.lang.String name, SubscriptionCostManagementViewArgs args) {
         this(name, args, null);
     }
     /**
@@ -244,12 +244,12 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriptionCostManagementView(String name, SubscriptionCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SubscriptionCostManagementView(java.lang.String name, SubscriptionCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriptionCostManagementView(String name, Output<String> id, @Nullable SubscriptionCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", name, state, makeResourceOptions(options, id));
+    private SubscriptionCostManagementView(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubscriptionCostManagementViewArgs makeArgs(SubscriptionCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -259,7 +259,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
         return args == null ? SubscriptionCostManagementViewArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -275,7 +275,7 @@ public class SubscriptionCostManagementView extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriptionCostManagementView get(String name, Output<String> id, @Nullable SubscriptionCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriptionCostManagementView get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriptionCostManagementView(name, id, state, options);
     }
 }

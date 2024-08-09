@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  *             .name("examplecluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .coordinatorStorageQuotaInMb(131072)
  *             .coordinatorVcoreCount(2)
  *             .nodeCount(2)
@@ -68,8 +68,8 @@ import javax.annotation.Nullable;
  *             .value("on")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -132,7 +132,7 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PostgresqlNodeConfiguration(String name) {
+    public PostgresqlNodeConfiguration(java.lang.String name) {
         this(name, PostgresqlNodeConfigurationArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PostgresqlNodeConfiguration(String name, PostgresqlNodeConfigurationArgs args) {
+    public PostgresqlNodeConfiguration(java.lang.String name, PostgresqlNodeConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,12 +149,12 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PostgresqlNodeConfiguration(String name, PostgresqlNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PostgresqlNodeConfiguration(java.lang.String name, PostgresqlNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PostgresqlNodeConfiguration(String name, Output<String> id, @Nullable PostgresqlNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", name, state, makeResourceOptions(options, id));
+    private PostgresqlNodeConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/postgresqlNodeConfiguration:PostgresqlNodeConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PostgresqlNodeConfigurationArgs makeArgs(PostgresqlNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -164,7 +164,7 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
         return args == null ? PostgresqlNodeConfigurationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -180,7 +180,7 @@ public class PostgresqlNodeConfiguration extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PostgresqlNodeConfiguration get(String name, Output<String> id, @Nullable PostgresqlNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PostgresqlNodeConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable PostgresqlNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PostgresqlNodeConfiguration(name, id, state, options);
     }
 }

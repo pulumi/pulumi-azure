@@ -248,7 +248,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VnpGatewayNatRule(String name) {
+    public VnpGatewayNatRule(java.lang.String name) {
         this(name, VnpGatewayNatRuleArgs.Empty);
     }
     /**
@@ -256,7 +256,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VnpGatewayNatRule(String name, VnpGatewayNatRuleArgs args) {
+    public VnpGatewayNatRule(java.lang.String name, VnpGatewayNatRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -265,12 +265,12 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VnpGatewayNatRule(String name, VnpGatewayNatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vnpGatewayNatRule:VnpGatewayNatRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VnpGatewayNatRule(java.lang.String name, VnpGatewayNatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/vnpGatewayNatRule:VnpGatewayNatRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VnpGatewayNatRule(String name, Output<String> id, @Nullable VnpGatewayNatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/vnpGatewayNatRule:VnpGatewayNatRule", name, state, makeResourceOptions(options, id));
+    private VnpGatewayNatRule(java.lang.String name, Output<java.lang.String> id, @Nullable VnpGatewayNatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/vnpGatewayNatRule:VnpGatewayNatRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VnpGatewayNatRuleArgs makeArgs(VnpGatewayNatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -280,7 +280,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
         return args == null ? VnpGatewayNatRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -296,7 +296,7 @@ public class VnpGatewayNatRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VnpGatewayNatRule get(String name, Output<String> id, @Nullable VnpGatewayNatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VnpGatewayNatRule get(java.lang.String name, Output<java.lang.String> id, @Nullable VnpGatewayNatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VnpGatewayNatRule(name, id, state, options);
     }
 }

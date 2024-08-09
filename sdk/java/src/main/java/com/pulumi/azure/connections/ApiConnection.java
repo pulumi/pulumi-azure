@@ -173,7 +173,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiConnection(String name) {
+    public ApiConnection(java.lang.String name) {
         this(name, ApiConnectionArgs.Empty);
     }
     /**
@@ -181,7 +181,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiConnection(String name, ApiConnectionArgs args) {
+    public ApiConnection(java.lang.String name, ApiConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -190,12 +190,12 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiConnection(String name, ApiConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:connections/apiConnection:ApiConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiConnection(java.lang.String name, ApiConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:connections/apiConnection:ApiConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiConnection(String name, Output<String> id, @Nullable ApiConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:connections/apiConnection:ApiConnection", name, state, makeResourceOptions(options, id));
+    private ApiConnection(java.lang.String name, Output<java.lang.String> id, @Nullable ApiConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:connections/apiConnection:ApiConnection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiConnectionArgs makeArgs(ApiConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -205,7 +205,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
         return args == null ? ApiConnectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -221,7 +221,7 @@ public class ApiConnection extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiConnection get(String name, Output<String> id, @Nullable ApiConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiConnection(name, id, state, options);
     }
 }

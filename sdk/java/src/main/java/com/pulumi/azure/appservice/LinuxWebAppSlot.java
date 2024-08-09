@@ -597,7 +597,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinuxWebAppSlot(String name) {
+    public LinuxWebAppSlot(java.lang.String name) {
         this(name, LinuxWebAppSlotArgs.Empty);
     }
     /**
@@ -605,7 +605,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinuxWebAppSlot(String name, LinuxWebAppSlotArgs args) {
+    public LinuxWebAppSlot(java.lang.String name, LinuxWebAppSlotArgs args) {
         this(name, args, null);
     }
     /**
@@ -614,12 +614,12 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinuxWebAppSlot(String name, LinuxWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinuxWebAppSlot(java.lang.String name, LinuxWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinuxWebAppSlot(String name, Output<String> id, @Nullable LinuxWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot", name, state, makeResourceOptions(options, id));
+    private LinuxWebAppSlot(java.lang.String name, Output<java.lang.String> id, @Nullable LinuxWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinuxWebAppSlotArgs makeArgs(LinuxWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -629,7 +629,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return args == null ? LinuxWebAppSlotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -649,7 +649,7 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinuxWebAppSlot get(String name, Output<String> id, @Nullable LinuxWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinuxWebAppSlot get(java.lang.String name, Output<java.lang.String> id, @Nullable LinuxWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinuxWebAppSlot(name, id, state, options);
     }
 }

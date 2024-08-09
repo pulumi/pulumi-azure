@@ -297,7 +297,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Subnet(String name) {
+    public Subnet(java.lang.String name) {
         this(name, SubnetArgs.Empty);
     }
     /**
@@ -305,7 +305,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Subnet(String name, SubnetArgs args) {
+    public Subnet(java.lang.String name, SubnetArgs args) {
         this(name, args, null);
     }
     /**
@@ -314,12 +314,12 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Subnet(String name, SubnetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnet:Subnet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Subnet(java.lang.String name, SubnetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnet:Subnet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Subnet(String name, Output<String> id, @Nullable SubnetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnet:Subnet", name, state, makeResourceOptions(options, id));
+    private Subnet(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnet:Subnet", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubnetArgs makeArgs(SubnetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -329,7 +329,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return args == null ? SubnetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -345,7 +345,7 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Subnet get(String name, Output<String> id, @Nullable SubnetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Subnet get(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Subnet(name, id, state, options);
     }
 }

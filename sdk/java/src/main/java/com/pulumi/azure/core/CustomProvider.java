@@ -185,7 +185,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomProvider(String name) {
+    public CustomProvider(java.lang.String name) {
         this(name, CustomProviderArgs.Empty);
     }
     /**
@@ -193,7 +193,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomProvider(String name, CustomProviderArgs args) {
+    public CustomProvider(java.lang.String name, CustomProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -202,12 +202,12 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomProvider(String name, CustomProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/customProvider:CustomProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CustomProvider(java.lang.String name, CustomProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/customProvider:CustomProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomProvider(String name, Output<String> id, @Nullable CustomProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/customProvider:CustomProvider", name, state, makeResourceOptions(options, id));
+    private CustomProvider(java.lang.String name, Output<java.lang.String> id, @Nullable CustomProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/customProvider:CustomProvider", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CustomProviderArgs makeArgs(CustomProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -217,7 +217,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
         return args == null ? CustomProviderArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +233,7 @@ public class CustomProvider extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomProvider get(String name, Output<String> id, @Nullable CustomProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomProvider get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomProvider(name, id, state, options);
     }
 }

@@ -270,7 +270,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FlexibleServerFirewallRule(String name) {
+    public FlexibleServerFirewallRule(java.lang.String name) {
         this(name, FlexibleServerFirewallRuleArgs.Empty);
     }
     /**
@@ -278,7 +278,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlexibleServerFirewallRule(String name, FlexibleServerFirewallRuleArgs args) {
+    public FlexibleServerFirewallRule(java.lang.String name, FlexibleServerFirewallRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -287,12 +287,12 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlexibleServerFirewallRule(String name, FlexibleServerFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FlexibleServerFirewallRule(java.lang.String name, FlexibleServerFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FlexibleServerFirewallRule(String name, Output<String> id, @Nullable FlexibleServerFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule", name, state, makeResourceOptions(options, id));
+    private FlexibleServerFirewallRule(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mysql/flexibleServerFirewallRule:FlexibleServerFirewallRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FlexibleServerFirewallRuleArgs makeArgs(FlexibleServerFirewallRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -302,7 +302,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
         return args == null ? FlexibleServerFirewallRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -318,7 +318,7 @@ public class FlexibleServerFirewallRule extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FlexibleServerFirewallRule get(String name, Output<String> id, @Nullable FlexibleServerFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FlexibleServerFirewallRule get(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerFirewallRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FlexibleServerFirewallRule(name, id, state, options);
     }
 }

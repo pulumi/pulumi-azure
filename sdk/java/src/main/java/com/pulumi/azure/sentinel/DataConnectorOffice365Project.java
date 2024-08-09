@@ -136,7 +136,7 @@ public class DataConnectorOffice365Project extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorOffice365Project(String name) {
+    public DataConnectorOffice365Project(java.lang.String name) {
         this(name, DataConnectorOffice365ProjectArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class DataConnectorOffice365Project extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorOffice365Project(String name, DataConnectorOffice365ProjectArgs args) {
+    public DataConnectorOffice365Project(java.lang.String name, DataConnectorOffice365ProjectArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,12 +153,12 @@ public class DataConnectorOffice365Project extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorOffice365Project(String name, DataConnectorOffice365ProjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorOffice365Project(java.lang.String name, DataConnectorOffice365ProjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorOffice365Project(String name, Output<String> id, @Nullable DataConnectorOffice365ProjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", name, state, makeResourceOptions(options, id));
+    private DataConnectorOffice365Project(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOffice365ProjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOffice365Project:DataConnectorOffice365Project", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorOffice365ProjectArgs makeArgs(DataConnectorOffice365ProjectArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -168,7 +168,7 @@ public class DataConnectorOffice365Project extends com.pulumi.resources.CustomRe
         return args == null ? DataConnectorOffice365ProjectArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -184,7 +184,7 @@ public class DataConnectorOffice365Project extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorOffice365Project get(String name, Output<String> id, @Nullable DataConnectorOffice365ProjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorOffice365Project get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOffice365ProjectState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorOffice365Project(name, id, state, options);
     }
 }

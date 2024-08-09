@@ -188,7 +188,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataSourceWindowsPerformanceCounter(String name) {
+    public DataSourceWindowsPerformanceCounter(java.lang.String name) {
         this(name, DataSourceWindowsPerformanceCounterArgs.Empty);
     }
     /**
@@ -196,7 +196,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataSourceWindowsPerformanceCounter(String name, DataSourceWindowsPerformanceCounterArgs args) {
+    public DataSourceWindowsPerformanceCounter(java.lang.String name, DataSourceWindowsPerformanceCounterArgs args) {
         this(name, args, null);
     }
     /**
@@ -205,12 +205,12 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataSourceWindowsPerformanceCounter(String name, DataSourceWindowsPerformanceCounterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataSourceWindowsPerformanceCounter(java.lang.String name, DataSourceWindowsPerformanceCounterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataSourceWindowsPerformanceCounter(String name, Output<String> id, @Nullable DataSourceWindowsPerformanceCounterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", name, state, makeResourceOptions(options, id));
+    private DataSourceWindowsPerformanceCounter(java.lang.String name, Output<java.lang.String> id, @Nullable DataSourceWindowsPerformanceCounterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataSourceWindowsPerformanceCounterArgs makeArgs(DataSourceWindowsPerformanceCounterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -220,7 +220,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
         return args == null ? DataSourceWindowsPerformanceCounterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -236,7 +236,7 @@ public class DataSourceWindowsPerformanceCounter extends com.pulumi.resources.Cu
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataSourceWindowsPerformanceCounter get(String name, Output<String> id, @Nullable DataSourceWindowsPerformanceCounterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataSourceWindowsPerformanceCounter get(java.lang.String name, Output<java.lang.String> id, @Nullable DataSourceWindowsPerformanceCounterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataSourceWindowsPerformanceCounter(name, id, state, options);
     }
 }

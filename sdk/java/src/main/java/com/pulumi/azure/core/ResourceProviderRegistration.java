@@ -136,7 +136,7 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceProviderRegistration(String name) {
+    public ResourceProviderRegistration(java.lang.String name) {
         this(name, ResourceProviderRegistrationArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceProviderRegistration(String name, @Nullable ResourceProviderRegistrationArgs args) {
+    public ResourceProviderRegistration(java.lang.String name, @Nullable ResourceProviderRegistrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,12 +153,12 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceProviderRegistration(String name, @Nullable ResourceProviderRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResourceProviderRegistration(java.lang.String name, @Nullable ResourceProviderRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceProviderRegistration(String name, Output<String> id, @Nullable ResourceProviderRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, state, makeResourceOptions(options, id));
+    private ResourceProviderRegistration(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceProviderRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceProviderRegistration:ResourceProviderRegistration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResourceProviderRegistrationArgs makeArgs(@Nullable ResourceProviderRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -168,7 +168,7 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
         return args == null ? ResourceProviderRegistrationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -184,7 +184,7 @@ public class ResourceProviderRegistration extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceProviderRegistration get(String name, Output<String> id, @Nullable ResourceProviderRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceProviderRegistration get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceProviderRegistrationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceProviderRegistration(name, id, state, options);
     }
 }

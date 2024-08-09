@@ -217,7 +217,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventHub(String name) {
+    public EventHub(java.lang.String name) {
         this(name, EventHubArgs.Empty);
     }
     /**
@@ -225,7 +225,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventHub(String name, EventHubArgs args) {
+    public EventHub(java.lang.String name, EventHubArgs args) {
         this(name, args, null);
     }
     /**
@@ -234,12 +234,12 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventHub(String name, EventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHub:EventHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventHub(java.lang.String name, EventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHub:EventHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventHub(String name, Output<String> id, @Nullable EventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHub:EventHub", name, state, makeResourceOptions(options, id));
+    private EventHub(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHub:EventHub", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventHubArgs makeArgs(EventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -249,7 +249,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return args == null ? EventHubArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -265,7 +265,7 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventHub get(String name, Output<String> id, @Nullable EventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventHub get(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventHub(name, id, state, options);
     }
 }

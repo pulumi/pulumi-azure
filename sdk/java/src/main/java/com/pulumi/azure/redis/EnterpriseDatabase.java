@@ -284,7 +284,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnterpriseDatabase(String name) {
+    public EnterpriseDatabase(java.lang.String name) {
         this(name, EnterpriseDatabaseArgs.Empty);
     }
     /**
@@ -292,7 +292,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnterpriseDatabase(String name, EnterpriseDatabaseArgs args) {
+    public EnterpriseDatabase(java.lang.String name, EnterpriseDatabaseArgs args) {
         this(name, args, null);
     }
     /**
@@ -301,12 +301,12 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnterpriseDatabase(String name, EnterpriseDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/enterpriseDatabase:EnterpriseDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EnterpriseDatabase(java.lang.String name, EnterpriseDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:redis/enterpriseDatabase:EnterpriseDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnterpriseDatabase(String name, Output<String> id, @Nullable EnterpriseDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/enterpriseDatabase:EnterpriseDatabase", name, state, makeResourceOptions(options, id));
+    private EnterpriseDatabase(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:redis/enterpriseDatabase:EnterpriseDatabase", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EnterpriseDatabaseArgs makeArgs(EnterpriseDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -316,7 +316,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
         return args == null ? EnterpriseDatabaseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -336,7 +336,7 @@ public class EnterpriseDatabase extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnterpriseDatabase get(String name, Output<String> id, @Nullable EnterpriseDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnterpriseDatabase get(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnterpriseDatabase(name, id, state, options);
     }
 }

@@ -219,7 +219,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ProtectedVM(String name) {
+    public ProtectedVM(java.lang.String name) {
         this(name, ProtectedVMArgs.Empty);
     }
     /**
@@ -227,7 +227,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProtectedVM(String name, ProtectedVMArgs args) {
+    public ProtectedVM(java.lang.String name, ProtectedVMArgs args) {
         this(name, args, null);
     }
     /**
@@ -236,12 +236,12 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProtectedVM(String name, ProtectedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/protectedVM:ProtectedVM", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ProtectedVM(java.lang.String name, ProtectedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:backup/protectedVM:ProtectedVM", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ProtectedVM(String name, Output<String> id, @Nullable ProtectedVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/protectedVM:ProtectedVM", name, state, makeResourceOptions(options, id));
+    private ProtectedVM(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectedVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:backup/protectedVM:ProtectedVM", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProtectedVMArgs makeArgs(ProtectedVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -251,7 +251,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
         return args == null ? ProtectedVMArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -267,7 +267,7 @@ public class ProtectedVM extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ProtectedVM get(String name, Output<String> id, @Nullable ProtectedVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ProtectedVM get(java.lang.String name, Output<java.lang.String> id, @Nullable ProtectedVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ProtectedVM(name, id, state, options);
     }
 }

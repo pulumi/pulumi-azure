@@ -144,7 +144,7 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VaultResourceGuardAssociation(String name) {
+    public VaultResourceGuardAssociation(java.lang.String name) {
         this(name, VaultResourceGuardAssociationArgs.Empty);
     }
     /**
@@ -152,7 +152,7 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VaultResourceGuardAssociation(String name, VaultResourceGuardAssociationArgs args) {
+    public VaultResourceGuardAssociation(java.lang.String name, VaultResourceGuardAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -161,12 +161,12 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VaultResourceGuardAssociation(String name, VaultResourceGuardAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VaultResourceGuardAssociation(java.lang.String name, VaultResourceGuardAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VaultResourceGuardAssociation(String name, Output<String> id, @Nullable VaultResourceGuardAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", name, state, makeResourceOptions(options, id));
+    private VaultResourceGuardAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable VaultResourceGuardAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VaultResourceGuardAssociationArgs makeArgs(VaultResourceGuardAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -176,7 +176,7 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
         return args == null ? VaultResourceGuardAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -192,7 +192,7 @@ public class VaultResourceGuardAssociation extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VaultResourceGuardAssociation get(String name, Output<String> id, @Nullable VaultResourceGuardAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VaultResourceGuardAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable VaultResourceGuardAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VaultResourceGuardAssociation(name, id, state, options);
     }
 }

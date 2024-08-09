@@ -275,7 +275,7 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetappVolumeAttachment(String name) {
+    public NetappVolumeAttachment(java.lang.String name) {
         this(name, NetappVolumeAttachmentArgs.Empty);
     }
     /**
@@ -283,7 +283,7 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetappVolumeAttachment(String name, NetappVolumeAttachmentArgs args) {
+    public NetappVolumeAttachment(java.lang.String name, NetappVolumeAttachmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -292,12 +292,12 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetappVolumeAttachment(String name, NetappVolumeAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:avs/netappVolumeAttachment:NetappVolumeAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetappVolumeAttachment(java.lang.String name, NetappVolumeAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:avs/netappVolumeAttachment:NetappVolumeAttachment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetappVolumeAttachment(String name, Output<String> id, @Nullable NetappVolumeAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:avs/netappVolumeAttachment:NetappVolumeAttachment", name, state, makeResourceOptions(options, id));
+    private NetappVolumeAttachment(java.lang.String name, Output<java.lang.String> id, @Nullable NetappVolumeAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:avs/netappVolumeAttachment:NetappVolumeAttachment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetappVolumeAttachmentArgs makeArgs(NetappVolumeAttachmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -307,7 +307,7 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
         return args == null ? NetappVolumeAttachmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -323,7 +323,7 @@ public class NetappVolumeAttachment extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetappVolumeAttachment get(String name, Output<String> id, @Nullable NetappVolumeAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetappVolumeAttachment get(java.lang.String name, Output<java.lang.String> id, @Nullable NetappVolumeAttachmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetappVolumeAttachment(name, id, state, options);
     }
 }

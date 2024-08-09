@@ -377,7 +377,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LocalRulestackRule(String name) {
+    public LocalRulestackRule(java.lang.String name) {
         this(name, LocalRulestackRuleArgs.Empty);
     }
     /**
@@ -385,7 +385,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LocalRulestackRule(String name, LocalRulestackRuleArgs args) {
+    public LocalRulestackRule(java.lang.String name, LocalRulestackRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -394,12 +394,12 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LocalRulestackRule(String name, LocalRulestackRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackRule:LocalRulestackRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LocalRulestackRule(java.lang.String name, LocalRulestackRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/localRulestackRule:LocalRulestackRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LocalRulestackRule(String name, Output<String> id, @Nullable LocalRulestackRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:paloalto/localRulestackRule:LocalRulestackRule", name, state, makeResourceOptions(options, id));
+    private LocalRulestackRule(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRulestackRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:paloalto/localRulestackRule:LocalRulestackRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LocalRulestackRuleArgs makeArgs(LocalRulestackRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -409,7 +409,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
         return args == null ? LocalRulestackRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -425,7 +425,7 @@ public class LocalRulestackRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LocalRulestackRule get(String name, Output<String> id, @Nullable LocalRulestackRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LocalRulestackRule get(java.lang.String name, Output<java.lang.String> id, @Nullable LocalRulestackRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LocalRulestackRule(name, id, state, options);
     }
 }

@@ -159,7 +159,7 @@ public class ManagementGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagementGroup(String name) {
+    public ManagementGroup(java.lang.String name) {
         this(name, ManagementGroupArgs.Empty);
     }
     /**
@@ -167,7 +167,7 @@ public class ManagementGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagementGroup(String name, @Nullable ManagementGroupArgs args) {
+    public ManagementGroup(java.lang.String name, @Nullable ManagementGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -176,12 +176,12 @@ public class ManagementGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagementGroup(String name, @Nullable ManagementGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:managementgroups/managementGroup:ManagementGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagementGroup(java.lang.String name, @Nullable ManagementGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:managementgroups/managementGroup:ManagementGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagementGroup(String name, Output<String> id, @Nullable ManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:managementgroups/managementGroup:ManagementGroup", name, state, makeResourceOptions(options, id));
+    private ManagementGroup(java.lang.String name, Output<java.lang.String> id, @Nullable ManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:managementgroups/managementGroup:ManagementGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagementGroupArgs makeArgs(@Nullable ManagementGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -191,7 +191,7 @@ public class ManagementGroup extends com.pulumi.resources.CustomResource {
         return args == null ? ManagementGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -207,7 +207,7 @@ public class ManagementGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagementGroup get(String name, Output<String> id, @Nullable ManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagementGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagementGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagementGroup(name, id, state, options);
     }
 }

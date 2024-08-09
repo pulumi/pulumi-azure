@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("pub1")
- *             .publisherEmail("pub1{@literal @}email.com")
+ *             .publisherEmail("pub1}{@literal @}{@code email.com")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  *             .value("Example Value")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -209,7 +209,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NamedValue(String name) {
+    public NamedValue(java.lang.String name) {
         this(name, NamedValueArgs.Empty);
     }
     /**
@@ -217,7 +217,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NamedValue(String name, NamedValueArgs args) {
+    public NamedValue(java.lang.String name, NamedValueArgs args) {
         this(name, args, null);
     }
     /**
@@ -226,12 +226,12 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NamedValue(String name, NamedValueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/namedValue:NamedValue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NamedValue(java.lang.String name, NamedValueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/namedValue:NamedValue", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NamedValue(String name, Output<String> id, @Nullable NamedValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/namedValue:NamedValue", name, state, makeResourceOptions(options, id));
+    private NamedValue(java.lang.String name, Output<java.lang.String> id, @Nullable NamedValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/namedValue:NamedValue", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NamedValueArgs makeArgs(NamedValueArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -241,7 +241,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
         return args == null ? NamedValueArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -260,7 +260,7 @@ public class NamedValue extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NamedValue get(String name, Output<String> id, @Nullable NamedValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NamedValue get(java.lang.String name, Output<java.lang.String> id, @Nullable NamedValueState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NamedValue(name, id, state, options);
     }
 }

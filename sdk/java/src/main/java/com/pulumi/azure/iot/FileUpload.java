@@ -257,7 +257,7 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FileUpload(String name) {
+    public FileUpload(java.lang.String name) {
         this(name, FileUploadArgs.Empty);
     }
     /**
@@ -265,7 +265,7 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FileUpload(String name, FileUploadArgs args) {
+    public FileUpload(java.lang.String name, FileUploadArgs args) {
         this(name, args, null);
     }
     /**
@@ -274,12 +274,12 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FileUpload(String name, FileUploadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/fileUpload:FileUpload", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FileUpload(java.lang.String name, FileUploadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/fileUpload:FileUpload", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FileUpload(String name, Output<String> id, @Nullable FileUploadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/fileUpload:FileUpload", name, state, makeResourceOptions(options, id));
+    private FileUpload(java.lang.String name, Output<java.lang.String> id, @Nullable FileUploadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/fileUpload:FileUpload", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FileUploadArgs makeArgs(FileUploadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -289,7 +289,7 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
         return args == null ? FileUploadArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -308,7 +308,7 @@ public class FileUpload extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FileUpload get(String name, Output<String> id, @Nullable FileUploadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FileUpload get(java.lang.String name, Output<java.lang.String> id, @Nullable FileUploadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FileUpload(name, id, state, options);
     }
 }

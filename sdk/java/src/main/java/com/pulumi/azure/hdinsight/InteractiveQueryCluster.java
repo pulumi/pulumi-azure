@@ -476,7 +476,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InteractiveQueryCluster(String name) {
+    public InteractiveQueryCluster(java.lang.String name) {
         this(name, InteractiveQueryClusterArgs.Empty);
     }
     /**
@@ -484,7 +484,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InteractiveQueryCluster(String name, InteractiveQueryClusterArgs args) {
+    public InteractiveQueryCluster(java.lang.String name, InteractiveQueryClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -493,12 +493,12 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InteractiveQueryCluster(String name, InteractiveQueryClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public InteractiveQueryCluster(java.lang.String name, InteractiveQueryClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InteractiveQueryCluster(String name, Output<String> id, @Nullable InteractiveQueryClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, state, makeResourceOptions(options, id));
+    private InteractiveQueryCluster(java.lang.String name, Output<java.lang.String> id, @Nullable InteractiveQueryClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static InteractiveQueryClusterArgs makeArgs(InteractiveQueryClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -508,7 +508,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
         return args == null ? InteractiveQueryClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -524,7 +524,7 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InteractiveQueryCluster get(String name, Output<String> id, @Nullable InteractiveQueryClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InteractiveQueryCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable InteractiveQueryClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InteractiveQueryCluster(name, id, state, options);
     }
 }

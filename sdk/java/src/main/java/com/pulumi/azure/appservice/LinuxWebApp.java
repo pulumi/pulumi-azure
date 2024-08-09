@@ -599,7 +599,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinuxWebApp(String name) {
+    public LinuxWebApp(java.lang.String name) {
         this(name, LinuxWebAppArgs.Empty);
     }
     /**
@@ -607,7 +607,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinuxWebApp(String name, LinuxWebAppArgs args) {
+    public LinuxWebApp(java.lang.String name, LinuxWebAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -616,12 +616,12 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinuxWebApp(String name, LinuxWebAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/linuxWebApp:LinuxWebApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinuxWebApp(java.lang.String name, LinuxWebAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/linuxWebApp:LinuxWebApp", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinuxWebApp(String name, Output<String> id, @Nullable LinuxWebAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/linuxWebApp:LinuxWebApp", name, state, makeResourceOptions(options, id));
+    private LinuxWebApp(java.lang.String name, Output<java.lang.String> id, @Nullable LinuxWebAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/linuxWebApp:LinuxWebApp", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinuxWebAppArgs makeArgs(LinuxWebAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -631,7 +631,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         return args == null ? LinuxWebAppArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -651,7 +651,7 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinuxWebApp get(String name, Output<String> id, @Nullable LinuxWebAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinuxWebApp get(java.lang.String name, Output<java.lang.String> id, @Nullable LinuxWebAppState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinuxWebApp(name, id, state, options);
     }
 }

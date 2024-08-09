@@ -264,7 +264,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Profile(String name) {
+    public Profile(java.lang.String name) {
         this(name, ProfileArgs.Empty);
     }
     /**
@@ -272,7 +272,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Profile(String name, ProfileArgs args) {
+    public Profile(java.lang.String name, ProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -281,12 +281,12 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Profile(String name, ProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:trafficmanager/profile:Profile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Profile(java.lang.String name, ProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:trafficmanager/profile:Profile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Profile(String name, Output<String> id, @Nullable ProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:trafficmanager/profile:Profile", name, state, makeResourceOptions(options, id));
+    private Profile(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:trafficmanager/profile:Profile", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProfileArgs makeArgs(ProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -296,7 +296,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
         return args == null ? ProfileArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -312,7 +312,7 @@ public class Profile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Profile get(String name, Output<String> id, @Nullable ProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Profile get(java.lang.String name, Output<java.lang.String> id, @Nullable ProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Profile(name, id, state, options);
     }
 }

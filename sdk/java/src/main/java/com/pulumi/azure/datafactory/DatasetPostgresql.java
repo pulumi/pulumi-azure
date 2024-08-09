@@ -236,7 +236,7 @@ public class DatasetPostgresql extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetPostgresql(String name) {
+    public DatasetPostgresql(java.lang.String name) {
         this(name, DatasetPostgresqlArgs.Empty);
     }
     /**
@@ -244,7 +244,7 @@ public class DatasetPostgresql extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetPostgresql(String name, DatasetPostgresqlArgs args) {
+    public DatasetPostgresql(java.lang.String name, DatasetPostgresqlArgs args) {
         this(name, args, null);
     }
     /**
@@ -253,12 +253,12 @@ public class DatasetPostgresql extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetPostgresql(String name, DatasetPostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DatasetPostgresql(java.lang.String name, DatasetPostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetPostgresql(String name, Output<String> id, @Nullable DatasetPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, state, makeResourceOptions(options, id));
+    private DatasetPostgresql(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetPostgresql:DatasetPostgresql", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DatasetPostgresqlArgs makeArgs(DatasetPostgresqlArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -268,7 +268,7 @@ public class DatasetPostgresql extends com.pulumi.resources.CustomResource {
         return args == null ? DatasetPostgresqlArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -284,7 +284,7 @@ public class DatasetPostgresql extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetPostgresql get(String name, Output<String> id, @Nullable DatasetPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetPostgresql get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetPostgresqlState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetPostgresql(name, id, state, options);
     }
 }

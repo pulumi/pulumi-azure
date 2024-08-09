@@ -243,7 +243,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedCustomService(String name) {
+    public LinkedCustomService(java.lang.String name) {
         this(name, LinkedCustomServiceArgs.Empty);
     }
     /**
@@ -251,7 +251,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedCustomService(String name, LinkedCustomServiceArgs args) {
+    public LinkedCustomService(java.lang.String name, LinkedCustomServiceArgs args) {
         this(name, args, null);
     }
     /**
@@ -260,12 +260,12 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedCustomService(String name, LinkedCustomServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedCustomService:LinkedCustomService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinkedCustomService(java.lang.String name, LinkedCustomServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedCustomService:LinkedCustomService", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedCustomService(String name, Output<String> id, @Nullable LinkedCustomServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedCustomService:LinkedCustomService", name, state, makeResourceOptions(options, id));
+    private LinkedCustomService(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedCustomServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedCustomService:LinkedCustomService", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinkedCustomServiceArgs makeArgs(LinkedCustomServiceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -275,7 +275,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
         return args == null ? LinkedCustomServiceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -291,7 +291,7 @@ public class LinkedCustomService extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedCustomService get(String name, Output<String> id, @Nullable LinkedCustomServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedCustomService get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedCustomServiceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedCustomService(name, id, state, options);
     }
 }

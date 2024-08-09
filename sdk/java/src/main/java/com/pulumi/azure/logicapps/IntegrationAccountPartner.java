@@ -163,7 +163,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationAccountPartner(String name) {
+    public IntegrationAccountPartner(java.lang.String name) {
         this(name, IntegrationAccountPartnerArgs.Empty);
     }
     /**
@@ -171,7 +171,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationAccountPartner(String name, IntegrationAccountPartnerArgs args) {
+    public IntegrationAccountPartner(java.lang.String name, IntegrationAccountPartnerArgs args) {
         this(name, args, null);
     }
     /**
@@ -180,12 +180,12 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationAccountPartner(String name, IntegrationAccountPartnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationAccountPartner(java.lang.String name, IntegrationAccountPartnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationAccountPartner(String name, Output<String> id, @Nullable IntegrationAccountPartnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", name, state, makeResourceOptions(options, id));
+    private IntegrationAccountPartner(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountPartnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationAccountPartnerArgs makeArgs(IntegrationAccountPartnerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -195,7 +195,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
         return args == null ? IntegrationAccountPartnerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -211,7 +211,7 @@ public class IntegrationAccountPartner extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationAccountPartner get(String name, Output<String> id, @Nullable IntegrationAccountPartnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationAccountPartner get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationAccountPartnerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationAccountPartner(name, id, state, options);
     }
 }

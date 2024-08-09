@@ -303,7 +303,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedHardwareSecurityModule(String name) {
+    public ManagedHardwareSecurityModule(java.lang.String name) {
         this(name, ManagedHardwareSecurityModuleArgs.Empty);
     }
     /**
@@ -311,7 +311,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedHardwareSecurityModule(String name, ManagedHardwareSecurityModuleArgs args) {
+    public ManagedHardwareSecurityModule(java.lang.String name, ManagedHardwareSecurityModuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -320,12 +320,12 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedHardwareSecurityModule(String name, ManagedHardwareSecurityModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedHardwareSecurityModule(java.lang.String name, ManagedHardwareSecurityModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedHardwareSecurityModule(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule", name, state, makeResourceOptions(options, id));
+    private ManagedHardwareSecurityModule(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedHardwareSecurityModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedHardwareSecurityModuleArgs makeArgs(ManagedHardwareSecurityModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -335,7 +335,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
         return args == null ? ManagedHardwareSecurityModuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -354,7 +354,7 @@ public class ManagedHardwareSecurityModule extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedHardwareSecurityModule get(String name, Output<String> id, @Nullable ManagedHardwareSecurityModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedHardwareSecurityModule get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedHardwareSecurityModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedHardwareSecurityModule(name, id, state, options);
     }
 }

@@ -216,7 +216,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FallbackRoute(String name) {
+    public FallbackRoute(java.lang.String name) {
         this(name, FallbackRouteArgs.Empty);
     }
     /**
@@ -224,7 +224,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FallbackRoute(String name, FallbackRouteArgs args) {
+    public FallbackRoute(java.lang.String name, FallbackRouteArgs args) {
         this(name, args, null);
     }
     /**
@@ -233,12 +233,12 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FallbackRoute(String name, FallbackRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/fallbackRoute:FallbackRoute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FallbackRoute(java.lang.String name, FallbackRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/fallbackRoute:FallbackRoute", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FallbackRoute(String name, Output<String> id, @Nullable FallbackRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/fallbackRoute:FallbackRoute", name, state, makeResourceOptions(options, id));
+    private FallbackRoute(java.lang.String name, Output<java.lang.String> id, @Nullable FallbackRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/fallbackRoute:FallbackRoute", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FallbackRouteArgs makeArgs(FallbackRouteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -248,7 +248,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
         return args == null ? FallbackRouteArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -264,7 +264,7 @@ public class FallbackRoute extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FallbackRoute get(String name, Output<String> id, @Nullable FallbackRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FallbackRoute get(java.lang.String name, Output<java.lang.String> id, @Nullable FallbackRouteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FallbackRoute(name, id, state, options);
     }
 }

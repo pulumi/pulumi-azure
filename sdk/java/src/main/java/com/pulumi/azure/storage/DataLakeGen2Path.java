@@ -198,7 +198,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataLakeGen2Path(String name) {
+    public DataLakeGen2Path(java.lang.String name) {
         this(name, DataLakeGen2PathArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataLakeGen2Path(String name, DataLakeGen2PathArgs args) {
+    public DataLakeGen2Path(java.lang.String name, DataLakeGen2PathArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,12 +215,12 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataLakeGen2Path(String name, DataLakeGen2PathArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/dataLakeGen2Path:DataLakeGen2Path", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataLakeGen2Path(java.lang.String name, DataLakeGen2PathArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/dataLakeGen2Path:DataLakeGen2Path", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataLakeGen2Path(String name, Output<String> id, @Nullable DataLakeGen2PathState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/dataLakeGen2Path:DataLakeGen2Path", name, state, makeResourceOptions(options, id));
+    private DataLakeGen2Path(java.lang.String name, Output<java.lang.String> id, @Nullable DataLakeGen2PathState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/dataLakeGen2Path:DataLakeGen2Path", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataLakeGen2PathArgs makeArgs(DataLakeGen2PathArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -230,7 +230,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
         return args == null ? DataLakeGen2PathArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -246,7 +246,7 @@ public class DataLakeGen2Path extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataLakeGen2Path get(String name, Output<String> id, @Nullable DataLakeGen2PathState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataLakeGen2Path get(java.lang.String name, Output<java.lang.String> id, @Nullable DataLakeGen2PathState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataLakeGen2Path(name, id, state, options);
     }
 }

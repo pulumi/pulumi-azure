@@ -208,7 +208,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LoadTest(String name) {
+    public LoadTest(java.lang.String name) {
         this(name, LoadTestArgs.Empty);
     }
     /**
@@ -216,7 +216,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LoadTest(String name, LoadTestArgs args) {
+    public LoadTest(java.lang.String name, LoadTestArgs args) {
         this(name, args, null);
     }
     /**
@@ -225,12 +225,12 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LoadTest(String name, LoadTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loadtest/loadTest:LoadTest", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LoadTest(java.lang.String name, LoadTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loadtest/loadTest:LoadTest", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LoadTest(String name, Output<String> id, @Nullable LoadTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loadtest/loadTest:LoadTest", name, state, makeResourceOptions(options, id));
+    private LoadTest(java.lang.String name, Output<java.lang.String> id, @Nullable LoadTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loadtest/loadTest:LoadTest", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LoadTestArgs makeArgs(LoadTestArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -240,7 +240,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
         return args == null ? LoadTestArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -256,7 +256,7 @@ public class LoadTest extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LoadTest get(String name, Output<String> id, @Nullable LoadTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LoadTest get(java.lang.String name, Output<java.lang.String> id, @Nullable LoadTestState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LoadTest(name, id, state, options);
     }
 }

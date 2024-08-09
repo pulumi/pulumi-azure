@@ -198,7 +198,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StorageInsights(String name) {
+    public StorageInsights(java.lang.String name) {
         this(name, StorageInsightsArgs.Empty);
     }
     /**
@@ -206,7 +206,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StorageInsights(String name, StorageInsightsArgs args) {
+    public StorageInsights(java.lang.String name, StorageInsightsArgs args) {
         this(name, args, null);
     }
     /**
@@ -215,12 +215,12 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StorageInsights(String name, StorageInsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/storageInsights:StorageInsights", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public StorageInsights(java.lang.String name, StorageInsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/storageInsights:StorageInsights", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StorageInsights(String name, Output<String> id, @Nullable StorageInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:loganalytics/storageInsights:StorageInsights", name, state, makeResourceOptions(options, id));
+    private StorageInsights(java.lang.String name, Output<java.lang.String> id, @Nullable StorageInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:loganalytics/storageInsights:StorageInsights", name, state, makeResourceOptions(options, id), false);
     }
 
     private static StorageInsightsArgs makeArgs(StorageInsightsArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -230,7 +230,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
         return args == null ? StorageInsightsArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -249,7 +249,7 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StorageInsights get(String name, Output<String> id, @Nullable StorageInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StorageInsights get(java.lang.String name, Output<java.lang.String> id, @Nullable StorageInsightsState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StorageInsights(name, id, state, options);
     }
 }

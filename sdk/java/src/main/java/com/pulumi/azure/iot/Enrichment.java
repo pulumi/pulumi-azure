@@ -209,7 +209,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Enrichment(String name) {
+    public Enrichment(java.lang.String name) {
         this(name, EnrichmentArgs.Empty);
     }
     /**
@@ -217,7 +217,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Enrichment(String name, EnrichmentArgs args) {
+    public Enrichment(java.lang.String name, EnrichmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -226,12 +226,12 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Enrichment(String name, EnrichmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/enrichment:Enrichment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Enrichment(java.lang.String name, EnrichmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/enrichment:Enrichment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Enrichment(String name, Output<String> id, @Nullable EnrichmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/enrichment:Enrichment", name, state, makeResourceOptions(options, id));
+    private Enrichment(java.lang.String name, Output<java.lang.String> id, @Nullable EnrichmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/enrichment:Enrichment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EnrichmentArgs makeArgs(EnrichmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -241,7 +241,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
         return args == null ? EnrichmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -257,7 +257,7 @@ public class Enrichment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Enrichment get(String name, Output<String> id, @Nullable EnrichmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Enrichment get(java.lang.String name, Output<java.lang.String> id, @Nullable EnrichmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Enrichment(name, id, state, options);
     }
 }

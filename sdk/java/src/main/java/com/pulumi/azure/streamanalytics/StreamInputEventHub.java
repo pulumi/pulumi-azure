@@ -281,7 +281,7 @@ public class StreamInputEventHub extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StreamInputEventHub(String name) {
+    public StreamInputEventHub(java.lang.String name) {
         this(name, StreamInputEventHubArgs.Empty);
     }
     /**
@@ -289,7 +289,7 @@ public class StreamInputEventHub extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StreamInputEventHub(String name, StreamInputEventHubArgs args) {
+    public StreamInputEventHub(java.lang.String name, StreamInputEventHubArgs args) {
         this(name, args, null);
     }
     /**
@@ -298,12 +298,12 @@ public class StreamInputEventHub extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StreamInputEventHub(String name, StreamInputEventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public StreamInputEventHub(java.lang.String name, StreamInputEventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StreamInputEventHub(String name, Output<String> id, @Nullable StreamInputEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", name, state, makeResourceOptions(options, id));
+    private StreamInputEventHub(java.lang.String name, Output<java.lang.String> id, @Nullable StreamInputEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/streamInputEventHub:StreamInputEventHub", name, state, makeResourceOptions(options, id), false);
     }
 
     private static StreamInputEventHubArgs makeArgs(StreamInputEventHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -313,7 +313,7 @@ public class StreamInputEventHub extends com.pulumi.resources.CustomResource {
         return args == null ? StreamInputEventHubArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -332,7 +332,7 @@ public class StreamInputEventHub extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StreamInputEventHub get(String name, Output<String> id, @Nullable StreamInputEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StreamInputEventHub get(java.lang.String name, Output<java.lang.String> id, @Nullable StreamInputEventHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StreamInputEventHub(name, id, state, options);
     }
 }

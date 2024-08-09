@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}terraform.io")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -95,8 +95,8 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -201,7 +201,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiOperationPolicy(String name) {
+    public ApiOperationPolicy(java.lang.String name) {
         this(name, ApiOperationPolicyArgs.Empty);
     }
     /**
@@ -209,7 +209,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiOperationPolicy(String name, ApiOperationPolicyArgs args) {
+    public ApiOperationPolicy(java.lang.String name, ApiOperationPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -218,12 +218,12 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiOperationPolicy(String name, ApiOperationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiOperationPolicy(java.lang.String name, ApiOperationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiOperationPolicy(String name, Output<String> id, @Nullable ApiOperationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, state, makeResourceOptions(options, id));
+    private ApiOperationPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ApiOperationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiOperationPolicyArgs makeArgs(ApiOperationPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -233,7 +233,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? ApiOperationPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -249,7 +249,7 @@ public class ApiOperationPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiOperationPolicy get(String name, Output<String> id, @Nullable ApiOperationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiOperationPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiOperationPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiOperationPolicy(name, id, state, options);
     }
 }

@@ -476,7 +476,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SparkCluster(String name) {
+    public SparkCluster(java.lang.String name) {
         this(name, SparkClusterArgs.Empty);
     }
     /**
@@ -484,7 +484,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SparkCluster(String name, SparkClusterArgs args) {
+    public SparkCluster(java.lang.String name, SparkClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -493,12 +493,12 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SparkCluster(String name, SparkClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/sparkCluster:SparkCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SparkCluster(java.lang.String name, SparkClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/sparkCluster:SparkCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SparkCluster(String name, Output<String> id, @Nullable SparkClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:hdinsight/sparkCluster:SparkCluster", name, state, makeResourceOptions(options, id));
+    private SparkCluster(java.lang.String name, Output<java.lang.String> id, @Nullable SparkClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:hdinsight/sparkCluster:SparkCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SparkClusterArgs makeArgs(SparkClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -508,7 +508,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
         return args == null ? SparkClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -524,7 +524,7 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SparkCluster get(String name, Output<String> id, @Nullable SparkClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SparkCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable SparkClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SparkCluster(name, id, state, options);
     }
 }

@@ -204,7 +204,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CustomCertificate(String name) {
+    public CustomCertificate(java.lang.String name) {
         this(name, CustomCertificateArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CustomCertificate(String name, CustomCertificateArgs args) {
+    public CustomCertificate(java.lang.String name, CustomCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,12 +221,12 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CustomCertificate(String name, CustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:webpubsub/customCertificate:CustomCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CustomCertificate(java.lang.String name, CustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:webpubsub/customCertificate:CustomCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CustomCertificate(String name, Output<String> id, @Nullable CustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:webpubsub/customCertificate:CustomCertificate", name, state, makeResourceOptions(options, id));
+    private CustomCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable CustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:webpubsub/customCertificate:CustomCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CustomCertificateArgs makeArgs(CustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -236,7 +236,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
         return args == null ? CustomCertificateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +252,7 @@ public class CustomCertificate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CustomCertificate get(String name, Output<String> id, @Nullable CustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CustomCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable CustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CustomCertificate(name, id, state, options);
     }
 }

@@ -132,7 +132,7 @@ public class EnvironmentType extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnvironmentType(String name) {
+    public EnvironmentType(java.lang.String name) {
         this(name, EnvironmentTypeArgs.Empty);
     }
     /**
@@ -140,7 +140,7 @@ public class EnvironmentType extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnvironmentType(String name, EnvironmentTypeArgs args) {
+    public EnvironmentType(java.lang.String name, EnvironmentTypeArgs args) {
         this(name, args, null);
     }
     /**
@@ -149,12 +149,12 @@ public class EnvironmentType extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnvironmentType(String name, EnvironmentTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devcenter/environmentType:EnvironmentType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EnvironmentType(java.lang.String name, EnvironmentTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devcenter/environmentType:EnvironmentType", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnvironmentType(String name, Output<String> id, @Nullable EnvironmentTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:devcenter/environmentType:EnvironmentType", name, state, makeResourceOptions(options, id));
+    private EnvironmentType(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:devcenter/environmentType:EnvironmentType", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EnvironmentTypeArgs makeArgs(EnvironmentTypeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -164,7 +164,7 @@ public class EnvironmentType extends com.pulumi.resources.CustomResource {
         return args == null ? EnvironmentTypeArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -180,7 +180,7 @@ public class EnvironmentType extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnvironmentType get(String name, Output<String> id, @Nullable EnvironmentTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnvironmentType get(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentTypeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnvironmentType(name, id, state, options);
     }
 }

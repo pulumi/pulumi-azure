@@ -240,7 +240,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertRuleMsSecurityIncident(String name) {
+    public AlertRuleMsSecurityIncident(java.lang.String name) {
         this(name, AlertRuleMsSecurityIncidentArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertRuleMsSecurityIncident(String name, AlertRuleMsSecurityIncidentArgs args) {
+    public AlertRuleMsSecurityIncident(java.lang.String name, AlertRuleMsSecurityIncidentArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,12 +257,12 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertRuleMsSecurityIncident(String name, AlertRuleMsSecurityIncidentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertRuleMsSecurityIncident(java.lang.String name, AlertRuleMsSecurityIncidentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertRuleMsSecurityIncident(String name, Output<String> id, @Nullable AlertRuleMsSecurityIncidentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident", name, state, makeResourceOptions(options, id));
+    private AlertRuleMsSecurityIncident(java.lang.String name, Output<java.lang.String> id, @Nullable AlertRuleMsSecurityIncidentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertRuleMsSecurityIncidentArgs makeArgs(AlertRuleMsSecurityIncidentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -272,7 +272,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
         return args == null ? AlertRuleMsSecurityIncidentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -288,7 +288,7 @@ public class AlertRuleMsSecurityIncident extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertRuleMsSecurityIncident get(String name, Output<String> id, @Nullable AlertRuleMsSecurityIncidentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertRuleMsSecurityIncident get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertRuleMsSecurityIncidentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertRuleMsSecurityIncident(name, id, state, options);
     }
 }

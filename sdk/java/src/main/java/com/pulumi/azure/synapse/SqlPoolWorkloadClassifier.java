@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -115,8 +115,8 @@ import javax.annotation.Nullable;
  *             .startTime("12:00")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -249,7 +249,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SqlPoolWorkloadClassifier(String name) {
+    public SqlPoolWorkloadClassifier(java.lang.String name) {
         this(name, SqlPoolWorkloadClassifierArgs.Empty);
     }
     /**
@@ -257,7 +257,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SqlPoolWorkloadClassifier(String name, SqlPoolWorkloadClassifierArgs args) {
+    public SqlPoolWorkloadClassifier(java.lang.String name, SqlPoolWorkloadClassifierArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,12 +266,12 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SqlPoolWorkloadClassifier(String name, SqlPoolWorkloadClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SqlPoolWorkloadClassifier(java.lang.String name, SqlPoolWorkloadClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SqlPoolWorkloadClassifier(String name, Output<String> id, @Nullable SqlPoolWorkloadClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier", name, state, makeResourceOptions(options, id));
+    private SqlPoolWorkloadClassifier(java.lang.String name, Output<java.lang.String> id, @Nullable SqlPoolWorkloadClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/sqlPoolWorkloadClassifier:SqlPoolWorkloadClassifier", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SqlPoolWorkloadClassifierArgs makeArgs(SqlPoolWorkloadClassifierArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -281,7 +281,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
         return args == null ? SqlPoolWorkloadClassifierArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -297,7 +297,7 @@ public class SqlPoolWorkloadClassifier extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SqlPoolWorkloadClassifier get(String name, Output<String> id, @Nullable SqlPoolWorkloadClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SqlPoolWorkloadClassifier get(java.lang.String name, Output<java.lang.String> id, @Nullable SqlPoolWorkloadClassifierState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SqlPoolWorkloadClassifier(name, id, state, options);
     }
 }

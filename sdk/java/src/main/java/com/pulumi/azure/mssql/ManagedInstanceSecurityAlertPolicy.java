@@ -421,7 +421,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedInstanceSecurityAlertPolicy(String name) {
+    public ManagedInstanceSecurityAlertPolicy(java.lang.String name) {
         this(name, ManagedInstanceSecurityAlertPolicyArgs.Empty);
     }
     /**
@@ -429,7 +429,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedInstanceSecurityAlertPolicy(String name, ManagedInstanceSecurityAlertPolicyArgs args) {
+    public ManagedInstanceSecurityAlertPolicy(java.lang.String name, ManagedInstanceSecurityAlertPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -438,12 +438,12 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedInstanceSecurityAlertPolicy(String name, ManagedInstanceSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedInstanceSecurityAlertPolicy(java.lang.String name, ManagedInstanceSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedInstanceSecurityAlertPolicy(String name, Output<String> id, @Nullable ManagedInstanceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy", name, state, makeResourceOptions(options, id));
+    private ManagedInstanceSecurityAlertPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedInstanceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedInstanceSecurityAlertPolicy:ManagedInstanceSecurityAlertPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedInstanceSecurityAlertPolicyArgs makeArgs(ManagedInstanceSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -453,7 +453,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
         return args == null ? ManagedInstanceSecurityAlertPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -472,7 +472,7 @@ public class ManagedInstanceSecurityAlertPolicy extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedInstanceSecurityAlertPolicy get(String name, Output<String> id, @Nullable ManagedInstanceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedInstanceSecurityAlertPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedInstanceSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedInstanceSecurityAlertPolicy(name, id, state, options);
     }
 }

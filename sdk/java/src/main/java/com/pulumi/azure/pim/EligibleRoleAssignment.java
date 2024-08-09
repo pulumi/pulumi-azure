@@ -269,7 +269,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EligibleRoleAssignment(String name) {
+    public EligibleRoleAssignment(java.lang.String name) {
         this(name, EligibleRoleAssignmentArgs.Empty);
     }
     /**
@@ -277,7 +277,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EligibleRoleAssignment(String name, EligibleRoleAssignmentArgs args) {
+    public EligibleRoleAssignment(java.lang.String name, EligibleRoleAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -286,12 +286,12 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EligibleRoleAssignment(String name, EligibleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EligibleRoleAssignment(java.lang.String name, EligibleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EligibleRoleAssignment(String name, Output<String> id, @Nullable EligibleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, state, makeResourceOptions(options, id));
+    private EligibleRoleAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable EligibleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:pim/eligibleRoleAssignment:EligibleRoleAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EligibleRoleAssignmentArgs makeArgs(EligibleRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -301,7 +301,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
         return args == null ? EligibleRoleAssignmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -317,7 +317,7 @@ public class EligibleRoleAssignment extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EligibleRoleAssignment get(String name, Output<String> id, @Nullable EligibleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EligibleRoleAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable EligibleRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EligibleRoleAssignment(name, id, state, options);
     }
 }

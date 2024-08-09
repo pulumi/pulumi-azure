@@ -323,7 +323,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceKusto(String name) {
+    public LinkedServiceKusto(java.lang.String name) {
         this(name, LinkedServiceKustoArgs.Empty);
     }
     /**
@@ -331,7 +331,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceKusto(String name, LinkedServiceKustoArgs args) {
+    public LinkedServiceKusto(java.lang.String name, LinkedServiceKustoArgs args) {
         this(name, args, null);
     }
     /**
@@ -340,12 +340,12 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceKusto(String name, LinkedServiceKustoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceKusto:LinkedServiceKusto", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceKusto(java.lang.String name, LinkedServiceKustoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceKusto:LinkedServiceKusto", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceKusto(String name, Output<String> id, @Nullable LinkedServiceKustoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceKusto:LinkedServiceKusto", name, state, makeResourceOptions(options, id));
+    private LinkedServiceKusto(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceKustoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceKusto:LinkedServiceKusto", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinkedServiceKustoArgs makeArgs(LinkedServiceKustoArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -355,7 +355,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
         return args == null ? LinkedServiceKustoArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -374,7 +374,7 @@ public class LinkedServiceKusto extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceKusto get(String name, Output<String> id, @Nullable LinkedServiceKustoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceKusto get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceKustoState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceKusto(name, id, state, options);
     }
 }

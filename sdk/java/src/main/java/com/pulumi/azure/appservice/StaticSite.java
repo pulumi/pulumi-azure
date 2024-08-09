@@ -224,7 +224,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public StaticSite(String name) {
+    public StaticSite(java.lang.String name) {
         this(name, StaticSiteArgs.Empty);
     }
     /**
@@ -232,7 +232,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public StaticSite(String name, StaticSiteArgs args) {
+    public StaticSite(java.lang.String name, StaticSiteArgs args) {
         this(name, args, null);
     }
     /**
@@ -241,12 +241,12 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public StaticSite(String name, StaticSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/staticSite:StaticSite", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public StaticSite(java.lang.String name, StaticSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/staticSite:StaticSite", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private StaticSite(String name, Output<String> id, @Nullable StaticSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/staticSite:StaticSite", name, state, makeResourceOptions(options, id));
+    private StaticSite(java.lang.String name, Output<java.lang.String> id, @Nullable StaticSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/staticSite:StaticSite", name, state, makeResourceOptions(options, id), false);
     }
 
     private static StaticSiteArgs makeArgs(StaticSiteArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -256,7 +256,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
         return args == null ? StaticSiteArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -275,7 +275,7 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static StaticSite get(String name, Output<String> id, @Nullable StaticSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static StaticSite get(java.lang.String name, Output<java.lang.String> id, @Nullable StaticSiteState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new StaticSite(name, id, state, options);
     }
 }

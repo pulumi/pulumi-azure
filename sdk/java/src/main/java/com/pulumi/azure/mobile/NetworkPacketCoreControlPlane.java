@@ -369,7 +369,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkPacketCoreControlPlane(String name) {
+    public NetworkPacketCoreControlPlane(java.lang.String name) {
         this(name, NetworkPacketCoreControlPlaneArgs.Empty);
     }
     /**
@@ -377,7 +377,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkPacketCoreControlPlane(String name, NetworkPacketCoreControlPlaneArgs args) {
+    public NetworkPacketCoreControlPlane(java.lang.String name, NetworkPacketCoreControlPlaneArgs args) {
         this(name, args, null);
     }
     /**
@@ -386,12 +386,12 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkPacketCoreControlPlane(String name, NetworkPacketCoreControlPlaneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkPacketCoreControlPlane(java.lang.String name, NetworkPacketCoreControlPlaneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkPacketCoreControlPlane(String name, Output<String> id, @Nullable NetworkPacketCoreControlPlaneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane", name, state, makeResourceOptions(options, id));
+    private NetworkPacketCoreControlPlane(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPacketCoreControlPlaneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkPacketCoreControlPlaneArgs makeArgs(NetworkPacketCoreControlPlaneArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -401,7 +401,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
         return args == null ? NetworkPacketCoreControlPlaneArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -417,7 +417,7 @@ public class NetworkPacketCoreControlPlane extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkPacketCoreControlPlane get(String name, Output<String> id, @Nullable NetworkPacketCoreControlPlaneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkPacketCoreControlPlane get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPacketCoreControlPlaneState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkPacketCoreControlPlane(name, id, state, options);
     }
 }

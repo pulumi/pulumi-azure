@@ -278,7 +278,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubscriptionRule(String name) {
+    public SubscriptionRule(java.lang.String name) {
         this(name, SubscriptionRuleArgs.Empty);
     }
     /**
@@ -286,7 +286,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubscriptionRule(String name, SubscriptionRuleArgs args) {
+    public SubscriptionRule(java.lang.String name, SubscriptionRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -295,12 +295,12 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubscriptionRule(String name, SubscriptionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/subscriptionRule:SubscriptionRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SubscriptionRule(java.lang.String name, SubscriptionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/subscriptionRule:SubscriptionRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubscriptionRule(String name, Output<String> id, @Nullable SubscriptionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/subscriptionRule:SubscriptionRule", name, state, makeResourceOptions(options, id));
+    private SubscriptionRule(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/subscriptionRule:SubscriptionRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubscriptionRuleArgs makeArgs(SubscriptionRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -310,7 +310,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
         return args == null ? SubscriptionRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -326,7 +326,7 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubscriptionRule get(String name, Output<String> id, @Nullable SubscriptionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubscriptionRule get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubscriptionRule(name, id, state, options);
     }
 }

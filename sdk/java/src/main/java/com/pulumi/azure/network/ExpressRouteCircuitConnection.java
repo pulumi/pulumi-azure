@@ -239,7 +239,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExpressRouteCircuitConnection(String name) {
+    public ExpressRouteCircuitConnection(java.lang.String name) {
         this(name, ExpressRouteCircuitConnectionArgs.Empty);
     }
     /**
@@ -247,7 +247,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExpressRouteCircuitConnection(String name, ExpressRouteCircuitConnectionArgs args) {
+    public ExpressRouteCircuitConnection(java.lang.String name, ExpressRouteCircuitConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -256,12 +256,12 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExpressRouteCircuitConnection(String name, ExpressRouteCircuitConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ExpressRouteCircuitConnection(java.lang.String name, ExpressRouteCircuitConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExpressRouteCircuitConnection(String name, Output<String> id, @Nullable ExpressRouteCircuitConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, state, makeResourceOptions(options, id));
+    private ExpressRouteCircuitConnection(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteCircuitConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExpressRouteCircuitConnectionArgs makeArgs(ExpressRouteCircuitConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -271,7 +271,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
         return args == null ? ExpressRouteCircuitConnectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -290,7 +290,7 @@ public class ExpressRouteCircuitConnection extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExpressRouteCircuitConnection get(String name, Output<String> id, @Nullable ExpressRouteCircuitConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExpressRouteCircuitConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteCircuitConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExpressRouteCircuitConnection(name, id, state, options);
     }
 }

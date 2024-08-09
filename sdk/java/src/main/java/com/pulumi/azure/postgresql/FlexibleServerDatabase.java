@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .version("12")
  *             .administratorLogin("psqladmin")
- *             .administratorPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .storageMb(32768)
  *             .skuName("GP_Standard_D4s_v3")
  *             .build());
@@ -67,8 +67,8 @@ import javax.annotation.Nullable;
  *             .charset("utf8")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -145,7 +145,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FlexibleServerDatabase(String name) {
+    public FlexibleServerDatabase(java.lang.String name) {
         this(name, FlexibleServerDatabaseArgs.Empty);
     }
     /**
@@ -153,7 +153,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlexibleServerDatabase(String name, FlexibleServerDatabaseArgs args) {
+    public FlexibleServerDatabase(java.lang.String name, FlexibleServerDatabaseArgs args) {
         this(name, args, null);
     }
     /**
@@ -162,12 +162,12 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlexibleServerDatabase(String name, FlexibleServerDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FlexibleServerDatabase(java.lang.String name, FlexibleServerDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FlexibleServerDatabase(String name, Output<String> id, @Nullable FlexibleServerDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase", name, state, makeResourceOptions(options, id));
+    private FlexibleServerDatabase(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FlexibleServerDatabaseArgs makeArgs(FlexibleServerDatabaseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -177,7 +177,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
         return args == null ? FlexibleServerDatabaseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -193,7 +193,7 @@ public class FlexibleServerDatabase extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FlexibleServerDatabase get(String name, Output<String> id, @Nullable FlexibleServerDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FlexibleServerDatabase get(java.lang.String name, Output<java.lang.String> id, @Nullable FlexibleServerDatabaseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FlexibleServerDatabase(name, id, state, options);
     }
 }

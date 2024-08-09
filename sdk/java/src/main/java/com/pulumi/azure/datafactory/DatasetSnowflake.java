@@ -252,7 +252,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetSnowflake(String name) {
+    public DatasetSnowflake(java.lang.String name) {
         this(name, DatasetSnowflakeArgs.Empty);
     }
     /**
@@ -260,7 +260,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetSnowflake(String name, DatasetSnowflakeArgs args) {
+    public DatasetSnowflake(java.lang.String name, DatasetSnowflakeArgs args) {
         this(name, args, null);
     }
     /**
@@ -269,12 +269,12 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetSnowflake(String name, DatasetSnowflakeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetSnowflake:DatasetSnowflake", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DatasetSnowflake(java.lang.String name, DatasetSnowflakeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetSnowflake:DatasetSnowflake", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetSnowflake(String name, Output<String> id, @Nullable DatasetSnowflakeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetSnowflake:DatasetSnowflake", name, state, makeResourceOptions(options, id));
+    private DatasetSnowflake(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetSnowflakeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetSnowflake:DatasetSnowflake", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DatasetSnowflakeArgs makeArgs(DatasetSnowflakeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -284,7 +284,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
         return args == null ? DatasetSnowflakeArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -300,7 +300,7 @@ public class DatasetSnowflake extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetSnowflake get(String name, Output<String> id, @Nullable DatasetSnowflakeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetSnowflake get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetSnowflakeState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetSnowflake(name, id, state, options);
     }
 }
