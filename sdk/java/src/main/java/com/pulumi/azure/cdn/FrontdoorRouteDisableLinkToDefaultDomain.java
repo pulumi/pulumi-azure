@@ -101,7 +101,7 @@ public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorRouteDisableLinkToDefaultDomain(String name) {
+    public FrontdoorRouteDisableLinkToDefaultDomain(java.lang.String name) {
         this(name, FrontdoorRouteDisableLinkToDefaultDomainArgs.Empty);
     }
     /**
@@ -109,7 +109,7 @@ public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorRouteDisableLinkToDefaultDomain(String name, FrontdoorRouteDisableLinkToDefaultDomainArgs args) {
+    public FrontdoorRouteDisableLinkToDefaultDomain(java.lang.String name, FrontdoorRouteDisableLinkToDefaultDomainArgs args) {
         this(name, args, null);
     }
     /**
@@ -118,12 +118,12 @@ public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorRouteDisableLinkToDefaultDomain(String name, FrontdoorRouteDisableLinkToDefaultDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorRouteDisableLinkToDefaultDomain(java.lang.String name, FrontdoorRouteDisableLinkToDefaultDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FrontdoorRouteDisableLinkToDefaultDomain(String name, Output<String> id, @Nullable FrontdoorRouteDisableLinkToDefaultDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain", name, state, makeResourceOptions(options, id));
+    private FrontdoorRouteDisableLinkToDefaultDomain(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorRouteDisableLinkToDefaultDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FrontdoorRouteDisableLinkToDefaultDomainArgs makeArgs(FrontdoorRouteDisableLinkToDefaultDomainArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -133,7 +133,7 @@ public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resourc
         return args == null ? FrontdoorRouteDisableLinkToDefaultDomainArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -149,7 +149,7 @@ public class FrontdoorRouteDisableLinkToDefaultDomain extends com.pulumi.resourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorRouteDisableLinkToDefaultDomain get(String name, Output<String> id, @Nullable FrontdoorRouteDisableLinkToDefaultDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FrontdoorRouteDisableLinkToDefaultDomain get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorRouteDisableLinkToDefaultDomainState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FrontdoorRouteDisableLinkToDefaultDomain(name, id, state, options);
     }
 }

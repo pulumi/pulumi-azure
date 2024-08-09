@@ -136,7 +136,7 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorOfficePowerBi(String name) {
+    public DataConnectorOfficePowerBi(java.lang.String name) {
         this(name, DataConnectorOfficePowerBiArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorOfficePowerBi(String name, DataConnectorOfficePowerBiArgs args) {
+    public DataConnectorOfficePowerBi(java.lang.String name, DataConnectorOfficePowerBiArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,12 +153,12 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorOfficePowerBi(String name, DataConnectorOfficePowerBiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorOfficePowerBi(java.lang.String name, DataConnectorOfficePowerBiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorOfficePowerBi(String name, Output<String> id, @Nullable DataConnectorOfficePowerBiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi", name, state, makeResourceOptions(options, id));
+    private DataConnectorOfficePowerBi(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOfficePowerBiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorOfficePowerBiArgs makeArgs(DataConnectorOfficePowerBiArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -168,7 +168,7 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
         return args == null ? DataConnectorOfficePowerBiArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -184,7 +184,7 @@ public class DataConnectorOfficePowerBi extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorOfficePowerBi get(String name, Output<String> id, @Nullable DataConnectorOfficePowerBiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorOfficePowerBi get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOfficePowerBiState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorOfficePowerBi(name, id, state, options);
     }
 }

@@ -373,7 +373,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FrontdoorFirewallPolicy(String name) {
+    public FrontdoorFirewallPolicy(java.lang.String name) {
         this(name, FrontdoorFirewallPolicyArgs.Empty);
     }
     /**
@@ -381,7 +381,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FrontdoorFirewallPolicy(String name, FrontdoorFirewallPolicyArgs args) {
+    public FrontdoorFirewallPolicy(java.lang.String name, FrontdoorFirewallPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -390,12 +390,12 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FrontdoorFirewallPolicy(String name, FrontdoorFirewallPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FrontdoorFirewallPolicy(java.lang.String name, FrontdoorFirewallPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FrontdoorFirewallPolicy(String name, Output<String> id, @Nullable FrontdoorFirewallPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", name, state, makeResourceOptions(options, id));
+    private FrontdoorFirewallPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorFirewallPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FrontdoorFirewallPolicyArgs makeArgs(FrontdoorFirewallPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -405,7 +405,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return args == null ? FrontdoorFirewallPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -421,7 +421,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FrontdoorFirewallPolicy get(String name, Output<String> id, @Nullable FrontdoorFirewallPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FrontdoorFirewallPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable FrontdoorFirewallPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FrontdoorFirewallPolicy(name, id, state, options);
     }
 }

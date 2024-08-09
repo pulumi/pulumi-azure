@@ -172,7 +172,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubnetServiceEndpointStoragePolicy(String name) {
+    public SubnetServiceEndpointStoragePolicy(java.lang.String name) {
         this(name, SubnetServiceEndpointStoragePolicyArgs.Empty);
     }
     /**
@@ -180,7 +180,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubnetServiceEndpointStoragePolicy(String name, SubnetServiceEndpointStoragePolicyArgs args) {
+    public SubnetServiceEndpointStoragePolicy(java.lang.String name, SubnetServiceEndpointStoragePolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -189,12 +189,12 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubnetServiceEndpointStoragePolicy(String name, SubnetServiceEndpointStoragePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SubnetServiceEndpointStoragePolicy(java.lang.String name, SubnetServiceEndpointStoragePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubnetServiceEndpointStoragePolicy(String name, Output<String> id, @Nullable SubnetServiceEndpointStoragePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy", name, state, makeResourceOptions(options, id));
+    private SubnetServiceEndpointStoragePolicy(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetServiceEndpointStoragePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubnetServiceEndpointStoragePolicyArgs makeArgs(SubnetServiceEndpointStoragePolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -204,7 +204,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
         return args == null ? SubnetServiceEndpointStoragePolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -220,7 +220,7 @@ public class SubnetServiceEndpointStoragePolicy extends com.pulumi.resources.Cus
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubnetServiceEndpointStoragePolicy get(String name, Output<String> id, @Nullable SubnetServiceEndpointStoragePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubnetServiceEndpointStoragePolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetServiceEndpointStoragePolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubnetServiceEndpointStoragePolicy(name, id, state, options);
     }
 }

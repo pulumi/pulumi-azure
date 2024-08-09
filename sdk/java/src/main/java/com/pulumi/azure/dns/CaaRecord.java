@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -83,13 +83,13 @@ import javax.annotation.Nullable;
  *                 CaaRecordRecordArgs.builder()
  *                     .flags(0)
  *                     .tag("iodef")
- *                     .value("mailto:user{@literal @}nonexisting.tld")
+ *                     .value("mailto:user}{@literal @}{@code nonexisting.tld")
  *                     .build())
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -120,14 +120,14 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}&#34;` as the name. Changing this forces a new resource to be created.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}"` as the name. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}&#34;` as the name. Changing this forces a new resource to be created.
+     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}"` as the name. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
@@ -208,7 +208,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CaaRecord(String name) {
+    public CaaRecord(java.lang.String name) {
         this(name, CaaRecordArgs.Empty);
     }
     /**
@@ -216,7 +216,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CaaRecord(String name, CaaRecordArgs args) {
+    public CaaRecord(java.lang.String name, CaaRecordArgs args) {
         this(name, args, null);
     }
     /**
@@ -225,12 +225,12 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CaaRecord(String name, CaaRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dns/caaRecord:CaaRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CaaRecord(java.lang.String name, CaaRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dns/caaRecord:CaaRecord", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CaaRecord(String name, Output<String> id, @Nullable CaaRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dns/caaRecord:CaaRecord", name, state, makeResourceOptions(options, id));
+    private CaaRecord(java.lang.String name, Output<java.lang.String> id, @Nullable CaaRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dns/caaRecord:CaaRecord", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CaaRecordArgs makeArgs(CaaRecordArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -240,7 +240,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
         return args == null ? CaaRecordArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -256,7 +256,7 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CaaRecord get(String name, Output<String> id, @Nullable CaaRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CaaRecord get(java.lang.String name, Output<java.lang.String> id, @Nullable CaaRecordState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CaaRecord(name, id, state, options);
     }
 }

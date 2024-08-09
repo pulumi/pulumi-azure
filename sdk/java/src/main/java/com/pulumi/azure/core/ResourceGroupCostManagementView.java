@@ -234,7 +234,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceGroupCostManagementView(String name) {
+    public ResourceGroupCostManagementView(java.lang.String name) {
         this(name, ResourceGroupCostManagementViewArgs.Empty);
     }
     /**
@@ -242,7 +242,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceGroupCostManagementView(String name, ResourceGroupCostManagementViewArgs args) {
+    public ResourceGroupCostManagementView(java.lang.String name, ResourceGroupCostManagementViewArgs args) {
         this(name, args, null);
     }
     /**
@@ -251,12 +251,12 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceGroupCostManagementView(String name, ResourceGroupCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResourceGroupCostManagementView(java.lang.String name, ResourceGroupCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceGroupCostManagementView(String name, Output<String> id, @Nullable ResourceGroupCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, state, makeResourceOptions(options, id));
+    private ResourceGroupCostManagementView(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResourceGroupCostManagementViewArgs makeArgs(ResourceGroupCostManagementViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -266,7 +266,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
         return args == null ? ResourceGroupCostManagementViewArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -282,7 +282,7 @@ public class ResourceGroupCostManagementView extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceGroupCostManagementView get(String name, Output<String> id, @Nullable ResourceGroupCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceGroupCostManagementView get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGroupCostManagementViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceGroupCostManagementView(name, id, state, options);
     }
 }

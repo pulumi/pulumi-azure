@@ -51,12 +51,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -83,7 +83,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .aadAdmin(WorkspaceAadAdminArgs.builder()
  *                 .login("AzureAD Admin")
  *                 .objectId("00000000-0000-0000-0000-000000000000")
@@ -121,8 +121,8 @@ import javax.annotation.Nullable;
  *             .retentionDays(20)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -255,7 +255,7 @@ public class SqlPoolSecurityAlertPolicy extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SqlPoolSecurityAlertPolicy(String name) {
+    public SqlPoolSecurityAlertPolicy(java.lang.String name) {
         this(name, SqlPoolSecurityAlertPolicyArgs.Empty);
     }
     /**
@@ -263,7 +263,7 @@ public class SqlPoolSecurityAlertPolicy extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SqlPoolSecurityAlertPolicy(String name, SqlPoolSecurityAlertPolicyArgs args) {
+    public SqlPoolSecurityAlertPolicy(java.lang.String name, SqlPoolSecurityAlertPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -272,12 +272,12 @@ public class SqlPoolSecurityAlertPolicy extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SqlPoolSecurityAlertPolicy(String name, SqlPoolSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SqlPoolSecurityAlertPolicy(java.lang.String name, SqlPoolSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SqlPoolSecurityAlertPolicy(String name, Output<String> id, @Nullable SqlPoolSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy", name, state, makeResourceOptions(options, id));
+    private SqlPoolSecurityAlertPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable SqlPoolSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SqlPoolSecurityAlertPolicyArgs makeArgs(SqlPoolSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -287,7 +287,7 @@ public class SqlPoolSecurityAlertPolicy extends com.pulumi.resources.CustomResou
         return args == null ? SqlPoolSecurityAlertPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -306,7 +306,7 @@ public class SqlPoolSecurityAlertPolicy extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SqlPoolSecurityAlertPolicy get(String name, Output<String> id, @Nullable SqlPoolSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SqlPoolSecurityAlertPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable SqlPoolSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SqlPoolSecurityAlertPolicy(name, id, state, options);
     }
 }

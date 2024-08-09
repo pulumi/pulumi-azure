@@ -292,7 +292,7 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GremlinGraph(String name) {
+    public GremlinGraph(java.lang.String name) {
         this(name, GremlinGraphArgs.Empty);
     }
     /**
@@ -300,7 +300,7 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GremlinGraph(String name, GremlinGraphArgs args) {
+    public GremlinGraph(java.lang.String name, GremlinGraphArgs args) {
         this(name, args, null);
     }
     /**
@@ -309,12 +309,12 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GremlinGraph(String name, GremlinGraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/gremlinGraph:GremlinGraph", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GremlinGraph(java.lang.String name, GremlinGraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/gremlinGraph:GremlinGraph", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GremlinGraph(String name, Output<String> id, @Nullable GremlinGraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/gremlinGraph:GremlinGraph", name, state, makeResourceOptions(options, id));
+    private GremlinGraph(java.lang.String name, Output<java.lang.String> id, @Nullable GremlinGraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/gremlinGraph:GremlinGraph", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GremlinGraphArgs makeArgs(GremlinGraphArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -324,7 +324,7 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
         return args == null ? GremlinGraphArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -340,7 +340,7 @@ public class GremlinGraph extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GremlinGraph get(String name, Output<String> id, @Nullable GremlinGraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GremlinGraph get(java.lang.String name, Output<java.lang.String> id, @Nullable GremlinGraphState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GremlinGraph(name, id, state, options);
     }
 }

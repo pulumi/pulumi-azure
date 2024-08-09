@@ -226,7 +226,7 @@ public class ClusterTrustedAccessRoleBinding extends com.pulumi.resources.Custom
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ClusterTrustedAccessRoleBinding(String name) {
+    public ClusterTrustedAccessRoleBinding(java.lang.String name) {
         this(name, ClusterTrustedAccessRoleBindingArgs.Empty);
     }
     /**
@@ -234,7 +234,7 @@ public class ClusterTrustedAccessRoleBinding extends com.pulumi.resources.Custom
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClusterTrustedAccessRoleBinding(String name, ClusterTrustedAccessRoleBindingArgs args) {
+    public ClusterTrustedAccessRoleBinding(java.lang.String name, ClusterTrustedAccessRoleBindingArgs args) {
         this(name, args, null);
     }
     /**
@@ -243,12 +243,12 @@ public class ClusterTrustedAccessRoleBinding extends com.pulumi.resources.Custom
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClusterTrustedAccessRoleBinding(String name, ClusterTrustedAccessRoleBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ClusterTrustedAccessRoleBinding(java.lang.String name, ClusterTrustedAccessRoleBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ClusterTrustedAccessRoleBinding(String name, Output<String> id, @Nullable ClusterTrustedAccessRoleBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding", name, state, makeResourceOptions(options, id));
+    private ClusterTrustedAccessRoleBinding(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterTrustedAccessRoleBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ClusterTrustedAccessRoleBindingArgs makeArgs(ClusterTrustedAccessRoleBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -258,7 +258,7 @@ public class ClusterTrustedAccessRoleBinding extends com.pulumi.resources.Custom
         return args == null ? ClusterTrustedAccessRoleBindingArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -274,7 +274,7 @@ public class ClusterTrustedAccessRoleBinding extends com.pulumi.resources.Custom
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ClusterTrustedAccessRoleBinding get(String name, Output<String> id, @Nullable ClusterTrustedAccessRoleBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ClusterTrustedAccessRoleBinding get(java.lang.String name, Output<java.lang.String> id, @Nullable ClusterTrustedAccessRoleBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ClusterTrustedAccessRoleBinding(name, id, state, options);
     }
 }

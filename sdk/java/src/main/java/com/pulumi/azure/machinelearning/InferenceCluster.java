@@ -303,7 +303,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public InferenceCluster(String name) {
+    public InferenceCluster(java.lang.String name) {
         this(name, InferenceClusterArgs.Empty);
     }
     /**
@@ -311,7 +311,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public InferenceCluster(String name, InferenceClusterArgs args) {
+    public InferenceCluster(java.lang.String name, InferenceClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -320,12 +320,12 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public InferenceCluster(String name, InferenceClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/inferenceCluster:InferenceCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public InferenceCluster(java.lang.String name, InferenceClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/inferenceCluster:InferenceCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private InferenceCluster(String name, Output<String> id, @Nullable InferenceClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/inferenceCluster:InferenceCluster", name, state, makeResourceOptions(options, id));
+    private InferenceCluster(java.lang.String name, Output<java.lang.String> id, @Nullable InferenceClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/inferenceCluster:InferenceCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static InferenceClusterArgs makeArgs(InferenceClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -335,7 +335,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
         return args == null ? InferenceClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -351,7 +351,7 @@ public class InferenceCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static InferenceCluster get(String name, Output<String> id, @Nullable InferenceClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static InferenceCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable InferenceClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new InferenceCluster(name, id, state, options);
     }
 }

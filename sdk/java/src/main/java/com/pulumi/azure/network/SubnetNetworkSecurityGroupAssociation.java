@@ -141,7 +141,7 @@ public class SubnetNetworkSecurityGroupAssociation extends com.pulumi.resources.
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SubnetNetworkSecurityGroupAssociation(String name) {
+    public SubnetNetworkSecurityGroupAssociation(java.lang.String name) {
         this(name, SubnetNetworkSecurityGroupAssociationArgs.Empty);
     }
     /**
@@ -149,7 +149,7 @@ public class SubnetNetworkSecurityGroupAssociation extends com.pulumi.resources.
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SubnetNetworkSecurityGroupAssociation(String name, SubnetNetworkSecurityGroupAssociationArgs args) {
+    public SubnetNetworkSecurityGroupAssociation(java.lang.String name, SubnetNetworkSecurityGroupAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -158,12 +158,12 @@ public class SubnetNetworkSecurityGroupAssociation extends com.pulumi.resources.
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SubnetNetworkSecurityGroupAssociation(String name, SubnetNetworkSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SubnetNetworkSecurityGroupAssociation(java.lang.String name, SubnetNetworkSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SubnetNetworkSecurityGroupAssociation(String name, Output<String> id, @Nullable SubnetNetworkSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, state, makeResourceOptions(options, id));
+    private SubnetNetworkSecurityGroupAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetNetworkSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubnetNetworkSecurityGroupAssociationArgs makeArgs(SubnetNetworkSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -173,7 +173,7 @@ public class SubnetNetworkSecurityGroupAssociation extends com.pulumi.resources.
         return args == null ? SubnetNetworkSecurityGroupAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -189,7 +189,7 @@ public class SubnetNetworkSecurityGroupAssociation extends com.pulumi.resources.
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SubnetNetworkSecurityGroupAssociation get(String name, Output<String> id, @Nullable SubnetNetworkSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SubnetNetworkSecurityGroupAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable SubnetNetworkSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SubnetNetworkSecurityGroupAssociation(name, id, state, options);
     }
 }

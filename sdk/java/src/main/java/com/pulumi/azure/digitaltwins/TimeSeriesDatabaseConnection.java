@@ -319,7 +319,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TimeSeriesDatabaseConnection(String name) {
+    public TimeSeriesDatabaseConnection(java.lang.String name) {
         this(name, TimeSeriesDatabaseConnectionArgs.Empty);
     }
     /**
@@ -327,7 +327,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TimeSeriesDatabaseConnection(String name, TimeSeriesDatabaseConnectionArgs args) {
+    public TimeSeriesDatabaseConnection(java.lang.String name, TimeSeriesDatabaseConnectionArgs args) {
         this(name, args, null);
     }
     /**
@@ -336,12 +336,12 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TimeSeriesDatabaseConnection(String name, TimeSeriesDatabaseConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TimeSeriesDatabaseConnection(java.lang.String name, TimeSeriesDatabaseConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TimeSeriesDatabaseConnection(String name, Output<String> id, @Nullable TimeSeriesDatabaseConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection", name, state, makeResourceOptions(options, id));
+    private TimeSeriesDatabaseConnection(java.lang.String name, Output<java.lang.String> id, @Nullable TimeSeriesDatabaseConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:digitaltwins/timeSeriesDatabaseConnection:TimeSeriesDatabaseConnection", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TimeSeriesDatabaseConnectionArgs makeArgs(TimeSeriesDatabaseConnectionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -351,7 +351,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
         return args == null ? TimeSeriesDatabaseConnectionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -367,7 +367,7 @@ public class TimeSeriesDatabaseConnection extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TimeSeriesDatabaseConnection get(String name, Output<String> id, @Nullable TimeSeriesDatabaseConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TimeSeriesDatabaseConnection get(java.lang.String name, Output<java.lang.String> id, @Nullable TimeSeriesDatabaseConnectionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TimeSeriesDatabaseConnection(name, id, state, options);
     }
 }

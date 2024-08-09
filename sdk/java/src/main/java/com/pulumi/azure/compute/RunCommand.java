@@ -80,12 +80,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .size("Standard_B2s")
  *             .adminUsername("adminuser")
- *             .adminPassword("P{@literal @}$$w0rd1234!")
+ *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .disablePasswordAuthentication(false)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
@@ -237,7 +237,7 @@ import javax.annotation.Nullable;
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .outputBlobUri(example2.id())
  *             .errorBlobUri(example3.id())
- *             .runAsPassword("P{@literal @}$$w0rd1234!")
+ *             .runAsPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .runAsUser("adminuser")
  *             .source(RunCommandSourceArgs.builder()
  *                 .scriptUri(example1.id())
@@ -272,24 +272,24 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .name("example3-vmrc")
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
- *             .runAsPassword("P{@literal @}$$w0rd1234!")
+ *             .runAsPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .runAsUser("adminuser")
- *             .errorBlobUri(Output.tuple(example3.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> {
+ *             .errorBlobUri(Output.tuple(example3.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> }{{@code
  *                 var id = values.t1;
  *                 var example = values.t2;
  *                 return String.format("%s%s", id,example.applyValue(getAccountSASResult -> getAccountSASResult.sas()));
- *             }))
- *             .outputBlobUri(Output.tuple(example2.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> {
+ *             }}{@code ))
+ *             .outputBlobUri(Output.tuple(example2.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> }{{@code
  *                 var id = values.t1;
  *                 var example = values.t2;
  *                 return String.format("%s%s", id,example.applyValue(getAccountSASResult -> getAccountSASResult.sas()));
- *             }))
+ *             }}{@code ))
  *             .source(RunCommandSourceArgs.builder()
- *                 .scriptUri(Output.tuple(example1.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> {
+ *                 .scriptUri(Output.tuple(example1.id(), example.applyValue(getAccountSASResult -> getAccountSASResult)).applyValue(values -> }{{@code
  *                     var id = values.t1;
  *                     var example = values.t2;
  *                     return String.format("%s%s", id,example.applyValue(getAccountSASResult -> getAccountSASResult.sas()));
- *                 }))
+ *                 }}{@code ))
  *                 .build())
  *             .parameters(RunCommandParameterArgs.builder()
  *                 .name("example-vm1")
@@ -301,8 +301,8 @@ import javax.annotation.Nullable;
  *             ))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -511,7 +511,7 @@ public class RunCommand extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RunCommand(String name) {
+    public RunCommand(java.lang.String name) {
         this(name, RunCommandArgs.Empty);
     }
     /**
@@ -519,7 +519,7 @@ public class RunCommand extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RunCommand(String name, RunCommandArgs args) {
+    public RunCommand(java.lang.String name, RunCommandArgs args) {
         this(name, args, null);
     }
     /**
@@ -528,12 +528,12 @@ public class RunCommand extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RunCommand(String name, RunCommandArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/runCommand:RunCommand", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RunCommand(java.lang.String name, RunCommandArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/runCommand:RunCommand", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RunCommand(String name, Output<String> id, @Nullable RunCommandState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/runCommand:RunCommand", name, state, makeResourceOptions(options, id));
+    private RunCommand(java.lang.String name, Output<java.lang.String> id, @Nullable RunCommandState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/runCommand:RunCommand", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RunCommandArgs makeArgs(RunCommandArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -543,7 +543,7 @@ public class RunCommand extends com.pulumi.resources.CustomResource {
         return args == null ? RunCommandArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -565,7 +565,7 @@ public class RunCommand extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RunCommand get(String name, Output<String> id, @Nullable RunCommandState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RunCommand get(java.lang.String name, Output<java.lang.String> id, @Nullable RunCommandState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RunCommand(name, id, state, options);
     }
 }

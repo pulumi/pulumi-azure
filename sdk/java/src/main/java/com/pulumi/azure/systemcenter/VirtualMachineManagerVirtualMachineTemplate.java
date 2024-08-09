@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  *             .customLocationId("/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.ExtendedLocation/customLocations/customLocation1")
  *             .fqdn("example.labtest")
  *             .username("testUser")
- *             .password("H{@literal @}Sh1CoR3!")
+ *             .password("H}{@literal @}{@code Sh1CoR3!")
  *             .build());
  * 
  *         final var example = SystemcenterFunctions.getVirtualMachineManagerInventoryItems(GetVirtualMachineManagerInventoryItemsArgs.builder()
@@ -77,8 +77,8 @@ import javax.annotation.Nullable;
  *             .systemCenterVirtualMachineManagerServerInventoryItemId(example.applyValue(getVirtualMachineManagerInventoryItemsResult -> getVirtualMachineManagerInventoryItemsResult).applyValue(example -> example.applyValue(getVirtualMachineManagerInventoryItemsResult -> getVirtualMachineManagerInventoryItemsResult.inventoryItems()[0].id())))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -183,7 +183,7 @@ public class VirtualMachineManagerVirtualMachineTemplate extends com.pulumi.reso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public VirtualMachineManagerVirtualMachineTemplate(String name) {
+    public VirtualMachineManagerVirtualMachineTemplate(java.lang.String name) {
         this(name, VirtualMachineManagerVirtualMachineTemplateArgs.Empty);
     }
     /**
@@ -191,7 +191,7 @@ public class VirtualMachineManagerVirtualMachineTemplate extends com.pulumi.reso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public VirtualMachineManagerVirtualMachineTemplate(String name, VirtualMachineManagerVirtualMachineTemplateArgs args) {
+    public VirtualMachineManagerVirtualMachineTemplate(java.lang.String name, VirtualMachineManagerVirtualMachineTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,12 +200,12 @@ public class VirtualMachineManagerVirtualMachineTemplate extends com.pulumi.reso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public VirtualMachineManagerVirtualMachineTemplate(String name, VirtualMachineManagerVirtualMachineTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public VirtualMachineManagerVirtualMachineTemplate(java.lang.String name, VirtualMachineManagerVirtualMachineTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private VirtualMachineManagerVirtualMachineTemplate(String name, Output<String> id, @Nullable VirtualMachineManagerVirtualMachineTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", name, state, makeResourceOptions(options, id));
+    private VirtualMachineManagerVirtualMachineTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineManagerVirtualMachineTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:systemcenter/virtualMachineManagerVirtualMachineTemplate:VirtualMachineManagerVirtualMachineTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static VirtualMachineManagerVirtualMachineTemplateArgs makeArgs(VirtualMachineManagerVirtualMachineTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -215,7 +215,7 @@ public class VirtualMachineManagerVirtualMachineTemplate extends com.pulumi.reso
         return args == null ? VirtualMachineManagerVirtualMachineTemplateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +231,7 @@ public class VirtualMachineManagerVirtualMachineTemplate extends com.pulumi.reso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static VirtualMachineManagerVirtualMachineTemplate get(String name, Output<String> id, @Nullable VirtualMachineManagerVirtualMachineTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static VirtualMachineManagerVirtualMachineTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable VirtualMachineManagerVirtualMachineTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new VirtualMachineManagerVirtualMachineTemplate(name, id, state, options);
     }
 }

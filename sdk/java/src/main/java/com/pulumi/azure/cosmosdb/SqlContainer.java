@@ -327,7 +327,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SqlContainer(String name) {
+    public SqlContainer(java.lang.String name) {
         this(name, SqlContainerArgs.Empty);
     }
     /**
@@ -335,7 +335,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SqlContainer(String name, SqlContainerArgs args) {
+    public SqlContainer(java.lang.String name, SqlContainerArgs args) {
         this(name, args, null);
     }
     /**
@@ -344,12 +344,12 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SqlContainer(String name, SqlContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlContainer:SqlContainer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SqlContainer(java.lang.String name, SqlContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlContainer:SqlContainer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SqlContainer(String name, Output<String> id, @Nullable SqlContainerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlContainer:SqlContainer", name, state, makeResourceOptions(options, id));
+    private SqlContainer(java.lang.String name, Output<java.lang.String> id, @Nullable SqlContainerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlContainer:SqlContainer", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SqlContainerArgs makeArgs(SqlContainerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -359,7 +359,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
         return args == null ? SqlContainerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -375,7 +375,7 @@ public class SqlContainer extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SqlContainer get(String name, Output<String> id, @Nullable SqlContainerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SqlContainer get(java.lang.String name, Output<java.lang.String> id, @Nullable SqlContainerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SqlContainer(name, id, state, options);
     }
 }

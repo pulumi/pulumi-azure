@@ -286,7 +286,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkSimPolicy(String name) {
+    public NetworkSimPolicy(java.lang.String name) {
         this(name, NetworkSimPolicyArgs.Empty);
     }
     /**
@@ -294,7 +294,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkSimPolicy(String name, NetworkSimPolicyArgs args) {
+    public NetworkSimPolicy(java.lang.String name, NetworkSimPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -303,12 +303,12 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkSimPolicy(String name, NetworkSimPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkSimPolicy:NetworkSimPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkSimPolicy(java.lang.String name, NetworkSimPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkSimPolicy:NetworkSimPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkSimPolicy(String name, Output<String> id, @Nullable NetworkSimPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkSimPolicy:NetworkSimPolicy", name, state, makeResourceOptions(options, id));
+    private NetworkSimPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkSimPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkSimPolicy:NetworkSimPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkSimPolicyArgs makeArgs(NetworkSimPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -318,7 +318,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? NetworkSimPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -334,7 +334,7 @@ public class NetworkSimPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkSimPolicy get(String name, Output<String> id, @Nullable NetworkSimPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkSimPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkSimPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkSimPolicy(name, id, state, options);
     }
 }

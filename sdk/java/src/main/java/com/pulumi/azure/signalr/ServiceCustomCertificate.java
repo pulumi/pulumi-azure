@@ -211,7 +211,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceCustomCertificate(String name) {
+    public ServiceCustomCertificate(java.lang.String name) {
         this(name, ServiceCustomCertificateArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceCustomCertificate(String name, ServiceCustomCertificateArgs args) {
+    public ServiceCustomCertificate(java.lang.String name, ServiceCustomCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,12 +228,12 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceCustomCertificate(String name, ServiceCustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServiceCustomCertificate(java.lang.String name, ServiceCustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceCustomCertificate(String name, Output<String> id, @Nullable ServiceCustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", name, state, makeResourceOptions(options, id));
+    private ServiceCustomCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceCustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:signalr/serviceCustomCertificate:ServiceCustomCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServiceCustomCertificateArgs makeArgs(ServiceCustomCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -243,7 +243,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
         return args == null ? ServiceCustomCertificateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -259,7 +259,7 @@ public class ServiceCustomCertificate extends com.pulumi.resources.CustomResourc
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceCustomCertificate get(String name, Output<String> id, @Nullable ServiceCustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceCustomCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceCustomCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceCustomCertificate(name, id, state, options);
     }
 }

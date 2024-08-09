@@ -381,7 +381,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AlertRuleNrt(String name) {
+    public AlertRuleNrt(java.lang.String name) {
         this(name, AlertRuleNrtArgs.Empty);
     }
     /**
@@ -389,7 +389,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AlertRuleNrt(String name, AlertRuleNrtArgs args) {
+    public AlertRuleNrt(java.lang.String name, AlertRuleNrtArgs args) {
         this(name, args, null);
     }
     /**
@@ -398,12 +398,12 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AlertRuleNrt(String name, AlertRuleNrtArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleNrt:AlertRuleNrt", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AlertRuleNrt(java.lang.String name, AlertRuleNrtArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/alertRuleNrt:AlertRuleNrt", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AlertRuleNrt(String name, Output<String> id, @Nullable AlertRuleNrtState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/alertRuleNrt:AlertRuleNrt", name, state, makeResourceOptions(options, id));
+    private AlertRuleNrt(java.lang.String name, Output<java.lang.String> id, @Nullable AlertRuleNrtState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/alertRuleNrt:AlertRuleNrt", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AlertRuleNrtArgs makeArgs(AlertRuleNrtArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -413,7 +413,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
         return args == null ? AlertRuleNrtArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -429,7 +429,7 @@ public class AlertRuleNrt extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AlertRuleNrt get(String name, Output<String> id, @Nullable AlertRuleNrtState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AlertRuleNrt get(java.lang.String name, Output<java.lang.String> id, @Nullable AlertRuleNrtState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AlertRuleNrt(name, id, state, options);
     }
 }

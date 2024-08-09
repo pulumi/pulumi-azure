@@ -249,7 +249,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutputTable(String name) {
+    public OutputTable(java.lang.String name) {
         this(name, OutputTableArgs.Empty);
     }
     /**
@@ -257,7 +257,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutputTable(String name, OutputTableArgs args) {
+    public OutputTable(java.lang.String name, OutputTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,12 +266,12 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutputTable(String name, OutputTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputTable:OutputTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OutputTable(java.lang.String name, OutputTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputTable:OutputTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutputTable(String name, Output<String> id, @Nullable OutputTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputTable:OutputTable", name, state, makeResourceOptions(options, id));
+    private OutputTable(java.lang.String name, Output<java.lang.String> id, @Nullable OutputTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputTable:OutputTable", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OutputTableArgs makeArgs(OutputTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -281,7 +281,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
         return args == null ? OutputTableArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -300,7 +300,7 @@ public class OutputTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutputTable get(String name, Output<String> id, @Nullable OutputTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutputTable get(java.lang.String name, Output<java.lang.String> id, @Nullable OutputTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutputTable(name, id, state, options);
     }
 }

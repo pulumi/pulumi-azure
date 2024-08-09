@@ -313,7 +313,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutputBlob(String name) {
+    public OutputBlob(java.lang.String name) {
         this(name, OutputBlobArgs.Empty);
     }
     /**
@@ -321,7 +321,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutputBlob(String name, OutputBlobArgs args) {
+    public OutputBlob(java.lang.String name, OutputBlobArgs args) {
         this(name, args, null);
     }
     /**
@@ -330,12 +330,12 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutputBlob(String name, OutputBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputBlob:OutputBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OutputBlob(java.lang.String name, OutputBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputBlob:OutputBlob", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutputBlob(String name, Output<String> id, @Nullable OutputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputBlob:OutputBlob", name, state, makeResourceOptions(options, id));
+    private OutputBlob(java.lang.String name, Output<java.lang.String> id, @Nullable OutputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputBlob:OutputBlob", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OutputBlobArgs makeArgs(OutputBlobArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -345,7 +345,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
         return args == null ? OutputBlobArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -364,7 +364,7 @@ public class OutputBlob extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutputBlob get(String name, Output<String> id, @Nullable OutputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutputBlob get(java.lang.String name, Output<java.lang.String> id, @Nullable OutputBlobState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutputBlob(name, id, state, options);
     }
 }

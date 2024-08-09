@@ -190,7 +190,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConnectionClassicCertificate(String name) {
+    public ConnectionClassicCertificate(java.lang.String name) {
         this(name, ConnectionClassicCertificateArgs.Empty);
     }
     /**
@@ -198,7 +198,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConnectionClassicCertificate(String name, ConnectionClassicCertificateArgs args) {
+    public ConnectionClassicCertificate(java.lang.String name, ConnectionClassicCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -207,12 +207,12 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConnectionClassicCertificate(String name, ConnectionClassicCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ConnectionClassicCertificate(java.lang.String name, ConnectionClassicCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConnectionClassicCertificate(String name, Output<String> id, @Nullable ConnectionClassicCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", name, state, makeResourceOptions(options, id));
+    private ConnectionClassicCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionClassicCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/connectionClassicCertificate:ConnectionClassicCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ConnectionClassicCertificateArgs makeArgs(ConnectionClassicCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -222,7 +222,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
         return args == null ? ConnectionClassicCertificateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -238,7 +238,7 @@ public class ConnectionClassicCertificate extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConnectionClassicCertificate get(String name, Output<String> id, @Nullable ConnectionClassicCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConnectionClassicCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectionClassicCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConnectionClassicCertificate(name, id, state, options);
     }
 }

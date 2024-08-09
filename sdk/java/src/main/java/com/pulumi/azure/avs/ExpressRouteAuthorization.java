@@ -149,7 +149,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExpressRouteAuthorization(String name) {
+    public ExpressRouteAuthorization(java.lang.String name) {
         this(name, ExpressRouteAuthorizationArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExpressRouteAuthorization(String name, ExpressRouteAuthorizationArgs args) {
+    public ExpressRouteAuthorization(java.lang.String name, ExpressRouteAuthorizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,12 +166,12 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExpressRouteAuthorization(String name, ExpressRouteAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ExpressRouteAuthorization(java.lang.String name, ExpressRouteAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExpressRouteAuthorization(String name, Output<String> id, @Nullable ExpressRouteAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization", name, state, makeResourceOptions(options, id));
+    private ExpressRouteAuthorization(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:avs/expressRouteAuthorization:ExpressRouteAuthorization", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExpressRouteAuthorizationArgs makeArgs(ExpressRouteAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -181,7 +181,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
         return args == null ? ExpressRouteAuthorizationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -200,7 +200,7 @@ public class ExpressRouteAuthorization extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExpressRouteAuthorization get(String name, Output<String> id, @Nullable ExpressRouteAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExpressRouteAuthorization get(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExpressRouteAuthorization(name, id, state, options);
     }
 }

@@ -55,7 +55,7 @@ import (
 //			}
 //			_, err = pim.NewEligibleRoleAssignment(ctx, "example", &pim.EligibleRoleAssignmentArgs{
 //				Scope:            pulumi.String(primary.Id),
-//				RoleDefinitionId: pulumi.String(fmt.Sprintf("%v%v", primary.Id, exampleGetRoleDefinition.Id)),
+//				RoleDefinitionId: pulumi.Sprintf("%v%v", primary.Id, exampleGetRoleDefinition.Id),
 //				PrincipalId:      pulumi.String(example.ObjectId),
 //				Schedule: &pim.EligibleRoleAssignmentScheduleArgs{
 //					StartDateTime: exampleStatic.Rfc3339,

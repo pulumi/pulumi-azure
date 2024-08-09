@@ -518,7 +518,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IoTHub(String name) {
+    public IoTHub(java.lang.String name) {
         this(name, IoTHubArgs.Empty);
     }
     /**
@@ -526,7 +526,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IoTHub(String name, IoTHubArgs args) {
+    public IoTHub(java.lang.String name, IoTHubArgs args) {
         this(name, args, null);
     }
     /**
@@ -535,12 +535,12 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IoTHub(String name, IoTHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/ioTHub:IoTHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IoTHub(java.lang.String name, IoTHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/ioTHub:IoTHub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IoTHub(String name, Output<String> id, @Nullable IoTHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/ioTHub:IoTHub", name, state, makeResourceOptions(options, id));
+    private IoTHub(java.lang.String name, Output<java.lang.String> id, @Nullable IoTHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/ioTHub:IoTHub", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IoTHubArgs makeArgs(IoTHubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -550,7 +550,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
         return args == null ? IoTHubArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -566,7 +566,7 @@ public class IoTHub extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IoTHub get(String name, Output<String> id, @Nullable IoTHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IoTHub get(java.lang.String name, Output<java.lang.String> id, @Nullable IoTHubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IoTHub(name, id, state, options);
     }
 }

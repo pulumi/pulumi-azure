@@ -60,7 +60,7 @@ import (
 //				Sso: &appplatform.SpringCloudDevToolPortalSsoArgs{
 //					ClientId:     pulumi.String("example id"),
 //					ClientSecret: pulumi.String("example secret"),
-//					MetadataUrl:  pulumi.String(fmt.Sprintf("https://login.microsoftonline.com/%v/v2.0/.well-known/openid-configuration", current.TenantId)),
+//					MetadataUrl:  pulumi.Sprintf("https://login.microsoftonline.com/%v/v2.0/.well-known/openid-configuration", current.TenantId),
 //					Scopes: pulumi.StringArray{
 //						pulumi.String("openid"),
 //						pulumi.String("profile"),

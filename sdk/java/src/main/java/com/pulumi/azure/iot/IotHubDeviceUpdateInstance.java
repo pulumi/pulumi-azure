@@ -202,7 +202,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IotHubDeviceUpdateInstance(String name) {
+    public IotHubDeviceUpdateInstance(java.lang.String name) {
         this(name, IotHubDeviceUpdateInstanceArgs.Empty);
     }
     /**
@@ -210,7 +210,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IotHubDeviceUpdateInstance(String name, IotHubDeviceUpdateInstanceArgs args) {
+    public IotHubDeviceUpdateInstance(java.lang.String name, IotHubDeviceUpdateInstanceArgs args) {
         this(name, args, null);
     }
     /**
@@ -219,12 +219,12 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IotHubDeviceUpdateInstance(String name, IotHubDeviceUpdateInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IotHubDeviceUpdateInstance(java.lang.String name, IotHubDeviceUpdateInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IotHubDeviceUpdateInstance(String name, Output<String> id, @Nullable IotHubDeviceUpdateInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance", name, state, makeResourceOptions(options, id));
+    private IotHubDeviceUpdateInstance(java.lang.String name, Output<java.lang.String> id, @Nullable IotHubDeviceUpdateInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/iotHubDeviceUpdateInstance:IotHubDeviceUpdateInstance", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IotHubDeviceUpdateInstanceArgs makeArgs(IotHubDeviceUpdateInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -234,7 +234,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
         return args == null ? IotHubDeviceUpdateInstanceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -250,7 +250,7 @@ public class IotHubDeviceUpdateInstance extends com.pulumi.resources.CustomResou
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IotHubDeviceUpdateInstance get(String name, Output<String> id, @Nullable IotHubDeviceUpdateInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IotHubDeviceUpdateInstance get(java.lang.String name, Output<java.lang.String> id, @Nullable IotHubDeviceUpdateInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IotHubDeviceUpdateInstance(name, id, state, options);
     }
 }

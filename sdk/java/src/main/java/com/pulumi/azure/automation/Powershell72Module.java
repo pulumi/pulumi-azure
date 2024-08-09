@@ -147,7 +147,7 @@ public class Powershell72Module extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Powershell72Module(String name) {
+    public Powershell72Module(java.lang.String name) {
         this(name, Powershell72ModuleArgs.Empty);
     }
     /**
@@ -155,7 +155,7 @@ public class Powershell72Module extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Powershell72Module(String name, Powershell72ModuleArgs args) {
+    public Powershell72Module(java.lang.String name, Powershell72ModuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -164,12 +164,12 @@ public class Powershell72Module extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Powershell72Module(String name, Powershell72ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/powershell72Module:Powershell72Module", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Powershell72Module(java.lang.String name, Powershell72ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/powershell72Module:Powershell72Module", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Powershell72Module(String name, Output<String> id, @Nullable Powershell72ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/powershell72Module:Powershell72Module", name, state, makeResourceOptions(options, id));
+    private Powershell72Module(java.lang.String name, Output<java.lang.String> id, @Nullable Powershell72ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/powershell72Module:Powershell72Module", name, state, makeResourceOptions(options, id), false);
     }
 
     private static Powershell72ModuleArgs makeArgs(Powershell72ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -179,7 +179,7 @@ public class Powershell72Module extends com.pulumi.resources.CustomResource {
         return args == null ? Powershell72ModuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -195,7 +195,7 @@ public class Powershell72Module extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Powershell72Module get(String name, Output<String> id, @Nullable Powershell72ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Powershell72Module get(java.lang.String name, Output<java.lang.String> id, @Nullable Powershell72ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Powershell72Module(name, id, state, options);
     }
 }

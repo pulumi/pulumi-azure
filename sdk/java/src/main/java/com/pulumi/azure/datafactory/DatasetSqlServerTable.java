@@ -236,7 +236,7 @@ public class DatasetSqlServerTable extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetSqlServerTable(String name) {
+    public DatasetSqlServerTable(java.lang.String name) {
         this(name, DatasetSqlServerTableArgs.Empty);
     }
     /**
@@ -244,7 +244,7 @@ public class DatasetSqlServerTable extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetSqlServerTable(String name, DatasetSqlServerTableArgs args) {
+    public DatasetSqlServerTable(java.lang.String name, DatasetSqlServerTableArgs args) {
         this(name, args, null);
     }
     /**
@@ -253,12 +253,12 @@ public class DatasetSqlServerTable extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetSqlServerTable(String name, DatasetSqlServerTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DatasetSqlServerTable(java.lang.String name, DatasetSqlServerTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetSqlServerTable(String name, Output<String> id, @Nullable DatasetSqlServerTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, state, makeResourceOptions(options, id));
+    private DatasetSqlServerTable(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetSqlServerTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DatasetSqlServerTableArgs makeArgs(DatasetSqlServerTableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -268,7 +268,7 @@ public class DatasetSqlServerTable extends com.pulumi.resources.CustomResource {
         return args == null ? DatasetSqlServerTableArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -284,7 +284,7 @@ public class DatasetSqlServerTable extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetSqlServerTable get(String name, Output<String> id, @Nullable DatasetSqlServerTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetSqlServerTable get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetSqlServerTableState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetSqlServerTable(name, id, state, options);
     }
 }

@@ -809,7 +809,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ScaleSet(String name) {
+    public ScaleSet(java.lang.String name) {
         this(name, ScaleSetArgs.Empty);
     }
     /**
@@ -817,7 +817,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ScaleSet(String name, ScaleSetArgs args) {
+    public ScaleSet(java.lang.String name, ScaleSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -826,12 +826,12 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ScaleSet(String name, ScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/scaleSet:ScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ScaleSet(java.lang.String name, ScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/scaleSet:ScaleSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ScaleSet(String name, Output<String> id, @Nullable ScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/scaleSet:ScaleSet", name, state, makeResourceOptions(options, id));
+    private ScaleSet(java.lang.String name, Output<java.lang.String> id, @Nullable ScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/scaleSet:ScaleSet", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ScaleSetArgs makeArgs(ScaleSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -841,7 +841,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
         return args == null ? ScaleSetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -857,7 +857,7 @@ public class ScaleSet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ScaleSet get(String name, Output<String> id, @Nullable ScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ScaleSet get(java.lang.String name, Output<java.lang.String> id, @Nullable ScaleSetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ScaleSet(name, id, state, options);
     }
 }

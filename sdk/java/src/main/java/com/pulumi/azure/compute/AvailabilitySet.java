@@ -201,7 +201,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AvailabilitySet(String name) {
+    public AvailabilitySet(java.lang.String name) {
         this(name, AvailabilitySetArgs.Empty);
     }
     /**
@@ -209,7 +209,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AvailabilitySet(String name, AvailabilitySetArgs args) {
+    public AvailabilitySet(java.lang.String name, AvailabilitySetArgs args) {
         this(name, args, null);
     }
     /**
@@ -218,12 +218,12 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AvailabilitySet(String name, AvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/availabilitySet:AvailabilitySet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AvailabilitySet(java.lang.String name, AvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/availabilitySet:AvailabilitySet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AvailabilitySet(String name, Output<String> id, @Nullable AvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/availabilitySet:AvailabilitySet", name, state, makeResourceOptions(options, id));
+    private AvailabilitySet(java.lang.String name, Output<java.lang.String> id, @Nullable AvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/availabilitySet:AvailabilitySet", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AvailabilitySetArgs makeArgs(AvailabilitySetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -233,7 +233,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
         return args == null ? AvailabilitySetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -249,7 +249,7 @@ public class AvailabilitySet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AvailabilitySet get(String name, Output<String> id, @Nullable AvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AvailabilitySet get(java.lang.String name, Output<java.lang.String> id, @Nullable AvailabilitySetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AvailabilitySet(name, id, state, options);
     }
 }
