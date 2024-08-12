@@ -47,17 +47,9 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.contentEncoding);
     }
 
-    /**
-     * The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     * 
-     */
     @Import(name="contentMd5")
     private @Nullable Output<String> contentMd5;
 
-    /**
-     * @return The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     * 
-     */
     public Optional<Output<String>> contentMd5() {
         return Optional.ofNullable(this.contentMd5);
     }
@@ -230,23 +222,11 @@ public final class ShareFileArgs extends com.pulumi.resources.ResourceArgs {
             return contentEncoding(Output.of(contentEncoding));
         }
 
-        /**
-         * @param contentMd5 The MD5 sum of the file contents. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentMd5(@Nullable Output<String> contentMd5) {
             $.contentMd5 = contentMd5;
             return this;
         }
 
-        /**
-         * @param contentMd5 The MD5 sum of the file contents. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
         public Builder contentMd5(String contentMd5) {
             return contentMd5(Output.of(contentMd5));
         }

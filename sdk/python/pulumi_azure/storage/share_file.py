@@ -33,7 +33,6 @@ class ShareFileArgs:
         :param pulumi.Input[str] storage_share_id: The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[str] content_encoding: Specifies which content encodings have been applied to the file.
-        :param pulumi.Input[str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -99,9 +98,6 @@ class ShareFileArgs:
     @property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> Optional[pulumi.Input[str]]:
-        """
-        The MD5 sum of the file contents. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "content_md5")
 
     @content_md5.setter
@@ -189,7 +185,6 @@ class _ShareFileState:
         :param pulumi.Input[str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[int] content_length: The length in bytes of the file content
-        :param pulumi.Input[str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -259,9 +254,6 @@ class _ShareFileState:
     @property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> Optional[pulumi.Input[str]]:
-        """
-        The MD5 sum of the file contents. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "content_md5")
 
     @content_md5.setter
@@ -396,7 +388,6 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[str] content_encoding: Specifies which content encodings have been applied to the file.
-        :param pulumi.Input[str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -521,7 +512,6 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[int] content_length: The length in bytes of the file content
-        :param pulumi.Input[str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
         :param pulumi.Input[str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
@@ -574,9 +564,6 @@ class ShareFile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentMd5")
     def content_md5(self) -> pulumi.Output[Optional[str]]:
-        """
-        The MD5 sum of the file contents. Changing this forces a new resource to be created.
-        """
         return pulumi.get(self, "content_md5")
 
     @property

@@ -65,7 +65,7 @@ import (
 //					Containers: containerapp.AppTemplateContainerArray{
 //						&containerapp.AppTemplateContainerArgs{
 //							Name:   pulumi.String("examplecontainerapp"),
-//							Image:  pulumi.String("mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"),
+//							Image:  pulumi.String("mcr.microsoft.com/k8se/quickstart:latest"),
 //							Cpu:    pulumi.Float64(0.25),
 //							Memory: pulumi.String("0.5Gi"),
 //						},

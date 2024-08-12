@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
         /// 
-        /// &gt; **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+        /// &gt; **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
         /// </summary>
         public readonly ImmutableArray<string> LoadBalancerBackendAddressPoolIds;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+        /// &gt; **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         /// </summary>
         public readonly bool? Primary;
         /// <summary>
@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The ID of the Subnet which this IP Configuration should be connected to.
         /// 
-        /// &gt; **NOTE:** `subnet_id` is required if version is set to `IPv4`.
+        /// &gt; **Note:** `subnet_id` is required if version is set to `IPv4`.
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>

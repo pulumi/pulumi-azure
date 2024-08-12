@@ -115,7 +115,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
      * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 
@@ -124,7 +124,7 @@ public class PolicyFragment extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> format;
 
     /**
-     * @return The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+     * @return The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
      * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 

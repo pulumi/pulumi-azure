@@ -103,7 +103,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
-     * &gt; **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+     * &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      * 
      */
     @Import(name="automaticInstanceRepair")
@@ -112,7 +112,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
-     * &gt; **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+     * &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs>> automaticInstanceRepair() {
@@ -152,9 +152,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
      * 
-     * &gt; **NOTE:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+     * &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
      * 
      */
     @Import(name="capacityReservationGroupId")
@@ -163,9 +163,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+     * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
      * 
-     * &gt; **NOTE:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+     * &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
      * 
      */
     public Optional<Output<String>> capacityReservationGroupId() {
@@ -190,7 +190,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      * 
-     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * &gt; **Note:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      * 
      */
     @Import(name="customData")
@@ -199,7 +199,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
      * 
-     * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+     * &gt; **Note:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
      * 
      */
     public Optional<Output<String>> customData() {
@@ -284,7 +284,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     @Import(name="evictionPolicy")
@@ -293,7 +293,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Optional<Output<String>> evictionPolicy() {
@@ -303,7 +303,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      * 
-     * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     @Import(name="extensionOperationsEnabled")
@@ -312,7 +312,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
      * 
-     * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+     * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
      */
     public Optional<Output<Boolean>> extensionOperationsEnabled() {
@@ -480,7 +480,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     @Import(name="maxBidPrice")
@@ -489,7 +489,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
      * 
-     * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+     * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
      * 
      */
     public Optional<Output<Double>> maxBidPrice() {
@@ -559,7 +559,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+     * &gt; **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      * 
      */
     @Import(name="plan")
@@ -568,7 +568,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+     * &gt; **Note:** When using an image from Azure Marketplace a `plan` must be specified.
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetPlanArgs>> plan() {
@@ -593,7 +593,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
-     * &gt; **NOTE:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+     * &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
      * 
      */
     @Import(name="priority")
@@ -602,7 +602,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
      * 
-     * &gt; **NOTE:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+     * &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -766,7 +766,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     @Import(name="sourceImageId")
@@ -775,7 +775,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Optional<Output<String>> sourceImageId() {
@@ -785,7 +785,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * A `source_image_reference` block as defined below.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     @Import(name="sourceImageReference")
@@ -794,7 +794,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return A `source_image_reference` block as defined below.
      * 
-     * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+     * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetSourceImageReferenceArgs>> sourceImageReference() {
@@ -958,7 +958,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+     * &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
      * 
      */
     @Import(name="zoneBalance")
@@ -967,7 +967,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     /**
      * @return Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+     * &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
      * 
      */
     public Optional<Output<Boolean>> zoneBalance() {
@@ -1168,7 +1168,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
          * 
-         * &gt; **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+         * &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
          * 
          * @return builder
          * 
@@ -1181,7 +1181,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
          * 
-         * &gt; **NOTE:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
+         * &gt; **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
          * 
          * @return builder
          * 
@@ -1235,9 +1235,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+         * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
          * 
-         * &gt; **NOTE:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+         * &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
          * 
          * @return builder
          * 
@@ -1250,9 +1250,9 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
+         * &gt; **Note:** `capacity_reservation_group_id` cannot be used with `proximity_placement_group_id`
          * 
-         * &gt; **NOTE:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
+         * &gt; **Note:** `single_placement_group` must be set to `false` when `capacity_reservation_group_id` is specified.
          * 
          * @return builder
          * 
@@ -1285,7 +1285,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param customData The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
          * 
-         * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+         * &gt; **Note:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
          * 
          * @return builder
          * 
@@ -1298,7 +1298,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param customData The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
          * 
-         * &gt; **NOTE:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+         * &gt; **Note:** When Custom Data has been configured, it&#39;s not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
          * 
          * @return builder
          * 
@@ -1425,7 +1425,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1438,7 +1438,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param evictionPolicy Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1450,7 +1450,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
          * 
-         * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+         * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
          * 
          * @return builder
          * 
@@ -1463,7 +1463,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
          * 
-         * &gt; **NOTE:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
+         * &gt; **Note:** `extension_operations_enabled` may only be set to `false` if there are no extensions defined in the `extension` field.
          * 
          * @return builder
          * 
@@ -1725,7 +1725,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param maxBidPrice The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1738,7 +1738,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param maxBidPrice The maximum price you&#39;re willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
          * 
-         * &gt; **NOTE:** This can only be configured when `priority` is set to `Spot`.
+         * &gt; **Note:** This can only be configured when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1844,7 +1844,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+         * &gt; **Note:** When using an image from Azure Marketplace a `plan` must be specified.
          * 
          * @return builder
          * 
@@ -1857,7 +1857,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** When using an image from Azure Marketplace a `plan` must be specified.
+         * &gt; **Note:** When using an image from Azure Marketplace a `plan` must be specified.
          * 
          * @return builder
          * 
@@ -1890,7 +1890,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
          * 
-         * &gt; **NOTE:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+         * &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
          * 
          * @return builder
          * 
@@ -1903,7 +1903,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
          * 
-         * &gt; **NOTE:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
+         * &gt; **Note:** When `priority` is set to `Spot` an `eviction_policy` must be specified.
          * 
          * @return builder
          * 
@@ -2139,7 +2139,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2152,7 +2152,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2164,7 +2164,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param sourceImageReference A `source_image_reference` block as defined below.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2177,7 +2177,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param sourceImageReference A `source_image_reference` block as defined below.
          * 
-         * &gt; **NOTE:** One of either `source_image_id` or `source_image_reference` must be set.
+         * &gt; **Note:** One of either `source_image_id` or `source_image_reference` must be set.
          * 
          * @return builder
          * 
@@ -2409,7 +2409,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param zoneBalance Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+         * &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
          * 
          * @return builder
          * 
@@ -2422,7 +2422,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         /**
          * @param zoneBalance Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created.
          * 
-         * &gt; **NOTE:** This can only be set to `true` when one or more `zones` are configured.
+         * &gt; **Note:** This can only be set to `true` when one or more `zones` are configured.
          * 
          * @return builder
          * 

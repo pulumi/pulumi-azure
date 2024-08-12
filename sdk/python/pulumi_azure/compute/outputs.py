@@ -1454,7 +1454,7 @@ class LinuxVirtualMachineScaleSetAdminSshKey(dict):
         :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
         :param str username: The Username for which this Public SSH Key should be configured.
                
-               > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+               > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
         """
         pulumi.set(__self__, "public_key", public_key)
         pulumi.set(__self__, "username", username)
@@ -1473,7 +1473,7 @@ class LinuxVirtualMachineScaleSetAdminSshKey(dict):
         """
         The Username for which this Public SSH Key should be configured.
 
-        > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+        > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
         """
         return pulumi.get(self, "username")
 
@@ -1499,12 +1499,22 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
 
     def __init__(__self__, *,
                  enabled: bool,
+                 action: Optional[str] = None,
                  grace_period: Optional[str] = None):
         """
         :param bool enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
-        :param str grace_period: Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        :param str action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+               
+               > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               
+               > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        :param str grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+               
+               > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if grace_period is not None:
             pulumi.set(__self__, "grace_period", grace_period)
 
@@ -1517,10 +1527,24 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+
+        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+
+        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[str]:
         """
-        Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+
+        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         return pulumi.get(self, "grace_period")
 
@@ -1597,7 +1621,7 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
         """
         :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
                
-               > **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+               > **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
         """
         if storage_account_uri is not None:
             pulumi.set(__self__, "storage_account_uri", storage_account_uri)
@@ -1608,7 +1632,7 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
         """
         The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 
-        > **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
+        > **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics.
         """
         return pulumi.get(self, "storage_account_uri")
 
@@ -1661,19 +1685,19 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
                
-               > **NOTE:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+               > **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
-               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+               > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param str name: The name of the Data Disk.
         :param int ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param int ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param bool write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
                
-               > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+               > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
@@ -1722,7 +1746,7 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         """
         The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 
-        > **NOTE:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+        > **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -1740,9 +1764,9 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         """
         The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 
-        > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
 
-        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -1776,7 +1800,7 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         """
         Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 
-        > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
@@ -1834,11 +1858,14 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        :param 'LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+               
+               > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param Sequence[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
         :param str settings: A JSON String which specifies Settings for the Extension.
                
-               > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -1921,13 +1948,18 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 
-        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "protected_settings")
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
     def protected_settings_from_key_vault(self) -> Optional['outputs.LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']:
+        """
+        A `protected_settings_from_key_vault` block as defined below.
+
+        > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        """
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @property
@@ -1944,7 +1976,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
         """
         A JSON String which specifies Settings for the Extension.
 
-        > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "settings")
 
@@ -2092,7 +2124,7 @@ class LinuxVirtualMachineScaleSetIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -2118,7 +2150,7 @@ class LinuxVirtualMachineScaleSetIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine Scale Set.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -2183,7 +2215,7 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
         :param str network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
         :param bool primary: Is this the Primary IP Configuration?
                
-               > **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+               > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
@@ -2252,7 +2284,7 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
         """
         Is this the Primary IP Configuration?
 
-        > **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+        > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         """
         return pulumi.get(self, "primary")
 
@@ -2302,15 +2334,15 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         :param Sequence[str] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
         :param Sequence[str] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
-               > **NOTE:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+               > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
                
-               > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+               > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
-               > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+               > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
                
-               > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+               > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
@@ -2365,9 +2397,9 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **NOTE:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+        > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 
-        > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+        > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_ids")
 
@@ -2377,7 +2409,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+        > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_rules_ids")
 
@@ -2387,7 +2419,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 
-        > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+        > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         """
         return pulumi.get(self, "primary")
 
@@ -2457,7 +2489,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
         :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
                
-               > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+               > **Note:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
         :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -2510,7 +2542,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
         """
         The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 
-        > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+        > **Note:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
@@ -2598,23 +2630,23 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         :param 'LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
-               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+               > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
                
-               > **NOTE:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+               > **Note:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         :param str secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+               > **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
         :param str security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+               > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
                
-               > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+               > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         :param bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
-               > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+               > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
@@ -2661,9 +2693,9 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         """
         The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
 
-        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -2673,7 +2705,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         """
         The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 
-        > **NOTE:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        > **Note:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         """
         return pulumi.get(self, "disk_size_gb")
 
@@ -2683,7 +2715,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         """
         The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        > **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
         return pulumi.get(self, "secure_vm_disk_encryption_set_id")
 
@@ -2693,9 +2725,9 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         """
         Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+        > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
 
-        > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
         return pulumi.get(self, "security_encryption_type")
 
@@ -2705,7 +2737,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         """
         Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 
-        > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
@@ -2827,7 +2859,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
         :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         :param bool maximum_surge_instances_enabled: Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
                
-               > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+               > **Note:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
         :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
@@ -2887,7 +2919,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
         """
         Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
 
-        > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+        > **Note:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
         """
         return pulumi.get(self, "maximum_surge_instances_enabled")
 
@@ -3001,9 +3033,9 @@ class LinuxVirtualMachineScaleSetSecretCertificate(dict):
         """
         :param str url: The Secret URL of a Key Vault Certificate.
                
-               > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
                
-               > **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
+               > **Note:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
         """
         pulumi.set(__self__, "url", url)
 
@@ -3013,9 +3045,9 @@ class LinuxVirtualMachineScaleSetSecretCertificate(dict):
         """
         The Secret URL of a Key Vault Certificate.
 
-        > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
 
-        > **NOTE:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
+        > **Note:** The certificate must have been uploaded/created in PFX format, PEM certificates are not currently supported by Azure.
         """
         return pulumi.get(self, "url")
 
@@ -3111,7 +3143,7 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
         :param bool enabled: Should the terminate notification be enabled on this Virtual Machine Scale Set?
         :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
                
-               > **NOTE:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+               > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -3131,7 +3163,7 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
         """
         Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 
-        > **NOTE:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+        > **Note:** For more information about the terminate notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
         """
         return pulumi.get(self, "timeout")
 
@@ -3145,7 +3177,7 @@ class LinuxVirtualMachineScaleSetTerminationNotification(dict):
         :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set?
         :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
                
-               > **NOTE:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+               > **Note:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -3165,7 +3197,7 @@ class LinuxVirtualMachineScaleSetTerminationNotification(dict):
         """
         Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 
-        > **NOTE:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+        > **Note:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
         """
         return pulumi.get(self, "timeout")
 
@@ -3535,12 +3567,22 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
 
     def __init__(__self__, *,
                  enabled: bool,
+                 action: Optional[str] = None,
                  grace_period: Optional[str] = None):
         """
         :param bool enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
-        :param str grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
+        :param str action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+               
+               > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               
+               > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        :param str grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+               
+               > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if grace_period is not None:
             pulumi.set(__self__, "grace_period", grace_period)
 
@@ -3553,10 +3595,24 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+
+        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+
+        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[str]:
         """
-        Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `30` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT30M` to `PT90M`). Defaults to `PT30M`.
+        Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+
+        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         return pulumi.get(self, "grace_period")
 
@@ -3791,11 +3847,11 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
         :param Sequence[str] extensions_to_provision_after_vm_creations: An ordered list of Extension names which Virtual Machine Scale Set should provision after VM creation.
         :param bool failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`.
                
-               > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+               > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         :param str force_extension_execution_on_change: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param 'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
@@ -3874,7 +3930,7 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
         """
         Should failures from the extension be suppressed? Possible values are `true` or `false`.
 
-        > **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        > **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         """
         return pulumi.get(self, "failure_suppression_enabled")
 
@@ -3892,7 +3948,7 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 
-        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "protected_settings")
 
@@ -4053,7 +4109,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         :param str network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
         :param bool primary: Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
                
-               > **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+               > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
@@ -4122,7 +4178,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         """
         Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
 
-        > **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+        > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         """
         return pulumi.get(self, "primary")
 
@@ -4169,14 +4225,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         :param Sequence[str] application_security_group_ids: A list of Application Security Group IDs which this Virtual Machine Scale Set should be connected to.
         :param Sequence[str] load_balancer_backend_address_pool_ids: A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
-               > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+               > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
                
-               > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+               > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
-               > **NOTE:** `subnet_id` is required if version is set to `IPv4`.
+               > **Note:** `subnet_id` is required if version is set to `IPv4`.
         :param str version: The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
         pulumi.set(__self__, "name", name)
@@ -4225,7 +4281,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         A list of Backend Address Pools IDs from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
+        > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a depends_on between this resource and the Load Balancer Rule.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_ids")
 
@@ -4235,7 +4291,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
 
-        > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+        > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         """
         return pulumi.get(self, "primary")
 
@@ -4253,7 +4309,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         The ID of the Subnet which this IP Configuration should be connected to.
 
-        > **NOTE:** `subnet_id` is required if version is set to `IPv4`.
+        > **Note:** `subnet_id` is required if version is set to `IPv4`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -4450,7 +4506,7 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
         :param 'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
                
-               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+               > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         :param bool write_accelerator_enabled: Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
         """
@@ -4495,7 +4551,7 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
         """
         The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 
-        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -4576,7 +4632,7 @@ class OrchestratedVirtualMachineScaleSetOsProfile(dict):
         """
         :param str custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
                
-               > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+               > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
         :param 'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs' linux_configuration: A `linux_configuration` block as documented below.
         :param 'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs' windows_configuration: A `windows_configuration` block as documented below.
         """
@@ -4593,7 +4649,7 @@ class OrchestratedVirtualMachineScaleSetOsProfile(dict):
         """
         The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
 
-        > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
+        > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
         """
         return pulumi.get(self, "custom_data")
 
@@ -4664,13 +4720,13 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
         :param str computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param bool disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
                
-               > **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
+               > **Note:** Either `admin_password` or `admin_ssh_key` must be specified.
         :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param str patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
         :param bool provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs'] secrets: One or more `secret` blocks as defined below.
         """
@@ -4730,7 +4786,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
         """
         When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
 
-        > **NOTE:** Either `admin_password` or `admin_ssh_key` must be specified.
+        > **Note:** Either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "disable_password_authentication")
 
@@ -4740,7 +4796,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
         """
         Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-        > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -4750,7 +4806,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
         """
         Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-        > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+        > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
         """
         return pulumi.get(self, "patch_mode")
 
@@ -4797,7 +4853,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
         :param str public_key: The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
         :param str username: The Username for which this Public SSH Key should be configured.
                
-               > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
+               > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
         """
         pulumi.set(__self__, "public_key", public_key)
         pulumi.set(__self__, "username", username)
@@ -4816,7 +4872,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
         """
         The Username for which this Public SSH Key should be configured.
 
-        > **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
+        > **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be written to the authorized keys file.
         """
         return pulumi.get(self, "username")
 
@@ -4874,7 +4930,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
         """
         :param str url: The Secret URL of a Key Vault Certificate.
                
-               > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         pulumi.set(__self__, "url", url)
 
@@ -4884,7 +4940,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
         """
         The Secret URL of a Key Vault Certificate.
 
-        > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         return pulumi.get(self, "url")
 
@@ -4947,13 +5003,13 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
         :param bool enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param bool hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
                
-               > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+               > **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
         :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param str patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
         :param bool provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs'] secrets: One or more `secret` blocks as defined below.
         :param str timezone: Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
@@ -5028,7 +5084,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
         """
         Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 
-        > **NOTE:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
+        > **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a Azure generation 2 directory within the GitHub Repository.
         """
         return pulumi.get(self, "hotpatching_enabled")
 
@@ -5038,7 +5094,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
         """
         Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-        > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -5048,7 +5104,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
         """
         Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-        > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+        > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
         """
         return pulumi.get(self, "patch_mode")
 
@@ -5169,7 +5225,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
         :param str store: The certificate store on the Virtual Machine where the certificate should be added.
         :param str url: The Secret URL of a Key Vault Certificate.
                
-               > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         pulumi.set(__self__, "store", store)
         pulumi.set(__self__, "url", url)
@@ -5188,7 +5244,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
         """
         The Secret URL of a Key Vault Certificate.
 
-        > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         return pulumi.get(self, "url")
 
@@ -5219,7 +5275,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
         :param str protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
         :param str certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         pulumi.set(__self__, "protocol", protocol)
         if certificate_url is not None:
@@ -5239,7 +5295,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
         """
         The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         return pulumi.get(self, "certificate_url")
 
@@ -9956,12 +10012,22 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
 
     def __init__(__self__, *,
                  enabled: bool,
+                 action: Optional[str] = None,
                  grace_period: Optional[str] = None):
         """
         :param bool enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
-        :param str grace_period: Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        :param str action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+               
+               > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+               
+               > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        :param str grace_period: Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+               
+               > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         pulumi.set(__self__, "enabled", enabled)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if grace_period is not None:
             pulumi.set(__self__, "grace_period", grace_period)
 
@@ -9974,10 +10040,24 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+
+        > **Note:**  Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
+
+        > **Note:**  If you wish to update the repair `action` of an existing `automatic_instance_repair` policy, you must first `disable` the `automatic_instance_repair` policy before you can re-enable the `automatic_instance_repair` policy with the new repair `action` defined.
+        """
+        return pulumi.get(self, "action")
+
+    @property
     @pulumi.getter(name="gracePeriod")
     def grace_period(self) -> Optional[str]:
         """
-        Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to `PT30M`.
+        Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between `10` and `90` minutes. The time duration should be specified in `ISO 8601` format (e.g. `PT10M` to `PT90M`).
+
+        > **Note:**  Once the `grace_period` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         """
         return pulumi.get(self, "grace_period")
 
@@ -10054,7 +10134,7 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
         """
         :param str storage_account_uri: The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
                
-               > **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
+               > **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
         """
         if storage_account_uri is not None:
             pulumi.set(__self__, "storage_account_uri", storage_account_uri)
@@ -10065,7 +10145,7 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
         """
         The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
 
-        > **NOTE:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
+        > **Note:** Passing a null value will utilize a Managed Storage Account to store Boot Diagnostics
         """
         return pulumi.get(self, "storage_account_uri")
 
@@ -10118,19 +10198,19 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         :param int lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
         :param str storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
                
-               > **NOTE:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+               > **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
         :param str create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
-               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+               > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param str name: The name of the Data Disk.
         :param int ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param int ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param bool write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
                
-               > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+               > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
@@ -10179,7 +10259,7 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         """
         The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
 
-        > **NOTE:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
+        > **Note:** `UltraSSD_LRS` is only supported when `ultra_ssd_enabled` within the `additional_capabilities` block is enabled.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -10197,9 +10277,9 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         """
         The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 
-        > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
 
-        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -10233,7 +10313,7 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         """
         Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 
-        > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
@@ -10291,11 +10371,14 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         :param str force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
-               > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        :param 'WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+               
+               > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param Sequence[str] provision_after_extensions: An ordered list of Extension names which this should be provisioned after.
         :param str settings: A JSON String which specifies Settings for the Extension.
                
-               > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+               > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "publisher", publisher)
@@ -10378,13 +10461,18 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         """
         A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
 
-        > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "protected_settings")
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
     def protected_settings_from_key_vault(self) -> Optional['outputs.WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault']:
+        """
+        A `protected_settings_from_key_vault` block as defined below.
+
+        > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        """
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @property
@@ -10401,7 +10489,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
         """
         A JSON String which specifies Settings for the Extension.
 
-        > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        > **Note:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
         return pulumi.get(self, "settings")
 
@@ -10549,7 +10637,7 @@ class WindowsVirtualMachineScaleSetIdentity(dict):
         :param str type: Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
                
-               > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -10575,7 +10663,7 @@ class WindowsVirtualMachineScaleSetIdentity(dict):
         """
         Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 
-        > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -10640,7 +10728,7 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
         :param str network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
         :param bool primary: Is this the Primary IP Configuration?
                
-               > **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+               > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
@@ -10709,7 +10797,7 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
         """
         Is this the Primary IP Configuration?
 
-        > **NOTE:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+        > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         """
         return pulumi.get(self, "primary")
 
@@ -10759,15 +10847,15 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         :param Sequence[str] application_security_group_ids: A list of Application Security Group ID's which this Virtual Machine Scale Set should be connected to.
         :param Sequence[str] load_balancer_backend_address_pool_ids: A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
-               > **NOTE:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+               > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
                
-               > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+               > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         :param Sequence[str] load_balancer_inbound_nat_rules_ids: A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
                
-               > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+               > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
                
-               > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+               > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
@@ -10822,9 +10910,9 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         A list of Backend Address Pools ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **NOTE:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
+        > **Note:**  When the Virtual Machine Scale Set is configured to have public IPs per instance are created with a load balancer, the SKU of the Virtual Machine instance IPs is determined by the SKU of the Virtual Machine Scale Sets Load Balancer (e.g. `Basic` or `Standard`). Alternatively, you may use the `public_ip_prefix_id` field to generate instance-level IPs in a virtual machine scale set as well. The zonal properties of the prefix will be passed to the Virtual Machine instance IPs, though they will not be shown in the output. To view the public IP addresses assigned to the Virtual Machine Scale Sets Virtual Machine instances use the **az vmss list-instance-public-ips --resource-group `ResourceGroupName` --name `VirtualMachineScaleSetName`** CLI command.
 
-        > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+        > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
         return pulumi.get(self, "load_balancer_backend_address_pool_ids")
 
@@ -10834,7 +10922,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         A list of NAT Rule ID's from a Load Balancer which this Virtual Machine Scale Set should be connected to.
 
-        > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
+        > **Note:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
         """
         return pulumi.get(self, "load_balancer_inbound_nat_rules_ids")
 
@@ -10844,7 +10932,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         """
         Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
 
-        > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
+        > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
         """
         return pulumi.get(self, "primary")
 
@@ -10914,7 +11002,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
         :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
                
-               > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+               > **Note:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
         :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -10967,7 +11055,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
         """
         The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 
-        > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
+        > **Note:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
@@ -11055,23 +11143,23 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         :param 'WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
                
-               > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+               > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
-               > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+               > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         :param int disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
                
-               > **NOTE:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+               > **Note:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         :param str secure_vm_disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+               > **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
         :param str security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
                
-               > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+               > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
                
-               > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+               > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         :param bool write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
-               > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+               > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         pulumi.set(__self__, "caching", caching)
         pulumi.set(__self__, "storage_account_type", storage_account_type)
@@ -11118,9 +11206,9 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         """
         The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
 
-        > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
 
-        > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -11130,7 +11218,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         """
         The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 
-        > **NOTE:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        > **Note:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         """
         return pulumi.get(self, "disk_size_gb")
 
@@ -11140,7 +11228,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         """
         The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        > **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
         return pulumi.get(self, "secure_vm_disk_encryption_set_id")
 
@@ -11150,9 +11238,9 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         """
         Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 
-        > **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+        > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
 
-        > **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
         return pulumi.get(self, "security_encryption_type")
 
@@ -11162,7 +11250,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         """
         Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
 
-        > **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         """
         return pulumi.get(self, "write_accelerator_enabled")
 
@@ -11284,7 +11372,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
         :param bool cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
         :param bool maximum_surge_instances_enabled: Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
                
-               > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+               > **Note:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
         :param bool prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
@@ -11344,7 +11432,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
         """
         Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
 
-        > **NOTE:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
+        > **Note:** `overprovision` must be set to `false` when `maximum_surge_instances_enabled` is specified.
         """
         return pulumi.get(self, "maximum_surge_instances_enabled")
 
@@ -11460,7 +11548,7 @@ class WindowsVirtualMachineScaleSetSecretCertificate(dict):
         :param str store: The certificate store on the Virtual Machine where the certificate should be added.
         :param str url: The Secret URL of a Key Vault Certificate.
                
-               > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         pulumi.set(__self__, "store", store)
         pulumi.set(__self__, "url", url)
@@ -11479,7 +11567,7 @@ class WindowsVirtualMachineScaleSetSecretCertificate(dict):
         """
         The Secret URL of a Key Vault Certificate.
 
-        > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         return pulumi.get(self, "url")
 
@@ -11609,7 +11697,7 @@ class WindowsVirtualMachineScaleSetTerminationNotification(dict):
         :param bool enabled: Should the termination notification be enabled on this Virtual Machine Scale Set?
         :param str timeout: Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
                
-               > **NOTE:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+               > **Note:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
         """
         pulumi.set(__self__, "enabled", enabled)
         if timeout is not None:
@@ -11629,7 +11717,7 @@ class WindowsVirtualMachineScaleSetTerminationNotification(dict):
         """
         Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to `PT5M`.
 
-        > **NOTE:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
+        > **Note:** For more information about the termination notification, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification).
         """
         return pulumi.get(self, "timeout")
 
@@ -11660,7 +11748,7 @@ class WindowsVirtualMachineScaleSetWinrmListener(dict):
         :param str protocol: The Protocol of the WinRM Listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         :param str certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
                
-               > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         pulumi.set(__self__, "protocol", protocol)
         if certificate_url is not None:
@@ -11680,7 +11768,7 @@ class WindowsVirtualMachineScaleSetWinrmListener(dict):
         """
         The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`. Changing this forces a new resource to be created.
 
-        > **NOTE:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
+        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         return pulumi.get(self, "certificate_url")
 

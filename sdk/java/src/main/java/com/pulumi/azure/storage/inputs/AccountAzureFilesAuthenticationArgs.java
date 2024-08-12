@@ -33,6 +33,21 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
     }
 
     /**
+     * Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * 
+     */
+    @Import(name="defaultShareLevelPermission")
+    private @Nullable Output<String> defaultShareLevelPermission;
+
+    /**
+     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * 
+     */
+    public Optional<Output<String>> defaultShareLevelPermission() {
+        return Optional.ofNullable(this.defaultShareLevelPermission);
+    }
+
+    /**
      * Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
      * 
      */
@@ -51,6 +66,7 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
 
     private AccountAzureFilesAuthenticationArgs(AccountAzureFilesAuthenticationArgs $) {
         this.activeDirectory = $.activeDirectory;
+        this.defaultShareLevelPermission = $.defaultShareLevelPermission;
         this.directoryType = $.directoryType;
     }
 
@@ -91,6 +107,27 @@ public final class AccountAzureFilesAuthenticationArgs extends com.pulumi.resour
          */
         public Builder activeDirectory(AccountAzureFilesAuthenticationActiveDirectoryArgs activeDirectory) {
             return activeDirectory(Output.of(activeDirectory));
+        }
+
+        /**
+         * @param defaultShareLevelPermission Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultShareLevelPermission(@Nullable Output<String> defaultShareLevelPermission) {
+            $.defaultShareLevelPermission = defaultShareLevelPermission;
+            return this;
+        }
+
+        /**
+         * @param defaultShareLevelPermission Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultShareLevelPermission(String defaultShareLevelPermission) {
+            return defaultShareLevelPermission(Output.of(defaultShareLevelPermission));
         }
 
         /**

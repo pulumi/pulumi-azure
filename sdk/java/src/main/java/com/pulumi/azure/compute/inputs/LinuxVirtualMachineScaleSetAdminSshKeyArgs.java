@@ -32,7 +32,7 @@ public final class LinuxVirtualMachineScaleSetAdminSshKeyArgs extends com.pulumi
     /**
      * The Username for which this Public SSH Key should be configured.
      * 
-     * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+     * &gt; **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
      * 
      */
     @Import(name="username", required=true)
@@ -41,7 +41,7 @@ public final class LinuxVirtualMachineScaleSetAdminSshKeyArgs extends com.pulumi
     /**
      * @return The Username for which this Public SSH Key should be configured.
      * 
-     * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+     * &gt; **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
      * 
      */
     public Output<String> username() {
@@ -97,7 +97,7 @@ public final class LinuxVirtualMachineScaleSetAdminSshKeyArgs extends com.pulumi
         /**
          * @param username The Username for which this Public SSH Key should be configured.
          * 
-         * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+         * &gt; **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class LinuxVirtualMachineScaleSetAdminSshKeyArgs extends com.pulumi
         /**
          * @param username The Username for which this Public SSH Key should be configured.
          * 
-         * &gt; **NOTE:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
+         * &gt; **Note:** The Azure VM Agent only allows creating SSH Keys at the path `/home/{username}/.ssh/authorized_keys` - as such this public key will be added/appended to the authorized keys file.
          * 
          * @return builder
          * 

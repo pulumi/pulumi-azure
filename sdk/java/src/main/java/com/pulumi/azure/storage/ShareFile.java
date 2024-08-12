@@ -132,17 +132,9 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     public Output<Integer> contentLength() {
         return this.contentLength;
     }
-    /**
-     * The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     * 
-     */
     @Export(name="contentMd5", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> contentMd5;
 
-    /**
-     * @return The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     * 
-     */
     public Output<Optional<String>> contentMd5() {
         return Codegen.optional(this.contentMd5);
     }

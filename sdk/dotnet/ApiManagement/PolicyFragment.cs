@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
         /// 
         /// &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         /// </summary>
@@ -157,7 +157,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
         /// 
         /// &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         /// </summary>
@@ -199,7 +199,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        /// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
         /// 
         /// &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         /// </summary>

@@ -24,29 +24,29 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
+        /// &gt; **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
         /// 
-        /// &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        /// &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
         /// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         /// 
-        /// &gt; **NOTE:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
+        /// &gt; **Note:** If specified this must be equal to or larger than the size of the Image the VM Scale Set is based on. When creating a larger disk than exists in the image you'll need to repartition the disk to use the remaining space.
         /// </summary>
         public readonly int? DiskSizeGb;
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        /// &gt; **Note:** `secure_vm_disk_encryption_set_id` can only be specified when `security_encryption_type` is set to `DiskWithVMGuestState`.
         /// </summary>
         public readonly string? SecureVmDiskEncryptionSetId;
         /// <summary>
         /// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **NOTE:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
+        /// &gt; **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
         /// 
-        /// &gt; **NOTE:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
+        /// &gt; **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         /// </summary>
         public readonly string? SecurityEncryptionType;
         /// <summary>
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
         /// 
-        /// &gt; **NOTE:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
+        /// &gt; **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
         /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 

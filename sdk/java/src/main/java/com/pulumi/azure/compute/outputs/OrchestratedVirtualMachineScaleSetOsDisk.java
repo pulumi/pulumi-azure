@@ -28,7 +28,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
      * 
      */
     private @Nullable String diskEncryptionSetId;
@@ -66,7 +66,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
      * 
      */
     public Optional<String> diskEncryptionSetId() {

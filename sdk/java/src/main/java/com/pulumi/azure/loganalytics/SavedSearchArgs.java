@@ -64,14 +64,14 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+     * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      * 
      */
     @Import(name="functionParameters")
     private @Nullable Output<List<String>> functionParameters;
 
     /**
-     * @return The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+     * @return The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      * 
      */
     public Optional<Output<List<String>>> functionParameters() {
@@ -233,7 +233,7 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionParameters The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+         * @param functionParameters The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionParameters The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+         * @param functionParameters The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class SavedSearchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionParameters The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+         * @param functionParameters The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
          * 
          * @return builder
          * 

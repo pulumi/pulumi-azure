@@ -82,9 +82,6 @@ export class ShareFile extends pulumi.CustomResource {
      * The length in bytes of the file content
      */
     public /*out*/ readonly contentLength!: pulumi.Output<number>;
-    /**
-     * The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     */
     public readonly contentMd5!: pulumi.Output<string | undefined>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.
@@ -173,9 +170,6 @@ export interface ShareFileState {
      * The length in bytes of the file content
      */
     contentLength?: pulumi.Input<number>;
-    /**
-     * The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     */
     contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.
@@ -217,9 +211,6 @@ export interface ShareFileArgs {
      * Specifies which content encodings have been applied to the file.
      */
     contentEncoding?: pulumi.Input<string>;
-    /**
-     * The MD5 sum of the file contents. Changing this forces a new resource to be created.
-     */
     contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the share file. Defaults to `application/octet-stream`.

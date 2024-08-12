@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly Outputs.AccountAzureFilesAuthenticationActiveDirectory? ActiveDirectory;
         /// <summary>
+        /// Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+        /// </summary>
+        public readonly string? DefaultShareLevelPermission;
+        /// <summary>
         /// Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
         /// </summary>
         public readonly string DirectoryType;
@@ -26,9 +30,12 @@ namespace Pulumi.Azure.Storage.Outputs
         private AccountAzureFilesAuthentication(
             Outputs.AccountAzureFilesAuthenticationActiveDirectory? activeDirectory,
 
+            string? defaultShareLevelPermission,
+
             string directoryType)
         {
             ActiveDirectory = activeDirectory;
+            DefaultShareLevelPermission = defaultShareLevelPermission;
             DirectoryType = directoryType;
         }
     }

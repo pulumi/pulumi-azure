@@ -79,7 +79,7 @@ namespace Pulumi.Azure.LogAnalytics
         public Output<string?> FunctionAlias { get; private set; } = null!;
 
         /// <summary>
-        /// The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        /// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         /// </summary>
         [Output("functionParameters")]
         public Output<ImmutableArray<string>> FunctionParameters { get; private set; } = null!;
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.LogAnalytics
         private InputList<string>? _functionParameters;
 
         /// <summary>
-        /// The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        /// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         /// </summary>
         public InputList<string> FunctionParameters
         {
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.LogAnalytics
         private InputList<string>? _functionParameters;
 
         /// <summary>
-        /// The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+        /// The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
         /// </summary>
         public InputList<string> FunctionParameters
         {

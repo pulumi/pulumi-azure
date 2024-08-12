@@ -82,7 +82,7 @@ export class SavedSearch extends pulumi.CustomResource {
      */
     public readonly functionAlias!: pulumi.Output<string | undefined>;
     /**
-     * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+     * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      */
     public readonly functionParameters!: pulumi.Output<string[] | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface SavedSearchState {
      */
     functionAlias?: pulumi.Input<string>;
     /**
-     * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+     * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      */
     functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -206,7 +206,7 @@ export interface SavedSearchArgs {
      */
     functionAlias?: pulumi.Input<string>;
     /**
-     * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+     * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      */
     functionParameters?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -76,6 +76,10 @@ export class StorageDefender extends pulumi.CustomResource {
      */
     public readonly overrideSubscriptionSettingsEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+     */
+    public readonly scanResultsEventGridTopicId!: pulumi.Output<string | undefined>;
+    /**
      * Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
      */
     public readonly sensitiveDataDiscoveryEnabled!: pulumi.Output<boolean | undefined>;
@@ -100,6 +104,7 @@ export class StorageDefender extends pulumi.CustomResource {
             resourceInputs["malwareScanningOnUploadCapGbPerMonth"] = state ? state.malwareScanningOnUploadCapGbPerMonth : undefined;
             resourceInputs["malwareScanningOnUploadEnabled"] = state ? state.malwareScanningOnUploadEnabled : undefined;
             resourceInputs["overrideSubscriptionSettingsEnabled"] = state ? state.overrideSubscriptionSettingsEnabled : undefined;
+            resourceInputs["scanResultsEventGridTopicId"] = state ? state.scanResultsEventGridTopicId : undefined;
             resourceInputs["sensitiveDataDiscoveryEnabled"] = state ? state.sensitiveDataDiscoveryEnabled : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
         } else {
@@ -110,6 +115,7 @@ export class StorageDefender extends pulumi.CustomResource {
             resourceInputs["malwareScanningOnUploadCapGbPerMonth"] = args ? args.malwareScanningOnUploadCapGbPerMonth : undefined;
             resourceInputs["malwareScanningOnUploadEnabled"] = args ? args.malwareScanningOnUploadEnabled : undefined;
             resourceInputs["overrideSubscriptionSettingsEnabled"] = args ? args.overrideSubscriptionSettingsEnabled : undefined;
+            resourceInputs["scanResultsEventGridTopicId"] = args ? args.scanResultsEventGridTopicId : undefined;
             resourceInputs["sensitiveDataDiscoveryEnabled"] = args ? args.sensitiveDataDiscoveryEnabled : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
         }
@@ -134,6 +140,10 @@ export interface StorageDefenderState {
      * Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
      */
     overrideSubscriptionSettingsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+     */
+    scanResultsEventGridTopicId?: pulumi.Input<string>;
     /**
      * Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
      */
@@ -160,6 +170,10 @@ export interface StorageDefenderArgs {
      * Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
      */
     overrideSubscriptionSettingsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+     */
+    scanResultsEventGridTopicId?: pulumi.Input<string>;
     /**
      * Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
      */
