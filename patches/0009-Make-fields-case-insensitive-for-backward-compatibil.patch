@@ -240,7 +240,7 @@ index c7166c707e..be69574aa5 100644
  
  			"incremental_enabled": {
 diff --git a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
-index 6478ffa1d2..db6625b9f4 100644
+index a24ea85041..bdf4ab1e31 100644
 --- a/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 +++ b/internal/services/compute/virtual_machine_data_disk_attachment_resource.go
 @@ -6,6 +6,7 @@ package compute
@@ -272,7 +272,7 @@ index 6478ffa1d2..db6625b9f4 100644
  
  			"write_accelerator_enabled": {
 diff --git a/internal/services/containers/container_group_resource.go b/internal/services/containers/container_group_resource.go
-index 90d0401de9..ab2f77e8d2 100644
+index da09e66dfa..7413a4326e 100644
 --- a/internal/services/containers/container_group_resource.go
 +++ b/internal/services/containers/container_group_resource.go
 @@ -11,6 +11,8 @@ import (
@@ -314,10 +314,10 @@ index 90d0401de9..ab2f77e8d2 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 785c03beb0..a101de9925 100644
+index b442e4562e..dc92683147 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1086,7 +1086,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1085,7 +1085,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -339,7 +339,7 @@ index b141d14cfd..d15c245309 100644
  
  				"included_path": {
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index 37c2a62d71..9d12a303f8 100644
+index c2b02b3d19..69bc0b8687 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
 @@ -13,6 +13,8 @@ import (
@@ -387,7 +387,7 @@ index 37c2a62d71..9d12a303f8 100644
  					},
  				},
 diff --git a/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go b/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go
-index 38f00d87fe..7c7b046cd2 100644
+index 3c9047ae2f..b5486fd5a6 100644
 --- a/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go
 +++ b/internal/services/cosmos/cosmosdb_gremlin_graph_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -398,7 +398,7 @@ index 38f00d87fe..7c7b046cd2 100644
 +
  	"github.com/hashicorp/go-azure-helpers/lang/response"
  	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonschema"
- 	"github.com/hashicorp/go-azure-sdk/resource-manager/cosmosdb/2023-04-15/cosmosdb"
+ 	"github.com/hashicorp/go-azure-sdk/resource-manager/cosmosdb/2024-05-15/cosmosdb"
 @@ -132,6 +134,7 @@ func resourceCosmosDbGremlinGraph() *pluginsdk.Resource {
  								string(cosmosdb.IndexingModeNone),
  								string(cosmosdb.IndexingModeLazy),
@@ -1738,7 +1738,7 @@ index 5f1de4952f..1d4cc0f40a 100644
  
  						"target_disk_encryption_set_id": {
 diff --git a/internal/services/redis/redis_cache_resource.go b/internal/services/redis/redis_cache_resource.go
-index 20aa7733a0..aad84df4f5 100644
+index d2072b15db..4d16a57269 100644
 --- a/internal/services/redis/redis_cache_resource.go
 +++ b/internal/services/redis/redis_cache_resource.go
 @@ -97,7 +97,8 @@ func resourceRedisCache() *pluginsdk.Resource {
@@ -1752,7 +1752,7 @@ index 20aa7733a0..aad84df4f5 100644
  
  			"minimum_tls_version": {
 diff --git a/internal/services/redis/redis_linked_server_resource.go b/internal/services/redis/redis_linked_server_resource.go
-index ff302107f2..a8916e78f2 100644
+index 9f187d24f2..2f87cd21f5 100644
 --- a/internal/services/redis/redis_linked_server_resource.go
 +++ b/internal/services/redis/redis_linked_server_resource.go
 @@ -6,6 +6,7 @@ package redis
@@ -2040,7 +2040,7 @@ index 16797800a2..6d74e94b4f 100644
  
  						"storage_account_access_key": {
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index eeaab93684..bb11eabc05 100644
+index e50321030b..14cb96f39e 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -11,6 +11,8 @@ import (
@@ -2106,7 +2106,7 @@ index eeaab93684..bb11eabc05 100644
  			},
  
  			"azure_files_authentication": {
-@@ -357,8 +366,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -370,8 +379,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
  							Optional: true,
  							Computed: true,
  							Elem: &pluginsdk.Schema{
