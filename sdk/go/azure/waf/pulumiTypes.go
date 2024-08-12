@@ -708,9 +708,9 @@ func (o PolicyManagedRulesExclusionArrayOutput) Index(i pulumi.IntInput) PolicyM
 type PolicyManagedRulesExclusionExcludedRuleSet struct {
 	// One or more `ruleGroup` block defined below.
 	RuleGroups []PolicyManagedRulesExclusionExcludedRuleSetRuleGroup `pulumi:"ruleGroups"`
-	// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+	// The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type *string `pulumi:"type"`
-	// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+	// The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 	Version *string `pulumi:"version"`
 }
 
@@ -728,9 +728,9 @@ type PolicyManagedRulesExclusionExcludedRuleSetInput interface {
 type PolicyManagedRulesExclusionExcludedRuleSetArgs struct {
 	// One or more `ruleGroup` block defined below.
 	RuleGroups PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput `pulumi:"ruleGroups"`
-	// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+	// The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+	// The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -818,12 +818,12 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) RuleGroups() PolicyMan
 	}).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
 }
 
-// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+// The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+// The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSet) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -862,7 +862,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) RuleGroups() Policy
 	}).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
 }
 
-// The rule set type. The only possible value include `Microsoft_DefaultRuleSet` and `OWASP`. Defaults to `OWASP`.
+// The rule set type. Possible values are `Microsoft_DefaultRuleSet`, `Microsoft_BotManagerRuleSet` and `OWASP`. Defaults to `OWASP`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) *string {
 		if v == nil {
@@ -872,7 +872,7 @@ func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Type() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The rule set version. The only possible value include `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
+// The rule set version. Possible values are `1.0` (for rule set type `Microsoft_BotManagerRuleSet`), `2.1` (for rule set type `Microsoft_DefaultRuleSet`) and `3.2` (for rule set type `OWASP`). Defaults to `3.2`.
 func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) *string {
 		if v == nil {

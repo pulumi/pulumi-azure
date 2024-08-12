@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+        /// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive.
         /// </summary>
         public readonly int SamplingFrequencyInSeconds;
         /// <summary>

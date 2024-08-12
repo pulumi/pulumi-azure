@@ -81,7 +81,7 @@ export class PolicyFragment extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
      * > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
@@ -147,7 +147,7 @@ export interface PolicyFragmentState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
      * > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */
@@ -177,7 +177,7 @@ export interface PolicyFragmentArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      *
      * > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      */

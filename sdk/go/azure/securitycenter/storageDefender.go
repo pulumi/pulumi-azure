@@ -75,6 +75,8 @@ type StorageDefender struct {
 	MalwareScanningOnUploadEnabled pulumi.BoolPtrOutput `pulumi:"malwareScanningOnUploadEnabled"`
 	// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
 	OverrideSubscriptionSettingsEnabled pulumi.BoolPtrOutput `pulumi:"overrideSubscriptionSettingsEnabled"`
+	// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+	ScanResultsEventGridTopicId pulumi.StringPtrOutput `pulumi:"scanResultsEventGridTopicId"`
 	// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
 	SensitiveDataDiscoveryEnabled pulumi.BoolPtrOutput `pulumi:"sensitiveDataDiscoveryEnabled"`
 	// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
@@ -120,6 +122,8 @@ type storageDefenderState struct {
 	MalwareScanningOnUploadEnabled *bool `pulumi:"malwareScanningOnUploadEnabled"`
 	// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
 	OverrideSubscriptionSettingsEnabled *bool `pulumi:"overrideSubscriptionSettingsEnabled"`
+	// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+	ScanResultsEventGridTopicId *string `pulumi:"scanResultsEventGridTopicId"`
 	// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
 	SensitiveDataDiscoveryEnabled *bool `pulumi:"sensitiveDataDiscoveryEnabled"`
 	// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
@@ -133,6 +137,8 @@ type StorageDefenderState struct {
 	MalwareScanningOnUploadEnabled pulumi.BoolPtrInput
 	// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
 	OverrideSubscriptionSettingsEnabled pulumi.BoolPtrInput
+	// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+	ScanResultsEventGridTopicId pulumi.StringPtrInput
 	// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
 	SensitiveDataDiscoveryEnabled pulumi.BoolPtrInput
 	// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
@@ -150,6 +156,8 @@ type storageDefenderArgs struct {
 	MalwareScanningOnUploadEnabled *bool `pulumi:"malwareScanningOnUploadEnabled"`
 	// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
 	OverrideSubscriptionSettingsEnabled *bool `pulumi:"overrideSubscriptionSettingsEnabled"`
+	// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+	ScanResultsEventGridTopicId *string `pulumi:"scanResultsEventGridTopicId"`
 	// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
 	SensitiveDataDiscoveryEnabled *bool `pulumi:"sensitiveDataDiscoveryEnabled"`
 	// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
@@ -164,6 +172,8 @@ type StorageDefenderArgs struct {
 	MalwareScanningOnUploadEnabled pulumi.BoolPtrInput
 	// Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
 	OverrideSubscriptionSettingsEnabled pulumi.BoolPtrInput
+	// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+	ScanResultsEventGridTopicId pulumi.StringPtrInput
 	// Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
 	SensitiveDataDiscoveryEnabled pulumi.BoolPtrInput
 	// The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
@@ -270,6 +280,11 @@ func (o StorageDefenderOutput) MalwareScanningOnUploadEnabled() pulumi.BoolPtrOu
 // Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
 func (o StorageDefenderOutput) OverrideSubscriptionSettingsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageDefender) pulumi.BoolPtrOutput { return v.OverrideSubscriptionSettingsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `overrideSubscriptionSettingsEnabled` to `true` to override the subscription-level settings.
+func (o StorageDefenderOutput) ScanResultsEventGridTopicId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StorageDefender) pulumi.StringPtrOutput { return v.ScanResultsEventGridTopicId }).(pulumi.StringPtrOutput)
 }
 
 // Whether Sensitive Data Discovery should be enabled. Defaults to `false`.

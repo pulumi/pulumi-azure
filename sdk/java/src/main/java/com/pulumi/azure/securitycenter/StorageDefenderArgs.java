@@ -64,6 +64,21 @@ public final class StorageDefenderArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+     * 
+     */
+    @Import(name="scanResultsEventGridTopicId")
+    private @Nullable Output<String> scanResultsEventGridTopicId;
+
+    /**
+     * @return The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+     * 
+     */
+    public Optional<Output<String>> scanResultsEventGridTopicId() {
+        return Optional.ofNullable(this.scanResultsEventGridTopicId);
+    }
+
+    /**
      * Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
      * 
      */
@@ -99,6 +114,7 @@ public final class StorageDefenderArgs extends com.pulumi.resources.ResourceArgs
         this.malwareScanningOnUploadCapGbPerMonth = $.malwareScanningOnUploadCapGbPerMonth;
         this.malwareScanningOnUploadEnabled = $.malwareScanningOnUploadEnabled;
         this.overrideSubscriptionSettingsEnabled = $.overrideSubscriptionSettingsEnabled;
+        this.scanResultsEventGridTopicId = $.scanResultsEventGridTopicId;
         this.sensitiveDataDiscoveryEnabled = $.sensitiveDataDiscoveryEnabled;
         this.storageAccountId = $.storageAccountId;
     }
@@ -182,6 +198,27 @@ public final class StorageDefenderArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder overrideSubscriptionSettingsEnabled(Boolean overrideSubscriptionSettingsEnabled) {
             return overrideSubscriptionSettingsEnabled(Output.of(overrideSubscriptionSettingsEnabled));
+        }
+
+        /**
+         * @param scanResultsEventGridTopicId The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanResultsEventGridTopicId(@Nullable Output<String> scanResultsEventGridTopicId) {
+            $.scanResultsEventGridTopicId = scanResultsEventGridTopicId;
+            return this;
+        }
+
+        /**
+         * @param scanResultsEventGridTopicId The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scanResultsEventGridTopicId(String scanResultsEventGridTopicId) {
+            return scanResultsEventGridTopicId(Output.of(scanResultsEventGridTopicId));
         }
 
         /**

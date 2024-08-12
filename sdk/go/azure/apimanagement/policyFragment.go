@@ -83,7 +83,7 @@ type PolicyFragment struct {
 	ApiManagementId pulumi.StringOutput `pulumi:"apiManagementId"`
 	// The description for the Policy Fragment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
 	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format pulumi.StringPtrOutput `pulumi:"format"`
@@ -135,7 +135,7 @@ type policyFragmentState struct {
 	ApiManagementId *string `pulumi:"apiManagementId"`
 	// The description for the Policy Fragment.
 	Description *string `pulumi:"description"`
-	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
 	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format *string `pulumi:"format"`
@@ -152,7 +152,7 @@ type PolicyFragmentState struct {
 	ApiManagementId pulumi.StringPtrInput
 	// The description for the Policy Fragment.
 	Description pulumi.StringPtrInput
-	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
 	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format pulumi.StringPtrInput
@@ -173,7 +173,7 @@ type policyFragmentArgs struct {
 	ApiManagementId string `pulumi:"apiManagementId"`
 	// The description for the Policy Fragment.
 	Description *string `pulumi:"description"`
-	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
 	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format *string `pulumi:"format"`
@@ -191,7 +191,7 @@ type PolicyFragmentArgs struct {
 	ApiManagementId pulumi.StringInput
 	// The description for the Policy Fragment.
 	Description pulumi.StringPtrInput
-	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+	// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 	//
 	// > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 	Format pulumi.StringPtrInput
@@ -300,7 +300,7 @@ func (o PolicyFragmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyFragment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+// The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 //
 // > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
 func (o PolicyFragmentOutput) Format() pulumi.StringPtrOutput {

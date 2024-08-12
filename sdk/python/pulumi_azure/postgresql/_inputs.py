@@ -321,6 +321,8 @@ if not MYPY:
         start_minute: NotRequired[pulumi.Input[int]]
         """
         The start minute for maintenance window. Defaults to `0`.
+
+        > **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
 elif False:
     FlexibleServerMaintenanceWindowArgsDict: TypeAlias = Mapping[str, Any]
@@ -335,6 +337,8 @@ class FlexibleServerMaintenanceWindowArgs:
         :param pulumi.Input[int] day_of_week: The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
         :param pulumi.Input[int] start_hour: The start hour for maintenance window. Defaults to `0`.
         :param pulumi.Input[int] start_minute: The start minute for maintenance window. Defaults to `0`.
+               
+               > **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
@@ -372,6 +376,8 @@ class FlexibleServerMaintenanceWindowArgs:
     def start_minute(self) -> Optional[pulumi.Input[int]]:
         """
         The start minute for maintenance window. Defaults to `0`.
+
+        > **NOTE** The specified `maintenance_window` is always defined in UTC time. When unspecified, the maintenance window falls back to the default [system-managed](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-maintenance-portal#specify-maintenance-schedule-options).
         """
         return pulumi.get(self, "start_minute")
 

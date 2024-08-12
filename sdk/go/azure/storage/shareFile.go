@@ -81,9 +81,8 @@ type ShareFile struct {
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding pulumi.StringPtrOutput `pulumi:"contentEncoding"`
 	// The length in bytes of the file content
-	ContentLength pulumi.IntOutput `pulumi:"contentLength"`
-	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
+	ContentLength pulumi.IntOutput       `pulumi:"contentLength"`
+	ContentMd5    pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
 	// A mapping of metadata to assign to this file.
@@ -138,9 +137,8 @@ type shareFileState struct {
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding *string `pulumi:"contentEncoding"`
 	// The length in bytes of the file content
-	ContentLength *int `pulumi:"contentLength"`
-	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-	ContentMd5 *string `pulumi:"contentMd5"`
+	ContentLength *int    `pulumi:"contentLength"`
+	ContentMd5    *string `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A mapping of metadata to assign to this file.
@@ -164,8 +162,7 @@ type ShareFileState struct {
 	ContentEncoding pulumi.StringPtrInput
 	// The length in bytes of the file content
 	ContentLength pulumi.IntPtrInput
-	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-	ContentMd5 pulumi.StringPtrInput
+	ContentMd5    pulumi.StringPtrInput
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A mapping of metadata to assign to this file.
@@ -191,8 +188,7 @@ type shareFileArgs struct {
 	ContentDisposition *string `pulumi:"contentDisposition"`
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding *string `pulumi:"contentEncoding"`
-	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-	ContentMd5 *string `pulumi:"contentMd5"`
+	ContentMd5      *string `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
 	// A mapping of metadata to assign to this file.
@@ -215,8 +211,7 @@ type ShareFileArgs struct {
 	ContentDisposition pulumi.StringPtrInput
 	// Specifies which content encodings have been applied to the file.
 	ContentEncoding pulumi.StringPtrInput
-	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-	ContentMd5 pulumi.StringPtrInput
+	ContentMd5      pulumi.StringPtrInput
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
 	// A mapping of metadata to assign to this file.
@@ -335,7 +330,6 @@ func (o ShareFileOutput) ContentLength() pulumi.IntOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.IntOutput { return v.ContentLength }).(pulumi.IntOutput)
 }
 
-// The MD5 sum of the file contents. Changing this forces a new resource to be created.
 func (o ShareFileOutput) ContentMd5() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.ContentMd5 }).(pulumi.StringPtrOutput)
 }

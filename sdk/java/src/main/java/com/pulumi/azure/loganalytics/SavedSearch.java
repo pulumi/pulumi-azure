@@ -129,14 +129,14 @@ public class SavedSearch extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.functionAlias);
     }
     /**
-     * The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+     * The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      * 
      */
     @Export(name="functionParameters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> functionParameters;
 
     /**
-     * @return The function parameters if the query serves as a function. Changing this forces a new resource to be created.
+     * @return The function parameters if the query serves as a function. Changing this forces a new resource to be created. For more examples and proper syntax please refer to [this document](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).
      * 
      */
     public Output<Optional<List<String>>> functionParameters() {

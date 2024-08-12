@@ -19,6 +19,11 @@ public final class AccountAzureFilesAuthentication {
      */
     private @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
     /**
+     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * 
+     */
+    private @Nullable String defaultShareLevelPermission;
+    /**
      * @return Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
      * 
      */
@@ -31,6 +36,13 @@ public final class AccountAzureFilesAuthentication {
      */
     public Optional<AccountAzureFilesAuthenticationActiveDirectory> activeDirectory() {
         return Optional.ofNullable(this.activeDirectory);
+    }
+    /**
+     * @return Specifies the default share level permissions applied to all users. Possible values are `StorageFileDataSmbShareReader`, `StorageFileDataSmbShareContributor`, `StorageFileDataSmbShareElevatedContributor`, or `None`.
+     * 
+     */
+    public Optional<String> defaultShareLevelPermission() {
+        return Optional.ofNullable(this.defaultShareLevelPermission);
     }
     /**
      * @return Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
@@ -50,11 +62,13 @@ public final class AccountAzureFilesAuthentication {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
+        private @Nullable String defaultShareLevelPermission;
         private String directoryType;
         public Builder() {}
         public Builder(AccountAzureFilesAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectory = defaults.activeDirectory;
+    	      this.defaultShareLevelPermission = defaults.defaultShareLevelPermission;
     	      this.directoryType = defaults.directoryType;
         }
 
@@ -62,6 +76,12 @@ public final class AccountAzureFilesAuthentication {
         public Builder activeDirectory(@Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory) {
 
             this.activeDirectory = activeDirectory;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defaultShareLevelPermission(@Nullable String defaultShareLevelPermission) {
+
+            this.defaultShareLevelPermission = defaultShareLevelPermission;
             return this;
         }
         @CustomType.Setter
@@ -75,6 +95,7 @@ public final class AccountAzureFilesAuthentication {
         public AccountAzureFilesAuthentication build() {
             final var _resultValue = new AccountAzureFilesAuthentication();
             _resultValue.activeDirectory = activeDirectory;
+            _resultValue.defaultShareLevelPermission = defaultShareLevelPermission;
             _resultValue.directoryType = directoryType;
             return _resultValue;
         }

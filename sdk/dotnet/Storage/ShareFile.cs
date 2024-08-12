@@ -81,9 +81,6 @@ namespace Pulumi.Azure.Storage
         [Output("contentLength")]
         public Output<int> ContentLength { get; private set; } = null!;
 
-        /// <summary>
-        /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-        /// </summary>
         [Output("contentMd5")]
         public Output<string?> ContentMd5 { get; private set; } = null!;
 
@@ -183,9 +180,6 @@ namespace Pulumi.Azure.Storage
         [Input("contentEncoding")]
         public Input<string>? ContentEncoding { get; set; }
 
-        /// <summary>
-        /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 
@@ -259,9 +253,6 @@ namespace Pulumi.Azure.Storage
         [Input("contentLength")]
         public Input<int>? ContentLength { get; set; }
 
-        /// <summary>
-        /// The MD5 sum of the file contents. Changing this forces a new resource to be created.
-        /// </summary>
         [Input("contentMd5")]
         public Input<string>? ContentMd5 { get; set; }
 

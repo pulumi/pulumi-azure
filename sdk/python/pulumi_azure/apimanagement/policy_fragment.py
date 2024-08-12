@@ -31,7 +31,7 @@ class PolicyFragmentArgs:
                
                > **NOTE:** Be aware of the two format possibilities. If the `value` is not applied and continues to cause a diff the format could be wrong.
         :param pulumi.Input[str] description: The description for the Policy Fragment.
-        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
                > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
@@ -87,7 +87,7 @@ class PolicyFragmentArgs:
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
         """
-        The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 
         > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         """
@@ -122,7 +122,7 @@ class _PolicyFragmentState:
         Input properties used for looking up and filtering PolicyFragment resources.
         :param pulumi.Input[str] api_management_id: The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[str] description: The description for the Policy Fragment.
-        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
                > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
@@ -169,7 +169,7 @@ class _PolicyFragmentState:
     @pulumi.getter
     def format(self) -> Optional[pulumi.Input[str]]:
         """
-        The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 
         > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         """
@@ -256,7 +256,7 @@ class PolicyFragment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[str] description: The description for the Policy Fragment.
-        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
                > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
@@ -367,7 +367,7 @@ class PolicyFragment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_id: The id of the API Management Service. Changing this forces a new Api Management Policy Fragment to be created.
         :param pulumi.Input[str] description: The description for the Policy Fragment.
-        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        :param pulumi.Input[str] format: The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
                
                > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         :param pulumi.Input[str] name: The name which should be used for this Api Management Policy Fragment. Changing this forces a new Api Management Policy Fragment to be created.
@@ -406,7 +406,7 @@ class PolicyFragment(pulumi.CustomResource):
     @pulumi.getter
     def format(self) -> pulumi.Output[Optional[str]]:
         """
-        The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+        The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
 
         > **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
         """

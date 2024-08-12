@@ -15237,7 +15237,7 @@ type DataCollectionRuleDataSourcesPerformanceCounter struct {
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
 	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams []string `pulumi:"streams"`
@@ -15259,7 +15259,7 @@ type DataCollectionRuleDataSourcesPerformanceCounterArgs struct {
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
 	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -15326,7 +15326,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) Name() pulumi.Str
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
+// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive. `samplingFrequencyInSeconds` must be equal to `60` seconds for counters collected with `Microsoft-InsightsMetrics` stream.
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
 }
@@ -25066,7 +25066,7 @@ type GetDataCollectionRuleDataSourcePerformanceCounter struct {
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// Specifies the name of the Data Collection Rule.
 	Name string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive.
 	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams []string `pulumi:"streams"`
@@ -25088,7 +25088,7 @@ type GetDataCollectionRuleDataSourcePerformanceCounterArgs struct {
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// Specifies the name of the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive.
 	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -25155,7 +25155,7 @@ func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) Name() pulumi.S
 	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePerformanceCounter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `1800` inclusive.
 func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePerformanceCounter) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
 }

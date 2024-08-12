@@ -46,7 +46,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+     * The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
      * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 
@@ -55,7 +55,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
     private @Nullable Output<String> format;
 
     /**
-     * @return The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+     * @return The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
      * 
      * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
      * 
@@ -169,7 +169,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param format The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+         * @param format The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
          * 
          * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
          * 
@@ -182,7 +182,7 @@ public final class PolicyFragmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param format The format of the Policy Fragment. Possible values are `xml` or `rawxml`.
+         * @param format The format of the Policy Fragment. Possible values are `xml` or `rawxml`. Default is `xml`.
          * 
          * &gt; **NOTE:** The `value` property will be updated to reflect the corresponding format when `format` is updated.
          * 

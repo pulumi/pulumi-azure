@@ -23,6 +23,7 @@ class StorageDefenderArgs:
                  malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
                  override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
+                 scan_results_event_grid_topic_id: Optional[pulumi.Input[str]] = None,
                  sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a StorageDefender resource.
@@ -30,6 +31,7 @@ class StorageDefenderArgs:
         :param pulumi.Input[int] malware_scanning_on_upload_cap_gb_per_month: The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         :param pulumi.Input[bool] malware_scanning_on_upload_enabled: Whether On Upload malware scanning should be enabled. Defaults to `false`.
         :param pulumi.Input[bool] override_subscription_settings_enabled: Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
+        :param pulumi.Input[str] scan_results_event_grid_topic_id: The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         :param pulumi.Input[bool] sensitive_data_discovery_enabled: Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         """
         pulumi.set(__self__, "storage_account_id", storage_account_id)
@@ -39,6 +41,8 @@ class StorageDefenderArgs:
             pulumi.set(__self__, "malware_scanning_on_upload_enabled", malware_scanning_on_upload_enabled)
         if override_subscription_settings_enabled is not None:
             pulumi.set(__self__, "override_subscription_settings_enabled", override_subscription_settings_enabled)
+        if scan_results_event_grid_topic_id is not None:
+            pulumi.set(__self__, "scan_results_event_grid_topic_id", scan_results_event_grid_topic_id)
         if sensitive_data_discovery_enabled is not None:
             pulumi.set(__self__, "sensitive_data_discovery_enabled", sensitive_data_discovery_enabled)
 
@@ -91,6 +95,18 @@ class StorageDefenderArgs:
         pulumi.set(self, "override_subscription_settings_enabled", value)
 
     @property
+    @pulumi.getter(name="scanResultsEventGridTopicId")
+    def scan_results_event_grid_topic_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        """
+        return pulumi.get(self, "scan_results_event_grid_topic_id")
+
+    @scan_results_event_grid_topic_id.setter
+    def scan_results_event_grid_topic_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scan_results_event_grid_topic_id", value)
+
+    @property
     @pulumi.getter(name="sensitiveDataDiscoveryEnabled")
     def sensitive_data_discovery_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -109,6 +125,7 @@ class _StorageDefenderState:
                  malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
                  override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
+                 scan_results_event_grid_topic_id: Optional[pulumi.Input[str]] = None,
                  sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
@@ -116,6 +133,7 @@ class _StorageDefenderState:
         :param pulumi.Input[int] malware_scanning_on_upload_cap_gb_per_month: The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         :param pulumi.Input[bool] malware_scanning_on_upload_enabled: Whether On Upload malware scanning should be enabled. Defaults to `false`.
         :param pulumi.Input[bool] override_subscription_settings_enabled: Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
+        :param pulumi.Input[str] scan_results_event_grid_topic_id: The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         :param pulumi.Input[bool] sensitive_data_discovery_enabled: Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         """
@@ -125,6 +143,8 @@ class _StorageDefenderState:
             pulumi.set(__self__, "malware_scanning_on_upload_enabled", malware_scanning_on_upload_enabled)
         if override_subscription_settings_enabled is not None:
             pulumi.set(__self__, "override_subscription_settings_enabled", override_subscription_settings_enabled)
+        if scan_results_event_grid_topic_id is not None:
+            pulumi.set(__self__, "scan_results_event_grid_topic_id", scan_results_event_grid_topic_id)
         if sensitive_data_discovery_enabled is not None:
             pulumi.set(__self__, "sensitive_data_discovery_enabled", sensitive_data_discovery_enabled)
         if storage_account_id is not None:
@@ -167,6 +187,18 @@ class _StorageDefenderState:
         pulumi.set(self, "override_subscription_settings_enabled", value)
 
     @property
+    @pulumi.getter(name="scanResultsEventGridTopicId")
+    def scan_results_event_grid_topic_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        """
+        return pulumi.get(self, "scan_results_event_grid_topic_id")
+
+    @scan_results_event_grid_topic_id.setter
+    def scan_results_event_grid_topic_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scan_results_event_grid_topic_id", value)
+
+    @property
     @pulumi.getter(name="sensitiveDataDiscoveryEnabled")
     def sensitive_data_discovery_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -199,6 +231,7 @@ class StorageDefender(pulumi.CustomResource):
                  malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
                  override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
+                 scan_results_event_grid_topic_id: Optional[pulumi.Input[str]] = None,
                  sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -236,6 +269,7 @@ class StorageDefender(pulumi.CustomResource):
         :param pulumi.Input[int] malware_scanning_on_upload_cap_gb_per_month: The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         :param pulumi.Input[bool] malware_scanning_on_upload_enabled: Whether On Upload malware scanning should be enabled. Defaults to `false`.
         :param pulumi.Input[bool] override_subscription_settings_enabled: Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
+        :param pulumi.Input[str] scan_results_event_grid_topic_id: The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         :param pulumi.Input[bool] sensitive_data_discovery_enabled: Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         """
@@ -292,6 +326,7 @@ class StorageDefender(pulumi.CustomResource):
                  malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
                  malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
                  override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
+                 scan_results_event_grid_topic_id: Optional[pulumi.Input[str]] = None,
                  sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -306,6 +341,7 @@ class StorageDefender(pulumi.CustomResource):
             __props__.__dict__["malware_scanning_on_upload_cap_gb_per_month"] = malware_scanning_on_upload_cap_gb_per_month
             __props__.__dict__["malware_scanning_on_upload_enabled"] = malware_scanning_on_upload_enabled
             __props__.__dict__["override_subscription_settings_enabled"] = override_subscription_settings_enabled
+            __props__.__dict__["scan_results_event_grid_topic_id"] = scan_results_event_grid_topic_id
             __props__.__dict__["sensitive_data_discovery_enabled"] = sensitive_data_discovery_enabled
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
@@ -323,6 +359,7 @@ class StorageDefender(pulumi.CustomResource):
             malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
             malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
             override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
+            scan_results_event_grid_topic_id: Optional[pulumi.Input[str]] = None,
             sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None) -> 'StorageDefender':
         """
@@ -335,6 +372,7 @@ class StorageDefender(pulumi.CustomResource):
         :param pulumi.Input[int] malware_scanning_on_upload_cap_gb_per_month: The max GB to be scanned per Month. Must be `-1` or above `0`. Omit this property or set to `-1` if no capping is needed. Defaults to `-1`.
         :param pulumi.Input[bool] malware_scanning_on_upload_enabled: Whether On Upload malware scanning should be enabled. Defaults to `false`.
         :param pulumi.Input[bool] override_subscription_settings_enabled: Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
+        :param pulumi.Input[str] scan_results_event_grid_topic_id: The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
         :param pulumi.Input[bool] sensitive_data_discovery_enabled: Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         """
@@ -345,6 +383,7 @@ class StorageDefender(pulumi.CustomResource):
         __props__.__dict__["malware_scanning_on_upload_cap_gb_per_month"] = malware_scanning_on_upload_cap_gb_per_month
         __props__.__dict__["malware_scanning_on_upload_enabled"] = malware_scanning_on_upload_enabled
         __props__.__dict__["override_subscription_settings_enabled"] = override_subscription_settings_enabled
+        __props__.__dict__["scan_results_event_grid_topic_id"] = scan_results_event_grid_topic_id
         __props__.__dict__["sensitive_data_discovery_enabled"] = sensitive_data_discovery_enabled
         __props__.__dict__["storage_account_id"] = storage_account_id
         return StorageDefender(resource_name, opts=opts, __props__=__props__)
@@ -372,6 +411,14 @@ class StorageDefender(pulumi.CustomResource):
         Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
         """
         return pulumi.get(self, "override_subscription_settings_enabled")
+
+    @property
+    @pulumi.getter(name="scanResultsEventGridTopicId")
+    def scan_results_event_grid_topic_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Event Grid Topic where every scan result will be sent to. When you set an Event Grid custom topic, you must set `override_subscription_settings_enabled` to `true` to override the subscription-level settings.
+        """
+        return pulumi.get(self, "scan_results_event_grid_topic_id")
 
     @property
     @pulumi.getter(name="sensitiveDataDiscoveryEnabled")

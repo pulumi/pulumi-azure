@@ -33,7 +33,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Should failures from the extension be suppressed? Possible values are `true` or `false`.
         /// 
-        /// &gt; **NOTE:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
+        /// &gt; **Note:** Operational failures such as not connecting to the VM will not be suppressed regardless of the `failure_suppression_enabled` value.
         /// </summary>
         [Input("failureSuppressionEnabled")]
         public Input<bool>? FailureSuppressionEnabled { get; set; }
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
         /// 
-        /// &gt; **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
+        /// &gt; **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         /// </summary>
         public Input<string>? ProtectedSettings
         {
