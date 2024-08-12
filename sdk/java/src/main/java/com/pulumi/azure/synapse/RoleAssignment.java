@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -104,8 +104,8 @@ import javax.annotation.Nullable;
  *                 .dependsOn(exampleFirewallRule)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -212,7 +212,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RoleAssignment(String name) {
+    public RoleAssignment(java.lang.String name) {
         this(name, RoleAssignmentArgs.Empty);
     }
     /**
@@ -220,7 +220,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RoleAssignment(String name, RoleAssignmentArgs args) {
+    public RoleAssignment(java.lang.String name, RoleAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -229,12 +229,12 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RoleAssignment(String name, RoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/roleAssignment:RoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RoleAssignment(java.lang.String name, RoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/roleAssignment:RoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RoleAssignment(String name, Output<String> id, @Nullable RoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/roleAssignment:RoleAssignment", name, state, makeResourceOptions(options, id));
+    private RoleAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable RoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/roleAssignment:RoleAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RoleAssignmentArgs makeArgs(RoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -244,7 +244,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
         return args == null ? RoleAssignmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -260,7 +260,7 @@ public class RoleAssignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RoleAssignment get(String name, Output<String> id, @Nullable RoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RoleAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable RoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RoleAssignment(name, id, state, options);
     }
 }

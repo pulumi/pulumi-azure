@@ -201,7 +201,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnvironmentStorage(String name) {
+    public EnvironmentStorage(java.lang.String name) {
         this(name, EnvironmentStorageArgs.Empty);
     }
     /**
@@ -209,7 +209,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnvironmentStorage(String name, EnvironmentStorageArgs args) {
+    public EnvironmentStorage(java.lang.String name, EnvironmentStorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -218,12 +218,12 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnvironmentStorage(String name, EnvironmentStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerapp/environmentStorage:EnvironmentStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EnvironmentStorage(java.lang.String name, EnvironmentStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerapp/environmentStorage:EnvironmentStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnvironmentStorage(String name, Output<String> id, @Nullable EnvironmentStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerapp/environmentStorage:EnvironmentStorage", name, state, makeResourceOptions(options, id));
+    private EnvironmentStorage(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerapp/environmentStorage:EnvironmentStorage", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EnvironmentStorageArgs makeArgs(EnvironmentStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -233,7 +233,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
         return args == null ? EnvironmentStorageArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -252,7 +252,7 @@ public class EnvironmentStorage extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnvironmentStorage get(String name, Output<String> id, @Nullable EnvironmentStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnvironmentStorage get(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnvironmentStorage(name, id, state, options);
     }
 }

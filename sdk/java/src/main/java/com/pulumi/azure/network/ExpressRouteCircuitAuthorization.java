@@ -165,7 +165,7 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ExpressRouteCircuitAuthorization(String name) {
+    public ExpressRouteCircuitAuthorization(java.lang.String name) {
         this(name, ExpressRouteCircuitAuthorizationArgs.Empty);
     }
     /**
@@ -173,7 +173,7 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ExpressRouteCircuitAuthorization(String name, ExpressRouteCircuitAuthorizationArgs args) {
+    public ExpressRouteCircuitAuthorization(java.lang.String name, ExpressRouteCircuitAuthorizationArgs args) {
         this(name, args, null);
     }
     /**
@@ -182,12 +182,12 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ExpressRouteCircuitAuthorization(String name, ExpressRouteCircuitAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ExpressRouteCircuitAuthorization(java.lang.String name, ExpressRouteCircuitAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ExpressRouteCircuitAuthorization(String name, Output<String> id, @Nullable ExpressRouteCircuitAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, state, makeResourceOptions(options, id));
+    private ExpressRouteCircuitAuthorization(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteCircuitAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ExpressRouteCircuitAuthorizationArgs makeArgs(ExpressRouteCircuitAuthorizationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -197,7 +197,7 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
         return args == null ? ExpressRouteCircuitAuthorizationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -216,7 +216,7 @@ public class ExpressRouteCircuitAuthorization extends com.pulumi.resources.Custo
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ExpressRouteCircuitAuthorization get(String name, Output<String> id, @Nullable ExpressRouteCircuitAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ExpressRouteCircuitAuthorization get(java.lang.String name, Output<java.lang.String> id, @Nullable ExpressRouteCircuitAuthorizationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ExpressRouteCircuitAuthorization(name, id, state, options);
     }
 }

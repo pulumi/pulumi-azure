@@ -272,7 +272,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatastoreBlobstorage(String name) {
+    public DatastoreBlobstorage(java.lang.String name) {
         this(name, DatastoreBlobstorageArgs.Empty);
     }
     /**
@@ -280,7 +280,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatastoreBlobstorage(String name, DatastoreBlobstorageArgs args) {
+    public DatastoreBlobstorage(java.lang.String name, DatastoreBlobstorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -289,12 +289,12 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatastoreBlobstorage(String name, DatastoreBlobstorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DatastoreBlobstorage(java.lang.String name, DatastoreBlobstorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatastoreBlobstorage(String name, Output<String> id, @Nullable DatastoreBlobstorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage", name, state, makeResourceOptions(options, id));
+    private DatastoreBlobstorage(java.lang.String name, Output<java.lang.String> id, @Nullable DatastoreBlobstorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:machinelearning/datastoreBlobstorage:DatastoreBlobstorage", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DatastoreBlobstorageArgs makeArgs(DatastoreBlobstorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -304,7 +304,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
         return args == null ? DatastoreBlobstorageArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -324,7 +324,7 @@ public class DatastoreBlobstorage extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatastoreBlobstorage get(String name, Output<String> id, @Nullable DatastoreBlobstorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatastoreBlobstorage get(java.lang.String name, Output<java.lang.String> id, @Nullable DatastoreBlobstorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatastoreBlobstorage(name, id, state, options);
     }
 }

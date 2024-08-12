@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example")
  *             .location("West Europe")
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .managedVirtualNetworkEnabled(true)
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
@@ -106,8 +106,8 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -226,7 +226,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationRuntimeAzure(String name) {
+    public IntegrationRuntimeAzure(java.lang.String name) {
         this(name, IntegrationRuntimeAzureArgs.Empty);
     }
     /**
@@ -234,7 +234,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationRuntimeAzure(String name, IntegrationRuntimeAzureArgs args) {
+    public IntegrationRuntimeAzure(java.lang.String name, IntegrationRuntimeAzureArgs args) {
         this(name, args, null);
     }
     /**
@@ -243,12 +243,12 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationRuntimeAzure(String name, IntegrationRuntimeAzureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationRuntimeAzure(java.lang.String name, IntegrationRuntimeAzureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationRuntimeAzure(String name, Output<String> id, @Nullable IntegrationRuntimeAzureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", name, state, makeResourceOptions(options, id));
+    private IntegrationRuntimeAzure(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeAzureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:synapse/integrationRuntimeAzure:IntegrationRuntimeAzure", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationRuntimeAzureArgs makeArgs(IntegrationRuntimeAzureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -258,7 +258,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
         return args == null ? IntegrationRuntimeAzureArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -274,7 +274,7 @@ public class IntegrationRuntimeAzure extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationRuntimeAzure get(String name, Output<String> id, @Nullable IntegrationRuntimeAzureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationRuntimeAzure get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeAzureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationRuntimeAzure(name, id, state, options);
     }
 }

@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  *             .size("Standard_B1ls")
  *             .adminUsername("adminuser")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .adminPassword("example-Password{@literal @}7890")
+ *             .adminPassword("example-Password}{@literal @}{@code 7890")
  *             .disablePasswordAuthentication(false)
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")
@@ -149,8 +149,8 @@ import javax.annotation.Nullable;
  *             .description("example")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -249,7 +249,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataCollectionRuleAssociation(String name) {
+    public DataCollectionRuleAssociation(java.lang.String name) {
         this(name, DataCollectionRuleAssociationArgs.Empty);
     }
     /**
@@ -257,7 +257,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataCollectionRuleAssociation(String name, DataCollectionRuleAssociationArgs args) {
+    public DataCollectionRuleAssociation(java.lang.String name, DataCollectionRuleAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -266,12 +266,12 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataCollectionRuleAssociation(String name, DataCollectionRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataCollectionRuleAssociation(java.lang.String name, DataCollectionRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataCollectionRuleAssociation(String name, Output<String> id, @Nullable DataCollectionRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", name, state, makeResourceOptions(options, id));
+    private DataCollectionRuleAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable DataCollectionRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataCollectionRuleAssociationArgs makeArgs(DataCollectionRuleAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -281,7 +281,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
         return args == null ? DataCollectionRuleAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -297,7 +297,7 @@ public class DataCollectionRuleAssociation extends com.pulumi.resources.CustomRe
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataCollectionRuleAssociation get(String name, Output<String> id, @Nullable DataCollectionRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataCollectionRuleAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable DataCollectionRuleAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataCollectionRuleAssociation(name, id, state, options);
     }
 }

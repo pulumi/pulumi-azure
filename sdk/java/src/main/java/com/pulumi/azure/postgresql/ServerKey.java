@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .administratorLogin("psqladmin")
- *             .administratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .administratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .skuName("GP_Gen5_2")
  *             .version("11")
  *             .storageMb(51200)
@@ -141,8 +141,8 @@ import javax.annotation.Nullable;
  *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -191,7 +191,7 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerKey(String name) {
+    public ServerKey(java.lang.String name) {
         this(name, ServerKeyArgs.Empty);
     }
     /**
@@ -199,7 +199,7 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerKey(String name, ServerKeyArgs args) {
+    public ServerKey(java.lang.String name, ServerKeyArgs args) {
         this(name, args, null);
     }
     /**
@@ -208,12 +208,12 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerKey(String name, ServerKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/serverKey:ServerKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServerKey(java.lang.String name, ServerKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/serverKey:ServerKey", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerKey(String name, Output<String> id, @Nullable ServerKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:postgresql/serverKey:ServerKey", name, state, makeResourceOptions(options, id));
+    private ServerKey(java.lang.String name, Output<java.lang.String> id, @Nullable ServerKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:postgresql/serverKey:ServerKey", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerKeyArgs makeArgs(ServerKeyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -223,7 +223,7 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
         return args == null ? ServerKeyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -239,7 +239,7 @@ public class ServerKey extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerKey get(String name, Output<String> id, @Nullable ServerKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerKey get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerKeyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerKey(name, id, state, options);
     }
 }

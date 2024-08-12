@@ -271,7 +271,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public TimeSeriesInsightsEventSourceIothub(String name) {
+    public TimeSeriesInsightsEventSourceIothub(java.lang.String name) {
         this(name, TimeSeriesInsightsEventSourceIothubArgs.Empty);
     }
     /**
@@ -279,7 +279,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TimeSeriesInsightsEventSourceIothub(String name, TimeSeriesInsightsEventSourceIothubArgs args) {
+    public TimeSeriesInsightsEventSourceIothub(java.lang.String name, TimeSeriesInsightsEventSourceIothubArgs args) {
         this(name, args, null);
     }
     /**
@@ -288,12 +288,12 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TimeSeriesInsightsEventSourceIothub(String name, TimeSeriesInsightsEventSourceIothubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public TimeSeriesInsightsEventSourceIothub(java.lang.String name, TimeSeriesInsightsEventSourceIothubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private TimeSeriesInsightsEventSourceIothub(String name, Output<String> id, @Nullable TimeSeriesInsightsEventSourceIothubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub", name, state, makeResourceOptions(options, id));
+    private TimeSeriesInsightsEventSourceIothub(java.lang.String name, Output<java.lang.String> id, @Nullable TimeSeriesInsightsEventSourceIothubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub", name, state, makeResourceOptions(options, id), false);
     }
 
     private static TimeSeriesInsightsEventSourceIothubArgs makeArgs(TimeSeriesInsightsEventSourceIothubArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -303,7 +303,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
         return args == null ? TimeSeriesInsightsEventSourceIothubArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -322,7 +322,7 @@ public class TimeSeriesInsightsEventSourceIothub extends com.pulumi.resources.Cu
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static TimeSeriesInsightsEventSourceIothub get(String name, Output<String> id, @Nullable TimeSeriesInsightsEventSourceIothubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static TimeSeriesInsightsEventSourceIothub get(java.lang.String name, Output<java.lang.String> id, @Nullable TimeSeriesInsightsEventSourceIothubState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new TimeSeriesInsightsEventSourceIothub(name, id, state, options);
     }
 }

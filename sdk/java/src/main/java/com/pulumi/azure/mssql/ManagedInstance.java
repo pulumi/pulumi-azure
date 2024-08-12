@@ -603,7 +603,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ManagedInstance(String name) {
+    public ManagedInstance(java.lang.String name) {
         this(name, ManagedInstanceArgs.Empty);
     }
     /**
@@ -611,7 +611,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ManagedInstance(String name, ManagedInstanceArgs args) {
+    public ManagedInstance(java.lang.String name, ManagedInstanceArgs args) {
         this(name, args, null);
     }
     /**
@@ -620,12 +620,12 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ManagedInstance(String name, ManagedInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedInstance:ManagedInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ManagedInstance(java.lang.String name, ManagedInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedInstance:ManagedInstance", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ManagedInstance(String name, Output<String> id, @Nullable ManagedInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/managedInstance:ManagedInstance", name, state, makeResourceOptions(options, id));
+    private ManagedInstance(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/managedInstance:ManagedInstance", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ManagedInstanceArgs makeArgs(ManagedInstanceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -635,7 +635,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return args == null ? ManagedInstanceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -654,7 +654,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ManagedInstance get(String name, Output<String> id, @Nullable ManagedInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ManagedInstance get(java.lang.String name, Output<java.lang.String> id, @Nullable ManagedInstanceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ManagedInstance(name, id, state, options);
     }
 }

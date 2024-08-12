@@ -354,7 +354,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CertificateOrder(String name) {
+    public CertificateOrder(java.lang.String name) {
         this(name, CertificateOrderArgs.Empty);
     }
     /**
@@ -362,7 +362,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CertificateOrder(String name, CertificateOrderArgs args) {
+    public CertificateOrder(java.lang.String name, CertificateOrderArgs args) {
         this(name, args, null);
     }
     /**
@@ -371,12 +371,12 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CertificateOrder(String name, CertificateOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/certificateOrder:CertificateOrder", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public CertificateOrder(java.lang.String name, CertificateOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/certificateOrder:CertificateOrder", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private CertificateOrder(String name, Output<String> id, @Nullable CertificateOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/certificateOrder:CertificateOrder", name, state, makeResourceOptions(options, id));
+    private CertificateOrder(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/certificateOrder:CertificateOrder", name, state, makeResourceOptions(options, id), false);
     }
 
     private static CertificateOrderArgs makeArgs(CertificateOrderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -386,7 +386,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
         return args == null ? CertificateOrderArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -402,7 +402,7 @@ public class CertificateOrder extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static CertificateOrder get(String name, Output<String> id, @Nullable CertificateOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static CertificateOrder get(java.lang.String name, Output<java.lang.String> id, @Nullable CertificateOrderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new CertificateOrder(name, id, state, options);
     }
 }

@@ -312,7 +312,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Snapshot(String name) {
+    public Snapshot(java.lang.String name) {
         this(name, SnapshotArgs.Empty);
     }
     /**
@@ -320,7 +320,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Snapshot(String name, SnapshotArgs args) {
+    public Snapshot(java.lang.String name, SnapshotArgs args) {
         this(name, args, null);
     }
     /**
@@ -329,12 +329,12 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Snapshot(String name, SnapshotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/snapshot:Snapshot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Snapshot(java.lang.String name, SnapshotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/snapshot:Snapshot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Snapshot(String name, Output<String> id, @Nullable SnapshotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/snapshot:Snapshot", name, state, makeResourceOptions(options, id));
+    private Snapshot(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/snapshot:Snapshot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SnapshotArgs makeArgs(SnapshotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -344,7 +344,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return args == null ? SnapshotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -360,7 +360,7 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Snapshot get(String name, Output<String> id, @Nullable SnapshotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Snapshot get(java.lang.String name, Output<java.lang.String> id, @Nullable SnapshotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Snapshot(name, id, state, options);
     }
 }

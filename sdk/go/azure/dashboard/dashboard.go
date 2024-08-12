@@ -63,7 +63,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"source": pulumi.String("managed"),
 //				},
-//				DashboardProperties: pulumi.String(fmt.Sprintf(`{
+//				DashboardProperties: pulumi.Sprintf(`{
 //	   "lenses": {
 //	        "0": {
 //	            "order": 0,
@@ -172,7 +172,7 @@ import (
 //	    }
 //	}
 //
-// `, mdContent, videoLink, current.SubscriptionId)),
+// `, mdContent, videoLink, current.SubscriptionId),
 //
 //			})
 //			if err != nil {

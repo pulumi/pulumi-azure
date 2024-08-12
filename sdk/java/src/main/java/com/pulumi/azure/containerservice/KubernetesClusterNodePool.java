@@ -743,7 +743,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KubernetesClusterNodePool(String name) {
+    public KubernetesClusterNodePool(java.lang.String name) {
         this(name, KubernetesClusterNodePoolArgs.Empty);
     }
     /**
@@ -751,7 +751,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KubernetesClusterNodePool(String name, KubernetesClusterNodePoolArgs args) {
+    public KubernetesClusterNodePool(java.lang.String name, KubernetesClusterNodePoolArgs args) {
         this(name, args, null);
     }
     /**
@@ -760,12 +760,12 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KubernetesClusterNodePool(String name, KubernetesClusterNodePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public KubernetesClusterNodePool(java.lang.String name, KubernetesClusterNodePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KubernetesClusterNodePool(String name, Output<String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, state, makeResourceOptions(options, id));
+    private KubernetesClusterNodePool(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool", name, state, makeResourceOptions(options, id), false);
     }
 
     private static KubernetesClusterNodePoolArgs makeArgs(KubernetesClusterNodePoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -775,7 +775,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return args == null ? KubernetesClusterNodePoolArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -791,7 +791,7 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KubernetesClusterNodePool get(String name, Output<String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KubernetesClusterNodePool get(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterNodePoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KubernetesClusterNodePool(name, id, state, options);
     }
 }

@@ -192,7 +192,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResolverInboundEndpoint(String name) {
+    public ResolverInboundEndpoint(java.lang.String name) {
         this(name, ResolverInboundEndpointArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResolverInboundEndpoint(String name, ResolverInboundEndpointArgs args) {
+    public ResolverInboundEndpoint(java.lang.String name, ResolverInboundEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,12 +209,12 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResolverInboundEndpoint(String name, ResolverInboundEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResolverInboundEndpoint(java.lang.String name, ResolverInboundEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResolverInboundEndpoint(String name, Output<String> id, @Nullable ResolverInboundEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint", name, state, makeResourceOptions(options, id));
+    private ResolverInboundEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverInboundEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/resolverInboundEndpoint:ResolverInboundEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResolverInboundEndpointArgs makeArgs(ResolverInboundEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -224,7 +224,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
         return args == null ? ResolverInboundEndpointArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +240,7 @@ public class ResolverInboundEndpoint extends com.pulumi.resources.CustomResource
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResolverInboundEndpoint get(String name, Output<String> id, @Nullable ResolverInboundEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResolverInboundEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverInboundEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResolverInboundEndpoint(name, id, state, options);
     }
 }

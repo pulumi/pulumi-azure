@@ -310,7 +310,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DatasetParquet(String name) {
+    public DatasetParquet(java.lang.String name) {
         this(name, DatasetParquetArgs.Empty);
     }
     /**
@@ -318,7 +318,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DatasetParquet(String name, DatasetParquetArgs args) {
+    public DatasetParquet(java.lang.String name, DatasetParquetArgs args) {
         this(name, args, null);
     }
     /**
@@ -327,12 +327,12 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DatasetParquet(String name, DatasetParquetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetParquet:DatasetParquet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DatasetParquet(java.lang.String name, DatasetParquetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetParquet:DatasetParquet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DatasetParquet(String name, Output<String> id, @Nullable DatasetParquetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/datasetParquet:DatasetParquet", name, state, makeResourceOptions(options, id));
+    private DatasetParquet(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetParquetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/datasetParquet:DatasetParquet", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DatasetParquetArgs makeArgs(DatasetParquetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -342,7 +342,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
         return args == null ? DatasetParquetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -358,7 +358,7 @@ public class DatasetParquet extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DatasetParquet get(String name, Output<String> id, @Nullable DatasetParquetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DatasetParquet get(java.lang.String name, Output<java.lang.String> id, @Nullable DatasetParquetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DatasetParquet(name, id, state, options);
     }
 }

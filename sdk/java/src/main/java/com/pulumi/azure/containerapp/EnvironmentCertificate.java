@@ -180,7 +180,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnvironmentCertificate(String name) {
+    public EnvironmentCertificate(java.lang.String name) {
         this(name, EnvironmentCertificateArgs.Empty);
     }
     /**
@@ -188,7 +188,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnvironmentCertificate(String name, EnvironmentCertificateArgs args) {
+    public EnvironmentCertificate(java.lang.String name, EnvironmentCertificateArgs args) {
         this(name, args, null);
     }
     /**
@@ -197,12 +197,12 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnvironmentCertificate(String name, EnvironmentCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerapp/environmentCertificate:EnvironmentCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EnvironmentCertificate(java.lang.String name, EnvironmentCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerapp/environmentCertificate:EnvironmentCertificate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnvironmentCertificate(String name, Output<String> id, @Nullable EnvironmentCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerapp/environmentCertificate:EnvironmentCertificate", name, state, makeResourceOptions(options, id));
+    private EnvironmentCertificate(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerapp/environmentCertificate:EnvironmentCertificate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EnvironmentCertificateArgs makeArgs(EnvironmentCertificateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -212,7 +212,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
         return args == null ? EnvironmentCertificateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -231,7 +231,7 @@ public class EnvironmentCertificate extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnvironmentCertificate get(String name, Output<String> id, @Nullable EnvironmentCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnvironmentCertificate get(java.lang.String name, Output<java.lang.String> id, @Nullable EnvironmentCertificateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnvironmentCertificate(name, id, state, options);
     }
 }

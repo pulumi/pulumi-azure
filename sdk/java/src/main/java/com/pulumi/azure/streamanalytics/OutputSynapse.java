@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
  *             .name("rg-example")
  *             .location("West Europe")
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
- *             .sqlAdministratorLoginPassword("H{@literal @}Sh1CoR3!")
+ *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -101,8 +101,8 @@ import javax.annotation.Nullable;
  *             .table("ExampleTable")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -235,7 +235,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public OutputSynapse(String name) {
+    public OutputSynapse(java.lang.String name) {
         this(name, OutputSynapseArgs.Empty);
     }
     /**
@@ -243,7 +243,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OutputSynapse(String name, OutputSynapseArgs args) {
+    public OutputSynapse(java.lang.String name, OutputSynapseArgs args) {
         this(name, args, null);
     }
     /**
@@ -252,12 +252,12 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OutputSynapse(String name, OutputSynapseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputSynapse:OutputSynapse", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public OutputSynapse(java.lang.String name, OutputSynapseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputSynapse:OutputSynapse", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private OutputSynapse(String name, Output<String> id, @Nullable OutputSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:streamanalytics/outputSynapse:OutputSynapse", name, state, makeResourceOptions(options, id));
+    private OutputSynapse(java.lang.String name, Output<java.lang.String> id, @Nullable OutputSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:streamanalytics/outputSynapse:OutputSynapse", name, state, makeResourceOptions(options, id), false);
     }
 
     private static OutputSynapseArgs makeArgs(OutputSynapseArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -267,7 +267,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
         return args == null ? OutputSynapseArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -286,7 +286,7 @@ public class OutputSynapse extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static OutputSynapse get(String name, Output<String> id, @Nullable OutputSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static OutputSynapse get(java.lang.String name, Output<java.lang.String> id, @Nullable OutputSynapseState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new OutputSynapse(name, id, state, options);
     }
 }

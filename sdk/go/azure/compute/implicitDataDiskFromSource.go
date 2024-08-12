@@ -42,14 +42,14 @@ import (
 //			}
 //			vmName := fmt.Sprintf("%v-vm", prefix)
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
+//				Name:     pulumi.Sprintf("%v-resources", prefix),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			main, err := network.NewVirtualNetwork(ctx, "main", &network.VirtualNetworkArgs{
-//				Name: pulumi.String(fmt.Sprintf("%v-network", prefix)),
+//				Name: pulumi.Sprintf("%v-network", prefix),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -71,7 +71,7 @@ import (
 //				return err
 //			}
 //			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "main", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
+//				Name:              pulumi.Sprintf("%v-nic", prefix),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
@@ -118,7 +118,7 @@ import (
 //				return err
 //			}
 //			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
-//				Name:               pulumi.String(fmt.Sprintf("%v-disk1", vmName)),
+//				Name:               pulumi.Sprintf("%v-disk1", vmName),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
 //				StorageAccountType: pulumi.String("Standard_LRS"),
@@ -129,7 +129,7 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewSnapshot(ctx, "example", &compute.SnapshotArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-snapshot1", vmName)),
+//				Name:              pulumi.Sprintf("%v-snapshot1", vmName),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				CreateOption:      pulumi.String("Copy"),
@@ -139,7 +139,7 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewImplicitDataDiskFromSource(ctx, "example", &compute.ImplicitDataDiskFromSourceArgs{
-//				Name:             pulumi.String(fmt.Sprintf("%v-implicitdisk1", vmName)),
+//				Name:             pulumi.Sprintf("%v-implicitdisk1", vmName),
 //				VirtualMachineId: pulumi.Any(testAzurermVirtualMachine.Id),
 //				Lun:              pulumi.Int(0),
 //				Caching:          pulumi.String("None"),

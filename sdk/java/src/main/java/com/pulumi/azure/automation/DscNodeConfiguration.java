@@ -183,7 +183,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DscNodeConfiguration(String name) {
+    public DscNodeConfiguration(java.lang.String name) {
         this(name, DscNodeConfigurationArgs.Empty);
     }
     /**
@@ -191,7 +191,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DscNodeConfiguration(String name, DscNodeConfigurationArgs args) {
+    public DscNodeConfiguration(java.lang.String name, DscNodeConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,12 +200,12 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DscNodeConfiguration(String name, DscNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DscNodeConfiguration(java.lang.String name, DscNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DscNodeConfiguration(String name, Output<String> id, @Nullable DscNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, state, makeResourceOptions(options, id));
+    private DscNodeConfiguration(java.lang.String name, Output<java.lang.String> id, @Nullable DscNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/dscNodeConfiguration:DscNodeConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DscNodeConfigurationArgs makeArgs(DscNodeConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -215,7 +215,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
         return args == null ? DscNodeConfigurationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -231,7 +231,7 @@ public class DscNodeConfiguration extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DscNodeConfiguration get(String name, Output<String> id, @Nullable DscNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DscNodeConfiguration get(java.lang.String name, Output<java.lang.String> id, @Nullable DscNodeConfigurationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DscNodeConfiguration(name, id, state, options);
     }
 }

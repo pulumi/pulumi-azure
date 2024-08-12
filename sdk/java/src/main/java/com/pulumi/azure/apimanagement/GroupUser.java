@@ -134,7 +134,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public GroupUser(String name) {
+    public GroupUser(java.lang.String name) {
         this(name, GroupUserArgs.Empty);
     }
     /**
@@ -142,7 +142,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public GroupUser(String name, GroupUserArgs args) {
+    public GroupUser(java.lang.String name, GroupUserArgs args) {
         this(name, args, null);
     }
     /**
@@ -151,12 +151,12 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public GroupUser(String name, GroupUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/groupUser:GroupUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public GroupUser(java.lang.String name, GroupUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/groupUser:GroupUser", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private GroupUser(String name, Output<String> id, @Nullable GroupUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/groupUser:GroupUser", name, state, makeResourceOptions(options, id));
+    private GroupUser(java.lang.String name, Output<java.lang.String> id, @Nullable GroupUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/groupUser:GroupUser", name, state, makeResourceOptions(options, id), false);
     }
 
     private static GroupUserArgs makeArgs(GroupUserArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -166,7 +166,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
         return args == null ? GroupUserArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -182,7 +182,7 @@ public class GroupUser extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static GroupUser get(String name, Output<String> id, @Nullable GroupUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static GroupUser get(java.lang.String name, Output<java.lang.String> id, @Nullable GroupUserState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new GroupUser(name, id, state, options);
     }
 }

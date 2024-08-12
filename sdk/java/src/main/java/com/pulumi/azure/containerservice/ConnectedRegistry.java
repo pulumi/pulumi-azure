@@ -289,7 +289,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ConnectedRegistry(String name) {
+    public ConnectedRegistry(java.lang.String name) {
         this(name, ConnectedRegistryArgs.Empty);
     }
     /**
@@ -297,7 +297,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ConnectedRegistry(String name, ConnectedRegistryArgs args) {
+    public ConnectedRegistry(java.lang.String name, ConnectedRegistryArgs args) {
         this(name, args, null);
     }
     /**
@@ -306,12 +306,12 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ConnectedRegistry(String name, ConnectedRegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/connectedRegistry:ConnectedRegistry", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ConnectedRegistry(java.lang.String name, ConnectedRegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/connectedRegistry:ConnectedRegistry", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ConnectedRegistry(String name, Output<String> id, @Nullable ConnectedRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/connectedRegistry:ConnectedRegistry", name, state, makeResourceOptions(options, id));
+    private ConnectedRegistry(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectedRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/connectedRegistry:ConnectedRegistry", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ConnectedRegistryArgs makeArgs(ConnectedRegistryArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -321,7 +321,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
         return args == null ? ConnectedRegistryArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -337,7 +337,7 @@ public class ConnectedRegistry extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ConnectedRegistry get(String name, Output<String> id, @Nullable ConnectedRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ConnectedRegistry get(java.lang.String name, Output<java.lang.String> id, @Nullable ConnectedRegistryState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ConnectedRegistry(name, id, state, options);
     }
 }

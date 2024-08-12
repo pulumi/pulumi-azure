@@ -171,7 +171,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FederatedIdentityCredential(String name) {
+    public FederatedIdentityCredential(java.lang.String name) {
         this(name, FederatedIdentityCredentialArgs.Empty);
     }
     /**
@@ -179,7 +179,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FederatedIdentityCredential(String name, FederatedIdentityCredentialArgs args) {
+    public FederatedIdentityCredential(java.lang.String name, FederatedIdentityCredentialArgs args) {
         this(name, args, null);
     }
     /**
@@ -188,12 +188,12 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FederatedIdentityCredential(String name, FederatedIdentityCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FederatedIdentityCredential(java.lang.String name, FederatedIdentityCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FederatedIdentityCredential(String name, Output<String> id, @Nullable FederatedIdentityCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential", name, state, makeResourceOptions(options, id));
+    private FederatedIdentityCredential(java.lang.String name, Output<java.lang.String> id, @Nullable FederatedIdentityCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FederatedIdentityCredentialArgs makeArgs(FederatedIdentityCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -203,7 +203,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
         return args == null ? FederatedIdentityCredentialArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -219,7 +219,7 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FederatedIdentityCredential get(String name, Output<String> id, @Nullable FederatedIdentityCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FederatedIdentityCredential get(java.lang.String name, Output<java.lang.String> id, @Nullable FederatedIdentityCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FederatedIdentityCredential(name, id, state, options);
     }
 }

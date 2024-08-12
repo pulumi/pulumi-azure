@@ -122,7 +122,7 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ActiveSlot(String name) {
+    public ActiveSlot(java.lang.String name) {
         this(name, ActiveSlotArgs.Empty);
     }
     /**
@@ -130,7 +130,7 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ActiveSlot(String name, ActiveSlotArgs args) {
+    public ActiveSlot(java.lang.String name, ActiveSlotArgs args) {
         this(name, args, null);
     }
     /**
@@ -139,12 +139,12 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ActiveSlot(String name, ActiveSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/activeSlot:ActiveSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ActiveSlot(java.lang.String name, ActiveSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/activeSlot:ActiveSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ActiveSlot(String name, Output<String> id, @Nullable ActiveSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/activeSlot:ActiveSlot", name, state, makeResourceOptions(options, id));
+    private ActiveSlot(java.lang.String name, Output<java.lang.String> id, @Nullable ActiveSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/activeSlot:ActiveSlot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ActiveSlotArgs makeArgs(ActiveSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -154,7 +154,7 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
         return args == null ? ActiveSlotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -170,7 +170,7 @@ public class ActiveSlot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ActiveSlot get(String name, Output<String> id, @Nullable ActiveSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ActiveSlot get(java.lang.String name, Output<java.lang.String> id, @Nullable ActiveSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ActiveSlot(name, id, state, options);
     }
 }

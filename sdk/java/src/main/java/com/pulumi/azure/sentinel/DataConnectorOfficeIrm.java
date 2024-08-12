@@ -136,7 +136,7 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public DataConnectorOfficeIrm(String name) {
+    public DataConnectorOfficeIrm(java.lang.String name) {
         this(name, DataConnectorOfficeIrmArgs.Empty);
     }
     /**
@@ -144,7 +144,7 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public DataConnectorOfficeIrm(String name, DataConnectorOfficeIrmArgs args) {
+    public DataConnectorOfficeIrm(java.lang.String name, DataConnectorOfficeIrmArgs args) {
         this(name, args, null);
     }
     /**
@@ -153,12 +153,12 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public DataConnectorOfficeIrm(String name, DataConnectorOfficeIrmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public DataConnectorOfficeIrm(java.lang.String name, DataConnectorOfficeIrmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private DataConnectorOfficeIrm(String name, Output<String> id, @Nullable DataConnectorOfficeIrmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm", name, state, makeResourceOptions(options, id));
+    private DataConnectorOfficeIrm(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOfficeIrmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:sentinel/dataConnectorOfficeIrm:DataConnectorOfficeIrm", name, state, makeResourceOptions(options, id), false);
     }
 
     private static DataConnectorOfficeIrmArgs makeArgs(DataConnectorOfficeIrmArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -168,7 +168,7 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
         return args == null ? DataConnectorOfficeIrmArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -184,7 +184,7 @@ public class DataConnectorOfficeIrm extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static DataConnectorOfficeIrm get(String name, Output<String> id, @Nullable DataConnectorOfficeIrmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static DataConnectorOfficeIrm get(java.lang.String name, Output<java.lang.String> id, @Nullable DataConnectorOfficeIrmState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new DataConnectorOfficeIrm(name, id, state, options);
     }
 }

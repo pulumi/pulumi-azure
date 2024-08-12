@@ -240,7 +240,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServiceAccount(String name) {
+    public ServiceAccount(java.lang.String name) {
         this(name, ServiceAccountArgs.Empty);
     }
     /**
@@ -248,7 +248,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceAccount(String name, ServiceAccountArgs args) {
+    public ServiceAccount(java.lang.String name, ServiceAccountArgs args) {
         this(name, args, null);
     }
     /**
@@ -257,12 +257,12 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceAccount(String name, ServiceAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/serviceAccount:ServiceAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServiceAccount(java.lang.String name, ServiceAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/serviceAccount:ServiceAccount", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServiceAccount(String name, Output<String> id, @Nullable ServiceAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:media/serviceAccount:ServiceAccount", name, state, makeResourceOptions(options, id));
+    private ServiceAccount(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:media/serviceAccount:ServiceAccount", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServiceAccountArgs makeArgs(ServiceAccountArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -272,7 +272,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
         return args == null ? ServiceAccountArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
@@ -291,7 +291,7 @@ public class ServiceAccount extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServiceAccount get(String name, Output<String> id, @Nullable ServiceAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServiceAccount get(java.lang.String name, Output<java.lang.String> id, @Nullable ServiceAccountState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServiceAccount(name, id, state, options);
     }
 }

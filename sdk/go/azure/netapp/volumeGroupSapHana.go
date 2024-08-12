@@ -43,14 +43,14 @@ import (
 //			adminUsername := "exampleadmin"
 //			adminPassword := example.Result
 //			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
+//				Name:     pulumi.Sprintf("%v-resources", prefix),
 //				Location: pulumi.Any(location),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-vnet", prefix)),
+//				Name:              pulumi.Sprintf("%v-vnet", prefix),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AddressSpaces: pulumi.StringArray{
@@ -61,7 +61,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
-//				Name:               pulumi.String(fmt.Sprintf("%v-delegated-subnet", prefix)),
+//				Name:               pulumi.Sprintf("%v-delegated-subnet", prefix),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -84,7 +84,7 @@ import (
 //				return err
 //			}
 //			example1, err := network.NewSubnet(ctx, "example1", &network.SubnetArgs{
-//				Name:               pulumi.String(fmt.Sprintf("%v-hosts-subnet", prefix)),
+//				Name:               pulumi.Sprintf("%v-hosts-subnet", prefix),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -95,7 +95,7 @@ import (
 //				return err
 //			}
 //			examplePlacementGroup, err := proximity.NewPlacementGroup(ctx, "example", &proximity.PlacementGroupArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-ppg", prefix)),
+//				Name:              pulumi.Sprintf("%v-ppg", prefix),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})
@@ -103,7 +103,7 @@ import (
 //				return err
 //			}
 //			exampleAvailabilitySet, err := compute.NewAvailabilitySet(ctx, "example", &compute.AvailabilitySetArgs{
-//				Name:                      pulumi.String(fmt.Sprintf("%v-avset", prefix)),
+//				Name:                      pulumi.Sprintf("%v-avset", prefix),
 //				Location:                  exampleResourceGroup.Location,
 //				ResourceGroupName:         exampleResourceGroup.Name,
 //				ProximityPlacementGroupId: examplePlacementGroup.ID(),
@@ -112,7 +112,7 @@ import (
 //				return err
 //			}
 //			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
+//				Name:              pulumi.Sprintf("%v-nic", prefix),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
@@ -127,7 +127,7 @@ import (
 //				return err
 //			}
 //			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
-//				Name:                          pulumi.String(fmt.Sprintf("%v-vm", prefix)),
+//				Name:                          pulumi.Sprintf("%v-vm", prefix),
 //				ResourceGroupName:             exampleResourceGroup.Name,
 //				Location:                      exampleResourceGroup.Location,
 //				Size:                          pulumi.String("Standard_M8ms"),
@@ -154,7 +154,7 @@ import (
 //				return err
 //			}
 //			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-netapp-account", prefix)),
+//				Name:              pulumi.Sprintf("%v-netapp-account", prefix),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -165,7 +165,7 @@ import (
 //				return err
 //			}
 //			examplePool, err := netapp.NewPool(ctx, "example", &netapp.PoolArgs{
-//				Name:              pulumi.String(fmt.Sprintf("%v-netapp-pool", prefix)),
+//				Name:              pulumi.Sprintf("%v-netapp-pool", prefix),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AccountName:       exampleAccount.Name,
@@ -177,7 +177,7 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeGroupSapHana(ctx, "example", &netapp.VolumeGroupSapHanaArgs{
-//				Name:                  pulumi.String(fmt.Sprintf("%v-netapp-volumegroup", prefix)),
+//				Name:                  pulumi.Sprintf("%v-netapp-volumegroup", prefix),
 //				Location:              exampleResourceGroup.Location,
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AccountName:           exampleAccount.Name,
@@ -185,7 +185,7 @@ import (
 //				ApplicationIdentifier: pulumi.String("TST"),
 //				Volumes: netapp.VolumeGroupSapHanaVolumeArray{
 //					&netapp.VolumeGroupSapHanaVolumeArgs{
-//						Name:                      pulumi.String(fmt.Sprintf("%v-netapp-volume-1", prefix)),
+//						Name:                      pulumi.Sprintf("%v-netapp-volume-1", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-1"),
 //						ServiceLevel:              pulumi.String("Standard"),
 //						CapacityPoolId:            examplePool.ID(),
@@ -213,7 +213,7 @@ import (
 //						},
 //					},
 //					&netapp.VolumeGroupSapHanaVolumeArgs{
-//						Name:                      pulumi.String(fmt.Sprintf("%v-netapp-volume-2", prefix)),
+//						Name:                      pulumi.Sprintf("%v-netapp-volume-2", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-2"),
 //						ServiceLevel:              pulumi.String("Standard"),
 //						CapacityPoolId:            examplePool.ID(),
@@ -241,7 +241,7 @@ import (
 //						},
 //					},
 //					&netapp.VolumeGroupSapHanaVolumeArgs{
-//						Name:                      pulumi.String(fmt.Sprintf("%v-netapp-volume-3", prefix)),
+//						Name:                      pulumi.Sprintf("%v-netapp-volume-3", prefix),
 //						VolumePath:                pulumi.String("my-unique-file-path-3"),
 //						ServiceLevel:              pulumi.String("Standard"),
 //						CapacityPoolId:            examplePool.ID(),

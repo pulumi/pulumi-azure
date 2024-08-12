@@ -83,7 +83,7 @@ public class AutoProvisioning extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AutoProvisioning(String name) {
+    public AutoProvisioning(java.lang.String name) {
         this(name, AutoProvisioningArgs.Empty);
     }
     /**
@@ -91,7 +91,7 @@ public class AutoProvisioning extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AutoProvisioning(String name, AutoProvisioningArgs args) {
+    public AutoProvisioning(java.lang.String name, AutoProvisioningArgs args) {
         this(name, args, null);
     }
     /**
@@ -100,12 +100,12 @@ public class AutoProvisioning extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AutoProvisioning(String name, AutoProvisioningArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/autoProvisioning:AutoProvisioning", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AutoProvisioning(java.lang.String name, AutoProvisioningArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:securitycenter/autoProvisioning:AutoProvisioning", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AutoProvisioning(String name, Output<String> id, @Nullable AutoProvisioningState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:securitycenter/autoProvisioning:AutoProvisioning", name, state, makeResourceOptions(options, id));
+    private AutoProvisioning(java.lang.String name, Output<java.lang.String> id, @Nullable AutoProvisioningState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:securitycenter/autoProvisioning:AutoProvisioning", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AutoProvisioningArgs makeArgs(AutoProvisioningArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -115,7 +115,7 @@ public class AutoProvisioning extends com.pulumi.resources.CustomResource {
         return args == null ? AutoProvisioningArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -131,7 +131,7 @@ public class AutoProvisioning extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AutoProvisioning get(String name, Output<String> id, @Nullable AutoProvisioningState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AutoProvisioning get(java.lang.String name, Output<java.lang.String> id, @Nullable AutoProvisioningState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AutoProvisioning(name, id, state, options);
     }
 }

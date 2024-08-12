@@ -1303,7 +1303,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public KubernetesCluster(String name) {
+    public KubernetesCluster(java.lang.String name) {
         this(name, KubernetesClusterArgs.Empty);
     }
     /**
@@ -1311,7 +1311,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KubernetesCluster(String name, KubernetesClusterArgs args) {
+    public KubernetesCluster(java.lang.String name, KubernetesClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -1320,12 +1320,12 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KubernetesCluster(String name, KubernetesClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public KubernetesCluster(java.lang.String name, KubernetesClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private KubernetesCluster(String name, Output<String> id, @Nullable KubernetesClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, state, makeResourceOptions(options, id));
+    private KubernetesCluster(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/kubernetesCluster:KubernetesCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static KubernetesClusterArgs makeArgs(KubernetesClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -1335,7 +1335,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
         return args == null ? KubernetesClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -1357,7 +1357,7 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static KubernetesCluster get(String name, Output<String> id, @Nullable KubernetesClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static KubernetesCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable KubernetesClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new KubernetesCluster(name, id, state, options);
     }
 }
