@@ -199,7 +199,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SqlRoleAssignment(String name) {
+    public SqlRoleAssignment(java.lang.String name) {
         this(name, SqlRoleAssignmentArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SqlRoleAssignment(String name, SqlRoleAssignmentArgs args) {
+    public SqlRoleAssignment(java.lang.String name, SqlRoleAssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,12 +216,12 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SqlRoleAssignment(String name, SqlRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SqlRoleAssignment(java.lang.String name, SqlRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SqlRoleAssignment(String name, Output<String> id, @Nullable SqlRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment", name, state, makeResourceOptions(options, id));
+    private SqlRoleAssignment(java.lang.String name, Output<java.lang.String> id, @Nullable SqlRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SqlRoleAssignmentArgs makeArgs(SqlRoleAssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -231,7 +231,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
         return args == null ? SqlRoleAssignmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -247,7 +247,7 @@ public class SqlRoleAssignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SqlRoleAssignment get(String name, Output<String> id, @Nullable SqlRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SqlRoleAssignment get(java.lang.String name, Output<java.lang.String> id, @Nullable SqlRoleAssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SqlRoleAssignment(name, id, state, options);
     }
 }

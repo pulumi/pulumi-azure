@@ -254,7 +254,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudAppCosmosDBAssociation(String name) {
+    public SpringCloudAppCosmosDBAssociation(java.lang.String name) {
         this(name, SpringCloudAppCosmosDBAssociationArgs.Empty);
     }
     /**
@@ -262,7 +262,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudAppCosmosDBAssociation(String name, SpringCloudAppCosmosDBAssociationArgs args) {
+    public SpringCloudAppCosmosDBAssociation(java.lang.String name, SpringCloudAppCosmosDBAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -271,12 +271,12 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudAppCosmosDBAssociation(String name, SpringCloudAppCosmosDBAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudAppCosmosDBAssociation(java.lang.String name, SpringCloudAppCosmosDBAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudAppCosmosDBAssociation(String name, Output<String> id, @Nullable SpringCloudAppCosmosDBAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation", name, state, makeResourceOptions(options, id));
+    private SpringCloudAppCosmosDBAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppCosmosDBAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SpringCloudAppCosmosDBAssociationArgs makeArgs(SpringCloudAppCosmosDBAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -286,7 +286,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
         return args == null ? SpringCloudAppCosmosDBAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -302,7 +302,7 @@ public class SpringCloudAppCosmosDBAssociation extends com.pulumi.resources.Cust
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudAppCosmosDBAssociation get(String name, Output<String> id, @Nullable SpringCloudAppCosmosDBAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudAppCosmosDBAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudAppCosmosDBAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudAppCosmosDBAssociation(name, id, state, options);
     }
 }

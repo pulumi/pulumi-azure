@@ -204,7 +204,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SystemTopic(String name) {
+    public SystemTopic(java.lang.String name) {
         this(name, SystemTopicArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SystemTopic(String name, SystemTopicArgs args) {
+    public SystemTopic(java.lang.String name, SystemTopicArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,12 +221,12 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SystemTopic(String name, SystemTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventgrid/systemTopic:SystemTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SystemTopic(java.lang.String name, SystemTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventgrid/systemTopic:SystemTopic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SystemTopic(String name, Output<String> id, @Nullable SystemTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventgrid/systemTopic:SystemTopic", name, state, makeResourceOptions(options, id));
+    private SystemTopic(java.lang.String name, Output<java.lang.String> id, @Nullable SystemTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventgrid/systemTopic:SystemTopic", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SystemTopicArgs makeArgs(SystemTopicArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -236,7 +236,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
         return args == null ? SystemTopicArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +252,7 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SystemTopic get(String name, Output<String> id, @Nullable SystemTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SystemTopic get(java.lang.String name, Output<java.lang.String> id, @Nullable SystemTopicState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SystemTopic(name, id, state, options);
     }
 }

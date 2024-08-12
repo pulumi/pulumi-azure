@@ -135,7 +135,7 @@ public class FleetUpdateStrategy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public FleetUpdateStrategy(String name) {
+    public FleetUpdateStrategy(java.lang.String name) {
         this(name, FleetUpdateStrategyArgs.Empty);
     }
     /**
@@ -143,7 +143,7 @@ public class FleetUpdateStrategy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FleetUpdateStrategy(String name, FleetUpdateStrategyArgs args) {
+    public FleetUpdateStrategy(java.lang.String name, FleetUpdateStrategyArgs args) {
         this(name, args, null);
     }
     /**
@@ -152,12 +152,12 @@ public class FleetUpdateStrategy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FleetUpdateStrategy(String name, FleetUpdateStrategyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public FleetUpdateStrategy(java.lang.String name, FleetUpdateStrategyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private FleetUpdateStrategy(String name, Output<String> id, @Nullable FleetUpdateStrategyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy", name, state, makeResourceOptions(options, id));
+    private FleetUpdateStrategy(java.lang.String name, Output<java.lang.String> id, @Nullable FleetUpdateStrategyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static FleetUpdateStrategyArgs makeArgs(FleetUpdateStrategyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -167,7 +167,7 @@ public class FleetUpdateStrategy extends com.pulumi.resources.CustomResource {
         return args == null ? FleetUpdateStrategyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -183,7 +183,7 @@ public class FleetUpdateStrategy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static FleetUpdateStrategy get(String name, Output<String> id, @Nullable FleetUpdateStrategyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static FleetUpdateStrategy get(java.lang.String name, Output<java.lang.String> id, @Nullable FleetUpdateStrategyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new FleetUpdateStrategy(name, id, state, options);
     }
 }

@@ -238,7 +238,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NatRule(String name) {
+    public NatRule(java.lang.String name) {
         this(name, NatRuleArgs.Empty);
     }
     /**
@@ -246,7 +246,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NatRule(String name, NatRuleArgs args) {
+    public NatRule(java.lang.String name, NatRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -255,12 +255,12 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NatRule(String name, NatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lb/natRule:NatRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NatRule(java.lang.String name, NatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lb/natRule:NatRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NatRule(String name, Output<String> id, @Nullable NatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lb/natRule:NatRule", name, state, makeResourceOptions(options, id));
+    private NatRule(java.lang.String name, Output<java.lang.String> id, @Nullable NatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lb/natRule:NatRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NatRuleArgs makeArgs(NatRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -270,7 +270,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
         return args == null ? NatRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -286,7 +286,7 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NatRule get(String name, Output<String> id, @Nullable NatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NatRule get(java.lang.String name, Output<java.lang.String> id, @Nullable NatRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NatRule(name, id, state, options);
     }
 }

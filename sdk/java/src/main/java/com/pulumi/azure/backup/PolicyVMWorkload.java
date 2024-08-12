@@ -203,7 +203,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PolicyVMWorkload(String name) {
+    public PolicyVMWorkload(java.lang.String name) {
         this(name, PolicyVMWorkloadArgs.Empty);
     }
     /**
@@ -211,7 +211,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyVMWorkload(String name, PolicyVMWorkloadArgs args) {
+    public PolicyVMWorkload(java.lang.String name, PolicyVMWorkloadArgs args) {
         this(name, args, null);
     }
     /**
@@ -220,12 +220,12 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyVMWorkload(String name, PolicyVMWorkloadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/policyVMWorkload:PolicyVMWorkload", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PolicyVMWorkload(java.lang.String name, PolicyVMWorkloadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:backup/policyVMWorkload:PolicyVMWorkload", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PolicyVMWorkload(String name, Output<String> id, @Nullable PolicyVMWorkloadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/policyVMWorkload:PolicyVMWorkload", name, state, makeResourceOptions(options, id));
+    private PolicyVMWorkload(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyVMWorkloadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:backup/policyVMWorkload:PolicyVMWorkload", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PolicyVMWorkloadArgs makeArgs(PolicyVMWorkloadArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -235,7 +235,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
         return args == null ? PolicyVMWorkloadArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -251,7 +251,7 @@ public class PolicyVMWorkload extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PolicyVMWorkload get(String name, Output<String> id, @Nullable PolicyVMWorkloadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PolicyVMWorkload get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyVMWorkloadState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PolicyVMWorkload(name, id, state, options);
     }
 }

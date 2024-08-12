@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("pub1")
- *             .publisherEmail("pub1{@literal @}email.com")
+ *             .publisherEmail("pub1}{@literal @}{@code email.com")
  *             .skuName("Consumption_0")
  *             .build());
  * 
@@ -85,8 +85,8 @@ import javax.annotation.Nullable;
  *             .cacheLocation("East Us")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -191,7 +191,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RedisCache(String name) {
+    public RedisCache(java.lang.String name) {
         this(name, RedisCacheArgs.Empty);
     }
     /**
@@ -199,7 +199,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RedisCache(String name, RedisCacheArgs args) {
+    public RedisCache(java.lang.String name, RedisCacheArgs args) {
         this(name, args, null);
     }
     /**
@@ -208,12 +208,12 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RedisCache(String name, RedisCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/redisCache:RedisCache", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RedisCache(java.lang.String name, RedisCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/redisCache:RedisCache", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RedisCache(String name, Output<String> id, @Nullable RedisCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/redisCache:RedisCache", name, state, makeResourceOptions(options, id));
+    private RedisCache(java.lang.String name, Output<java.lang.String> id, @Nullable RedisCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/redisCache:RedisCache", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RedisCacheArgs makeArgs(RedisCacheArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -223,7 +223,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
         return args == null ? RedisCacheArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -242,7 +242,7 @@ public class RedisCache extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RedisCache get(String name, Output<String> id, @Nullable RedisCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RedisCache get(java.lang.String name, Output<java.lang.String> id, @Nullable RedisCacheState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RedisCache(name, id, state, options);
     }
 }

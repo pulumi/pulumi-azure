@@ -232,7 +232,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BackendAddressPool(String name) {
+    public BackendAddressPool(java.lang.String name) {
         this(name, BackendAddressPoolArgs.Empty);
     }
     /**
@@ -240,7 +240,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BackendAddressPool(String name, BackendAddressPoolArgs args) {
+    public BackendAddressPool(java.lang.String name, BackendAddressPoolArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,12 +249,12 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BackendAddressPool(String name, BackendAddressPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lb/backendAddressPool:BackendAddressPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BackendAddressPool(java.lang.String name, BackendAddressPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lb/backendAddressPool:BackendAddressPool", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BackendAddressPool(String name, Output<String> id, @Nullable BackendAddressPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:lb/backendAddressPool:BackendAddressPool", name, state, makeResourceOptions(options, id));
+    private BackendAddressPool(java.lang.String name, Output<java.lang.String> id, @Nullable BackendAddressPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:lb/backendAddressPool:BackendAddressPool", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BackendAddressPoolArgs makeArgs(BackendAddressPoolArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -264,7 +264,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
         return args == null ? BackendAddressPoolArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -280,7 +280,7 @@ public class BackendAddressPool extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BackendAddressPool get(String name, Output<String> id, @Nullable BackendAddressPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BackendAddressPool get(java.lang.String name, Output<java.lang.String> id, @Nullable BackendAddressPoolState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BackendAddressPool(name, id, state, options);
     }
 }

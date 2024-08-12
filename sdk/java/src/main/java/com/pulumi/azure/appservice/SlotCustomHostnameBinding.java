@@ -185,7 +185,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SlotCustomHostnameBinding(String name) {
+    public SlotCustomHostnameBinding(java.lang.String name) {
         this(name, SlotCustomHostnameBindingArgs.Empty);
     }
     /**
@@ -193,7 +193,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SlotCustomHostnameBinding(String name, SlotCustomHostnameBindingArgs args) {
+    public SlotCustomHostnameBinding(java.lang.String name, SlotCustomHostnameBindingArgs args) {
         this(name, args, null);
     }
     /**
@@ -202,12 +202,12 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SlotCustomHostnameBinding(String name, SlotCustomHostnameBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SlotCustomHostnameBinding(java.lang.String name, SlotCustomHostnameBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SlotCustomHostnameBinding(String name, Output<String> id, @Nullable SlotCustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding", name, state, makeResourceOptions(options, id));
+    private SlotCustomHostnameBinding(java.lang.String name, Output<java.lang.String> id, @Nullable SlotCustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SlotCustomHostnameBindingArgs makeArgs(SlotCustomHostnameBindingArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -217,7 +217,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
         return args == null ? SlotCustomHostnameBindingArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -233,7 +233,7 @@ public class SlotCustomHostnameBinding extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SlotCustomHostnameBinding get(String name, Output<String> id, @Nullable SlotCustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SlotCustomHostnameBinding get(java.lang.String name, Output<java.lang.String> id, @Nullable SlotCustomHostnameBindingState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SlotCustomHostnameBinding(name, id, state, options);
     }
 }

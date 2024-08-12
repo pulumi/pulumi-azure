@@ -257,7 +257,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Subscription(String name) {
+    public Subscription(java.lang.String name) {
         this(name, SubscriptionArgs.Empty);
     }
     /**
@@ -265,7 +265,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Subscription(String name, SubscriptionArgs args) {
+    public Subscription(java.lang.String name, SubscriptionArgs args) {
         this(name, args, null);
     }
     /**
@@ -274,12 +274,12 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Subscription(String name, SubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/subscription:Subscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Subscription(java.lang.String name, SubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/subscription:Subscription", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Subscription(String name, Output<String> id, @Nullable SubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/subscription:Subscription", name, state, makeResourceOptions(options, id));
+    private Subscription(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/subscription:Subscription", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SubscriptionArgs makeArgs(SubscriptionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -289,7 +289,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
         return args == null ? SubscriptionArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -309,7 +309,7 @@ public class Subscription extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Subscription get(String name, Output<String> id, @Nullable SubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Subscription get(java.lang.String name, Output<java.lang.String> id, @Nullable SubscriptionState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Subscription(name, id, state, options);
     }
 }

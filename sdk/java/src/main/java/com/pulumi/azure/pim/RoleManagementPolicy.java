@@ -56,12 +56,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-rg")
  *             .location("East US")
@@ -100,21 +100,21 @@ import javax.annotation.Nullable;
  *                     .approverNotifications(RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs.builder()
  *                         .notificationLevel("Critical")
  *                         .defaultRecipients(false)
- *                         .additionalRecipients("someone{@literal @}example.com")
+ *                         .additionalRecipients("someone}{@literal @}{@code example.com")
  *                         .build())
  *                     .build())
  *                 .eligibleActivations(RoleManagementPolicyNotificationRulesEligibleActivationsArgs.builder()
  *                     .assigneeNotifications(RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs.builder()
  *                         .notificationLevel("All")
  *                         .defaultRecipients(true)
- *                         .additionalRecipients("someone.else{@literal @}example.com")
+ *                         .additionalRecipients("someone.else}{@literal @}{@code example.com")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -148,12 +148,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new Group("example", GroupArgs.builder()
  *             .name("example-group")
  *             .build());
@@ -181,14 +181,14 @@ import javax.annotation.Nullable;
  *                     .adminNotifications(RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs.builder()
  *                         .notificationLevel("Critical")
  *                         .defaultRecipients(false)
- *                         .additionalRecipients("someone{@literal @}example.com")
+ *                         .additionalRecipients("someone}{@literal @}{@code example.com")
  *                         .build())
  *                     .build())
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -321,7 +321,7 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public RoleManagementPolicy(String name) {
+    public RoleManagementPolicy(java.lang.String name) {
         this(name, RoleManagementPolicyArgs.Empty);
     }
     /**
@@ -329,7 +329,7 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public RoleManagementPolicy(String name, RoleManagementPolicyArgs args) {
+    public RoleManagementPolicy(java.lang.String name, RoleManagementPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -338,12 +338,12 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public RoleManagementPolicy(String name, RoleManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:pim/roleManagementPolicy:RoleManagementPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public RoleManagementPolicy(java.lang.String name, RoleManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:pim/roleManagementPolicy:RoleManagementPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private RoleManagementPolicy(String name, Output<String> id, @Nullable RoleManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:pim/roleManagementPolicy:RoleManagementPolicy", name, state, makeResourceOptions(options, id));
+    private RoleManagementPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable RoleManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:pim/roleManagementPolicy:RoleManagementPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static RoleManagementPolicyArgs makeArgs(RoleManagementPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -353,7 +353,7 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
         return args == null ? RoleManagementPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -369,7 +369,7 @@ public class RoleManagementPolicy extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static RoleManagementPolicy get(String name, Output<String> id, @Nullable RoleManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static RoleManagementPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable RoleManagementPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new RoleManagementPolicy(name, id, state, options);
     }
 }

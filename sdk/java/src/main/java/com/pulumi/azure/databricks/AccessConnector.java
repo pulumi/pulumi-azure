@@ -154,7 +154,7 @@ public class AccessConnector extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AccessConnector(String name) {
+    public AccessConnector(java.lang.String name) {
         this(name, AccessConnectorArgs.Empty);
     }
     /**
@@ -162,7 +162,7 @@ public class AccessConnector extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AccessConnector(String name, AccessConnectorArgs args) {
+    public AccessConnector(java.lang.String name, AccessConnectorArgs args) {
         this(name, args, null);
     }
     /**
@@ -171,12 +171,12 @@ public class AccessConnector extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AccessConnector(String name, AccessConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:databricks/accessConnector:AccessConnector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AccessConnector(java.lang.String name, AccessConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:databricks/accessConnector:AccessConnector", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AccessConnector(String name, Output<String> id, @Nullable AccessConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:databricks/accessConnector:AccessConnector", name, state, makeResourceOptions(options, id));
+    private AccessConnector(java.lang.String name, Output<java.lang.String> id, @Nullable AccessConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:databricks/accessConnector:AccessConnector", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AccessConnectorArgs makeArgs(AccessConnectorArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -186,7 +186,7 @@ public class AccessConnector extends com.pulumi.resources.CustomResource {
         return args == null ? AccessConnectorArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -202,7 +202,7 @@ public class AccessConnector extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AccessConnector get(String name, Output<String> id, @Nullable AccessConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AccessConnector get(java.lang.String name, Output<java.lang.String> id, @Nullable AccessConnectorState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AccessConnector(name, id, state, options);
     }
 }

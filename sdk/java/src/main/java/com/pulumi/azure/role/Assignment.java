@@ -266,12 +266,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         final var primary = CoreFunctions.getSubscription();
  * 
  *         final var example = CoreFunctions.getClientConfig();
@@ -290,21 +290,21 @@ import javax.annotation.Nullable;
  *             .condition("""
  * (
  *  (
- *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})
+ *   !(ActionMatches}{{@code 'Microsoft.Authorization/roleAssignments/write'}}{@code )
  *  )
  *  OR
  *  (
- *  {@literal @}Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {%s}
+ *   }{@literal @}{@code Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals }{{@code %s}}{@code
  *  )
  * )
  * AND
  * (
  *  (
- *   !(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})
+ *   !(ActionMatches}{{@code 'Microsoft.Authorization/roleAssignments/delete'}}{@code )
  *  )
  *  OR
  *  (
- *  {@literal @}Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {%s}
+ *   }{@literal @}{@code Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals }{{@code %s}}{@code
  *  )
  * )
  * ", StdFunctions.basename(BasenameArgs.builder()
@@ -314,8 +314,8 @@ import javax.annotation.Nullable;
  *                 .build()).result()))
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -520,7 +520,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Assignment(String name) {
+    public Assignment(java.lang.String name) {
         this(name, AssignmentArgs.Empty);
     }
     /**
@@ -528,7 +528,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Assignment(String name, AssignmentArgs args) {
+    public Assignment(java.lang.String name, AssignmentArgs args) {
         this(name, args, null);
     }
     /**
@@ -537,12 +537,12 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Assignment(String name, AssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:role/assignment:Assignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Assignment(java.lang.String name, AssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:role/assignment:Assignment", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Assignment(String name, Output<String> id, @Nullable AssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:role/assignment:Assignment", name, state, makeResourceOptions(options, id));
+    private Assignment(java.lang.String name, Output<java.lang.String> id, @Nullable AssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:role/assignment:Assignment", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AssignmentArgs makeArgs(AssignmentArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -552,7 +552,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return args == null ? AssignmentArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -568,7 +568,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Assignment get(String name, Output<String> id, @Nullable AssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Assignment get(java.lang.String name, Output<java.lang.String> id, @Nullable AssignmentState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Assignment(name, id, state, options);
     }
 }

@@ -174,7 +174,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventHubConsumerGroup(String name) {
+    public EventHubConsumerGroup(java.lang.String name) {
         this(name, EventHubConsumerGroupArgs.Empty);
     }
     /**
@@ -182,7 +182,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventHubConsumerGroup(String name, EventHubConsumerGroupArgs args) {
+    public EventHubConsumerGroup(java.lang.String name, EventHubConsumerGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -191,12 +191,12 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventHubConsumerGroup(String name, EventHubConsumerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventHubConsumerGroup(java.lang.String name, EventHubConsumerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventHubConsumerGroup(String name, Output<String> id, @Nullable EventHubConsumerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, state, makeResourceOptions(options, id));
+    private EventHubConsumerGroup(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubConsumerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubConsumerGroup:EventHubConsumerGroup", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventHubConsumerGroupArgs makeArgs(EventHubConsumerGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -206,7 +206,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
         return args == null ? EventHubConsumerGroupArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -222,7 +222,7 @@ public class EventHubConsumerGroup extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventHubConsumerGroup get(String name, Output<String> id, @Nullable EventHubConsumerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventHubConsumerGroup get(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubConsumerGroupState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventHubConsumerGroup(name, id, state, options);
     }
 }

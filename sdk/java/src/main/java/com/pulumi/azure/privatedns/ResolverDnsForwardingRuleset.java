@@ -197,7 +197,7 @@ public class ResolverDnsForwardingRuleset extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResolverDnsForwardingRuleset(String name) {
+    public ResolverDnsForwardingRuleset(java.lang.String name) {
         this(name, ResolverDnsForwardingRulesetArgs.Empty);
     }
     /**
@@ -205,7 +205,7 @@ public class ResolverDnsForwardingRuleset extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResolverDnsForwardingRuleset(String name, ResolverDnsForwardingRulesetArgs args) {
+    public ResolverDnsForwardingRuleset(java.lang.String name, ResolverDnsForwardingRulesetArgs args) {
         this(name, args, null);
     }
     /**
@@ -214,12 +214,12 @@ public class ResolverDnsForwardingRuleset extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResolverDnsForwardingRuleset(String name, ResolverDnsForwardingRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResolverDnsForwardingRuleset(java.lang.String name, ResolverDnsForwardingRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResolverDnsForwardingRuleset(String name, Output<String> id, @Nullable ResolverDnsForwardingRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset", name, state, makeResourceOptions(options, id));
+    private ResolverDnsForwardingRuleset(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverDnsForwardingRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResolverDnsForwardingRulesetArgs makeArgs(ResolverDnsForwardingRulesetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -229,7 +229,7 @@ public class ResolverDnsForwardingRuleset extends com.pulumi.resources.CustomRes
         return args == null ? ResolverDnsForwardingRulesetArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -245,7 +245,7 @@ public class ResolverDnsForwardingRuleset extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResolverDnsForwardingRuleset get(String name, Output<String> id, @Nullable ResolverDnsForwardingRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResolverDnsForwardingRuleset get(java.lang.String name, Output<java.lang.String> id, @Nullable ResolverDnsForwardingRulesetState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResolverDnsForwardingRuleset(name, id, state, options);
     }
 }

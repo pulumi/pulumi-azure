@@ -149,7 +149,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ResourceGuard(String name) {
+    public ResourceGuard(java.lang.String name) {
         this(name, ResourceGuardArgs.Empty);
     }
     /**
@@ -157,7 +157,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceGuard(String name, ResourceGuardArgs args) {
+    public ResourceGuard(java.lang.String name, ResourceGuardArgs args) {
         this(name, args, null);
     }
     /**
@@ -166,12 +166,12 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceGuard(String name, ResourceGuardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/resourceGuard:ResourceGuard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ResourceGuard(java.lang.String name, ResourceGuardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/resourceGuard:ResourceGuard", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ResourceGuard(String name, Output<String> id, @Nullable ResourceGuardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/resourceGuard:ResourceGuard", name, state, makeResourceOptions(options, id));
+    private ResourceGuard(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGuardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/resourceGuard:ResourceGuard", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ResourceGuardArgs makeArgs(ResourceGuardArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -181,7 +181,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
         return args == null ? ResourceGuardArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -197,7 +197,7 @@ public class ResourceGuard extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ResourceGuard get(String name, Output<String> id, @Nullable ResourceGuardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ResourceGuard get(java.lang.String name, Output<java.lang.String> id, @Nullable ResourceGuardState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ResourceGuard(name, id, state, options);
     }
 }

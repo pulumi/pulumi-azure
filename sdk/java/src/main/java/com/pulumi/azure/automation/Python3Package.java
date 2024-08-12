@@ -204,7 +204,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Python3Package(String name) {
+    public Python3Package(java.lang.String name) {
         this(name, Python3PackageArgs.Empty);
     }
     /**
@@ -212,7 +212,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Python3Package(String name, Python3PackageArgs args) {
+    public Python3Package(java.lang.String name, Python3PackageArgs args) {
         this(name, args, null);
     }
     /**
@@ -221,12 +221,12 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Python3Package(String name, Python3PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/python3Package:Python3Package", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Python3Package(java.lang.String name, Python3PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/python3Package:Python3Package", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Python3Package(String name, Output<String> id, @Nullable Python3PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/python3Package:Python3Package", name, state, makeResourceOptions(options, id));
+    private Python3Package(java.lang.String name, Output<java.lang.String> id, @Nullable Python3PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/python3Package:Python3Package", name, state, makeResourceOptions(options, id), false);
     }
 
     private static Python3PackageArgs makeArgs(Python3PackageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -236,7 +236,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
         return args == null ? Python3PackageArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -252,7 +252,7 @@ public class Python3Package extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Python3Package get(String name, Output<String> id, @Nullable Python3PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Python3Package get(java.lang.String name, Output<java.lang.String> id, @Nullable Python3PackageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Python3Package(name, id, state, options);
     }
 }

@@ -388,7 +388,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EventHubNamespace(String name) {
+    public EventHubNamespace(java.lang.String name) {
         this(name, EventHubNamespaceArgs.Empty);
     }
     /**
@@ -396,7 +396,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventHubNamespace(String name, EventHubNamespaceArgs args) {
+    public EventHubNamespace(java.lang.String name, EventHubNamespaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -405,12 +405,12 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventHubNamespace(String name, EventHubNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubNamespace:EventHubNamespace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EventHubNamespace(java.lang.String name, EventHubNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubNamespace:EventHubNamespace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EventHubNamespace(String name, Output<String> id, @Nullable EventHubNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:eventhub/eventHubNamespace:EventHubNamespace", name, state, makeResourceOptions(options, id));
+    private EventHubNamespace(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:eventhub/eventHubNamespace:EventHubNamespace", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EventHubNamespaceArgs makeArgs(EventHubNamespaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -420,7 +420,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return args == null ? EventHubNamespaceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -444,7 +444,7 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EventHubNamespace get(String name, Output<String> id, @Nullable EventHubNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EventHubNamespace get(java.lang.String name, Output<java.lang.String> id, @Nullable EventHubNamespaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EventHubNamespace(name, id, state, options);
     }
 }

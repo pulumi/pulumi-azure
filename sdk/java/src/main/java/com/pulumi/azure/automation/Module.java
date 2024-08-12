@@ -146,7 +146,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Module(String name) {
+    public Module(java.lang.String name) {
         this(name, ModuleArgs.Empty);
     }
     /**
@@ -154,7 +154,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Module(String name, ModuleArgs args) {
+    public Module(java.lang.String name, ModuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -163,12 +163,12 @@ public class Module extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Module(String name, ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/module:Module", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Module(java.lang.String name, ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/module:Module", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Module(String name, Output<String> id, @Nullable ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:automation/module:Module", name, state, makeResourceOptions(options, id));
+    private Module(java.lang.String name, Output<java.lang.String> id, @Nullable ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:automation/module:Module", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ModuleArgs makeArgs(ModuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -178,7 +178,7 @@ public class Module extends com.pulumi.resources.CustomResource {
         return args == null ? ModuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -194,7 +194,7 @@ public class Module extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Module get(String name, Output<String> id, @Nullable ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Module get(java.lang.String name, Output<java.lang.String> id, @Nullable ModuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Module(name, id, state, options);
     }
 }

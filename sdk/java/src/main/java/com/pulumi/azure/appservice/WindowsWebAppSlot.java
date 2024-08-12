@@ -583,7 +583,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public WindowsWebAppSlot(String name) {
+    public WindowsWebAppSlot(java.lang.String name) {
         this(name, WindowsWebAppSlotArgs.Empty);
     }
     /**
@@ -591,7 +591,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public WindowsWebAppSlot(String name, WindowsWebAppSlotArgs args) {
+    public WindowsWebAppSlot(java.lang.String name, WindowsWebAppSlotArgs args) {
         this(name, args, null);
     }
     /**
@@ -600,12 +600,12 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public WindowsWebAppSlot(String name, WindowsWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public WindowsWebAppSlot(java.lang.String name, WindowsWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private WindowsWebAppSlot(String name, Output<String> id, @Nullable WindowsWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, state, makeResourceOptions(options, id));
+    private WindowsWebAppSlot(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appservice/windowsWebAppSlot:WindowsWebAppSlot", name, state, makeResourceOptions(options, id), false);
     }
 
     private static WindowsWebAppSlotArgs makeArgs(WindowsWebAppSlotArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -615,7 +615,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
         return args == null ? WindowsWebAppSlotArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -635,7 +635,7 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static WindowsWebAppSlot get(String name, Output<String> id, @Nullable WindowsWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static WindowsWebAppSlot get(java.lang.String name, Output<java.lang.String> id, @Nullable WindowsWebAppSlotState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new WindowsWebAppSlot(name, id, state, options);
     }
 }

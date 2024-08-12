@@ -316,7 +316,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public PolicyVM(String name) {
+    public PolicyVM(java.lang.String name) {
         this(name, PolicyVMArgs.Empty);
     }
     /**
@@ -324,7 +324,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public PolicyVM(String name, PolicyVMArgs args) {
+    public PolicyVM(java.lang.String name, PolicyVMArgs args) {
         this(name, args, null);
     }
     /**
@@ -333,12 +333,12 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public PolicyVM(String name, PolicyVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/policyVM:PolicyVM", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public PolicyVM(java.lang.String name, PolicyVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:backup/policyVM:PolicyVM", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private PolicyVM(String name, Output<String> id, @Nullable PolicyVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:backup/policyVM:PolicyVM", name, state, makeResourceOptions(options, id));
+    private PolicyVM(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:backup/policyVM:PolicyVM", name, state, makeResourceOptions(options, id), false);
     }
 
     private static PolicyVMArgs makeArgs(PolicyVMArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -348,7 +348,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
         return args == null ? PolicyVMArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -364,7 +364,7 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static PolicyVM get(String name, Output<String> id, @Nullable PolicyVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static PolicyVM get(java.lang.String name, Output<java.lang.String> id, @Nullable PolicyVMState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new PolicyVM(name, id, state, options);
     }
 }

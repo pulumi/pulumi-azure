@@ -211,7 +211,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public BackupInstanceBlogStorage(String name) {
+    public BackupInstanceBlogStorage(java.lang.String name) {
         this(name, BackupInstanceBlogStorageArgs.Empty);
     }
     /**
@@ -219,7 +219,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public BackupInstanceBlogStorage(String name, BackupInstanceBlogStorageArgs args) {
+    public BackupInstanceBlogStorage(java.lang.String name, BackupInstanceBlogStorageArgs args) {
         this(name, args, null);
     }
     /**
@@ -228,12 +228,12 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public BackupInstanceBlogStorage(String name, BackupInstanceBlogStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public BackupInstanceBlogStorage(java.lang.String name, BackupInstanceBlogStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private BackupInstanceBlogStorage(String name, Output<String> id, @Nullable BackupInstanceBlogStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage", name, state, makeResourceOptions(options, id));
+    private BackupInstanceBlogStorage(java.lang.String name, Output<java.lang.String> id, @Nullable BackupInstanceBlogStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage", name, state, makeResourceOptions(options, id), false);
     }
 
     private static BackupInstanceBlogStorageArgs makeArgs(BackupInstanceBlogStorageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -243,7 +243,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
         return args == null ? BackupInstanceBlogStorageArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -259,7 +259,7 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static BackupInstanceBlogStorage get(String name, Output<String> id, @Nullable BackupInstanceBlogStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static BackupInstanceBlogStorage get(java.lang.String name, Output<java.lang.String> id, @Nullable BackupInstanceBlogStorageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new BackupInstanceBlogStorage(name, id, state, options);
     }
 }

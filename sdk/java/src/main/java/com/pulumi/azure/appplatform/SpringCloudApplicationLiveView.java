@@ -116,7 +116,7 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudApplicationLiveView(String name) {
+    public SpringCloudApplicationLiveView(java.lang.String name) {
         this(name, SpringCloudApplicationLiveViewArgs.Empty);
     }
     /**
@@ -124,7 +124,7 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudApplicationLiveView(String name, SpringCloudApplicationLiveViewArgs args) {
+    public SpringCloudApplicationLiveView(java.lang.String name, SpringCloudApplicationLiveViewArgs args) {
         this(name, args, null);
     }
     /**
@@ -133,12 +133,12 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudApplicationLiveView(String name, SpringCloudApplicationLiveViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudApplicationLiveView(java.lang.String name, SpringCloudApplicationLiveViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudApplicationLiveView(String name, Output<String> id, @Nullable SpringCloudApplicationLiveViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", name, state, makeResourceOptions(options, id));
+    private SpringCloudApplicationLiveView(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudApplicationLiveViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudApplicationLiveView:SpringCloudApplicationLiveView", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SpringCloudApplicationLiveViewArgs makeArgs(SpringCloudApplicationLiveViewArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -148,7 +148,7 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
         return args == null ? SpringCloudApplicationLiveViewArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -164,7 +164,7 @@ public class SpringCloudApplicationLiveView extends com.pulumi.resources.CustomR
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudApplicationLiveView get(String name, Output<String> id, @Nullable SpringCloudApplicationLiveViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudApplicationLiveView get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudApplicationLiveViewState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudApplicationLiveView(name, id, state, options);
     }
 }

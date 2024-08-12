@@ -143,7 +143,7 @@ public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pul
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkInterfaceApplicationSecurityGroupAssociation(String name) {
+    public NetworkInterfaceApplicationSecurityGroupAssociation(java.lang.String name) {
         this(name, NetworkInterfaceApplicationSecurityGroupAssociationArgs.Empty);
     }
     /**
@@ -151,7 +151,7 @@ public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pul
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkInterfaceApplicationSecurityGroupAssociation(String name, NetworkInterfaceApplicationSecurityGroupAssociationArgs args) {
+    public NetworkInterfaceApplicationSecurityGroupAssociation(java.lang.String name, NetworkInterfaceApplicationSecurityGroupAssociationArgs args) {
         this(name, args, null);
     }
     /**
@@ -160,12 +160,12 @@ public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pul
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkInterfaceApplicationSecurityGroupAssociation(String name, NetworkInterfaceApplicationSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkInterfaceApplicationSecurityGroupAssociation(java.lang.String name, NetworkInterfaceApplicationSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkInterfaceApplicationSecurityGroupAssociation(String name, Output<String> id, @Nullable NetworkInterfaceApplicationSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, state, makeResourceOptions(options, id));
+    private NetworkInterfaceApplicationSecurityGroupAssociation(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceApplicationSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkInterfaceApplicationSecurityGroupAssociationArgs makeArgs(NetworkInterfaceApplicationSecurityGroupAssociationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -175,7 +175,7 @@ public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pul
         return args == null ? NetworkInterfaceApplicationSecurityGroupAssociationArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -191,7 +191,7 @@ public class NetworkInterfaceApplicationSecurityGroupAssociation extends com.pul
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkInterfaceApplicationSecurityGroupAssociation get(String name, Output<String> id, @Nullable NetworkInterfaceApplicationSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkInterfaceApplicationSecurityGroupAssociation get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkInterfaceApplicationSecurityGroupAssociationState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkInterfaceApplicationSecurityGroupAssociation(name, id, state, options);
     }
 }

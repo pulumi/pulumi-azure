@@ -39,12 +39,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}terraform.io")
+ *             .publisherEmail("company}{@literal @}{@code terraform.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -78,8 +78,8 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -202,7 +202,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EmailTemplate(String name) {
+    public EmailTemplate(java.lang.String name) {
         this(name, EmailTemplateArgs.Empty);
     }
     /**
@@ -210,7 +210,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EmailTemplate(String name, EmailTemplateArgs args) {
+    public EmailTemplate(java.lang.String name, EmailTemplateArgs args) {
         this(name, args, null);
     }
     /**
@@ -219,12 +219,12 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EmailTemplate(String name, EmailTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/emailTemplate:EmailTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EmailTemplate(java.lang.String name, EmailTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/emailTemplate:EmailTemplate", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EmailTemplate(String name, Output<String> id, @Nullable EmailTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/emailTemplate:EmailTemplate", name, state, makeResourceOptions(options, id));
+    private EmailTemplate(java.lang.String name, Output<java.lang.String> id, @Nullable EmailTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/emailTemplate:EmailTemplate", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EmailTemplateArgs makeArgs(EmailTemplateArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -234,7 +234,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
         return args == null ? EmailTemplateArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -250,7 +250,7 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EmailTemplate get(String name, Output<String> id, @Nullable EmailTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EmailTemplate get(java.lang.String name, Output<java.lang.String> id, @Nullable EmailTemplateState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EmailTemplate(name, id, state, options);
     }
 }

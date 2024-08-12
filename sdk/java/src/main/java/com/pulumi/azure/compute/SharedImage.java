@@ -476,7 +476,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SharedImage(String name) {
+    public SharedImage(java.lang.String name) {
         this(name, SharedImageArgs.Empty);
     }
     /**
@@ -484,7 +484,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SharedImage(String name, SharedImageArgs args) {
+    public SharedImage(java.lang.String name, SharedImageArgs args) {
         this(name, args, null);
     }
     /**
@@ -493,12 +493,12 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SharedImage(String name, SharedImageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/sharedImage:SharedImage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SharedImage(java.lang.String name, SharedImageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/sharedImage:SharedImage", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SharedImage(String name, Output<String> id, @Nullable SharedImageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:compute/sharedImage:SharedImage", name, state, makeResourceOptions(options, id));
+    private SharedImage(java.lang.String name, Output<java.lang.String> id, @Nullable SharedImageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:compute/sharedImage:SharedImage", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SharedImageArgs makeArgs(SharedImageArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -508,7 +508,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return args == null ? SharedImageArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -524,7 +524,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SharedImage get(String name, Output<String> id, @Nullable SharedImageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SharedImage get(java.lang.String name, Output<java.lang.String> id, @Nullable SharedImageState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SharedImage(name, id, state, options);
     }
 }

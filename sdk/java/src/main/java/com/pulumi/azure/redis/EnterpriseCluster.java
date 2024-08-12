@@ -192,7 +192,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public EnterpriseCluster(String name) {
+    public EnterpriseCluster(java.lang.String name) {
         this(name, EnterpriseClusterArgs.Empty);
     }
     /**
@@ -200,7 +200,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EnterpriseCluster(String name, EnterpriseClusterArgs args) {
+    public EnterpriseCluster(java.lang.String name, EnterpriseClusterArgs args) {
         this(name, args, null);
     }
     /**
@@ -209,12 +209,12 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EnterpriseCluster(String name, EnterpriseClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/enterpriseCluster:EnterpriseCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public EnterpriseCluster(java.lang.String name, EnterpriseClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:redis/enterpriseCluster:EnterpriseCluster", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private EnterpriseCluster(String name, Output<String> id, @Nullable EnterpriseClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:redis/enterpriseCluster:EnterpriseCluster", name, state, makeResourceOptions(options, id));
+    private EnterpriseCluster(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:redis/enterpriseCluster:EnterpriseCluster", name, state, makeResourceOptions(options, id), false);
     }
 
     private static EnterpriseClusterArgs makeArgs(EnterpriseClusterArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -224,7 +224,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
         return args == null ? EnterpriseClusterArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -240,7 +240,7 @@ public class EnterpriseCluster extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static EnterpriseCluster get(String name, Output<String> id, @Nullable EnterpriseClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static EnterpriseCluster get(java.lang.String name, Output<java.lang.String> id, @Nullable EnterpriseClusterState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new EnterpriseCluster(name, id, state, options);
     }
 }

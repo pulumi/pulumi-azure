@@ -239,7 +239,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ServerSecurityAlertPolicy(String name) {
+    public ServerSecurityAlertPolicy(java.lang.String name) {
         this(name, ServerSecurityAlertPolicyArgs.Empty);
     }
     /**
@@ -247,7 +247,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServerSecurityAlertPolicy(String name, ServerSecurityAlertPolicyArgs args) {
+    public ServerSecurityAlertPolicy(java.lang.String name, ServerSecurityAlertPolicyArgs args) {
         this(name, args, null);
     }
     /**
@@ -256,12 +256,12 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServerSecurityAlertPolicy(String name, ServerSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ServerSecurityAlertPolicy(java.lang.String name, ServerSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ServerSecurityAlertPolicy(String name, Output<String> id, @Nullable ServerSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, state, makeResourceOptions(options, id));
+    private ServerSecurityAlertPolicy(java.lang.String name, Output<java.lang.String> id, @Nullable ServerSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ServerSecurityAlertPolicyArgs makeArgs(ServerSecurityAlertPolicyArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -271,7 +271,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
         return args == null ? ServerSecurityAlertPolicyArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -290,7 +290,7 @@ public class ServerSecurityAlertPolicy extends com.pulumi.resources.CustomResour
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ServerSecurityAlertPolicy get(String name, Output<String> id, @Nullable ServerSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ServerSecurityAlertPolicy get(java.lang.String name, Output<java.lang.String> id, @Nullable ServerSecurityAlertPolicyState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ServerSecurityAlertPolicy(name, id, state, options);
     }
 }

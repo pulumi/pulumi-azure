@@ -199,7 +199,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LogProfile(String name) {
+    public LogProfile(java.lang.String name) {
         this(name, LogProfileArgs.Empty);
     }
     /**
@@ -207,7 +207,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LogProfile(String name, LogProfileArgs args) {
+    public LogProfile(java.lang.String name, LogProfileArgs args) {
         this(name, args, null);
     }
     /**
@@ -216,12 +216,12 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LogProfile(String name, LogProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/logProfile:LogProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LogProfile(java.lang.String name, LogProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/logProfile:LogProfile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LogProfile(String name, Output<String> id, @Nullable LogProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:monitoring/logProfile:LogProfile", name, state, makeResourceOptions(options, id));
+    private LogProfile(java.lang.String name, Output<java.lang.String> id, @Nullable LogProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:monitoring/logProfile:LogProfile", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LogProfileArgs makeArgs(LogProfileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -231,7 +231,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
         return args == null ? LogProfileArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -247,7 +247,7 @@ public class LogProfile extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LogProfile get(String name, Output<String> id, @Nullable LogProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LogProfile get(java.lang.String name, Output<java.lang.String> id, @Nullable LogProfileState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LogProfile(name, id, state, options);
     }
 }

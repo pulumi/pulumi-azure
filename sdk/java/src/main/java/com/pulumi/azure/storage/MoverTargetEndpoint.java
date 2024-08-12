@@ -176,7 +176,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public MoverTargetEndpoint(String name) {
+    public MoverTargetEndpoint(java.lang.String name) {
         this(name, MoverTargetEndpointArgs.Empty);
     }
     /**
@@ -184,7 +184,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public MoverTargetEndpoint(String name, MoverTargetEndpointArgs args) {
+    public MoverTargetEndpoint(java.lang.String name, MoverTargetEndpointArgs args) {
         this(name, args, null);
     }
     /**
@@ -193,12 +193,12 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public MoverTargetEndpoint(String name, MoverTargetEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/moverTargetEndpoint:MoverTargetEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public MoverTargetEndpoint(java.lang.String name, MoverTargetEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/moverTargetEndpoint:MoverTargetEndpoint", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private MoverTargetEndpoint(String name, Output<String> id, @Nullable MoverTargetEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:storage/moverTargetEndpoint:MoverTargetEndpoint", name, state, makeResourceOptions(options, id));
+    private MoverTargetEndpoint(java.lang.String name, Output<java.lang.String> id, @Nullable MoverTargetEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:storage/moverTargetEndpoint:MoverTargetEndpoint", name, state, makeResourceOptions(options, id), false);
     }
 
     private static MoverTargetEndpointArgs makeArgs(MoverTargetEndpointArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -208,7 +208,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
         return args == null ? MoverTargetEndpointArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -224,7 +224,7 @@ public class MoverTargetEndpoint extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static MoverTargetEndpoint get(String name, Output<String> id, @Nullable MoverTargetEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static MoverTargetEndpoint get(java.lang.String name, Output<java.lang.String> id, @Nullable MoverTargetEndpointState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new MoverTargetEndpoint(name, id, state, options);
     }
 }

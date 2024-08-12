@@ -138,7 +138,7 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SqlDedicatedGateway(String name) {
+    public SqlDedicatedGateway(java.lang.String name) {
         this(name, SqlDedicatedGatewayArgs.Empty);
     }
     /**
@@ -146,7 +146,7 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SqlDedicatedGateway(String name, SqlDedicatedGatewayArgs args) {
+    public SqlDedicatedGateway(java.lang.String name, SqlDedicatedGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -155,12 +155,12 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SqlDedicatedGateway(String name, SqlDedicatedGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SqlDedicatedGateway(java.lang.String name, SqlDedicatedGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SqlDedicatedGateway(String name, Output<String> id, @Nullable SqlDedicatedGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, state, makeResourceOptions(options, id));
+    private SqlDedicatedGateway(java.lang.String name, Output<java.lang.String> id, @Nullable SqlDedicatedGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SqlDedicatedGatewayArgs makeArgs(SqlDedicatedGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -170,7 +170,7 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
         return args == null ? SqlDedicatedGatewayArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -186,7 +186,7 @@ public class SqlDedicatedGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SqlDedicatedGateway get(String name, Output<String> id, @Nullable SqlDedicatedGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SqlDedicatedGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable SqlDedicatedGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SqlDedicatedGateway(name, id, state, options);
     }
 }

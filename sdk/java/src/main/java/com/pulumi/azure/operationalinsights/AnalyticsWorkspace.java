@@ -371,7 +371,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public AnalyticsWorkspace(String name) {
+    public AnalyticsWorkspace(java.lang.String name) {
         this(name, AnalyticsWorkspaceArgs.Empty);
     }
     /**
@@ -379,7 +379,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AnalyticsWorkspace(String name, AnalyticsWorkspaceArgs args) {
+    public AnalyticsWorkspace(java.lang.String name, AnalyticsWorkspaceArgs args) {
         this(name, args, null);
     }
     /**
@@ -388,12 +388,12 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AnalyticsWorkspace(String name, AnalyticsWorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public AnalyticsWorkspace(java.lang.String name, AnalyticsWorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private AnalyticsWorkspace(String name, Output<String> id, @Nullable AnalyticsWorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, state, makeResourceOptions(options, id));
+    private AnalyticsWorkspace(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsWorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace", name, state, makeResourceOptions(options, id), false);
     }
 
     private static AnalyticsWorkspaceArgs makeArgs(AnalyticsWorkspaceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -403,7 +403,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return args == null ? AnalyticsWorkspaceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -423,7 +423,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static AnalyticsWorkspace get(String name, Output<String> id, @Nullable AnalyticsWorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static AnalyticsWorkspace get(java.lang.String name, Output<java.lang.String> id, @Nullable AnalyticsWorkspaceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new AnalyticsWorkspace(name, id, state, options);
     }
 }

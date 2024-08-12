@@ -257,7 +257,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public Provider(String name) {
+    public Provider(java.lang.String name) {
         this(name, ProviderArgs.Empty);
     }
     /**
@@ -265,7 +265,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Provider(String name, ProviderArgs args) {
+    public Provider(java.lang.String name, ProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -274,12 +274,12 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Provider(String name, ProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:attestation/provider:Provider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public Provider(java.lang.String name, ProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:attestation/provider:Provider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private Provider(String name, Output<String> id, @Nullable ProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:attestation/provider:Provider", name, state, makeResourceOptions(options, id));
+    private Provider(java.lang.String name, Output<java.lang.String> id, @Nullable ProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:attestation/provider:Provider", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ProviderArgs makeArgs(ProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -289,7 +289,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
         return args == null ? ProviderArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -305,7 +305,7 @@ public class Provider extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static Provider get(String name, Output<String> id, @Nullable ProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static Provider get(java.lang.String name, Output<java.lang.String> id, @Nullable ProviderState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new Provider(name, id, state, options);
     }
 }

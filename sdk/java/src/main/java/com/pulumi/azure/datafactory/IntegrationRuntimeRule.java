@@ -213,7 +213,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public IntegrationRuntimeRule(String name) {
+    public IntegrationRuntimeRule(java.lang.String name) {
         this(name, IntegrationRuntimeRuleArgs.Empty);
     }
     /**
@@ -221,7 +221,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IntegrationRuntimeRule(String name, IntegrationRuntimeRuleArgs args) {
+    public IntegrationRuntimeRule(java.lang.String name, IntegrationRuntimeRuleArgs args) {
         this(name, args, null);
     }
     /**
@@ -230,12 +230,12 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IntegrationRuntimeRule(String name, IntegrationRuntimeRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public IntegrationRuntimeRule(java.lang.String name, IntegrationRuntimeRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private IntegrationRuntimeRule(String name, Output<String> id, @Nullable IntegrationRuntimeRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule", name, state, makeResourceOptions(options, id));
+    private IntegrationRuntimeRule(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule", name, state, makeResourceOptions(options, id), false);
     }
 
     private static IntegrationRuntimeRuleArgs makeArgs(IntegrationRuntimeRuleArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -245,7 +245,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
         return args == null ? IntegrationRuntimeRuleArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -261,7 +261,7 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static IntegrationRuntimeRule get(String name, Output<String> id, @Nullable IntegrationRuntimeRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static IntegrationRuntimeRule get(java.lang.String name, Output<java.lang.String> id, @Nullable IntegrationRuntimeRuleState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new IntegrationRuntimeRule(name, id, state, options);
     }
 }

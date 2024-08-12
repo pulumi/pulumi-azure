@@ -318,7 +318,7 @@ public class NetworkPacketCapture extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkPacketCapture(String name) {
+    public NetworkPacketCapture(java.lang.String name) {
         this(name, NetworkPacketCaptureArgs.Empty);
     }
     /**
@@ -326,7 +326,7 @@ public class NetworkPacketCapture extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkPacketCapture(String name, NetworkPacketCaptureArgs args) {
+    public NetworkPacketCapture(java.lang.String name, NetworkPacketCaptureArgs args) {
         this(name, args, null);
     }
     /**
@@ -335,12 +335,12 @@ public class NetworkPacketCapture extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkPacketCapture(String name, NetworkPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkPacketCapture:NetworkPacketCapture", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkPacketCapture(java.lang.String name, NetworkPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkPacketCapture:NetworkPacketCapture", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkPacketCapture(String name, Output<String> id, @Nullable NetworkPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:network/networkPacketCapture:NetworkPacketCapture", name, state, makeResourceOptions(options, id));
+    private NetworkPacketCapture(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:network/networkPacketCapture:NetworkPacketCapture", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkPacketCaptureArgs makeArgs(NetworkPacketCaptureArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -350,7 +350,7 @@ public class NetworkPacketCapture extends com.pulumi.resources.CustomResource {
         return args == null ? NetworkPacketCaptureArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -366,7 +366,7 @@ public class NetworkPacketCapture extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkPacketCapture get(String name, Output<String> id, @Nullable NetworkPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkPacketCapture get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkPacketCaptureState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkPacketCapture(name, id, state, options);
     }
 }

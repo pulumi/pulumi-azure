@@ -321,7 +321,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceSqlServer(String name) {
+    public LinkedServiceSqlServer(java.lang.String name) {
         this(name, LinkedServiceSqlServerArgs.Empty);
     }
     /**
@@ -329,7 +329,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceSqlServer(String name, LinkedServiceSqlServerArgs args) {
+    public LinkedServiceSqlServer(java.lang.String name, LinkedServiceSqlServerArgs args) {
         this(name, args, null);
     }
     /**
@@ -338,12 +338,12 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceSqlServer(String name, LinkedServiceSqlServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceSqlServer(java.lang.String name, LinkedServiceSqlServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceSqlServer(String name, Output<String> id, @Nullable LinkedServiceSqlServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, state, makeResourceOptions(options, id));
+    private LinkedServiceSqlServer(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceSqlServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinkedServiceSqlServerArgs makeArgs(LinkedServiceSqlServerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -353,7 +353,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
         return args == null ? LinkedServiceSqlServerArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -369,7 +369,7 @@ public class LinkedServiceSqlServer extends com.pulumi.resources.CustomResource 
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceSqlServer get(String name, Output<String> id, @Nullable LinkedServiceSqlServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceSqlServer get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceSqlServerState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceSqlServer(name, id, state, options);
     }
 }

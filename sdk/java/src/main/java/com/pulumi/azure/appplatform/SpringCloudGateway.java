@@ -373,7 +373,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public SpringCloudGateway(String name) {
+    public SpringCloudGateway(java.lang.String name) {
         this(name, SpringCloudGatewayArgs.Empty);
     }
     /**
@@ -381,7 +381,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SpringCloudGateway(String name, SpringCloudGatewayArgs args) {
+    public SpringCloudGateway(java.lang.String name, SpringCloudGatewayArgs args) {
         this(name, args, null);
     }
     /**
@@ -390,12 +390,12 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SpringCloudGateway(String name, SpringCloudGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudGateway:SpringCloudGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public SpringCloudGateway(java.lang.String name, SpringCloudGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudGateway:SpringCloudGateway", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private SpringCloudGateway(String name, Output<String> id, @Nullable SpringCloudGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:appplatform/springCloudGateway:SpringCloudGateway", name, state, makeResourceOptions(options, id));
+    private SpringCloudGateway(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:appplatform/springCloudGateway:SpringCloudGateway", name, state, makeResourceOptions(options, id), false);
     }
 
     private static SpringCloudGatewayArgs makeArgs(SpringCloudGatewayArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -405,7 +405,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
         return args == null ? SpringCloudGatewayArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -424,7 +424,7 @@ public class SpringCloudGateway extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static SpringCloudGateway get(String name, Output<String> id, @Nullable SpringCloudGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static SpringCloudGateway get(java.lang.String name, Output<java.lang.String> id, @Nullable SpringCloudGatewayState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new SpringCloudGateway(name, id, state, options);
     }
 }

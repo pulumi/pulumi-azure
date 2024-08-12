@@ -179,7 +179,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public NetworkSlice(String name) {
+    public NetworkSlice(java.lang.String name) {
         this(name, NetworkSliceArgs.Empty);
     }
     /**
@@ -187,7 +187,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public NetworkSlice(String name, NetworkSliceArgs args) {
+    public NetworkSlice(java.lang.String name, NetworkSliceArgs args) {
         this(name, args, null);
     }
     /**
@@ -196,12 +196,12 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public NetworkSlice(String name, NetworkSliceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkSlice:NetworkSlice", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public NetworkSlice(java.lang.String name, NetworkSliceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkSlice:NetworkSlice", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private NetworkSlice(String name, Output<String> id, @Nullable NetworkSliceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mobile/networkSlice:NetworkSlice", name, state, makeResourceOptions(options, id));
+    private NetworkSlice(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkSliceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mobile/networkSlice:NetworkSlice", name, state, makeResourceOptions(options, id), false);
     }
 
     private static NetworkSliceArgs makeArgs(NetworkSliceArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -211,7 +211,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
         return args == null ? NetworkSliceArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -227,7 +227,7 @@ public class NetworkSlice extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static NetworkSlice get(String name, Output<String> id, @Nullable NetworkSliceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static NetworkSlice get(java.lang.String name, Output<java.lang.String> id, @Nullable NetworkSliceState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new NetworkSlice(name, id, state, options);
     }
 }

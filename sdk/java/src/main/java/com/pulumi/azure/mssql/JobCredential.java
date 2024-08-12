@@ -162,7 +162,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public JobCredential(String name) {
+    public JobCredential(java.lang.String name) {
         this(name, JobCredentialArgs.Empty);
     }
     /**
@@ -170,7 +170,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public JobCredential(String name, JobCredentialArgs args) {
+    public JobCredential(java.lang.String name, JobCredentialArgs args) {
         this(name, args, null);
     }
     /**
@@ -179,12 +179,12 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public JobCredential(String name, JobCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/jobCredential:JobCredential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public JobCredential(java.lang.String name, JobCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/jobCredential:JobCredential", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private JobCredential(String name, Output<String> id, @Nullable JobCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:mssql/jobCredential:JobCredential", name, state, makeResourceOptions(options, id));
+    private JobCredential(java.lang.String name, Output<java.lang.String> id, @Nullable JobCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:mssql/jobCredential:JobCredential", name, state, makeResourceOptions(options, id), false);
     }
 
     private static JobCredentialArgs makeArgs(JobCredentialArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -194,7 +194,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
         return args == null ? JobCredentialArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -213,7 +213,7 @@ public class JobCredential extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static JobCredential get(String name, Output<String> id, @Nullable JobCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static JobCredential get(java.lang.String name, Output<java.lang.String> id, @Nullable JobCredentialState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new JobCredential(name, id, state, options);
     }
 }

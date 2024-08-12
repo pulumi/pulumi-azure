@@ -395,7 +395,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public LinkedServiceAzureDatabricks(String name) {
+    public LinkedServiceAzureDatabricks(java.lang.String name) {
         this(name, LinkedServiceAzureDatabricksArgs.Empty);
     }
     /**
@@ -403,7 +403,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LinkedServiceAzureDatabricks(String name, LinkedServiceAzureDatabricksArgs args) {
+    public LinkedServiceAzureDatabricks(java.lang.String name, LinkedServiceAzureDatabricksArgs args) {
         this(name, args, null);
     }
     /**
@@ -412,12 +412,12 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LinkedServiceAzureDatabricks(String name, LinkedServiceAzureDatabricksArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public LinkedServiceAzureDatabricks(java.lang.String name, LinkedServiceAzureDatabricksArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private LinkedServiceAzureDatabricks(String name, Output<String> id, @Nullable LinkedServiceAzureDatabricksState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, state, makeResourceOptions(options, id));
+    private LinkedServiceAzureDatabricks(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureDatabricksState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:datafactory/linkedServiceAzureDatabricks:LinkedServiceAzureDatabricks", name, state, makeResourceOptions(options, id), false);
     }
 
     private static LinkedServiceAzureDatabricksArgs makeArgs(LinkedServiceAzureDatabricksArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -427,7 +427,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
         return args == null ? LinkedServiceAzureDatabricksArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
@@ -446,7 +446,7 @@ public class LinkedServiceAzureDatabricks extends com.pulumi.resources.CustomRes
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static LinkedServiceAzureDatabricks get(String name, Output<String> id, @Nullable LinkedServiceAzureDatabricksState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static LinkedServiceAzureDatabricks get(java.lang.String name, Output<java.lang.String> id, @Nullable LinkedServiceAzureDatabricksState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new LinkedServiceAzureDatabricks(name, id, state, options);
     }
 }

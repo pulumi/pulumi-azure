@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
  *             .name("example-resources")
  *             .location("West Europe")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .publisherName("My Company")
- *             .publisherEmail("company{@literal @}mycompany.io")
+ *             .publisherEmail("company}{@literal @}{@code mycompany.io")
  *             .skuName("Developer_1")
  *             .build());
  * 
@@ -149,8 +149,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
@@ -381,7 +381,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public ApiDiagnostic(String name) {
+    public ApiDiagnostic(java.lang.String name) {
         this(name, ApiDiagnosticArgs.Empty);
     }
     /**
@@ -389,7 +389,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ApiDiagnostic(String name, ApiDiagnosticArgs args) {
+    public ApiDiagnostic(java.lang.String name, ApiDiagnosticArgs args) {
         this(name, args, null);
     }
     /**
@@ -398,12 +398,12 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ApiDiagnostic(String name, ApiDiagnosticArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiDiagnostic:ApiDiagnostic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()));
+    public ApiDiagnostic(java.lang.String name, ApiDiagnosticArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiDiagnostic:ApiDiagnostic", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
-    private ApiDiagnostic(String name, Output<String> id, @Nullable ApiDiagnosticState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
-        super("azure:apimanagement/apiDiagnostic:ApiDiagnostic", name, state, makeResourceOptions(options, id));
+    private ApiDiagnostic(java.lang.String name, Output<java.lang.String> id, @Nullable ApiDiagnosticState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+        super("azure:apimanagement/apiDiagnostic:ApiDiagnostic", name, state, makeResourceOptions(options, id), false);
     }
 
     private static ApiDiagnosticArgs makeArgs(ApiDiagnosticArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
@@ -413,7 +413,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
         return args == null ? ApiDiagnosticArgs.Empty : args;
     }
 
-    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
+    private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
@@ -429,7 +429,7 @@ public class ApiDiagnostic extends com.pulumi.resources.CustomResource {
      * @param state
      * @param options Optional settings to control the behavior of the CustomResource.
      */
-    public static ApiDiagnostic get(String name, Output<String> id, @Nullable ApiDiagnosticState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public static ApiDiagnostic get(java.lang.String name, Output<java.lang.String> id, @Nullable ApiDiagnosticState state, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         return new ApiDiagnostic(name, id, state, options);
     }
 }
