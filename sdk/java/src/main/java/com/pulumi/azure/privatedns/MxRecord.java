@@ -110,14 +110,14 @@ public class MxRecord extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}' for root zone entry.
+     * The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}' for root zone entry.
+     * @return The name of the DNS MX Record. Changing this forces a new resource to be created. Default to &#39;{@literal @}&#39; for root zone entry.
      * 
      */
     public Output<String> name() {
