@@ -120,14 +120,14 @@ public class CaaRecord extends com.pulumi.resources.CustomResource {
         return this.fqdn;
     }
     /**
-     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}"` as the name. Changing this forces a new resource to be created.
+     * The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}&#34;` as the name. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}"` as the name. Changing this forces a new resource to be created.
+     * @return The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `&#34;{@literal @}&#34;` as the name. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
