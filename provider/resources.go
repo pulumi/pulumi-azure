@@ -502,9 +502,9 @@ var metadata []byte
 //
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(shim.NewProvider(), shimv2.WithPlanResourceChange(func(tfResourceType string) bool {
-		return tfResourceType == "azurerm_storage_account"
-	}))
+	p := shimv2.NewProvider(shim.NewProvider(),
+		shimv2.WithPlanResourceChange(func(string) bool { return true }),
+	)
 
 	// Adjust the defaults if running in Azure Cloud Shell.
 	// Environment variables still take preference, e.g. USE_MSI=false disables the MSI endpoint.
@@ -1891,6 +1891,14 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					// if the defaultOutboundAccessEnabled property is not set, set it to the default value of true
+					// this prevents an unnecessary replacement when upgrading the provider
+					if _, ok := pm["defaultOutboundAccessEnabled"]; !ok {
+						pm["defaultOutboundAccessEnabled"] = resource.NewBoolProperty(true)
+					}
+					return pm, nil
+				},
 			},
 			"azurerm_subnet_network_security_group_association": {Tok: azureResource(azureNetwork, "SubnetNetworkSecurityGroupAssociation")},
 			"azurerm_subnet_route_table_association":            {Tok: azureResource(azureNetwork, "SubnetRouteTableAssociation")},
@@ -2052,6 +2060,14 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   8,
 						Transform: strings.ToLower,
 					}),
+				},
+				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					// This prevents unnecessary replacement when upgrading from a version of the Azure provider
+					// prior to this parameter being added.
+					if _, ok := pm["encryptionScopeOverrideEnabled"]; !ok {
+						pm["encryptionScopeOverrideEnabled"] = resource.NewBoolProperty(true)
+					}
+					return pm, nil
 				},
 			},
 			"azurerm_storage_share":           {Tok: azureResource(azureStorage, "Share")},
