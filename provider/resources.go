@@ -503,7 +503,7 @@ var metadata []byte
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(shim.NewProvider(),
-		shimv2.WithPlanResourceChange(func(_ string) bool { return true }),
+		shimv2.WithPlanResourceChange(func(string) bool { return true }),
 	)
 
 	// Adjust the defaults if running in Azure Cloud Shell.
