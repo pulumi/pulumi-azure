@@ -68,10 +68,18 @@ index 68b328649c..d39553248c 100644
  
  			"backup_blob_container_uri": {
 diff --git a/internal/services/automation/automation_runbook_resource.go b/internal/services/automation/automation_runbook_resource.go
-index d736332f2c..43f8066240 100644
+index 4ed2210440..c2ac042ad2 100644
 --- a/internal/services/automation/automation_runbook_resource.go
 +++ b/internal/services/automation/automation_runbook_resource.go
-@@ -134,7 +134,7 @@ func resourceAutomationRunbook() *pluginsdk.Resource {
+@@ -21,6 +21,7 @@ import (
+ 	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
+ 	"github.com/hashicorp/terraform-provider-azurerm/helpers/tf"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/clients"
++	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/automation/helper"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/automation/validate"
+ 	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/pluginsdk"
+@@ -133,7 +134,7 @@ func resourceAutomationRunbook() *pluginsdk.Resource {
  					string(runbook.RunbookTypeEnumPowerShellWorkflow),
  					string(runbook.RunbookTypeEnumPowerShellSevenTwo),
  					string(runbook.RunbookTypeEnumScript),
@@ -177,19 +185,10 @@ index 67956f15c9..0b70ccb184 100644
  
  			"tags": tags.Schema(),
 diff --git a/internal/services/compute/image_resource.go b/internal/services/compute/image_resource.go
-index d1de175cb8..e8fd90b9df 100644
+index 849e119542..790462f8e4 100644
 --- a/internal/services/compute/image_resource.go
 +++ b/internal/services/compute/image_resource.go
-@@ -7,6 +7,8 @@ import (
- 	"fmt"
- 	"time"
- 
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
-+
- 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
- 	"github.com/hashicorp/go-azure-helpers/lang/response"
- 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
-@@ -90,7 +92,7 @@ func resourceImage() *pluginsdk.Resource {
+@@ -91,7 +91,7 @@ func resourceImage() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(images.OperatingSystemTypesLinux),
  								string(images.OperatingSystemTypesWindows),
@@ -198,7 +197,7 @@ index d1de175cb8..e8fd90b9df 100644
  						},
  
  						"os_state": {
-@@ -99,7 +101,7 @@ func resourceImage() *pluginsdk.Resource {
+@@ -100,7 +100,7 @@ func resourceImage() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(images.OperatingSystemStateTypesGeneralized),
  								string(images.OperatingSystemStateTypesSpecialized),
@@ -207,7 +206,7 @@ index d1de175cb8..e8fd90b9df 100644
  						},
  
  						"managed_disk_id": {
-@@ -126,7 +128,7 @@ func resourceImage() *pluginsdk.Resource {
+@@ -127,7 +127,7 @@ func resourceImage() *pluginsdk.Resource {
  								string(images.CachingTypesNone),
  								string(images.CachingTypesReadOnly),
  								string(images.CachingTypesReadWrite),
@@ -216,7 +215,7 @@ index d1de175cb8..e8fd90b9df 100644
  						},
  
  						"size_gb": {
-@@ -179,7 +181,8 @@ func resourceImage() *pluginsdk.Resource {
+@@ -188,7 +188,8 @@ func resourceImage() *pluginsdk.Resource {
  								string(images.CachingTypesNone),
  								string(images.CachingTypesReadOnly),
  								string(images.CachingTypesReadWrite),
@@ -314,10 +313,10 @@ index da09e66dfa..7413a4326e 100644
  
  			"dns_name_label": {
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index b442e4562e..dc92683147 100644
+index ddbf84a8b6..4d52bb9960 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
-@@ -1085,7 +1085,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
+@@ -1064,7 +1064,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
  							ValidateFunc: validation.StringInSlice([]string{
  								string(managedclusters.LoadBalancerSkuBasic),
  								string(managedclusters.LoadBalancerSkuStandard),
@@ -339,7 +338,7 @@ index b141d14cfd..d15c245309 100644
  
  				"included_path": {
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index c2b02b3d19..69bc0b8687 100644
+index 61deee1531..bc0e066bf9 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
 @@ -13,6 +13,8 @@ import (
@@ -602,7 +601,7 @@ index 90e02d8080..a28b4f08e5 100644
  									"reuse_key": {
  										Type:     pluginsdk.TypeBool,
 diff --git a/internal/services/legacy/virtual_machine_resource.go b/internal/services/legacy/virtual_machine_resource.go
-index 4f9cf43a06..56d568cd64 100644
+index 14eff983ba..4cd96f99b2 100644
 --- a/internal/services/legacy/virtual_machine_resource.go
 +++ b/internal/services/legacy/virtual_machine_resource.go
 @@ -13,6 +13,8 @@ import (
@@ -910,7 +909,7 @@ index bdf780b66a..5a0bb36d62 100644
  													ConflictsWith: []string{"release_criteria.0.recurrence.0.schedule.0.month_days", "release_criteria.0.recurrence.0.schedule.0.monthly"},
  												},
 diff --git a/internal/services/logic/logic_app_standard_resource.go b/internal/services/logic/logic_app_standard_resource.go
-index 0c29d3383e..4faec6e9f7 100644
+index f217e09236..174e37316c 100644
 --- a/internal/services/logic/logic_app_standard_resource.go
 +++ b/internal/services/logic/logic_app_standard_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -932,10 +931,10 @@ index 0c29d3383e..4faec6e9f7 100644
  						},
  
  						"value": {
-@@ -871,7 +874,8 @@ func schemaLogicAppStandardSiteConfig() *pluginsdk.Schema {
- 						"v4.0",
+@@ -872,7 +875,8 @@ func schemaLogicAppStandardSiteConfig() *pluginsdk.Schema {
  						"v5.0",
  						"v6.0",
+ 						"v8.0",
 -					}, false),
 +					}, features.CaseInsensitive()),
 +					DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -1043,7 +1042,7 @@ index 2766565528..acaa0496c4 100644
  									},
  									"hours": {
 diff --git a/internal/services/mssql/mssql_database_resource.go b/internal/services/mssql/mssql_database_resource.go
-index f2531818d2..bc63a0394c 100644
+index 0e851a3faf..037ecf52ea 100644
 --- a/internal/services/mssql/mssql_database_resource.go
 +++ b/internal/services/mssql/mssql_database_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -1055,7 +1054,7 @@ index f2531818d2..bc63a0394c 100644
  	"github.com/Azure/azure-sdk-for-go/services/preview/sql/mgmt/v5.0/sql" // nolint: staticcheck
  	"github.com/hashicorp/go-azure-helpers/lang/pointer"
  	"github.com/hashicorp/go-azure-helpers/lang/response"
-@@ -1680,7 +1682,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1683,7 +1685,8 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  								"Sql_Injection",
  								"Sql_Injection_Vulnerability",
  								"Access_Anomaly",
@@ -1065,7 +1064,7 @@ index f2531818d2..bc63a0394c 100644
  						},
  					},
  
-@@ -1691,7 +1694,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1694,7 +1697,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  EmailAccountAdminsStatusDisabled,
  						ValidateFunc: validation.StringInSlice(PossibleValuesForEmailAccountAdminsStatus(),
@@ -1074,7 +1073,7 @@ index f2531818d2..bc63a0394c 100644
  					},
  
  					"email_addresses": {
-@@ -1719,7 +1722,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
+@@ -1722,7 +1725,7 @@ func resourceMsSqlDatabaseSchema() map[string]*pluginsdk.Schema {
  						Optional: true,
  						Default:  string(serversecurityalertpolicies.SecurityAlertsPolicyStateDisabled),
  						ValidateFunc: validation.StringInSlice(serversecurityalertpolicies.PossibleValuesForSecurityAlertsPolicyState(),
@@ -1503,7 +1502,7 @@ index 6e880d1d78..ffd5969fa3 100644
  
  						"next_hop_in_ip_address": {
 diff --git a/internal/services/network/virtual_network_gateway_connection_resource.go b/internal/services/network/virtual_network_gateway_connection_resource.go
-index 8638551554..2407f6a968 100644
+index 803d967899..3bbe66f793 100644
 --- a/internal/services/network/virtual_network_gateway_connection_resource.go
 +++ b/internal/services/network/virtual_network_gateway_connection_resource.go
 @@ -9,6 +9,8 @@ import (
@@ -1621,18 +1620,10 @@ index 6e6d6f40ee..4b63964fc1 100644
  					},
  				},
 diff --git a/internal/services/notificationhub/notification_hub_namespace_resource.go b/internal/services/notificationhub/notification_hub_namespace_resource.go
-index abd8c6b3f6..55bc1b0b1d 100644
+index 84673400f4..05d37cd939 100644
 --- a/internal/services/notificationhub/notification_hub_namespace_resource.go
 +++ b/internal/services/notificationhub/notification_hub_namespace_resource.go
-@@ -6,6 +6,7 @@ package notificationhub
- import (
- 	"context"
- 	"fmt"
-+	"github.com/hashicorp/terraform-provider-azurerm/internal/features"
- 	"log"
- 	"strconv"
- 	"time"
-@@ -83,7 +84,7 @@ func resourceNotificationHubNamespace() *pluginsdk.Resource {
+@@ -86,7 +86,7 @@ func resourceNotificationHubNamespace() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(namespaces.NamespaceTypeMessaging),
  					string(namespaces.NamespaceTypeNotificationHub),
@@ -1840,7 +1831,7 @@ index 80b56994a3..b8954de4ac 100644
  											},
  										},
 diff --git a/internal/services/servicebus/servicebus_namespace_resource.go b/internal/services/servicebus/servicebus_namespace_resource.go
-index 539e6da6ac..2e8fd98ba6 100644
+index 79d85622dd..eabd5fcd82 100644
 --- a/internal/services/servicebus/servicebus_namespace_resource.go
 +++ b/internal/services/servicebus/servicebus_namespace_resource.go
 @@ -87,7 +87,8 @@ func resourceServiceBusNamespace() *pluginsdk.Resource {
@@ -2040,7 +2031,7 @@ index 16797800a2..6d74e94b4f 100644
  
  						"storage_account_access_key": {
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index e50321030b..14cb96f39e 100644
+index 2343dc63c3..eadf3d2479 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -11,6 +11,8 @@ import (
