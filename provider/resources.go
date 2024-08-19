@@ -2062,6 +2062,8 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+					// This prevents unnecessary replacement when upgrading from a version of the Azure provider
+					// prior to this parameter being added.
 					if _, ok := pm["encryptionScopeOverrideEnabled"]; !ok {
 						pm["encryptionScopeOverrideEnabled"] = resource.NewBoolProperty(true)
 					}
